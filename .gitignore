@@ -1,0 +1,7 @@
+/.build-deps/
+/build/
+/dist/
+/.sconsign.dblite
+/__pycache__/
+/**/__pycache__/
+/**/*.py[cod]

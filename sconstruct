@@ -1,0 +1,58 @@
+"""SCons build entry point for the Awqati NVDA add-on package."""
+
+from __future__ import annotations
+
+from pathlib import Path
+import shutil
+import zipfile
+
+from SCons.Script import Action, AlwaysBuild, Clean, Command, Default
+
+import buildVars
+
+
+ROOT = Path.cwd().resolve()
+ADDON_SOURCE = ROOT / "addon"
+BUILD_ROOT = ROOT / "build"
+DIST_ROOT = ROOT / "dist"
+
+
+def _manifest_value(value: object) -> str:
+	return "" if value is None else str(value)
+
+
+def _build_package(target, source, env) -> int:
+	info = buildVars.addon_info
+	staging = BUILD_ROOT / info["addon_name"]
+	if staging.exists():
+		shutil.rmtree(staging)
+	shutil.copytree(ADDON_SOURCE, staging)
+
+	manifest_template = (ROOT / "manifest.ini.tpl").read_text(encoding="utf-8")
+	manifest = manifest_template.format_map({key: _manifest_value(value) for key, value in info.items()})
+	(staging / "manifest.ini").write_text(manifest, encoding="utf-8", newline="\n")
+
+	for cache_dir in staging.rglob("__pycache__"):
+		shutil.rmtree(cache_dir)
+	for pattern in ("*.pyc", "*.pyo"):
+		for compiled_file in staging.rglob(pattern):
+			compiled_file.unlink()
+
+	package_path = Path(str(target[0]))
+	package_path.parent.mkdir(parents=True, exist_ok=True)
+	with zipfile.ZipFile(package_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+		for path in sorted(staging.rglob("*")):
+			if path.is_file():
+				archive.write(path, path.relative_to(staging).as_posix())
+	return 0
+
+
+info = buildVars.addon_info
+package = Command(
+	DIST_ROOT / f"{info['addon_name']}-{info['addon_version']}.nvda-addon",
+	["manifest.ini.tpl", "buildVars.py", *ADDON_SOURCE.rglob("*")],
+	Action(_build_package, "Building $TARGET"),
+)
+AlwaysBuild(package)
+Clean(package, [BUILD_ROOT, DIST_ROOT])
+Default(package)
