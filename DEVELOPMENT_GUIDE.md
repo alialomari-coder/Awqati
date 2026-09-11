@@ -80,7 +80,21 @@ Awqati هو مشروع جديد لإضافة NVDA باسم ظاهر للمستخ
 python -m pip install --requirement requirements-build.txt --target .build-deps
 ```
 
-البناء النظيف القابل للتكرار:
+## الفحوص الأساسية المعتمدة
+
+بعد إعداد تبعيات البناء، الأمر المعتاد والموحد لتشغيل جميع فحوص المشروع هو:
+
+```powershell
+python tools/run_checks.py
+```
+
+تستخدم الأداة مفسر Python الذي بدأها لتشغيل جميع عمليات Python الفرعية. وهي تفحص قابلية ترجمة الشفرة، وتنظف مخرجات SCons السابقة وتتحقق من زوالها، وتبني حزمة جديدة، وتشغل مجموعة `unittest` كاملة بما فيها اختبارات الاستيراد والمعمارية والحزمة، ثم تشغل `git diff --check`. تتوقف فورًا وتعيد exit code غير صفري إذا فشلت أي مرحلة، ولا تثبت تبعيات من الشبكة.
+
+إذا كانت `.build-deps` غير موجودة، يعرض الأمر تعليمات إعدادها بوضوح. وقد لا يعمل alias باسم `python` على بعض الأجهزة؛ عندئذ يشغّل المطور الأمر نفسه بمسار مفسر Python 3.10 أو أحدث الصالح على جهازه، دون تغيير ملفات المشروع.
+
+## أوامر التشخيص الفردية
+
+يمكن تشغيل الخطوات منفردة عند تشخيص عطل. البناء النظيف اليدوي:
 
 ```powershell
 $env:PYTHONPATH = (Resolve-Path .build-deps).Path
@@ -90,13 +104,13 @@ python -m SCons
 
 تُكتب حزم التثبيت في `dist/`، مثل `dist/awqati-0.0.0.nvda-addon`. هذا المجلد مخرج بناء مستبعد من Git، ولا تُترك حزم `.nvda-addon` في جذر المشروع.
 
-الفحوص التأسيسية الخاصة بالمهمة 0.1:
+الفحوص الفردية:
 
 ```powershell
-python -m compileall -q addon tests buildVars.py tools/run_scons.py
+python -m compileall -q addon tests buildVars.py tools/run_scons.py tools/run_checks.py
 python -m unittest discover -s tests -v
 git diff --check
 git status --short --branch
 ```
 
-هذه ليست منظومة الفحوص الموحدة النهائية؛ إنشاؤها من نطاق المهمة 0.3.
+لا تحل هذه الأوامر المنفردة محل `python tools/run_checks.py` عند التحقق من قبول مهمة أو إغلاق مرحلة.

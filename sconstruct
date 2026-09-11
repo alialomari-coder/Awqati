@@ -6,7 +6,7 @@ from pathlib import Path
 import shutil
 import zipfile
 
-from SCons.Script import Action, AlwaysBuild, Clean, Command, Default
+from SCons.Script import Action, AlwaysBuild, Clean, Command, Default, Dir
 
 import buildVars
 
@@ -54,5 +54,5 @@ package = Command(
 	Action(_build_package, "Building $TARGET"),
 )
 AlwaysBuild(package)
-Clean(package, [BUILD_ROOT, DIST_ROOT])
+Clean(package, [Dir("build"), Dir("dist")])
 Default(package)
