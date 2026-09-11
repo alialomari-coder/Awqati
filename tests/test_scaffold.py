@@ -46,6 +46,14 @@ class ScaffoldTests(unittest.TestCase):
 			self.assertIsNone(archive.testzip())
 			self.assertIn("manifest.ini", names)
 			self.assertIn("globalPlugins/awqati/__init__.py", names)
+			for relative_path in (
+				"globalPlugins/awqati/domain/models.py",
+				"globalPlugins/awqati/application/ports.py",
+				"globalPlugins/awqati/infrastructure/system_time.py",
+				"globalPlugins/awqati/nvda_adapter/plugin.py",
+			):
+				with self.subTest(path=relative_path):
+					self.assertIn(relative_path, names)
 			self.assertFalse(any("__pycache__" in name or name.endswith((".pyc", ".pyo")) for name in names))
 
 	def test_built_manifest_matches_scaffold_metadata(self) -> None:
