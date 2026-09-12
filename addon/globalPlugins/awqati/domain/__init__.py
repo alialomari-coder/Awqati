@@ -1,5 +1,21 @@
 """Core Awqati concepts with no platform dependencies."""
 
+from .calendar import (
+	AfghanSolarHijriProvider,
+	CalendarDate,
+	CalendarError,
+	CalendarId,
+	CalendarOutOfRangeError,
+	CalendarReading,
+	DateFormat,
+	GregorianProvider,
+	InvalidHijriAdjustmentError,
+	PersianSolarHijriProvider,
+	PrimaryCalendar,
+	SaudiSolarHijriProvider,
+	UnsupportedCalendarError,
+)
+
 from .clock import (
 	AnnouncementStyle,
 	ClockFormatOptions,
@@ -50,8 +66,14 @@ from .prayer_timeline import (
 )
 
 __all__ = [
+	"AfghanSolarHijriProvider",
 	"AnnouncementStyle",
 	"AsrMethod",
+	"CalendarDate",
+	"CalendarError",
+	"CalendarId",
+	"CalendarOutOfRangeError",
+	"CalendarReading",
 	"CalculationMethod",
 	"CalculationMethodDefinition",
 	"ClockFormatOptions",
@@ -61,9 +83,12 @@ __all__ = [
 	"CountryMethodResolver",
 	"DailyPrayerTimes",
 	"DomainEvent",
+	"DateFormat",
+	"GregorianProvider",
 	"HighLatitudeRule",
 	"HourSystem",
 	"Instant",
+	"InvalidHijriAdjustmentError",
 	"Location",
 	"LocationChanged",
 	"LocationDetectionFailure",
@@ -85,9 +110,13 @@ __all__ = [
 	"PrayerEventName",
 	"PrayerName",
 	"PrayerTimes",
+	"PersianSolarHijriProvider",
+	"PrimaryCalendar",
 	"RamadanContextRequired",
+	"SaudiSolarHijriProvider",
 	"SUNRISE_SUNSET_ANGLE",
 	"TimeRepresentation",
+	"UnsupportedCalendarError",
 	"calculate_night_times",
 	"complete_prayer_times",
 ]

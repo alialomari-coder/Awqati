@@ -18,6 +18,8 @@ __all__ = [
 	"LocationDataError",
 	"SystemNowProvider",
 	"TimezoneDataError",
+	"UmmAlQuraDataError",
+	"UmmAlQuraProvider",
 	"UnknownTimezoneError",
 	"WindowsLocationAdapter",
 	"normalize_location_text",
@@ -34,6 +36,8 @@ _EXPORT_MODULES = {
 	"SystemNowProvider": ".system_time",
 	"BundledTimezoneProvider": ".timezone_provider",
 	"TimezoneDataError": ".timezone_provider",
+	"UmmAlQuraDataError": ".ummalqura_provider",
+	"UmmAlQuraProvider": ".ummalqura_provider",
 	"UnknownTimezoneError": ".timezone_provider",
 	"WindowsLocationAdapter": ".windows_location",
 }

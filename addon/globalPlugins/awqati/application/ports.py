@@ -3,10 +3,12 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import tzinfo
+from datetime import date, tzinfo
 from typing import Protocol, runtime_checkable
 
 from ..domain import (
+	CalendarDate,
+	CalendarId,
 	CalculationMethod,
 	CalculationMethodDefinition,
 	Coordinates,
@@ -15,6 +17,21 @@ from ..domain import (
 	Location,
 	LocationDetectionFailure,
 )
+
+
+@runtime_checkable
+class CalendarProvider(Protocol):
+	"""Convert one explicit calendar identity without locale-based dispatch."""
+
+	@property
+	def calendar_id(self) -> CalendarId:
+		...
+
+	def from_gregorian(self, value: date) -> CalendarDate:
+		...
+
+	def to_gregorian(self, value: CalendarDate) -> date:
+		...
 
 
 class LocationDetectionError(RuntimeError):

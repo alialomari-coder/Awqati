@@ -1,0 +1,20 @@
+Awqati calendar data and algorithms
+
+The Umm al-Qura month-length masks in month_lengths.json are extracted
+unchanged from Unicode ICU 78.3, file icu4c/source/i18n/islamcal.cpp,
+tag release-78.3. The source file SHA-256 and exact URL are recorded in
+metadata.json. Awqati rejects dates outside the table's 1300-1600 AH range
+instead of using ICU's civil-calendar fallback.
+
+The Persian Solar Hijri implementation is derived from the documented ICU
+78.3 PersianCalendar arithmetic (icu4c/source/i18n/persncal.cpp) and is
+deliberately restricted by Awqati to 1304-1468 Solar AH. ICU's correction
+list begins after this project range, so no correction entry applies within
+the supported interval.
+
+ICU and its data are © Unicode, Inc. and other contributors and are used
+under the Unicode License v3 included beside this notice.
+
+Persian and Afghan localized month spellings were checked against CLDR 48.2;
+the product's Arabic spellings remain those fixed by the Awqati specification.
+CLDR is also published by Unicode under the included Unicode License v3.

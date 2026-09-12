@@ -1,0 +1,21 @@
+{
+  "calendarId": "HIJRI_UMM_AL_QURA",
+  "derivation": "The 301 hexadecimal UMALQURA_MONTHLENGTH masks are extracted unchanged; bit 11 is Muharram and a set bit means 30 days.",
+  "firstGregorianDate": "1882-11-12",
+  "firstHijriYear": 1300,
+  "generatedAt": "2026-09-12",
+  "hijriDataVersion": "icu-78.3-islamic-umalqura-1300-1600",
+  "lastHijriYear": 1600,
+  "license": "Unicode-3.0",
+  "schemaVersion": 1,
+  "source": {
+    "file": "icu4c/source/i18n/islamcal.cpp",
+    "project": "Unicode ICU",
+    "release": "78.3",
+    "sha256": "a665b4eed397fc890786a27d27e80c754f71620101d79bc6a2b1bfa7d00bb6cb",
+    "tag": "release-78.3",
+    "url": "https://raw.githubusercontent.com/unicode-org/icu/release-78.3/icu4c/source/i18n/islamcal.cpp"
+  },
+  "tableFile": "month_lengths.json",
+  "tableFileSha256": "945c917667ce7f610ff12fa406ddff8969f1ecff13168dfcf550a58de2884adc"
+}

@@ -102,25 +102,61 @@ method at calculation time, and metadata records both values.
 
 ## Calendar sources for task 2.2
 
-This section records the sources and version boundaries approved before implementation. It does not start task 2.2 and introduces no runtime data or code.
+Task 2.2 implements the five calendars entirely offline. Calendar identity is
+explicit and no language or locale selects an algorithm.
 
 ### Calendar identities and version fields
 
-The planned identifiers are `GREGORIAN`, `HIJRI_UMM_AL_QURA`, `SAUDI_SOLAR_HIJRI`, `PERSIAN_SOLAR_HIJRI`, and `AFGHAN_SOLAR_HIJRI`. Each has a separate provider contract. Providers may share low-level date utilities, but language, locale, or a generic solar-Hijri switch must never choose the calendar algorithm.
+The identifiers are `GREGORIAN`, `HIJRI_UMM_AL_QURA`,
+`SAUDI_SOLAR_HIJRI`, `PERSIAN_SOLAR_HIJRI`, and
+`AFGHAN_SOLAR_HIJRI`. Each has a separate provider contract. Providers share
+only neutral offset/month validation helpers.
 
 `hijriDataVersion` belongs only to the lunar Umm al-Qura lookup table. The Saudi, Persian, and Afghan solar calendars expose an independent `algorithmVersion`. They do not expose a `dataVersion` unless a real versioned table is introduced later. The lunar Umm al-Qura provider and Saudi solar-Hijri provider remain independent even when Saudi reference material informs both.
 
 ### Umm al-Qura lunar and Saudi Solar Hijri
 
-The lunar `HIJRI_UMM_AL_QURA` provider will use a separately documented and versioned table of Umm al-Qura month starts. Its table version is `hijriDataVersion`. The exact table artifact, coverage, digest, and redistribution terms must be pinned during task 2.2 before code is accepted.
+The lunar provider uses the `UMALQURA_MONTHLENGTH` table in Unicode ICU 78.3,
+tag `release-78.3`, file `icu4c/source/i18n/islamcal.cpp`. The pinned raw URL is
+`https://raw.githubusercontent.com/unicode-org/icu/release-78.3/icu4c/source/i18n/islamcal.cpp`
+and its SHA-256 is
+`a665b4eed397fc890786a27d27e80c754f71620101d79bc6a2b1bfa7d00bb6cb`.
+The source snapshot is the ICU 78.3 release published in March 2026.
 
-The `SAUDI_SOLAR_HIJRI` provider is a different algorithm and identity. Its project reference remains Saudi Umm al-Qura calendar material about the solar-Hijri dates and zodiac-day system; it never reads the lunar table or calls the lunar provider. The documented rule starts 1 al-Mizan on 23 September, uses the twelve zodiac months and their specified lengths, and derives the year boundary independently. Its metadata field is `saudiSolarHijriAlgorithmVersion`.
+`tools/build_ummalqura.py` verifies that source digest, extracts the 301
+12-bit masks unchanged, and writes the runtime table and metadata. Bit 11 is
+Muharram and a set bit means a 30-day month; an unset bit means 29 days. The
+runtime range is 1300 through 1600 AH, corresponding to 1882-11-12 through
+2174-11-25 Gregorian. Its `hijriDataVersion` is
+`icu-78.3-islamic-umalqura-1300-1600`; the generated
+`month_lengths.json` SHA-256 is
+`945c917667ce7f610ff12fa406ddff8969f1ecff13168dfcf550a58de2884adc`.
+Runtime verifies this digest and never reads the network or falls back to a
+civil/tabular Hijri calendar outside the table.
+
+ICU 78.3 is redistributed under the Unicode License v3. The license and a
+specific derivation notice are bundled beside the table. The raw C++ input is
+not included in the add-on.
+
+The `SAUDI_SOLAR_HIJRI` provider is a different algorithm and identity. It
+never reads the lunar table or calls the lunar provider. Its version is
+`awqati-saudi-solar-1-mizan-23-september-v1`. It starts 1 al-Mizan on
+23 September; the first five months have 30 days, al-Hut has 29 days or 30
+when the corresponding February in Gregorian year `solarYear + 622` is leap,
+and the final six months have 31 days.
 
 Saudi references retained by the specification: https://www.mof.gov.sa/en/help/faq/Pages/FAQ_008.aspx, https://www.uqn.gov.sa/details?p=19215, https://www.uqn.gov.sa/decisions-and-regulations/royal-decrees/4000899, and https://astronomycenter.net/article/gadi_error.html.
 
 ### Persian Solar Hijri
 
-The implementation target is the arithmetic Persian calendar in ICU 78.3, restricted by Awqati to Solar Hijri years 1304 through 1468 (approximately 1925 through 2090 CE). ICU documents that its 33-year arithmetic behavior matches the official calendar over approximately this interval and warns that the commonly cited 2820-year cycle is incorrect. Awqati must reject out-of-range input explicitly; it must not silently switch algorithm, clamp, or claim perpetual official accuracy. The Iranian 1304 law defines the year as a true solar year beginning on the first day of spring; months 1-6 have 31 days, months 7-11 have 30, and Esfand has 29 or 30. ICU supplies the pinned arithmetic leap and Gregorian-conversion behavior for this bounded implementation; it is an algorithm, not versioned calendar data.
+The implementation is derived from ICU 78.3
+`icu4c/source/i18n/persncal.cpp`, SHA-256
+`31e7e93bb7dc1e4436c58ffd44fd1ed2686ceb79228b8d989f6573ec15ed5f45`.
+Its version is `icu-78.3-persian-33-year-1304-1468`. Awqati applies ICU's
+`(25 * year + 11) mod 33 < 8` leap rule and Julian-day epoch only in the
+documented 1304..1468 range. ICU's published correction list begins at 1502,
+so no correction entry falls inside Awqati's range. The provider rejects both
+sides of the range and does not use a 2820-year cycle or an Afghan fallback.
 
 Primary references:
 
@@ -129,16 +165,28 @@ Primary references:
 
 ### Afghan Solar Hijri
 
-The Afghan provider follows the normative locale requirement published through UNDP/Unicode: Solar Hijri year `x` is leap when Gregorian year `x+621` is leap, anchored by 1 Hamal 1382 = 21 March 2003. The document states that Afghan and Iranian leap handling can differ, so results must not be normalized to the Persian provider. Unsupported dates are rejected explicitly. Hamal through Sonbola have 31 days, Mizan through Dalw have 30, and Hoot has 29 or 30. The anchor plus the published leap rule defines local Gregorian conversion; this is a fixed algorithm rather than a runtime data table.
+The Afghan provider follows the normative locale requirement published through
+UNDP/Unicode: Solar Hijri year `x` is leap exactly when Gregorian year `x+621`
+is leap, anchored by 1 Hamal 1382 = 21 March 2003. Its version is
+`undp-unicode-2003-afghanistan-x-plus-621-anchor-1382-v1`. Unsupported Python
+`datetime` dates are rejected explicitly. It does not call or fall back to the
+Persian provider. A pinned cross-provider test uses 20 March 2029: ICU Persian
+is 1 Farvardin 1408 while the Afghan rule is 30 Hoot 1407.
 
 Primary reference: https://www.unicode.org/L2/L2003/03148-af-locales.pdf
 
 ### Localized month names
 
-CLDR 48.2 is the localization reference for Persian and Afghan month names. The Arabic product resources deliberately use the approved display spellings recorded in the Awqati specification, including `سنبلة` and `ميزان`; the native `fa_AF` forms and English transliterations remain separate resources. Resource selection never changes the provider.
+CLDR 48.2 is the localization cross-reference for Persian and Afghan month
+names. The Arabic product resources use the spellings fixed by the Awqati
+specification, including `سنبلة` and `ميزان`; English transliterations remain
+separate resources. Resource selection never changes the provider. The bundled
+Unicode License v3 also covers any CLDR-derived spelling data used here.
 
 Reference: https://cldr.unicode.org/index/downloads/cldr-48 and the release-48-2 locale data at https://github.com/unicode-org/cldr/tree/release-48-2/common/main
 
 ### Reproducibility and licensing
 
-Implementation must pin source/algorithm identifiers in metadata and tests. No network access is allowed at runtime. Unicode/ICU and CLDR notices and licenses must be bundled when their code or data is incorporated; documentation links alone do not convert an algorithm into a runtime table.
+Source and algorithm identifiers are pinned in runtime metadata or provider
+properties and asserted by tests. No calendar runtime path or normal test
+requires network access.
