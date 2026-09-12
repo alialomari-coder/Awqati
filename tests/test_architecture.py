@@ -124,8 +124,11 @@ class ArchitectureTests(unittest.TestCase):
 		script = """
 from datetime import datetime, timezone
 import sys
-from awqati.application import NowProvider
-from awqati.domain import DomainEvent, Instant, Location
+from awqati.application import ClockService, NowProvider
+from awqati.domain import (
+    ArabicWordClockFormatter, ClockFormatter, ClockLanguage, DomainEvent,
+    EnglishWordClockFormatter, Instant, Location, NumericClockFormatter,
+)
 from support.event_clock import EventClock
 
 first = Instant(datetime(2026, 1, 2, tzinfo=timezone.utc))
@@ -138,6 +141,11 @@ assert clock.now() == event.occurred_at
 clock.set(second)
 assert clock.now() == second
 assert location.timezone_id == 'Asia/Riyadh'
+assert ClockService is not None
+assert isinstance(ArabicWordClockFormatter(), ClockFormatter)
+assert isinstance(EnglishWordClockFormatter(), ClockFormatter)
+assert isinstance(NumericClockFormatter(ClockLanguage.ARABIC), ClockFormatter)
+assert isinstance(NumericClockFormatter(ClockLanguage.ENGLISH), ClockFormatter)
 assert 'globalPluginHandler' not in sys.modules
 assert 'wx' not in sys.modules
 """

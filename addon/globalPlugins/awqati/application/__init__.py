@@ -1,5 +1,6 @@
 """Application-layer contracts and orchestration boundaries."""
 
+from .clock_service import ClockService, PrayerRequestFactory
 from .events import EventDispatcher
 from .location_service import LocationNotFoundError, LocationService
 from .prayer_service import PrayerService
@@ -31,6 +32,7 @@ from .ports import (
 
 __all__ = [
 	"CalculationMethodProvider",
+	"ClockService",
 	"CountryInfo",
 	"CoordinateProvider",
 	"CurrentPrayer",
@@ -49,6 +51,7 @@ __all__ = [
 	"LocationService",
 	"MAX_CURRENT_PRAYER_DURATION_MINUTES",
 	"NowProvider",
+	"PrayerRequestFactory",
 	"PrayerStatePriority",
 	"PrayerStateService",
 	"PrayerService",
