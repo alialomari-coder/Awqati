@@ -1,0 +1,1085 @@
+{
+  "schemaVersion": 1,
+  "countryCode": "SA",
+  "version": "sa-official-review-2026-09-12.1",
+  "reviewedAt": "2026-09-12",
+  "sources": [
+    {
+      "id": "ncar-regions-coding",
+      "authority": "المركز الوطني للوثائق والمحفوظات",
+      "title": "الدليل الموحد لترميز المناطق والمحافظات والمراكز الإدارية",
+      "url": "https://ncar.gov.sa/regions-coding",
+      "accessed": "2026-09-12",
+      "fieldsUsed": [
+        "Arabic administrative name",
+        "region",
+        "governorate/center code",
+        "category"
+      ]
+    },
+    {
+      "id": "gastat-services-guide-2017",
+      "authority": "الهيئة العامة للإحصاء",
+      "title": "دليل الخدمات السادس عشر لمدن وقرى المملكة 2017",
+      "url": "https://stats.gov.sa/ar/w/%D8%A7%D9%84%D9%87%D9%8A%D8%A6%D8%A9-%D8%A7%D9%84%D8%B9%D8%A7%D9%85%D8%A9-%D9%84%D9%84%D8%A5%D8%AD%D8%B5%D8%A7%D8%A1-%D8%AA%D8%B5%D8%AF%D8%B1-%D8%AF%D9%84%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%AF%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D8%B3%D8%A7%D8%AF%D8%B3-%D8%B9",
+      "issued": "2018-02-26",
+      "accessed": "2026-09-12",
+      "fieldsUsed": [
+        "national coverage baseline",
+        "populated-place scope"
+      ]
+    },
+    {
+      "id": "geonames-sa-full-2026-09-12",
+      "authority": "GeoNames",
+      "title": "Saudi Arabia full country dump",
+      "url": "https://download.geonames.org/export/dump/SA.zip",
+      "accessed": "2026-09-12",
+      "sha256": "9da4b3533eab414beea0943d08a5819489dcd3aaf9367577c7d22d6c63bf209d",
+      "fieldsUsed": [
+        "geonameId",
+        "name",
+        "ASCII name",
+        "coordinates",
+        "feature code",
+        "admin codes",
+        "timezone"
+      ]
+    },
+    {
+      "id": "sa-government-place-evidence",
+      "authority": "جهات حكومية سعودية متعددة",
+      "title": "صفحات رسمية مؤيدة لأسماء المواقع العربية",
+      "url": "https://momah.gov.sa/ar",
+      "accessed": "2026-09-12",
+      "fieldsUsed": [
+        "Arabic place name",
+        "region or locality context"
+      ],
+      "references": [
+        {
+          "authority": "وزارة التجارة",
+          "title": "جولات القطيف والقرى التابعة",
+          "url": "https://mc.gov.sa/ar/mediacenter/news/pages/18-03-20-01.aspx"
+        },
+        {
+          "authority": "وزارة البلديات والإسكان",
+          "title": "بلدية مليجة",
+          "url": "https://momah.gov.sa/ar/node/3132"
+        },
+        {
+          "authority": "وزارة الصحة",
+          "title": "المراكز الصحية المناوبة في المنطقة الشرقية",
+          "url": "https://www.moh.gov.sa/healthawareness/on-duty-healthcare-centers/pages/eastern-region.aspx"
+        },
+        {
+          "authority": "الهيئة العامة للعقار",
+          "title": "بدء السجل العقاري في أحياء وبلدات المنطقة الشرقية",
+          "url": "https://rega.gov.sa/media-center/"
+        },
+        {
+          "authority": "وكالة الأنباء السعودية",
+          "title": "قائمة رسمية لأسماء مدن ومحافظات ومراكز سعودية",
+          "url": "https://www.spa.gov.sa/2102592"
+        },
+        {
+          "authority": "وزارة البيئة والمياه والزراعة",
+          "title": "مدينة الملك فيصل العسكرية في المنطقة الجنوبية",
+          "url": "https://www.mewa.gov.sa/ar/MediaCenter/PressReleases/PressFiles/2025-03-28.pdf"
+        }
+      ]
+    },
+    {
+      "id": "aramco-place-evidence",
+      "authority": "أرامكو السعودية",
+      "title": "مواد رسمية تذكر شيبة والجعيمة",
+      "url": "https://www.aramco.com/ar",
+      "accessed": "2026-09-12",
+      "fieldsUsed": [
+        "Arabic place name"
+      ],
+      "references": [
+        {
+          "authority": "أرامكو السعودية",
+          "title": "نشرة الإصدار العربية التي تذكر حقل شيبة",
+          "url": "https://www.aramco.com/-/media/images/investors/saudi-aramco-prospectus-cma-ar.pdf"
+        },
+        {
+          "authority": "أرامكو السعودية",
+          "title": "التقرير السنوي العربي الذي يذكر الجعيمة",
+          "url": "https://www.aramco.com/-/media/images/investors/annual-report/ara-2022-overview-arabic.pdf"
+        },
+        {
+          "authority": "المؤسسة العامة للتدريب التقني والمهني",
+          "title": "المعهد السعودي التقني لخدمات الكهرباء في الجعيمة",
+          "url": "https://tvtc.gov.sa/ar/Training-Facilities/Pages/StrategicPartnershipInst.aspx"
+        }
+      ]
+    },
+    {
+      "id": "ecza-kaec",
+      "authority": "هيئة المدن والمناطق الاقتصادية الخاصة",
+      "title": "مدينة الملك عبدالله الاقتصادية",
+      "url": "https://ecza.gov.sa/ar/king-abdullah-economic-city",
+      "accessed": "2026-09-12",
+      "fieldsUsed": [
+        "official Arabic city name"
+      ]
+    }
+  ],
+  "merges": [
+    {
+      "sourceGeonameId": "101732",
+      "targetGeonameId": "100768",
+      "reason": "Confirmed Unaizah/Unayzah duplicate: same populated place and administrative identity; retain the existing PPLA2 identifier and transfer population and names.",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ]
+    },
+    {
+      "sourceGeonameId": "101312",
+      "targetGeonameId": "101313",
+      "reason": "Confirmed Turaif/Turayf duplicate: identical place name, same administrative area, same feature code, and coordinates 0.091 km apart; retain the higher-population record.",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ]
+    },
+    {
+      "sourceGeonameId": "102985",
+      "targetGeonameId": "102891",
+      "reason": "Confirmed Rahimah/Ras Tanura duplicate: coordinates 0.540 km apart and Rahimah is already an alternate Arabic name of the Ras Tanura record; retain the higher-population record.",
+      "sourceRefs": [
+        "sa-government-place-evidence",
+        "geonames-sa-full-2026-09-12"
+      ]
+    }
+  ],
+  "aliases": [
+    {
+      "geonameId": "101035",
+      "arabicNames": [
+        "أم الساهك"
+      ],
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ]
+    },
+    {
+      "geonameId": "101313",
+      "arabicNames": [
+        "طريف"
+      ],
+      "englishNames": [
+        "Turayf"
+      ],
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ]
+    },
+    {
+      "geonameId": "101322",
+      "arabicNames": [
+        "تربة"
+      ],
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ]
+    },
+    {
+      "geonameId": "101344",
+      "arabicNames": [
+        "التوبي"
+      ],
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ]
+    },
+    {
+      "geonameId": "101516",
+      "arabicNames": [
+        "تيماء"
+      ],
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ]
+    },
+    {
+      "geonameId": "101581",
+      "arabicNames": [
+        "التنومة"
+      ],
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ]
+    },
+    {
+      "geonameId": "101633",
+      "arabicNames": [
+        "تبالة"
+      ],
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ]
+    },
+    {
+      "geonameId": "101760",
+      "arabicNames": [
+        "سلطانة"
+      ],
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ]
+    },
+    {
+      "geonameId": "102451",
+      "arabicNames": [
+        "صامطة"
+      ],
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ]
+    },
+    {
+      "geonameId": "103035",
+      "arabicNames": [
+        "رابغ"
+      ],
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ]
+    },
+    {
+      "geonameId": "103922",
+      "arabicNames": [
+        "مليجة"
+      ],
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ]
+    },
+    {
+      "geonameId": "104578",
+      "arabicNames": [
+        "مهد الذهب"
+      ],
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ]
+    },
+    {
+      "geonameId": "104716",
+      "arabicNames": [
+        "ليلى"
+      ],
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ]
+    },
+    {
+      "geonameId": "104828",
+      "arabicNames": [
+        "مدينة الملك فيصل العسكرية"
+      ],
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ]
+    },
+    {
+      "geonameId": "104923",
+      "arabicNames": [
+        "خليص"
+      ],
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ]
+    },
+    {
+      "geonameId": "105252",
+      "arabicNames": [
+        "جليجلة"
+      ],
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ]
+    },
+    {
+      "geonameId": "106102",
+      "arabicNames": [
+        "حقل"
+      ],
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ]
+    },
+    {
+      "geonameId": "106744",
+      "arabicNames": [
+        "فرسان"
+      ],
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ]
+    },
+    {
+      "geonameId": "107744",
+      "arabicNames": [
+        "بدر"
+      ],
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ]
+    },
+    {
+      "geonameId": "108048",
+      "arabicNames": [
+        "السليل"
+      ],
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ]
+    },
+    {
+      "geonameId": "108142",
+      "arabicNames": [
+        "السفانية"
+      ],
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ]
+    },
+    {
+      "geonameId": "108419",
+      "arabicNames": [
+        "الرين"
+      ],
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ]
+    },
+    {
+      "geonameId": "108890",
+      "arabicNames": [
+        "القرين"
+      ],
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ]
+    },
+    {
+      "geonameId": "108957",
+      "arabicNames": [
+        "القارة"
+      ],
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ]
+    },
+    {
+      "geonameId": "109059",
+      "arabicNames": [
+        "المنيزلة"
+      ],
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ]
+    },
+    {
+      "geonameId": "109118",
+      "arabicNames": [
+        "المندق"
+      ],
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ]
+    },
+    {
+      "geonameId": "109165",
+      "arabicNames": [
+        "المركز"
+      ],
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ]
+    },
+    {
+      "geonameId": "109253",
+      "arabicNames": [
+        "الليث"
+      ],
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ]
+    },
+    {
+      "geonameId": "109306",
+      "arabicNames": [
+        "الخرمة"
+      ],
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ]
+    },
+    {
+      "geonameId": "109380",
+      "arabicNames": [
+        "الخفجي"
+      ],
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ]
+    },
+    {
+      "geonameId": "109436",
+      "arabicNames": [
+        "الجبيل"
+      ],
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ]
+    },
+    {
+      "geonameId": "109481",
+      "arabicNames": [
+        "الجرادية"
+      ],
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ]
+    },
+    {
+      "geonameId": "109563",
+      "arabicNames": [
+        "الحلوة"
+      ],
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ]
+    },
+    {
+      "geonameId": "109915",
+      "arabicNames": [
+        "البطالية"
+      ],
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ]
+    },
+    {
+      "geonameId": "110059",
+      "arabicNames": [
+        "العقيق"
+      ],
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ]
+    },
+    {
+      "geonameId": "110325",
+      "arabicNames": [
+        "الدوادمي"
+      ],
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ]
+    },
+    {
+      "geonameId": "392753",
+      "arabicNames": [
+        "صوير"
+      ],
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ]
+    },
+    {
+      "geonameId": "399518",
+      "arabicNames": [
+        "المجاردة"
+      ],
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ]
+    },
+    {
+      "geonameId": "409682",
+      "arabicNames": [
+        "ثول"
+      ],
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ]
+    },
+    {
+      "geonameId": "409993",
+      "arabicNames": [
+        "المويه"
+      ],
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ]
+    },
+    {
+      "geonameId": "7288343",
+      "arabicNames": [
+        "شيبة"
+      ],
+      "sourceRefs": [
+        "aramco-place-evidence"
+      ]
+    },
+    {
+      "geonameId": "11524299",
+      "arabicNames": [
+        "مدينة الملك عبدالله الاقتصادية"
+      ],
+      "sourceRefs": [
+        "ecza-kaec"
+      ]
+    },
+    {
+      "geonameId": "12495725",
+      "arabicNames": [
+        "بارق"
+      ],
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ]
+    },
+    {
+      "geonameId": "12495738",
+      "arabicNames": [
+        "الجعيمة"
+      ],
+      "sourceRefs": [
+        "aramco-place-evidence"
+      ]
+    },
+    {
+      "geonameId": "13631408",
+      "arabicNames": [
+        "حوطة بني تميم"
+      ],
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ]
+    }
+  ],
+  "additions": [
+    {
+      "geonameId": "100596",
+      "name": "Wadi ad-Dawasir",
+      "asciiName": "Wadi ad-Dawasir",
+      "latitude": 20.49173,
+      "longitude": 45.15665,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "10",
+      "admin2Code": "10972329",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "وادي الدواسر"
+      ],
+      "officialCode": "0106",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ]
+    },
+    {
+      "geonameId": "101484",
+      "name": "Thādiq",
+      "asciiName": "Thadiq",
+      "latitude": 25.29678,
+      "longitude": 45.86979,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "10",
+      "admin2Code": "",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "ثادق"
+      ],
+      "officialCode": "0116",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ]
+    },
+    {
+      "geonameId": "103012",
+      "name": "Rafha",
+      "asciiName": "Rafha",
+      "latitude": 29.63425,
+      "longitude": 43.51941,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "15",
+      "admin2Code": "10972287",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "رفحاء"
+      ],
+      "officialCode": "0210",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ]
+    },
+    {
+      "geonameId": "103283",
+      "name": "Qaryah al ‘Ulyā",
+      "asciiName": "Qaryah al `Ulya",
+      "latitude": 27.55857,
+      "longitude": 47.70409,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "06",
+      "admin2Code": "",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "قرية العليا"
+      ],
+      "officialCode": "0172",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ]
+    },
+    {
+      "geonameId": "103688",
+      "name": "An Nabhānīyah",
+      "asciiName": "An Nabhaniyah",
+      "latitude": 25.86075,
+      "longitude": 43.06468,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "08",
+      "admin2Code": "",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "النبهانية"
+      ],
+      "officialCode": "0156",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ]
+    },
+    {
+      "geonameId": "104201",
+      "name": "Mawqaq",
+      "asciiName": "Mawqaq",
+      "latitude": 27.38398,
+      "longitude": 41.17635,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "13",
+      "admin2Code": "",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "موقق"
+      ],
+      "officialCode": "0208",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ]
+    },
+    {
+      "geonameId": "105703",
+      "name": "Ḩuraymilā’",
+      "asciiName": "Huraymila'",
+      "latitude": 25.12578,
+      "longitude": 46.12864,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "10",
+      "admin2Code": "",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "حريملاء"
+      ],
+      "officialCode": "0117",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ]
+    },
+    {
+      "geonameId": "106043",
+      "name": "Ḩarūb",
+      "asciiName": "Harub",
+      "latitude": 17.47208,
+      "longitude": 42.88286,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "17",
+      "admin2Code": "",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "هروب"
+      ],
+      "officialCode": "0227",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ]
+    },
+    {
+      "geonameId": "108262",
+      "name": "Ash Shimāsīyah",
+      "asciiName": "Ash Shimasiyah",
+      "latitude": 26.32609,
+      "longitude": 44.25866,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "08",
+      "admin2Code": "",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "الشماسية"
+      ],
+      "officialCode": "0159",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ]
+    },
+    {
+      "geonameId": "108418",
+      "name": "Ar Rayth",
+      "asciiName": "Ar Rayth",
+      "latitude": 17.60381,
+      "longitude": 42.86086,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "17",
+      "admin2Code": "",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "الريث"
+      ],
+      "officialCode": "0219",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ]
+    },
+    {
+      "geonameId": "108791",
+      "name": "Al ‘Uwayqīlah",
+      "asciiName": "Al `Uwayqilah",
+      "latitude": 30.36279,
+      "longitude": 42.23935,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "15",
+      "admin2Code": "",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "العويقيلة"
+      ],
+      "officialCode": "0212",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ]
+    },
+    {
+      "geonameId": "108868",
+      "name": "Al Quway‘īyah",
+      "asciiName": "Al Quway`iyah",
+      "latitude": 24.06506,
+      "longitude": 45.28438,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "10",
+      "admin2Code": "",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "القويعية"
+      ],
+      "officialCode": "0105",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ]
+    },
+    {
+      "geonameId": "108994",
+      "name": "Al Muzāḩimīyah",
+      "asciiName": "Al Muzahimiyah",
+      "latitude": 24.46946,
+      "longitude": 46.281,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "10",
+      "admin2Code": "",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "المزاحمية"
+      ],
+      "officialCode": "0114",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ]
+    },
+    {
+      "geonameId": "109551",
+      "name": "Al Ḩurayyiq",
+      "asciiName": "Al Hurayyiq",
+      "latitude": 25.44702,
+      "longitude": 45.40105,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "10",
+      "admin2Code": "",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "الحريق"
+      ],
+      "officialCode": "0118",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ]
+    },
+    {
+      "geonameId": "109655",
+      "name": "Al Harajah",
+      "asciiName": "Al Harajah",
+      "latitude": 19.58219,
+      "longitude": 41.98548,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "11",
+      "admin2Code": "10972263",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "الحرجة"
+      ],
+      "officialCode": "0191",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ]
+    },
+    {
+      "geonameId": "109772",
+      "name": "Al Ghāţ",
+      "asciiName": "Al Ghat",
+      "latitude": 26.02893,
+      "longitude": 44.94685,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "10",
+      "admin2Code": "",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "الغاط"
+      ],
+      "officialCode": "0119",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ]
+    },
+    {
+      "geonameId": "110040",
+      "name": "Al ‘Āriḑah",
+      "asciiName": "Al `Aridah",
+      "latitude": 17.03935,
+      "longitude": 43.0859,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "17",
+      "admin2Code": "",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "العارضة"
+      ],
+      "officialCode": "0225",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ]
+    },
+    {
+      "geonameId": "394983",
+      "name": "Ash Shinān",
+      "asciiName": "Ash Shinan",
+      "latitude": 27.17478,
+      "longitude": 42.4449,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "13",
+      "admin2Code": "",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "الشنان"
+      ],
+      "officialCode": "0203",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ]
+    },
+    {
+      "geonameId": "395153",
+      "name": "Simīrā’",
+      "asciiName": "Simira'",
+      "latitude": 26.49418,
+      "longitude": 42.12494,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "13",
+      "admin2Code": "",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "سميراء"
+      ],
+      "officialCode": "0206",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ]
+    },
+    {
+      "geonameId": "400461",
+      "name": "Dawmat al Jandal",
+      "asciiName": "Dawmat al Jandal",
+      "latitude": 29.81477,
+      "longitude": 39.85717,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "20",
+      "admin2Code": "",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "دومة الجندل"
+      ],
+      "officialCode": "0249",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ]
+    },
+    {
+      "geonameId": "411006",
+      "name": "Aţ Ţuwāl",
+      "asciiName": "At Tuwal",
+      "latitude": 16.52942,
+      "longitude": 42.96762,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "17",
+      "admin2Code": "",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "الطوال"
+      ],
+      "officialCode": "0229",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ]
+    },
+    {
+      "geonameId": "7370569",
+      "name": "Baysh",
+      "asciiName": "Baysh",
+      "latitude": 17.37599,
+      "longitude": 42.53865,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "17",
+      "admin2Code": "",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "بيش"
+      ],
+      "officialCode": "0220",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ]
+    },
+    {
+      "geonameId": "8019123",
+      "name": "Sharurah",
+      "asciiName": "Sharurah",
+      "latitude": 17.49083,
+      "longitude": 47.11262,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "16",
+      "admin2Code": "",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "شرورة"
+      ],
+      "officialCode": "0231",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ]
+    },
+    {
+      "geonameId": "11670741",
+      "name": "Ad Dā’ir",
+      "asciiName": "Ad Da'ir",
+      "latitude": 17.33752,
+      "longitude": 43.13636,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "17",
+      "admin2Code": "",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "الدائر"
+      ],
+      "officialCode": "0222",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ]
+    },
+    {
+      "geonameId": "12545858",
+      "name": "Al Amwāh",
+      "asciiName": "AlAmwah",
+      "latitude": 18.71429,
+      "longitude": 43.65635,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "11",
+      "admin2Code": "",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "الأمواه"
+      ],
+      "officialCode": "0192",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ]
+    }
+  ],
+  "reviewedSimilarities": [
+    {
+      "geonameIds": [
+        "109435",
+        "109436"
+      ],
+      "classification": "legitimate",
+      "reason": "Two independent populated places in Eastern Province about 179.9 km apart: Jubail city and the Al-Ahsa locality of Al Jubayl.",
+      "sourceRefs": [
+        "sa-government-place-evidence",
+        "geonames-sa-full-2026-09-12"
+      ]
+    }
+  ]
+}

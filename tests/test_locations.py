@@ -111,11 +111,40 @@ assert repository.loaded_country_codes == ()
 		self.assertEqual(match.location.timezone_id, "Asia/Kuala_Lumpur")
 
 
+class SaudiCorrectiveReviewTests(unittest.TestCase):
+	def test_required_arabic_searches_resolve_to_the_reviewed_single_records(self) -> None:
+		repository = BundledLocationRepository()
+		expected = {
+			"الرياض": "108410", "مكة المكرمة": "104515", "المدينة المنورة": "109223",
+			"الدمام": "110336", "جدة": "105343", "أبها": "110690", "تبوك": "101628",
+			"حائل": "106281", "سكاكا": "102527", "عرعر": "108512", "الباحة": "109953",
+			"جازان": "105299", "نجران": "103630", "وادي الدواسر": "100596",
+			"القويعية": "108868", "المزاحمية": "108994", "الخفجي": "109380",
+			"الدوادمي": "110325", "رابغ": "103035", "الليث": "109253",
+			"تيماء": "101516", "حقل": "106102", "فرسان": "106744",
+			"بارق": "12495725", "المجاردة": "399518",
+		}
+		for query, identifier in expected.items():
+			with self.subTest(query=query):
+				matches = repository.search("SA", query, 10)
+				self.assertEqual(matches[0].location.location_id, identifier)
+				self.assertEqual(sum(match.location.location_id == identifier for match in matches), 1)
+		self.assertEqual(repository.loaded_country_codes, ("SA",))
+
+	def test_new_location_and_arabic_alias_keep_the_same_geonames_identity(self) -> None:
+		repository = BundledLocationRepository()
+		for query in ("وادي الدواسر", "Wadi ad-Dawasir"):
+			self.assertEqual(repository.search("SA", query)[0].location.location_id, "100596")
+		for query in ("الخفجي", "Al Khafji"):
+			self.assertEqual(repository.search("SA", query)[0].location.location_id, "109380")
+		self.assertIsNone(repository.get("SA", "101732"))
+		self.assertEqual(repository.search("SA", "Unayzah")[0].location.location_id, "100768")
+
 class BundledWorldCoverageTests(unittest.TestCase):
 	def test_metadata_matches_every_generated_country_file_and_is_global(self) -> None:
 		metadata = json.loads((DATA_ROOT / "metadata.json").read_text(encoding="utf-8"))
 		files = sorted((DATA_ROOT / "countries").glob("*.json.gz"))
-		self.assertEqual(metadata["locationDataVersion"], "geonames-cities500-2026-09-11")
+		self.assertEqual(metadata["locationDataVersion"], "geonames-cities500-2026-09-11+sa-2026-09-12.1")
 		self.assertEqual(metadata["countryCount"], len(files))
 		self.assertEqual(metadata["countryCount"], len(metadata["countries"]))
 		self.assertEqual(metadata["cityCount"], sum(entry["cityCount"] for entry in metadata["countries"]))

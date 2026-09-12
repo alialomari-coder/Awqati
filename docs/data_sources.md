@@ -13,7 +13,7 @@ admin1CodesASCII, and admin2Codes. All inputs use the official GeoNames dump
 at https://download.geonames.org/export/dump/.
 
 The generated location data version is
-`geonames-cities500-2026-09-11`. Exact source URLs and SHA-256 digests are
+`geonames-cities500-2026-09-11+sa-2026-09-12.1`. Exact source URLs and SHA-256 digests are
 stored in
 `addon/globalPlugins/awqati/data/locations/metadata.json`.
 
@@ -23,9 +23,33 @@ are stored beside the generated metadata.
 Example generation command:
 
 ```powershell
-python tools/build_locations.py --cities C:\data\cities500.zip --alternate-names C:\data\alternateNamesV2.zip --country-info C:\data\countryInfo.txt --admin1 C:\data\admin1CodesASCII.txt --admin2 C:\data\admin2Codes.txt --output addon\globalPlugins\awqati\data\locations --location-data-version geonames-cities500-2026-09-11 --source-snapshot-date 2026-09-11 --generated-at 2026-09-12
+python tools/build_locations.py --cities C:\data\cities500.zip --alternate-names C:\data\alternateNamesV2.zip --country-info C:\data\countryInfo.txt --admin1 C:\data\admin1CodesASCII.txt --admin2 C:\data\admin2Codes.txt --sa-supplement data_sources\sa_locations_supplement.v1.json --output addon\globalPlugins\awqati\data\locations --location-data-version geonames-cities500-2026-09-11+sa-2026-09-12.1 --source-snapshot-date 2026-09-11 --generated-at 2026-09-12
 ```
 
+## Reviewed Saudi supplement
+
+The versioned build-time source `data_sources/sa_locations_supplement.v1.json`
+contains the limited Saudi corrective review dated 2026-09-12. It documents
+Saudi official sources, adds 25 verified GeoNames records that are outside
+`cities500`, adds verified Arabic aliases to 45 existing records, and declares
+three reviewed duplicate merges. Coordinates and identifiers for additions
+come unchanged from the full GeoNames Saudi country dump; official Saudi
+sources establish the Arabic name and administrative identity.
+
+`tools/build_locations.py` merges this source before country files are written.
+An addition is rejected when it reuses an existing GeoNames identifier or when
+normalized name plus administrative/geographic evidence indicates an existing
+record. Runtime still reads one ordinary `SA.json.gz` through the global lazy
+repository; there is no Saudi runtime database or network access.
+
+Run the final duplicate audit with:
+
+```powershell
+python tools/audit_sa_locations.py --data addon\globalPlugins\awqati\data\locations\countries\SA.json.gz --supplement data_sources\sa_locations_supplement.v1.json
+```
+
+The detailed audit, limitations, coverage counts, and performance measurements
+are recorded in `docs/saudi_location_corrective_review_2026-09-12.md`.
 ## Timezone data
 
 TZif files are extracted from the official Python `tzdata` 2026.3 wheel,

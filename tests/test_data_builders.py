@@ -99,6 +99,92 @@ class LocationBuilderTests(unittest.TestCase):
 			build_locations.build(self.args(self.root / "out"))
 
 
+class SaudiSupplementTests(unittest.TestCase):
+	def setUp(self) -> None:
+		self.temporary = tempfile.TemporaryDirectory()
+		self.root = Path(self.temporary.name)
+
+	def tearDown(self) -> None:
+		self.temporary.cleanup()
+
+	def city(
+		self, identifier: str, name: str, latitude: float, longitude: float,
+		admin1: str, admin2: str = "", population: int = 0,
+	) -> dict[str, object]:
+		return {
+			"i": identifier, "n": name, "x": name, "cc": "SA", "lat": latitude, "lon": longitude,
+			"tz": "Asia/Riyadh", "a1c": admin1, "a2c": admin2, "p": population,
+			"f": "PPL", "r": 9, "en": {}, "ar": {},
+		}
+
+	def addition(
+		self, identifier: str, name: str, latitude: float, longitude: float,
+		admin1: str, admin2: str = "",
+	) -> dict[str, object]:
+		return {
+			"geonameId": identifier, "name": name, "asciiName": name,
+			"latitude": latitude, "longitude": longitude, "timezoneId": "Asia/Riyadh",
+			"admin1Code": admin1, "admin2Code": admin2, "population": 0,
+			"featureCode": "PPL", "arabicNames": [], "sourceRefs": ["fixture"],
+		}
+
+	def supplement(self, **sections: object) -> Path:
+		payload = {
+			"schemaVersion": 1, "countryCode": "SA", "version": "fixture-sa-1",
+			"sources": [{"id": "fixture"}], "aliases": [], "merges": [], "additions": [],
+		}
+		payload.update(sections)
+		path = self.root / "sa.json"
+		path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+		return path
+
+	def test_same_geoname_id_adds_arabic_to_one_existing_record(self) -> None:
+		cities = {"10": self.city("10", "Al Khafji", 28.44, 48.49, "06")}
+		path = self.supplement(aliases=[{
+			"geonameId": "10", "arabicNames": ["الخفجي"], "sourceRefs": ["fixture"],
+		}])
+		result = build_locations.apply_sa_supplement(path, cities)
+		self.assertEqual((len(cities), result["augmented"]), (1, 1))
+		self.assertIn("الخفجي", cities["10"]["ar"])
+
+	def test_documented_transliteration_duplicate_is_merged(self) -> None:
+		cities = {
+			"1": self.city("1", "Unaizah", 26.08793, 43.96368, "08", "55", 0),
+			"2": self.city("2", "Unayzah", 26.10, 44.00, "08", "55", 183319),
+		}
+		path = self.supplement(merges=[{
+			"sourceGeonameId": "2", "targetGeonameId": "1", "sourceRefs": ["fixture"],
+		}])
+		result = build_locations.apply_sa_supplement(path, cities)
+		self.assertEqual((set(cities), result["merged"]), ({"1"}, 1))
+		self.assertEqual(cities["1"]["p"], 183319)
+		self.assertIn("Unayzah", cities["1"]["en"])
+
+	def test_same_name_different_region_partial_name_and_proximity_alone_stay_separate(self) -> None:
+		cities = {
+			"1": self.city("1", "Al Aqiq", 20.0, 41.0, "02"),
+			"2": self.city("2", "Al Jubayl", 27.0, 49.6, "06"),
+			"3": self.city("3", "Near One", 24.0, 46.0, "10"),
+		}
+		path = self.supplement(additions=[
+			self.addition("11", "Al Aqiq", 17.0, 44.0, "16"),
+			self.addition("12", "Al Jubayl Industrial City", 27.001, 49.601, "06"),
+			self.addition("13", "Near Two", 24.0001, 46.0001, "10"),
+		])
+		result = build_locations.apply_sa_supplement(path, cities)
+		self.assertEqual((len(cities), result["added"]), (6, 3))
+
+	def test_addition_rejects_reused_id_and_matching_normalized_name_evidence(self) -> None:
+		cities = {"10": self.city("10", "Al Khafji", 28.44, 48.49, "06")}
+		with self.assertRaises(build_locations.BuildLocationError):
+			build_locations.apply_sa_supplement(
+				self.supplement(additions=[self.addition("10", "Other", 0, 0, "01")]), cities,
+			)
+		with self.assertRaises(build_locations.BuildLocationError):
+			build_locations.apply_sa_supplement(
+				self.supplement(additions=[self.addition("11", "Al-Khafji", 28.4401, 48.4901, "06")]), cities,
+			)
+
 class TimezoneBuilderTests(unittest.TestCase):
 	def test_extracts_only_tzif_files_and_reads_versions_and_license(self) -> None:
 		with tempfile.TemporaryDirectory() as temporary:

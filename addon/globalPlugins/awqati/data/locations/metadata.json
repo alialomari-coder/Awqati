@@ -1,5 +1,5 @@
 {
-  "cityCount": 235735,
+  "cityCount": 235757,
   "countries": [
     {
       "cityCount": 20,
@@ -1325,11 +1325,11 @@
       "sha256": "27da77839265176ffacef1d298b68726f845acf0eb99f187a54d7fd1ba250dfd"
     },
     {
-      "cityCount": 161,
+      "cityCount": 183,
       "code": "SA",
       "file": "countries/SA.json.gz",
       "name": "Saudi Arabia",
-      "sha256": "abca0159cf1f814977d1b863d13206d402bb39020edaa6dc1f439f1d80b43ac6"
+      "sha256": "e71e1f548a3d5729c56139d26f44078af89e03bed6184fa839025f8e6fcde979"
     },
     {
       "cityCount": 23,
@@ -1727,9 +1727,17 @@
   "countryCount": 246,
   "generatedAt": "2026-09-12",
   "license": "CC BY 4.0",
-  "locationDataVersion": "geonames-cities500-2026-09-11",
+  "locationDataVersion": "geonames-cities500-2026-09-11+sa-2026-09-12.1",
+  "saudiSupplement": {
+    "added": 25,
+    "augmented": 45,
+    "file": "sa_locations_supplement.v1.json",
+    "merged": 3,
+    "sha256": "4bf8a71ba3c472fef8cf537244ebf5dbb616dc7278cd61a5a99e9dbcd64e84b5",
+    "version": "sa-official-review-2026-09-12.1"
+  },
   "schemaVersion": 1,
-  "source": "GeoNames cities500",
+  "source": "GeoNames cities500 with reviewed Saudi supplement",
   "sourceSnapshotDate": "2026-09-11",
   "sources": {
     "admin1": {
