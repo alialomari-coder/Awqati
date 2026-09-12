@@ -53,6 +53,8 @@ def _commands() -> tuple[tuple[str, tuple[str, ...]], ...]:
 				"addon",
 				"tests",
 				"buildVars.py",
+				"tools/build_locations.py",
+				"tools/build_timezones.py",
 				"tools/run_scons.py",
 				"tools/run_checks.py",
 			),

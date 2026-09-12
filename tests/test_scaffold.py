@@ -49,12 +49,31 @@ class ScaffoldTests(unittest.TestCase):
 			for relative_path in (
 				"globalPlugins/awqati/domain/models.py",
 				"globalPlugins/awqati/application/ports.py",
+				"globalPlugins/awqati/infrastructure/location_repository.py",
 				"globalPlugins/awqati/infrastructure/system_time.py",
+				"globalPlugins/awqati/infrastructure/timezone_provider.py",
 				"globalPlugins/awqati/nvda_adapter/plugin.py",
+				"globalPlugins/awqati/data/locations/metadata.json",
+				"globalPlugins/awqati/data/locations/NOTICE.txt",
+				"globalPlugins/awqati/data/locations/LICENSE-CC-BY-4.0.txt",
+				"globalPlugins/awqati/data/timezones/metadata.json",
+				"globalPlugins/awqati/data/timezones/LICENSE.txt",
 			):
 				with self.subTest(path=relative_path):
 					self.assertIn(relative_path, names)
 			self.assertFalse(any("__pycache__" in name or name.endswith((".pyc", ".pyo")) for name in names))
+			country_files = {
+				name for name in names
+				if name.startswith("globalPlugins/awqati/data/locations/countries/") and name.endswith(".json.gz")
+			}
+			zone_files = {
+				name for name in names
+				if name.startswith("globalPlugins/awqati/data/timezones/zoneinfo/")
+			}
+			self.assertGreater(len(country_files), 200)
+			self.assertGreater(len(zone_files), 500)
+			for forbidden in ("cities500.zip", "alternateNamesV2.zip", "countryInfo.txt", "admin1CodesASCII.txt"):
+				self.assertFalse(any(name.endswith(forbidden) for name in names), forbidden)
 
 	def test_built_manifest_matches_scaffold_metadata(self) -> None:
 		with zipfile.ZipFile(PACKAGE) as archive:

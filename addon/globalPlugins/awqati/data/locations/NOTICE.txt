@@ -1,0 +1,15 @@
+GeoNames data attribution
+
+Awqati includes a transformed subset of the GeoNames geographical database.
+The included set is derived from GeoNames cities500, with Arabic and English
+alternate names and administrative reference data from the official GeoNames
+dump dated 2026-09-11.
+
+Copyright GeoNames contributors.
+Licensed under the Creative Commons Attribution 4.0 International license.
+https://www.geonames.org/
+https://creativecommons.org/licenses/by/4.0/
+
+The generated metadata.json records the exact official source URLs and SHA-256
+digests. Raw GeoNames source files are build inputs only and are not distributed
+inside the NVDA add-on.
