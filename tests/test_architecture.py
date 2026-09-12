@@ -120,16 +120,44 @@ class ArchitectureTests(unittest.TestCase):
 		for module in graph:
 			visit(module, ())
 
+	def test_clock_domain_contains_only_language_neutral_concepts(self) -> None:
+		path = CORE_ROOT / "domain" / "clock.py"
+		source = path.read_text(encoding="utf-8")
+		class_names = {
+			node.name for node in ast.walk(ast.parse(source)) if isinstance(node, ast.ClassDef)
+		}
+		self.assertTrue({
+			"AnnouncementStyle", "ClockFormatOptions", "ClockReading", "ClockType",
+			"HourSystem", "TimeRepresentation",
+		}.issubset(class_names))
+		self.assertTrue({
+			"ArabicWordClockFormatter", "ClockFormatter", "ClockLanguage",
+			"EnglishWordClockFormatter", "GhurubiPeriod", "NumericClockFormatter",
+		}.isdisjoint(class_names))
+		self.assertFalse(any("\u0600" <= character <= "\u06ff" for character in source))
+		self.assertNotIn("language", source.lower())
+		self.assertTrue((CORE_ROOT / "application" / "clock_formatters.py").is_file())
+
 	def test_domain_and_application_import_in_standalone_python(self) -> None:
 		script = """
 from datetime import datetime, timezone
 import sys
-from awqati.application import ClockService, NowProvider
+from awqati.application import (
+    ArabicWordClockFormatter, ClockFormatter, ClockService,
+    EnglishWordClockFormatter, NowProvider, NumericClockFormatter,
+)
 from awqati.domain import (
-    ArabicWordClockFormatter, ClockFormatter, ClockLanguage, DomainEvent,
-    EnglishWordClockFormatter, Instant, Location, NumericClockFormatter,
+    DomainEvent, Instant, Location, TimeRepresentation,
 )
 from support.event_clock import EventClock
+
+class FutureLanguageFormatter:
+    language = 'xx'
+    representation = TimeRepresentation.NUMERIC
+    def format_time(self, reading, clock_type, options):
+        return 'future'
+    def format_announcement(self, reading, clock_type, options, **kwargs):
+        return 'future'
 
 first = Instant(datetime(2026, 1, 2, tzinfo=timezone.utc))
 second = Instant(datetime(2026, 2, 3, tzinfo=timezone.utc))
@@ -144,8 +172,9 @@ assert location.timezone_id == 'Asia/Riyadh'
 assert ClockService is not None
 assert isinstance(ArabicWordClockFormatter(), ClockFormatter)
 assert isinstance(EnglishWordClockFormatter(), ClockFormatter)
-assert isinstance(NumericClockFormatter(ClockLanguage.ARABIC), ClockFormatter)
-assert isinstance(NumericClockFormatter(ClockLanguage.ENGLISH), ClockFormatter)
+assert isinstance(NumericClockFormatter('ar'), ClockFormatter)
+assert isinstance(NumericClockFormatter('en'), ClockFormatter)
+assert isinstance(FutureLanguageFormatter(), ClockFormatter)
 assert 'globalPluginHandler' not in sys.modules
 assert 'wx' not in sys.modules
 """

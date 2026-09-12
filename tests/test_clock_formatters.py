@@ -11,10 +11,13 @@ PACKAGES = ROOT / "addon" / "globalPlugins"
 if str(PACKAGES) not in sys.path:
 	sys.path.insert(0, str(PACKAGES))
 
+from awqati.application import (  # noqa: E402
+	ArabicWordClockFormatter, ClockFormatter, EnglishWordClockFormatter,
+	NumericClockFormatter,
+)
 from awqati.domain import (  # noqa: E402
-	AnnouncementStyle, ArabicWordClockFormatter, ClockFormatOptions, ClockFormatter,
-	ClockLanguage, ClockReading, ClockType, EnglishWordClockFormatter, HourSystem,
-	NumericClockFormatter, TimeRepresentation,
+	AnnouncementStyle, ClockFormatOptions, ClockReading, ClockType, HourSystem,
+	TimeRepresentation,
 )
 
 
@@ -37,7 +40,7 @@ def options(**changes) -> ClockFormatOptions:
 class ArabicClockFormatterTests(unittest.TestCase):
 	def setUp(self) -> None:
 		self.words = ArabicWordClockFormatter()
-		self.numeric = NumericClockFormatter(ClockLanguage.ARABIC)
+		self.numeric = NumericClockFormatter("ar")
 
 	def test_formatter_protocol_and_neutral_representation_values(self) -> None:
 		self.assertIsInstance(self.words, ClockFormatter)
@@ -132,6 +135,29 @@ class ArabicClockFormatterTests(unittest.TestCase):
 			with self.subTest(second=second):
 				self.assertEqual(actual, final)
 
+	def test_arabic_eight_forms_are_exact_for_minutes_and_seconds(self) -> None:
+		numbers = {
+			8: ("ثماني دقائق", "ثماني ثوانٍ"),
+			18: ("ثماني عشرة دقيقة", "ثماني عشرة ثانية"),
+			28: ("ثمانٍ وعشرون دقيقة", "ثمانٍ وعشرون ثانية"),
+			38: ("ثمانٍ وثلاثون دقيقة", "ثمانٍ وثلاثون ثانية"),
+			48: ("ثمانٍ وأربعون دقيقة", "ثمانٍ وأربعون ثانية"),
+			58: ("ثمانٍ وخمسون دقيقة", "ثمانٍ وخمسون ثانية"),
+		}
+		for value, (minutes, seconds) in numbers.items():
+			minute_output = self.words.format_announcement(
+				reading(minute=value, second=0), ClockType.ZAWALI,
+				options(show_seconds=False, speak_zero_minute=True),
+			)
+			second_output = self.words.format_announcement(
+				reading(minute=0, second=value), ClockType.ZAWALI,
+				options(show_seconds=True, speak_zero_minute=False),
+			)
+			with self.subTest(value=value, unit="minute"):
+				self.assertEqual(minute_output, f"الثالثة مساءً و{minutes}.")
+			with self.subTest(value=value, unit="second"):
+				self.assertEqual(second_output, f"الثالثة مساءً و{seconds}.")
+
 	def test_seconds_and_zero_minute_are_independent(self) -> None:
 		value = reading(hour=16, minute=0, second=5)
 		cases = (
@@ -196,7 +222,7 @@ class ArabicClockFormatterTests(unittest.TestCase):
 class EnglishClockFormatterTests(unittest.TestCase):
 	def setUp(self) -> None:
 		self.words = EnglishWordClockFormatter()
-		self.numeric = NumericClockFormatter(ClockLanguage.ENGLISH)
+		self.numeric = NumericClockFormatter("en")
 
 	def test_english_words_and_numeric_are_real_exact_outputs(self) -> None:
 		value = reading(hour=15, minute=51, second=44)
@@ -207,6 +233,26 @@ class EnglishClockFormatterTests(unittest.TestCase):
 		self.assertEqual(self.words.format_time(value, ClockType.ZAWALI,
 			options(hour_system=HourSystem.TWENTY_FOUR)),
 			"fifteen hours and fifty-one minutes and forty-four seconds")
+
+	def test_24_hour_words_use_singular_and_plural_hours(self) -> None:
+		setting = options(hour_system=HourSystem.TWENTY_FOUR, show_seconds=False,
+			speak_zero_minute=False)
+		self.assertEqual(
+			self.words.format_time(reading(hour=1, minute=0), ClockType.ZAWALI, setting),
+			"one hour",
+		)
+		self.assertEqual(
+			self.words.format_time(reading(hour=15, minute=0), ClockType.ZAWALI, setting),
+			"fifteen hours",
+		)
+		self.assertEqual(
+			self.words.format_time(reading(elapsed=timedelta(hours=1)), ClockType.GHURUBI, setting),
+			"one hour",
+		)
+		self.assertEqual(
+			self.words.format_time(reading(elapsed=timedelta(hours=2)), ClockType.GHURUBI, setting),
+			"two hours",
+		)
 
 	def test_english_ghurubi_periods_never_use_am_or_pm(self) -> None:
 		for elapsed, period in ((timedelta(hours=10, minutes=2), "nighttime"),
@@ -246,14 +292,14 @@ class EnglishClockFormatterTests(unittest.TestCase):
 		setting = options(hour_system=HourSystem.TWENTY_FOUR, show_seconds=True,
 			speak_zero_minute=False)
 		self.assertEqual(self.numeric.format_time(value, ClockType.GHURUBI, setting), "25 and 5 seconds")
-		arabic = NumericClockFormatter(ClockLanguage.ARABIC)
+		arabic = NumericClockFormatter("ar")
 		self.assertEqual(arabic.format_time(value, ClockType.GHURUBI, setting), "25 و5 ثوانٍ")
 
 	def test_cross_language_double_is_rejected(self) -> None:
 		with self.assertRaisesRegex(ValueError, "same language"):
 			self.words.format_announcement(reading(), ClockType.ZAWALI,
 				options(style=AnnouncementStyle.DOUBLE),
-				ghurubi_formatter=NumericClockFormatter(ClockLanguage.ARABIC),
+				ghurubi_formatter=NumericClockFormatter("ar"),
 				ghurubi_options=options())
 
 

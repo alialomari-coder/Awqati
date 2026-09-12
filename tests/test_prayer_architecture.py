@@ -48,6 +48,7 @@ assert 'globalPluginHandler' not in sys.modules and 'wx' not in sys.modules and 
 			"globalPlugins/awqati/domain/clock.py",
 			"globalPlugins/awqati/domain/prayer.py",
 			"globalPlugins/awqati/domain/prayer_timeline.py",
+			"globalPlugins/awqati/application/clock_formatters.py",
 			"globalPlugins/awqati/application/clock_service.py",
 			"globalPlugins/awqati/application/prayer_service.py",
 			"globalPlugins/awqati/application/prayer_state.py",
