@@ -2,11 +2,18 @@
 
 from __future__ import annotations
 
+from datetime import tzinfo
 import hashlib
 import json
 from pathlib import Path
 import re
-from zoneinfo import ZoneInfo
+
+from .tzif_timezone import TzifTimezone
+
+try:
+	from zoneinfo import ZoneInfo as _ZoneInfo
+except ImportError:  # NVDA may ship a trimmed Python runtime.
+	_ZoneInfo = None
 
 
 _KEY_PART = re.compile(r"[A-Za-z0-9._+-]+")
@@ -27,13 +34,13 @@ class BundledTimezoneProvider:
 		self._data_root = data_root or Path(__file__).resolve().parent.parent / "data" / "timezones"
 		self._metadata: dict[str, object] | None = None
 		self._zones: dict[str, str] | None = None
-		self._cache: dict[str, ZoneInfo] = {}
+		self._cache: dict[str, tzinfo] = {}
 
 	@property
 	def tz_data_version(self) -> str:
 		return str(self._load_metadata()["tzDataVersion"])
 
-	def get_timezone(self, timezone_id: str) -> ZoneInfo:
+	def get_timezone(self, timezone_id: str) -> tzinfo:
 		key = self._validate_key(timezone_id)
 		if key in self._cache:
 			return self._cache[key]
@@ -47,8 +54,11 @@ class BundledTimezoneProvider:
 			data = path.read_bytes()
 			if hashlib.sha256(data).hexdigest() != expected_hash:
 				raise ValueError("checksum mismatch")
-			with path.open("rb") as stream:
-				zone = ZoneInfo.from_file(stream, key=key)
+			if _ZoneInfo is None:
+				zone = TzifTimezone.from_bytes(data, key)
+			else:
+				with path.open("rb") as stream:
+					zone = _ZoneInfo.from_file(stream, key=key)
 		except (OSError, ValueError) as error:
 			raise TimezoneDataError(f"Cannot load bundled timezone {key}: {error}") from error
 		self._cache[key] = zone

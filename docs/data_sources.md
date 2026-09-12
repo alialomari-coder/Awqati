@@ -77,3 +77,25 @@ python tools/build_timezones.py --wheel C:\data\tzdata-2026.3-py2.py3-none-any.w
 Both tools accept small local fixture inputs for offline tests. The ordinary
 `tools/run_checks.py` command validates the tools and generated outputs but
 does not download or regenerate the global database.
+## Prayer calculation method data
+
+Task 1.3 stores the 19 approved Awqati 4.0 methods in
+`addon/globalPlugins/awqati/data/calculation_methods/methods.json` and the
+ISO-country AUTO mapping in `country_methods.json`. Both files carry the
+independent version `awqati-4.0-methods-1`. The Awqati specification section
+12.3 is authoritative. PrayTimes documentation at
+https://praytimes.org/docs/calculation is used to cross-check the astronomical
+formula and conventional values, but it does not override Awqati-specific
+profiles or decisions.
+
+Update both JSON files with the same `calculationMethodDataVersion`. Every
+method code must remain unique, every country target must resolve to a defined
+non-experimental method, and the fallback must remain `MWL` unless the product
+specification changes. Runtime calculation reads no network data. The sunrise
+and sunset angle is the code-level astronomical constant 0.833 degrees; method
+angles and offsets stay in the versioned data files.
+
+The decided future default for a new user's calculation-method setting is
+`AUTO`. This task does not create settings storage or UI. An `AUTO` request
+remains logically `AUTO`; `CountryMethodResolver` selects a separate effective
+method at calculation time, and metadata records both values.

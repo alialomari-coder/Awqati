@@ -10,6 +10,8 @@ from importlib import import_module
 from typing import Any
 
 __all__ = [
+	"BundledCalculationMethodRepository",
+	"CalculationMethodDataError",
 	"BundledLocationRepository",
 	"BundledTimezoneProvider",
 	"InvalidCountryCodeError",
@@ -23,6 +25,8 @@ __all__ = [
 
 
 _EXPORT_MODULES = {
+	"BundledCalculationMethodRepository": ".calculation_method_repository",
+	"CalculationMethodDataError": ".calculation_method_repository",
 	"BundledLocationRepository": ".location_repository",
 	"InvalidCountryCodeError": ".location_repository",
 	"LocationDataError": ".location_repository",

@@ -1,0 +1,7 @@
+Awqati 4.0 calculation-method data
+
+Values are governed by the Awqati 4.0 specification, section 12.3.
+The astronomical formula and conventional core method values were cross-checked
+against PrayTimes (https://praytimes.org/docs/calculation). Method-specific
+Awqati decisions override external defaults. Update both JSON files with the
+same calculationMethodDataVersion and extend integrity tests for every change.

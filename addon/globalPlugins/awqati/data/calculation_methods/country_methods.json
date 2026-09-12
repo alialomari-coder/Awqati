@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "calculationMethodDataVersion": "awqati-4.0-methods-1",
+  "fallback": "MWL",
+  "countries": {
+    "SA": "MAKKAH",
+    "EG": "EGYPT",
+    "PK": "KARACHI",
+    "AF": "KARACHI",
+    "BD": "KARACHI",
+    "IN": "KARACHI",
+    "US": "ISNA",
+    "CA": "ISNA",
+    "KW": "KUWAIT",
+    "QA": "QATAR",
+    "AE": "GULF",
+    "BH": "GULF",
+    "OM": "GULF",
+    "YE": "GULF",
+    "SG": "SINGAPORE",
+    "MY": "JAKIM",
+    "ID": "KEMENAG",
+    "FR": "FRANCE",
+    "RU": "RUSSIA",
+    "TN": "TUNISIA",
+    "DZ": "ALGERIA",
+    "MA": "MOROCCO",
+    "PT": "PORTUGAL",
+    "JO": "JORDAN",
+    "TR": "TURKEY"
+  }
+}

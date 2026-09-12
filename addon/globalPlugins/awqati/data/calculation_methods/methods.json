@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "calculationMethodDataVersion": "awqati-4.0-methods-1",
+  "sources": [
+    "Awqati 4.0 specification section 12.3",
+    "https://praytimes.org/docs/calculation"
+  ],
+  "methods": [
+    {
+      "code": "MWL",
+      "name": "Muslim World League",
+      "fajrAngle": 18,
+      "ishaAngle": 17
+    },
+    {
+      "code": "ISNA",
+      "name": "Islamic Society of North America",
+      "fajrAngle": 15,
+      "ishaAngle": 15
+    },
+    {
+      "code": "EGYPT",
+      "name": "Egyptian General Authority of Survey",
+      "fajrAngle": 19.5,
+      "ishaAngle": 17.5
+    },
+    {
+      "code": "MAKKAH",
+      "name": "Umm al-Qura - Makkah",
+      "fajrAngle": 18.5,
+      "ishaIntervalMinutes": 90,
+      "ishaRamadanIntervalMinutes": 120
+    },
+    {
+      "code": "KARACHI",
+      "name": "University of Islamic Sciences, Karachi",
+      "fajrAngle": 18,
+      "ishaAngle": 18
+    },
+    {
+      "code": "GULF",
+      "name": "Gulf region",
+      "fajrAngle": 19.5,
+      "ishaIntervalMinutes": 90
+    },
+    {
+      "code": "KUWAIT",
+      "name": "Kuwait",
+      "fajrAngle": 18,
+      "ishaAngle": 17.5
+    },
+    {
+      "code": "QATAR",
+      "name": "Qatar",
+      "fajrAngle": 18,
+      "ishaIntervalMinutes": 90
+    },
+    {
+      "code": "SINGAPORE",
+      "name": "Islamic Religious Council of Singapore",
+      "fajrAngle": 20,
+      "ishaAngle": 18
+    },
+    {
+      "code": "JAKIM",
+      "name": "Malaysia JAKIM",
+      "fajrAngle": 20,
+      "ishaAngle": 18
+    },
+    {
+      "code": "KEMENAG",
+      "name": "Indonesian Ministry of Religious Affairs",
+      "fajrAngle": 20,
+      "ishaAngle": 18
+    },
+    {
+      "code": "FRANCE",
+      "name": "Union of Islamic Organizations of France",
+      "fajrAngle": 12,
+      "ishaAngle": 12
+    },
+    {
+      "code": "RUSSIA",
+      "name": "Spiritual Administration of Muslims of Russia",
+      "fajrAngle": 16,
+      "ishaAngle": 15
+    },
+    {
+      "code": "TUNISIA",
+      "name": "Tunisia",
+      "fajrAngle": 18,
+      "ishaAngle": 18
+    },
+    {
+      "code": "ALGERIA",
+      "name": "Algeria",
+      "fajrAngle": 18,
+      "ishaAngle": 17
+    },
+    {
+      "code": "MOROCCO",
+      "name": "Morocco",
+      "fajrAngle": 19,
+      "ishaAngle": 17
+    },
+    {
+      "code": "PORTUGAL",
+      "name": "Islamic Community of Lisbon",
+      "fajrAngle": 18,
+      "ishaIntervalMinutes": 77,
+      "maghribOffsetMinutes": 3
+    },
+    {
+      "code": "JORDAN",
+      "name": "Jordanian Ministry of Awqaf",
+      "fajrAngle": 18,
+      "ishaAngle": 18,
+      "maghribOffsetMinutes": 5
+    },
+    {
+      "code": "TURKEY",
+      "name": "Turkey - Diyanet profile",
+      "fajrAngle": 18,
+      "ishaAngle": 17
+    }
+  ]
+}

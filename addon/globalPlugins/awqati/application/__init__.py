@@ -2,7 +2,9 @@
 
 from .events import EventDispatcher
 from .location_service import LocationNotFoundError, LocationService
+from .prayer_service import PrayerService
 from .ports import (
+	CalculationMethodProvider,
 	CountryInfo,
 	CoordinateProvider,
 	LocationDetectionError,
@@ -13,6 +15,7 @@ from .ports import (
 )
 
 __all__ = [
+	"CalculationMethodProvider",
 	"CountryInfo",
 	"CoordinateProvider",
 	"EventDispatcher",
@@ -22,5 +25,6 @@ __all__ = [
 	"LocationRepository",
 	"LocationService",
 	"NowProvider",
+	"PrayerService",
 	"TimezoneProvider",
 ]

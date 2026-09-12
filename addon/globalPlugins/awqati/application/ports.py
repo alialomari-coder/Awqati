@@ -6,7 +6,15 @@ from dataclasses import dataclass
 from datetime import tzinfo
 from typing import Protocol, runtime_checkable
 
-from ..domain import Coordinates, Instant, Location, LocationDetectionFailure
+from ..domain import (
+	CalculationMethod,
+	CalculationMethodDefinition,
+	Coordinates,
+	CountryMethodResolver,
+	Instant,
+	Location,
+	LocationDetectionFailure,
+)
 
 
 class LocationDetectionError(RuntimeError):
@@ -90,4 +98,20 @@ class CoordinateProvider(Protocol):
 	"""Read one explicitly requested coordinate fix from an external platform."""
 
 	def get_coordinates(self) -> Coordinates:
+		...
+
+
+@runtime_checkable
+class CalculationMethodProvider(Protocol):
+	"""Provide validated versioned calculation data."""
+
+	@property
+	def calculation_method_data_version(self) -> str:
+		...
+
+	@property
+	def country_resolver(self) -> CountryMethodResolver:
+		...
+
+	def get_method(self, method: CalculationMethod) -> CalculationMethodDefinition:
 		...
