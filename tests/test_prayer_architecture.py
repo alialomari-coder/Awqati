@@ -46,7 +46,9 @@ assert 'globalPluginHandler' not in sys.modules and 'wx' not in sys.modules and 
 			names = set(archive.namelist())
 		for name in (
 			"globalPlugins/awqati/domain/prayer.py",
+			"globalPlugins/awqati/domain/prayer_timeline.py",
 			"globalPlugins/awqati/application/prayer_service.py",
+			"globalPlugins/awqati/application/prayer_state.py",
 			"globalPlugins/awqati/infrastructure/calculation_method_repository.py",
 			"globalPlugins/awqati/infrastructure/tzif_timezone.py",
 			"globalPlugins/awqati/data/calculation_methods/methods.json",

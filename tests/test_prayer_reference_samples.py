@@ -11,7 +11,10 @@ if str(PACKAGES) not in sys.path:
 	sys.path.insert(0, str(PACKAGES))
 
 from awqati.application import PrayerService  # noqa: E402
-from awqati.domain import AsrMethod, CalculationMethod, HighLatitudeRule, PrayerCalculationRequest, PrayerName  # noqa: E402
+from awqati.domain import (  # noqa: E402
+	AsrMethod, CalculationMethod, HighLatitudeRule, PrayerCalculationRequest,
+	PrayerName, complete_prayer_times,
+)
 from awqati.infrastructure import BundledCalculationMethodRepository, BundledTimezoneProvider  # noqa: E402
 
 
@@ -47,6 +50,37 @@ SAMPLES = (
 )
 
 
+# These Saudi dates are deliberately away from Ramadan boundaries. MAKKAH
+# still receives an explicit context for both today's and tomorrow's request so
+# the fixture cannot silently reuse or infer the next day's Ramadan state.
+EIGHT_TIME_SAMPLES = (
+	("Riyadh", 24.6877, 46.7219, "Asia/Riyadh", "SA", date(2026, 1, 15), False, False,
+		("2026-01-15 05:17:00+0300", "2026-01-15 06:39:00+0300",
+		 "2026-01-15 12:02:00+0300", "2026-01-15 15:05:00+0300",
+		 "2026-01-15 17:26:00+0300", "2026-01-15 18:56:00+0300",
+		 "2026-01-15 23:21:30+0300", "2026-01-16 01:20:00+0300")),
+	("Makkah", 21.4225, 39.8262, "Asia/Riyadh", "SA", date(2026, 1, 15), False, False,
+		("2026-01-15 05:41:00+0300", "2026-01-15 07:01:00+0300",
+		 "2026-01-15 12:30:00+0300", "2026-01-15 15:38:00+0300",
+		 "2026-01-15 17:59:00+0300", "2026-01-15 19:29:00+0300",
+		 "2026-01-15 23:50:00+0300", "2026-01-16 01:47:00+0300")),
+	("Dammam", 26.4344, 50.1033, "Asia/Riyadh", "SA", date(2026, 1, 15), False, False,
+		("2026-01-15 05:06:00+0300", "2026-01-15 06:29:00+0300",
+		 "2026-01-15 11:49:00+0300", "2026-01-15 14:49:00+0300",
+		 "2026-01-15 17:09:00+0300", "2026-01-15 18:39:00+0300",
+		 "2026-01-15 23:07:30+0300", "2026-01-16 01:07:00+0300")),
+	("London summer", 51.5074, -0.1278, "Europe/London", "GB", date(2026, 7, 15), None, None,
+		("2026-07-15 02:40:00+0100", "2026-07-15 05:01:00+0100",
+		 "2026-07-15 13:07:00+0100", "2026-07-15 17:25:00+0100",
+		 "2026-07-15 21:11:00+0100", "2026-07-16 00:49:00+0100",
+		 "2026-07-15 23:56:00+0100", "2026-07-16 00:51:00+0100")),
+)
+
+EIGHT_TIME_FIELDS = (
+	"fajr", "sunrise", "dhuhr", "asr", "maghrib", "isha", "midnight", "last_third_start",
+)
+
+
 class PrayerReferenceSamplesTests(unittest.TestCase):
 	@classmethod
 	def setUpClass(cls) -> None:
@@ -72,6 +106,26 @@ class PrayerReferenceSamplesTests(unittest.TestCase):
 			winter = __import__("datetime").datetime(2026, 1, 15, 12, tzinfo=zone).utcoffset()
 			summer = __import__("datetime").datetime(2026, 7, 15, 12, tzinfo=zone).utcoffset()
 			self.assertEqual(summer - winter, timedelta(hours=1))
+
+
+	def test_reference_cities_expose_eight_fixed_dated_times(self) -> None:
+		for (name, lat, lon, zone, country, day, today_ramadan, next_day_ramadan,
+				expected) in EIGHT_TIME_SAMPLES:
+			today_request = PrayerCalculationRequest(day, lat, lon, zone,
+				CalculationMethod.AUTO, AsrMethod.STANDARD, HighLatitudeRule.AUTO,
+				country_code=country, is_ramadan=today_ramadan)
+			next_day_request = PrayerCalculationRequest(day + timedelta(days=1), lat, lon, zone,
+				CalculationMethod.AUTO, AsrMethod.STANDARD, HighLatitudeRule.AUTO,
+				country_code=country, is_ramadan=next_day_ramadan)
+			today = self.service.calculate(today_request)
+			next_day = self.service.calculate(next_day_request)
+			completed = complete_prayer_times(today, next_day.fajr)
+			actual = tuple(
+				getattr(completed, field).strftime("%Y-%m-%d %H:%M:%S%z")
+				for field in EIGHT_TIME_FIELDS
+			)
+			with self.subTest(name=name):
+				self.assertEqual(actual, expected)
 
 
 if __name__ == "__main__":
