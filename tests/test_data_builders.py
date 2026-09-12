@@ -75,6 +75,7 @@ class LocationBuilderTests(unittest.TestCase):
 
 	def test_build_keeps_geoname_identity_fields_names_and_country_split(self) -> None:
 		metadata = build_locations.build(self.args(self.root / "out"))
+		self.assertEqual(metadata["schemaVersion"], 2)
 		self.assertEqual(metadata["cityCount"], 4)
 		self.assertEqual(metadata["countryCount"], 2)
 		self.assertEqual({entry["code"] for entry in metadata["countries"]}, {"SA", "US"})
@@ -86,11 +87,13 @@ class LocationBuilderTests(unittest.TestCase):
 		self.assertEqual((city["lat"], city["lon"], city["tz"]), (10.5, 20.5, "Asia/Riyadh"))
 		self.assertEqual((city["p"], city["r"], city["a1"]), (7000000, 0, "Riyadh Region"))
 		self.assertNotIn("999", (self.root / "out/countries/SA.json.gz").read_bytes().decode("latin1"))
+		self.assertTrue((self.root / "out/spatial-index.bin.gz").is_file())
+		self.assertEqual(metadata["spatialIndex"]["cityCount"], 4)
 
 	def test_repeated_generation_is_byte_for_byte_deterministic(self) -> None:
 		build_locations.build(self.args(self.root / "one"))
 		build_locations.build(self.args(self.root / "two"))
-		for relative in ("metadata.json", "countries/SA.json.gz", "countries/US.json.gz"):
+		for relative in ("metadata.json", "spatial-index.bin.gz", "countries/SA.json.gz", "countries/US.json.gz"):
 			self.assertEqual((self.root / "one" / relative).read_bytes(), (self.root / "two" / relative).read_bytes())
 
 	def test_invalid_city_record_fails_with_a_known_error(self) -> None:

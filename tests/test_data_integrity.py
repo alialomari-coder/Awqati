@@ -29,6 +29,10 @@ class GeneratedDataIntegrityTests(unittest.TestCase):
 		actual = {path.resolve() for path in (root / "countries").glob("*.json.gz")}
 		self.assertEqual(actual, listed)
 		self.assertEqual(total, metadata["cityCount"])
+		spatial = metadata["spatialIndex"]
+		spatial_path = root / spatial["file"]
+		self.assertEqual(hashlib.sha256(spatial_path.read_bytes()).hexdigest(), spatial["sha256"])
+		self.assertEqual(spatial["cityCount"], metadata["cityCount"])
 
 	def test_every_timezone_file_checksum_and_path_matches_metadata(self) -> None:
 		root = DATA / "timezones"

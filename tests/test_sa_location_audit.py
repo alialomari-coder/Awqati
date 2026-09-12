@@ -48,7 +48,10 @@ class SaudiLocationAuditTests(unittest.TestCase):
 		payload = json.loads(SUPPLEMENT.read_text(encoding="utf-8"))
 		metadata_path = SA_DATA.parent.parent / "metadata.json"
 		metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
-		self.assertEqual(metadata["locationDataVersion"], "geonames-cities500-2026-09-11+sa-2026-09-12.1")
+		self.assertEqual(
+			metadata["locationDataVersion"],
+			"geonames-cities500-2026-09-11+sa-2026-09-12.1+spatial-1",
+		)
 		self.assertEqual(
 			metadata["saudiSupplement"]["sha256"],
 			__import__("hashlib").sha256(SUPPLEMENT.read_bytes()).hexdigest(),

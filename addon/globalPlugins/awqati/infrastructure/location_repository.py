@@ -6,16 +6,22 @@ from collections import OrderedDict
 import gzip
 import hashlib
 import json
+import math
 from pathlib import Path
 import re
+import struct
 import unicodedata
 from typing import Any
 
 from ..application import CountryInfo, LocationMatch
-from ..domain import Location
+from ..domain import Coordinates, Location
 
 
 _COUNTRY_CODE = re.compile(r"[A-Z]{2}")
+_SPATIAL_MAGIC = b"AWQSPAT1"
+_SPATIAL_SCHEMA_VERSION = 1
+_SPATIAL_HEADER = struct.Struct(">8sHI")
+_SPATIAL_ENTRY = struct.Struct(">dd2sIBI")
 
 
 class LocationDataError(RuntimeError):
@@ -60,11 +66,17 @@ class BundledLocationRepository:
 		self._metadata: dict[str, Any] | None = None
 		self._country_entries: dict[str, dict[str, Any]] | None = None
 		self._cache: OrderedDict[str, tuple[dict[str, Any], ...]] = OrderedDict()
+		self._spatial_data: bytes | None = None
 
 	@property
 	def loaded_country_codes(self) -> tuple[str, ...]:
 		"""Expose bounded cache state for diagnostics and lazy-loading tests."""
 		return tuple(self._cache)
+
+	@property
+	def spatial_index_loaded(self) -> bool:
+		"""Report whether an explicit nearest-location request loaded the small index."""
+		return self._spatial_data is not None
 
 	@property
 	def location_data_version(self) -> str:
@@ -105,6 +117,34 @@ class BundledLocationRepository:
 				return self._to_match(code, record)
 		return None
 
+	def nearest(self, latitude: float, longitude: float) -> LocationMatch:
+		"""Return the deterministic great-circle nearest bundled location."""
+		coordinates = Coordinates(float(latitude), float(longitude))
+		data = self._load_spatial_index()
+		best_key: tuple[float, int, int, int, str] | None = None
+		best_identity: tuple[str, str] | None = None
+		for offset in range(_SPATIAL_HEADER.size, len(data), _SPATIAL_ENTRY.size):
+			candidate_latitude, candidate_longitude, raw_code, identifier, rank, population = _SPATIAL_ENTRY.unpack_from(
+				data, offset
+			)
+			code = raw_code.decode("ascii")
+			distance = self._central_angle(
+				coordinates.latitude,
+				coordinates.longitude,
+				candidate_latitude,
+				candidate_longitude,
+			)
+			key = (distance, rank, -population, identifier, code)
+			if best_key is None or key < best_key:
+				best_key = key
+				best_identity = (code, str(identifier))
+		if best_identity is None:
+			raise LocationDataError("Spatial index contains no locations")
+		match = self.get(*best_identity)
+		if match is None:
+			raise LocationDataError(f"Spatial index points to missing location: {best_identity}")
+		return match
+
 	@staticmethod
 	def _validate_country_code(country_code: str) -> str:
 		code = country_code.strip().upper()
@@ -121,7 +161,7 @@ class BundledLocationRepository:
 		except (OSError, UnicodeError, json.JSONDecodeError) as error:
 			raise LocationDataError(f"Cannot read location metadata: {error}") from error
 		try:
-			if metadata["schemaVersion"] != 1 or not metadata["locationDataVersion"]:
+			if metadata["schemaVersion"] != 2 or not metadata["locationDataVersion"]:
 				raise ValueError("unsupported or empty metadata version")
 			countries = metadata["countries"]
 			if metadata["countryCount"] != len(countries):
@@ -134,6 +174,39 @@ class BundledLocationRepository:
 		self._metadata = metadata
 		self._country_entries = entries
 		return metadata
+
+	def _load_spatial_index(self) -> bytes:
+		if self._spatial_data is not None:
+			return self._spatial_data
+		metadata = self._load_metadata()
+		try:
+			entry = metadata["spatialIndex"]
+			if entry["schemaVersion"] != _SPATIAL_SCHEMA_VERSION or entry["cityCount"] != metadata["cityCount"]:
+				raise ValueError("spatial index metadata does not match")
+			path = self._data_root / entry["file"]
+			compressed = path.read_bytes()
+			if hashlib.sha256(compressed).hexdigest() != entry["sha256"]:
+				raise ValueError("checksum mismatch")
+			data = gzip.decompress(compressed)
+			if len(data) != entry["uncompressedBytes"]:
+				raise ValueError("uncompressed size mismatch")
+			magic, schema_version, count = _SPATIAL_HEADER.unpack_from(data)
+			if magic != _SPATIAL_MAGIC or schema_version != _SPATIAL_SCHEMA_VERSION or count != entry["cityCount"]:
+				raise ValueError("spatial index header does not match")
+			if len(data) != _SPATIAL_HEADER.size + count * _SPATIAL_ENTRY.size:
+				raise ValueError("spatial index entry count does not match")
+		except (KeyError, OSError, TypeError, UnicodeError, ValueError, gzip.BadGzipFile, struct.error) as error:
+			raise LocationDataError(f"Cannot read spatial index: {error}") from error
+		self._spatial_data = data
+		return data
+
+	@staticmethod
+	def _central_angle(latitude1: float, longitude1: float, latitude2: float, longitude2: float) -> float:
+		lat1, lat2 = math.radians(latitude1), math.radians(latitude2)
+		dlat = lat2 - lat1
+		dlon = math.radians(longitude2 - longitude1)
+		value = math.sin(dlat / 2.0) ** 2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon / 2.0) ** 2
+		return 2.0 * math.asin(min(1.0, math.sqrt(value)))
 
 	def _load_country(self, code: str) -> tuple[dict[str, Any], ...]:
 		if code in self._cache:

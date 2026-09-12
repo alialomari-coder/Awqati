@@ -24,6 +24,7 @@ from awqati.infrastructure import (  # noqa: E402
 	LocationDataError,
 	normalize_location_text,
 )
+from tools import build_locations  # noqa: E402
 
 
 DATA_ROOT = PLUGIN_PACKAGES / "awqati" / "data" / "locations"
@@ -110,6 +111,63 @@ assert repository.loaded_country_codes == ()
 			match = BundledLocationRepository().search("MY", "Kuala Lumpur")[0]
 		self.assertEqual(match.location.timezone_id, "Asia/Kuala_Lumpur")
 
+	def test_nearest_uses_local_index_then_loads_only_the_winning_country(self) -> None:
+		for latitude, longitude, identifier, name, country in (
+			(24.7136, 46.6753, "108410", "Riyadh", "SA"),
+			(51.5074, -0.1278, "2643743", "London", "GB"),
+			(40.7128, -74.0060, "5128581", "New York City", "US"),
+		):
+			repository = BundledLocationRepository()
+			self.assertFalse(repository.spatial_index_loaded)
+			with self.subTest(name=name), mock.patch.object(
+				socket, "socket", side_effect=AssertionError("network attempted")
+			):
+				match = repository.nearest(latitude, longitude)
+				self.assertEqual(
+					(match.location.location_id, match.location.name, match.country_code),
+					(identifier, name, country),
+				)
+				self.assertTrue(repository.spatial_index_loaded)
+				self.assertEqual(repository.loaded_country_codes, (country,))
+
+	def test_nearest_tie_break_is_independent_of_file_and_dictionary_order(self) -> None:
+		with tempfile.TemporaryDirectory() as temporary:
+			root = Path(temporary)
+			(root / "countries").mkdir()
+			grouped = {
+				"ZZ": [
+					{"i": "30", "n": "Ranked", "x": "Ranked", "e": [], "a": [], "lat": 0.0, "lon": -1.0, "tz": "Etc/UTC", "a1": "", "a2": "", "p": 1, "f": "PPLC", "r": 0},
+					{"i": "20", "n": "Later", "x": "Later", "e": [], "a": [], "lat": 0.0, "lon": 1.0, "tz": "Etc/UTC", "a1": "", "a2": "", "p": 999, "f": "PPL", "r": 9},
+				],
+			}
+			payload = gzip.compress(json.dumps({"schemaVersion": 1, "countryCode": "ZZ", "cities": grouped["ZZ"]}, sort_keys=True).encode(), mtime=0)
+			(root / "countries/ZZ.json.gz").write_bytes(payload)
+			spatial = build_locations.write_spatial_index(grouped, root)
+			metadata = {
+				"schemaVersion": 2, "locationDataVersion": "fixture", "cityCount": 2, "countryCount": 1,
+				"countries": [{"code": "ZZ", "name": "Test", "cityCount": 2, "file": "countries/ZZ.json.gz", "sha256": hashlib.sha256(payload).hexdigest()}],
+				"spatialIndex": spatial,
+			}
+			(root / "metadata.json").write_text(json.dumps(metadata), encoding="utf-8")
+			self.assertEqual(BundledLocationRepository(root).nearest(0.0, 0.0).location.location_id, "30")
+
+	def test_corrupt_spatial_index_is_rejected_without_loading_countries(self) -> None:
+		with tempfile.TemporaryDirectory() as temporary:
+			root = Path(temporary)
+			(root / "countries").mkdir()
+			compressed = gzip.compress(b"bad", mtime=0)
+			(root / "spatial-index.bin.gz").write_bytes(compressed)
+			metadata = {
+				"schemaVersion": 2, "locationDataVersion": "fixture", "cityCount": 1, "countryCount": 0,
+				"countries": [],
+				"spatialIndex": {"schemaVersion": 1, "file": "spatial-index.bin.gz", "cityCount": 1, "uncompressedBytes": 3, "sha256": hashlib.sha256(compressed).hexdigest()},
+			}
+			(root / "metadata.json").write_text(json.dumps(metadata), encoding="utf-8")
+			repository = BundledLocationRepository(root)
+			with self.assertRaises(LocationDataError):
+				repository.nearest(0, 0)
+			self.assertEqual(repository.loaded_country_codes, ())
+
 
 class SaudiCorrectiveReviewTests(unittest.TestCase):
 	def test_required_arabic_searches_resolve_to_the_reviewed_single_records(self) -> None:
@@ -144,7 +202,7 @@ class BundledWorldCoverageTests(unittest.TestCase):
 	def test_metadata_matches_every_generated_country_file_and_is_global(self) -> None:
 		metadata = json.loads((DATA_ROOT / "metadata.json").read_text(encoding="utf-8"))
 		files = sorted((DATA_ROOT / "countries").glob("*.json.gz"))
-		self.assertEqual(metadata["locationDataVersion"], "geonames-cities500-2026-09-11+sa-2026-09-12.1")
+		self.assertEqual(metadata["locationDataVersion"], "geonames-cities500-2026-09-11+sa-2026-09-12.1+spatial-1")
 		self.assertEqual(metadata["countryCount"], len(files))
 		self.assertEqual(metadata["countryCount"], len(metadata["countries"]))
 		self.assertEqual(metadata["cityCount"], sum(entry["cityCount"] for entry in metadata["countries"]))

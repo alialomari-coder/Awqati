@@ -12,6 +12,7 @@ import json
 import math
 from pathlib import Path
 import re
+import struct
 from typing import Iterator
 import unicodedata
 import zipfile
@@ -26,6 +27,10 @@ SOURCE_URLS = {
 }
 ADMIN_RANKS = {"PPLC": 0, "PPLA": 1, "PPLA2": 2, "PPLA3": 3, "PPLA4": 4}
 SA_DUPLICATE_DISTANCE_KM = 1.0
+SPATIAL_MAGIC = b"AWQSPAT1"
+SPATIAL_SCHEMA_VERSION = 1
+SPATIAL_HEADER = struct.Struct(">8sHI")
+SPATIAL_ENTRY = struct.Struct(">dd2sIBI")
 
 
 class BuildLocationError(RuntimeError):
@@ -263,6 +268,36 @@ def _gzip_json(payload: object) -> bytes:
 	return gzip.compress(encoded, compresslevel=9, mtime=0)
 
 
+def write_spatial_index(grouped: dict[str, list[dict[str, object]]], output: Path) -> dict[str, object]:
+	"""Write the exact global nearest-neighbor scan index from generated records."""
+	count = sum(len(records) for records in grouped.values())
+	data = bytearray(SPATIAL_HEADER.pack(SPATIAL_MAGIC, SPATIAL_SCHEMA_VERSION, count))
+	for code in sorted(grouped):
+		encoded_code = code.encode("ascii")
+		for record in sorted(grouped[code], key=lambda item: int(str(item["i"]))):
+			try:
+				data.extend(SPATIAL_ENTRY.pack(
+					float(record["lat"]),
+					float(record["lon"]),
+					encoded_code,
+					int(str(record["i"])),
+					int(record["r"]),
+					int(record["p"]),
+				))
+			except (KeyError, OverflowError, TypeError, ValueError, struct.error) as error:
+				raise BuildLocationError(f"Location {record.get('i')} cannot be written to the spatial index") from error
+	compressed = gzip.compress(bytes(data), compresslevel=9, mtime=0)
+	filename = "spatial-index.bin.gz"
+	(output / filename).write_bytes(compressed)
+	return {
+		"schemaVersion": SPATIAL_SCHEMA_VERSION,
+		"file": filename,
+		"cityCount": count,
+		"uncompressedBytes": len(data),
+		"sha256": hashlib.sha256(compressed).hexdigest(),
+	}
+
+
 def build(args: argparse.Namespace) -> dict[str, object]:
 	cities_path = Path(args.cities)
 	alternate_path = Path(args.alternate_names)
@@ -313,6 +348,7 @@ def build(args: argparse.Namespace) -> dict[str, object]:
 	for old_path in countries_dir.glob("*.json.gz"):
 		if old_path.name not in generated_names:
 			old_path.unlink()
+	spatial_index = write_spatial_index(grouped, output)
 
 	source_paths = {
 		"cities": cities_path,
@@ -322,7 +358,7 @@ def build(args: argparse.Namespace) -> dict[str, object]:
 		"admin2": admin2_path,
 	}
 	metadata: dict[str, object] = {
-		"schemaVersion": 1,
+		"schemaVersion": 2,
 		"locationDataVersion": args.location_data_version,
 		"generatedAt": args.generated_at,
 		"sourceSnapshotDate": args.source_snapshot_date,
@@ -331,6 +367,7 @@ def build(args: argparse.Namespace) -> dict[str, object]:
 		"cityCount": len(cities),
 		"countryCount": len(entries),
 		"countries": entries,
+		"spatialIndex": spatial_index,
 		"sources": {
 			key: {"url": SOURCE_URLS[key], "sha256": sha256(path)}
 			for key, path in source_paths.items()

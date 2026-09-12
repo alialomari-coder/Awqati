@@ -43,7 +43,7 @@ class LocationSearchOrderTests(unittest.TestCase):
 			compressed = gzip.compress(payload, mtime=0)
 			(root / "countries/US.json.gz").write_bytes(compressed)
 			metadata = {
-				"schemaVersion": 1, "locationDataVersion": "fixture", "cityCount": 4, "countryCount": 1,
+				"schemaVersion": 2, "locationDataVersion": "fixture", "cityCount": 4, "countryCount": 1,
 				"countries": [{
 					"code": "US", "name": "United States", "cityCount": 4,
 					"file": "countries/US.json.gz", "sha256": hashlib.sha256(compressed).hexdigest(),

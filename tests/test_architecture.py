@@ -68,6 +68,18 @@ class ArchitectureTests(unittest.TestCase):
 					})
 					self.assertNotIn(_layer(imported), {"application", "infrastructure", "nvda_adapter"})
 
+	def test_application_has_no_platform_nvda_or_io_imports(self) -> None:
+		for module, (path, is_package) in _project_sources().items():
+			if _layer(module) != "application":
+				continue
+			for imported in _imports(module, path, is_package):
+				with self.subTest(module=module, imported=imported):
+					self.assertNotIn(imported.split(".")[0], {
+						"addonHandler", "api", "config", "ctypes", "globalPluginHandler", "gui",
+						"os", "pathlib", "socket", "subprocess", "ui", "urllib", "winreg", "wx",
+					})
+					self.assertNotIn(_layer(imported), {"infrastructure", "nvda_adapter"})
+
 	def test_dependency_direction_and_import_graph_are_acyclic(self) -> None:
 		sources = _project_sources()
 		allowed = {

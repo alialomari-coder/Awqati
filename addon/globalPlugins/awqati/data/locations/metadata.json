@@ -1727,7 +1727,7 @@
   "countryCount": 246,
   "generatedAt": "2026-09-12",
   "license": "CC BY 4.0",
-  "locationDataVersion": "geonames-cities500-2026-09-11+sa-2026-09-12.1",
+  "locationDataVersion": "geonames-cities500-2026-09-11+sa-2026-09-12.1+spatial-1",
   "saudiSupplement": {
     "added": 25,
     "augmented": 45,
@@ -1736,7 +1736,7 @@
     "sha256": "4bf8a71ba3c472fef8cf537244ebf5dbb616dc7278cd61a5a99e9dbcd64e84b5",
     "version": "sa-official-review-2026-09-12.1"
   },
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "source": "GeoNames cities500 with reviewed Saudi supplement",
   "sourceSnapshotDate": "2026-09-11",
   "sources": {
@@ -1760,5 +1760,12 @@
       "sha256": "93bafc525813f22e4711ff9ed6d626343094ce48c26388dc7c49189b3d7d5512",
       "url": "https://download.geonames.org/export/dump/countryInfo.txt"
     }
+  },
+  "spatialIndex": {
+    "cityCount": 235757,
+    "file": "spatial-index.bin.gz",
+    "schemaVersion": 1,
+    "sha256": "85b2dce6afc0cbf7e803035e1b5f7868954adb68aa474e967eefce9f08f62239",
+    "uncompressedBytes": 6365453
   }
 }

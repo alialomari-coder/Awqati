@@ -13,9 +13,19 @@ admin1CodesASCII, and admin2Codes. All inputs use the official GeoNames dump
 at https://download.geonames.org/export/dump/.
 
 The generated location data version is
-`geonames-cities500-2026-09-11+sa-2026-09-12.1`. Exact source URLs and SHA-256 digests are
+`geonames-cities500-2026-09-11+sa-2026-09-12.1+spatial-1`. Exact source URLs and SHA-256 digests are
 stored in
 `addon/globalPlugins/awqati/data/locations/metadata.json`.
+
+Task 1.2 raises the location metadata schema to version 2 and adds
+`spatial-index.bin.gz`. The build tool derives this index from the same generated
+city records; it introduces no additional geographic source. Each fixed-width
+binary entry contains only latitude, longitude, two-letter country code, stable
+GeoNames identifier, administrative rank, and population. It contains no names.
+The runtime verifies its SHA-256 digest, header, schema, entry count, and
+uncompressed size before scanning it. The index is loaded only for an explicit
+nearest-coordinate request, and the repository then loads only the winning
+country file.
 
 GeoNames data is licensed under CC BY 4.0. The bundled NOTICE and license text
 are stored beside the generated metadata.
@@ -23,7 +33,7 @@ are stored beside the generated metadata.
 Example generation command:
 
 ```powershell
-python tools/build_locations.py --cities C:\data\cities500.zip --alternate-names C:\data\alternateNamesV2.zip --country-info C:\data\countryInfo.txt --admin1 C:\data\admin1CodesASCII.txt --admin2 C:\data\admin2Codes.txt --sa-supplement data_sources\sa_locations_supplement.v1.json --output addon\globalPlugins\awqati\data\locations --location-data-version geonames-cities500-2026-09-11+sa-2026-09-12.1 --source-snapshot-date 2026-09-11 --generated-at 2026-09-12
+python tools/build_locations.py --cities C:\data\cities500.zip --alternate-names C:\data\alternateNamesV2.zip --country-info C:\data\countryInfo.txt --admin1 C:\data\admin1CodesASCII.txt --admin2 C:\data\admin2Codes.txt --sa-supplement data_sources\sa_locations_supplement.v1.json --output addon\globalPlugins\awqati\data\locations --location-data-version geonames-cities500-2026-09-11+sa-2026-09-12.1+spatial-1 --source-snapshot-date 2026-09-11 --generated-at 2026-09-12
 ```
 
 ## Reviewed Saudi supplement

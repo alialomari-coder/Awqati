@@ -6,7 +6,15 @@ from dataclasses import dataclass
 from datetime import tzinfo
 from typing import Protocol, runtime_checkable
 
-from ..domain import Instant, Location
+from ..domain import Coordinates, Instant, Location, LocationDetectionFailure
+
+
+class LocationDetectionError(RuntimeError):
+	"""A typed platform-location failure safe for application orchestration."""
+
+	def __init__(self, failure: LocationDetectionFailure, message: str = "") -> None:
+		super().__init__(message or failure.value)
+		self.failure = failure
 
 
 @dataclass(frozen=True, slots=True)
@@ -61,6 +69,9 @@ class LocationRepository(Protocol):
 	def get(self, country_code: str, location_id: str) -> LocationMatch | None:
 		...
 
+	def nearest(self, latitude: float, longitude: float) -> LocationMatch:
+		...
+
 
 @runtime_checkable
 class TimezoneProvider(Protocol):
@@ -71,4 +82,12 @@ class TimezoneProvider(Protocol):
 		...
 
 	def get_timezone(self, timezone_id: str) -> tzinfo:
+		...
+
+
+@runtime_checkable
+class CoordinateProvider(Protocol):
+	"""Read one explicitly requested coordinate fix from an external platform."""
+
+	def get_coordinates(self) -> Coordinates:
 		...
