@@ -190,3 +190,68 @@ Reference: https://cldr.unicode.org/index/downloads/cldr-48 and the release-48-2
 Source and algorithm identifiers are pinned in runtime metadata or provider
 properties and asserted by tests. No calendar runtime path or normal test
 requires network access.
+
+## Qibla and astronomy sources for task 2.3
+
+Task 2.3 is entirely computational at runtime. It introduces no astronomy data
+file and performs no network request. The single composite implementation
+identifier is `awqati-astronomy-meeus2-noaa-1901-2099-v1`; source code exposes
+it as `ASTRONOMY_ALGORITHM_VERSION` and every astronomy result repeats it in
+metadata. The supported civil-year range is 1901 through 2099 inclusive. This
+deliberately narrower product range keeps the stated Delta T and solar accuracy
+meaningful even though some source polynomials have a wider mathematical range.
+
+### Closed source matrix
+
+| Required result | Pinned source and exact part | Time scale and UTC conversion | Supported range and expected accuracy | License/data/runtime status |
+| --- | --- | --- | --- | --- |
+| Current astronomical season | Jean Meeus, *Astronomical Algorithms*, 2nd ed., Willmann-Bell, 1998, chapter 27, tables 27.A/27.B and 27.C; season boundaries are the calculated equinox/solstice instants. USNO definitions: https://aa.usno.navy.mil/faq/asa_glossary | Meeus returns JDE in TT. Awqati subtracts Delta T from the NASA model below to obtain UTC, then compares absolute instants. | Product range 1901..2099. Meeus states the chapter-27 corrected instants are within about one minute for the modern era; tests use a 2-minute tolerance against USNO tables. | Published algorithm, implemented independently; no copied code or bundled data. Bibliographic use only. |
+| Next equinox or solstice and local time | Same Meeus chapter 27 polynomial and 24-term periodic correction. “Next” means the first event whose UTC instant is strictly greater than `NowProvider.now()`; equality belongs to the new season and skips to the following event. | TT -> UTC with Delta T, followed by the existing bundled IANA timezone provider. | 1901..2099; 2-minute comparison tolerance. DST behavior is governed by bundled tzdata, not a fixed offset. | Same as above; computational only. |
+| Day length | NOAA Global Monitoring Laboratory, *Sunrise/Sunset Calculations*, equations and 90.833-degree zenith definition: https://gml.noaa.gov/grad/solcalc/solareqns.PDF ; calculation notes: https://gml.noaa.gov/grad/solcalc/calcdetails.html | Solar equations use UTC Julian day and produce UTC minutes, then Awqati converts each instant through the bundled IANA zone. | 1901..2099. NOAA describes calculator results as theoretically accurate within about one minute for latitudes between +/-72 degrees and within about ten minutes outside them; atmospheric conditions can shift observed rise/set. | US-government NOAA material; computational only, no bundled table and no runtime network. |
+| Night length | Same NOAA sunrise/sunset calculation. Scientific night here is the complement of apparent-sun day between one sunset and the next sunrise, using zenith 90.833 degrees; it is not a prayer high-latitude policy. | UTC instants as above; duration is calculated between absolute instants. | Same solar limits. Polar day and polar night are explicit states; no NearestLatitude, NightMiddle, OneSeventh, or AngleBased substitution is made. | Same as above. |
+| Moon phase | USNO principal-phase definition (Moon minus Sun apparent ecliptic longitude at 0, 90, 180, and 270 degrees): https://aa.usno.navy.mil/faq/asa_glossary . Intermediate longitude comes from Meeus 2nd ed., chapters 25 and 47. Eight spoken phase names use equal 45-degree sectors centered on those four principal phases; the fixed half-sector boundaries are 22.5, 67.5, 112.5, 157.5, 202.5, 247.5, 292.5, and 337.5 degrees. | Positions are evaluated at UTC Julian day; the small TT/UTC difference is below the promised phase-description precision in this product range. | 1901..2099. Phase-sector classification is deterministic; longitude is expected within roughly 0.1 degree with the retained Meeus lunar terms. | Published equations implemented independently; thresholds are an explicit Awqati presentation policy derived from equal sectors, not external data. |
+| Approximate Moon age | Meeus chapter 49 new-moon event algorithm. Age is defined as elapsed absolute time from the most recent calculated geocentric new moon to the requested instant, expressed in mean solar days. | Phase JDE is TT; subtract NASA Delta T to UTC before duration arithmetic. | 1901..2099. Event accuracy/tolerance is 2 minutes; the displayed age is explicitly approximate and is not elongation divided by a fixed synodic month. | Computational only; no runtime data. |
+| Moon illumination | Meeus 2nd ed., chapter 48, illuminated fraction `k=(1+cos(i))/2`, with geocentric elongation and the chapter's phase-angle correction using Sun-Moon distances from chapters 25 and 47. | Evaluated for the requested UTC Julian day; returned as a fraction in [0,1]. | 1901..2099. Expected fraction agreement is within 0.01 against an independent ephemeris; display may round to one decimal percent. | Computational only; no runtime data. |
+| Next new moon | Meeus chapter 49, equations 49.1 through 49.5 and the new-moon periodic correction table. The event exactly equal to now is not “next”; search requires a strictly later UTC instant. | JDE(TT) -> UTC with NASA Delta T. | 1901..2099; 2-minute reference tolerance. | Computational only. |
+| Next full moon | Meeus chapter 49, equations 49.1 through 49.5 and the full-moon periodic correction table. Strictly later semantics match next new moon. | JDE(TT) -> UTC with NASA Delta T. | 1901..2099; 2-minute reference tolerance. | Computational only. |
+
+### Time scales and Delta T
+
+The seasonal and lunation algorithms produce Julian Ephemeris Day in
+Terrestrial Time (TT). Awqati converts it to UTC with `TT - Delta T`, where
+Delta T is `TT - UT1`; for this product's minute-level event precision UT1 is
+treated as UTC. The model is Fred Espenak and Jean Meeus, NASA GSFC,
+*Polynomial Expressions for Delta T*, revision displayed by the source page,
+https://eclipse.gsfc.nasa.gov/LEcat5/deltatpoly.html. Awqati uses the published
+1900..1920, 1920..1941, 1941..1961, 1961..1986, 1986..2005, and 2005..2050
+pieces, plus the published 2050..2150 piece for 2050..2099. NASA documents the
+complete model for years -1999 through +3000. The model is computational and
+no table is redistributed. As a US-government NASA publication it introduces
+no third-party runtime-code license.
+
+### Reference provenance and tolerances
+
+Season and principal-lunar-phase test instants are transcribed independently
+from United States Naval Observatory published tables, including *Phases of the
+Moon 2000-2049* (Circular 169):
+https://aa.usno.navy.mil/downloads/Circular_169_coverupdate.pdf and the USNO
+Astronomical Applications service at https://aa.usno.navy.mil/. Test comments
+record the table and UTC instant. Solar samples are independently generated
+from the NOAA calculator/equations above. Qibla tests independently cross-check
+the city samples with the WGS84 inverse solution in T. Vincenty, “Direct and
+Inverse Solutions of Geodesics on the Ellipsoid with Application of Nested
+Equations,” *Survey Review* 23(176), 1975, pp. 88-93,
+https://doi.org/10.1179/sre.1975.23.176.88. The test-only implementation is not
+used by the product. Acceptance allows up to 0.5 degree for the intentional
+spherical-versus-WGS84 model difference.
+
+### Qibla calculation
+
+The Kaaba coordinate is stored once as `KAABA_COORDINATES`: latitude
+21.422487 north, longitude 39.826206 east. `QiblaService` uses the standard
+spherical initial great-circle bearing
+`atan2(sin(Delta lambda) cos(phi2), cos(phi1) sin(phi2) - sin(phi1) cos(phi2)
+cos(Delta lambda))`, normalized to `[0, 360)`, clockwise from true north. The
+coincident point and the spherical antipode are singular and raise a typed
+error instead of returning NaN or an arbitrary direction. No magnetic north,
+map, device orientation, sensor, or network service is involved.

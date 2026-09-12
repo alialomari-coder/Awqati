@@ -143,11 +143,14 @@ class ArchitectureTests(unittest.TestCase):
 from datetime import datetime, timezone
 import sys
 from awqati.application import (
-    ArabicWordClockFormatter, ClockFormatter, ClockService,
+    ArabicQiblaFormatter, ArabicWordClockFormatter, AstronomyService,
+    ClockFormatter, ClockService,
     EnglishWordClockFormatter, NowProvider, NumericClockFormatter,
+    QiblaService,
 )
 from awqati.domain import (
-    DomainEvent, Instant, Location, TimeRepresentation,
+    ASTRONOMY_ALGORITHM_VERSION, Coordinates, DomainEvent, Instant,
+    Location, TimeRepresentation, initial_qibla_bearing,
 )
 from support.event_clock import EventClock
 
@@ -170,6 +173,11 @@ clock.set(second)
 assert clock.now() == second
 assert location.timezone_id == 'Asia/Riyadh'
 assert ClockService is not None
+assert AstronomyService is not None
+assert QiblaService is not None
+assert ASTRONOMY_ALGORITHM_VERSION
+assert round(initial_qibla_bearing(Coordinates(24.7136, 46.6753)), 1) == 243.8
+assert ArabicQiblaFormatter() is not None
 assert isinstance(ArabicWordClockFormatter(), ClockFormatter)
 assert isinstance(EnglishWordClockFormatter(), ClockFormatter)
 assert isinstance(NumericClockFormatter('ar'), ClockFormatter)
