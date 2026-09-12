@@ -99,3 +99,46 @@ The decided future default for a new user's calculation-method setting is
 `AUTO`. This task does not create settings storage or UI. An `AUTO` request
 remains logically `AUTO`; `CountryMethodResolver` selects a separate effective
 method at calculation time, and metadata records both values.
+
+## Calendar sources for task 2.2
+
+This section records the sources and version boundaries approved before implementation. It does not start task 2.2 and introduces no runtime data or code.
+
+### Calendar identities and version fields
+
+The planned identifiers are `GREGORIAN`, `HIJRI_UMM_AL_QURA`, `SAUDI_SOLAR_HIJRI`, `PERSIAN_SOLAR_HIJRI`, and `AFGHAN_SOLAR_HIJRI`. Each has a separate provider contract. Providers may share low-level date utilities, but language, locale, or a generic solar-Hijri switch must never choose the calendar algorithm.
+
+`hijriDataVersion` belongs only to the lunar Umm al-Qura lookup table. The Saudi, Persian, and Afghan solar calendars expose an independent `algorithmVersion`. They do not expose a `dataVersion` unless a real versioned table is introduced later. The lunar Umm al-Qura provider and Saudi solar-Hijri provider remain independent even when Saudi reference material informs both.
+
+### Umm al-Qura lunar and Saudi Solar Hijri
+
+The lunar `HIJRI_UMM_AL_QURA` provider will use a separately documented and versioned table of Umm al-Qura month starts. Its table version is `hijriDataVersion`. The exact table artifact, coverage, digest, and redistribution terms must be pinned during task 2.2 before code is accepted.
+
+The `SAUDI_SOLAR_HIJRI` provider is a different algorithm and identity. Its project reference remains Saudi Umm al-Qura calendar material about the solar-Hijri dates and zodiac-day system; it never reads the lunar table or calls the lunar provider. The documented rule starts 1 al-Mizan on 23 September, uses the twelve zodiac months and their specified lengths, and derives the year boundary independently. Its metadata field is `saudiSolarHijriAlgorithmVersion`.
+
+Saudi references retained by the specification: https://www.mof.gov.sa/en/help/faq/Pages/FAQ_008.aspx, https://www.uqn.gov.sa/details?p=19215, https://www.uqn.gov.sa/decisions-and-regulations/royal-decrees/4000899, and https://astronomycenter.net/article/gadi_error.html.
+
+### Persian Solar Hijri
+
+The implementation target is the arithmetic Persian calendar in ICU 78.3, restricted by Awqati to Solar Hijri years 1304 through 1468 (approximately 1925 through 2090 CE). ICU documents that its 33-year arithmetic behavior matches the official calendar over approximately this interval and warns that the commonly cited 2820-year cycle is incorrect. Awqati must reject out-of-range input explicitly; it must not silently switch algorithm, clamp, or claim perpetual official accuracy. The Iranian 1304 law defines the year as a true solar year beginning on the first day of spring; months 1-6 have 31 days, months 7-11 have 30, and Esfand has 29 or 30. ICU supplies the pinned arithmetic leap and Gregorian-conversion behavior for this bounded implementation; it is an algorithm, not versioned calendar data.
+
+Primary references:
+
+- Iranian 1925 calendar law transcription: https://fa.wikisource.org/wiki/قانون_تبدیل_بروج_به_ماههای_فارسی_از_نوروز_۱۳۰۴_شمسی
+- ICU `PersianCalendar` documentation and ICU 78.3 release: https://unicode-org.github.io/icu-docs/apidoc/dev/icu4j/com/ibm/icu/util/PersianCalendar.html and https://github.com/unicode-org/icu/releases/
+
+### Afghan Solar Hijri
+
+The Afghan provider follows the normative locale requirement published through UNDP/Unicode: Solar Hijri year `x` is leap when Gregorian year `x+621` is leap, anchored by 1 Hamal 1382 = 21 March 2003. The document states that Afghan and Iranian leap handling can differ, so results must not be normalized to the Persian provider. Unsupported dates are rejected explicitly. Hamal through Sonbola have 31 days, Mizan through Dalw have 30, and Hoot has 29 or 30. The anchor plus the published leap rule defines local Gregorian conversion; this is a fixed algorithm rather than a runtime data table.
+
+Primary reference: https://www.unicode.org/L2/L2003/03148-af-locales.pdf
+
+### Localized month names
+
+CLDR 48.2 is the localization reference for Persian and Afghan month names. The Arabic product resources deliberately use the approved display spellings recorded in the Awqati specification, including `سنبلة` and `ميزان`; the native `fa_AF` forms and English transliterations remain separate resources. Resource selection never changes the provider.
+
+Reference: https://cldr.unicode.org/index/downloads/cldr-48 and the release-48-2 locale data at https://github.com/unicode-org/cldr/tree/release-48-2/common/main
+
+### Reproducibility and licensing
+
+Implementation must pin source/algorithm identifiers in metadata and tests. No network access is allowed at runtime. Unicode/ICU and CLDR notices and licenses must be bundled when their code or data is incorporated; documentation links alone do not convert an algorithm into a runtime table.
