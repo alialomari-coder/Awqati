@@ -1,0 +1,43 @@
+{
+  "packageName": "Awqati_ArabianCalendar_Data_v1",
+  "schemaVersion": 1,
+  "arabianCalendarDataVersion": "2026.09.13-r1",
+  "generatedFrom": "بيانات التقويم العربي لأوقاتي - المرجع التنفيذي للمهمة 2.4",
+  "files": [
+    {
+      "name": "README_Codex.md",
+      "sha256": "a499a3b2949b85acb71f8609112f95b6fc5340c62096eed36400b9f6c468c7c6",
+      "sizeBytes": 6311
+    },
+    {
+      "name": "arabian_calendar.json",
+      "sha256": "d43e4c1cc618ee070b31d8557f37ee9a420d31bf80edff0196a4dfda5f06e04a",
+      "sizeBytes": 71633
+    },
+    {
+      "name": "arabian_calendar.schema.json",
+      "sha256": "2f1042b33788d212a2925d8fbab11015a53c62074a4e70f181d56e628056de85",
+      "sizeBytes": 3850
+    },
+    {
+      "name": "arabian_calendar_days.schema.json",
+      "sha256": "23a6bf531d26cad237d5375344ed14ca69c03809adb23470f43d7a1298693483",
+      "sizeBytes": 3342
+    },
+    {
+      "name": "arabian_calendar_days_common.json",
+      "sha256": "b0ced103f84a4970252a1cb2b8e330949800ca221e8f4ef6cb1079d517772ec7",
+      "sizeBytes": 184775
+    },
+    {
+      "name": "arabian_calendar_days_leap.json",
+      "sha256": "a9b14d3cc65e9570938ff19ed27ebcdd6a22d0f3acd53e546c37079346a2309f",
+      "sizeBytes": 185283
+    },
+    {
+      "name": "validation_report.txt",
+      "sha256": "4360ceac74e6752a616d191831cc20a31edea6b788d72967ccecade875aa798c",
+      "sizeBytes": 1611
+    }
+  ]
+}

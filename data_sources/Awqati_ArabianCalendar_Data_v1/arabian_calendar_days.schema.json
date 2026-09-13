@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Awqati Arabian Calendar Daily Index",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "arabianCalendarDataVersion",
+    "cycleType",
+    "cycleLength",
+    "orderedDateKeys",
+    "daysByDate"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "const": 1
+    },
+    "arabianCalendarDataVersion": {
+      "type": "string"
+    },
+    "cycleType": {
+      "enum": [
+        "common",
+        "leap"
+      ]
+    },
+    "cycleLength": {
+      "type": "integer",
+      "enum": [
+        365,
+        366
+      ]
+    },
+    "representativeCycle": {
+      "type": "object"
+    },
+    "orderedDateKeys": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "daysByDate": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "month",
+          "day",
+          "suhailDay",
+          "cycleLength",
+          "daysRemainingInSuhailYear",
+          "talaaId",
+          "talaaDay",
+          "talaaLength",
+          "seasonId",
+          "seasonDay",
+          "seasonLength",
+          "overlapPeriodIds",
+          "startEventIds"
+        ],
+        "properties": {
+          "month": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 12
+          },
+          "day": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 31
+          },
+          "suhailDay": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 366
+          },
+          "cycleLength": {
+            "type": "integer",
+            "enum": [
+              365,
+              366
+            ]
+          },
+          "daysRemainingInSuhailYear": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 365
+          },
+          "talaaId": {
+            "type": "string"
+          },
+          "talaaDay": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 14
+          },
+          "talaaLength": {
+            "type": "integer",
+            "minimum": 13,
+            "maximum": 14
+          },
+          "talaaDaysRemaining": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 13
+          },
+          "seasonId": {
+            "type": "string"
+          },
+          "seasonDay": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 53
+          },
+          "seasonLength": {
+            "type": "integer",
+            "minimum": 13,
+            "maximum": 53
+          },
+          "seasonDaysRemaining": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 52
+          },
+          "folkSubdivision": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "overlapPeriodIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "shortSayingId": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "startEventIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

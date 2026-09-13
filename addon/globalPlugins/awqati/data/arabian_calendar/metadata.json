@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "arabianCalendarDataVersion": "2026.09.13-r1",
+  "sourcePackage": "Awqati_ArabianCalendar_Data_v1",
+  "sourceManifestSha256": "218c34754010b2218776e0470b061191a5a46014fa63b1c13ecc2be44d33856f",
+  "files": {
+    "arabian_calendar.json": {
+      "sizeBytes": 71633,
+      "sha256": "d43e4c1cc618ee070b31d8557f37ee9a420d31bf80edff0196a4dfda5f06e04a"
+    },
+    "arabian_calendar_days_common.json": {
+      "sizeBytes": 184775,
+      "sha256": "b0ced103f84a4970252a1cb2b8e330949800ca221e8f4ef6cb1079d517772ec7"
+    },
+    "arabian_calendar_days_leap.json": {
+      "sizeBytes": 185283,
+      "sha256": "a9b14d3cc65e9570938ff19ed27ebcdd6a22d0f3acd53e546c37079346a2309f"
+    }
+  }
+}

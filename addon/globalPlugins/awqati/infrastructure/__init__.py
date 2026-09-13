@@ -10,6 +10,9 @@ from importlib import import_module
 from typing import Any
 
 __all__ = [
+	"ARABIAN_CALENDAR_DATA_VERSION",
+	"ArabianCalendarDataError",
+	"BundledArabianCalendarRepository",
 	"BundledCalculationMethodRepository",
 	"CalculationMethodDataError",
 	"BundledLocationRepository",
@@ -27,6 +30,9 @@ __all__ = [
 
 
 _EXPORT_MODULES = {
+	"ARABIAN_CALENDAR_DATA_VERSION": ".arabian_calendar_repository",
+	"ArabianCalendarDataError": ".arabian_calendar_repository",
+	"BundledArabianCalendarRepository": ".arabian_calendar_repository",
 	"BundledCalculationMethodRepository": ".calculation_method_repository",
 	"CalculationMethodDataError": ".calculation_method_repository",
 	"BundledLocationRepository": ".location_repository",

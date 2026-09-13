@@ -277,3 +277,42 @@ cos(Delta lambda))`, normalized to `[0, 360)`, clockwise from true north. The
 coincident point and the spherical antipode are singular and raise a typed
 error instead of returning NaN or an arbitrary direction. No magnetic north,
 map, device orientation, sensor, or network service is involved.
+
+## Arabian calendar data for task 2.4
+
+The approved build-time source package is
+`data_sources/Awqati_ArabianCalendar_Data_v1`, restored from the review copy at
+`G:\ملفاتي\إضافة أوقاتي\data_sources\Awqati_ArabianCalendar_Data_v1`.
+Its `arabianCalendarDataVersion` is `2026.09.13-r1`. The corrected source
+manifest SHA-256 is
+`218c34754010b2218776e0470b061191a5a46014fa63b1c13ecc2be44d33856f`.
+The approved `arabian_calendar.json` is 71,633 bytes with SHA-256
+`d43e4c1cc618ee070b31d8557f37ee9a420d31bf80edff0196a4dfda5f06e04a`.
+It includes the approved marzam saying `«إذا طلع المرزم يا خراف الزم.»`.
+
+Only three source files become runtime content under
+`addon/globalPlugins/awqati/data/arabian_calendar`: the rich entity source,
+the 365-day common index, and the 366-day leap index. Runtime `metadata.json`
+pins their sizes and SHA-256 digests and records the source manifest digest.
+The common index SHA-256 is
+`b0ced103f84a4970252a1cb2b8e330949800ca221e8f4ef6cb1079d517772ec7`;
+the leap index SHA-256 is
+`a9b14d3cc65e9570938ff19ed27ebcdd6a22d0f3acd53e546c37079346a2309f`.
+README, schemas, validation reports, research sources, and ZIP inputs remain
+build-time provenance and are not packaged for users.
+
+The runtime repository loads and validates the bundle lazily, verifies the
+schema and data versions, file digests, daily continuity, entity references,
+and saying assignments, then caches the parsed result. A local date on or
+after 24 August uses 24 August of its year as the cycle anchor; an earlier date
+uses 24 August of the previous year. If February of the following Gregorian
+year has 29 days, the leap index is selected; otherwise the common index is
+selected. Daily lookup is direct by `MM-DD`; runtime does not recalculate the
+28 talaa boundaries or parse the files again for each request.
+
+The owner-approved user terminology is «السنة السهيلية» or «سنة سهيل».
+Heritage sayings, seasonal observations, mansion descriptions, and classical
+naw material are preserved as attributed content. They are not scientific
+astronomy facts and never modify prayer, qibla, calendar, or `AstronomyService`
+results. Runtime uses no network and no AI, and corrupt or incompatible data
+raises a typed error without fallback or guessed talaa dates.

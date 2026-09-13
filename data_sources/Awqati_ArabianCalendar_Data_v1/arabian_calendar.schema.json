@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Awqati Arabian Calendar Data",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "arabianCalendarDataVersion",
+    "calendar",
+    "seasons",
+    "talaa"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "const": 1
+    },
+    "arabianCalendarDataVersion": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string",
+      "const": "ar"
+    },
+    "calendar": {
+      "type": "object"
+    },
+    "displayPolicy": {
+      "type": "object"
+    },
+    "sources": {
+      "type": "object"
+    },
+    "seasons": {
+      "type": "array",
+      "minItems": 12,
+      "maxItems": 12
+    },
+    "overlappingPeriods": {
+      "type": "array"
+    },
+    "startEvents": {
+      "type": "object"
+    },
+    "talaa": {
+      "type": "array",
+      "minItems": 28,
+      "maxItems": 28,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "order",
+          "name",
+          "start",
+          "end",
+          "length",
+          "seasonId",
+          "sayings"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          },
+          "order": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 28
+          },
+          "name": {
+            "type": "string"
+          },
+          "aliases": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "start": {
+            "$ref": "#/$defs/monthDay"
+          },
+          "end": {
+            "$ref": "#/$defs/monthDay"
+          },
+          "length": {
+            "$ref": "#/$defs/commonLeapLength"
+          },
+          "seasonId": {
+            "type": "string"
+          },
+          "folkSubdivision": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "overlapPeriodIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "nameOrigin": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "mansionDescription": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "heritageNotes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "nawClassical": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "sayings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "text"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "sourceRefs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "monthDay": {
+      "type": "object",
+      "required": [
+        "month",
+        "day"
+      ],
+      "properties": {
+        "month": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 12
+        },
+        "day": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 31
+        }
+      }
+    },
+    "commonLeapLength": {
+      "type": "object",
+      "required": [
+        "common",
+        "leap"
+      ],
+      "properties": {
+        "common": {
+          "type": "integer"
+        },
+        "leap": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

@@ -7,6 +7,7 @@ from datetime import date, tzinfo
 from typing import Protocol, runtime_checkable
 
 from ..domain import (
+	ArabianCalendarReading,
 	CalendarDate,
 	CalendarId,
 	CalculationMethod,
@@ -17,6 +18,18 @@ from ..domain import (
 	Location,
 	LocationDetectionFailure,
 )
+
+
+@runtime_checkable
+class ArabianCalendarRepository(Protocol):
+	"""Read validated, versioned Arabian calendar data for one local day."""
+
+	@property
+	def arabian_calendar_data_version(self) -> str:
+		...
+
+	def read(self, local_date: date) -> ArabianCalendarReading:
+		...
 
 
 @runtime_checkable
