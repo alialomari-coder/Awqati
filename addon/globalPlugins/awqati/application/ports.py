@@ -8,6 +8,7 @@ from typing import Protocol, runtime_checkable
 
 from ..domain import (
 	ArabianCalendarReading,
+	AwqatiSettings,
 	CalendarDate,
 	CalendarId,
 	CalculationMethod,
@@ -144,4 +145,15 @@ class CalculationMethodProvider(Protocol):
 		...
 
 	def get_method(self, method: CalculationMethod) -> CalculationMethodDefinition:
+		...
+
+
+@runtime_checkable
+class SettingsRepository(Protocol):
+	"""Persist one complete validated settings graph."""
+
+	def load(self) -> AwqatiSettings:
+		...
+
+	def save(self, settings: AwqatiSettings) -> None:
 		...

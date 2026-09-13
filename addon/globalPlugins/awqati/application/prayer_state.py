@@ -10,20 +10,16 @@ from typing import Iterable, Mapping
 
 from ..domain.models import Instant
 from ..domain.prayer_timeline import PRAYER_EVENT_NAMES, PrayerEvent, PrayerEventName
+from ..domain.settings import (
+	DEFAULT_CURRENT_PRAYER_DURATION_MINUTES,
+	DEFAULT_EVENT_PRE_ALERT_MINUTES,
+	DEFAULT_IQAMA_ALERT_BEFORE_MINUTES,
+	DEFAULT_IQAMA_DELAYS_MINUTES,
+)
 from .ports import NowProvider
 
 
-DEFAULT_EVENT_PRE_ALERT_MINUTES = 10
-DEFAULT_IQAMA_ALERT_BEFORE_MINUTES = 5
-DEFAULT_CURRENT_PRAYER_DURATION_MINUTES = 20
 MAX_CURRENT_PRAYER_DURATION_MINUTES = 180
-DEFAULT_IQAMA_DELAYS_MINUTES = MappingProxyType({
-	PrayerEventName.FAJR: 25,
-	PrayerEventName.DHUHR: 20,
-	PrayerEventName.ASR: 20,
-	PrayerEventName.MAGHRIB: 10,
-	PrayerEventName.ISHA: 20,
-})
 
 
 def _whole_nonnegative(value: int, field_name: str) -> None:

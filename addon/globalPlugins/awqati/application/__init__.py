@@ -20,6 +20,7 @@ from .clock_formatters import (
 from .clock_service import ClockService, PrayerRequestFactory
 from .events import EventDispatcher
 from .location_service import LocationNotFoundError, LocationService
+from .settings_service import ClosedSettingsDraftError, SettingsDraft, SettingsService
 from .qibla_formatters import ArabicQiblaFormatter, EnglishQiblaFormatter, QiblaFormatter
 from .qibla_service import QiblaService
 from .prayer_service import PrayerService
@@ -48,6 +49,7 @@ from .ports import (
 	LocationMatch,
 	LocationRepository,
 	NowProvider,
+	SettingsRepository,
 	TimezoneProvider,
 )
 
@@ -63,6 +65,7 @@ __all__ = [
 	"ArabicWordClockFormatter",
 	"ClockFormatter",
 	"ClockService",
+	"ClosedSettingsDraftError",
 	"CalendarProvider",
 	"CalendarService",
 	"DateFormatter",
@@ -98,6 +101,9 @@ __all__ = [
 	"PrayerTimelineState",
 	"QiblaFormatter",
 	"QiblaService",
+	"SettingsDraft",
+	"SettingsRepository",
+	"SettingsService",
 	"TimezoneProvider",
 	"WaitingWindow",
 ]

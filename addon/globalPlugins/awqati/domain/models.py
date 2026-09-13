@@ -119,3 +119,15 @@ class LocationChanged(DomainEvent):
 
 	previous_location: Location | None
 	current_location: Location | None
+
+
+@dataclass(frozen=True, slots=True)
+class SettingsApplied(DomainEvent):
+	"""Published after one validated settings graph becomes the runtime state."""
+
+	schema_version: int
+
+
+@dataclass(frozen=True, slots=True)
+class SystemTimeChanged(DomainEvent):
+	"""Contract for a future platform time-change monitor."""
