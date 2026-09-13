@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import timezone
+from datetime import datetime, time, timezone
 
 from ..domain.astronomy import (
 	AstronomyReading,
@@ -24,12 +24,23 @@ class AstronomyService:
 		now = self._clock.now().value
 		zone = self._timezones.get_timezone(location.timezone_id)
 		local_now = now.astimezone(zone)
-		season, started = season_at(now, location.latitude)
-		next_event = next_seasonal_event(now)
-		solar = solar_day(local_now.date(), location.latitude, location.longitude)
-		lunar = lunar_facts(now.astimezone(timezone.utc))
+		# The supported civil-year contract follows the location's local date.
+		# Passing local_now keeps UTC instants just outside an endpoint available
+		# solely as internal auxiliary calculations.
+		season, started = season_at(local_now, location.latitude)
+		next_event = next_seasonal_event(local_now)
+		local_date = local_now.date()
+		local_noon = datetime.combine(local_date, time(12), tzinfo=zone)
+		utc_anchor_day = local_noon.astimezone(timezone.utc).date()
+		solar = solar_day(
+			local_date,
+			location.latitude,
+			location.longitude,
+			utc_anchor_day=utc_anchor_day,
+		)
+		lunar = lunar_facts(local_now)
 		return AstronomyReading(
-			local_date=local_now.date(),
+			local_date=local_date,
 			current_season=season,
 			current_season_started=started,
 			next_seasonal_event=next_event,

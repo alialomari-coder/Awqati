@@ -11,9 +11,12 @@ from enum import Enum
 import math
 
 
-ASTRONOMY_ALGORITHM_VERSION = "awqati-astronomy-meeus2-noaa-1901-2099-v1"
+ASTRONOMY_ALGORITHM_VERSION = "awqati-astronomy-meeus2-noaa-1901-2099-v2"
 ASTRONOMY_MIN_YEAR = 1901
 ASTRONOMY_MAX_YEAR = 2099
+_ASTRONOMY_AUXILIARY_MIN_YEAR = ASTRONOMY_MIN_YEAR - 1
+_ASTRONOMY_AUXILIARY_MAX_YEAR = ASTRONOMY_MAX_YEAR + 1
+_NEXT_SUNRISE_SEARCH_DAYS = 370
 APPARENT_SUN_ZENITH_DEGREES = 90.833
 MOON_PHASE_SECTOR_DEGREES = 45.0
 
@@ -64,6 +67,7 @@ class SolarDay:
 	state: SolarDayState
 	sunrise_utc: datetime | None
 	sunset_utc: datetime | None
+	next_sunrise_utc: datetime | None
 	daylight: timedelta
 	night: timedelta
 
@@ -115,6 +119,21 @@ _PHASES = (
 	MoonPhase.FULL_MOON, MoonPhase.WANING_GIBBOUS,
 	MoonPhase.LAST_QUARTER, MoonPhase.WANING_CRESCENT,
 )
+_LUNAR_CORRECTION_ANGLES_E_POWERS = (
+	0, 1, 0, 0, 1, 1, 2, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+)
+_NEW_MOON_CORRECTION_COEFFICIENTS = (
+	-0.40720, 0.17241, 0.01608, 0.01039, 0.00739, -0.00514, 0.00208,
+	-0.00111, -0.00057, 0.00056, -0.00042, 0.00042, 0.00038, -0.00024,
+	-0.00017, -0.00007, 0.00004, 0.00004, 0.00003, 0.00003, -0.00003,
+	0.00003, -0.00002, -0.00002, 0.00002,
+)
+_FULL_MOON_CORRECTION_COEFFICIENTS = (
+	-0.40614, 0.17302, 0.01614, 0.01043, 0.00734, -0.00515, 0.00209,
+	-0.00111, -0.00057, 0.00056, -0.00042, 0.00042, 0.00038, -0.00024,
+	-0.00017, -0.00007, 0.00004, 0.00004, 0.00003, 0.00003, -0.00003,
+	0.00003, -0.00002, -0.00002, 0.00002,
+)
 
 
 def validate_astronomy_year(year: int) -> None:
@@ -127,6 +146,11 @@ def validate_astronomy_year(year: int) -> None:
 def seasonal_event_utc(year: int, event: SeasonEvent) -> datetime:
 	"""Meeus chapter 27 event instant converted from TT to UTC."""
 	validate_astronomy_year(year)
+	return _seasonal_event_utc(year, event)
+
+
+def _seasonal_event_utc(year: int, event: SeasonEvent) -> datetime:
+	_validate_auxiliary_year(year)
 	y = (year - 2000.0) / 1000.0
 	polynomials = {
 		SeasonEvent.MARCH_EQUINOX: (2451623.80984, 365242.37404, 0.05169, -0.00411, -0.00057),
@@ -149,14 +173,12 @@ def season_at(moment_utc: datetime, latitude: float) -> tuple[Season, SeasonalEv
 	validate_astronomy_year(moment_utc.year)
 	events: list[SeasonalEvent] = []
 	for year in (moment_utc.year - 1, moment_utc.year):
-		if year < ASTRONOMY_MIN_YEAR:
-			continue
 		for event in SeasonEvent:
-			events.append(SeasonalEvent(event, seasonal_event_utc(year, event)))
-	latest = max(
-		(item for item in events if item.at_utc <= moment_utc),
-		key=lambda item: item.at_utc,
-	)
+			events.append(SeasonalEvent(event, _seasonal_event_utc(year, event)))
+	past_events = [item for item in events if item.at_utc <= moment_utc]
+	if not past_events:
+		raise AstronomyRangeError("cannot locate the season boundary for the requested instant")
+	latest = max(past_events, key=lambda item: item.at_utc)
 	north = {
 		SeasonEvent.MARCH_EQUINOX: Season.SPRING,
 		SeasonEvent.JUNE_SOLSTICE: Season.SUMMER,
@@ -177,10 +199,8 @@ def next_seasonal_event(moment_utc: datetime) -> SeasonalEvent:
 	validate_astronomy_year(moment_utc.year)
 	candidates: list[SeasonalEvent] = []
 	for year in (moment_utc.year, moment_utc.year + 1):
-		if year > ASTRONOMY_MAX_YEAR:
-			continue
 		for event in SeasonEvent:
-			value = SeasonalEvent(event, seasonal_event_utc(year, event))
+			value = SeasonalEvent(event, _seasonal_event_utc(year, event))
 			if value.at_utc > moment_utc:
 				candidates.append(value)
 	if not candidates:
@@ -188,18 +208,44 @@ def next_seasonal_event(moment_utc: datetime) -> SeasonalEvent:
 	return min(candidates, key=lambda item: item.at_utc)
 
 
-def solar_day(day: date, latitude: float, longitude: float) -> SolarDay:
-	"""NOAA apparent-sun rise/set and scientific day/night duration."""
+def solar_day(
+	day: date,
+	latitude: float,
+	longitude: float,
+	*,
+	utc_anchor_day: date | None = None,
+) -> SolarDay:
+	"""NOAA apparent-sun day and the absolute interval to the next sunrise."""
 	validate_astronomy_year(day.year)
-	if not math.isfinite(latitude) or not -90 <= latitude <= 90:
-		raise ValueError("latitude must be finite and between -90 and 90")
-	if not math.isfinite(longitude) or not -180 <= longitude <= 180:
-		raise ValueError("longitude must be finite and between -180 and 180")
-	base = datetime(day.year, day.month, day.day, tzinfo=timezone.utc)
-	jd = julian_day(base)
-	t = _julian_century(jd)
-	noon_minutes = 720.0 - 4.0 * longitude - _equation_of_time(t)
-	t = _julian_century(jd + noon_minutes / 1440.0)
+	_validate_coordinates(latitude, longitude)
+	anchor_day = utc_anchor_day or day
+	_validate_auxiliary_year(anchor_day.year)
+	if abs(anchor_day.toordinal() - day.toordinal()) > 1:
+		raise ValueError("utc_anchor_day must be within one day of the requested civil day")
+	state, sunrise, sunset = _solar_events(anchor_day, latitude, longitude)
+	if state is SolarDayState.POLAR_NIGHT:
+		return SolarDay(state, None, None, None, timedelta(0), timedelta(days=1))
+	if state is SolarDayState.POLAR_DAY:
+		return SolarDay(state, None, None, None, timedelta(days=1), timedelta(0))
+	assert sunrise is not None and sunset is not None
+	next_sunrise = _next_sunrise_after(sunset, latitude, longitude, anchor_day)
+	return SolarDay(
+		state=state,
+		sunrise_utc=sunrise,
+		sunset_utc=sunset,
+		next_sunrise_utc=next_sunrise,
+		daylight=sunset - sunrise,
+		night=next_sunrise - sunset,
+	)
+
+
+def _solar_events(
+	day: date,
+	latitude: float,
+	longitude: float,
+) -> tuple[SolarDayState, datetime | None, datetime | None]:
+	_validate_auxiliary_year(day.year)
+	base, noon_minutes, t = _solar_noon(day, longitude)
 	declination = _sun_declination(t)
 	equation = _equation_of_time(t)
 	latitude_r = math.radians(latitude)
@@ -213,15 +259,114 @@ def solar_day(day: date, latitude: float, longitude: float) -> SolarDay:
 			/ denominator - math.tan(latitude_r) * math.tan(declination_r)
 		)
 	if cos_hour > 1:
-		return SolarDay(SolarDayState.POLAR_NIGHT, None, None, timedelta(0), timedelta(days=1))
+		return SolarDayState.POLAR_NIGHT, None, None
 	if cos_hour < -1:
-		return SolarDay(SolarDayState.POLAR_DAY, None, None, timedelta(days=1), timedelta(0))
+		return SolarDayState.POLAR_DAY, None, None
 	hour_angle = math.degrees(math.acos(cos_hour))
 	noon_minutes = 720.0 - 4.0 * longitude - equation
 	sunrise = base + timedelta(minutes=noon_minutes - 4.0 * hour_angle)
 	sunset = base + timedelta(minutes=noon_minutes + 4.0 * hour_angle)
-	daylight = sunset - sunrise
-	return SolarDay(SolarDayState.NORMAL, sunrise, sunset, daylight, timedelta(days=1) - daylight)
+	return SolarDayState.NORMAL, sunrise, sunset
+
+
+def _next_sunrise_after(
+	sunset: datetime,
+	latitude: float,
+	longitude: float,
+	anchor_day: date,
+) -> datetime:
+	"""Return the first later NOAA sunrise without fixed-interval sampling."""
+	for offset in range(1, _NEXT_SUNRISE_SEARCH_DAYS + 1):
+		candidate_day = anchor_day + timedelta(days=offset)
+		_validate_auxiliary_year(candidate_day.year)
+		state, sunrise, _sunset = _solar_events(candidate_day, latitude, longitude)
+		if state is SolarDayState.NORMAL and sunrise is not None and sunrise > sunset:
+			return sunrise
+		if state is SolarDayState.POLAR_DAY:
+			# A normal sunset immediately before a polar-day cycle still has a
+			# real upward crossing.  Bracket it by the cycle's lower and upper
+			# culminations, so even an arbitrarily short night cannot be skipped.
+			base, noon_minutes, _noon_t = _solar_noon(candidate_day, longitude)
+			noon = base + timedelta(minutes=noon_minutes)
+			if noon <= sunset:
+				continue
+			minimum = _bounded_horizon_minimum(sunset, noon, latitude, longitude)
+			if (
+				_solar_horizon_value(minimum, latitude, longitude) < 0
+				and _solar_horizon_value(noon, latitude, longitude) >= 0
+			):
+				return _bisect_upward_crossing(minimum, noon, latitude, longitude)
+	raise AstronomyRangeError("cannot locate the next astronomical sunrise")
+
+
+def _solar_noon(day: date, longitude: float) -> tuple[datetime, float, float]:
+	"""Return UTC midnight and the NOAA two-pass solar-noon minute."""
+	base = datetime(day.year, day.month, day.day, tzinfo=timezone.utc)
+	jd = julian_day(base)
+	initial_t = _julian_century(jd)
+	noon_minutes = 720.0 - 4.0 * longitude - _equation_of_time(initial_t)
+	noon_t = _julian_century(jd + noon_minutes / 1440.0)
+	return base, 720.0 - 4.0 * longitude - _equation_of_time(noon_t), noon_t
+
+
+def _bounded_horizon_minimum(
+	start: datetime,
+	end: datetime,
+	latitude: float,
+	longitude: float,
+) -> datetime:
+	"""Locate the lower culmination in one sunset-to-noon interval."""
+	left, right = start, end
+	ratio = (math.sqrt(5.0) - 1.0) / 2.0
+	first = right - (right - left) * ratio
+	second = left + (right - left) * ratio
+	first_value = _solar_horizon_value(first, latitude, longitude)
+	second_value = _solar_horizon_value(second, latitude, longitude)
+	for _ in range(80):
+		if first_value <= second_value:
+			right, second, second_value = second, first, first_value
+			first = right - (right - left) * ratio
+			first_value = _solar_horizon_value(first, latitude, longitude)
+		else:
+			left, first, first_value = first, second, second_value
+			second = left + (right - left) * ratio
+			second_value = _solar_horizon_value(second, latitude, longitude)
+	return left + (right - left) / 2
+
+
+def _bisect_upward_crossing(
+	below: datetime,
+	above: datetime,
+	latitude: float,
+	longitude: float,
+) -> datetime:
+	"""Refine one upward apparent-horizon crossing from an extrema bracket."""
+	low, high = below, above
+	for _ in range(60):
+		middle = low + (high - low) / 2
+		if _solar_horizon_value(middle, latitude, longitude) >= 0:
+			high = middle
+		else:
+			low = middle
+	return high
+
+
+def _solar_horizon_value(moment: datetime, latitude: float, longitude: float) -> float:
+	utc = moment.astimezone(timezone.utc)
+	t = _julian_century(julian_day(utc))
+	equation = _equation_of_time(t)
+	declination = math.radians(_sun_declination(t))
+	minutes = (
+		utc.hour * 60.0 + utc.minute + utc.second / 60.0 + utc.microsecond / 60000000.0
+	)
+	true_solar_minutes = (minutes + equation + 4.0 * longitude) % 1440.0
+	hour_angle = math.radians(true_solar_minutes / 4.0 - 180.0)
+	latitude_r = math.radians(latitude)
+	cos_zenith = (
+		math.sin(latitude_r) * math.sin(declination)
+		+ math.cos(latitude_r) * math.cos(declination) * math.cos(hour_angle)
+	)
+	return cos_zenith - math.cos(math.radians(APPARENT_SUN_ZENITH_DEGREES))
 
 
 def lunar_facts(moment_utc: datetime) -> LunarFacts:
@@ -252,6 +397,12 @@ def classify_moon_phase(elongation_degrees: float) -> MoonPhase:
 
 def lunar_phase_event_utc(k: float) -> datetime:
 	"""Meeus chapter 49 new/full phase for integer/half-integer lunation k."""
+	result = _lunar_phase_event_utc(k)
+	validate_astronomy_year(result.year)
+	return result
+
+
+def _lunar_phase_event_utc(k: float) -> datetime:
 	t = k / 1236.85
 	e = 1 - 0.002516 * t - 0.0000074 * t**2
 	jde = (
@@ -271,22 +422,22 @@ def lunar_phase_event_utc(k: float) -> datetime:
 	is_full = abs((k - math.floor(k)) - 0.5) < 1e-10
 	if not (is_full or abs(k - round(k)) < 1e-10):
 		raise ValueError("only integer new-moon or half-integer full-moon k is supported")
-	c = -0.40614 if is_full else -0.40720
-	correction = (
-		c * _sin(mp) + (0.17302 if is_full else 0.17241) * e * _sin(m)
-		+ (0.01614 if is_full else 0.01608) * _sin(2 * mp)
-		+ (0.01043 if is_full else 0.01039) * _sin(2 * f)
-		+ (0.00734 if is_full else 0.00739) * e * _sin(mp - m)
-		- 0.00515 * e * _sin(mp + m) + 0.00209 * e**2 * _sin(2 * m)
-		- 0.00111 * _sin(mp - 2 * f) - 0.00057 * _sin(mp + 2 * f)
-		+ 0.00056 * e * _sin(2 * mp + m) - 0.00042 * _sin(3 * mp)
-		+ 0.00042 * e * _sin(m + 2 * f) + 0.00038 * e * _sin(m - 2 * f)
-		- 0.00024 * e * _sin(2 * mp - m) - 0.00017 * _sin(omega)
-		- 0.00007 * _sin(mp + 2 * m) + 0.00004 * _sin(2 * mp - 2 * f)
-		+ 0.00004 * _sin(3 * m) + 0.00003 * _sin(mp + m - 2 * f)
-		+ 0.00003 * _sin(2 * mp + 2 * f) - 0.00003 * _sin(mp + m + 2 * f)
-		+ 0.00003 * _sin(mp - m + 2 * f) - 0.00002 * _sin(mp - m - 2 * f)
-		- 0.00002 * _sin(3 * mp + m) + 0.00002 * _sin(4 * mp)
+	correction_angles = (
+		mp, m, 2 * mp, 2 * f, mp - m, mp + m, 2 * m,
+		mp - 2 * f, mp + 2 * f, 2 * mp + m, 3 * mp, m + 2 * f,
+		m - 2 * f, 2 * mp - m, omega, mp + 2 * m, 2 * mp - 2 * f,
+		3 * m, mp + m - 2 * f, 2 * mp + 2 * f, mp + m + 2 * f,
+		mp - m + 2 * f, mp - m - 2 * f, 3 * mp + m, 4 * mp,
+	)
+	coefficients = (
+		_FULL_MOON_CORRECTION_COEFFICIENTS
+		if is_full else _NEW_MOON_CORRECTION_COEFFICIENTS
+	)
+	correction = sum(
+		coefficient * e**e_power * _sin(angle)
+		for coefficient, e_power, angle in zip(
+			coefficients, _LUNAR_CORRECTION_ANGLES_E_POWERS, correction_angles,
+		)
 	)
 	angles = (
 		299.77 + 0.107408 * k - 0.009173 * t**2, 251.88 + 0.016321 * k,
@@ -306,12 +457,18 @@ def lunar_phase_event_utc(k: float) -> datetime:
 def julian_day(value: datetime) -> float:
 	_require_aware(value)
 	utc = value.astimezone(timezone.utc)
-	return 2440587.5 + utc.timestamp() / 86400.0
+	unix_epoch = datetime(1970, 1, 1, tzinfo=timezone.utc)
+	return 2440587.5 + (utc - unix_epoch).total_seconds() / 86400.0
 
 
 def delta_t_seconds(year: int, month: int = 7) -> float:
 	"""NASA Espenak-Meeus piecewise Delta T polynomials."""
 	validate_astronomy_year(year)
+	return _delta_t_seconds(year, month)
+
+
+def _delta_t_seconds(year: int, month: int = 7) -> float:
+	_validate_auxiliary_year(year)
 	y = year + (month - 0.5) / 12.0
 	if y < 1920:
 		t = y - 1900
@@ -342,23 +499,17 @@ def _adjacent_lunar_phase(moment: datetime, *, full: bool, forward: bool) -> dat
 	utc = moment.astimezone(timezone.utc)
 	decimal_year = utc.year + (utc.timetuple().tm_yday - 1 + utc.hour / 24) / 365.2425
 	base = (decimal_year - 2000.0) * 12.3685
-	k = math.floor(base) + (0.5 if full else 0.0)
-	if full and k < base - 1:
-		k += 1
-	for offset in range(-2, 4):
-		candidate_k = k + offset
-		if full:
-			candidate_k = math.floor(candidate_k) + 0.5
-		else:
-			candidate_k = round(candidate_k)
-		candidate = lunar_phase_event_utc(candidate_k)
-		if forward and candidate > utc:
-			return candidate
-		if not forward and candidate <= utc:
-			best = candidate
-			continue
-		if not forward and 'best' in locals():
-			return best
+	base_k = math.floor(base)
+	candidates = sorted(
+		_lunar_phase_event_utc(integer_k + (0.5 if full else 0.0))
+		for integer_k in range(base_k - 3, base_k + 5)
+	)
+	eligible = (
+		[candidate for candidate in candidates if candidate > utc]
+		if forward else [candidate for candidate in candidates if candidate <= utc]
+	)
+	if eligible:
+		return min(eligible) if forward else max(eligible)
 	raise AstronomyRangeError("cannot locate adjacent lunar phase in the supported range")
 
 
@@ -423,9 +574,28 @@ def _julian_century(jd: float) -> float:
 
 
 def _tt_jd_to_utc(jde_tt: float) -> datetime:
-	approx = datetime.fromtimestamp((jde_tt - 2440587.5) * 86400.0, timezone.utc)
-	delta = delta_t_seconds(approx.year, approx.month)
-	return approx - timedelta(seconds=delta)
+	unix_epoch = datetime(1970, 1, 1, tzinfo=timezone.utc)
+	approx = unix_epoch + timedelta(days=jde_tt - 2440587.5)
+	_validate_auxiliary_year(approx.year)
+	delta = _delta_t_seconds(approx.year, approx.month)
+	result = approx - timedelta(seconds=delta)
+	_validate_auxiliary_year(result.year)
+	return result
+
+
+def _validate_auxiliary_year(year: int) -> None:
+	if not _ASTRONOMY_AUXILIARY_MIN_YEAR <= year <= _ASTRONOMY_AUXILIARY_MAX_YEAR:
+		raise AstronomyRangeError(
+			"astronomy auxiliary calculations support only the adjacent civil years "
+			f"{_ASTRONOMY_AUXILIARY_MIN_YEAR} through {_ASTRONOMY_AUXILIARY_MAX_YEAR}"
+		)
+
+
+def _validate_coordinates(latitude: float, longitude: float) -> None:
+	if not math.isfinite(latitude) or not -90 <= latitude <= 90:
+		raise ValueError("latitude must be finite and between -90 and 90")
+	if not math.isfinite(longitude) or not -180 <= longitude <= 180:
+		raise ValueError("longitude must be finite and between -180 and 180")
 
 
 def _require_aware(value: datetime) -> None:

@@ -13,7 +13,14 @@ for path in (PACKAGES, ROOT / "tests"):
 		sys.path.insert(0, str(path))
 
 from awqati.application import AstronomyService  # noqa: E402
-from awqati.domain import ASTRONOMY_ALGORITHM_VERSION, Instant, Location, SeasonEvent  # noqa: E402
+from awqati.domain import (  # noqa: E402
+	ASTRONOMY_ALGORITHM_VERSION,
+	AstronomyRangeError,
+	Instant,
+	Location,
+	SeasonEvent,
+	SolarDayState,
+)
 from awqati.infrastructure import BundledTimezoneProvider  # noqa: E402
 from support.event_clock import EventClock  # noqa: E402
 
@@ -50,6 +57,114 @@ class AstronomyServiceTests(unittest.TestCase):
 		self.assertEqual(reading.local_date.isoformat(), "2026-01-15")
 		self.assertIsNotNone(reading.sunrise_local)
 		self.assertIsNotNone(reading.sunset_local)
+
+	def test_date_line_solar_cycle_belongs_to_kiritimati_local_day(self) -> None:
+		location = Location(
+			"kiritimati", "Kiritimati", 1.8721, -157.4278, "Pacific/Kiritimati",
+		)
+		reading = self._read_local_noon(location, datetime(2026, 1, 15).date())
+		self.assertEqual(reading.local_date.isoformat(), "2026-01-15")
+		assert reading.sunrise_local and reading.sunset_local
+		self.assertEqual(reading.sunrise_local.date(), reading.local_date)
+		self.assertEqual(reading.sunset_local.date(), reading.local_date)
+		self.assertEqual(reading.sunrise_local.utcoffset(), timedelta(hours=14))
+		self.assertEqual(reading.sunset_local.utcoffset(), timedelta(hours=14))
+		self.assertGreater(reading.solar_day.daylight, timedelta(hours=11))
+		self.assertLess(reading.solar_day.daylight, timedelta(hours=13))
+		self.assertGreater(reading.solar_day.night, timedelta(hours=11))
+		self.assertLess(reading.solar_day.night, timedelta(hours=13))
+		next_sunrise_local = reading.solar_day.next_sunrise_utc.astimezone(
+			self.timezones.get_timezone(location.timezone_id),
+		)
+		self.assertEqual(next_sunrise_local.date().isoformat(), "2026-01-16")
+
+	def test_ordinary_riyadh_solar_cycle_still_belongs_to_local_day(self) -> None:
+		location = Location("riyadh", "Riyadh", 24.7136, 46.6753, "Asia/Riyadh")
+		reading = self._read_local_noon(location, datetime(2026, 1, 15).date())
+		assert reading.sunrise_local and reading.sunset_local
+		self.assertEqual(reading.local_date.isoformat(), "2026-01-15")
+		self.assertEqual(reading.sunrise_local.date(), reading.local_date)
+		self.assertEqual(reading.sunset_local.date(), reading.local_date)
+
+	def test_complete_reading_at_first_supported_local_day(self) -> None:
+		# 1900-12-31 21:00 UTC is 1901-01-01 in Riyadh.  This also proves
+		# that the previous new moon and season boundary may come from 1900.
+		reading = self._read_riyadh(datetime(1900, 12, 31, 21, tzinfo=timezone.utc))
+		self._assert_complete(reading)
+		self.assertEqual(reading.local_date.isoformat(), "1901-01-01")
+		self.assertEqual(reading.current_season_started.at_utc.year, 1900)
+		self.assertEqual(reading.lunar.previous_new_moon_utc.year, 1900)
+
+	def test_february_1901_before_march_equinox_is_complete(self) -> None:
+		reading = self._read_riyadh(datetime(1901, 2, 15, tzinfo=timezone.utc))
+		self._assert_complete(reading)
+		self.assertEqual(reading.current_season_started.event, SeasonEvent.DECEMBER_SOLSTICE)
+		self.assertEqual(reading.current_season_started.at_utc.year, 1900)
+
+	def test_complete_reading_after_december_solstice_2099(self) -> None:
+		reading = self._read_riyadh(datetime(2099, 12, 31, 20, tzinfo=timezone.utc))
+		self._assert_complete(reading)
+		self.assertEqual(reading.local_date.isoformat(), "2099-12-31")
+		self.assertEqual(reading.next_seasonal_event.at_utc.year, 2100)
+		self.assertEqual(reading.lunar.next_new_moon_utc.year, 2100)
+		self.assertEqual(reading.lunar.next_full_moon_utc.year, 2100)
+
+	def test_local_requests_outside_the_public_range_still_fail(self) -> None:
+		for moment in (
+			datetime(1900, 6, 1, 12, tzinfo=timezone.utc),
+			datetime(2100, 6, 1, 12, tzinfo=timezone.utc),
+		):
+			with self.subTest(moment=moment):
+				with self.assertRaises(AstronomyRangeError):
+					self._read_riyadh(moment)
+
+	def test_date_line_timezone_preserves_both_supported_local_endpoints(self) -> None:
+		location = Location(
+			"kiritimati", "Kiritimati", 1.8721, -157.4278, "Pacific/Kiritimati",
+		)
+		for local_date in (datetime(1901, 1, 1).date(), datetime(2099, 12, 31).date()):
+			with self.subTest(local_date=local_date):
+				reading = self._read_local_noon(location, local_date)
+				self._assert_complete(reading)
+				self.assertEqual(reading.local_date, local_date)
+				assert reading.sunrise_local and reading.sunset_local
+				self.assertEqual(reading.sunrise_local.date(), local_date)
+				self.assertEqual(reading.sunset_local.date(), local_date)
+
+	def _read_riyadh(self, moment: datetime):
+		clock = EventClock(Instant(moment))
+		location = Location("riyadh", "Riyadh", 24.7136, 46.6753, "Asia/Riyadh")
+		return AstronomyService(clock, self.timezones).read(location)
+
+	def _read_local_noon(self, location: Location, local_date):
+		zone = self.timezones.get_timezone(location.timezone_id)
+		local_noon = datetime(
+			local_date.year, local_date.month, local_date.day, 12, tzinfo=zone,
+		)
+		clock = EventClock(Instant(local_noon.astimezone(timezone.utc)))
+		return AstronomyService(clock, self.timezones).read(location)
+
+	def _assert_complete(self, reading) -> None:
+		self.assertIsNotNone(reading.current_season)
+		self.assertIsNotNone(reading.current_season_started.at_utc)
+		self.assertIsNotNone(reading.next_seasonal_event.at_utc)
+		self.assertIsNotNone(reading.next_seasonal_event_local)
+		self.assertEqual(reading.solar_day.state, SolarDayState.NORMAL)
+		self.assertIsNotNone(reading.sunrise_local)
+		self.assertIsNotNone(reading.sunset_local)
+		self.assertGreater(reading.solar_day.daylight, timedelta(0))
+		self.assertGreater(reading.solar_day.night, timedelta(0))
+		self.assertIsNotNone(reading.lunar.phase)
+		self.assertGreaterEqual(reading.lunar.age_days, 0)
+		self.assertGreaterEqual(reading.lunar.illumination_fraction, 0)
+		self.assertLessEqual(reading.lunar.illumination_fraction, 1)
+		self.assertGreater(
+			reading.lunar.next_new_moon_utc,
+			reading.lunar.previous_new_moon_utc,
+		)
+		self.assertIsNotNone(reading.next_new_moon_local.utcoffset())
+		self.assertIsNotNone(reading.next_full_moon_local.utcoffset())
+		self.assertEqual(reading.algorithm_version, ASTRONOMY_ALGORITHM_VERSION)
 
 
 if __name__ == "__main__":

@@ -64,14 +64,39 @@ class SeasonalAstronomyTests(unittest.TestCase):
 
 	def test_supported_range_and_delta_t_are_explicit(self) -> None:
 		self.assertEqual((ASTRONOMY_MIN_YEAR, ASTRONOMY_MAX_YEAR), (1901, 2099))
+		self.assertEqual(ASTRONOMY_ALGORITHM_VERSION, "awqati-astronomy-meeus2-noaa-1901-2099-v2")
 		self.assertTrue(60 < delta_t_seconds(2026) < 90)
 		for year in (1900, 2100):
 			with self.assertRaises(AstronomyRangeError):
 				seasonal_event_utc(year, SeasonEvent.MARCH_EQUINOX)
 
+	def test_adjacent_events_complete_the_public_range_without_expanding_it(self) -> None:
+		january = datetime(1901, 1, 1, tzinfo=UTC)
+		february = datetime(1901, 2, 15, tzinfo=UTC)
+		self.assertEqual(season_at(january, 24)[1].at_utc.year, 1900)
+		self.assertEqual(season_at(february, 24)[1].event, SeasonEvent.DECEMBER_SOLSTICE)
+		future = next_seasonal_event(datetime(2099, 12, 31, tzinfo=UTC))
+		self.assertEqual((future.at_utc.year, future.event), (2100, SeasonEvent.MARCH_EQUINOX))
+
+		first_lunar = lunar_facts(january)
+		last_lunar = lunar_facts(datetime(2099, 12, 31, tzinfo=UTC))
+		self.assertEqual(first_lunar.previous_new_moon_utc.year, 1900)
+		self.assertEqual(last_lunar.next_new_moon_utc.year, 2100)
+		self.assertEqual(last_lunar.next_full_moon_utc.year, 2100)
+
+		for year in (1900, 2100):
+			moment = datetime(year, 6, 1, tzinfo=UTC)
+			with self.subTest(year=year):
+				with self.assertRaises(AstronomyRangeError):
+					season_at(moment, 24)
+				with self.assertRaises(AstronomyRangeError):
+					lunar_facts(moment)
+				with self.assertRaises(AstronomyRangeError):
+					solar_day(moment.date(), 24, 46)
+
 
 class SolarAstronomyTests(unittest.TestCase):
-	def test_noaa_riyadh_reference_and_complementary_day_night(self) -> None:
+	def test_noaa_riyadh_reference_and_sunset_to_next_sunrise_night(self) -> None:
 		result = solar_day(date(2026, 9, 13), 24.7136, 46.6753)
 		self.assertEqual(result.state, SolarDayState.NORMAL)
 		self.assertIsNotNone(result.sunrise_utc)
@@ -85,7 +110,49 @@ class SolarAstronomyTests(unittest.TestCase):
 			abs(result.sunset_utc - datetime(2026, 9, 13, 15, 0, tzinfo=UTC)),
 			timedelta(minutes=2),
 		)
-		self.assertEqual(result.daylight + result.night, timedelta(days=1))
+		self.assertIsNotNone(result.next_sunrise_utc)
+		assert result.next_sunrise_utc
+		self.assertEqual(result.night, result.next_sunrise_utc - result.sunset_utc)
+		self.assertNotEqual(result.night, timedelta(days=1) - result.daylight)
+		self.assertGreater(
+			abs(result.daylight + result.night - timedelta(days=1)),
+			timedelta(seconds=10),
+		)
+
+	def test_high_latitude_night_uses_the_following_absolute_sunrise(self) -> None:
+		result = solar_day(date(2026, 5, 15), 64.1466, -21.9426)
+		self.assertEqual(result.state, SolarDayState.NORMAL)
+		assert result.sunset_utc and result.next_sunrise_utc
+		self.assertEqual(result.night, result.next_sunrise_utc - result.sunset_utc)
+		self.assertGreater(
+			abs(result.daylight + result.night - timedelta(days=1)),
+			timedelta(minutes=1),
+		)
+
+	def test_transition_near_polar_day_finds_the_actual_crossing(self) -> None:
+		result = solar_day(date(2026, 6, 5), 66.5, 18.96)
+		self.assertEqual(result.state, SolarDayState.NORMAL)
+		assert result.sunset_utc and result.next_sunrise_utc
+		self.assertGreater(result.next_sunrise_utc, result.sunset_utc)
+		self.assertEqual(result.next_sunrise_utc.date(), result.sunset_utc.date())
+		self.assertLess(result.night, timedelta(hours=1))
+
+	def test_short_day_before_polar_night_is_not_skipped(self) -> None:
+		result = solar_day(date(2026, 12, 15), 67.5, 20.0)
+		short_day = solar_day(date(2026, 12, 16), 67.5, 20.0)
+		assert result.sunset_utc and result.next_sunrise_utc and short_day.sunrise_utc
+		self.assertLess(short_day.daylight, timedelta(minutes=15))
+		self.assertEqual(result.next_sunrise_utc, short_day.sunrise_utc)
+		self.assertEqual(result.next_sunrise_utc.date(), date(2026, 12, 16))
+		self.assertLess(result.night, timedelta(days=1))
+
+	def test_sub_thirty_minute_night_before_polar_day_is_not_skipped(self) -> None:
+		result = solar_day(date(2026, 6, 5), 66.52, 18.96)
+		self.assertEqual(result.state, SolarDayState.NORMAL)
+		assert result.sunset_utc and result.next_sunrise_utc
+		self.assertGreater(result.next_sunrise_utc, result.sunset_utc)
+		self.assertEqual(result.next_sunrise_utc.date(), result.sunset_utc.date())
+		self.assertLess(result.night, timedelta(minutes=30))
 
 	def test_southern_summer_has_a_long_day(self) -> None:
 		result = solar_day(date(2026, 1, 15), -33.8688, 151.2093)
@@ -118,6 +185,17 @@ class LunarAstronomyTests(unittest.TestCase):
 			lunar_phase_event_utc(330.5),
 			datetime(2026, 9, 26, 16, 49, tzinfo=UTC),
 			timedelta(minutes=2),
+		)
+
+	def test_new_moon_coefficients_have_a_subsecond_audit_vector(self) -> None:
+		# Static Chapter-49 audit vector for k=-651, independently evaluated from
+		# the printed new-moon table.  It is intentionally much tighter than the
+		# USNO acceptance tolerance: substituting the full-moon values for the
+		# sin(M'+M) and sin(2M) terms moves this result by about 1.73 seconds.
+		self.assertWithin(
+			lunar_phase_event_utc(-651),
+			datetime(1947, 5, 20, 13, 43, 33, 861665, tzinfo=UTC),
+			timedelta(milliseconds=50),
 		)
 
 	def test_intermediate_phase_age_illumination_and_next_events(self) -> None:

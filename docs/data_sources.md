@@ -195,25 +195,35 @@ requires network access.
 
 Task 2.3 is entirely computational at runtime. It introduces no astronomy data
 file and performs no network request. The single composite implementation
-identifier is `awqati-astronomy-meeus2-noaa-1901-2099-v1`; source code exposes
+identifier is `awqati-astronomy-meeus2-noaa-1901-2099-v2`; source code exposes
 it as `ASTRONOMY_ALGORITHM_VERSION` and every astronomy result repeats it in
-metadata. The supported civil-year range is 1901 through 2099 inclusive. This
-deliberately narrower product range keeps the stated Delta T and solar accuracy
-meaningful even though some source polynomials have a wider mathematical range.
+metadata. The supported request range is the location's civil years 1901
+through 2099 inclusive. Internal calculations may use only the immediately
+adjacent 1900 or 2100 event when a valid endpoint request needs its preceding
+season/new moon or its following season/new moon/full moon/sunrise. This
+auxiliary guard does not make either adjacent year a supported request year.
+For solar facts, `AstronomyService` converts noon on the requested civil date
+through the location's selected IANA timezone and uses the resulting UTC date
+as the neutral Domain calculation anchor. The timezone is never inferred from
+longitude. This selects the solar cycle whose rise and set belong to the
+requested local date, including locations across the International Date Line.
+The deliberately narrower public range keeps the stated Delta T and solar
+accuracy meaningful even though some source polynomials have a wider
+mathematical range.
 
 ### Closed source matrix
 
 | Required result | Pinned source and exact part | Time scale and UTC conversion | Supported range and expected accuracy | License/data/runtime status |
 | --- | --- | --- | --- | --- |
 | Current astronomical season | Jean Meeus, *Astronomical Algorithms*, 2nd ed., Willmann-Bell, 1998, chapter 27, tables 27.A/27.B and 27.C; season boundaries are the calculated equinox/solstice instants. USNO definitions: https://aa.usno.navy.mil/faq/asa_glossary | Meeus returns JDE in TT. Awqati subtracts Delta T from the NASA model below to obtain UTC, then compares absolute instants. | Product range 1901..2099. Meeus states the chapter-27 corrected instants are within about one minute for the modern era; tests use a 2-minute tolerance against USNO tables. | Published algorithm, implemented independently; no copied code or bundled data. Bibliographic use only. |
-| Next equinox or solstice and local time | Same Meeus chapter 27 polynomial and 24-term periodic correction. “Next” means the first event whose UTC instant is strictly greater than `NowProvider.now()`; equality belongs to the new season and skips to the following event. | TT -> UTC with Delta T, followed by the existing bundled IANA timezone provider. | 1901..2099; 2-minute comparison tolerance. DST behavior is governed by bundled tzdata, not a fixed offset. | Same as above; computational only. |
-| Day length | NOAA Global Monitoring Laboratory, *Sunrise/Sunset Calculations*, equations and 90.833-degree zenith definition: https://gml.noaa.gov/grad/solcalc/solareqns.PDF ; calculation notes: https://gml.noaa.gov/grad/solcalc/calcdetails.html | Solar equations use UTC Julian day and produce UTC minutes, then Awqati converts each instant through the bundled IANA zone. | 1901..2099. NOAA describes calculator results as theoretically accurate within about one minute for latitudes between +/-72 degrees and within about ten minutes outside them; atmospheric conditions can shift observed rise/set. | US-government NOAA material; computational only, no bundled table and no runtime network. |
-| Night length | Same NOAA sunrise/sunset calculation. Scientific night here is the complement of apparent-sun day between one sunset and the next sunrise, using zenith 90.833 degrees; it is not a prayer high-latitude policy. | UTC instants as above; duration is calculated between absolute instants. | Same solar limits. Polar day and polar night are explicit states; no NearestLatitude, NightMiddle, OneSeventh, or AngleBased substitution is made. | Same as above. |
+| Next equinox or solstice and local time | Same Meeus chapter 27 polynomial and 24-term periodic correction. “Next” means the first event whose UTC instant is strictly greater than `NowProvider.now()`; equality belongs to the new season and skips to the following event. | TT -> UTC with Delta T, followed by the existing bundled IANA timezone provider. | Requests 1901..2099; a late-2099 answer may contain the adjacent March 2100 event. Two-minute comparison tolerance. DST behavior is governed by bundled tzdata, not a fixed offset. | Same as above; computational only. |
+| Day length | NOAA Global Monitoring Laboratory, *Sunrise/Sunset Calculations*, equations and 90.833-degree zenith definition: https://gml.noaa.gov/grad/solcalc/solareqns.PDF ; calculation notes: https://gml.noaa.gov/grad/solcalc/calcdetails.html | Application maps local civil noon through the selected IANA timezone to a UTC anchor date. Domain applies the solar equations to that anchor, then Application converts the resulting UTC instants back through the same zone. | 1901..2099 local civil dates, including a one-day 1900/2100 UTC anchor only when an endpoint timezone requires it. NOAA describes calculator results as theoretically accurate within about one minute for latitudes between +/-72 degrees and within about ten minutes outside them; atmospheric conditions can shift observed rise/set. | US-government NOAA material; computational only, no bundled table and no runtime network. |
+| Night length | Same NOAA apparent-sun equations and 90.833-degree zenith. Scientific night is the absolute interval from the requested date's sunset to the first later upward apparent-horizon crossing. It is not defined as `24h - daylight`, and the later sunrise may fall on the same UTC date, the next date, or after a longer high-latitude interval. | Both endpoints are UTC absolute instants. Domain examines the ordered NOAA sunrise candidate for each following solar cycle instead of sampling the horizon on a fixed time grid. A normal candidate is returned immediately. At the transition into polar day, bounded minimization locates the intervening lower culmination and brackets the upward root against the following solar noon; bisection then refines that crossing. Thus a daylight or darkness interval shorter than 30 minutes cannot be skipped. | Same solar limits. Polar day and polar night remain explicit states; no NearestLatitude, NightMiddle, OneSeventh, or AngleBased substitution is made. Regression cases cover a roughly 15-minute day before polar night and a sub-30-minute night before polar day. | Same as above. |
 | Moon phase | USNO principal-phase definition (Moon minus Sun apparent ecliptic longitude at 0, 90, 180, and 270 degrees): https://aa.usno.navy.mil/faq/asa_glossary . Intermediate longitude comes from Meeus 2nd ed., chapters 25 and 47. Eight spoken phase names use equal 45-degree sectors centered on those four principal phases; the fixed half-sector boundaries are 22.5, 67.5, 112.5, 157.5, 202.5, 247.5, 292.5, and 337.5 degrees. | Positions are evaluated at UTC Julian day; the small TT/UTC difference is below the promised phase-description precision in this product range. | 1901..2099. Phase-sector classification is deterministic; longitude is expected within roughly 0.1 degree with the retained Meeus lunar terms. | Published equations implemented independently; thresholds are an explicit Awqati presentation policy derived from equal sectors, not external data. |
 | Approximate Moon age | Meeus chapter 49 new-moon event algorithm. Age is defined as elapsed absolute time from the most recent calculated geocentric new moon to the requested instant, expressed in mean solar days. | Phase JDE is TT; subtract NASA Delta T to UTC before duration arithmetic. | 1901..2099. Event accuracy/tolerance is 2 minutes; the displayed age is explicitly approximate and is not elongation divided by a fixed synodic month. | Computational only; no runtime data. |
 | Moon illumination | Meeus 2nd ed., chapter 48, illuminated fraction `k=(1+cos(i))/2`, with geocentric elongation and the chapter's phase-angle correction using Sun-Moon distances from chapters 25 and 47. | Evaluated for the requested UTC Julian day; returned as a fraction in [0,1]. | 1901..2099. Expected fraction agreement is within 0.01 against an independent ephemeris; display may round to one decimal percent. | Computational only; no runtime data. |
-| Next new moon | Meeus chapter 49, equations 49.1 through 49.5 and the new-moon periodic correction table. The event exactly equal to now is not “next”; search requires a strictly later UTC instant. | JDE(TT) -> UTC with NASA Delta T. | 1901..2099; 2-minute reference tolerance. | Computational only. |
-| Next full moon | Meeus chapter 49, equations 49.1 through 49.5 and the full-moon periodic correction table. Strictly later semantics match next new moon. | JDE(TT) -> UTC with NASA Delta T. | 1901..2099; 2-minute reference tolerance. | Computational only. |
+| Next new moon | Meeus chapter 49, equations 49.1 through 49.5 and the complete new-moon periodic correction table. The event exactly equal to now is not “next”; search requires a strictly later UTC instant. | JDE(TT) -> UTC with NASA Delta T. | Requests 1901..2099; the returned event may be in adjacent 2100 for a valid late-2099 request. Two-minute ephemeris tolerance plus a subsecond coefficient-regression vector. | Computational only. |
+| Next full moon | Meeus chapter 49, equations 49.1 through 49.5 and the complete full-moon periodic correction table. Strictly later semantics match next new moon. | JDE(TT) -> UTC with NASA Delta T. | Same endpoint policy and reference tolerances as next new moon. | Computational only. |
 
 ### Time scales and Delta T
 
@@ -224,7 +234,9 @@ treated as UTC. The model is Fred Espenak and Jean Meeus, NASA GSFC,
 *Polynomial Expressions for Delta T*, revision displayed by the source page,
 https://eclipse.gsfc.nasa.gov/LEcat5/deltatpoly.html. Awqati uses the published
 1900..1920, 1920..1941, 1941..1961, 1961..1986, 1986..2005, and 2005..2050
-pieces, plus the published 2050..2150 piece for 2050..2099. NASA documents the
+pieces, plus the published 2050..2150 piece for 2050..2099 requests and the
+single adjacent auxiliary year 2100. The 1900 piece is likewise used only when
+an endpoint request needs a preceding event. NASA documents the
 complete model for years -1999 through +3000. The model is computational and
 no table is redistributed. As a US-government NASA publication it introduces
 no third-party runtime-code license.
@@ -236,7 +248,17 @@ from United States Naval Observatory published tables, including *Phases of the
 Moon 2000-2049* (Circular 169):
 https://aa.usno.navy.mil/downloads/Circular_169_coverupdate.pdf and the USNO
 Astronomical Applications service at https://aa.usno.navy.mil/. Test comments
-record the table and UTC instant. Solar samples are independently generated
+record the table and UTC instant. The complete 25-term new/full correction
+arrays, powers of `E`, `Omega`, and all fourteen additional planetary arguments
+were audited in one pass against Meeus chapter 49 and the independent PyMeeus
+0.5.12 implementation (LGPL-3.0, used only during development; no code or
+dependency is bundled): https://github.com/architest/pymeeus. The two
+new-moon coefficients that differ from full moon are preserved explicitly:
+`-0.00514 E sin(M' + M)` versus `-0.00515`, and
+`+0.00208 E^2 sin(2M)` versus `+0.00209`. A static `k=-651` high-sensitivity
+audit vector, independently tabulated from the printed chapter-49 terms, uses
+a 50-millisecond regression tolerance; substituting the two full-moon values
+moves the result by about 1.73 seconds. Solar samples are independently generated
 from the NOAA calculator/equations above. Qibla tests independently cross-check
 the city samples with the WGS84 inverse solution in T. Vincenty, “Direct and
 Inverse Solutions of Geodesics on the Ellipsoid with Application of Nested
