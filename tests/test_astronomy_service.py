@@ -34,6 +34,8 @@ class AstronomyServiceTests(unittest.TestCase):
 		location = Location("riyadh", "Riyadh", 24.7136, 46.6753, "Asia/Riyadh")
 		reading = AstronomyService(clock, self.timezones).read(location)
 		self.assertEqual(reading.local_date.isoformat(), "2026-09-13")
+		self.assertEqual(reading.observed_at_local.isoformat(), "2026-09-13T03:30:00+03:00")
+		self.assertLess(reading.daylight_change_from_previous_day, timedelta(0))
 		self.assertEqual(reading.next_seasonal_event.event, SeasonEvent.SEPTEMBER_EQUINOX)
 		self.assertEqual(reading.next_seasonal_event_local.utcoffset(), timedelta(hours=3))
 		self.assertEqual(reading.next_new_moon_local.utcoffset(), timedelta(hours=3))
@@ -94,6 +96,7 @@ class AstronomyServiceTests(unittest.TestCase):
 		self.assertEqual(reading.local_date.isoformat(), "1901-01-01")
 		self.assertEqual(reading.current_season_started.at_utc.year, 1900)
 		self.assertEqual(reading.lunar.previous_new_moon_utc.year, 1900)
+		self.assertIsNone(reading.daylight_change_from_previous_day)
 
 	def test_february_1901_before_march_equinox_is_complete(self) -> None:
 		reading = self._read_riyadh(datetime(1901, 2, 15, tzinfo=timezone.utc))
@@ -136,6 +139,20 @@ class AstronomyServiceTests(unittest.TestCase):
 		location = Location("riyadh", "Riyadh", 24.7136, 46.6753, "Asia/Riyadh")
 		return AstronomyService(clock, self.timezones).read(location)
 
+	def test_daylight_change_matches_the_same_service_policy_for_previous_local_day(self) -> None:
+		current = self._read_local_noon(
+			Location("riyadh", "Riyadh", 24.7136, 46.6753, "Asia/Riyadh"),
+			datetime(2026, 3, 1).date(),
+		)
+		previous = self._read_local_noon(
+			Location("riyadh", "Riyadh", 24.7136, 46.6753, "Asia/Riyadh"),
+			datetime(2026, 2, 28).date(),
+		)
+		self.assertEqual(
+			current.daylight_change_from_previous_day,
+			current.solar_day.daylight - previous.solar_day.daylight,
+		)
+
 	def _read_local_noon(self, location: Location, local_date):
 		zone = self.timezones.get_timezone(location.timezone_id)
 		local_noon = datetime(
@@ -149,6 +166,7 @@ class AstronomyServiceTests(unittest.TestCase):
 		self.assertIsNotNone(reading.current_season_started.at_utc)
 		self.assertIsNotNone(reading.next_seasonal_event.at_utc)
 		self.assertIsNotNone(reading.next_seasonal_event_local)
+		self.assertIsNotNone(reading.observed_at_local.utcoffset())
 		self.assertEqual(reading.solar_day.state, SolarDayState.NORMAL)
 		self.assertIsNotNone(reading.sunrise_local)
 		self.assertIsNotNone(reading.sunset_local)

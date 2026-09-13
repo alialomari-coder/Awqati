@@ -86,11 +86,13 @@ class LunarFacts:
 @dataclass(frozen=True, slots=True)
 class AstronomyReading:
 	local_date: date
+	observed_at_local: datetime
 	current_season: Season
 	current_season_started: SeasonalEvent
 	next_seasonal_event: SeasonalEvent
 	next_seasonal_event_local: datetime
 	solar_day: SolarDay
+	daylight_change_from_previous_day: timedelta | None
 	sunrise_local: datetime | None
 	sunset_local: datetime | None
 	lunar: LunarFacts
