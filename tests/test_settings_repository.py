@@ -18,17 +18,27 @@ from awqati.domain import (  # noqa: E402
 	AlertAction,
 	PrayerEventName,
 	RecurringDhikrId,
+	SETTINGS_SCHEMA_VERSION,
 	SoundReference,
 	default_settings,
 )
 from awqati.infrastructure import (  # noqa: E402
 	InvalidSettingsDataError,
+	FIRST_PUBLISHED_SETTINGS_SCHEMA_VERSION,
 	JsonSettingsRepository,
 	SettingsMigrationRegistry,
 	SettingsWriteError,
 	UnsupportedSettingsSchemaError,
 )
 import awqati.infrastructure.settings_repository as repository_module  # noqa: E402
+
+
+def migration_to(version: int):
+	def migrate(data):
+		result = deepcopy(data)
+		result["schemaVersion"] = version
+		return result
+	return migrate
 
 
 class JsonSettingsRepositoryTests(unittest.TestCase):
@@ -124,6 +134,70 @@ class JsonSettingsRepositoryTests(unittest.TestCase):
 			registry.register(0, lambda data: data)
 		with self.assertRaises(InvalidSettingsDataError):
 			registry.migrate({"schemaVersion": 0})
+
+
+class SettingsMigrationRegistryTests(unittest.TestCase):
+	def test_runtime_schema_and_first_published_schema_remain_one(self) -> None:
+		self.assertEqual(SETTINGS_SCHEMA_VERSION, 1)
+		self.assertEqual(FIRST_PUBLISHED_SETTINGS_SCHEMA_VERSION, 1)
+
+	def test_future_registry_can_upgrade_schema_one_to_two(self) -> None:
+		registry = SettingsMigrationRegistry(target_version=2, oldest_supported_version=1)
+		registry.register(1, migration_to(2))
+		self.assertEqual(registry.target_version, 2)
+		self.assertEqual(registry.oldest_supported_version, 1)
+		self.assertEqual(registry.migrate({"schemaVersion": 1, "kept": "value"}),
+			{"schemaVersion": 2, "kept": "value"})
+
+	def test_future_registry_runs_complete_one_to_two_to_three_chain(self) -> None:
+		registry = SettingsMigrationRegistry(target_version=3, oldest_supported_version=1)
+		registry.register(1, migration_to(2))
+		registry.register(2, migration_to(3))
+		self.assertEqual(registry.migrate({"schemaVersion": 1})["schemaVersion"], 3)
+
+	def test_incomplete_future_chain_is_rejected(self) -> None:
+		registry = SettingsMigrationRegistry(target_version=3, oldest_supported_version=1)
+		registry.register(1, migration_to(2))
+		with self.assertRaises(InvalidSettingsDataError):
+			registry.migrate({"schemaVersion": 1})
+
+	def test_migration_must_return_a_mapping_advanced_by_exactly_one(self) -> None:
+		invalid_migrations = (
+			lambda data: data,
+			lambda data: {**data, "schemaVersion": 1},
+			lambda data: {**data, "schemaVersion": 3},
+			lambda data: {**data, "schemaVersion": "2"},
+			lambda data: None,
+		)
+		for migration in invalid_migrations:
+			with self.subTest(migration=migration):
+				registry = SettingsMigrationRegistry(target_version=2, oldest_supported_version=1)
+				registry.register(1, migration)
+				with self.assertRaises(InvalidSettingsDataError):
+					registry.migrate({"schemaVersion": 1})
+
+	def test_duplicate_and_out_of_range_registration_are_rejected(self) -> None:
+		registry = SettingsMigrationRegistry(target_version=3, oldest_supported_version=1)
+		registry.register(1, migration_to(2))
+		with self.assertRaises(ValueError):
+			registry.register(1, migration_to(2))
+		for from_version in (0, 3, 4):
+			with self.subTest(from_version=from_version):
+				with self.assertRaises(ValueError):
+					registry.register(from_version, migration_to(from_version + 1))
+
+	def test_versions_outside_supported_window_are_rejected(self) -> None:
+		registry = SettingsMigrationRegistry(target_version=3, oldest_supported_version=2)
+		with self.assertRaises(InvalidSettingsDataError):
+			registry.migrate({"schemaVersion": 1})
+		with self.assertRaises(UnsupportedSettingsSchemaError):
+			registry.migrate({"schemaVersion": 4})
+
+	def test_invalid_registry_version_window_is_rejected(self) -> None:
+		for target, oldest in ((2, 0), (1, 2), (True, 1), (2, False)):
+			with self.subTest(target=target, oldest=oldest):
+				with self.assertRaises(ValueError):
+					SettingsMigrationRegistry(target_version=target, oldest_supported_version=oldest)
 
 
 if __name__ == "__main__":

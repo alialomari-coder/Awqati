@@ -72,18 +72,33 @@ class SettingsWriteError(SettingsRepositoryError):
 
 
 Migration = Callable[[dict[str, Any]], dict[str, Any]]
+FIRST_PUBLISHED_SETTINGS_SCHEMA_VERSION = 1
 
 
 class SettingsMigrationRegistry:
 	"""Explicit N-to-N+1 migration chain; schema 1 intentionally has none."""
 
-	def __init__(self, current_version: int = SETTINGS_SCHEMA_VERSION) -> None:
-		self.current_version = current_version
+	def __init__(self, target_version: int = SETTINGS_SCHEMA_VERSION,
+			oldest_supported_version: int = FIRST_PUBLISHED_SETTINGS_SCHEMA_VERSION) -> None:
+		if isinstance(target_version, bool) or not isinstance(target_version, int):
+			raise ValueError("the target settings schema version must be a whole number")
+		if isinstance(oldest_supported_version, bool) or not isinstance(oldest_supported_version, int):
+			raise ValueError("the oldest supported settings schema version must be a whole number")
+		if oldest_supported_version < FIRST_PUBLISHED_SETTINGS_SCHEMA_VERSION:
+			raise ValueError("schema versions before the first published schema cannot be migrated")
+		if target_version < oldest_supported_version:
+			raise ValueError("the target settings schema cannot precede the oldest supported schema")
+		self.target_version = target_version
+		self.oldest_supported_version = oldest_supported_version
 		self._migrations: dict[int, Migration] = {}
 
 	def register(self, from_version: int, migration: Migration) -> None:
-		if from_version < SETTINGS_SCHEMA_VERSION or from_version >= self.current_version:
+		if isinstance(from_version, bool) or not isinstance(from_version, int):
+			raise ValueError("the migration starting schema must be a whole number")
+		if from_version < self.oldest_supported_version or from_version >= self.target_version:
 			raise ValueError("migrations are only allowed between published supported schemas")
+		if not callable(migration):
+			raise TypeError("a settings migration must be callable")
 		if from_version in self._migrations:
 			raise ValueError("a migration is already registered for this schema")
 		self._migrations[from_version] = migration
@@ -92,21 +107,24 @@ class SettingsMigrationRegistry:
 		version = data.get("schemaVersion")
 		if isinstance(version, bool) or not isinstance(version, int):
 			raise InvalidSettingsDataError("schemaVersion is missing or invalid")
-		if version > self.current_version:
+		if version > self.target_version:
 			raise UnsupportedSettingsSchemaError(
-				f"settings schema {version} is newer than supported schema {self.current_version}")
-		if version < SETTINGS_SCHEMA_VERSION:
-			raise InvalidSettingsDataError("no migration exists from an unpublished legacy schema")
+				f"settings schema {version} is newer than supported schema {self.target_version}")
+		if version < self.oldest_supported_version:
+			raise InvalidSettingsDataError(
+				f"settings schema {version} predates the oldest supported published schema "
+				f"{self.oldest_supported_version}")
 		result = data
-		while version < self.current_version:
+		while version < self.target_version:
 			try:
 				migration = self._migrations[version]
 			except KeyError as error:
 				raise InvalidSettingsDataError(f"missing migration from settings schema {version}") from error
 			result = migration(result)
-			version += 1
-			if result.get("schemaVersion") != version:
+			next_version = version + 1
+			if not isinstance(result, dict) or result.get("schemaVersion") != next_version:
 				raise InvalidSettingsDataError("migration did not advance exactly one schema version")
+			version = next_version
 		return result
 
 
