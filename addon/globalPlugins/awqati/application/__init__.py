@@ -19,6 +19,7 @@ from .clock_formatters import (
 )
 from .clock_service import ClockService, PrayerRequestFactory
 from .events import EventDispatcher
+from .alert_scheduler import AlertCoordinator, AlertScheduler, GRACE_PERIODS, PresentationLease, priority_for, resolve_civil_time
 from .general_policy import (
 	AlertPolicyDecision,
 	AutomaticAlertKind,
@@ -97,6 +98,12 @@ __all__ = [
 	"DEFAULT_IQAMA_ALERT_BEFORE_MINUTES",
 	"DEFAULT_IQAMA_DELAYS_MINUTES",
 	"EventDispatcher",
+	"AlertCoordinator",
+	"AlertScheduler",
+	"GRACE_PERIODS",
+	"PresentationLease",
+	"priority_for",
+	"resolve_civil_time",
 	"EventPreAlertSettings",
 	"IqamaRule",
 	"IqamaSettings",

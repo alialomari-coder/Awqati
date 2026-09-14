@@ -62,6 +62,7 @@ from .astronomy import (
 	solar_day,
 	classify_moon_phase,
 )
+from .alerts import AlertEvent, AlertEventType, AlertPriority
 from .models import (
 	Coordinates,
 	DomainEvent,
@@ -148,6 +149,9 @@ from .qibla import (
 __all__ = [
 	"AdhkarSettings",
 	"AlertAction",
+	"AlertEvent",
+	"AlertEventType",
+	"AlertPriority",
 	"AlertOutputSettings",
 	"APPARENT_SUN_ZENITH_DEGREES",
 	"ASTRONOMY_ALGORITHM_VERSION",
