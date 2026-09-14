@@ -323,6 +323,12 @@ class AlertCoordinator:
 			raise RuntimeError("AlertCoordinator is closed")
 		return self.scheduler.resume(now, rebuild_source=self._rebuild)
 
+	def renew_day(self, now: Instant) -> None:
+		"""One explicit central renewal; the 5.1 owner supplies the day boundary."""
+		if self._closed:
+			raise RuntimeError("AlertCoordinator is closed")
+		self.scheduler.rebuild(self._rebuild(now, "localDayChanged", None), now, preserve_current=True)
+
 	def _run_rebuild(self, instant: Instant, reason: str, scope: str | None = None) -> None:
 		self.scheduler.rebuild(self._rebuild(instant, reason, scope), instant, scope=scope)
 

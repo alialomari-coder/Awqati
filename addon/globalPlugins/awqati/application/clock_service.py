@@ -5,7 +5,7 @@ from __future__ import annotations
 from datetime import date, datetime, timedelta, timezone
 from typing import Callable
 
-from ..domain import ClockReading, Location, PrayerCalculationRequest
+from ..domain import ClockReading, Instant, Location, PrayerCalculationRequest
 from .ports import NowProvider, TimezoneProvider
 from .prayer_service import PrayerService
 
@@ -24,7 +24,11 @@ class ClockService:
 		self._request_factory = request_factory
 
 	def read(self, location: Location) -> ClockReading:
-		now = self._clock.now().value
+		return self.read_at(location, self._clock.now())
+
+	def read_at(self, location: Location, instant: Instant) -> ClockReading:
+		"""Read an explicit occurrence without changing the current clock."""
+		now = instant.value
 		zone = self._timezones.get_timezone(location.timezone_id)
 		local_now = now.astimezone(zone)
 		today = local_now.date()

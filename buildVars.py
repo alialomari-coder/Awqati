@@ -6,9 +6,9 @@ Values marked as development placeholders must be reviewed before a release.
 addon_info = {
 	"addon_name": "awqati",
 	"addon_summary": "أوقاتي",
-	"addon_description": "هيكل مشروع إضافة أوقاتي لقارئ الشاشة NVDA دون وظائف المنتج.",
-	"addon_version": "0.0.0",
-	"addon_changelog": "إنشاء الهيكل الأولي والبناء ووثائق إدارة التنفيذ.",
+	"addon_description": "نسخة تطوير من أوقاتي: إعدادات المواقيت والساعة ونواة التنبيهات، قبل ربط العرض التلقائي.",
+	"addon_version": "0.4.2.2",
+	"addon_changelog": "تنفيذ منتجي تنبيهات المواقيت والساعة وأفق التجديد عند منتصف الليل المحلي.",
 	"addon_author": "Awqati project (development placeholder)",
 	"addon_url": None,
 	"addon_sourceURL": None,

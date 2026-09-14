@@ -13,7 +13,9 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGES = ROOT / "addon" / "globalPlugins"
 CORE = PACKAGES / "awqati"
-PACKAGE = ROOT / "dist" / "awqati-0.0.0.nvda-addon"
+import runpy
+BUILD_INFO = runpy.run_path(str(ROOT / "buildVars.py"))["addon_info"]
+PACKAGE = ROOT / "dist" / f"awqati-{BUILD_INFO['addon_version']}.nvda-addon"
 
 
 class CalendarArchitectureTests(unittest.TestCase):

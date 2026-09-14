@@ -8,7 +8,9 @@ import zipfile
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKAGE = ROOT / "dist" / "awqati-0.0.0.nvda-addon"
+import runpy
+BUILD_INFO = runpy.run_path(str(ROOT / "buildVars.py"))["addon_info"]
+PACKAGE = ROOT / "dist" / f"awqati-{BUILD_INFO['addon_version']}.nvda-addon"
 
 
 def _load_addon_info() -> dict[str, object]:
@@ -85,7 +87,7 @@ class ScaffoldTests(unittest.TestCase):
 		parser.read_string("[manifest]\n" + manifest_text)
 		manifest = parser["manifest"]
 		self.assertEqual(manifest["name"], "awqati")
-		self.assertEqual(manifest["version"], "0.0.0")
+		self.assertEqual(manifest["version"], _load_addon_info()["addon_version"])
 		self.assertEqual(manifest["minimumNVDAVersion"], "2026.1.0")
 		self.assertEqual(manifest["lastTestedNVDAVersion"], "2026.2.0")
 

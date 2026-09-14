@@ -592,6 +592,9 @@ class AlertArchitectureTests(unittest.TestCase):
         forbidden = {'wx', 'speech', 'nvwave', 'ui', 'ctypes', 'socket', 'urllib', 'threading', 'requests'}
         for path in (root / 'domain/alerts.py', root / 'application/alert_scheduler.py'):
             tree = ast.parse(path.read_text(encoding='utf-8'))
+            # 4.2 adds standalone producers, never inside the 4.1 core.
+            self.assertTrue({'PrayerAlertProducer', 'ClockAlertProducer'}.isdisjoint(
+                node.name for node in ast.walk(tree) if isinstance(node, ast.ClassDef)))
             for node in ast.walk(tree):
                 if isinstance(node, ast.Import):
                     self.assertTrue(forbidden.isdisjoint(a.name.split('.')[0] for a in node.names))
@@ -599,7 +602,7 @@ class AlertArchitectureTests(unittest.TestCase):
                     self.assertNotIn((node.module or '').split('.')[0], forbidden)
         names = {node.name for path in root.rglob('*.py') for node in ast.walk(ast.parse(path.read_text(encoding='utf-8')))
             if isinstance(node, ast.ClassDef)}
-        self.assertTrue({'PrayerAlertProducer', 'ClockAlertProducer', 'AlertPresenter', 'AudioService', 'SpeechService'}.isdisjoint(names))
+        self.assertTrue({'AdhkarAlertProducer', 'DailyWirdProducer', 'RecurringDhikrProducer', 'AlertPresenter', 'AudioService', 'SpeechService'}.isdisjoint(names))
 
 
 if __name__ == '__main__': unittest.main()

@@ -256,7 +256,8 @@ class AlertOutputEditor:
 
 
 class AwqatiSettingsPanel(SettingsPanel):
-	title = _("Awqati")
+	# Keep the product name correct before the full translation task.
+	title = "أوقاتي" if languageHandler.getLanguage().replace("-", "_").split("_")[0] == "ar" else _("Awqati")
 
 	def makeSettings(self, settingsSizer: wx.Sizer) -> None:
 		self.SetLayoutDirection(

@@ -18,6 +18,10 @@ from .clock_formatters import (
 	NumericClockFormatter,
 )
 from .clock_service import ClockService, PrayerRequestFactory
+from .prayer_alert_producer import PrayerAlertProducer
+from .clock_alert_producer import ClockAlertProducer
+from .prayer_clock_rebuild_source import PrayerClockRebuildSource
+from .alert_formatters import format_prayer_alert, format_clock_alert
 from .events import EventDispatcher
 from .alert_scheduler import AlertCoordinator, AlertScheduler, GRACE_PERIODS, PresentationLease, priority_for, resolve_civil_time
 from .general_policy import (
@@ -66,6 +70,11 @@ from .ports import (
 )
 
 __all__ = [
+	"PrayerAlertProducer",
+	"ClockAlertProducer",
+	"PrayerClockRebuildSource",
+	"format_prayer_alert",
+	"format_clock_alert",
 	"ArabianCalendarFormatter",
 	"ArabianCalendarRepository",
 	"ArabianCalendarService",
