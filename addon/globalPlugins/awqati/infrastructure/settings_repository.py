@@ -264,6 +264,7 @@ def _decode_settings(value: dict[str, Any]) -> AwqatiSettings:
 	prayer_data = _object(root["prayer"], {
 		"alertsEnabled", "calculationMethod", "asrMethod", "highLatitudeRule",
 		"correctionsMinutes", "events", "currentPrayerAfterIqamaMinutes",
+		"openDailyPrayerTimesWindow",
 	}, "prayer")
 	corrections_data = _object(prayer_data["correctionsMinutes"],
 		{identity.value for identity in PrayerEventName}, "prayer.correctionsMinutes")
@@ -297,6 +298,7 @@ def _decode_settings(value: dict[str, Any]) -> AwqatiSettings:
 		{identity: corrections_data[identity.value] for identity in PrayerEventName},
 		events,
 		prayer_data["currentPrayerAfterIqamaMinutes"],
+		prayer_data["openDailyPrayerTimesWindow"],
 	)
 
 	clock_data = _object(root["clock"], {"automaticAlertEnabled", "presentations", "intervals", "alert"}, "clock")
@@ -325,7 +327,8 @@ def _decode_settings(value: dict[str, Any]) -> AwqatiSettings:
 	)
 
 	calendar_data = _object(root["calendar"],
-		{"primaryCalendar", "formats", "hijriAdjustmentDays", "includeArabianCalendarInDailyInfo"}, "calendar")
+		{"primaryCalendar", "formats", "hijriAdjustmentDays", "includeArabianCalendarInDailyInfo",
+			"openDailyInfoWindow"}, "calendar")
 	formats_data = _object(calendar_data["formats"], {identity.value for identity in CalendarId}, "calendar.formats")
 	calendar = CalendarSettings(
 		_enum(CalendarId, calendar_data["primaryCalendar"], "calendar.primaryCalendar"),
@@ -333,6 +336,7 @@ def _decode_settings(value: dict[str, Any]) -> AwqatiSettings:
 			for identity in CalendarId},
 		calendar_data["hijriAdjustmentDays"],
 		calendar_data["includeArabianCalendarInDailyInfo"],
+		calendar_data["openDailyInfoWindow"],
 	)
 
 	adhkar_data = _object(root["adhkar"],

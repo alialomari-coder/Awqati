@@ -116,6 +116,7 @@ def focus_target_for_path(path: str) -> SettingsFocusTarget:
 			"asrMethod": "prayer.asrMethod",
 			"highLatitudeRule": "prayer.highLatitudeRule",
 			"currentPrayerAfterIqamaMinutes": "prayer.currentDuration",
+			"openDailyPrayerTimesWindow": "prayer.openDailyPrayerTimesWindow",
 			"alertsEnabled": "prayer.enabled",
 		}.get(parts[1] if len(parts) > 1 else "", "section"),
 			SettingsSection.PRAYER)
@@ -139,6 +140,7 @@ def focus_target_for_path(path: str) -> SettingsFocusTarget:
 			"primaryCalendar": "calendar.primary",
 			"hijriAdjustmentDays": "calendar.adjustment",
 			"includeArabianCalendarInDailyInfo": "calendar.includeArabian",
+			"openDailyInfoWindow": "calendar.openDailyInfoWindow",
 		}.get(parts[1] if len(parts) > 1 else "", "section"), SettingsSection.DATE,
 			calendar_id=(CalendarId.HIJRI_UMM_AL_QURA
 				if len(parts) > 1 and parts[1] == "hijriAdjustmentDays" else None))

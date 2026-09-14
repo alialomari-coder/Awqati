@@ -171,6 +171,7 @@ class PrayerSettings:
 	corrections_minutes: dict[PrayerEventName, int] = field(default_factory=_default_corrections)
 	events: dict[PrayerEventName, PrayerEventAlertSettings] = field(default_factory=_default_prayer_events)
 	current_prayer_after_iqama_minutes: int = DEFAULT_CURRENT_PRAYER_DURATION_MINUTES
+	open_daily_prayer_times_window: bool = False
 
 
 @dataclass(slots=True)
@@ -212,6 +213,7 @@ class CalendarSettings:
 	formats: dict[CalendarId, DateFormat] = field(default_factory=_default_calendar_formats)
 	hijri_adjustment_days: int = 0
 	include_arabian_calendar_in_daily_info: bool = False
+	open_daily_info_window: bool = False
 
 
 @dataclass(slots=True)
@@ -377,6 +379,7 @@ def validate_settings(settings: AwqatiSettings) -> None:
 	prayer = settings.prayer
 	_require_type(prayer, PrayerSettings, "prayer")
 	_require_bool(prayer.alerts_enabled, "prayer.alertsEnabled")
+	_require_bool(prayer.open_daily_prayer_times_window, "prayer.openDailyPrayerTimesWindow")
 	for path, value, kind in (
 		("prayer.calculationMethod", prayer.calculation_method, CalculationMethod),
 		("prayer.asrMethod", prayer.asr_method, AsrMethod),
@@ -451,6 +454,7 @@ def validate_settings(settings: AwqatiSettings) -> None:
 	_require_int(calendar.hijri_adjustment_days, -2, 2, "calendar.hijriAdjustmentDays")
 	_require_bool(calendar.include_arabian_calendar_in_daily_info,
 		"calendar.includeArabianCalendarInDailyInfo")
+	_require_bool(calendar.open_daily_info_window, "calendar.openDailyInfoWindow")
 
 	adhkar = settings.adhkar
 	_require_type(adhkar, AdhkarSettings, "adhkar")

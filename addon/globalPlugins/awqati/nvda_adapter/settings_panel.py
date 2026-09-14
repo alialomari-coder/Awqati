@@ -378,6 +378,12 @@ class AwqatiSettingsPanel(SettingsPanel):
 		current = _spin(panel, grid, "Keep prayer current after Iqama, minutes:", settings.current_prayer_after_iqama_minutes, 0, 180)
 		self._register("prayer.currentDuration", current)
 		current.Bind(wx.EVT_SPINCTRL, lambda e: (setattr(settings, "current_prayer_after_iqama_minutes", current.GetValue()), e.Skip()))
+		open_daily = wx.CheckBox(panel, label=_("Open daily prayer times window"))
+		open_daily.SetValue(settings.open_daily_prayer_times_window)
+		outer.Add(open_daily, flag=wx.TOP, border=8)
+		self._register("prayer.openDailyPrayerTimesWindow", open_daily)
+		open_daily.Bind(wx.EVT_CHECKBOX, lambda e: (
+			setattr(settings, "open_daily_prayer_times_window", open_daily.GetValue()), e.Skip()))
 		outer.Add(wx.StaticText(panel, label=_("Time to configure:")), flag=wx.TOP, border=8)
 		self._prayer_event_choice = wx.Choice(panel, choices=_translated(PRAYER_EVENT_ORDER, PRAYER_LABELS), name=_("Time to configure")); self._prayer_event_choice.SetSelection(0)
 		self._register("prayer.event", self._prayer_event_choice)
@@ -489,6 +495,9 @@ class AwqatiSettingsPanel(SettingsPanel):
 		include=wx.CheckBox(panel,label=_("Include Arabian calendar information in astronomical daily information"));include.SetValue(settings.include_arabian_calendar_in_daily_info);outer.Add(include,flag=wx.TOP,border=8)
 		self._register("calendar.includeArabian", include)
 		include.Bind(wx.EVT_CHECKBOX,lambda e:(setattr(settings,"include_arabian_calendar_in_daily_info",include.GetValue()),e.Skip()))
+		open_daily=wx.CheckBox(panel,label=_("Open daily information window"));open_daily.SetValue(settings.open_daily_info_window);outer.Add(open_daily,flag=wx.TOP,border=8)
+		self._register("calendar.openDailyInfoWindow", open_daily)
+		open_daily.Bind(wx.EVT_CHECKBOX,lambda e:(setattr(settings,"open_daily_info_window",open_daily.GetValue()),e.Skip()))
 		return panel
 
 	def _on_calendar(self,event:wx.CommandEvent)->None:
