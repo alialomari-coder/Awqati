@@ -30,7 +30,7 @@ from .general_policy import (
 	manual_commands_allowed,
 )
 from .location_service import LocationNotFoundError, LocationService
-from .location_setup import LocationSelectionResult, LocationSetupService
+from .location_setup import CustomLocationValidationError, LocationSelectionResult, LocationSetupService
 from .settings_service import ClosedSettingsDraftError, SettingsDraft, SettingsService
 from .qibla_formatters import ArabicQiblaFormatter, EnglishQiblaFormatter, QiblaFormatter
 from .qibla_service import QiblaService
@@ -90,6 +90,7 @@ __all__ = [
 	"EnglishWordClockFormatter",
 	"CountryInfo",
 	"CoordinateProvider",
+	"CustomLocationValidationError",
 	"CurrentPrayer",
 	"DEFAULT_CURRENT_PRAYER_DURATION_MINUTES",
 	"DEFAULT_EVENT_PRE_ALERT_MINUTES",

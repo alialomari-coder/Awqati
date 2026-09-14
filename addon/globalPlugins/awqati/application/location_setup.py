@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import hashlib
+import math
 
 from ..domain import Coordinates, Location, LocationDetectionFailure, LocationKind, StoredLocation
 from .ports import (
@@ -20,6 +21,15 @@ from .ports import (
 class LocationSelectionResult:
 	location: StoredLocation | None = None
 	failure: LocationDetectionFailure | None = None
+
+
+class CustomLocationValidationError(ValueError):
+	"""One neutral custom-location input failure with deterministic field focus."""
+
+	def __init__(self, field: str, code: str) -> None:
+		super().__init__(f"{field}: {code}")
+		self.field = field
+		self.code = code
 
 
 class LocationSetupService:
@@ -47,11 +57,31 @@ class LocationSetupService:
 		self._timezones.get_timezone(match.location.timezone_id)
 		return StoredLocation(LocationKind.SELECTED, match.location, match.country_code)
 
-	def custom(self, name: str, latitude: float, longitude: float, timezone_id: str) -> StoredLocation:
+	def custom(self, name: str, latitude: str | float, longitude: str | float,
+			timezone_id: str) -> StoredLocation:
+		if not isinstance(name, str) or not name.strip():
+			raise CustomLocationValidationError("name", "required")
 		clean_name = name.strip()
+		try:
+			latitude_value = float(latitude)
+		except (TypeError, ValueError) as error:
+			raise CustomLocationValidationError("latitude", "invalidNumber") from error
+		if not math.isfinite(latitude_value) or not -90.0 <= latitude_value <= 90.0:
+			raise CustomLocationValidationError("latitude", "outOfRange")
+		try:
+			longitude_value = float(longitude)
+		except (TypeError, ValueError) as error:
+			raise CustomLocationValidationError("longitude", "invalidNumber") from error
+		if not math.isfinite(longitude_value) or not -180.0 <= longitude_value <= 180.0:
+			raise CustomLocationValidationError("longitude", "outOfRange")
+		if not isinstance(timezone_id, str) or not timezone_id.strip():
+			raise CustomLocationValidationError("timezone", "required")
 		clean_timezone = timezone_id.strip()
-		coordinates = Coordinates(float(latitude), float(longitude))
-		self._timezones.get_timezone(clean_timezone)
+		coordinates = Coordinates(latitude_value, longitude_value)
+		try:
+			self._timezones.get_timezone(clean_timezone)
+		except ValueError as error:
+			raise CustomLocationValidationError("timezone", "invalidTimezone") from error
 		identity_source = "\0".join((
 			clean_name,
 			format(coordinates.latitude, ".17g"),

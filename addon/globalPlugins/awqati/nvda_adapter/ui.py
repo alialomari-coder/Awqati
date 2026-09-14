@@ -9,7 +9,12 @@ from typing import Callable
 import addonHandler
 import wx
 
-from ..application import LocationSelectionResult, LocationSetupService, SettingsService
+from ..application import (
+	CustomLocationValidationError,
+	LocationSelectionResult,
+	LocationSetupService,
+	SettingsService,
+)
 from ..domain import ClockTime, LocationDetectionFailure, StoredLocation
 
 addonHandler.initTranslation()
@@ -86,17 +91,23 @@ class CustomLocationDialog(wx.Dialog):
 		try:
 			self.location = self._service.custom(
 				self.name.GetValue(),
-				float(self.latitude.GetValue()),
-				float(self.longitude.GetValue()),
+				self.latitude.GetValue(),
+				self.longitude.GetValue(),
 				self.timezone.GetValue(),
 			)
-		except (TypeError, ValueError) as error:
+		except CustomLocationValidationError as error:
 			wx.MessageBox(
-				_("Check the location name, latitude, longitude, and choose a valid IANA time zone. {details}").format(details=error),
+				_("Check this location field and try again."),
 				_("Invalid custom location"),
 				wx.OK | wx.ICON_ERROR,
 				self,
 			)
+			{
+				"name": self.name,
+				"latitude": self.latitude,
+				"longitude": self.longitude,
+				"timezone": self.timezone,
+			}[error.field].SetFocus()
 			return
 		self.EndModal(wx.ID_OK)
 

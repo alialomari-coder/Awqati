@@ -2,9 +2,16 @@
 
 from __future__ import annotations
 
+from collections.abc import Container
 from copy import deepcopy
 
-from ..domain import AwqatiSettings, LocationChanged, SettingsApplied, validate_settings
+from ..domain import (
+	AwqatiSettings,
+	LocationChanged,
+	SettingsApplied,
+	SettingsValidationError,
+	validate_settings,
+)
 from .events import EventDispatcher
 from .ports import NowProvider, SettingsRepository
 
@@ -40,19 +47,20 @@ class SettingsDraft:
 		if self._closed:
 			raise ClosedSettingsDraftError("the settings draft has been discarded")
 		self._base = deepcopy(settings)
-		self._settings = deepcopy(settings)
 
 
 class SettingsService:
 	"""Load runtime settings and apply fully validated drafts."""
 
 	def __init__(self, repository: SettingsRepository, clock: NowProvider,
-			events: EventDispatcher | None = None) -> None:
+			events: EventDispatcher | None = None,
+			valid_timezone_ids: Container[str] | None = None) -> None:
 		self._repository = repository
 		self._clock = clock
 		self._events = events or EventDispatcher()
+		self._valid_timezone_ids = valid_timezone_ids
 		loaded = repository.load()
-		validate_settings(loaded)
+		self.validate(loaded)
 		self._runtime = deepcopy(loaded)
 
 	@property
@@ -66,9 +74,21 @@ class SettingsService:
 	def open_draft(self) -> SettingsDraft:
 		return SettingsDraft(self._runtime)
 
+	def validate(self, settings: AwqatiSettings) -> None:
+		"""Run the single complete validation path, including deployed IANA data."""
+		validate_settings(settings)
+		if settings.location is not None and self._valid_timezone_ids is not None:
+			timezone_id = settings.location.location.timezone_id
+			if timezone_id not in self._valid_timezone_ids:
+				raise SettingsValidationError(
+					"location.location.timezoneId is not included in the bundled IANA data",
+					path="location.location.timezoneId",
+					code="invalidTimezone",
+				)
+
 	def apply(self, draft: SettingsDraft) -> AwqatiSettings:
 		candidate = deepcopy(draft.settings)
-		validate_settings(candidate)
+		self.validate(candidate)
 		previous_location = self._effective_location(self._runtime)
 		current_location = self._effective_location(candidate)
 		alerts_reenabled = (

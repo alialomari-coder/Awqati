@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from enum import Enum
+import math
 import re
 from types import MappingProxyType
 
@@ -33,6 +34,11 @@ DEFAULT_DAILY_WIRD_TEXT = "لا تنس وردك اليومي."
 
 class SettingsValidationError(ValueError):
 	"""The complete settings value violates the published schema."""
+
+	def __init__(self, message: str, *, path: str = "settings", code: str = "invalidValue") -> None:
+		super().__init__(message)
+		self.path = path
+		self.code = code
 
 
 class AlertAction(Enum):
@@ -273,23 +279,23 @@ def default_settings() -> AwqatiSettings:
 	return settings
 
 
-def _fail(message: str) -> None:
-	raise SettingsValidationError(message)
+def _fail(message: str, path: str = "settings", code: str = "invalidValue") -> None:
+	raise SettingsValidationError(message, path=path, code=code)
 
 
 def _require_type(value: object, expected: type, path: str) -> None:
 	if not isinstance(value, expected):
-		_fail(f"{path} must be {expected.__name__}")
+		_fail(f"{path} must be {expected.__name__}", path, "invalidType")
 
 
 def _require_bool(value: object, path: str) -> None:
 	if not isinstance(value, bool):
-		_fail(f"{path} must be boolean")
+		_fail(f"{path} must be boolean", path, "invalidType")
 
 
 def _require_int(value: object, minimum: int, maximum: int, path: str) -> None:
 	if isinstance(value, bool) or not isinstance(value, int) or not minimum <= value <= maximum:
-		_fail(f"{path} must be a whole number from {minimum} through {maximum}")
+		_fail(f"{path} must be a whole number from {minimum} through {maximum}", path, "outOfRange")
 
 
 def _validate_sound(value: SoundReference | None, path: str) -> None:
@@ -298,46 +304,64 @@ def _validate_sound(value: SoundReference | None, path: str) -> None:
 	_require_type(value, SoundReference, path)
 	reference = value.value
 	if not isinstance(reference, str) or not reference or "\\" in reference:
-		_fail(f"{path} must be a non-empty canonical relative path")
+		_fail(f"{path} must be a non-empty canonical relative path", path, "invalidSound")
 	if reference.startswith("/") or re.match(r"^[A-Za-z]:", reference):
-		_fail(f"{path} must not be absolute")
+		_fail(f"{path} must not be absolute", path, "invalidSound")
 	parts = reference.split("/")
 	if any(part in ("", ".", "..") or ":" in part for part in parts):
-		_fail(f"{path} must remain inside the Awqati sound root")
+		_fail(f"{path} must remain inside the Awqati sound root", path, "invalidSound")
 	if len(parts) < 3 or parts[0] != "sounds" or parts[1] not in {"adhan", "alerts", "adhkar"}:
-		_fail(f"{path} must be under a supported Awqati sound category")
+		_fail(f"{path} must be under a supported Awqati sound category", path, "invalidSound")
 
 
 def _validate_output(value: AlertOutputSettings, allowed: set[AlertAction], path: str) -> None:
 	_require_type(value, AlertOutputSettings, path)
 	if not isinstance(value.action, AlertAction):
-		_fail(f"{path}.action is not a known alert action")
+		_fail(f"{path}.action is not a known alert action", f"{path}.action", "invalidChoice")
 	if value.action not in allowed:
-		_fail(f"{path}.action is not allowed for this feature")
+		_fail(f"{path}.action is not allowed for this feature", f"{path}.action", "invalidChoice")
 	_validate_sound(value.sound, f"{path}.sound")
 
 
 def _validate_exact_keys(mapping: object, expected: set[Enum], path: str) -> None:
 	if not isinstance(mapping, dict) or set(mapping) != expected:
-		_fail(f"{path} must define every supported identity exactly once")
+		_fail(f"{path} must define every supported identity exactly once", path, "invalidKeys")
+
+
+def _validate_location(location: Location, path: str) -> None:
+	_require_type(location, Location, path)
+	for name in ("location_id", "name", "timezone_id"):
+		value = getattr(location, name, None)
+		field_path = f"{path}." + {"location_id": "locationId", "timezone_id": "timezoneId"}.get(name, name)
+		if not isinstance(value, str) or not value.strip():
+			_fail(f"{field_path} must not be empty", field_path, "invalidLocation")
+	for name, minimum, maximum in (("latitude", -90.0, 90.0), ("longitude", -180.0, 180.0)):
+		value = getattr(location, name, None)
+		field_path = f"{path}.{name}"
+		if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or not minimum <= value <= maximum:
+			_fail(f"{field_path} is outside its valid range", field_path, "outOfRange")
+	timezone_parts = location.timezone_id.split("/")
+	if any(part in {"", ".", ".."} or re.fullmatch(r"[A-Za-z0-9._+-]+", part) is None
+			for part in timezone_parts):
+		_fail(f"{path}.timezoneId is not an IANA identifier", f"{path}.timezoneId", "invalidTimezone")
 
 
 def validate_settings(settings: AwqatiSettings) -> None:
 	"""Validate the whole graph before repository writes or runtime publication."""
 	_require_type(settings, AwqatiSettings, "settings")
 	if settings.schema_version != SETTINGS_SCHEMA_VERSION:
-		_fail(f"schemaVersion must equal {SETTINGS_SCHEMA_VERSION}")
+		_fail(f"schemaVersion must equal {SETTINGS_SCHEMA_VERSION}", "schemaVersion", "unsupportedSchema")
 	if settings.location is not None:
 		_require_type(settings.location, StoredLocation, "location")
 		if not isinstance(settings.location.kind, LocationKind):
-			_fail("location.kind is invalid")
-		_require_type(settings.location.location, Location, "location.location")
+			_fail("location.kind is invalid", "location.kind", "invalidChoice")
+		_validate_location(settings.location.location, "location.location")
 		if settings.location.kind is LocationKind.SELECTED:
 			code = settings.location.country_code
 			if not isinstance(code, str) or re.fullmatch(r"[A-Z]{2}", code) is None:
-				_fail("a selected location requires a two-letter uppercase country code")
+				_fail("a selected location requires a two-letter uppercase country code", "location.countryCode", "invalidLocation")
 		elif settings.location.country_code is not None:
-			_fail("a custom location must not carry a bundled country code")
+			_fail("a custom location must not carry a bundled country code", "location.countryCode", "invalidLocation")
 	general = settings.general
 	_require_type(general, GeneralSettings, "general")
 	_require_bool(general.all_automatic_alerts_enabled, "general.allAutomaticAlertsEnabled")
@@ -359,14 +383,16 @@ def validate_settings(settings: AwqatiSettings) -> None:
 		("prayer.highLatitudeRule", prayer.high_latitude_rule, HighLatitudeRule),
 	):
 		if not isinstance(value, kind):
-			_fail(f"{path} is invalid")
+			_fail(f"{path} is invalid", path, "invalidChoice")
 	_validate_exact_keys(prayer.corrections_minutes, set(PrayerEventName), "prayer.correctionsMinutes")
-	for name, value in prayer.corrections_minutes.items():
+	for name in PrayerEventName:
+		value = prayer.corrections_minutes[name]
 		_require_int(value, MIN_USER_CORRECTION_MINUTES, MAX_USER_CORRECTION_MINUTES,
 			f"prayer.correctionsMinutes.{name.value}")
 	_validate_exact_keys(prayer.events, set(PrayerEventName), "prayer.events")
 	prayer_actions = set(AlertAction)
-	for name, event in prayer.events.items():
+	for name in PrayerEventName:
+		event = prayer.events[name]
 		_require_type(event, PrayerEventAlertSettings, f"prayer.events.{name.value}")
 		_require_int(event.pre_alert_minutes, 0, MAX_DURATION_MINUTES,
 			f"prayer.events.{name.value}.preAlertMinutes")
@@ -374,17 +400,17 @@ def validate_settings(settings: AwqatiSettings) -> None:
 		_validate_output(event.at_time_alert, prayer_actions, f"prayer.events.{name.value}.atTimeAlert")
 		if name in PRAYER_EVENT_NAMES:
 			if event.iqama is None or event.post_alert_minutes is not None or event.post_alert is not None:
-				_fail(f"prayer.events.{name.value} must use Iqama and no post alert")
+				_fail(f"prayer.events.{name.value} must use Iqama and no post alert", f"prayer.events.{name.value}", "invalidShape")
 			_require_int(event.iqama.delay_minutes, 0, MAX_DURATION_MINUTES,
 				f"prayer.events.{name.value}.iqama.delayMinutes")
 			_require_int(event.iqama.alert_before_minutes, 0, MAX_DURATION_MINUTES,
 				f"prayer.events.{name.value}.iqama.alertBeforeMinutes")
 			if event.iqama.delay_minutes > 0 and event.iqama.alert_before_minutes >= event.iqama.delay_minutes:
-				_fail(f"prayer.events.{name.value}.iqama.alertBeforeMinutes must be below the Iqama delay")
+				_fail(f"prayer.events.{name.value}.iqama.alertBeforeMinutes must be below the Iqama delay", f"prayer.events.{name.value}.iqama.alertBeforeMinutes", "iqamaBeforeDelay")
 			_validate_output(event.iqama.alert, prayer_actions, f"prayer.events.{name.value}.iqama.alert")
 		else:
 			if event.iqama is not None or event.post_alert_minutes is None or event.post_alert is None:
-				_fail(f"prayer.events.{name.value} must use a post alert and no Iqama")
+				_fail(f"prayer.events.{name.value} must use a post alert and no Iqama", f"prayer.events.{name.value}", "invalidShape")
 			_require_int(event.post_alert_minutes, 0, MAX_DURATION_MINUTES,
 				f"prayer.events.{name.value}.postAlertMinutes")
 			_validate_output(event.post_alert, prayer_actions, f"prayer.events.{name.value}.postAlert")
@@ -395,7 +421,8 @@ def validate_settings(settings: AwqatiSettings) -> None:
 	_require_type(clock, ClockSettings, "clock")
 	_require_bool(clock.automatic_alert_enabled, "clock.automaticAlertEnabled")
 	_validate_exact_keys(clock.presentations, set(ClockType), "clock.presentations")
-	for identity, presentation in clock.presentations.items():
+	for identity in ClockType:
+		presentation = clock.presentations[identity]
 		_require_type(presentation, ClockPresentationSettings, f"clock.presentations.{identity.value}")
 		for path, value, kind in (
 			("style", presentation.style, AnnouncementStyle),
@@ -403,7 +430,7 @@ def validate_settings(settings: AwqatiSettings) -> None:
 			("representation", presentation.representation, TimeRepresentation),
 		):
 			if not isinstance(value, kind):
-				_fail(f"clock.presentations.{identity.value}.{path} is invalid")
+				_fail(f"clock.presentations.{identity.value}.{path} is invalid", f"clock.presentations.{identity.value}.{path}", "invalidChoice")
 		_require_bool(presentation.speak_seconds, f"clock.presentations.{identity.value}.speakSeconds")
 		_require_bool(presentation.speak_zero_minute, f"clock.presentations.{identity.value}.speakZeroMinute")
 	_require_type(clock.intervals, ClockChimeIntervals, "clock.intervals")
@@ -416,10 +443,11 @@ def validate_settings(settings: AwqatiSettings) -> None:
 	if not isinstance(calendar.primary_calendar, CalendarId) or calendar.primary_calendar not in {
 			CalendarId.GREGORIAN, CalendarId.HIJRI_UMM_AL_QURA,
 	}:
-		_fail("calendar.primaryCalendar must be Gregorian or lunar Hijri")
+		_fail("calendar.primaryCalendar must be Gregorian or lunar Hijri", "calendar.primaryCalendar", "invalidChoice")
 	_validate_exact_keys(calendar.formats, set(CalendarId), "calendar.formats")
 	if any(not isinstance(value, DateFormat) for value in calendar.formats.values()):
-		_fail("calendar formats must use known neutral values")
+		bad = next(identity for identity in CalendarId if not isinstance(calendar.formats[identity], DateFormat))
+		_fail("calendar formats must use known neutral values", f"calendar.formats.{bad.value}", "invalidChoice")
 	_require_int(calendar.hijri_adjustment_days, -2, 2, "calendar.hijriAdjustmentDays")
 	_require_bool(calendar.include_arabian_calendar_in_daily_info,
 		"calendar.includeArabianCalendarInDailyInfo")
@@ -436,25 +464,26 @@ def validate_settings(settings: AwqatiSettings) -> None:
 		_require_type(value, TimedDhikrSettings, f"adhkar.{name}")
 		_require_bool(value.enabled, f"adhkar.{name}.enabled")
 		if not isinstance(value.reference, reference_type):
-			_fail(f"adhkar.{name}.reference is invalid")
+			_fail(f"adhkar.{name}.reference is invalid", f"adhkar.{name}.reference", "invalidChoice")
 		_require_int(value.minutes, 0, MAX_DURATION_MINUTES, f"adhkar.{name}.minutes")
 		_validate_output(value.alert, timed_allowed, f"adhkar.{name}.alert")
 	wird = adhkar.daily_wird
 	_require_type(wird, DailyWirdSettings, "adhkar.dailyWird")
 	_require_bool(wird.enabled, "adhkar.dailyWird.enabled")
 	if not isinstance(wird.text, str):
-		_fail("adhkar.dailyWird.text must be text")
+		_fail("adhkar.dailyWird.text must be text", "adhkar.dailyWird.text", "invalidType")
 	_require_int(wird.hour, 1, 12, "adhkar.dailyWird.hour")
 	_require_int(wird.minute, 0, 59, "adhkar.dailyWird.minute")
 	if not isinstance(wird.period, DayPeriod):
-		_fail("adhkar.dailyWird.period is invalid")
+		_fail("adhkar.dailyWird.period is invalid", "adhkar.dailyWird.period", "invalidChoice")
 	_validate_output(wird.alert, timed_allowed, "adhkar.dailyWird.alert")
 	recurring = adhkar.recurring
 	_require_type(recurring, RecurringDhikrSettings, "adhkar.recurring")
 	_require_bool(recurring.enabled, "adhkar.recurring.enabled")
 	_require_int(recurring.interval_minutes, 5, 1440, "adhkar.recurring.intervalMinutes")
 	_validate_exact_keys(recurring.items, set(RecurringDhikrId), "adhkar.recurring.items")
-	for identity, item in recurring.items.items():
+	for identity in RecurringDhikrId:
+		item = recurring.items[identity]
 		_require_type(item, RecurringDhikrItemSettings, f"adhkar.recurring.items.{identity.value}")
 		_require_bool(item.enabled, f"adhkar.recurring.items.{identity.value}.enabled")
 		_validate_output(item.alert, {AlertAction.SPEECH, AlertAction.SOUND},

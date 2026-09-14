@@ -12,6 +12,7 @@ import logHandler
 import wx
 
 from ..application import LocationSetupService, SettingsService, first_run_location_required
+from ..domain import SettingsValidationError
 from ..infrastructure import (
 	BundledLocationRepository,
 	BundledTimezoneProvider,
@@ -35,13 +36,17 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		self._context: NvdaUiContext | None = None
 		self._terminated = False
 		try:
-			settings_path = Path(globalVars.appArgs.configPath) / "awqati" / "settings.json"
-			settings = SettingsService(JsonSettingsRepository(settings_path), SystemNowProvider())
 			locations = BundledLocationRepository()
 			timezones = BundledTimezoneProvider()
+			settings_path = Path(globalVars.appArgs.configPath) / "awqati" / "settings.json"
+			settings = SettingsService(
+				JsonSettingsRepository(settings_path),
+				SystemNowProvider(),
+				valid_timezone_ids=frozenset(timezones.timezone_ids()),
+			)
 			coordinates = WindowsLocationAdapter(parent_window_handle=gui.mainFrame.GetHandle())
 			location_setup = LocationSetupService(locations, timezones, coordinates)
-		except SettingsRepositoryError as error:
+		except (SettingsRepositoryError, SettingsValidationError) as error:
 			logHandler.log.error("Awqati settings could not be loaded: %s", error)
 			wx.CallAfter(
 				wx.MessageBox,
