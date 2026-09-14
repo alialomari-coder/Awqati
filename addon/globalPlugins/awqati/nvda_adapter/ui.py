@@ -8,7 +8,6 @@ from typing import Callable
 
 import addonHandler
 import wx
-from gui.settingsDialogs import SettingsPanel
 
 from ..application import LocationSelectionResult, LocationSetupService, SettingsService
 from ..domain import ClockTime, LocationDetectionFailure, StoredLocation
@@ -273,69 +272,3 @@ def _parse_clock(value: str) -> ClockTime:
 	if len(parts) != 2:
 		raise ValueError(_("Use time in 24-hour HH:MM format"))
 	return ClockTime(int(parts[0]), int(parts[1]))
-
-
-class AwqatiSettingsPanel(SettingsPanel):
-	title = _("Awqati")
-
-	def makeSettings(self, settingsSizer: wx.Sizer) -> None:
-		context = _context_or_raise()
-		self._settings = context.settings
-		self._draft = context.settings.open_draft()
-		current = self._draft.settings
-		self.location_controls = LocationControls(self, settingsSizer, context.location_setup, current.location)
-		self.all_alerts = wx.CheckBox(self, label=_("Enable all automatic alerts"))
-		self.all_alerts.SetValue(current.general.all_automatic_alerts_enabled)
-		settingsSizer.Add(self.all_alerts, flag=wx.ALL, border=8)
-		self.quiet_enabled = wx.CheckBox(self, label=_("Enable quiet hours"))
-		self.quiet_enabled.SetValue(current.general.quiet_hours.enabled)
-		settingsSizer.Add(self.quiet_enabled, flag=wx.LEFT | wx.RIGHT | wx.BOTTOM, border=8)
-		self.quiet_sizer = wx.FlexGridSizer(cols=2, hgap=8, vgap=8)
-		self.quiet_sizer.AddGrowableCol(1, 1)
-		quiet = current.general.quiet_hours
-		self.quiet_start = wx.TextCtrl(self, value=f"{quiet.start.hour:02d}:{quiet.start.minute:02d}", name=_("Quiet hours start"))
-		self.quiet_end = wx.TextCtrl(self, value=f"{quiet.end.hour:02d}:{quiet.end.minute:02d}", name=_("Quiet hours end"))
-		self.quiet_start_label = wx.StaticText(self, label=_("Quiet hours start, HH:MM:"))
-		self.quiet_sizer.Add(self.quiet_start_label, flag=wx.ALIGN_CENTER_VERTICAL)
-		self.quiet_sizer.Add(self.quiet_start, flag=wx.EXPAND)
-		self.quiet_end_label = wx.StaticText(self, label=_("Quiet hours end, HH:MM:"))
-		self.quiet_sizer.Add(self.quiet_end_label, flag=wx.ALIGN_CENTER_VERTICAL)
-		self.quiet_sizer.Add(self.quiet_end, flag=wx.EXPAND)
-		self.quiet_panel = wx.Panel(self)
-		self.apply_prayer = wx.CheckBox(self.quiet_panel, label=_("Apply quiet hours to prayer-time alerts"))
-		self.apply_prayer.SetValue(quiet.apply_to_prayer_alerts)
-		panel_sizer = wx.BoxSizer(wx.VERTICAL)
-		panel_sizer.Add(self.apply_prayer)
-		self.quiet_panel.SetSizer(panel_sizer)
-		self.quiet_sizer.Add((1, 1))
-		self.quiet_sizer.Add(self.quiet_panel, flag=wx.EXPAND)
-		settingsSizer.Add(self.quiet_sizer, flag=wx.LEFT | wx.RIGHT | wx.BOTTOM | wx.EXPAND, border=8)
-		self.quiet_enabled.Bind(wx.EVT_CHECKBOX, self._on_quiet_toggle)
-		self._show_quiet(current.general.quiet_hours.enabled)
-
-	def postInit(self) -> None:
-		self.location_controls.country.SetFocus()
-
-	def _on_quiet_toggle(self, event: wx.CommandEvent) -> None:
-		self._show_quiet(self.quiet_enabled.GetValue())
-		event.Skip()
-
-	def _show_quiet(self, show: bool) -> None:
-		for item in (self.quiet_start_label, self.quiet_start, self.quiet_end_label,
-				self.quiet_end, self.quiet_panel):
-			item.Show(show)
-		self.Layout()
-
-	def onSave(self) -> None:
-		candidate = self._draft.settings
-		candidate.location = self.location_controls.pending
-		candidate.general.all_automatic_alerts_enabled = self.all_alerts.GetValue()
-		candidate.general.quiet_hours.enabled = self.quiet_enabled.GetValue()
-		try:
-			candidate.general.quiet_hours.start = _parse_clock(self.quiet_start.GetValue())
-			candidate.general.quiet_hours.end = _parse_clock(self.quiet_end.GetValue())
-		except (TypeError, ValueError) as error:
-			self.quiet_start.SetFocus()
-			raise ValueError(_("Quiet hours times are invalid: {details}").format(details=error)) from error
-		candidate.general.quiet_hours.apply_to_prayer_alerts = self.apply_prayer.GetValue()
-		self._settings.apply(self._draft)

@@ -20,14 +20,15 @@ from ..infrastructure import (
 	SystemNowProvider,
 	WindowsLocationAdapter,
 )
-from .ui import AwqatiSettingsPanel, FirstRunLocationDialog, NvdaUiContext, configure
+from .settings_panel import AwqatiSettingsPanel
+from .ui import FirstRunLocationDialog, NvdaUiContext, configure
 
 addonHandler.initTranslation()
 _: Callable[[str], str]
 
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
-	"""Load task 3.2 services and keep product logic outside the entry point."""
+	"""Load Awqati services and keep product logic outside the entry point."""
 
 	def __init__(self) -> None:
 		super().__init__()
