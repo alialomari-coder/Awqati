@@ -62,7 +62,7 @@ from .astronomy import (
 	solar_day,
 	classify_moon_phase,
 )
-from .alerts import AlertEvent, AlertEventType, AlertPriority
+from .alerts import AlertEvent, AlertEventType, AlertPriority, AlertTiming
 from .models import (
 	Coordinates,
 	DomainEvent,
@@ -150,6 +150,7 @@ __all__ = [
 	"AdhkarSettings",
 	"AlertAction",
 	"AlertEvent",
+	"AlertTiming",
 	"AlertEventType",
 	"AlertPriority",
 	"AlertOutputSettings",
