@@ -102,6 +102,9 @@ class LocationRepository(Protocol):
 	def countries(self) -> tuple[CountryInfo, ...]:
 		...
 
+	def browse(self, country_code: str, limit: int = 40) -> tuple[LocationMatch, ...]:
+		...
+
 	def search(self, country_code: str, query: str, limit: int = 20) -> tuple[LocationMatch, ...]:
 		...
 

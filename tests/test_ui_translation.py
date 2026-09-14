@@ -37,7 +37,7 @@ class UiTranslationTests(unittest.TestCase):
 		paths = {path for message in self.catalog for path, line in message.locations}
 		for filename in ("plugin.py", "settings_panel.py", "ui.py"):
 			self.assertIn("addon/globalPlugins/awqati/nvda_adapter/" + filename, paths)
-		self.assertIn("Pre-alert action:", self.catalog)
+		self.assertIn("Alert action before the event:", self.catalog)
 		self.assertIn("Full", self.catalog)
 
 	def test_shipped_arabic_has_source_compiled_and_manifest_resources(self):

@@ -109,6 +109,16 @@ class BundledLocationRepository:
 		matches.sort(key=lambda item: item[0])
 		return tuple(self._to_match(code, record) for _, record in matches[:limit])
 
+	def browse(self, country_code: str, limit: int = 40) -> tuple[LocationMatch, ...]:
+		"""A bounded initial list ranked by administrative importance and population."""
+		from heapq import nsmallest
+		code = self._validate_country_code(country_code)
+		if limit < 1:
+			raise ValueError("limit must be at least 1")
+		records = nsmallest(limit, self._load_country(code),
+			key=lambda record: (record["r"], -record["p"], int(record["i"])))
+		return tuple(self._to_match(code, record) for record in records)
+
 	def get(self, country_code: str, location_id: str) -> LocationMatch | None:
 		code = self._validate_country_code(country_code)
 		identifier = str(location_id)

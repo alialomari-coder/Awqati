@@ -36,6 +36,12 @@ class _BaseClockFormatter:
 	language: str
 	representation: TimeRepresentation
 
+	def format_civil_announcement(self, value: datetime, options: ClockFormatOptions) -> str:
+		"""Render civil time without inventing a Maghrib-based reading."""
+		if value.tzinfo is None or value.utcoffset() is None:
+			raise ValueError("civil time must be timezone-aware")
+		return self._single_template(ClockType.ZAWALI, options.style, self._format_zawali(value, options))
+
 	def format_time(self, reading: ClockReading, clock_type: ClockType,
 			options: ClockFormatOptions) -> str:
 		if not isinstance(clock_type, ClockType):

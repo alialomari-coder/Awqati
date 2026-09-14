@@ -45,6 +45,168 @@ msgstr "الهجري الشمسي الأفغاني"
 msgid "Afghanistan"
 msgstr "أفغانستان"
 
+msgid "Africa / Abidjan"
+msgstr "توقيت ساحل العاج"
+
+msgid "Africa / Accra"
+msgstr "توقيت غانا"
+
+msgid "Africa / Addis Ababa"
+msgstr "توقيت إثيوبيا"
+
+msgid "Africa / Algiers"
+msgstr "توقيت الجزائر"
+
+msgid "Africa / Asmara"
+msgstr "أفريقيا / أسمرة"
+
+msgid "Africa / Asmera"
+msgstr "توقيت إريتريا"
+
+msgid "Africa / Bamako"
+msgstr "توقيت مالي"
+
+msgid "Africa / Bangui"
+msgstr "توقيت جمهورية أفريقيا الوسطى"
+
+msgid "Africa / Banjul"
+msgstr "توقيت غامبيا"
+
+msgid "Africa / Bissau"
+msgstr "توقيت غينيا بيساو"
+
+msgid "Africa / Blantyre"
+msgstr "توقيت ملاوي"
+
+msgid "Africa / Brazzaville"
+msgstr "توقيت الكونغو - برازافيل"
+
+msgid "Africa / Bujumbura"
+msgstr "توقيت بوروندي"
+
+msgid "Africa / Cairo"
+msgstr "توقيت مصر"
+
+msgid "Africa / Casablanca"
+msgstr "توقيت المغرب"
+
+msgid "Africa / Ceuta"
+msgstr "توقيت إسبانيا (سيتا)"
+
+msgid "Africa / Conakry"
+msgstr "توقيت غينيا"
+
+msgid "Africa / Dakar"
+msgstr "توقيت السنغال"
+
+msgid "Africa / Dar es Salaam"
+msgstr "توقيت تنزانيا"
+
+msgid "Africa / Djibouti"
+msgstr "توقيت جيبوتي"
+
+msgid "Africa / Douala"
+msgstr "توقيت الكاميرون"
+
+msgid "Africa / El Aaiun"
+msgstr "توقيت الصحراء الغربية"
+
+msgid "Africa / Freetown"
+msgstr "توقيت سيراليون"
+
+msgid "Africa / Gaborone"
+msgstr "توقيت بوتسوانا"
+
+msgid "Africa / Harare"
+msgstr "توقيت زيمبابوي"
+
+msgid "Africa / Johannesburg"
+msgstr "توقيت جنوب أفريقيا"
+
+msgid "Africa / Juba"
+msgstr "توقيت جنوب السودان"
+
+msgid "Africa / Kampala"
+msgstr "توقيت أوغندا"
+
+msgid "Africa / Khartoum"
+msgstr "توقيت السودان"
+
+msgid "Africa / Kigali"
+msgstr "توقيت رواندا"
+
+msgid "Africa / Kinshasa"
+msgstr "توقيت الكونغو - كينشاسا (كينشاسا)"
+
+msgid "Africa / Lagos"
+msgstr "توقيت نيجيريا"
+
+msgid "Africa / Libreville"
+msgstr "توقيت الغابون"
+
+msgid "Africa / Lome"
+msgstr "توقيت توغو"
+
+msgid "Africa / Luanda"
+msgstr "توقيت أنغولا"
+
+msgid "Africa / Lubumbashi"
+msgstr "توقيت الكونغو - كينشاسا (لومبباشا)"
+
+msgid "Africa / Lusaka"
+msgstr "توقيت زامبيا"
+
+msgid "Africa / Malabo"
+msgstr "توقيت غينيا الاستوائية"
+
+msgid "Africa / Maputo"
+msgstr "توقيت موزمبيق"
+
+msgid "Africa / Maseru"
+msgstr "توقيت ليسوتو"
+
+msgid "Africa / Mbabane"
+msgstr "توقيت إسواتيني"
+
+msgid "Africa / Mogadishu"
+msgstr "توقيت الصومال"
+
+msgid "Africa / Monrovia"
+msgstr "توقيت ليبيريا"
+
+msgid "Africa / Nairobi"
+msgstr "توقيت كينيا"
+
+msgid "Africa / Ndjamena"
+msgstr "توقيت تشاد"
+
+msgid "Africa / Niamey"
+msgstr "توقيت النيجر"
+
+msgid "Africa / Nouakchott"
+msgstr "توقيت موريتانيا"
+
+msgid "Africa / Ouagadougou"
+msgstr "توقيت بوركينا فاسو"
+
+msgid "Africa / Porto-Novo"
+msgstr "توقيت بنين"
+
+msgid "Africa / Sao Tome"
+msgstr "توقيت ساو تومي وبرينسيبي"
+
+msgid "Africa / Timbuktu"
+msgstr "توقيت مالي"
+
+msgid "Africa / Tripoli"
+msgstr "توقيت ليبيا"
+
+msgid "Africa / Tunis"
+msgstr "توقيت تونس"
+
+msgid "Africa / Windhoek"
+msgstr "توقيت ناميبيا"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:550
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:551
 msgid "After Asr"
@@ -62,6 +224,10 @@ msgstr "بعد المغرب"
 msgid "After sunrise"
 msgstr "بعد الشروق"
 
+#, python-brace-format
+msgid "After {time}"
+msgstr "بعد دخول وقت {time}"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Aland Islands"
 msgstr "جزر آلاند"
@@ -70,14 +236,44 @@ msgstr "جزر آلاند"
 msgid "Albania"
 msgstr "ألبانيا"
 
+msgid "Alert action after the event:"
+msgstr "إجراء التنبيه بعد دخول الوقت:"
+
+msgid "Alert action at the event:"
+msgstr "إجراء التنبيه عند دخول الوقت:"
+
+msgid "Alert action before Iqama:"
+msgstr "إجراء التنبيه قبل الإقامة:"
+
+msgid "Alert action before the event:"
+msgstr "إجراء التنبيه قبل دخول الوقت:"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:556
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:568
 msgid "Alert action:"
 msgstr "إجراء التنبيه:"
 
+msgid "Alert at half past the hour"
+msgstr "التنبيه عند نصف الساعة"
+
+msgid "Alert at quarter past the hour"
+msgstr "التنبيه عند ربع الساعة"
+
+msgid "Alert at three quarters past the hour"
+msgstr "التنبيه عند ثلاثة أرباع الساعة"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:426
 msgid "Alert before Iqama, minutes:"
 msgstr "التنبيه قبل الإقامة، بالدقائق:"
+
+msgid "Alert delay after the event, minutes:"
+msgstr "مدة التنبيه بعد دخول الوقت، بالدقائق:"
+
+msgid "Alert lead time before the event, minutes:"
+msgstr "مدة التنبيه قبل دخول الوقت، بالدقائق:"
+
+msgid "Alert on the hour"
+msgstr "التنبيه عند رأس الساعة"
 
 #: addon/globalPlugins/awqati/data/calculation_methods/methods.json:1
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
@@ -91,6 +287,513 @@ msgstr "الحمد لله"
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:67
 msgid "Allahu Akbar"
 msgstr "الله أكبر"
+
+msgid "America / Adak"
+msgstr "توقيت الولايات المتحدة (أداك)"
+
+msgid "America / Anchorage"
+msgstr "توقيت الولايات المتحدة (أنشوراج)"
+
+msgid "America / Anguilla"
+msgstr "توقيت أنغويلا"
+
+msgid "America / Antigua"
+msgstr "توقيت أنتيغوا وبربودا"
+
+msgid "America / Araguaina"
+msgstr "توقيت البرازيل (أروجوانيا)"
+
+msgid "America / Argentina / Buenos Aires"
+msgstr "توقيت الأرجنتين (بوينوس أيرس)"
+
+msgid "America / Argentina / Catamarca"
+msgstr "توقيت الأرجنتين (كاتاماركا)"
+
+msgid "America / Argentina / ComodRivadavia"
+msgstr "توقيت الأرجنتين (كاتاماركا)"
+
+msgid "America / Argentina / Cordoba"
+msgstr "توقيت الأرجنتين (كوردوبا)"
+
+msgid "America / Argentina / Jujuy"
+msgstr "توقيت الأرجنتين (جوجو)"
+
+msgid "America / Argentina / La Rioja"
+msgstr "توقيت الأرجنتين (لا ريوجا)"
+
+msgid "America / Argentina / Mendoza"
+msgstr "توقيت الأرجنتين (ميندوزا)"
+
+msgid "America / Argentina / Rio Gallegos"
+msgstr "توقيت الأرجنتين (ريو جالييوس)"
+
+msgid "America / Argentina / Salta"
+msgstr "توقيت الأرجنتين (سالطا)"
+
+msgid "America / Argentina / San Juan"
+msgstr "توقيت الأرجنتين (سان خوان)"
+
+msgid "America / Argentina / San Luis"
+msgstr "توقيت الأرجنتين (سان لويس)"
+
+msgid "America / Argentina / Tucuman"
+msgstr "توقيت الأرجنتين (تاكمان)"
+
+msgid "America / Argentina / Ushuaia"
+msgstr "توقيت الأرجنتين (أشوا)"
+
+msgid "America / Aruba"
+msgstr "توقيت أروبا"
+
+msgid "America / Asuncion"
+msgstr "توقيت باراغواي"
+
+msgid "America / Atikokan"
+msgstr "توقيت كندا (كورال هاربر)"
+
+msgid "America / Atka"
+msgstr "توقيت الولايات المتحدة (أداك)"
+
+msgid "America / Bahia"
+msgstr "توقيت البرازيل (باهيا)"
+
+msgid "America / Bahia Banderas"
+msgstr "توقيت المكسيك (باهيا بانديراس)"
+
+msgid "America / Barbados"
+msgstr "توقيت بربادوس"
+
+msgid "America / Belem"
+msgstr "توقيت البرازيل (بلم)"
+
+msgid "America / Belize"
+msgstr "توقيت بليز"
+
+msgid "America / Blanc-Sablon"
+msgstr "توقيت كندا (بلانك-سابلون)"
+
+msgid "America / Boa Vista"
+msgstr "توقيت البرازيل (باو فيستا)"
+
+msgid "America / Bogota"
+msgstr "توقيت كولومبيا"
+
+msgid "America / Boise"
+msgstr "توقيت الولايات المتحدة (بويس)"
+
+msgid "America / Buenos Aires"
+msgstr "توقيت الأرجنتين (بوينوس أيرس)"
+
+msgid "America / Cambridge Bay"
+msgstr "توقيت كندا (كامبرديج باي)"
+
+msgid "America / Campo Grande"
+msgstr "توقيت البرازيل (كومبو جراند)"
+
+msgid "America / Cancun"
+msgstr "توقيت المكسيك (كانكون)"
+
+msgid "America / Caracas"
+msgstr "توقيت فنزويلا"
+
+msgid "America / Catamarca"
+msgstr "توقيت الأرجنتين (كاتاماركا)"
+
+msgid "America / Cayenne"
+msgstr "توقيت غويانا الفرنسية"
+
+msgid "America / Cayman"
+msgstr "توقيت جزر كايمان"
+
+msgid "America / Chicago"
+msgstr "توقيت الولايات المتحدة (شيكاغو)"
+
+msgid "America / Chihuahua"
+msgstr "توقيت المكسيك (تشيواوا)"
+
+msgid "America / Ciudad Juarez"
+msgstr "توقيت المكسيك (سيوداد خواريز)"
+
+msgid "America / Coral Harbour"
+msgstr "توقيت كندا (كورال هاربر)"
+
+msgid "America / Cordoba"
+msgstr "توقيت الأرجنتين (كوردوبا)"
+
+msgid "America / Costa Rica"
+msgstr "توقيت كوستاريكا"
+
+msgid "America / Coyhaique"
+msgstr "توقيت منطقة غير معروفة (Coyhaique)"
+
+msgid "America / Creston"
+msgstr "توقيت كندا (كريستون)"
+
+msgid "America / Cuiaba"
+msgstr "توقيت البرازيل (كيابا)"
+
+msgid "America / Curacao"
+msgstr "توقيت كوراساو"
+
+msgid "America / Danmarkshavn"
+msgstr "توقيت غرينلاند (دانمرك شافن)"
+
+msgid "America / Dawson"
+msgstr "توقيت كندا (داوسان)"
+
+msgid "America / Dawson Creek"
+msgstr "توقيت كندا (داوسن كريك)"
+
+msgid "America / Denver"
+msgstr "توقيت الولايات المتحدة (دنفر)"
+
+msgid "America / Detroit"
+msgstr "توقيت الولايات المتحدة (ديترويت)"
+
+msgid "America / Dominica"
+msgstr "توقيت دومينيكا"
+
+msgid "America / Edmonton"
+msgstr "توقيت كندا (ايدمونتون)"
+
+msgid "America / Eirunepe"
+msgstr "توقيت البرازيل (ايرونبي)"
+
+msgid "America / El Salvador"
+msgstr "توقيت السلفادور"
+
+msgid "America / Ensenada"
+msgstr "توقيت المكسيك (تيخوانا)"
+
+msgid "America / Fort Nelson"
+msgstr "توقيت كندا (فورت نيلسون)"
+
+msgid "America / Fort Wayne"
+msgstr "توقيت الولايات المتحدة (إنديانابوليس)"
+
+msgid "America / Fortaleza"
+msgstr "توقيت البرازيل (فورتاليزا)"
+
+msgid "America / Glace Bay"
+msgstr "توقيت كندا (جلاس باي)"
+
+msgid "America / Godthab"
+msgstr "توقيت غرينلاند (غودثاب)"
+
+msgid "America / Goose Bay"
+msgstr "توقيت كندا (جوس باي)"
+
+msgid "America / Grand Turk"
+msgstr "توقيت جزر توركس وكايكوس"
+
+msgid "America / Grenada"
+msgstr "توقيت غرينادا"
+
+msgid "America / Guadeloupe"
+msgstr "توقيت غوادلوب"
+
+msgid "America / Guatemala"
+msgstr "توقيت غواتيمالا"
+
+msgid "America / Guayaquil"
+msgstr "توقيت الإكوادور (غواياكويل)"
+
+msgid "America / Guyana"
+msgstr "توقيت غيانا"
+
+msgid "America / Halifax"
+msgstr "توقيت كندا (هاليفاكس)"
+
+msgid "America / Havana"
+msgstr "توقيت كوبا"
+
+msgid "America / Hermosillo"
+msgstr "توقيت المكسيك (هيرموسيلو)"
+
+msgid "America / Indiana / Indianapolis"
+msgstr "توقيت الولايات المتحدة (إنديانابوليس)"
+
+msgid "America / Indiana / Knox"
+msgstr "توقيت الولايات المتحدة (كونكس)"
+
+msgid "America / Indiana / Marengo"
+msgstr "توقيت الولايات المتحدة (مارنجو)"
+
+msgid "America / Indiana / Petersburg"
+msgstr "توقيت الولايات المتحدة (بيترسبرغ)"
+
+msgid "America / Indiana / Tell City"
+msgstr "توقيت الولايات المتحدة (مدينة تل، إنديانا)"
+
+msgid "America / Indiana / Vevay"
+msgstr "توقيت الولايات المتحدة (فيفاي)"
+
+msgid "America / Indiana / Vincennes"
+msgstr "توقيت الولايات المتحدة (فينسينس)"
+
+msgid "America / Indiana / Winamac"
+msgstr "توقيت الولايات المتحدة (ويناماك)"
+
+msgid "America / Indianapolis"
+msgstr "توقيت الولايات المتحدة (إنديانابوليس)"
+
+msgid "America / Inuvik"
+msgstr "توقيت كندا (اينوفيك)"
+
+msgid "America / Iqaluit"
+msgstr "توقيت كندا (اكويلت)"
+
+msgid "America / Jamaica"
+msgstr "توقيت جامايكا"
+
+msgid "America / Jujuy"
+msgstr "توقيت الأرجنتين (جوجو)"
+
+msgid "America / Juneau"
+msgstr "توقيت الولايات المتحدة (جوني)"
+
+msgid "America / Kentucky / Louisville"
+msgstr "توقيت الولايات المتحدة (لويس فيل)"
+
+msgid "America / Kentucky / Monticello"
+msgstr "توقيت الولايات المتحدة (مونتيسيلو)"
+
+msgid "America / Knox IN"
+msgstr "توقيت الولايات المتحدة (كونكس)"
+
+msgid "America / Kralendijk"
+msgstr "توقيت هولندا الكاريبية"
+
+msgid "America / La Paz"
+msgstr "توقيت بوليفيا"
+
+msgid "America / Lima"
+msgstr "توقيت بيرو"
+
+msgid "America / Los Angeles"
+msgstr "توقيت الولايات المتحدة (لوس انجلوس)"
+
+msgid "America / Louisville"
+msgstr "توقيت الولايات المتحدة (لويس فيل)"
+
+msgid "America / Lower Princes"
+msgstr "توقيت سانت مارتن"
+
+msgid "America / Maceio"
+msgstr "توقيت البرازيل (ماشيو)"
+
+msgid "America / Managua"
+msgstr "توقيت نيكاراغوا"
+
+msgid "America / Manaus"
+msgstr "توقيت البرازيل (ماناوس)"
+
+msgid "America / Marigot"
+msgstr "توقيت سان مارتن"
+
+msgid "America / Martinique"
+msgstr "توقيت جزر المارتينيك"
+
+msgid "America / Matamoros"
+msgstr "توقيت المكسيك (ماتاموروس)"
+
+msgid "America / Mazatlan"
+msgstr "توقيت المكسيك (مازاتلان)"
+
+msgid "America / Mendoza"
+msgstr "توقيت الأرجنتين (ميندوزا)"
+
+msgid "America / Menominee"
+msgstr "توقيت الولايات المتحدة (مينوميني)"
+
+msgid "America / Merida"
+msgstr "توقيت المكسيك (ميريدا)"
+
+msgid "America / Metlakatla"
+msgstr "توقيت الولايات المتحدة (ميتلاكاتلا)"
+
+msgid "America / Mexico City"
+msgstr "توقيت المكسيك (مكسيكو سيتي)"
+
+msgid "America / Miquelon"
+msgstr "توقيت سان بيير ومكويلون"
+
+msgid "America / Moncton"
+msgstr "توقيت كندا (وينكتون)"
+
+msgid "America / Monterrey"
+msgstr "توقيت المكسيك (مونتيري)"
+
+msgid "America / Montevideo"
+msgstr "توقيت أورغواي"
+
+msgid "America / Montreal"
+msgstr "توقيت كندا (تورونتو)"
+
+msgid "America / Montserrat"
+msgstr "توقيت مونتسرات"
+
+msgid "America / Nassau"
+msgstr "توقيت جزر البهاما"
+
+msgid "America / New York"
+msgstr "أمريكا / نيويورك"
+
+msgid "America / Nipigon"
+msgstr "توقيت كندا (تورونتو)"
+
+msgid "America / Nome"
+msgstr "توقيت الولايات المتحدة (نوم)"
+
+msgid "America / Noronha"
+msgstr "توقيت البرازيل (نوروناه)"
+
+msgid "America / North Dakota / Beulah"
+msgstr "توقيت الولايات المتحدة (بيولا، داكوتا الشمالية)"
+
+msgid "America / North Dakota / Center"
+msgstr "توقيت الولايات المتحدة (سنتر)"
+
+msgid "America / North Dakota / New Salem"
+msgstr "توقيت الولايات المتحدة (نيو ساليم)"
+
+msgid "America / Nuuk"
+msgstr "توقيت غرينلاند (غودثاب)"
+
+msgid "America / Ojinaga"
+msgstr "توقيت المكسيك (أوجيناجا)"
+
+msgid "America / Panama"
+msgstr "توقيت بنما"
+
+msgid "America / Pangnirtung"
+msgstr "توقيت كندا (اكويلت)"
+
+msgid "America / Paramaribo"
+msgstr "توقيت سورينام"
+
+msgid "America / Phoenix"
+msgstr "توقيت الولايات المتحدة (فينكس)"
+
+msgid "America / Port of Spain"
+msgstr "توقيت ترينيداد وتوباغو"
+
+msgid "America / Port-au-Prince"
+msgstr "توقيت هايتي"
+
+msgid "America / Porto Acre"
+msgstr "توقيت البرازيل (ريوبرانكو)"
+
+msgid "America / Porto Velho"
+msgstr "توقيت البرازيل (بورتو فيلو)"
+
+msgid "America / Puerto Rico"
+msgstr "توقيت بورتوريكو"
+
+msgid "America / Punta Arenas"
+msgstr "توقيت تشيلي (بونتا أريناز)"
+
+msgid "America / Rainy River"
+msgstr "توقيت كندا (وينيبيج)"
+
+msgid "America / Rankin Inlet"
+msgstr "توقيت كندا (رانكن انلت)"
+
+msgid "America / Recife"
+msgstr "توقيت البرازيل (ريسيف)"
+
+msgid "America / Regina"
+msgstr "توقيت كندا (ريجينا)"
+
+msgid "America / Resolute"
+msgstr "توقيت كندا (ريزولوت)"
+
+msgid "America / Rio Branco"
+msgstr "توقيت البرازيل (ريوبرانكو)"
+
+msgid "America / Rosario"
+msgstr "توقيت الأرجنتين (كوردوبا)"
+
+msgid "America / Santa Isabel"
+msgstr "توقيت المكسيك (تيخوانا)"
+
+msgid "America / Santarem"
+msgstr "توقيت البرازيل (سانتاريم)"
+
+msgid "America / Santiago"
+msgstr "توقيت تشيلي (سانتياغو)"
+
+msgid "America / Santo Domingo"
+msgstr "توقيت جمهورية الدومينيكان"
+
+msgid "America / Sao Paulo"
+msgstr "توقيت البرازيل (ساو باولو)"
+
+msgid "America / Scoresbysund"
+msgstr "توقيت غرينلاند (سكورسبيسند)"
+
+msgid "America / Shiprock"
+msgstr "توقيت الولايات المتحدة (دنفر)"
+
+msgid "America / Sitka"
+msgstr "توقيت الولايات المتحدة (سيتكا)"
+
+msgid "America / St Barthelemy"
+msgstr "توقيت سان بارتليمي"
+
+msgid "America / St Johns"
+msgstr "توقيت كندا (سانت جونس)"
+
+msgid "America / St Kitts"
+msgstr "توقيت سانت كيتس ونيفيس"
+
+msgid "America / St Lucia"
+msgstr "توقيت سانت لوسيا"
+
+msgid "America / St Thomas"
+msgstr "توقيت جزر فيرجن الأمريكية"
+
+msgid "America / St Vincent"
+msgstr "توقيت سانت فنسنت وجزر غرينادين"
+
+msgid "America / Swift Current"
+msgstr "توقيت كندا (سوفت كارنت)"
+
+msgid "America / Tegucigalpa"
+msgstr "توقيت هندوراس"
+
+msgid "America / Thule"
+msgstr "توقيت غرينلاند (ثيل)"
+
+msgid "America / Thunder Bay"
+msgstr "توقيت كندا (تورونتو)"
+
+msgid "America / Tijuana"
+msgstr "توقيت المكسيك (تيخوانا)"
+
+msgid "America / Toronto"
+msgstr "توقيت كندا (تورونتو)"
+
+msgid "America / Tortola"
+msgstr "توقيت جزر فيرجن البريطانية"
+
+msgid "America / Vancouver"
+msgstr "توقيت كندا (فانكوفر)"
+
+msgid "America / Virgin"
+msgstr "توقيت جزر فيرجن الأمريكية"
+
+msgid "America / Whitehorse"
+msgstr "توقيت كندا (وايت هورس)"
+
+msgid "America / Winnipeg"
+msgstr "توقيت كندا (وينيبيج)"
+
+msgid "America / Yakutat"
+msgstr "توقيت الولايات المتحدة (ياكوتات)"
+
+msgid "America / Yellowknife"
+msgstr "توقيت كندا (ايدمونتون)"
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "American Samoa"
@@ -112,6 +815,42 @@ msgstr "أنغولا"
 msgid "Anguilla"
 msgstr "أنغويلا"
 
+msgid "Antarctica / Casey"
+msgstr "توقيت أنتاركتيكا (كاساي)"
+
+msgid "Antarctica / Davis"
+msgstr "توقيت أنتاركتيكا (دافيز)"
+
+msgid "Antarctica / DumontDUrville"
+msgstr "توقيت أنتاركتيكا (دي مونت دو روفيل)"
+
+msgid "Antarctica / Macquarie"
+msgstr "توقيت أستراليا (ماكواري)"
+
+msgid "Antarctica / Mawson"
+msgstr "توقيت أنتاركتيكا (ماوسون)"
+
+msgid "Antarctica / McMurdo"
+msgstr "توقيت أنتاركتيكا (ماك موردو)"
+
+msgid "Antarctica / Palmer"
+msgstr "توقيت أنتاركتيكا (بالمير)"
+
+msgid "Antarctica / Rothera"
+msgstr "توقيت أنتاركتيكا (روثيرا)"
+
+msgid "Antarctica / South Pole"
+msgstr "توقيت نيوزيلندا (أوكلاند)"
+
+msgid "Antarctica / Syowa"
+msgstr "توقيت أنتاركتيكا (سايووا)"
+
+msgid "Antarctica / Troll"
+msgstr "توقيت العالم (ترول)"
+
+msgid "Antarctica / Vostok"
+msgstr "توقيت أنتاركتيكا (فوستوك)"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Antigua and Barbuda"
 msgstr "أنتيغوا وبربودا"
@@ -119,6 +858,9 @@ msgstr "أنتيغوا وبربودا"
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:294
 msgid "Apply quiet hours to prayer-time alerts"
 msgstr "تطبيق ساعات الهدوء على تنبيهات المواقيت"
+
+msgid "Arctic / Longyearbyen"
+msgstr "توقيت سفالبارد وجان ماين"
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Argentina"
@@ -131,6 +873,303 @@ msgstr "أرمينيا"
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Aruba"
 msgstr "أروبا"
+
+msgid "Asia / Aden"
+msgstr "توقيت اليمن"
+
+msgid "Asia / Almaty"
+msgstr "توقيت كازاخستان (ألماتي)"
+
+msgid "Asia / Amman"
+msgstr "توقيت الأردن"
+
+msgid "Asia / Anadyr"
+msgstr "توقيت روسيا (أندير)"
+
+msgid "Asia / Aqtau"
+msgstr "توقيت كازاخستان (أكتاو)"
+
+msgid "Asia / Aqtobe"
+msgstr "توقيت كازاخستان (أكتوب)"
+
+msgid "Asia / Ashgabat"
+msgstr "توقيت تركمانستان"
+
+msgid "Asia / Ashkhabad"
+msgstr "توقيت تركمانستان"
+
+msgid "Asia / Atyrau"
+msgstr "توقيت كازاخستان (أتيراو)"
+
+msgid "Asia / Baghdad"
+msgstr "توقيت العراق"
+
+msgid "Asia / Bahrain"
+msgstr "توقيت البحرين"
+
+msgid "Asia / Baku"
+msgstr "توقيت أذربيجان"
+
+msgid "Asia / Bangkok"
+msgstr "توقيت تايلاند"
+
+msgid "Asia / Barnaul"
+msgstr "توقيت روسيا (بارناول)"
+
+msgid "Asia / Beirut"
+msgstr "توقيت لبنان"
+
+msgid "Asia / Bishkek"
+msgstr "توقيت قيرغيزستان"
+
+msgid "Asia / Brunei"
+msgstr "توقيت بروناي"
+
+msgid "Asia / Calcutta"
+msgstr "توقيت الهند"
+
+msgid "Asia / Chita"
+msgstr "توقيت روسيا (تشيتا)"
+
+msgid "Asia / Choibalsan"
+msgstr "توقيت منغوليا (آلانباتار)"
+
+msgid "Asia / Chongqing"
+msgstr "توقيت الصين (شنغهاي)"
+
+msgid "Asia / Chungking"
+msgstr "توقيت الصين (شنغهاي)"
+
+msgid "Asia / Colombo"
+msgstr "توقيت سريلانكا"
+
+msgid "Asia / Dacca"
+msgstr "توقيت بنغلاديش"
+
+msgid "Asia / Damascus"
+msgstr "توقيت سوريا"
+
+msgid "Asia / Dhaka"
+msgstr "توقيت بنغلاديش"
+
+msgid "Asia / Dili"
+msgstr "توقيت تيمور - ليشتي"
+
+msgid "Asia / Dubai"
+msgstr "توقيت الإمارات العربية المتحدة"
+
+msgid "Asia / Dushanbe"
+msgstr "توقيت طاجيكستان"
+
+msgid "Asia / Famagusta"
+msgstr "توقيت قبرص (فاماغوستا)"
+
+msgid "Asia / Gaza"
+msgstr "توقيت الأراضي الفلسطينية (غزة)"
+
+msgid "Asia / Harbin"
+msgstr "توقيت الصين (شنغهاي)"
+
+msgid "Asia / Hebron"
+msgstr "توقيت الأراضي الفلسطينية (هيبرون (مدينة الخليل))"
+
+msgid "Asia / Ho Chi Minh"
+msgstr "توقيت فيتنام"
+
+msgid "Asia / Hong Kong"
+msgstr "توقيت هونغ كونغ الصينية (منطقة إدارية خاصة)"
+
+msgid "Asia / Hovd"
+msgstr "توقيت منغوليا (هوفد)"
+
+msgid "Asia / Irkutsk"
+msgstr "توقيت روسيا (ايركيتسك)"
+
+msgid "Asia / Istanbul"
+msgstr "توقيت تركيا"
+
+msgid "Asia / Jakarta"
+msgstr "توقيت إندونيسيا (جاكرتا)"
+
+msgid "Asia / Jayapura"
+msgstr "توقيت إندونيسيا (جايابيورا)"
+
+msgid "Asia / Jerusalem"
+msgstr "توقيت إسرائيل"
+
+msgid "Asia / Kabul"
+msgstr "توقيت أفغانستان"
+
+msgid "Asia / Kamchatka"
+msgstr "توقيت روسيا (كامتشاتكا)"
+
+msgid "Asia / Karachi"
+msgstr "توقيت باكستان"
+
+msgid "Asia / Kashgar"
+msgstr "توقيت الصين (أرومكي)"
+
+msgid "Asia / Kathmandu"
+msgstr "توقيت نيبال"
+
+msgid "Asia / Katmandu"
+msgstr "توقيت نيبال"
+
+msgid "Asia / Khandyga"
+msgstr "توقيت روسيا (خانديجا)"
+
+msgid "Asia / Kolkata"
+msgstr "توقيت الهند"
+
+msgid "Asia / Krasnoyarsk"
+msgstr "توقيت روسيا (كراسنويارسك)"
+
+msgid "Asia / Kuala Lumpur"
+msgstr "توقيت ماليزيا (كوالا لامبور)"
+
+msgid "Asia / Kuching"
+msgstr "توقيت ماليزيا (كيشينج)"
+
+msgid "Asia / Kuwait"
+msgstr "توقيت الكويت"
+
+msgid "Asia / Macao"
+msgstr "توقيت منطقة ماكاو الإدارية الخاصة"
+
+msgid "Asia / Macau"
+msgstr "توقيت منطقة ماكاو الإدارية الخاصة"
+
+msgid "Asia / Magadan"
+msgstr "توقيت روسيا (مجادن)"
+
+msgid "Asia / Makassar"
+msgstr "توقيت إندونيسيا (ماكسار)"
+
+msgid "Asia / Manila"
+msgstr "توقيت الفلبين"
+
+msgid "Asia / Muscat"
+msgstr "توقيت عُمان"
+
+msgid "Asia / Nicosia"
+msgstr "توقيت قبرص (نيقوسيا)"
+
+msgid "Asia / Novokuznetsk"
+msgstr "توقيت روسيا (نوفوكوزنتسك)"
+
+msgid "Asia / Novosibirsk"
+msgstr "توقيت روسيا (نوفوسبيرسك)"
+
+msgid "Asia / Omsk"
+msgstr "توقيت روسيا (أومسك)"
+
+msgid "Asia / Oral"
+msgstr "توقيت كازاخستان (أورال)"
+
+msgid "Asia / Phnom Penh"
+msgstr "توقيت كمبوديا"
+
+msgid "Asia / Pontianak"
+msgstr "توقيت إندونيسيا (بونتيانك)"
+
+msgid "Asia / Pyongyang"
+msgstr "توقيت كوريا الشمالية"
+
+msgid "Asia / Qatar"
+msgstr "توقيت قطر"
+
+msgid "Asia / Qostanay"
+msgstr "توقيت كازاخستان (قوستاناي)"
+
+msgid "Asia / Qyzylorda"
+msgstr "توقيت كازاخستان (كيزيلوردا)"
+
+msgid "Asia / Rangoon"
+msgstr "توقيت ميانمار (بورما)"
+
+msgid "Asia / Riyadh"
+msgstr "آسيا / الرياض"
+
+msgid "Asia / Saigon"
+msgstr "توقيت فيتنام"
+
+msgid "Asia / Sakhalin"
+msgstr "توقيت روسيا (سكالين)"
+
+msgid "Asia / Samarkand"
+msgstr "توقيت أوزبكستان (سمرقند)"
+
+msgid "Asia / Seoul"
+msgstr "توقيت كوريا الجنوبية"
+
+msgid "Asia / Shanghai"
+msgstr "توقيت الصين (شنغهاي)"
+
+msgid "Asia / Singapore"
+msgstr "توقيت سنغافورة"
+
+msgid "Asia / Srednekolymsk"
+msgstr "توقيت روسيا (سريدنكوليمسك)"
+
+msgid "Asia / Taipei"
+msgstr "توقيت تايوان"
+
+msgid "Asia / Tashkent"
+msgstr "توقيت أوزبكستان (طشقند)"
+
+msgid "Asia / Tbilisi"
+msgstr "توقيت جورجيا"
+
+msgid "Asia / Tehran"
+msgstr "توقيت إيران"
+
+msgid "Asia / Tel Aviv"
+msgstr "توقيت إسرائيل"
+
+msgid "Asia / Thimbu"
+msgstr "توقيت بوتان"
+
+msgid "Asia / Thimphu"
+msgstr "توقيت بوتان"
+
+msgid "Asia / Tokyo"
+msgstr "توقيت اليابان"
+
+msgid "Asia / Tomsk"
+msgstr "توقيت روسيا (تومسك)"
+
+msgid "Asia / Ujung Pandang"
+msgstr "توقيت إندونيسيا (ماكسار)"
+
+msgid "Asia / Ulaanbaatar"
+msgstr "توقيت منغوليا (آلانباتار)"
+
+msgid "Asia / Ulan Bator"
+msgstr "توقيت منغوليا (آلانباتار)"
+
+msgid "Asia / Urumqi"
+msgstr "توقيت الصين (أرومكي)"
+
+msgid "Asia / Ust-Nera"
+msgstr "توقيت روسيا (أوست نيرا)"
+
+msgid "Asia / Vientiane"
+msgstr "توقيت لاوس"
+
+msgid "Asia / Vladivostok"
+msgstr "توقيت روسيا (فلاديفوستك)"
+
+msgid "Asia / Yakutsk"
+msgstr "توقيت روسيا (ياكتسك)"
+
+msgid "Asia / Yangon"
+msgstr "توقيت ميانمار (بورما)"
+
+msgid "Asia / Yekaterinburg"
+msgstr "توقيت روسيا (يكاترنبيرج)"
+
+msgid "Asia / Yerevan"
+msgstr "توقيت أرمينيا"
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:43
 msgid "Asr"
@@ -149,13 +1188,122 @@ msgstr "الموقع المعتمد: {name}؛ المنطقة الزمنية: {ti
 msgid "Astaghfiru Allah"
 msgstr "أستغفر الله"
 
+#, python-brace-format
+msgid "At {time}"
+msgstr "عند دخول وقت {time}"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:422
 msgid "At-time alert action:"
 msgstr "إجراء التنبيه عند الوقت:"
 
+msgid "Atlantic / Azores"
+msgstr "توقيت البرتغال (أزورس)"
+
+msgid "Atlantic / Bermuda"
+msgstr "توقيت برمودا"
+
+msgid "Atlantic / Canary"
+msgstr "توقيت إسبانيا (كناري)"
+
+msgid "Atlantic / Cape Verde"
+msgstr "توقيت الرأس الأخضر"
+
+msgid "Atlantic / Faeroe"
+msgstr "توقيت جزر فارو"
+
+msgid "Atlantic / Faroe"
+msgstr "توقيت جزر فارو"
+
+msgid "Atlantic / Jan Mayen"
+msgstr "توقيت سفالبارد وجان ماين"
+
+msgid "Atlantic / Madeira"
+msgstr "توقيت البرتغال (ماديرا)"
+
+msgid "Atlantic / Reykjavik"
+msgstr "توقيت آيسلندا"
+
+msgid "Atlantic / South Georgia"
+msgstr "توقيت جورجيا الجنوبية وجزر ساندويتش الجنوبية"
+
+msgid "Atlantic / St Helena"
+msgstr "توقيت سانت هيلينا"
+
+msgid "Atlantic / Stanley"
+msgstr "توقيت جزر فوكلاند"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Australia"
 msgstr "أستراليا"
+
+msgid "Australia / ACT"
+msgstr "توقيت أستراليا (سيدني)"
+
+msgid "Australia / Adelaide"
+msgstr "توقيت أستراليا (أديليد)"
+
+msgid "Australia / Brisbane"
+msgstr "توقيت أستراليا (برسيبان)"
+
+msgid "Australia / Broken Hill"
+msgstr "توقيت أستراليا (بروكن هيل)"
+
+msgid "Australia / Canberra"
+msgstr "توقيت أستراليا (سيدني)"
+
+msgid "Australia / Currie"
+msgstr "توقيت أستراليا (هوبارت)"
+
+msgid "Australia / Darwin"
+msgstr "توقيت أستراليا (دارون)"
+
+msgid "Australia / Eucla"
+msgstr "توقيت أستراليا (أوكلا)"
+
+msgid "Australia / Hobart"
+msgstr "توقيت أستراليا (هوبارت)"
+
+msgid "Australia / LHI"
+msgstr "توقيت أستراليا (لورد هاو)"
+
+msgid "Australia / Lindeman"
+msgstr "توقيت أستراليا (ليندمان)"
+
+msgid "Australia / Lord Howe"
+msgstr "توقيت أستراليا (لورد هاو)"
+
+msgid "Australia / Melbourne"
+msgstr "توقيت أستراليا (ميلبورن)"
+
+msgid "Australia / NSW"
+msgstr "توقيت أستراليا (سيدني)"
+
+msgid "Australia / North"
+msgstr "توقيت أستراليا (دارون)"
+
+msgid "Australia / Perth"
+msgstr "توقيت أستراليا (برثا)"
+
+msgid "Australia / Queensland"
+msgstr "توقيت أستراليا (برسيبان)"
+
+msgid "Australia / South"
+msgstr "توقيت أستراليا (أديليد)"
+
+msgid "Australia / Sydney"
+msgstr "توقيت أستراليا (سيدني)"
+
+msgid "Australia / Tasmania"
+msgstr "توقيت أستراليا (هوبارت)"
+
+msgid "Australia / Victoria"
+msgstr "توقيت أستراليا (ميلبورن)"
+
+msgid "Australia / West"
+msgstr "توقيت أستراليا (برثا)"
+
+msgid "Australia / Yancowinna"
+msgstr "توقيت أستراليا (بروكن هيل)"
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Austria"
@@ -218,6 +1366,10 @@ msgstr "بنغلاديش"
 msgid "Barbados"
 msgstr "بربادوس"
 
+#, python-brace-format
+msgid "Before Iqama — {time}"
+msgstr "قبل إقامة {time}"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:550
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:551
 msgid "Before Maghrib"
@@ -226,6 +1378,10 @@ msgstr "قبل المغرب"
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:549
 msgid "Before sunrise"
 msgstr "قبل الشروق"
+
+#, python-brace-format
+msgid "Before {time}"
+msgstr "قبل دخول وقت {time}"
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Belarus"
@@ -275,6 +1431,18 @@ msgstr "بوتسوانا"
 msgid "Brazil"
 msgstr "البرازيل"
 
+msgid "Brazil / Acre"
+msgstr "توقيت البرازيل (ريوبرانكو)"
+
+msgid "Brazil / DeNoronha"
+msgstr "توقيت البرازيل (نوروناه)"
+
+msgid "Brazil / East"
+msgstr "توقيت البرازيل (ساو باولو)"
+
+msgid "Brazil / West"
+msgstr "توقيت البرازيل (ماناوس)"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "British Indian Ocean Territory"
 msgstr "الإقليم البريطاني في المحيط الهندي"
@@ -299,6 +1467,12 @@ msgstr "بوركينا فاسو"
 msgid "Burundi"
 msgstr "بوروندي"
 
+msgid "CET"
+msgstr "توقيت بلجيكا"
+
+msgid "CST6CDT"
+msgstr "توقيت الولايات المتحدة (شيكاغو)"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Cabo Verde"
 msgstr "الرأس الأخضر"
@@ -314,6 +1488,30 @@ msgstr "الكاميرون"
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Canada"
 msgstr "كندا"
+
+msgid "Canada / Atlantic"
+msgstr "توقيت كندا (هاليفاكس)"
+
+msgid "Canada / Central"
+msgstr "توقيت كندا (وينيبيج)"
+
+msgid "Canada / Eastern"
+msgstr "توقيت كندا (تورونتو)"
+
+msgid "Canada / Mountain"
+msgstr "توقيت كندا (ايدمونتون)"
+
+msgid "Canada / Newfoundland"
+msgstr "توقيت كندا (سانت جونس)"
+
+msgid "Canada / Pacific"
+msgstr "توقيت كندا (فانكوفر)"
+
+msgid "Canada / Saskatchewan"
+msgstr "توقيت كندا (ريجينا)"
+
+msgid "Canada / Yukon"
+msgstr "توقيت كندا (وايت هورس)"
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Cayman Islands"
@@ -342,6 +1540,12 @@ msgstr "تحقق من هذا الإعداد وحاول مجددًا."
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Chile"
 msgstr "تشيلي"
+
+msgid "Chile / Continental"
+msgstr "توقيت تشيلي (سانتياغو)"
+
+msgid "Chile / EasterIsland"
+msgstr "توقيت تشيلي (استر)"
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "China"
@@ -406,9 +1610,16 @@ msgstr "اختر قسم الإعدادات:"
 msgid "Choose sound file"
 msgstr "اختيار ملف صوتي"
 
+#, python-brace-format
+msgid "Choose sound file — {context}"
+msgstr "اختيار ملف صوتي — {context}"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Christmas Island"
 msgstr "جزيرة كريسماس"
+
+msgid "City"
+msgstr "المدينة"
 
 #: addon/globalPlugins/awqati/nvda_adapter/ui.py:139
 msgid "City results:"
@@ -417,6 +1628,9 @@ msgstr "نتائج المدن:"
 #: addon/globalPlugins/awqati/nvda_adapter/ui.py:140
 msgid "City search results"
 msgstr "نتائج البحث عن المدن"
+
+msgid "City:"
+msgstr "المدينة:"
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:37
 msgid "Clock"
@@ -486,9 +1700,24 @@ msgstr "قبرص"
 msgid "Czechia"
 msgstr "التشيك"
 
+msgid "Daily Wird alert action:"
+msgstr "إجراء تنبيه الورد اليومي:"
+
+msgid "Daily Wird hour (1 to 12):"
+msgstr "ساعة الورد اليومي، من 1 إلى 12:"
+
+msgid "Daily Wird minute (0 to 59):"
+msgstr "دقيقة الورد اليومي، من 0 إلى 59:"
+
+msgid "Daily Wird period:"
+msgstr "فترة الورد اليومي:"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:560
 msgid "Daily Wird reminder text"
 msgstr "نص تذكير الورد اليومي"
+
+msgid "Daily Wird reminder text:"
+msgstr "نص تذكير الورد اليومي:"
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:38
 msgid "Date"
@@ -548,6 +1777,15 @@ msgstr "جمهورية الدومينيكان"
 msgid "Double"
 msgstr "مزدوج"
 
+msgid "EET"
+msgstr "توقيت اليونان"
+
+msgid "EST"
+msgstr "توقيت بنما"
+
+msgid "EST5EDT"
+msgstr "توقيت الولايات المتحدة (نيويورك)"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Ecuador"
 msgstr "الإكوادور"
@@ -563,6 +1801,9 @@ msgstr "مصر"
 #: addon/globalPlugins/awqati/data/calculation_methods/methods.json:1
 msgid "Egyptian General Authority of Survey"
 msgstr "الهيئة المصرية العامة للمساحة"
+
+msgid "Eire"
+msgstr "توقيت أيرلندا"
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "El Salvador"
@@ -637,9 +1878,318 @@ msgstr "إستونيا"
 msgid "Eswatini"
 msgstr "إسواتيني"
 
+msgid "Etc / GMT"
+msgstr "توقيت منطقة غير معروفة (GMT)"
+
+msgid "Etc / GMT+0"
+msgstr "توقيت منطقة غير معروفة (GMT)"
+
+msgid "Etc / GMT+1"
+msgstr "توقيت منطقة غير معروفة (GMT+1)"
+
+msgid "Etc / GMT+10"
+msgstr "توقيت منطقة غير معروفة (GMT+10)"
+
+msgid "Etc / GMT+11"
+msgstr "توقيت منطقة غير معروفة (GMT+11)"
+
+msgid "Etc / GMT+12"
+msgstr "توقيت منطقة غير معروفة (GMT+12)"
+
+msgid "Etc / GMT+2"
+msgstr "توقيت منطقة غير معروفة (GMT+2)"
+
+msgid "Etc / GMT+3"
+msgstr "توقيت منطقة غير معروفة (GMT+3)"
+
+msgid "Etc / GMT+4"
+msgstr "توقيت منطقة غير معروفة (GMT+4)"
+
+msgid "Etc / GMT+5"
+msgstr "توقيت منطقة غير معروفة (GMT+5)"
+
+msgid "Etc / GMT+6"
+msgstr "توقيت منطقة غير معروفة (GMT+6)"
+
+msgid "Etc / GMT+7"
+msgstr "توقيت منطقة غير معروفة (GMT+7)"
+
+msgid "Etc / GMT+8"
+msgstr "توقيت منطقة غير معروفة (GMT+8)"
+
+msgid "Etc / GMT+9"
+msgstr "توقيت منطقة غير معروفة (GMT+9)"
+
+msgid "Etc / GMT-0"
+msgstr "توقيت منطقة غير معروفة (GMT)"
+
+msgid "Etc / GMT-1"
+msgstr "توقيت منطقة غير معروفة (GMT-1)"
+
+msgid "Etc / GMT-10"
+msgstr "توقيت منطقة غير معروفة (GMT-10)"
+
+msgid "Etc / GMT-11"
+msgstr "توقيت منطقة غير معروفة (GMT-11)"
+
+msgid "Etc / GMT-12"
+msgstr "توقيت منطقة غير معروفة (GMT-12)"
+
+msgid "Etc / GMT-13"
+msgstr "توقيت منطقة غير معروفة (GMT-13)"
+
+msgid "Etc / GMT-14"
+msgstr "توقيت منطقة غير معروفة (GMT-14)"
+
+msgid "Etc / GMT-2"
+msgstr "توقيت منطقة غير معروفة (GMT-2)"
+
+msgid "Etc / GMT-3"
+msgstr "توقيت منطقة غير معروفة (GMT-3)"
+
+msgid "Etc / GMT-4"
+msgstr "توقيت منطقة غير معروفة (GMT-4)"
+
+msgid "Etc / GMT-5"
+msgstr "توقيت منطقة غير معروفة (GMT-5)"
+
+msgid "Etc / GMT-6"
+msgstr "توقيت منطقة غير معروفة (GMT-6)"
+
+msgid "Etc / GMT-7"
+msgstr "توقيت منطقة غير معروفة (GMT-7)"
+
+msgid "Etc / GMT-8"
+msgstr "توقيت منطقة غير معروفة (GMT-8)"
+
+msgid "Etc / GMT-9"
+msgstr "توقيت منطقة غير معروفة (GMT-9)"
+
+msgid "Etc / GMT0"
+msgstr "توقيت منطقة غير معروفة (GMT)"
+
+msgid "Etc / Greenwich"
+msgstr "توقيت منطقة غير معروفة (GMT)"
+
+msgid "Etc / UCT"
+msgstr "توقيت منطقة غير معروفة (UTC)"
+
+msgid "Etc / UTC"
+msgstr "توقيت منطقة غير معروفة (UTC)"
+
+msgid "Etc / Universal"
+msgstr "توقيت منطقة غير معروفة (UTC)"
+
+msgid "Etc / Zulu"
+msgstr "توقيت منطقة غير معروفة (UTC)"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Ethiopia"
 msgstr "إثيوبيا"
+
+msgid "Europe / Amsterdam"
+msgstr "توقيت هولندا"
+
+msgid "Europe / Andorra"
+msgstr "توقيت أندورا"
+
+msgid "Europe / Astrakhan"
+msgstr "توقيت روسيا (أستراخان)"
+
+msgid "Europe / Athens"
+msgstr "توقيت اليونان"
+
+msgid "Europe / Belfast"
+msgstr "توقيت المملكة المتحدة"
+
+msgid "Europe / Belgrade"
+msgstr "توقيت صربيا"
+
+msgid "Europe / Berlin"
+msgstr "توقيت ألمانيا (برلين)"
+
+msgid "Europe / Bratislava"
+msgstr "توقيت سلوفاكيا"
+
+msgid "Europe / Brussels"
+msgstr "توقيت بلجيكا"
+
+msgid "Europe / Bucharest"
+msgstr "توقيت رومانيا"
+
+msgid "Europe / Budapest"
+msgstr "توقيت هنغاريا"
+
+msgid "Europe / Busingen"
+msgstr "توقيت ألمانيا (بوسنغن)"
+
+msgid "Europe / Chisinau"
+msgstr "توقيت مولدوفا"
+
+msgid "Europe / Copenhagen"
+msgstr "توقيت الدانمرك"
+
+msgid "Europe / Dublin"
+msgstr "توقيت أيرلندا"
+
+msgid "Europe / Gibraltar"
+msgstr "توقيت جبل طارق"
+
+msgid "Europe / Guernsey"
+msgstr "توقيت غيرنزي"
+
+msgid "Europe / Helsinki"
+msgstr "توقيت فنلندا"
+
+msgid "Europe / Isle of Man"
+msgstr "توقيت جزيرة مان"
+
+msgid "Europe / Istanbul"
+msgstr "توقيت تركيا"
+
+msgid "Europe / Jersey"
+msgstr "توقيت جيرسي"
+
+msgid "Europe / Kaliningrad"
+msgstr "توقيت روسيا (كالينجراد)"
+
+msgid "Europe / Kiev"
+msgstr "توقيت أوكرانيا (كييف)"
+
+msgid "Europe / Kirov"
+msgstr "توقيت روسيا (كيروف)"
+
+msgid "Europe / Kyiv"
+msgstr "توقيت أوكرانيا (كييف)"
+
+msgid "Europe / Lisbon"
+msgstr "توقيت البرتغال (لشبونة)"
+
+msgid "Europe / Ljubljana"
+msgstr "توقيت سلوفينيا"
+
+msgid "Europe / London"
+msgstr "أوروبا / لندن"
+
+msgid "Europe / Luxembourg"
+msgstr "توقيت لوكسمبورغ"
+
+msgid "Europe / Madrid"
+msgstr "توقيت إسبانيا (مدريد)"
+
+msgid "Europe / Malta"
+msgstr "توقيت مالطا"
+
+msgid "Europe / Mariehamn"
+msgstr "توقيت جزر آلاند"
+
+msgid "Europe / Minsk"
+msgstr "توقيت بيلاروس"
+
+msgid "Europe / Monaco"
+msgstr "توقيت موناكو"
+
+msgid "Europe / Moscow"
+msgstr "توقيت روسيا (موسكو)"
+
+msgid "Europe / Nicosia"
+msgstr "توقيت قبرص (نيقوسيا)"
+
+msgid "Europe / Oslo"
+msgstr "توقيت النرويج"
+
+msgid "Europe / Paris"
+msgstr "توقيت فرنسا"
+
+msgid "Europe / Podgorica"
+msgstr "توقيت الجبل الأسود"
+
+msgid "Europe / Prague"
+msgstr "توقيت التشيك"
+
+msgid "Europe / Riga"
+msgstr "توقيت لاتفيا"
+
+msgid "Europe / Rome"
+msgstr "توقيت إيطاليا"
+
+msgid "Europe / Samara"
+msgstr "توقيت روسيا (سمراء)"
+
+msgid "Europe / San Marino"
+msgstr "توقيت سان مارينو"
+
+msgid "Europe / Sarajevo"
+msgstr "توقيت البوسنة والهرسك"
+
+msgid "Europe / Saratov"
+msgstr "توقيت روسيا (ساراتوف)"
+
+msgid "Europe / Simferopol"
+msgstr "توقيت أوكرانيا (سيمفروبول)"
+
+msgid "Europe / Skopje"
+msgstr "توقيت مقدونيا الشمالية"
+
+msgid "Europe / Sofia"
+msgstr "توقيت بلغاريا"
+
+msgid "Europe / Stockholm"
+msgstr "توقيت السويد"
+
+msgid "Europe / Tallinn"
+msgstr "توقيت إستونيا"
+
+msgid "Europe / Tirane"
+msgstr "توقيت ألبانيا"
+
+msgid "Europe / Tiraspol"
+msgstr "توقيت مولدوفا"
+
+msgid "Europe / Ulyanovsk"
+msgstr "توقيت روسيا (أوليانوفسك)"
+
+msgid "Europe / Uzhgorod"
+msgstr "توقيت أوكرانيا (كييف)"
+
+msgid "Europe / Vaduz"
+msgstr "توقيت ليختنشتاين"
+
+msgid "Europe / Vatican"
+msgstr "توقيت الفاتيكان"
+
+msgid "Europe / Vienna"
+msgstr "توقيت النمسا"
+
+msgid "Europe / Vilnius"
+msgstr "توقيت ليتوانيا"
+
+msgid "Europe / Volgograd"
+msgstr "توقيت روسيا (فولوجراد)"
+
+msgid "Europe / Warsaw"
+msgstr "توقيت بولندا"
+
+msgid "Europe / Zagreb"
+msgstr "توقيت كرواتيا"
+
+msgid "Europe / Zaporozhye"
+msgstr "توقيت أوكرانيا (كييف)"
+
+msgid "Europe / Zurich"
+msgstr "توقيت سويسرا"
+
+msgid "Evening Dhikr alert action:"
+msgstr "إجراء تنبيه أذكار المساء:"
+
+msgid "Evening Dhikr offset, minutes:"
+msgstr "مدة أذكار المساء، بالدقائق:"
+
+msgid "Evening Dhikr reference time:"
+msgstr "وقت أذكار المساء:"
+
+msgid "Factory"
+msgstr "توقيت العالم (مدينة غير معروفة)"
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:42
 msgid "Fajr"
@@ -677,10 +2227,37 @@ msgstr "بولينيزيا الفرنسية"
 msgid "French Southern Territories"
 msgstr "الأقاليم الجنوبية الفرنسية"
 
+msgid "Friday hour alert action:"
+msgstr "إجراء تنبيه ساعة الجمعة:"
+
+msgid "Friday hour offset, minutes:"
+msgstr "مدة تذكير ساعة الجمعة، بالدقائق:"
+
+msgid "Friday hour reference time:"
+msgstr "وقت تذكير ساعة الجمعة:"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:52
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:56
 msgid "Full"
 msgstr "كامل"
+
+msgid "GB"
+msgstr "توقيت المملكة المتحدة"
+
+msgid "GB-Eire"
+msgstr "توقيت المملكة المتحدة"
+
+msgid "GMT"
+msgstr "توقيت منطقة غير معروفة (GMT)"
+
+msgid "GMT+0"
+msgstr "توقيت منطقة غير معروفة (GMT)"
+
+msgid "GMT-0"
+msgstr "توقيت منطقة غير معروفة (GMT)"
+
+msgid "GMT0"
+msgstr "توقيت منطقة غير معروفة (GMT)"
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Gabon"
@@ -717,6 +2294,9 @@ msgstr "اليونان"
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Greenland"
 msgstr "غرينلاند"
+
+msgid "Greenwich"
+msgstr "توقيت منطقة غير معروفة (GMT)"
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:60
 msgid "Gregorian"
@@ -758,6 +2338,9 @@ msgstr "منطقة الخليج"
 msgid "Guyana"
 msgstr "غيانا"
 
+msgid "HST"
+msgstr "توقيت الولايات المتحدة (هونولولو)"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Haiti"
 msgstr "هايتي"
@@ -781,6 +2364,9 @@ msgstr "هندوراس"
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Hong Kong"
 msgstr "هونغ كونغ الصينية (منطقة إدارية خاصة)"
+
+msgid "Hongkong"
+msgstr "توقيت هونغ كونغ الصينية (منطقة إدارية خاصة)"
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:561
 msgid "Hour (1 to 12):"
@@ -809,6 +2395,39 @@ msgstr "تضمين معلومات التقويم العربي في معلوما�
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "India"
 msgstr "الهند"
+
+msgid "Indian / Antananarivo"
+msgstr "توقيت مدغشقر"
+
+msgid "Indian / Chagos"
+msgstr "توقيت الإقليم البريطاني في المحيط الهندي"
+
+msgid "Indian / Christmas"
+msgstr "توقيت جزيرة كريسماس"
+
+msgid "Indian / Cocos"
+msgstr "توقيت جزر كوكوس (كيلينغ)"
+
+msgid "Indian / Comoro"
+msgstr "توقيت جزر القمر"
+
+msgid "Indian / Kerguelen"
+msgstr "توقيت الأقاليم الجنوبية الفرنسية"
+
+msgid "Indian / Mahe"
+msgstr "توقيت سيشل"
+
+msgid "Indian / Maldives"
+msgstr "توقيت جزر المالديف"
+
+msgid "Indian / Mauritius"
+msgstr "توقيت موريشيوس"
+
+msgid "Indian / Mayotte"
+msgstr "توقيت مايوت"
+
+msgid "Indian / Reunion"
+msgstr "توقيت روينيون"
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Indonesia"
@@ -919,6 +2538,9 @@ msgstr "كوسوفو"
 msgid "Kuwait"
 msgstr "الكويت"
 
+msgid "Kwajalein"
+msgstr "توقيت جزر مارشال (كواجالين)"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Kyrgyzstan"
 msgstr "قيرغيزستان"
@@ -1025,6 +2647,15 @@ msgstr "تصحيح الهجري القمري، بالأيام:"
 msgid "Luxembourg"
 msgstr "لوكسمبورغ"
 
+msgid "MET"
+msgstr "توقيت بلجيكا"
+
+msgid "MST"
+msgstr "توقيت الولايات المتحدة (فينكس)"
+
+msgid "MST7MDT"
+msgstr "توقيت الولايات المتحدة (دنفر)"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Macao"
 msgstr "منطقة ماكاو الإدارية الخاصة"
@@ -1089,6 +2720,15 @@ msgstr "مايوت"
 msgid "Mexico"
 msgstr "المكسيك"
 
+msgid "Mexico / BajaNorte"
+msgstr "توقيت المكسيك (تيخوانا)"
+
+msgid "Mexico / BajaSur"
+msgstr "توقيت المكسيك (مازاتلان)"
+
+msgid "Mexico / General"
+msgstr "توقيت المكسيك (مكسيكو سيتي)"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Micronesia"
 msgstr "ميكرونيزيا"
@@ -1134,6 +2774,15 @@ msgstr "الجبل الأسود"
 msgid "Montserrat"
 msgstr "مونتسرات"
 
+msgid "Morning Dhikr alert action:"
+msgstr "إجراء تنبيه أذكار الصباح:"
+
+msgid "Morning Dhikr offset, minutes:"
+msgstr "مدة أذكار الصباح، بالدقائق:"
+
+msgid "Morning Dhikr reference time:"
+msgstr "وقت أذكار الصباح:"
+
 #: addon/globalPlugins/awqati/data/calculation_methods/methods.json:1
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Morocco"
@@ -1151,6 +2800,12 @@ msgstr "رابطة العالم الإسلامي"
 msgid "Myanmar"
 msgstr "ميانمار (بورما)"
 
+msgid "NZ"
+msgstr "توقيت نيوزيلندا (أوكلاند)"
+
+msgid "NZ-CHAT"
+msgstr "توقيت نيوزيلندا (تشاثام)"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Namibia"
 msgstr "ناميبيا"
@@ -1158,6 +2813,9 @@ msgstr "ناميبيا"
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Nauru"
 msgstr "ناورو"
+
+msgid "Navajo"
+msgstr "توقيت الولايات المتحدة (دنفر)"
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:374
 msgid "Nearest latitude"
@@ -1194,6 +2852,11 @@ msgstr "نيوي"
 #: addon/globalPlugins/awqati/nvda_adapter/ui.py:49
 msgid "No location has been assigned"
 msgstr "لم يُحدد موقع"
+
+msgid ""
+"No location has been assigned. Please set it in Awqati settings and try "
+"again."
+msgstr "لم يتم تعيين الموقع. فضلًا عيّنه من إعدادات أوقاتي ثم حاول مرة أخرى"
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Norfolk Island"
@@ -1250,6 +2913,144 @@ msgstr "فتح نافذة مواقيت اليوم"
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:566
 msgid "PM"
 msgstr "مساءً"
+
+msgid "PRC"
+msgstr "توقيت الصين (شنغهاي)"
+
+msgid "PST8PDT"
+msgstr "توقيت الولايات المتحدة (لوس انجلوس)"
+
+msgid "Pacific / Apia"
+msgstr "توقيت ساموا"
+
+msgid "Pacific / Auckland"
+msgstr "توقيت نيوزيلندا (أوكلاند)"
+
+msgid "Pacific / Bougainville"
+msgstr "توقيت بابوا غينيا الجديدة (بوغانفيل)"
+
+msgid "Pacific / Chatham"
+msgstr "توقيت نيوزيلندا (تشاثام)"
+
+msgid "Pacific / Chuuk"
+msgstr "توقيت ميكرونيزيا (ترك)"
+
+msgid "Pacific / Easter"
+msgstr "توقيت تشيلي (استر)"
+
+msgid "Pacific / Efate"
+msgstr "توقيت فانواتو"
+
+msgid "Pacific / Enderbury"
+msgstr "توقيت كيريباتي (اندربيرج)"
+
+msgid "Pacific / Fakaofo"
+msgstr "توقيت توكيلاو"
+
+msgid "Pacific / Fiji"
+msgstr "توقيت فيجي"
+
+msgid "Pacific / Funafuti"
+msgstr "توقيت توفالو"
+
+msgid "Pacific / Galapagos"
+msgstr "توقيت الإكوادور (جلاباجوس)"
+
+msgid "Pacific / Gambier"
+msgstr "توقيت بولينيزيا الفرنسية (جامبير)"
+
+msgid "Pacific / Guadalcanal"
+msgstr "توقيت جزر سليمان"
+
+msgid "Pacific / Guam"
+msgstr "توقيت غوام"
+
+msgid "Pacific / Honolulu"
+msgstr "توقيت الولايات المتحدة (هونولولو)"
+
+msgid "Pacific / Johnston"
+msgstr "توقيت الولايات المتحدة (هونولولو)"
+
+msgid "Pacific / Kanton"
+msgstr "توقيت كيريباتي (اندربيرج)"
+
+msgid "Pacific / Kiritimati"
+msgstr "توقيت كيريباتي (كيريتي ماتي)"
+
+msgid "Pacific / Kosrae"
+msgstr "توقيت ميكرونيزيا (كوسرا)"
+
+msgid "Pacific / Kwajalein"
+msgstr "توقيت جزر مارشال (كواجالين)"
+
+msgid "Pacific / Majuro"
+msgstr "توقيت جزر مارشال (ماجورو)"
+
+msgid "Pacific / Marquesas"
+msgstr "توقيت بولينيزيا الفرنسية (ماركيساس)"
+
+msgid "Pacific / Midway"
+msgstr "توقيت جزر الولايات المتحدة النائية (ميدواي)"
+
+msgid "Pacific / Nauru"
+msgstr "توقيت ناورو"
+
+msgid "Pacific / Niue"
+msgstr "توقيت نيوي"
+
+msgid "Pacific / Norfolk"
+msgstr "توقيت جزيرة نورفولك"
+
+msgid "Pacific / Noumea"
+msgstr "توقيت كاليدونيا الجديدة"
+
+msgid "Pacific / Pago Pago"
+msgstr "توقيت ساموا الأمريكية"
+
+msgid "Pacific / Palau"
+msgstr "توقيت بالاو"
+
+msgid "Pacific / Pitcairn"
+msgstr "توقيت جزر بيتكيرن"
+
+msgid "Pacific / Pohnpei"
+msgstr "توقيت ميكرونيزيا (باناب)"
+
+msgid "Pacific / Ponape"
+msgstr "توقيت ميكرونيزيا (باناب)"
+
+msgid "Pacific / Port Moresby"
+msgstr "توقيت بابوا غينيا الجديدة (بور مورسبي)"
+
+msgid "Pacific / Rarotonga"
+msgstr "توقيت جزر كوك"
+
+msgid "Pacific / Saipan"
+msgstr "توقيت جزر ماريانا الشمالية"
+
+msgid "Pacific / Samoa"
+msgstr "توقيت ساموا الأمريكية"
+
+msgid "Pacific / Tahiti"
+msgstr "توقيت بولينيزيا الفرنسية (تاهيتي)"
+
+msgid "Pacific / Tarawa"
+msgstr "توقيت كيريباتي (تاراوا)"
+
+msgid "Pacific / Tongatapu"
+msgstr "توقيت تونغا"
+
+msgid "Pacific / Truk"
+msgstr "توقيت ميكرونيزيا (ترك)"
+
+msgid "Pacific / Wake"
+msgstr "توقيت جزر الولايات المتحدة النائية (واك)"
+
+msgid "Pacific / Wallis"
+msgstr "توقيت جزر والس وفوتونا"
+
+msgid "Pacific / Yap"
+msgstr "توقيت ميكرونيزيا (ترك)"
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Pakistan"
@@ -1331,6 +3132,13 @@ msgstr "مدة التنبيه القبلي، بالدقائق:"
 msgid "Preview sound"
 msgstr "تجربة الصوت"
 
+#, python-brace-format
+msgid "Preview sound — {context}"
+msgstr "تجربة الصوت — {context}"
+
+msgid "Preview speech"
+msgstr "تجربة النطق"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:490
 msgid "Primary calendar:"
 msgstr "التقويم الأساسي:"
@@ -1364,6 +3172,15 @@ msgstr "بداية ساعات الهدوء"
 msgid "Quiet hours start, HH:MM:"
 msgstr "بداية ساعات الهدوء، ساعة:دقيقة:"
 
+msgid "ROC"
+msgstr "توقيت تايوان"
+
+msgid "ROK"
+msgstr "توقيت كوريا الجنوبية"
+
+msgid "Recurring Dhikr interval, minutes:"
+msgstr "الفاصل بين الأذكار الدورية، بالدقائق:"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:552
 msgid "Reference time:"
 msgstr "الوقت المرجعي:"
@@ -1379,6 +3196,10 @@ msgstr "نص التذكير:"
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:146
 msgid "Remove custom sound"
 msgstr "إزالة الصوت المخصص"
+
+#, python-brace-format
+msgid "Remove custom sound — {context}"
+msgstr "إزالة الصوت المخصص — {context}"
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Republic of the Congo"
@@ -1448,6 +3269,9 @@ msgstr "المملكة العربية السعودية"
 msgid "Saudi Solar Hijri"
 msgstr "الهجري الشمسي السعودي"
 
+msgid "Say “zero minutes” when there are no minutes"
+msgstr "نطق عبارة «صفر دقيقة» عند عدم وجود دقائق"
+
 #: addon/globalPlugins/awqati/nvda_adapter/ui.py:137
 msgid "Search for a city in the selected country"
 msgstr "البحث عن مدينة في الدولة المختارة"
@@ -1459,6 +3283,10 @@ msgstr "البحث عن مدينة:"
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:586
 msgid "Selected Dhikr action:"
 msgstr "إجراء الذكر المحدد:"
+
+#, python-brace-format
+msgid "Selecting sound file — {context}…"
+msgstr "جارٍ اختيار ملف صوتي — {context}…"
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:171
 msgid "Selecting sound file..."
@@ -1577,6 +3405,9 @@ msgstr "صيغة النطق:"
 msgid "Speech only"
 msgstr "نطق فقط"
 
+msgid "Speech preview"
+msgstr "تجربة النطق"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:475
 msgid "Speech representation:"
 msgstr "تمثيل النطق:"
@@ -1657,6 +3488,11 @@ msgstr "هولندا"
 msgid "The detected location is ready. Choose OK or Apply to save it."
 msgstr "الموقع المكتشف جاهز. اختر موافق أو تطبيق لحفظه."
 
+msgid ""
+"The preview could not be prepared. Check the selected settings and try "
+"again."
+msgstr "تعذر إعداد تجربة النطق. تحقق من الإعدادات المختارة ثم حاول مرة أخرى."
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:246
 msgid "The selected sound could not be played."
 msgstr "تعذر تشغيل الصوت المحدد."
@@ -1687,6 +3523,9 @@ msgstr "الوقت المراد ضبطه"
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:387
 msgid "Time to configure:"
 msgstr "الوقت المراد ضبطه:"
+
+msgid "Time zone"
+msgstr "المنطقة الزمنية"
 
 #: addon/globalPlugins/awqati/nvda_adapter/ui.py:82
 msgid "Time zone:"
@@ -1741,6 +3580,48 @@ msgstr "توفالو"
 msgid "U.S. Virgin Islands"
 msgstr "جزر فيرجن الأمريكية"
 
+msgid "UCT"
+msgstr "توقيت منطقة غير معروفة (UTC)"
+
+msgid "US / Alaska"
+msgstr "توقيت الولايات المتحدة (أنشوراج)"
+
+msgid "US / Aleutian"
+msgstr "توقيت الولايات المتحدة (أداك)"
+
+msgid "US / Arizona"
+msgstr "توقيت الولايات المتحدة (فينكس)"
+
+msgid "US / Central"
+msgstr "توقيت الولايات المتحدة (شيكاغو)"
+
+msgid "US / East-Indiana"
+msgstr "توقيت الولايات المتحدة (إنديانابوليس)"
+
+msgid "US / Eastern"
+msgstr "توقيت الولايات المتحدة (نيويورك)"
+
+msgid "US / Hawaii"
+msgstr "توقيت الولايات المتحدة (هونولولو)"
+
+msgid "US / Indiana-Starke"
+msgstr "توقيت الولايات المتحدة (كونكس)"
+
+msgid "US / Michigan"
+msgstr "توقيت الولايات المتحدة (ديترويت)"
+
+msgid "US / Mountain"
+msgstr "توقيت الولايات المتحدة (دنفر)"
+
+msgid "US / Pacific"
+msgstr "توقيت الولايات المتحدة (لوس انجلوس)"
+
+msgid "US / Samoa"
+msgstr "توقيت ساموا الأمريكية"
+
+msgid "UTC"
+msgstr "توقيت منطقة غير معروفة (UTC)"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Uganda"
 msgstr "أوغندا"
@@ -1768,6 +3649,9 @@ msgstr "المملكة المتحدة"
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "United States"
 msgstr "الولايات المتحدة"
+
+msgid "Universal"
+msgstr "توقيت منطقة غير معروفة (UTC)"
 
 #: addon/globalPlugins/awqati/data/calculation_methods/methods.json:1
 msgid "University of Islamic Sciences, Karachi"
@@ -1800,6 +3684,12 @@ msgstr "فنزويلا"
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Vietnam"
 msgstr "فيتنام"
+
+msgid "W-SU"
+msgstr "توقيت روسيا (موسكو)"
+
+msgid "WET"
+msgstr "توقيت البرتغال (لشبونة)"
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:614
 msgid "Wait for the sound file selection to finish, then try again."
@@ -1843,6 +3733,10 @@ msgstr "كلمات"
 msgid "Yemen"
 msgstr "اليمن"
 
+#, python-brace-format
+msgid "Your location was detected: {city}, {country}. Use this location?"
+msgstr "تم اكتشاف موقعك: {city}، {country}. هل تريد اعتماد هذا الموقع؟"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Zambia"
 msgstr "زامبيا"
@@ -1858,3 +3752,6 @@ msgstr "التوقيت الزوالي أساسي دائمًا، والتوقيت
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Zimbabwe"
 msgstr "زيمبابوي"
+
+msgid "Zulu"
+msgstr "توقيت منطقة غير معروفة (UTC)"

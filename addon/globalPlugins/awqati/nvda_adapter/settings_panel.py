@@ -12,6 +12,10 @@ import globalVars
 import languageHandler
 import wx
 import wx.adv
+import ui as nvda_ui
+
+from .preview import preview_text
+from ..application.settings_preview import PreviewLocationRequired
 from gui.settingsDialogs import SettingsPanel
 
 from ..domain import (
@@ -111,8 +115,10 @@ class AlertOutputEditor:
 	def __init__(self, parent: wx.Window, sizer: wx.Sizer, label: str,
 			output: AlertOutputSettings, actions: Sequence[AlertAction], category: str,
 			on_layout: Callable[[], None], sound_staging: SoundStagingSession,
-			register: Callable[[str, wx.Window], None], control_prefix: str) -> None:
+			register: Callable[[str, wx.Window], None], control_prefix: str, context: str | None = None) -> None:
 		self.parent, self.sizer, self.output = parent, sizer, output
+		self.context = context or _(label).rstrip(":")
+		self._sound_spacer = None
 		self.actions, self.category, self.on_layout = tuple(actions), category, on_layout
 		self.sound_staging = sound_staging
 		self.register, self.control_prefix = register, control_prefix
@@ -135,6 +141,8 @@ class AlertOutputEditor:
 
 	def _render_sound(self) -> None:
 		if self.sound_panel is not None:
+			self.sizer.Remove(list(self.sizer.GetChildren()).index(self._sound_spacer))
+			self._sound_spacer = None
 			self.sizer.Detach(self.sound_panel)
 			self.sound_panel.Destroy()
 			self.sound_panel = None
@@ -142,16 +150,17 @@ class AlertOutputEditor:
 			self.register(f"{self.control_prefix}.sound", self.action)
 			self.on_layout()
 			return
-		self.sizer.Add((1, 1))
+		self._sound_spacer = self.sizer.Add((1, 1))
 		self.sound_panel = wx.Panel(self.parent)
 		row = wx.BoxSizer(wx.HORIZONTAL)
-		self.choose = wx.Button(self.sound_panel, label=_("Choose sound file"))
-		self.preview = wx.Button(self.sound_panel, label=_("Preview sound"))
-		self.remove = wx.Button(self.sound_panel, label=_("Remove custom sound"))
+		self.choose = wx.Button(self.sound_panel, label=_("Choose sound file — {context}").format(context=self.context))
+		self.preview = wx.Button(self.sound_panel, label=_("Preview sound — {context}").format(context=self.context))
+		self.remove = wx.Button(self.sound_panel, label=_("Remove custom sound — {context}").format(context=self.context))
 		for button in (self.choose, self.preview, self.remove):
 			row.Add(button, flag=wx.RIGHT, border=8)
 		self.register(f"{self.control_prefix}.sound", self.choose)
 		self.sound_panel.SetSizer(row)
+		self.sound_panel.MoveAfterInTabOrder(self.action)
 		self.sizer.Add(self.sound_panel, flag=wx.EXPAND)
 		self.choose.Bind(wx.EVT_BUTTON, self._on_choose)
 		self.preview.Bind(wx.EVT_BUTTON, self._on_preview)
@@ -172,7 +181,7 @@ class AlertOutputEditor:
 		self.preview.Enable(available)
 		self.remove.Enable(self.output.sound is not None)
 		self.choose.Enable(not self._busy)
-		self.choose.SetLabel(_("Selecting sound file...") if self._busy else _("Choose sound file"))
+		self.choose.SetLabel((_("Selecting sound file — {context}…") if self._busy else _("Choose sound file — {context}")).format(context=self.context))
 
 	def _on_choose(self, event: wx.CommandEvent) -> None:
 		if self._busy:
@@ -359,6 +368,12 @@ class AwqatiSettingsPanel(SettingsPanel):
 		self._register("prayer.enabled", enabled)
 		enabled.Bind(wx.EVT_CHECKBOX, lambda e: (setattr(settings, "alerts_enabled", enabled.GetValue()), e.Skip()))
 		outer.Add(enabled, flag=wx.BOTTOM, border=8)
+		open_daily = wx.CheckBox(panel, label=_("Open daily prayer times window"))
+		open_daily.SetValue(settings.open_daily_prayer_times_window)
+		outer.Add(open_daily, flag=wx.TOP, border=8)
+		self._register("prayer.openDailyPrayerTimesWindow", open_daily)
+		open_daily.Bind(wx.EVT_CHECKBOX, lambda e: (
+			setattr(settings, "open_daily_prayer_times_window", open_daily.GetValue()), e.Skip()))
 		grid = wx.FlexGridSizer(cols=2, hgap=8, vgap=8); grid.AddGrowableCol(1, 1); outer.Add(grid, flag=wx.EXPAND)
 		method_values = tuple(CalculationMethod)
 		method_labels = {CalculationMethod.AUTO: N_("Automatic by country")}
@@ -382,12 +397,6 @@ class AwqatiSettingsPanel(SettingsPanel):
 		current = _spin(panel, grid, N_("Keep prayer current after Iqama, minutes:"), settings.current_prayer_after_iqama_minutes, 0, 180)
 		self._register("prayer.currentDuration", current)
 		current.Bind(wx.EVT_SPINCTRL, lambda e: (setattr(settings, "current_prayer_after_iqama_minutes", current.GetValue()), e.Skip()))
-		open_daily = wx.CheckBox(panel, label=_("Open daily prayer times window"))
-		open_daily.SetValue(settings.open_daily_prayer_times_window)
-		outer.Add(open_daily, flag=wx.TOP, border=8)
-		self._register("prayer.openDailyPrayerTimesWindow", open_daily)
-		open_daily.Bind(wx.EVT_CHECKBOX, lambda e: (
-			setattr(settings, "open_daily_prayer_times_window", open_daily.GetValue()), e.Skip()))
 		outer.Add(wx.StaticText(panel, label=_("Time to configure:")), flag=wx.TOP, border=8)
 		self._prayer_event_choice = wx.Choice(panel, choices=_translated(PRAYER_EVENT_ORDER, PRAYER_LABELS), name=_("Time to configure")); self._prayer_event_choice.SetSelection(0)
 		self._register("prayer.event", self._prayer_event_choice)
@@ -418,13 +427,13 @@ class AwqatiSettingsPanel(SettingsPanel):
 		correction = _spin(panel, grid, N_("Time correction, minutes:"), self._draft.settings.prayer.corrections_minutes[name], -30, 30)
 		self._register("prayer.correction", correction)
 		correction.Bind(wx.EVT_SPINCTRL, lambda e: (self._draft.settings.prayer.corrections_minutes.__setitem__(name, correction.GetValue()), e.Skip()))
-		pre = _spin(panel, grid, N_("Pre-alert minutes:"), event_settings.pre_alert_minutes, 0, 180)
+		pre = _spin(panel, grid, N_("Alert lead time before the event, minutes:"), event_settings.pre_alert_minutes, 0, 180)
 		self._register("prayer.preMinutes", pre)
 		pre.Bind(wx.EVT_SPINCTRL, lambda e: (setattr(event_settings, "pre_alert_minutes", pre.GetValue()), e.Skip()))
-		AlertOutputEditor(panel, grid, N_("Pre-alert action:"), event_settings.pre_alert, PRAYER_ACTIONS,
-			"adhan", self._layout, self._sound_staging, self._register, "prayer.pre")
-		AlertOutputEditor(panel, grid, N_("At-time alert action:"), event_settings.at_time_alert, PRAYER_ACTIONS,
-			"adhan", self._layout, self._sound_staging, self._register, "prayer.atTime")
+		AlertOutputEditor(panel, grid, N_("Alert action before the event:"), event_settings.pre_alert, PRAYER_ACTIONS,
+			"adhan", self._layout, self._sound_staging, self._register, "prayer.pre", _("Before {time}").format(time=_(PRAYER_LABELS[name])))
+		AlertOutputEditor(panel, grid, N_("Alert action at the event:"), event_settings.at_time_alert, PRAYER_ACTIONS,
+			"adhan", self._layout, self._sound_staging, self._register, "prayer.atTime", _("At {time}").format(time=_(PRAYER_LABELS[name])))
 		if event_settings.iqama is not None:
 			delay = _spin(panel, grid, N_("Minutes between Adhan and Iqama:"), event_settings.iqama.delay_minutes, 0, 180)
 			before = _spin(panel, grid, N_("Alert before Iqama, minutes:"), event_settings.iqama.alert_before_minutes, 0, 180)
@@ -432,14 +441,14 @@ class AwqatiSettingsPanel(SettingsPanel):
 			self._register("prayer.iqamaBefore", before)
 			delay.Bind(wx.EVT_SPINCTRL, lambda e: (setattr(event_settings.iqama, "delay_minutes", delay.GetValue()), e.Skip()))
 			before.Bind(wx.EVT_SPINCTRL, lambda e: (setattr(event_settings.iqama, "alert_before_minutes", before.GetValue()), e.Skip()))
-			AlertOutputEditor(panel, grid, N_("Iqama alert action:"), event_settings.iqama.alert, PRAYER_ACTIONS,
-				"adhan", self._layout, self._sound_staging, self._register, "prayer.iqama")
+			AlertOutputEditor(panel, grid, N_("Alert action before Iqama:"), event_settings.iqama.alert, PRAYER_ACTIONS,
+				"adhan", self._layout, self._sound_staging, self._register, "prayer.iqama", _("Before Iqama — {time}").format(time=_(PRAYER_LABELS[name])))
 		else:
-			post = _spin(panel, grid, N_("Post-alert minutes:"), event_settings.post_alert_minutes, 0, 180)
+			post = _spin(panel, grid, N_("Alert delay after the event, minutes:"), event_settings.post_alert_minutes, 0, 180)
 			self._register("prayer.postMinutes", post)
 			post.Bind(wx.EVT_SPINCTRL, lambda e: (setattr(event_settings, "post_alert_minutes", post.GetValue()), e.Skip()))
-			AlertOutputEditor(panel, grid, N_("Post-alert action:"), event_settings.post_alert, PRAYER_ACTIONS,
-				"alerts", self._layout, self._sound_staging, self._register, "prayer.post")
+			AlertOutputEditor(panel, grid, N_("Alert action after the event:"), event_settings.post_alert, PRAYER_ACTIONS,
+				"alerts", self._layout, self._sound_staging, self._register, "prayer.post", _("After {time}").format(time=_(PRAYER_LABELS[name])))
 		self._layout()
 
 	def _build_clock(self) -> wx.Panel:
@@ -454,7 +463,7 @@ class AwqatiSettingsPanel(SettingsPanel):
 		enabled = wx.CheckBox(panel, label=_("Enable automatic clock alerts")); enabled.SetValue(settings.automatic_alert_enabled); outer.Add(enabled, flag=wx.TOP, border=8)
 		self._register("clock.enabled", enabled)
 		enabled.Bind(wx.EVT_CHECKBOX, lambda e: (setattr(settings, "automatic_alert_enabled", enabled.GetValue()), e.Skip()))
-		for attr, label in (("on_hour",N_("On the hour")),("on_quarter",N_("Quarter past")),("on_half",N_("Half past")),("on_three_quarters",N_("Three quarters past"))):
+		for attr, label in (("on_quarter",N_("Alert at quarter past the hour")),("on_half",N_("Alert at half past the hour")),("on_three_quarters",N_("Alert at three quarters past the hour")),("on_hour",N_("Alert on the hour"))):
 			box = wx.CheckBox(panel, label=_(label)); box.SetValue(getattr(settings.intervals, attr)); outer.Add(box)
 			self._register(f"clock.interval.{attr}", box)
 			box.Bind(wx.EVT_CHECKBOX, lambda e, a=attr, b=box: (setattr(settings.intervals, a, b.GetValue()), e.Skip()))
@@ -470,6 +479,7 @@ class AwqatiSettingsPanel(SettingsPanel):
 		if self._clock_panel is not None: self._clock_host.Detach(self._clock_panel); self._clock_panel.Destroy()
 		identity = tuple(ClockType)[self._clock_choice.GetSelection()]; value = self._draft.settings.clock.presentations[identity]
 		panel, grid = _panel(parent); self._clock_panel = panel; self._clock_host.Add(panel, flag=wx.EXPAND)
+		panel.MoveAfterInTabOrder(self._clock_choice)
 		styles = tuple(AnnouncementStyle); style = _choice(panel, grid, N_("Speech format:"), styles, STYLE_LABELS, value.style)
 		self._register("clock.style", style)
 		style.Bind(wx.EVT_CHOICE, lambda e: (setattr(value, "style", styles[style.GetSelection()]), e.Skip()))
@@ -479,29 +489,30 @@ class AwqatiSettingsPanel(SettingsPanel):
 		reps=tuple(TimeRepresentation); rep_labels={TimeRepresentation.NUMERIC:N_("Numbers"),TimeRepresentation.WORDS:N_("Words")}; rep=_choice(panel,grid,N_("Speech representation:"),reps,rep_labels,value.representation)
 		self._register("clock.representation", rep)
 		rep.Bind(wx.EVT_CHOICE, lambda e:(setattr(value,"representation",reps[rep.GetSelection()]),e.Skip()))
-		for attr,label in (("speak_seconds",N_("Speak seconds")),("speak_zero_minute",N_("Speak zero minutes"))):
+		for attr,label in (("speak_seconds",N_("Speak seconds")),("speak_zero_minute",N_("Say “zero minutes” when there are no minutes"))):
 			box=wx.CheckBox(panel,label=_(label));box.SetValue(getattr(value,attr));grid.Add((1,1));grid.Add(box)
 			self._register("clock.speakSeconds" if attr == "speak_seconds" else "clock.speakZeroMinute", box)
 			box.Bind(wx.EVT_CHECKBOX,lambda e,a=attr,b=box:(setattr(value,a,b.GetValue()),e.Skip()))
+		self._add_preview(panel, grid, "clock", identity)
 		self._layout()
 
 	def _build_date(self) -> wx.Panel:
 		panel=wx.Panel(self);outer=wx.BoxSizer(wx.VERTICAL);panel.SetSizer(outer);settings=self._draft.settings.calendar
-		outer.Add(wx.StaticText(panel,label=_("Choose calendar to configure:")))
-		self._calendar_choice=wx.Choice(panel,choices=_translated(CALENDAR_EDIT_ORDER,CALENDAR_LABELS),name=_("Choose calendar to configure"));self._calendar_choice.SetSelection(0);outer.Add(self._calendar_choice,flag=wx.EXPAND)
-		self._register("calendar.selector", self._calendar_choice)
 		grid=wx.FlexGridSizer(cols=2,hgap=8,vgap=8);grid.AddGrowableCol(1,1);outer.Add(grid,flag=wx.TOP|wx.EXPAND,border=8)
 		primary=_choice(panel,grid,N_("Primary calendar:"),PRIMARY_CALENDAR_ORDER,CALENDAR_LABELS,settings.primary_calendar)
 		self._register("calendar.primary", primary)
 		primary.Bind(wx.EVT_CHOICE,lambda e:(setattr(settings,"primary_calendar",PRIMARY_CALENDAR_ORDER[primary.GetSelection()]),e.Skip()))
-		self._calendar_host=wx.BoxSizer(wx.VERTICAL);outer.Add(self._calendar_host,flag=wx.TOP|wx.EXPAND,border=8);self._calendar_panel=None
-		self._calendar_choice.Bind(wx.EVT_CHOICE,self._on_calendar);self._render_calendar(panel)
 		include=wx.CheckBox(panel,label=_("Include Arabian calendar information in astronomical daily information"));include.SetValue(settings.include_arabian_calendar_in_daily_info);outer.Add(include,flag=wx.TOP,border=8)
 		self._register("calendar.includeArabian", include)
 		include.Bind(wx.EVT_CHECKBOX,lambda e:(setattr(settings,"include_arabian_calendar_in_daily_info",include.GetValue()),e.Skip()))
 		open_daily=wx.CheckBox(panel,label=_("Open daily information window"));open_daily.SetValue(settings.open_daily_info_window);outer.Add(open_daily,flag=wx.TOP,border=8)
 		self._register("calendar.openDailyInfoWindow", open_daily)
 		open_daily.Bind(wx.EVT_CHECKBOX,lambda e:(setattr(settings,"open_daily_info_window",open_daily.GetValue()),e.Skip()))
+		outer.Add(wx.StaticText(panel,label=_("Choose calendar to configure:")))
+		self._calendar_choice=wx.Choice(panel,choices=_translated(CALENDAR_EDIT_ORDER,CALENDAR_LABELS),name=_("Choose calendar to configure"));self._calendar_choice.SetSelection(0);outer.Add(self._calendar_choice,flag=wx.EXPAND)
+		self._register("calendar.selector", self._calendar_choice)
+		self._calendar_host=wx.BoxSizer(wx.VERTICAL);outer.Add(self._calendar_host,flag=wx.TOP|wx.EXPAND,border=8);self._calendar_panel=None
+		self._calendar_choice.Bind(wx.EVT_CHOICE,self._on_calendar);self._render_calendar(panel)
 		return panel
 
 	def _on_calendar(self,event:wx.CommandEvent)->None:
@@ -522,23 +533,68 @@ class AwqatiSettingsPanel(SettingsPanel):
 		fmt.Bind(wx.EVT_CHOICE,changed)
 		adjust.Bind(wx.EVT_SPINCTRL,lambda e:(setattr(settings,"hijri_adjustment_days",adjust.GetValue()),e.Skip()))
 		update_adjustment_visibility()
+		self._add_preview(panel, grid, "date", identity)
+
+
+	def _add_preview(self, parent, grid, kind, identity):
+		button = wx.Button(parent, label=_("Preview speech"))
+		grid.Add((1, 1)); grid.Add(button)
+		self._register(f"{kind}.preview", button)
+		busy = False
+		def finish(text, error):
+			nonlocal busy
+			busy = False
+			if not button:
+				return
+			button.SetFocus()
+			if isinstance(error, PreviewLocationRequired):
+				nvda_ui.message(_("No location has been assigned. Please set it in Awqati settings and try again."))
+			elif error is not None:
+				wx.MessageBox(_("The preview could not be prepared. Check the selected settings and try again."),
+					_("Speech preview"), wx.OK | wx.ICON_WARNING, self)
+				button.SetFocus()
+			else:
+				nvda_ui.message(text)
+		def worker(snapshot, language):
+			try:
+				text = preview_text(snapshot, kind, identity, language)
+			except Exception as error:
+				wx.CallAfter(finish, None, error)
+			else:
+				wx.CallAfter(finish, text, None)
+		def activate(event):
+			nonlocal busy
+			if not busy:
+				# Capture only preview inputs; unrelated validation belongs to Apply.
+				snapshot = deepcopy(self._draft.settings)
+				snapshot.location = self.location_controls.pending
+				if kind == "date":
+					snapshot.calendar.hijri_adjustment_days = self._controls["calendar.adjustment"].GetValue()
+				busy = True
+				language = languageHandler.getLanguage().split("_")[0]
+				threading.Thread(target=worker, args=(snapshot, language), name="AwqatiSpeechPreview", daemon=True).start()
+			event.Skip()
+		button.Bind(wx.EVT_BUTTON, activate)
 
 	def _build_adhkar(self)->wx.Panel:
 		panel=wx.Panel(self);outer=wx.BoxSizer(wx.VERTICAL);panel.SetSizer(outer);settings=self._draft.settings.adhkar
 		enabled=wx.CheckBox(panel,label=_("Enable Dhikr alerts"));enabled.SetValue(settings.alerts_enabled);outer.Add(enabled,flag=wx.BOTTOM,border=8)
 		self._register("adhkar.enabled", enabled)
 		enabled.Bind(wx.EVT_CHECKBOX,lambda e:(setattr(settings,"alerts_enabled",enabled.GetValue()),e.Skip()))
-		self._adhkar_hosts={};self._adhkar_panels={}
+		self._adhkar_hosts={};self._adhkar_panels={};self._adhkar_containers={}
 		functions=(("morning",N_("Enable morning Dhikr"),settings.morning),("evening",N_("Enable evening Dhikr"),settings.evening),("friday",N_("Enable Friday hour reminder"),settings.friday_hour),("wird",N_("Enable daily Wird"),settings.daily_wird),("recurring",N_("Enable recurring Dhikr reminder"),settings.recurring))
 		for key,label,value in functions:
-			box=wx.CheckBox(panel,label=_(label));box.SetValue(value.enabled);outer.Add(box,flag=wx.TOP,border=8)
+			container=wx.Panel(panel);stack=wx.BoxSizer(wx.VERTICAL);container.SetSizer(stack)
+			outer.Add(container,flag=wx.TOP|wx.EXPAND,border=8);self._adhkar_containers[key]=container
+			box=wx.CheckBox(container,label=_(label));box.SetValue(value.enabled);stack.Add(box)
 			self._register(f"{key}.enabled", box)
-			host=wx.BoxSizer(wx.VERTICAL);outer.Add(host,flag=wx.EXPAND);self._adhkar_hosts[key]=host;self._adhkar_panels[key]=None
+			host=wx.BoxSizer(wx.VERTICAL);stack.Add(host,flag=wx.EXPAND);self._adhkar_hosts[key]=host;self._adhkar_panels[key]=None
 			box.Bind(wx.EVT_CHECKBOX,lambda e,k=key,v=value,b=box:(setattr(v,"enabled",b.GetValue()),self._render_adhkar_child(panel,k),b.SetFocus(),e.Skip()))
 			self._render_adhkar_child(panel,key)
 		return panel
 
 	def _render_adhkar_child(self,parent:wx.Window,key:str)->None:
+		parent=self._adhkar_containers[key]
 		host=self._adhkar_hosts[key];old=self._adhkar_panels[key]
 		if old is not None:host.Detach(old);old.Destroy();self._adhkar_panels[key]=None
 		settings=self._draft.settings.adhkar;value={"morning":settings.morning,"evening":settings.evening,"friday":settings.friday_hour,"wird":settings.daily_wird,"recurring":settings.recurring}[key]
@@ -553,27 +609,30 @@ class AwqatiSettingsPanel(SettingsPanel):
 		if key=="morning":values=tuple(MorningReference);labels={MorningReference.AFTER_FAJR:N_("After Fajr"),MorningReference.BEFORE_SUNRISE:N_("Before sunrise"),MorningReference.AFTER_SUNRISE:N_("After sunrise")}
 		elif key=="evening":values=tuple(EveningReference);labels={EveningReference.AFTER_ASR:N_("After Asr"),EveningReference.BEFORE_MAGHRIB:N_("Before Maghrib"),EveningReference.AFTER_MAGHRIB:N_("After Maghrib")}
 		else:values=tuple(FridayReference);labels={FridayReference.AFTER_ASR:N_("After Asr"),FridayReference.BEFORE_MAGHRIB:N_("Before Maghrib")}
-		reference=_choice(panel,grid,N_("Reference time:"),values,labels,value.reference);reference.Bind(wx.EVT_CHOICE,lambda e:(setattr(value,"reference",values[reference.GetSelection()]),e.Skip()))
-		minutes=_spin(panel,grid,N_("Offset in minutes:"),value.minutes,0,180);minutes.Bind(wx.EVT_SPINCTRL,lambda e:(setattr(value,"minutes",minutes.GetValue()),e.Skip()))
+		reference_label={"morning":N_("Morning Dhikr reference time:"),"evening":N_("Evening Dhikr reference time:"),"friday":N_("Friday hour reference time:")}[key]
+		minutes_label={"morning":N_("Morning Dhikr offset, minutes:"),"evening":N_("Evening Dhikr offset, minutes:"),"friday":N_("Friday hour offset, minutes:")}[key]
+		action_label={"morning":N_("Morning Dhikr alert action:"),"evening":N_("Evening Dhikr alert action:"),"friday":N_("Friday hour alert action:")}[key]
+		reference=_choice(panel,grid,reference_label,values,labels,value.reference);reference.Bind(wx.EVT_CHOICE,lambda e:(setattr(value,"reference",values[reference.GetSelection()]),e.Skip()))
+		minutes=_spin(panel,grid,minutes_label,value.minutes,0,180);minutes.Bind(wx.EVT_SPINCTRL,lambda e:(setattr(value,"minutes",minutes.GetValue()),e.Skip()))
 		self._register(f"{key}.reference", reference)
 		self._register(f"{key}.minutes", minutes)
-		AlertOutputEditor(panel, grid, N_("Alert action:"), value.alert, STANDARD_ALERT_ACTIONS,
+		AlertOutputEditor(panel, grid, action_label, value.alert, STANDARD_ALERT_ACTIONS,
 			"adhkar", self._layout, self._sound_staging, self._register, key)
 
 	def _build_wird(self,panel,grid,value)->None:
-		grid.Add(wx.StaticText(panel,label=_("Reminder text:")),flag=wx.ALIGN_CENTER_VERTICAL);text=wx.TextCtrl(panel,value=value.text,name=_("Daily Wird reminder text"));grid.Add(text,flag=wx.EXPAND);text.Bind(wx.EVT_TEXT,lambda e:(setattr(value,"text",text.GetValue()),e.Skip()))
-		hour=_spin(panel,grid,N_("Hour (1 to 12):"),value.hour,1,12);minute=_spin(panel,grid,N_("Minute (0 to 59):"),value.minute,0,59)
+		grid.Add(wx.StaticText(panel,label=_("Daily Wird reminder text:")),flag=wx.ALIGN_CENTER_VERTICAL);text=wx.TextCtrl(panel,value=value.text,name=_("Daily Wird reminder text"));grid.Add(text,flag=wx.EXPAND);text.Bind(wx.EVT_TEXT,lambda e:(setattr(value,"text",text.GetValue()),e.Skip()))
+		hour=_spin(panel,grid,N_("Daily Wird hour (1 to 12):"),value.hour,1,12);minute=_spin(panel,grid,N_("Daily Wird minute (0 to 59):"),value.minute,0,59)
 		self._register("wird.text", text)
 		self._register("wird.hour", hour)
 		self._register("wird.minute", minute)
 		hour.Bind(wx.EVT_SPINCTRL,lambda e:(setattr(value,"hour",hour.GetValue()),e.Skip()));minute.Bind(wx.EVT_SPINCTRL,lambda e:(setattr(value,"minute",minute.GetValue()),e.Skip()))
-		periods=tuple(DayPeriod);labels={DayPeriod.AM:N_("AM"),DayPeriod.PM:N_("PM")};period=_choice(panel,grid,N_("Period:"),periods,labels,value.period);period.Bind(wx.EVT_CHOICE,lambda e:(setattr(value,"period",periods[period.GetSelection()]),e.Skip()))
+		periods=tuple(DayPeriod);labels={DayPeriod.AM:N_("AM"),DayPeriod.PM:N_("PM")};period=_choice(panel,grid,N_("Daily Wird period:"),periods,labels,value.period);period.Bind(wx.EVT_CHOICE,lambda e:(setattr(value,"period",periods[period.GetSelection()]),e.Skip()))
 		self._register("wird.period", period)
-		AlertOutputEditor(panel, grid, N_("Alert action:"), value.alert, STANDARD_ALERT_ACTIONS,
+		AlertOutputEditor(panel, grid, N_("Daily Wird alert action:"), value.alert, STANDARD_ALERT_ACTIONS,
 			"adhkar", self._layout, self._sound_staging, self._register, "wird")
 
 	def _build_recurring(self,panel,grid,value)->None:
-		interval=_spin(panel,grid,N_("Interval in minutes:"),value.interval_minutes,5,1440);interval.Bind(wx.EVT_SPINCTRL,lambda e:(setattr(value,"interval_minutes",interval.GetValue()),e.Skip()))
+		interval=_spin(panel,grid,N_("Recurring Dhikr interval, minutes:"),value.interval_minutes,5,1440);interval.Bind(wx.EVT_SPINCTRL,lambda e:(setattr(value,"interval_minutes",interval.GetValue()),e.Skip()))
 		self._register("recurring.interval", interval)
 		self._dhikr_choice=_choice(panel,grid,N_("Dhikr to configure:"),RECURRING_DHIKR_ORDER,DHIKR_LABELS,RECURRING_DHIKR_ORDER[0]);self._dhikr_host=wx.BoxSizer(wx.VERTICAL);grid.Add((1,1));grid.Add(self._dhikr_host,flag=wx.EXPAND);self._dhikr_panel=None
 		self._register("recurring.selector", self._dhikr_choice)
@@ -588,7 +647,7 @@ class AwqatiSettingsPanel(SettingsPanel):
 		enabled=wx.CheckBox(panel,label=_("Enable selected Dhikr"));enabled.SetValue(item.enabled);grid.Add((1,1));grid.Add(enabled);enabled.Bind(wx.EVT_CHECKBOX,lambda e:(setattr(item,"enabled",enabled.GetValue()),e.Skip()))
 		self._register("recurring.item.enabled", enabled)
 		AlertOutputEditor(panel, grid, N_("Selected Dhikr action:"), item.alert, RECURRING_ACTIONS,
-			"adhkar", self._layout, self._sound_staging, self._register, "recurring.item")
+			"adhkar", self._layout, self._sound_staging, self._register, "recurring.item", _(DHIKR_LABELS[identity]))
 		self._layout()
 
 	def _candidate_from_controls(self):

@@ -23,6 +23,11 @@ class ClockService:
 		self._prayers = prayers
 		self._request_factory = request_factory
 
+	def read_civil(self, location: Location | None = None) -> datetime:
+		"""Civil time remains available before a location has been assigned."""
+		zone = self._timezones.get_timezone(location.timezone_id) if location else None
+		return self._clock.now().value.astimezone(zone)
+
 	def read(self, location: Location) -> ClockReading:
 		return self.read_at(location, self._clock.now())
 

@@ -47,6 +47,9 @@ class LocationSetupService:
 	def search(self, country_code: str, query: str, limit: int = 20) -> tuple[LocationMatch, ...]:
 		return self._repository.search(country_code, query, limit)
 
+	def browse(self, country_code: str, limit: int = 40) -> tuple[LocationMatch, ...]:
+		return self._repository.browse(country_code, limit)
+
 	def timezone_ids(self) -> tuple[str, ...]:
 		return self._timezones.timezone_ids()
 
