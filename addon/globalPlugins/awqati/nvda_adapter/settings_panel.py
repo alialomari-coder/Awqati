@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
-import hashlib
 from pathlib import Path
-import shutil
+import threading
 from typing import Callable, Sequence
 
 import globalVars
 import wx
+import wx.adv
 from gui.settingsDialogs import SettingsPanel
 
 from ..domain import (
@@ -22,6 +22,9 @@ from .settings_sections import (
 	CALENDAR_EDIT_ORDER, PRIMARY_CALENDAR_ORDER, PRAYER_ACTIONS, PRAYER_EVENT_ORDER,
 	RECURRING_ACTIONS, RECURRING_DHIKR_ORDER, SECTION_ORDER, STANDARD_ALERT_ACTIONS,
 	SettingsSection, action_uses_sound, hijri_adjustment_visible,
+)
+from .sound_staging import (
+	SoundPreparationCancelled, SoundStagingSession, collect_sound_reference_values,
 )
 from .ui import LocationControls, _context_or_raise, _parse_clock, _
 
@@ -100,16 +103,18 @@ class AlertOutputEditor:
 
 	def __init__(self, parent: wx.Window, sizer: wx.Sizer, label: str,
 			output: AlertOutputSettings, actions: Sequence[AlertAction], category: str,
-			on_layout: Callable[[], None]) -> None:
+			on_layout: Callable[[], None], sound_staging: SoundStagingSession) -> None:
 		self.parent, self.sizer, self.output = parent, sizer, output
 		self.actions, self.category, self.on_layout = tuple(actions), category, on_layout
+		self.sound_staging = sound_staging
+		self._busy = False
 		self.sizer.Add(wx.StaticText(parent, label=_(label)), flag=wx.ALIGN_CENTER_VERTICAL)
 		self.action = wx.Choice(parent, choices=_translated(self.actions, ACTION_LABELS), name=_(label.rstrip(":")))
 		self.action.SetSelection(self.actions.index(output.action))
 		self.sizer.Add(self.action, flag=wx.EXPAND)
 		self.action.Bind(wx.EVT_CHOICE, self._on_action)
 		self.sound_panel: wx.Panel | None = None
-		self._sound: wx.Sound | None = None
+		self._sound: wx.adv.Sound | None = None
 		self._render_sound()
 
 	def _on_action(self, event: wx.CommandEvent) -> None:
@@ -147,17 +152,21 @@ class AlertOutputEditor:
 		return Path(globalVars.appArgs.configPath) / "awqati"
 
 	def _selected_path(self) -> Path | None:
-		return self._root / self.output.sound.value if self.output.sound is not None else None
+		return self.sound_staging.resolve(self.output.sound) if self.output.sound is not None else None
 
 	def _update_buttons(self) -> None:
 		available = self._selected_path()
 		available = available is not None and available.is_file()
 		self.preview.Enable(available)
 		self.remove.Enable(self.output.sound is not None)
+		self.choose.Enable(not self._busy)
+		self.choose.SetLabel(_("Selecting sound file...") if self._busy else _("Choose sound file"))
 
 	def _on_choose(self, event: wx.CommandEvent) -> None:
+		if self._busy:
+			event.Skip()
+			return
 		target_dir = self._root / "sounds" / self.category
-		target_dir.mkdir(parents=True, exist_ok=True)
 		dialog = wx.FileDialog(self.parent, message=_("Choose a WAV sound file"),
 			defaultDir=str(target_dir), wildcard=_("Wave audio files (*.wav)|*.wav"),
 			style=wx.FD_OPEN | wx.FD_FILE_MUST_EXIST)
@@ -166,26 +175,66 @@ class AlertOutputEditor:
 				return
 			source = Path(dialog.GetPath())
 			if source.suffix.casefold() != ".wav":
-				raise ValueError(_("Only WAV sound files are supported."))
-			digest = hashlib.sha256(source.read_bytes()).hexdigest()[:16]
-			target = target_dir / f"{digest}-{source.name}"
-			if not target.exists():
-				shutil.copy2(source, target)
-			self.output.sound = SoundReference(target.relative_to(self._root).as_posix())
-		except (OSError, ValueError) as error:
+				wx.MessageBox(_("Only WAV sound files are supported."), _("Sound file error"),
+					wx.OK | wx.ICON_ERROR, self.parent)
+				return
+			if not self.sound_staging.begin_preparation():
+				return
+			self._busy = True
+			self._update_buttons()
+			try:
+				threading.Thread(
+					target=self._choose_worker,
+					args=(source,),
+					name="AwqatiSoundSelection",
+					daemon=True,
+				).start()
+			except RuntimeError:
+				self.sound_staging.finish_preparation()
+				self._busy = False
+				raise
+		except (OSError, RuntimeError) as error:
 			wx.MessageBox(_("The sound file could not be selected. {details}").format(details=error),
 				_("Sound file error"), wx.OK | wx.ICON_ERROR, self.parent)
 		finally:
 			dialog.Destroy()
-		self._update_buttons()
-		self.choose.SetFocus()
+			if not self._busy:
+				self._update_buttons()
+				self.choose.SetFocus()
 		event.Skip()
+
+	def _choose_worker(self, source: Path) -> None:
+		try:
+			reference = self.sound_staging.prepare(source, self.category)
+		except SoundPreparationCancelled:
+			reference, error = None, None
+		except Exception as caught:
+			reference, error = None, caught
+		else:
+			error = None
+		wx.CallAfter(self._finish_choose, reference, error)
+
+	def _finish_choose(self, reference: SoundReference | None, error: Exception | None) -> None:
+		self.sound_staging.finish_preparation()
+		self._busy = False
+		if reference is not None:
+			self.output.sound = reference
+		try:
+			if error is not None:
+				wx.MessageBox(_("The sound file could not be selected. {details}").format(details=error),
+					_("Sound file error"), wx.OK | wx.ICON_ERROR, self.parent)
+			if self.sound_panel is not None:
+				self._update_buttons()
+				self.choose.SetFocus()
+		except RuntimeError:
+			# The dynamic panel or settings dialog may have closed while the worker ran.
+			pass
 
 	def _on_preview(self, event: wx.CommandEvent) -> None:
 		path = self._selected_path()
 		if path is not None and path.is_file():
-			self._sound = wx.Sound(str(path))
-			if not self._sound.IsOk() or not self._sound.Play(wx.SOUND_ASYNC):
+			self._sound = wx.adv.Sound(str(path))
+			if not self._sound.IsOk() or not self._sound.Play(wx.adv.SOUND_ASYNC):
 				wx.MessageBox(_("The selected sound could not be played."), _("Sound preview"),
 					wx.OK | wx.ICON_WARNING, self.parent)
 		self.preview.SetFocus()
@@ -205,6 +254,7 @@ class AwqatiSettingsPanel(SettingsPanel):
 		context = _context_or_raise()
 		self._settings = context.settings
 		self._draft = context.settings.open_draft()
+		self._sound_staging = SoundStagingSession(Path(globalVars.appArgs.configPath) / "awqati")
 		current = self._draft.settings
 		self.location_controls = LocationControls(self, settingsSizer, context.location_setup, current.location)
 		self.all_alerts = wx.CheckBox(self, label=_("Enable all automatic alerts"))
@@ -328,18 +378,18 @@ class AwqatiSettingsPanel(SettingsPanel):
 		correction.Bind(wx.EVT_SPINCTRL, lambda e: (self._draft.settings.prayer.corrections_minutes.__setitem__(name, correction.GetValue()), e.Skip()))
 		pre = _spin(panel, grid, "Pre-alert minutes:", event_settings.pre_alert_minutes, 0, 180)
 		pre.Bind(wx.EVT_SPINCTRL, lambda e: (setattr(event_settings, "pre_alert_minutes", pre.GetValue()), e.Skip()))
-		AlertOutputEditor(panel, grid, "Pre-alert action:", event_settings.pre_alert, PRAYER_ACTIONS, "adhan", self._layout)
-		AlertOutputEditor(panel, grid, "At-time alert action:", event_settings.at_time_alert, PRAYER_ACTIONS, "adhan", self._layout)
+		AlertOutputEditor(panel, grid, "Pre-alert action:", event_settings.pre_alert, PRAYER_ACTIONS, "adhan", self._layout, self._sound_staging)
+		AlertOutputEditor(panel, grid, "At-time alert action:", event_settings.at_time_alert, PRAYER_ACTIONS, "adhan", self._layout, self._sound_staging)
 		if event_settings.iqama is not None:
 			delay = _spin(panel, grid, "Minutes between Adhan and Iqama:", event_settings.iqama.delay_minutes, 0, 180)
 			before = _spin(panel, grid, "Alert before Iqama, minutes:", event_settings.iqama.alert_before_minutes, 0, 180)
 			delay.Bind(wx.EVT_SPINCTRL, lambda e: (setattr(event_settings.iqama, "delay_minutes", delay.GetValue()), e.Skip()))
 			before.Bind(wx.EVT_SPINCTRL, lambda e: (setattr(event_settings.iqama, "alert_before_minutes", before.GetValue()), e.Skip()))
-			AlertOutputEditor(panel, grid, "Iqama alert action:", event_settings.iqama.alert, PRAYER_ACTIONS, "adhan", self._layout)
+			AlertOutputEditor(panel, grid, "Iqama alert action:", event_settings.iqama.alert, PRAYER_ACTIONS, "adhan", self._layout, self._sound_staging)
 		else:
 			post = _spin(panel, grid, "Post-alert minutes:", event_settings.post_alert_minutes, 0, 180)
 			post.Bind(wx.EVT_SPINCTRL, lambda e: (setattr(event_settings, "post_alert_minutes", post.GetValue()), e.Skip()))
-			AlertOutputEditor(panel, grid, "Post-alert action:", event_settings.post_alert, PRAYER_ACTIONS, "alerts", self._layout)
+			AlertOutputEditor(panel, grid, "Post-alert action:", event_settings.post_alert, PRAYER_ACTIONS, "alerts", self._layout, self._sound_staging)
 		self._layout()
 
 	def _build_clock(self) -> wx.Panel:
@@ -356,7 +406,7 @@ class AwqatiSettingsPanel(SettingsPanel):
 			box = wx.CheckBox(panel, label=_(label)); box.SetValue(getattr(settings.intervals, attr)); outer.Add(box)
 			box.Bind(wx.EVT_CHECKBOX, lambda e, a=attr, b=box: (setattr(settings.intervals, a, b.GetValue()), e.Skip()))
 		alert_panel, grid = _panel(panel); outer.Add(alert_panel, flag=wx.TOP | wx.EXPAND, border=8)
-		AlertOutputEditor(alert_panel, grid, "Clock alert action:", settings.alert, STANDARD_ALERT_ACTIONS, "alerts", self._layout)
+		AlertOutputEditor(alert_panel, grid, "Clock alert action:", settings.alert, STANDARD_ALERT_ACTIONS, "alerts", self._layout, self._sound_staging)
 		return panel
 
 	def _on_clock_type(self, event: wx.CommandEvent) -> None:
@@ -437,14 +487,14 @@ class AwqatiSettingsPanel(SettingsPanel):
 		else:values=tuple(FridayReference);labels={FridayReference.AFTER_ASR:"After Asr",FridayReference.BEFORE_MAGHRIB:"Before Maghrib"}
 		reference=_choice(panel,grid,"Reference time:",values,labels,value.reference);reference.Bind(wx.EVT_CHOICE,lambda e:(setattr(value,"reference",values[reference.GetSelection()]),e.Skip()))
 		minutes=_spin(panel,grid,"Offset in minutes:",value.minutes,0,180);minutes.Bind(wx.EVT_SPINCTRL,lambda e:(setattr(value,"minutes",minutes.GetValue()),e.Skip()))
-		AlertOutputEditor(panel,grid,"Alert action:",value.alert,STANDARD_ALERT_ACTIONS,"adhkar",self._layout)
+		AlertOutputEditor(panel,grid,"Alert action:",value.alert,STANDARD_ALERT_ACTIONS,"adhkar",self._layout,self._sound_staging)
 
 	def _build_wird(self,panel,grid,value)->None:
 		grid.Add(wx.StaticText(panel,label=_("Reminder text:")),flag=wx.ALIGN_CENTER_VERTICAL);text=wx.TextCtrl(panel,value=value.text,name=_("Daily Wird reminder text"));grid.Add(text,flag=wx.EXPAND);text.Bind(wx.EVT_TEXT,lambda e:(setattr(value,"text",text.GetValue()),e.Skip()))
 		hour=_spin(panel,grid,"Hour (1 to 12):",value.hour,1,12);minute=_spin(panel,grid,"Minute (0 to 59):",value.minute,0,59)
 		hour.Bind(wx.EVT_SPINCTRL,lambda e:(setattr(value,"hour",hour.GetValue()),e.Skip()));minute.Bind(wx.EVT_SPINCTRL,lambda e:(setattr(value,"minute",minute.GetValue()),e.Skip()))
 		periods=tuple(DayPeriod);labels={DayPeriod.AM:"AM",DayPeriod.PM:"PM"};period=_choice(panel,grid,"Period:",periods,labels,value.period);period.Bind(wx.EVT_CHOICE,lambda e:(setattr(value,"period",periods[period.GetSelection()]),e.Skip()))
-		AlertOutputEditor(panel,grid,"Alert action:",value.alert,STANDARD_ALERT_ACTIONS,"adhkar",self._layout)
+		AlertOutputEditor(panel,grid,"Alert action:",value.alert,STANDARD_ALERT_ACTIONS,"adhkar",self._layout,self._sound_staging)
 
 	def _build_recurring(self,panel,grid,value)->None:
 		interval=_spin(panel,grid,"Interval in minutes:",value.interval_minutes,5,1440);interval.Bind(wx.EVT_SPINCTRL,lambda e:(setattr(value,"interval_minutes",interval.GetValue()),e.Skip()))
@@ -458,13 +508,26 @@ class AwqatiSettingsPanel(SettingsPanel):
 		if self._dhikr_panel is not None:self._dhikr_host.Detach(self._dhikr_panel);self._dhikr_panel.Destroy()
 		identity=RECURRING_DHIKR_ORDER[self._dhikr_choice.GetSelection()];item=value.items[identity];panel,grid=_panel(parent);self._dhikr_panel=panel;self._dhikr_host.Add(panel,flag=wx.EXPAND)
 		enabled=wx.CheckBox(panel,label=_("Enable selected Dhikr"));enabled.SetValue(item.enabled);grid.Add((1,1));grid.Add(enabled);enabled.Bind(wx.EVT_CHECKBOX,lambda e:(setattr(item,"enabled",enabled.GetValue()),e.Skip()))
-		AlertOutputEditor(panel,grid,"Selected Dhikr action:",item.alert,RECURRING_ACTIONS,"adhkar",self._layout);self._layout()
+		AlertOutputEditor(panel,grid,"Selected Dhikr action:",item.alert,RECURRING_ACTIONS,"adhkar",self._layout,self._sound_staging);self._layout()
 
 	def onSave(self)->None:
+		if self._sound_staging.has_pending_work:
+			raise ValueError(_("Please wait until the sound file selection finishes, then try again."))
 		candidate=self._draft.settings;candidate.location=self.location_controls.pending
 		candidate.general.all_automatic_alerts_enabled=self.all_alerts.GetValue();candidate.general.quiet_hours.enabled=self.quiet_enabled.GetValue()
 		try:
 			candidate.general.quiet_hours.start=_parse_clock(self.quiet_start.GetValue());candidate.general.quiet_hours.end=_parse_clock(self.quiet_end.GetValue())
 		except (TypeError,ValueError) as error:
 			self.quiet_start.SetFocus();raise ValueError(_("Quiet hours times are invalid: {details}").format(details=error)) from error
-		candidate.general.quiet_hours.apply_to_prayer_alerts=self.apply_prayer.GetValue();self._settings.apply(self._draft)
+		candidate.general.quiet_hours.apply_to_prayer_alerts=self.apply_prayer.GetValue()
+		commit=self._sound_staging.begin_commit(collect_sound_reference_values(candidate))
+		try:
+			self._settings.apply(self._draft)
+		except Exception:
+			self._sound_staging.rollback(commit)
+			raise
+		self._sound_staging.complete(commit)
+
+	def onDiscard(self)->None:
+		self._sound_staging.discard()
+		self._draft.discard()

@@ -148,6 +148,23 @@ class Task33ArchitectureTests(unittest.TestCase):
 		for forbidden in ("selectedSection", "selected_section", "json.dump", "Scheduler", "requests", "urllib", "socket"):
 			self.assertNotIn(forbidden, source)
 
+	def test_wav_selection_is_asynchronous_and_transactional(self) -> None:
+		source = (PACKAGES / "awqati" / "nvda_adapter" / "settings_panel.py").read_text(encoding="utf-8-sig")
+		self.assertIn("threading.Thread", source)
+		self.assertIn("wx.CallAfter", source)
+		self.assertIn("wx.adv.Sound", source)
+		self.assertIn("self._sound_staging.begin_commit", source)
+		self.assertIn("self._sound_staging.rollback", source)
+		self.assertIn("def onDiscard", source)
+		self.assertNotIn("read_bytes()", source)
+		self.assertNotIn("shutil.copy2", source)
+		tree = ast.parse(source)
+		choose = next(node for node in ast.walk(tree)
+			if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name == "_on_choose")
+		self.assertTrue(any(isinstance(node, ast.Assign)
+			and any(isinstance(target, ast.Name) and target.id == "source" for target in node.targets)
+			for node in choose.body[3].body))
+
 	def test_domain_remains_free_of_wx_and_nvda(self) -> None:
 		for path in (PACKAGES / "awqati" / "domain").glob("*.py"):
 			tree = ast.parse(path.read_text(encoding="utf-8"))
