@@ -71,13 +71,17 @@ class SettingsService:
 		validate_settings(candidate)
 		previous_location = self._effective_location(self._runtime)
 		current_location = self._effective_location(candidate)
+		alerts_reenabled = (
+			not self._runtime.general.all_automatic_alerts_enabled
+			and candidate.general.all_automatic_alerts_enabled
+		)
 		self._repository.save(candidate)
 		self._runtime = deepcopy(candidate)
 		draft.refresh_base(candidate)
 		now = self._clock.now()
 		if previous_location != current_location:
 			self._events.publish(LocationChanged(now, previous_location, current_location))
-		self._events.publish(SettingsApplied(now, candidate.schema_version))
+		self._events.publish(SettingsApplied(now, candidate.schema_version, now if alerts_reenabled else None))
 		return deepcopy(candidate)
 
 	@staticmethod

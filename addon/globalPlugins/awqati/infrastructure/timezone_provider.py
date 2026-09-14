@@ -64,6 +64,12 @@ class BundledTimezoneProvider:
 		self._cache[key] = zone
 		return zone
 
+	def timezone_ids(self) -> tuple[str, ...]:
+		"""Return validated IANA keys without loading any TZif payload."""
+		self._load_metadata()
+		assert self._zones is not None
+		return tuple(sorted(self._zones))
+
 	@staticmethod
 	def _validate_key(timezone_id: str) -> str:
 		key = timezone_id.strip()

@@ -19,7 +19,18 @@ from .clock_formatters import (
 )
 from .clock_service import ClockService, PrayerRequestFactory
 from .events import EventDispatcher
+from .general_policy import (
+	AlertPolicyDecision,
+	AutomaticAlertKind,
+	LOCATION_REQUIRED_MESSAGE,
+	automatic_alert_policy,
+	first_run_location_required,
+	is_quiet_time,
+	location_requirement_message,
+	manual_commands_allowed,
+)
 from .location_service import LocationNotFoundError, LocationService
+from .location_setup import LocationSelectionResult, LocationSetupService
 from .settings_service import ClosedSettingsDraftError, SettingsDraft, SettingsService
 from .qibla_formatters import ArabicQiblaFormatter, EnglishQiblaFormatter, QiblaFormatter
 from .qibla_service import QiblaService
@@ -63,6 +74,8 @@ __all__ = [
 	"AstronomyService",
 	"CalculationMethodProvider",
 	"ArabicWordClockFormatter",
+	"AlertPolicyDecision",
+	"AutomaticAlertKind",
 	"ClockFormatter",
 	"ClockService",
 	"ClosedSettingsDraftError",
@@ -90,7 +103,10 @@ __all__ = [
 	"LocationMatch",
 	"LocationNotFoundError",
 	"LocationRepository",
+	"LocationSelectionResult",
 	"LocationService",
+	"LocationSetupService",
+	"LOCATION_REQUIRED_MESSAGE",
 	"MAX_CURRENT_PRAYER_DURATION_MINUTES",
 	"NowProvider",
 	"NumericClockFormatter",
@@ -106,4 +122,9 @@ __all__ = [
 	"SettingsService",
 	"TimezoneProvider",
 	"WaitingWindow",
+	"automatic_alert_policy",
+	"first_run_location_required",
+	"is_quiet_time",
+	"location_requirement_message",
+	"manual_commands_allowed",
 ]

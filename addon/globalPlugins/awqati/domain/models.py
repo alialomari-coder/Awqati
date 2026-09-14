@@ -126,6 +126,7 @@ class SettingsApplied(DomainEvent):
 	"""Published after one validated settings graph becomes the runtime state."""
 
 	schema_version: int
+	automatic_alerts_rebuild_from: Instant | None = None
 
 
 @dataclass(frozen=True, slots=True)

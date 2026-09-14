@@ -123,6 +123,9 @@ class TimezoneProvider(Protocol):
 	def get_timezone(self, timezone_id: str) -> tzinfo:
 		...
 
+	def timezone_ids(self) -> tuple[str, ...]:
+		...
+
 
 @runtime_checkable
 class CoordinateProvider(Protocol):
