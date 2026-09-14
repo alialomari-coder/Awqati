@@ -175,3 +175,8 @@ def _enum_or_none(enum_type, value: str):
 		return enum_type(value)
 	except ValueError:
 		return None
+
+
+def N_(message: str) -> str:
+	"""Mark a deferred gettext message without translating domain identities."""
+	return message

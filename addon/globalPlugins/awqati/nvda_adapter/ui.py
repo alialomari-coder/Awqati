@@ -6,6 +6,7 @@ from dataclasses import dataclass
 import threading
 from typing import Callable
 
+import languageHandler
 import addonHandler
 import wx
 
@@ -15,6 +16,8 @@ from ..application import (
 	LocationSetupService,
 	SettingsService,
 )
+from .settings_sections import is_rtl_language
+
 from ..domain import ClockTime, LocationDetectionFailure, StoredLocation
 
 addonHandler.initTranslation()
@@ -62,6 +65,7 @@ def _detection_message(failure: LocationDetectionFailure | None) -> str:
 class CustomLocationDialog(wx.Dialog):
 	def __init__(self, parent: wx.Window, service: LocationSetupService) -> None:
 		super().__init__(parent, title=_("Enter a custom location"))
+		self.SetLayoutDirection(wx.Layout_RightToLeft if is_rtl_language(languageHandler.getLanguage()) else wx.Layout_LeftToRight)
 		self._service = service
 		self.location: StoredLocation | None = None
 		outer = wx.BoxSizer(wx.VERTICAL)
@@ -127,7 +131,7 @@ class LocationControls:
 		grid = wx.FlexGridSizer(cols=2, hgap=8, vgap=8)
 		grid.AddGrowableCol(1, 1)
 		grid.Add(wx.StaticText(parent, label=_("Country:")), flag=wx.ALIGN_CENTER_VERTICAL)
-		self.country = wx.Choice(parent, choices=[item.name for item in self.countries], name=_("Country"))
+		self.country = wx.Choice(parent, choices=[_(item.name) for item in self.countries], name=_("Country"))
 		grid.Add(self.country, flag=wx.EXPAND)
 		grid.Add(wx.StaticText(parent, label=_("Search for a city:")), flag=wx.ALIGN_CENTER_VERTICAL)
 		self.city_search = wx.TextCtrl(parent, name=_("Search for a city in the selected country"))
@@ -244,6 +248,7 @@ class LocationControls:
 class FirstRunLocationDialog(wx.Dialog):
 	def __init__(self, parent: wx.Window) -> None:
 		super().__init__(parent, title=_("Set up the Awqati location"))
+		self.SetLayoutDirection(wx.Layout_RightToLeft if is_rtl_language(languageHandler.getLanguage()) else wx.Layout_LeftToRight)
 		context = _context_or_raise()
 		self._settings = context.settings
 		self._draft = context.settings.open_draft()
@@ -268,7 +273,7 @@ class FirstRunLocationDialog(wx.Dialog):
 		try:
 			self._settings.apply(self._draft)
 		except Exception as error:
-			wx.MessageBox(_("Awqati could not save the location. Your previous settings were preserved. {details}").format(details=error),
+			wx.MessageBox(_("Awqati could not save the location. Your previous settings were preserved."),
 				_("Could not save settings"), wx.OK | wx.ICON_ERROR, self)
 			return
 		self.EndModal(wx.ID_OK)

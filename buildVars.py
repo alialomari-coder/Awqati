@@ -5,10 +5,10 @@ Values marked as development placeholders must be reviewed before a release.
 
 addon_info = {
 	"addon_name": "awqati",
-	"addon_summary": "أوقاتي",
-	"addon_description": "نسخة تطوير من أوقاتي: إعدادات المواقيت والساعة ونواة التنبيهات، قبل ربط العرض التلقائي.",
-	"addon_version": "0.4.2.2",
-	"addon_changelog": "تنفيذ منتجي تنبيهات المواقيت والساعة وأفق التجديد عند منتصف الليل المحلي.",
+	"addon_summary": "Awqati",
+	"addon_description": "Awqati development build: prayer, clock and date settings, before automatic presentation integration.",
+	"addon_version": "0.4.2.5",
+	"addon_changelog": "Fix the existing settings interface translation and direction for the NVDA interface language.",
 	"addon_author": "Awqati project (development placeholder)",
 	"addon_url": None,
 	"addon_sourceURL": None,
@@ -20,7 +20,7 @@ addon_info = {
 	"addon_licenseURL": None,
 }
 
-pythonSources = ["addon/globalPlugins/awqati/*.py"]
+pythonSources = ["addon/globalPlugins/awqati/**/*.py"]
 i18nSources = pythonSources + ["buildVars.py"]
 excludedFiles = ["**/__pycache__/**", "**/*.pyc", "**/*.pyo"]
 baseLanguage = "en"

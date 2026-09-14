@@ -1,2 +1,4 @@
 # Build-only dependency. It is not bundled with the NVDA add-on.
 scons==4.10.1
+
+Babel==2.17.0

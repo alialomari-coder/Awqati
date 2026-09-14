@@ -1,0 +1,1860 @@
+# Arabic translations for Awqati settings.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the Awqati settings
+# project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Awqati settings 4.2\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-09-14 20:55+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ar\n"
+"Language-Team: ar <LL@li.org>\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : "
+"n%100>=3 && n%100<=10 ? 3 : n%100>=0 && n%100<=2 ? 4 : 5);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:472
+msgid "12-hour"
+msgstr "12 ساعة"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:472
+msgid "24-hour"
+msgstr "24 ساعة"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:400
+msgid "A selected country is required"
+msgstr "يلزم اختيار دولة"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:566
+msgid "AM"
+msgstr "صباحًا"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:62
+msgid "Afghan Solar Hijri"
+msgstr "الهجري الشمسي الأفغاني"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Afghanistan"
+msgstr "أفغانستان"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:550
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:551
+msgid "After Asr"
+msgstr "بعد العصر"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:549
+msgid "After Fajr"
+msgstr "بعد الفجر"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:550
+msgid "After Maghrib"
+msgstr "بعد المغرب"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:549
+msgid "After sunrise"
+msgstr "بعد الشروق"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Aland Islands"
+msgstr "جزر آلاند"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Albania"
+msgstr "ألبانيا"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:556
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:568
+msgid "Alert action:"
+msgstr "إجراء التنبيه:"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:426
+msgid "Alert before Iqama, minutes:"
+msgstr "التنبيه قبل الإقامة، بالدقائق:"
+
+#: addon/globalPlugins/awqati/data/calculation_methods/methods.json:1
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Algeria"
+msgstr "الجزائر"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:67
+msgid "Alhamdu lillah"
+msgstr "الحمد لله"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:67
+msgid "Allahu Akbar"
+msgstr "الله أكبر"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "American Samoa"
+msgstr "ساموا الأمريكية"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Andorra"
+msgstr "أندورا"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:374
+msgid "Angle based"
+msgstr "حسب زاوية الشفق"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Angola"
+msgstr "أنغولا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Anguilla"
+msgstr "أنغويلا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Antigua and Barbuda"
+msgstr "أنتيغوا وبربودا"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:294
+msgid "Apply quiet hours to prayer-time alerts"
+msgstr "تطبيق ساعات الهدوء على تنبيهات المواقيت"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Argentina"
+msgstr "الأرجنتين"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Armenia"
+msgstr "أرمينيا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Aruba"
+msgstr "أروبا"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:43
+msgid "Asr"
+msgstr "العصر"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:371
+msgid "Asr calculation:"
+msgstr "حساب العصر:"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:50
+#, python-brace-format
+msgid "Assigned location: {name}; time zone: {timezone}"
+msgstr "الموقع المعتمد: {name}؛ المنطقة الزمنية: {timezone}"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:68
+msgid "Astaghfiru Allah"
+msgstr "أستغفر الله"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:422
+msgid "At-time alert action:"
+msgstr "إجراء التنبيه عند الوقت:"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Australia"
+msgstr "أستراليا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Austria"
+msgstr "النمسا"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:374
+msgid "Automatic"
+msgstr "تلقائي"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:360
+msgid "Automatic by country"
+msgstr "تلقائي حسب الدولة"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:259
+msgid "Awqati"
+msgstr "أوقاتي"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:276
+msgid "Awqati could not save the location. Your previous settings were preserved."
+msgstr "تعذر حفظ الموقع في أوقاتي. حُفظت الإعدادات السابقة دون تغيير."
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:691
+msgid ""
+"Awqati could not save the settings. Your previous applied settings were "
+"preserved."
+msgstr "تعذر حفظ إعدادات أوقاتي. حُفظت الإعدادات السابقة المعتمدة دون تغيير."
+
+msgid ""
+"Awqati development build: prayer, clock and date settings, before "
+"automatic presentation integration."
+msgstr ""
+"نسخة تطوير من أوقاتي: إعدادات المواقيت والساعة والتاريخ، قبل ربط العرض "
+"التلقائي."
+
+#: addon/globalPlugins/awqati/nvda_adapter/plugin.py:53
+msgid "Awqati settings could not be loaded. The existing file was not replaced."
+msgstr "تعذر تحميل إعدادات أوقاتي. لم يُستبدل الملف الموجود."
+
+#: addon/globalPlugins/awqati/nvda_adapter/plugin.py:54
+msgid "Awqati settings error"
+msgstr "خطأ في إعدادات أوقاتي"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Azerbaijan"
+msgstr "أذربيجان"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Bahamas"
+msgstr "جزر البهاما"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Bahrain"
+msgstr "البحرين"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Bangladesh"
+msgstr "بنغلاديش"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Barbados"
+msgstr "بربادوس"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:550
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:551
+msgid "Before Maghrib"
+msgstr "قبل المغرب"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:549
+msgid "Before sunrise"
+msgstr "قبل الشروق"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Belarus"
+msgstr "بيلاروس"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Belgium"
+msgstr "بلجيكا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Belize"
+msgstr "بليز"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Benin"
+msgstr "بنين"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Bermuda"
+msgstr "برمودا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Bhutan"
+msgstr "بوتان"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:69
+msgid "Blessings upon the Prophet"
+msgstr "الصلاة على النبي"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Bolivia"
+msgstr "بوليفيا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Bonaire, Saint Eustatius and Saba "
+msgstr "هولندا الكاريبية"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Bosnia and Herzegovina"
+msgstr "البوسنة والهرسك"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Botswana"
+msgstr "بوتسوانا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Brazil"
+msgstr "البرازيل"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "British Indian Ocean Territory"
+msgstr "الإقليم البريطاني في المحيط الهندي"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "British Virgin Islands"
+msgstr "جزر فيرجن البريطانية"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Brunei"
+msgstr "بروناي"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Bulgaria"
+msgstr "بلغاريا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Burkina Faso"
+msgstr "بوركينا فاسو"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Burundi"
+msgstr "بوروندي"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Cabo Verde"
+msgstr "الرأس الأخضر"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Cambodia"
+msgstr "كمبوديا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Cameroon"
+msgstr "الكاميرون"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Canada"
+msgstr "كندا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Cayman Islands"
+msgstr "جزر كايمان"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Central African Republic"
+msgstr "جمهورية أفريقيا الوسطى"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Chad"
+msgstr "تشاد"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:637
+msgid "Check the location details."
+msgstr "تحقق من بيانات الموقع."
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:104
+msgid "Check this location field and try again."
+msgstr "تحقق من هذا الحقل في الموقع وحاول مجددًا."
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:639
+msgid "Check this setting and try again."
+msgstr "تحقق من هذا الإعداد وحاول مجددًا."
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Chile"
+msgstr "تشيلي"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "China"
+msgstr "الصين"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:178
+msgid "Choose a WAV sound file"
+msgstr "اختيار ملف صوتي بصيغة WAV"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:269
+msgid ""
+"Choose a city, detect a location, or enter a custom location before "
+"continuing."
+msgstr "اختر مدينة، أو اكشف الموقع، أو أدخل موقعًا مخصصًا قبل المتابعة."
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:256
+msgid ""
+"Choose a country and city, detect your location explicitly, or enter a "
+"custom location. You may cancel without assigning a location."
+msgstr ""
+"اختر دولة ومدينة، أو اطلب كشف موقعك، أو أدخل موقعًا مخصصًا. يمكنك الإلغاء"
+" دون تحديد موقع."
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:638
+msgid "Choose a valid Awqati sound file."
+msgstr "اختر ملفًا صوتيًا صالحًا لأوقاتي."
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:636
+msgid "Choose a valid IANA time zone."
+msgstr "اختر منطقة زمنية صحيحة من مناطق IANA."
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:634
+msgid "Choose an allowed option."
+msgstr "اختر أحد الخيارات المسموحة."
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:487
+msgid "Choose calendar to configure"
+msgstr "اختر التقويم المراد ضبطه"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:486
+msgid "Choose calendar to configure:"
+msgstr "اختر التقويم المراد ضبطه:"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:446
+msgid "Choose clock settings"
+msgstr "اختر إعدادات الساعة"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:444
+msgid "Choose clock settings:"
+msgstr "اختر إعدادات الساعة:"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:305
+msgid "Choose settings section"
+msgstr "اختر قسم الإعدادات"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:303
+msgid "Choose settings section:"
+msgstr "اختر قسم الإعدادات:"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:144
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:171
+msgid "Choose sound file"
+msgstr "اختيار ملف صوتي"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Christmas Island"
+msgstr "جزيرة كريسماس"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:139
+msgid "City results:"
+msgstr "نتائج المدن:"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:140
+msgid "City search results"
+msgstr "نتائج البحث عن المدن"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:37
+msgid "Clock"
+msgstr "الساعة"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:458
+msgid "Clock alert action:"
+msgstr "إجراء تنبيه الساعة:"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Cocos Islands"
+msgstr "جزر كوكوس (كيلينغ)"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Colombia"
+msgstr "كولومبيا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Comoros"
+msgstr "جزر القمر"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Cook Islands"
+msgstr "جزر كوك"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Costa Rica"
+msgstr "كوستاريكا"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:277
+msgid "Could not save settings"
+msgstr "تعذر حفظ الإعدادات"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:134
+msgid "Country"
+msgstr "الدولة"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:133
+msgid "Country:"
+msgstr "الدولة:"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Croatia"
+msgstr "كرواتيا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Cuba"
+msgstr "كوبا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Curacao"
+msgstr "كوراساو"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:151
+msgid "Current assigned location and time zone"
+msgstr "الموقع المعتمد والمنطقة الزمنية"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:149
+msgid "Current assigned location:"
+msgstr "الموقع المعتمد حاليًا:"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Cyprus"
+msgstr "قبرص"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Czechia"
+msgstr "التشيك"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:560
+msgid "Daily Wird reminder text"
+msgstr "نص تذكير الورد اليومي"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:38
+msgid "Date"
+msgstr "التاريخ"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:509
+msgid "Date format:"
+msgstr "صيغة التاريخ:"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Democratic Republic of the Congo"
+msgstr "الكونغو - كينشاسا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Denmark"
+msgstr "الدانمرك"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:144
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:236
+msgid "Detect location automatically"
+msgstr "كشف الموقع تلقائيًا"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:224
+msgid "Detecting location…"
+msgstr "جارٍ كشف الموقع..."
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:39
+msgid "Dhikr alerts"
+msgstr "تنبيهات الأذكار"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:574
+msgid "Dhikr to configure:"
+msgstr "الذكر المراد ضبطه:"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:43
+msgid "Dhuhr"
+msgstr "الظهر"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Djibouti"
+msgstr "جيبوتي"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:70
+msgid "Do not forget the remembrance of Allah"
+msgstr "لا تنس ذكر الله"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Dominica"
+msgstr "دومينيكا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Dominican Republic"
+msgstr "جمهورية الدومينيكان"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:52
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:56
+msgid "Double"
+msgstr "مزدوج"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Ecuador"
+msgstr "الإكوادور"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:367
+msgid "Effective automatic method:"
+msgstr "طريقة الحساب التلقائية المعتمدة:"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Egypt"
+msgstr "مصر"
+
+#: addon/globalPlugins/awqati/data/calculation_methods/methods.json:1
+msgid "Egyptian General Authority of Survey"
+msgstr "الهيئة المصرية العامة للمساحة"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "El Salvador"
+msgstr "السلفادور"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:524
+msgid "Enable Dhikr alerts"
+msgstr "تفعيل تنبيهات الأذكار"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:528
+msgid "Enable Friday hour reminder"
+msgstr "تفعيل تذكير ساعة الجمعة"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:275
+msgid "Enable all automatic alerts"
+msgstr "تفعيل جميع التنبيهات التلقائية"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:450
+msgid "Enable automatic clock alerts"
+msgstr "تفعيل تنبيهات الساعة التلقائية"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:528
+msgid "Enable daily Wird"
+msgstr "تفعيل الورد اليومي"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:528
+msgid "Enable evening Dhikr"
+msgstr "تفعيل أذكار المساء"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:528
+msgid "Enable morning Dhikr"
+msgstr "تفعيل أذكار الصباح"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:354
+msgid "Enable prayer-time alerts"
+msgstr "تفعيل تنبيهات المواقيت"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:279
+msgid "Enable quiet hours"
+msgstr "تفعيل ساعات الهدوء"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:528
+msgid "Enable recurring Dhikr reminder"
+msgstr "تفعيل تذكير الأذكار المتكررة"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:584
+msgid "Enable selected Dhikr"
+msgstr "تفعيل الذكر المحدد"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:67
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:145
+msgid "Enter a custom location"
+msgstr "إدخال موقع مخصص"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:635
+msgid "Enter a valid time in 24-hour HH:MM format."
+msgstr "أدخل وقتًا صحيحًا بنظام 24 ساعة بصيغة ساعة:دقيقة."
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Equatorial Guinea"
+msgstr "غينيا الاستوائية"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Eritrea"
+msgstr "إريتريا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Estonia"
+msgstr "إستونيا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Eswatini"
+msgstr "إسواتيني"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Ethiopia"
+msgstr "إثيوبيا"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:42
+msgid "Fajr"
+msgstr "الفجر"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Falkland Islands"
+msgstr "جزر فوكلاند"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Faroe Islands"
+msgstr "جزر فارو"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Fiji"
+msgstr "فيجي"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Finland"
+msgstr "فنلندا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "France"
+msgstr "فرنسا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "French Guiana"
+msgstr "غويانا الفرنسية"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "French Polynesia"
+msgstr "بولينيزيا الفرنسية"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "French Southern Territories"
+msgstr "الأقاليم الجنوبية الفرنسية"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:52
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:56
+msgid "Full"
+msgstr "كامل"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Gabon"
+msgstr "الغابون"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Gambia"
+msgstr "غامبيا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Georgia"
+msgstr "جورجيا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Germany"
+msgstr "ألمانيا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Ghana"
+msgstr "غانا"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:445
+msgid "Ghurubi"
+msgstr "الغروبية"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Gibraltar"
+msgstr "جبل طارق"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Greece"
+msgstr "اليونان"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Greenland"
+msgstr "غرينلاند"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:60
+msgid "Gregorian"
+msgstr "الميلادي"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Grenada"
+msgstr "غرينادا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Guadeloupe"
+msgstr "غوادلوب"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Guam"
+msgstr "غوام"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Guatemala"
+msgstr "غواتيمالا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Guernsey"
+msgstr "غيرنزي"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Guinea"
+msgstr "غينيا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Guinea-Bissau"
+msgstr "غينيا بيساو"
+
+#: addon/globalPlugins/awqati/data/calculation_methods/methods.json:1
+msgid "Gulf region"
+msgstr "منطقة الخليج"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Guyana"
+msgstr "غيانا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Haiti"
+msgstr "هايتي"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:453
+msgid "Half past"
+msgstr "نصف الساعة"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:370
+msgid "Hanafi"
+msgstr "الحنفي"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:375
+msgid "High-latitude handling:"
+msgstr "معالجة خطوط العرض العليا:"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Honduras"
+msgstr "هندوراس"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Hong Kong"
+msgstr "هونغ كونغ الصينية (منطقة إدارية خاصة)"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:561
+msgid "Hour (1 to 12):"
+msgstr "الساعة (من 1 إلى 12):"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:472
+msgid "Hour system:"
+msgstr "نظام الساعات:"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Hungary"
+msgstr "هنغاريا"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:77
+msgid "IANA time zone"
+msgstr "المنطقة الزمنية IANA"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Iceland"
+msgstr "آيسلندا"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:495
+msgid "Include Arabian calendar information in astronomical daily information"
+msgstr "تضمين معلومات التقويم العربي في معلومات اليوم الفلكية"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "India"
+msgstr "الهند"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Indonesia"
+msgstr "إندونيسيا"
+
+#: addon/globalPlugins/awqati/data/calculation_methods/methods.json:1
+msgid "Indonesian Ministry of Religious Affairs"
+msgstr "وزارة الشؤون الدينية الإندونيسية"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:572
+msgid "Interval in minutes:"
+msgstr "الفاصل، بالدقائق:"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:105
+msgid "Invalid custom location"
+msgstr "الموقع المخصص غير صالح"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:431
+msgid "Iqama alert action:"
+msgstr "إجراء تنبيه الإقامة:"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Iran"
+msgstr "إيران"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Iraq"
+msgstr "العراق"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Ireland"
+msgstr "أيرلندا"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:44
+msgid "Isha"
+msgstr "العشاء"
+
+#: addon/globalPlugins/awqati/data/calculation_methods/methods.json:1
+msgid "Islamic Community of Lisbon"
+msgstr "الجماعة الإسلامية في لشبونة"
+
+#: addon/globalPlugins/awqati/data/calculation_methods/methods.json:1
+msgid "Islamic Religious Council of Singapore"
+msgstr "المجلس الإسلامي الديني في سنغافورة"
+
+#: addon/globalPlugins/awqati/data/calculation_methods/methods.json:1
+msgid "Islamic Society of North America"
+msgstr "الجمعية الإسلامية لأمريكا الشمالية"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Isle of Man"
+msgstr "جزيرة مان"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Israel"
+msgstr "إسرائيل"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Italy"
+msgstr "إيطاليا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Ivory Coast"
+msgstr "ساحل العاج"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Jamaica"
+msgstr "جامايكا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Japan"
+msgstr "اليابان"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Jersey"
+msgstr "جيرسي"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Jordan"
+msgstr "الأردن"
+
+#: addon/globalPlugins/awqati/data/calculation_methods/methods.json:1
+msgid "Jordanian Ministry of Awqaf"
+msgstr "وزارة الأوقاف الأردنية"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Kazakhstan"
+msgstr "كازاخستان"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:378
+msgid "Keep prayer current after Iqama, minutes:"
+msgstr "مدة بقاء الصلاة الحالية بعد الإقامة، بالدقائق:"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Kenya"
+msgstr "كينيا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Kiribati"
+msgstr "كيريباتي"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Kosovo"
+msgstr "كوسوفو"
+
+#: addon/globalPlugins/awqati/data/calculation_methods/methods.json:1
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Kuwait"
+msgstr "الكويت"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Kyrgyzstan"
+msgstr "قيرغيزستان"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:68
+msgid "La hawla wa la quwwata illa billah"
+msgstr "لا حول ولا قوة إلا بالله"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:67
+msgid "La ilaha illa Allah"
+msgstr "لا إله إلا الله"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Laos"
+msgstr "لاوس"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:75
+msgid "Latitude"
+msgstr "خط العرض"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:80
+msgid "Latitude:"
+msgstr "خط العرض:"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Latvia"
+msgstr "لاتفيا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Lebanon"
+msgstr "لبنان"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Lesotho"
+msgstr "ليسوتو"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Liberia"
+msgstr "ليبيريا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Libya"
+msgstr "ليبيا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Liechtenstein"
+msgstr "ليختنشتاين"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Lithuania"
+msgstr "ليتوانيا"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:241
+msgid "Location detected"
+msgstr "اكتُشف الموقع"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:243
+msgid "Location detection"
+msgstr "كشف الموقع"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:62
+msgid "Location detection failed. Your previous location was not changed."
+msgstr "فشل كشف الموقع. لم يتغير الموقع السابق."
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:60
+msgid ""
+"Location detection timed out. You can still choose a city or enter a "
+"custom location."
+msgstr "انتهت مهلة كشف الموقع. يمكنك اختيار مدينة أو إدخال موقع مخصص."
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:270
+msgid "Location is required"
+msgstr "يلزم تحديد موقع"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:74
+msgid "Location name"
+msgstr "اسم الموقع"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:79
+msgid "Location name:"
+msgstr "اسم الموقع:"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:76
+msgid "Longitude"
+msgstr "خط الطول"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:81
+msgid "Longitude:"
+msgstr "خط الطول:"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:60
+msgid "Lunar Hijri"
+msgstr "الهجري القمري"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:512
+msgid "Lunar Hijri correction, days"
+msgstr "تصحيح الهجري القمري، بالأيام"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:511
+msgid "Lunar Hijri correction, days:"
+msgstr "تصحيح الهجري القمري، بالأيام:"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Luxembourg"
+msgstr "لوكسمبورغ"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Macao"
+msgstr "منطقة ماكاو الإدارية الخاصة"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Madagascar"
+msgstr "مدغشقر"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:44
+msgid "Maghrib"
+msgstr "المغرب"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Malawi"
+msgstr "ملاوي"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Malaysia"
+msgstr "ماليزيا"
+
+#: addon/globalPlugins/awqati/data/calculation_methods/methods.json:1
+msgid "Malaysia JAKIM"
+msgstr "ماليزيا - جاكيم"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Maldives"
+msgstr "جزر المالديف"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Mali"
+msgstr "مالي"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Malta"
+msgstr "مالطا"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:397
+msgid "Manual selection"
+msgstr "اختيار يدوي"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Marshall Islands"
+msgstr "جزر مارشال"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Martinique"
+msgstr "جزر المارتينيك"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Mauritania"
+msgstr "موريتانيا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Mauritius"
+msgstr "موريشيوس"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Mayotte"
+msgstr "مايوت"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Mexico"
+msgstr "المكسيك"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Micronesia"
+msgstr "ميكرونيزيا"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:374
+msgid "Middle of the night"
+msgstr "منتصف الليل"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:45
+msgid "Midnight"
+msgstr "منتصف الليل"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:561
+msgid "Minute (0 to 59):"
+msgstr "الدقيقة (من 0 إلى 59):"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:425
+msgid "Minutes between Adhan and Iqama:"
+msgstr "المدة بين الأذان والإقامة، بالدقائق:"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:53
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:57
+msgid "Moderate"
+msgstr "متوسط"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Moldova"
+msgstr "مولدوفا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Monaco"
+msgstr "موناكو"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Mongolia"
+msgstr "منغوليا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Montenegro"
+msgstr "الجبل الأسود"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Montserrat"
+msgstr "مونتسرات"
+
+#: addon/globalPlugins/awqati/data/calculation_methods/methods.json:1
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Morocco"
+msgstr "المغرب"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Mozambique"
+msgstr "موزمبيق"
+
+#: addon/globalPlugins/awqati/data/calculation_methods/methods.json:1
+msgid "Muslim World League"
+msgstr "رابطة العالم الإسلامي"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Myanmar"
+msgstr "ميانمار (بورما)"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Namibia"
+msgstr "ناميبيا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Nauru"
+msgstr "ناورو"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:374
+msgid "Nearest latitude"
+msgstr "أقرب خط عرض"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Nepal"
+msgstr "نيبال"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "New Caledonia"
+msgstr "كاليدونيا الجديدة"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "New Zealand"
+msgstr "نيوزيلندا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Nicaragua"
+msgstr "نيكاراغوا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Niger"
+msgstr "النيجر"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Nigeria"
+msgstr "نيجيريا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Niue"
+msgstr "نيوي"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:49
+msgid "No location has been assigned"
+msgstr "لم يُحدد موقع"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Norfolk Island"
+msgstr "جزيرة نورفولك"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "North Korea"
+msgstr "كوريا الشمالية"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "North Macedonia"
+msgstr "مقدونيا الشمالية"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Northern Mariana Islands"
+msgstr "جزر ماريانا الشمالية"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Norway"
+msgstr "النرويج"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:475
+msgid "Numbers"
+msgstr "أرقام"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:553
+msgid "Offset in minutes:"
+msgstr "الإزاحة، بالدقائق:"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Oman"
+msgstr "عُمان"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:453
+msgid "On the hour"
+msgstr "رأس الساعة"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:374
+msgid "One seventh"
+msgstr "سُبع الليل"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:186
+msgid "Only WAV sound files are supported."
+msgstr "تُدعم الملفات الصوتية بصيغة WAV فقط."
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:498
+msgid "Open daily information window"
+msgstr "فتح نافذة معلومات اليوم"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:381
+msgid "Open daily prayer times window"
+msgstr "فتح نافذة مواقيت اليوم"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:566
+msgid "PM"
+msgstr "مساءً"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Pakistan"
+msgstr "باكستان"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Palau"
+msgstr "بالاو"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Palestinian Territory"
+msgstr "الأراضي الفلسطينية"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Panama"
+msgstr "بنما"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Papua New Guinea"
+msgstr "بابوا غينيا الجديدة"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Paraguay"
+msgstr "باراغواي"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:566
+msgid "Period:"
+msgstr "الفترة:"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:63
+msgid "Persian Solar Hijri"
+msgstr "الهجري الشمسي الفارسي"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Peru"
+msgstr "بيرو"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Philippines"
+msgstr "الفلبين"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Pitcairn"
+msgstr "جزر بيتكيرن"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Poland"
+msgstr "بولندا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Portugal"
+msgstr "البرتغال"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:437
+msgid "Post-alert action:"
+msgstr "إجراء التنبيه البعدي:"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:434
+msgid "Post-alert minutes:"
+msgstr "مدة التنبيه البعدي، بالدقائق:"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:363
+msgid "Prayer calculation method:"
+msgstr "طريقة حساب مواقيت الصلاة:"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:36
+msgid "Prayer times"
+msgstr "مواقيت الصلاة"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:420
+msgid "Pre-alert action:"
+msgstr "إجراء التنبيه القبلي:"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:417
+msgid "Pre-alert minutes:"
+msgstr "مدة التنبيه القبلي، بالدقائق:"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:145
+msgid "Preview sound"
+msgstr "تجربة الصوت"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:490
+msgid "Primary calendar:"
+msgstr "التقويم الأساسي:"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Puerto Rico"
+msgstr "بورتوريكو"
+
+#: addon/globalPlugins/awqati/data/calculation_methods/methods.json:1
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Qatar"
+msgstr "قطر"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:453
+msgid "Quarter past"
+msgstr "الربع الأول"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:288
+msgid "Quiet hours end"
+msgstr "نهاية ساعات الهدوء"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:291
+msgid "Quiet hours end, HH:MM:"
+msgstr "نهاية ساعات الهدوء، ساعة:دقيقة:"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:287
+msgid "Quiet hours start"
+msgstr "بداية ساعات الهدوء"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:291
+msgid "Quiet hours start, HH:MM:"
+msgstr "بداية ساعات الهدوء، ساعة:دقيقة:"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:552
+msgid "Reference time:"
+msgstr "الوقت المرجعي:"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:69
+msgid "Remember Allah and He will remember you"
+msgstr "اذكر الله يذكرك"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:560
+msgid "Reminder text:"
+msgstr "نص التذكير:"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:146
+msgid "Remove custom sound"
+msgstr "إزالة الصوت المخصص"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Republic of the Congo"
+msgstr "الكونغو - برازافيل"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Reunion"
+msgstr "روينيون"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Romania"
+msgstr "رومانيا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Russia"
+msgstr "روسيا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Rwanda"
+msgstr "رواندا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Saint Barthelemy"
+msgstr "سان بارتليمي"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Saint Helena"
+msgstr "سانت هيلينا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Saint Kitts and Nevis"
+msgstr "سانت كيتس ونيفيس"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Saint Lucia"
+msgstr "سانت لوسيا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Saint Martin"
+msgstr "سان مارتن"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Saint Pierre and Miquelon"
+msgstr "سان بيير ومكويلون"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Saint Vincent and the Grenadines"
+msgstr "سانت فنسنت وجزر غرينادين"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Samoa"
+msgstr "ساموا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "San Marino"
+msgstr "سان مارينو"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Sao Tome and Principe"
+msgstr "ساو تومي وبرينسيبي"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Saudi Arabia"
+msgstr "المملكة العربية السعودية"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:61
+msgid "Saudi Solar Hijri"
+msgstr "الهجري الشمسي السعودي"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:137
+msgid "Search for a city in the selected country"
+msgstr "البحث عن مدينة في الدولة المختارة"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:136
+msgid "Search for a city:"
+msgstr "البحث عن مدينة:"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:586
+msgid "Selected Dhikr action:"
+msgstr "إجراء الذكر المحدد:"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:171
+msgid "Selecting sound file..."
+msgstr "جارٍ اختيار الملف الصوتي..."
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Senegal"
+msgstr "السنغال"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Serbia"
+msgstr "صربيا"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:250
+msgid "Set up the Awqati location"
+msgstr "إعداد موقع أوقاتي"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:615
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:640
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:692
+msgid "Settings not applied"
+msgstr "لم تُطبق الإعدادات"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Seychelles"
+msgstr "سيشل"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:53
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:57
+msgid "Short"
+msgstr "مختصر"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Sierra Leone"
+msgstr "سيراليون"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:48
+msgid "Silent"
+msgstr "كتم"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Singapore"
+msgstr "سنغافورة"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Sint Maarten"
+msgstr "سانت مارتن"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Slovakia"
+msgstr "سلوفاكيا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Slovenia"
+msgstr "سلوفينيا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Solomon Islands"
+msgstr "جزر سليمان"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Somalia"
+msgstr "الصومال"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:49
+msgid "Sound file and speech"
+msgstr "ملف صوتي ونطق"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:186
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:206
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:233
+msgid "Sound file error"
+msgstr "خطأ في الملف الصوتي"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:49
+msgid "Sound file only"
+msgstr "ملف صوتي فقط"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:246
+msgid "Sound preview"
+msgstr "تجربة الصوت"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "South Africa"
+msgstr "جنوب أفريقيا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "South Georgia and the South Sandwich Islands"
+msgstr "جورجيا الجنوبية وجزر ساندويتش الجنوبية"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "South Korea"
+msgstr "كوريا الجنوبية"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "South Sudan"
+msgstr "جنوب السودان"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Spain"
+msgstr "إسبانيا"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:478
+msgid "Speak seconds"
+msgstr "نطق الثواني"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:478
+msgid "Speak zero minutes"
+msgstr "نطق الدقائق الصفرية"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:469
+msgid "Speech format:"
+msgstr "صيغة النطق:"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:48
+msgid "Speech only"
+msgstr "نطق فقط"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:475
+msgid "Speech representation:"
+msgstr "تمثيل النطق:"
+
+#: addon/globalPlugins/awqati/data/calculation_methods/methods.json:1
+msgid "Spiritual Administration of Muslims of Russia"
+msgstr "الإدارة الروحية لمسلمي روسيا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Sri Lanka"
+msgstr "سريلانكا"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:370
+msgid "Standard (Shafi, Maliki, Hanbali)"
+msgstr "الجمهور (الشافعي والمالكي والحنبلي)"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:45
+msgid "Start of the last third"
+msgstr "بداية الثلث الأخير"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:67
+msgid "Subhan Allah"
+msgstr "سبحان الله"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Sudan"
+msgstr "السودان"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:42
+msgid "Sunrise"
+msgstr "الشروق"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Suriname"
+msgstr "سورينام"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Svalbard and Jan Mayen"
+msgstr "سفالبارد وجان ماين"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Sweden"
+msgstr "السويد"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Switzerland"
+msgstr "سويسرا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Syria"
+msgstr "سوريا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Taiwan"
+msgstr "تايوان"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Tajikistan"
+msgstr "طاجيكستان"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Tanzania"
+msgstr "تنزانيا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Thailand"
+msgstr "تايلاند"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:632
+msgid "The Iqama reminder must be earlier than the Iqama time."
+msgstr "يجب أن يسبق تنبيه الإقامة موعد الإقامة."
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "The Netherlands"
+msgstr "هولندا"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:240
+msgid "The detected location is ready. Choose OK or Apply to save it."
+msgstr "الموقع المكتشف جاهز. اختر موافق أو تطبيق لحفظه."
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:246
+msgid "The selected sound could not be played."
+msgstr "تعذر تشغيل الصوت المحدد."
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:205
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:232
+msgid ""
+"The sound file could not be selected. Check that it is an accessible WAV "
+"file."
+msgstr "تعذر اختيار الملف الصوتي. تحقق من إمكانية الوصول إليه ومن أنه بصيغة WAV."
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:633
+msgid "This value is outside the allowed range."
+msgstr "هذه القيمة خارج النطاق المسموح."
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:453
+msgid "Three quarters past"
+msgstr "الربع الثالث"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:414
+msgid "Time correction, minutes:"
+msgstr "تصحيح الوقت، بالدقائق:"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:388
+msgid "Time to configure"
+msgstr "الوقت المراد ضبطه"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:387
+msgid "Time to configure:"
+msgstr "الوقت المراد ضبطه:"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:82
+msgid "Time zone:"
+msgstr "المنطقة الزمنية:"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Timor Leste"
+msgstr "تيمور - ليشتي"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Togo"
+msgstr "توغو"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Tokelau"
+msgstr "توكيلاو"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Tonga"
+msgstr "تونغا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Trinidad and Tobago"
+msgstr "ترينيداد وتوباغو"
+
+#: addon/globalPlugins/awqati/data/calculation_methods/methods.json:1
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Tunisia"
+msgstr "تونس"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Turkey"
+msgstr "تركيا"
+
+#: addon/globalPlugins/awqati/data/calculation_methods/methods.json:1
+msgid "Turkey - Diyanet profile"
+msgstr "تركيا - الشؤون الدينية"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Turkmenistan"
+msgstr "تركمانستان"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Turks and Caicos Islands"
+msgstr "جزر توركس وكايكوس"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Tuvalu"
+msgstr "توفالو"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "U.S. Virgin Islands"
+msgstr "جزر فيرجن الأمريكية"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Uganda"
+msgstr "أوغندا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Ukraine"
+msgstr "أوكرانيا"
+
+#: addon/globalPlugins/awqati/data/calculation_methods/methods.json:1
+msgid "Umm al-Qura - Makkah"
+msgstr "أم القرى - مكة المكرمة"
+
+#: addon/globalPlugins/awqati/data/calculation_methods/methods.json:1
+msgid "Union of Islamic Organizations of France"
+msgstr "اتحاد المنظمات الإسلامية في فرنسا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "United Arab Emirates"
+msgstr "الإمارات العربية المتحدة"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "United Kingdom"
+msgstr "المملكة المتحدة"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "United States"
+msgstr "الولايات المتحدة"
+
+#: addon/globalPlugins/awqati/data/calculation_methods/methods.json:1
+msgid "University of Islamic Sciences, Karachi"
+msgstr "جامعة العلوم الإسلامية بكراتشي"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Uruguay"
+msgstr "أورغواي"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:289
+msgid "Use time in 24-hour HH:MM format"
+msgstr "استخدم نظام 24 ساعة بصيغة ساعة:دقيقة"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Uzbekistan"
+msgstr "أوزبكستان"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Vanuatu"
+msgstr "فانواتو"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Vatican"
+msgstr "الفاتيكان"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Venezuela"
+msgstr "فنزويلا"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Vietnam"
+msgstr "فيتنام"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:614
+msgid "Wait for the sound file selection to finish, then try again."
+msgstr "انتظر حتى يكتمل اختيار الملف الصوتي، ثم حاول مجددًا."
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Wallis and Futuna"
+msgstr "جزر والس وفوتونا"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:179
+msgid "Wave audio files (*.wav)|*.wav"
+msgstr "ملفات الصوت WAV (*.wav)|*.wav"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Western Sahara"
+msgstr "الصحراء الغربية"
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:59
+msgid ""
+"Windows Location is unavailable. You can still choose a city or enter a "
+"custom location."
+msgstr "خدمة الموقع في Windows غير متاحة. يمكنك اختيار مدينة أو إدخال موقع مخصص."
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:58
+msgid ""
+"Windows location permission was denied. You can still choose a city or "
+"enter a custom location."
+msgstr "رُفض إذن الموقع في Windows. يمكنك اختيار مدينة أو إدخال موقع مخصص."
+
+#: addon/globalPlugins/awqati/nvda_adapter/ui.py:61
+msgid ""
+"Windows returned invalid coordinates. Your previous location was not "
+"changed."
+msgstr "أعاد Windows إحداثيات غير صالحة. لم يتغير الموقع السابق."
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:475
+msgid "Words"
+msgstr "كلمات"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Yemen"
+msgstr "اليمن"
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Zambia"
+msgstr "زامبيا"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:445
+msgid "Zawali"
+msgstr "الزوالية"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:443
+msgid "Zawali time is always primary; Ghurubi time is always additional."
+msgstr "التوقيت الزوالي أساسي دائمًا، والتوقيت الغروبي إضافي دائمًا."
+
+#: addon/globalPlugins/awqati/data/locations/metadata.json:1
+msgid "Zimbabwe"
+msgstr "زيمبابوي"

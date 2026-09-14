@@ -9,6 +9,7 @@ import zipfile
 from SCons.Script import Action, AlwaysBuild, Clean, Command, Default, Dir
 
 import buildVars
+from tools.build_translations import build_translations
 
 
 ROOT = Path.cwd().resolve()
@@ -27,6 +28,7 @@ def _build_package(target, source, env) -> int:
 	if staging.exists():
 		shutil.rmtree(staging)
 	shutil.copytree(ADDON_SOURCE, staging)
+	build_translations(staging)
 
 	manifest_template = (ROOT / "manifest.ini.tpl").read_text(encoding="utf-8")
 	manifest = manifest_template.format_map({key: _manifest_value(value) for key, value in info.items()})

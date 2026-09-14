@@ -1,0 +1,4 @@
+Arabic territory names are derived from Unicode CLDR distributed with Babel 2.17.0.
+Babel is a build dependency only; its runtime is not bundled.
+See BABEL-LICENSE.txt and UNICODE-LICENSE.txt.
+Other Arabic settings translations were prepared for Awqati.
