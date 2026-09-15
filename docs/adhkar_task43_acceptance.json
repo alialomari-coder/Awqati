@@ -1,0 +1,663 @@
+{
+  "task": "4.3",
+  "closed": true,
+  "package": "0.4.3.2",
+  "sha256": "9c8580327eb707acab78b8487e15f9258b0c8eaf4ded902ed0a9898032c3485a",
+  "adhkar": {
+    "passed": 101,
+    "failed": 0,
+    "skipped": 0
+  },
+  "targeted": {
+    "passed": 320,
+    "failed": 0,
+    "skipped": 0
+  },
+  "full_gate": {
+    "passed": 672,
+    "failed": 0,
+    "skipped": 0
+  },
+  "nvda": {
+    "ar": {
+      "checks": [
+        {
+          "name": "installed-version-after-restart",
+          "pass": true,
+          "detail": "0.4.3.2"
+        },
+        {
+          "name": "import-adhkar_alert_producer",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "import-daily_wird_producer",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "import-recurring_dhikr_producer",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "import-prayer_clock_rebuild_source",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "category-registered",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "actual-settings-dialog",
+          "pass": true,
+          "detail": "إعدادات NVDA: أوقاتي (الوضع العام)"
+        },
+        {
+          "name": "layout-direction",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "default-disabled-morning",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "default-disabled-evening",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "default-disabled-friday_hour",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "default-disabled-daily_wird",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "default-disabled-recurring",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "minutes-morning",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "actions-morning",
+          "pass": true,
+          "detail": [
+            "نطق فقط",
+            "ملف صوتي فقط",
+            "ملف صوتي ونطق"
+          ]
+        },
+        {
+          "name": "minutes-evening",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "actions-evening",
+          "pass": true,
+          "detail": [
+            "نطق فقط",
+            "ملف صوتي فقط",
+            "ملف صوتي ونطق"
+          ]
+        },
+        {
+          "name": "minutes-friday",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "actions-friday",
+          "pass": true,
+          "detail": [
+            "نطق فقط",
+            "ملف صوتي فقط",
+            "ملف صوتي ونطق"
+          ]
+        },
+        {
+          "name": "wird.hour",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "wird.minute",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "wird.text",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "recurring.interval",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "wird-period",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "wird-actions",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "item-enabled-0",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "item-actions-0",
+          "pass": true,
+          "detail": [
+            "نطق فقط",
+            "ملف صوتي فقط"
+          ]
+        },
+        {
+          "name": "item-enabled-1",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "item-actions-1",
+          "pass": true,
+          "detail": [
+            "نطق فقط",
+            "ملف صوتي فقط"
+          ]
+        },
+        {
+          "name": "item-enabled-2",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "item-actions-2",
+          "pass": true,
+          "detail": [
+            "نطق فقط",
+            "ملف صوتي فقط"
+          ]
+        },
+        {
+          "name": "item-enabled-3",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "item-actions-3",
+          "pass": true,
+          "detail": [
+            "نطق فقط",
+            "ملف صوتي فقط"
+          ]
+        },
+        {
+          "name": "item-enabled-4",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "item-actions-4",
+          "pass": true,
+          "detail": [
+            "نطق فقط",
+            "ملف صوتي فقط"
+          ]
+        },
+        {
+          "name": "item-enabled-5",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "item-actions-5",
+          "pass": true,
+          "detail": [
+            "نطق فقط",
+            "ملف صوتي فقط"
+          ]
+        },
+        {
+          "name": "item-enabled-6",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "item-actions-6",
+          "pass": true,
+          "detail": [
+            "نطق فقط",
+            "ملف صوتي فقط"
+          ]
+        },
+        {
+          "name": "item-enabled-7",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "item-actions-7",
+          "pass": true,
+          "detail": [
+            "نطق فقط",
+            "ملف صوتي فقط"
+          ]
+        },
+        {
+          "name": "item-enabled-8",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "item-actions-8",
+          "pass": true,
+          "detail": [
+            "نطق فقط",
+            "ملف صوتي فقط"
+          ]
+        },
+        {
+          "name": "formatter-ar-morning",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "formatter-en-morning",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "formatter-ar-evening",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "formatter-en-evening",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "formatter-ar-friday",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "formatter-en-friday",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "keyboard-tab-forward",
+          "pass": true,
+          "detail": {
+            "name": "وقت أذكار الصباح:",
+            "role": "13"
+          }
+        },
+        {
+          "name": "keyboard-shift-tab-back",
+          "pass": true,
+          "detail": null
+        }
+      ],
+      "nvda": "2026.2",
+      "bits": 64,
+      "language": "ar",
+      "version": "0.4.3.2",
+      "complete": true
+    },
+    "en": {
+      "checks": [
+        {
+          "name": "installed-version-after-restart",
+          "pass": true,
+          "detail": "0.4.3.2"
+        },
+        {
+          "name": "import-adhkar_alert_producer",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "import-daily_wird_producer",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "import-recurring_dhikr_producer",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "import-prayer_clock_rebuild_source",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "category-registered",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "actual-settings-dialog",
+          "pass": true,
+          "detail": "NVDA Settings: Awqati (normal configuration)"
+        },
+        {
+          "name": "layout-direction",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "default-disabled-morning",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "default-disabled-evening",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "default-disabled-friday_hour",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "default-disabled-daily_wird",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "default-disabled-recurring",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "minutes-morning",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "actions-morning",
+          "pass": true,
+          "detail": [
+            "Speech only",
+            "Sound file only",
+            "Sound file and speech"
+          ]
+        },
+        {
+          "name": "minutes-evening",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "actions-evening",
+          "pass": true,
+          "detail": [
+            "Speech only",
+            "Sound file only",
+            "Sound file and speech"
+          ]
+        },
+        {
+          "name": "minutes-friday",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "actions-friday",
+          "pass": true,
+          "detail": [
+            "Speech only",
+            "Sound file only",
+            "Sound file and speech"
+          ]
+        },
+        {
+          "name": "wird.hour",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "wird.minute",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "wird.text",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "recurring.interval",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "wird-period",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "wird-actions",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "item-enabled-0",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "item-actions-0",
+          "pass": true,
+          "detail": [
+            "Speech only",
+            "Sound file only"
+          ]
+        },
+        {
+          "name": "item-enabled-1",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "item-actions-1",
+          "pass": true,
+          "detail": [
+            "Speech only",
+            "Sound file only"
+          ]
+        },
+        {
+          "name": "item-enabled-2",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "item-actions-2",
+          "pass": true,
+          "detail": [
+            "Speech only",
+            "Sound file only"
+          ]
+        },
+        {
+          "name": "item-enabled-3",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "item-actions-3",
+          "pass": true,
+          "detail": [
+            "Speech only",
+            "Sound file only"
+          ]
+        },
+        {
+          "name": "item-enabled-4",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "item-actions-4",
+          "pass": true,
+          "detail": [
+            "Speech only",
+            "Sound file only"
+          ]
+        },
+        {
+          "name": "item-enabled-5",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "item-actions-5",
+          "pass": true,
+          "detail": [
+            "Speech only",
+            "Sound file only"
+          ]
+        },
+        {
+          "name": "item-enabled-6",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "item-actions-6",
+          "pass": true,
+          "detail": [
+            "Speech only",
+            "Sound file only"
+          ]
+        },
+        {
+          "name": "item-enabled-7",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "item-actions-7",
+          "pass": true,
+          "detail": [
+            "Speech only",
+            "Sound file only"
+          ]
+        },
+        {
+          "name": "item-enabled-8",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "item-actions-8",
+          "pass": true,
+          "detail": [
+            "Speech only",
+            "Sound file only"
+          ]
+        },
+        {
+          "name": "formatter-ar-morning",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "formatter-en-morning",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "formatter-ar-evening",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "formatter-en-evening",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "formatter-ar-friday",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "formatter-en-friday",
+          "pass": true,
+          "detail": null
+        },
+        {
+          "name": "keyboard-tab-forward",
+          "pass": true,
+          "detail": {
+            "name": "Morning Dhikr reference time:",
+            "role": "13"
+          }
+        },
+        {
+          "name": "keyboard-shift-tab-back",
+          "pass": true,
+          "detail": null
+        }
+      ],
+      "nvda": "2026.2",
+      "bits": 64,
+      "language": "en",
+      "version": "0.4.3.2",
+      "complete": true
+    }
+  },
+  "user_settings_unchanged": true,
+  "membership_acceptance": {
+    "passed": true,
+    "tests": 25,
+    "contract": "Rebuild strictly future adhkar.recurring only, preserve current and time grid; enabled canonical order without gaps."
+  },
+  "final_nvda_errors": [],
+  "limits": [
+    "Automatic audio/speech presentation requires task 4.4 and NVDA lifecycle wiring 5.1; neither implemented nor claimed tested."
+  ],
+  "environment": {
+    "windows": "Windows 11 25H2 build 26200.9457",
+    "nvda": "2026.2 AMD64",
+    "python": "3.13.13",
+    "wx": "4.2.4"
+  },
+  "drive_sync": {
+    "files": 19,
+    "sha256_mismatches": 0,
+    "scope": "local Google Drive directory; cloud upload not independently verified"
+  },
+  "git": {
+    "closing_commit_message": "feat: complete task 4.3 adhkar and wird scheduling",
+    "push": false,
+    "preexisting_untracked_excluded": [
+      ".task-4.1-request.txt"
+    ]
+  }
+}

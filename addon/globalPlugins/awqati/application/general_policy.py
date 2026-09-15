@@ -77,3 +77,37 @@ def automatic_alert_policy(
 	if quiet_applies and is_quiet_time(local_time, quiet):
 		return AlertPolicyDecision(False, suppressed_by_quiet_hours=True)
 	return AlertPolicyDecision(True)
+
+
+def in_scope(event_scope: str, scope: str | None) -> bool:
+	return scope is None or event_scope == scope or event_scope.startswith(scope + ".")
+
+
+def alert_scope_enabled(settings: AwqatiSettings | None, scope: str | None) -> bool:
+	"""The single activation hierarchy shared by scheduler and event sources."""
+	if settings is None:
+		return True
+	if not settings.general.all_automatic_alerts_enabled:
+		return False
+	if scope is None:
+		return True
+	if in_scope(scope, "prayer"):
+		return settings.prayer.alerts_enabled
+	if in_scope(scope, "clock"):
+		return settings.clock.automatic_alert_enabled
+	if in_scope(scope, "adhkar"):
+		if not settings.adhkar.alerts_enabled:
+			return False
+		for name, config in (("morning", settings.adhkar.morning), ("evening", settings.adhkar.evening),
+				("friday", settings.adhkar.friday_hour), ("dailyWird", settings.adhkar.daily_wird),
+				("daily_wird", settings.adhkar.daily_wird)):
+			if in_scope(scope, "adhkar." + name):
+				return config.enabled
+		if in_scope(scope, "adhkar.recurring"):
+			if not settings.adhkar.recurring.enabled:
+				return False
+			if scope == "adhkar.recurring":
+				return True
+			item = scope[len("adhkar.recurring."):]
+			return any(identity.value == item and config.enabled for identity, config in settings.adhkar.recurring.items.items())
+	return True

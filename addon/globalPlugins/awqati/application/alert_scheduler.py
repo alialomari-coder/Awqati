@@ -9,7 +9,7 @@ from typing import Callable, Iterable
 
 from ..domain import AlertEvent, AlertEventType, AlertPriority, AwqatiSettings, Instant, LocationChanged, SettingsApplied, SystemTimeChanged
 from .events import EventDispatcher
-from .general_policy import automatic_alert_policy, AutomaticAlertKind
+from .general_policy import automatic_alert_policy, AutomaticAlertKind, alert_scope_enabled, in_scope
 from ..domain.alerts import GRACE_PERIODS, priority_for, utc
 
 
@@ -38,10 +38,6 @@ class PresentationLease:
 
 # A scope of None means all automatic alerts. Sources must return fresh events.
 RebuildSource = Callable[[Instant, str, str | None], Iterable[AlertEvent]]
-
-
-def in_scope(event_scope: str, scope: str | None) -> bool:
-	return scope is None or event_scope == scope or event_scope.startswith(scope + ".")
 
 
 class AlertScheduler:
@@ -138,8 +134,12 @@ class AlertScheduler:
 		self._ensure_open()
 		now = now or self._now()
 		ready = self.due(now)
-		if self.current and (not self._is_enabled(self.current) or self._quiet(self.current, now)):
-			self.cancel(self.current.event_id)
+		if self.current:
+			# A membership edit preserves an already claimed recurring occurrence.
+			# Parent switches and quiet hours still govern that presentation.
+			active_scope = "adhkar.recurring" if self.current.event_type is AlertEventType.RECURRING_DHIKR else self.current.scope
+			if not self.scope_enabled(active_scope) or self._quiet(self.current, now):
+				self.cancel(self.current.event_id)
 		if self.current:
 			return None  # Never hand the same lease to a presenter twice.
 		for event in ready:
@@ -255,33 +255,7 @@ class AlertScheduler:
 		return self.scope_enabled(event.scope)
 
 	def scope_enabled(self, scope: str | None) -> bool:
-		settings = self.settings
-		if settings is None:
-			return True
-		if not settings.general.all_automatic_alerts_enabled:
-			return False
-		if scope is None:
-			return True
-		if in_scope(scope, "prayer"):
-			return settings.prayer.alerts_enabled
-		if in_scope(scope, "clock"):
-			return settings.clock.automatic_alert_enabled
-		if in_scope(scope, "adhkar"):
-			if not settings.adhkar.alerts_enabled:
-				return False
-			for name, config in (("morning", settings.adhkar.morning), ("evening", settings.adhkar.evening),
-					("friday", settings.adhkar.friday_hour), ("dailyWird", settings.adhkar.daily_wird),
-					("daily_wird", settings.adhkar.daily_wird)):
-				if in_scope(scope, "adhkar." + name):
-					return config.enabled
-			if in_scope(scope, "adhkar.recurring"):
-				if not settings.adhkar.recurring.enabled:
-					return False
-				if scope == "adhkar.recurring":
-					return True
-				item = scope[len("adhkar.recurring."):]
-				return any(identity.value == item and config.enabled for identity, config in settings.adhkar.recurring.items.items())
-		return True
+		return alert_scope_enabled(self.settings, scope)
 
 	def _ensure_open(self) -> None:
 		if self._closed:
@@ -340,9 +314,17 @@ class AlertCoordinator:
 		if current is None or previous is None:
 			raise ValueError("SettingsApplied requires a runtime settings provider")
 		now = event.automatic_alerts_rebuild_from or event.occurred_at
+		observer = getattr(self._rebuild, "settings_changed", None)
+		if observer is not None:
+			observer(previous, current, now)
 		scopes = self._changed_scopes(previous, current)
+		membership_changed = any(previous.adhkar.recurring.items[key].enabled != current.adhkar.recurring.items[key].enabled
+			for key in previous.adhkar.recurring.items)
 		for scope in scopes:
-			if self.scheduler.scope_enabled(scope):
+			if scope == "adhkar.recurring" and membership_changed and self.scheduler.scope_enabled(scope):
+				self.scheduler.rebuild(self._rebuild(now, "recurringMembershipChanged", scope), now,
+					scope=scope, preserve_current=True, strictly_future=True)
+			elif self.scheduler.scope_enabled(scope):
 				self._run_rebuild(now, "settingsApplied", scope)
 			else:
 				self.scheduler.cancel_scope(scope)
@@ -366,7 +348,8 @@ class AlertCoordinator:
 			if getattr(old.adhkar, attr) != getattr(new.adhkar, attr):
 				scopes.append("adhkar." + scope)
 		a, b = old.adhkar.recurring, new.adhkar.recurring
-		if a.enabled != b.enabled or a.interval_minutes != b.interval_minutes:
+		if (a.enabled != b.enabled or a.interval_minutes != b.interval_minutes
+				or any(a.items[key].enabled != b.items[key].enabled for key in a.items)):
 			scopes.append("adhkar.recurring")
 		else:
 			for identity in a.items:
@@ -380,6 +363,9 @@ class AlertCoordinator:
 
 	def _location_changed(self, event: LocationChanged) -> None:
 		if not self._closed:
+			observer = getattr(self._rebuild, "settings_changed", None)
+			if observer is not None:
+				observer(self._previous, self.scheduler.settings, event.occurred_at)
 			self._run_rebuild(event.occurred_at, "locationChanged")
 			# SettingsService publishes location first; the full rebuild covers its graph.
 			self._previous = deepcopy(self.scheduler.settings)

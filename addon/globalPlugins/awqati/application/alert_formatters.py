@@ -75,3 +75,45 @@ def format_clock_alert(event: AlertEvent, language: str = "ar") -> str:
 	return formatter(ClockType.ZAWALI).format_announcement(event.metadata["reading"],
 		ClockType.ZAWALI, options(ClockType.ZAWALI),
 		ghurubi_formatter=formatter(ClockType.GHURUBI), ghurubi_options=options(ClockType.GHURUBI))
+
+
+_ADHKAR_MESSAGES = {
+    "ar": {
+        "alert.adhkar.morning": "حان وقت أذكار الصباح.",
+        "alert.adhkar.evening": "حان وقت أذكار المساء.",
+        "alert.adhkar.friday": "لا تنسَ ساعة الجمعة.",
+        "subhanAllah": "سبحان الله.",
+        "alhamduLillah": "الحمد لله.",
+        "laIlahaIllaAllah": "لا إله إلا الله.",
+        "allahuAkbar": "الله أكبر.",
+        "laHawlaWaLaQuwwata": "لا حول ولا قوة إلا بالله.",
+        "astaghfiruAllah": "أستغفر الله.",
+        "salatAlaAlNabi": "الصلاة على النبي.",
+        "udhkurAllah": "اذكر الله يذكرك.",
+        "laTansaDhikrAllah": "لا تنس ذكر الله.",
+    },
+    "en": {
+        "alert.adhkar.morning": "It is time for morning adhkar.",
+        "alert.adhkar.evening": "It is time for evening adhkar.",
+        "alert.adhkar.friday": "Remember the Friday hour.",
+        "subhanAllah": "Glory be to Allah.",
+        "alhamduLillah": "Praise be to Allah.",
+        "laIlahaIllaAllah": "There is no god but Allah.",
+        "allahuAkbar": "Allah is the Greatest.",
+        "laHawlaWaLaQuwwata": "There is no power or strength except through Allah.",
+        "astaghfiruAllah": "I seek forgiveness from Allah.",
+        "salatAlaAlNabi": "Send blessings upon the Prophet.",
+        "udhkurAllah": "Remember Allah and He will remember you.",
+        "laTansaDhikrAllah": "Do not forget the remembrance of Allah.",
+    },
+}
+
+
+def format_adhkar_alert(event: AlertEvent, language: str = "ar") -> str:
+    """Return message text only; user-authored wird text is never translated."""
+    if language not in _ADHKAR_MESSAGES:
+        raise ValueError("unsupported alert language")
+    if event.message_id == "alert.adhkar.dailyWird":
+        return event.metadata["text"]
+    identity = event.metadata["dhikr_id"] if event.message_id == "alert.adhkar.recurring" else event.message_id
+    return _ADHKAR_MESSAGES[language][identity]

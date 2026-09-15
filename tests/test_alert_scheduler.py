@@ -414,7 +414,7 @@ class AlertCoordinatorTests(AlertFixture, unittest.TestCase):
             ('clock.automatic_alert_enabled', 'clock'), ('adhkar.alerts_enabled', 'adhkar'),
             ('adhkar.morning.enabled', 'adhkar.morning'), ('adhkar.evening.enabled', 'adhkar.evening'),
             ('adhkar.friday_hour.enabled', 'adhkar.friday'), ('adhkar.daily_wird.enabled', 'adhkar.dailyWird'),
-            ('adhkar.recurring.enabled', 'adhkar.recurring'), ('item', 'adhkar.recurring.' + item.value)]
+            ('adhkar.recurring.enabled', 'adhkar.recurring')]
         original_scheduler = self.scheduler
         for index, (path, scope) in enumerate(cases):
             with self.subTest(scope=scope):
@@ -528,7 +528,7 @@ class AlertCoordinatorTests(AlertFixture, unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'provider'):
             AlertCoordinator(AlertScheduler(self.clock, default_settings()), EventDispatcher(), self.source)
 
-    def test_item_disable_preserves_sibling_waiting_and_values(self):
+    def test_item_disable_preserves_current_and_rebuilds_recurring_future(self):
         first, second = list(self.service.runtime_settings.adhkar.recurring.items)[:2]
         self.scheduler.schedule_many([self.ev('current', T.RECURRING_DHIKR, scope='adhkar.recurring.' + first.value),
             self.ev('sibling', T.RECURRING_DHIKR, scope='adhkar.recurring.' + second.value)])
@@ -538,8 +538,10 @@ class AlertCoordinatorTests(AlertFixture, unittest.TestCase):
         draft.settings.adhkar.recurring.items[first].enabled = False
         self.service.apply(draft)
         self.assertEqual(self.service.runtime_settings.adhkar.recurring.items[second], before.items[second])
-        self.assertEqual(self.scheduler.claim_for_presentation().event_id, 'sibling')
-        self.source.assert_not_called()
+        self.assertEqual(self.scheduler.current.event_id, 'current')
+        self.assertIsNone(self.scheduler.claim_for_presentation())
+        self.assertEqual(self.scheduler.waiting, ())
+        self.source.assert_called_once_with(self.now, 'recurringMembershipChanged', 'adhkar.recurring')
 
     def test_location_apply_reads_committed_settings_and_rebuilds_once(self):
         from awqati.domain import Location, StoredLocation, LocationKind
@@ -602,7 +604,7 @@ class AlertArchitectureTests(unittest.TestCase):
                     self.assertNotIn((node.module or '').split('.')[0], forbidden)
         names = {node.name for path in root.rglob('*.py') for node in ast.walk(ast.parse(path.read_text(encoding='utf-8')))
             if isinstance(node, ast.ClassDef)}
-        self.assertTrue({'AdhkarAlertProducer', 'DailyWirdProducer', 'RecurringDhikrProducer', 'AlertPresenter', 'AudioService', 'SpeechService'}.isdisjoint(names))
+        self.assertTrue({'AlertPresenter', 'AudioService', 'SpeechService'}.isdisjoint(names))
 
 
 if __name__ == '__main__': unittest.main()
