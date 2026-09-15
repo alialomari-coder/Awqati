@@ -1,0 +1,475 @@
+{
+  "task": "4.4",
+  "date": "2026-09-16",
+  "packageVersionTested": "0.4.4.2",
+  "environment": {
+    "windows": "Windows-11-10.0.26200-SP0",
+    "nvda": "2026.2",
+    "python": "3.13.13",
+    "wxPython": "4.2.4 msw (phoenix) wxWidgets 3.2.8",
+    "language": "ar"
+  },
+  "serviceHarness": {
+    "passed": true,
+    "count": 46,
+    "checks": [
+      {
+        "name": "sound root is config/awqati/sounds",
+        "passed": true,
+        "detail": "C:\\Users\\alial\\Awqati\\.nvda-task44-ar\\awqati\\sounds"
+      },
+      {
+        "name": "exact sound directories",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "bundled clock wav exists and validates",
+        "passed": true,
+        "detail": "WaveInfo(channels=1, sample_width=1, frame_rate=48000, frame_count=193440)"
+      },
+      {
+        "name": "clock is the only bundled wav",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "bundled clock playback accepted",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "bundled clock playback actually started",
+        "passed": true,
+        "detail": "timeout=30"
+      },
+      {
+        "name": "bundled clock playback completed",
+        "passed": true,
+        "detail": "timeout=30"
+      },
+      {
+        "name": "bundled clock completion result",
+        "passed": true,
+        "detail": "OutputResult(started=True, completed=True, cancelled=False, error=None)"
+      },
+      {
+        "name": "long wav duration is twelve seconds",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "long playback accepted",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "long playback actually started",
+        "passed": true,
+        "detail": "timeout=30"
+      },
+      {
+        "name": "NVDA main thread responsive during long playback",
+        "passed": true,
+        "detail": "timeout=2"
+      },
+      {
+        "name": "second wav refused while first active",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "long playback completed without artificial timeout",
+        "passed": true,
+        "detail": "timeout=20"
+      },
+      {
+        "name": "long playback completion result",
+        "passed": true,
+        "detail": "OutputResult(started=True, completed=True, cancelled=False, error=None)"
+      },
+      {
+        "name": "corrupt playback request remains asynchronous",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "corrupt playback reports completion callback",
+        "passed": true,
+        "detail": "timeout=30"
+      },
+      {
+        "name": "corrupt playback fails before false start",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "speech submitted on NVDA main thread",
+        "passed": true,
+        "detail": "timeout=5"
+      },
+      {
+        "name": "speech request accepted",
+        "passed": true,
+        "detail": "[True]"
+      },
+      {
+        "name": "speech actual start callback",
+        "passed": true,
+        "detail": "timeout=30"
+      },
+      {
+        "name": "second speech refused while first active",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "speech actual completion callback",
+        "passed": true,
+        "detail": "timeout=20"
+      },
+      {
+        "name": "speech completion result",
+        "passed": true,
+        "detail": "OutputResult(started=True, completed=True, cancelled=False, error=None)"
+      },
+      {
+        "name": "combined presenter accepted event",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "combined presenter completed",
+        "passed": true,
+        "detail": "timeout=30"
+      },
+      {
+        "name": "combined output order",
+        "passed": true,
+        "detail": "['audio-start', 'audio-finish', 'speech-start', 'speech-finish']"
+      },
+      {
+        "name": "combined scheduler lifecycle",
+        "passed": true,
+        "detail": "(['combined'], [('combined', False)])"
+      },
+      {
+        "name": "missing custom and no default fallback presenter accepted",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "missing custom and no default fallback completed",
+        "passed": true,
+        "detail": "timeout=25"
+      },
+      {
+        "name": "missing custom and no default fallback spoke once",
+        "passed": true,
+        "detail": "['speech-start', 'speech-finish']"
+      },
+      {
+        "name": "missing custom and no default fallback marked once",
+        "passed": true,
+        "detail": "['missing']"
+      },
+      {
+        "name": "corrupt custom and no default fallback presenter accepted",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "corrupt custom and no default fallback completed",
+        "passed": true,
+        "detail": "timeout=25"
+      },
+      {
+        "name": "corrupt custom and no default fallback spoke once",
+        "passed": true,
+        "detail": "['speech-start', 'speech-finish']"
+      },
+      {
+        "name": "corrupt custom and no default fallback marked once",
+        "passed": true,
+        "detail": "['corrupt']"
+      },
+      {
+        "name": "missing bundled default fallback presenter accepted",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "missing bundled default fallback completed",
+        "passed": true,
+        "detail": "timeout=25"
+      },
+      {
+        "name": "missing bundled default fallback spoke once",
+        "passed": true,
+        "detail": "['speech-start', 'speech-finish']"
+      },
+      {
+        "name": "missing bundled default fallback marked once",
+        "passed": true,
+        "detail": "['no-default']"
+      },
+      {
+        "name": "external selection gets relative managed reference",
+        "passed": true,
+        "detail": "sounds/adhkar/awqati-managed-dd9165ab3909873f-external-selection.wav"
+      },
+      {
+        "name": "external selection is staged before Apply",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "Apply commits managed copy",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "committed copy remains valid",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "Cancel does not publish selected copy",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "clock missing custom returns bundled default",
+        "passed": true,
+        "detail": ""
+      }
+    ],
+    "clock": {
+      "path": "C:\\Users\\alial\\Awqati\\.nvda-task44-ar\\addons\\awqati\\globalPlugins\\awqati\\sounds\\clock\\clock.wav",
+      "sha256": "b428e360234b439f31590550a57ba324dbda18120b86b95bb8a87cb18e6a1230",
+      "frames": 193440,
+      "rate": 48000
+    },
+    "soundAndSpeechTimeline": [
+      [
+        "audio-start",
+        60480.2300721
+      ],
+      [
+        "audio-finish",
+        60483.8743211
+      ],
+      [
+        "speech-start",
+        60483.9202368
+      ],
+      [
+        "speech-finish",
+        60486.0099111
+      ]
+    ]
+  },
+  "uiArabic": {
+    "passed": true,
+    "count": 18,
+    "checks": [
+      {
+        "name": "settings direction follows language",
+        "passed": true,
+        "detail": "2"
+      },
+      {
+        "name": "Awqati settings panel title is accessible",
+        "passed": true,
+        "detail": "أوقاتي"
+      },
+      {
+        "name": "section selector has four named choices",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "three contextual sound buttons are visible",
+        "passed": true,
+        "detail": "['اختيار ملف صوتي — إجراء تنبيه الساعة', 'تجربة الصوت — إجراء تنبيه الساعة', 'إزالة الصوت المخصص — إجراء تنبيه الساعة']"
+      },
+      {
+        "name": "sound buttons have nonempty distinct names",
+        "passed": true,
+        "detail": "['اختيار ملف صوتي — إجراء تنبيه الساعة', 'تجربة الصوت — إجراء تنبيه الساعة', 'إزالة الصوت المخصص — إجراء تنبيه الساعة']"
+      },
+      {
+        "name": "Tab reaches next visible sound button",
+        "passed": true,
+        "detail": "تجربة الصوت — إجراء تنبيه الساعة"
+      },
+      {
+        "name": "Shift+Tab returns to choose button",
+        "passed": true,
+        "detail": "اختيار ملف صوتي — إجراء تنبيه الساعة"
+      },
+      {
+        "name": "file picker starts at awqati sounds root",
+        "passed": true,
+        "detail": "['C:\\\\Users\\\\alial\\\\Awqati\\\\.nvda-task44-ar\\\\awqati\\\\sounds']"
+      },
+      {
+        "name": "speech action removes sound controls from tab tree",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "preview uses central audio and completes",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "selection worker accepted",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "panel validates before Apply",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "Apply publishes managed file",
+        "passed": true,
+        "detail": "sounds/clock/awqati-managed-dd9165ab3909873f-ui-external.wav"
+      },
+      {
+        "name": "reopen preserves applied custom reference",
+        "passed": true,
+        "detail": "SoundReference(value='sounds/clock/awqati-managed-dd9165ab3909873f-ui-external.wav')"
+      },
+      {
+        "name": "cancel selection worker accepted",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "Cancel preserves previously applied custom reference",
+        "passed": true,
+        "detail": "SoundReference(value='sounds/clock/awqati-managed-dd9165ab3909873f-ui-external.wav')"
+      },
+      {
+        "name": "panel validates custom removal",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "reopen preserves custom removal",
+        "passed": true,
+        "detail": "None"
+      }
+    ]
+  },
+  "uiEnglish": {
+    "passed": true,
+    "count": 18,
+    "checks": [
+      {
+        "name": "settings direction follows language",
+        "passed": true,
+        "detail": "1"
+      },
+      {
+        "name": "Awqati settings panel title is accessible",
+        "passed": true,
+        "detail": "Awqati"
+      },
+      {
+        "name": "section selector has four named choices",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "three contextual sound buttons are visible",
+        "passed": true,
+        "detail": "['Choose sound file — Clock alert action', 'Preview sound — Clock alert action', 'Remove custom sound — Clock alert action']"
+      },
+      {
+        "name": "sound buttons have nonempty distinct names",
+        "passed": true,
+        "detail": "['Choose sound file — Clock alert action', 'Preview sound — Clock alert action', 'Remove custom sound — Clock alert action']"
+      },
+      {
+        "name": "Tab reaches next visible sound button",
+        "passed": true,
+        "detail": "Preview sound — Clock alert action"
+      },
+      {
+        "name": "Shift+Tab returns to choose button",
+        "passed": true,
+        "detail": "Choose sound file — Clock alert action"
+      },
+      {
+        "name": "file picker starts at awqati sounds root",
+        "passed": true,
+        "detail": "['C:\\\\Users\\\\alial\\\\Awqati\\\\.nvda-task44-ar\\\\awqati\\\\sounds']"
+      },
+      {
+        "name": "speech action removes sound controls from tab tree",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "preview uses central audio and completes",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "selection worker accepted",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "panel validates before Apply",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "Apply publishes managed file",
+        "passed": true,
+        "detail": "sounds/clock/awqati-managed-dd9165ab3909873f-ui-external.wav"
+      },
+      {
+        "name": "reopen preserves applied custom reference",
+        "passed": true,
+        "detail": "SoundReference(value='sounds/clock/awqati-managed-dd9165ab3909873f-ui-external.wav')"
+      },
+      {
+        "name": "cancel selection worker accepted",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "Cancel preserves previously applied custom reference",
+        "passed": true,
+        "detail": "SoundReference(value='sounds/clock/awqati-managed-dd9165ab3909873f-ui-external.wav')"
+      },
+      {
+        "name": "panel validates custom removal",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "reopen preserves custom removal",
+        "passed": true,
+        "detail": "None"
+      }
+    ]
+  },
+  "logReview": {
+    "unhandledOrAwqatiLoadErrors": 0,
+    "uiAwqatiWarningsOrErrors": 0,
+    "expectedAudioDebugWarnings": 4,
+    "expectedAudioDebugWarningMeaning": "One corrupt WAV and three deliberately unavailable sound cases; every case completed its expected fallback."
+  },
+  "computerUse": {
+    "passed": false,
+    "reason": "The Windows UI helper failed twice during initialization with sandbox ACL errors before any input; the NVDA in-process wx/UIActionSimulator harness was used instead."
+  },
+  "scope": "Presenter, AudioService, SpeechService and settings UI only; final GlobalPlugin lifecycle wiring remains deferred to task 5.1."
+}

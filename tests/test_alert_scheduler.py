@@ -602,9 +602,16 @@ class AlertArchitectureTests(unittest.TestCase):
                     self.assertTrue(forbidden.isdisjoint(a.name.split('.')[0] for a in node.names))
                 elif isinstance(node, ast.ImportFrom):
                     self.assertNotIn((node.module or '').split('.')[0], forbidden)
-        names = {node.name for path in root.rglob('*.py') for node in ast.walk(ast.parse(path.read_text(encoding='utf-8')))
-            if isinstance(node, ast.ClassDef)}
-        self.assertTrue({'AlertPresenter', 'AudioService', 'SpeechService'}.isdisjoint(names))
+        # Task 4.4 supplies these classes outside the 4.1 scheduler/domain core.
+        expected = {
+            root / 'application/alert_presenter.py': 'AlertPresenter',
+            root / 'nvda_adapter/audio_service.py': 'AudioService',
+            root / 'nvda_adapter/speech_service.py': 'SpeechService',
+        }
+        for path, class_name in expected.items():
+            names = {node.name for node in ast.walk(ast.parse(path.read_text(encoding='utf-8')))
+                if isinstance(node, ast.ClassDef)}
+            self.assertIn(class_name, names)
 
 
 if __name__ == '__main__': unittest.main()

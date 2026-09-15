@@ -3785,3 +3785,6 @@ msgstr "تعذر على مزود الموقع في Windows تحديد موقع �
 
 msgid "Windows has no available location provider. You can still choose a city or enter a custom location."
 msgstr "لا يوجد مزود موقع متاح في Windows. يمكنك اختيار مدينة أو إدخال موقع مخصص."
+
+msgid "Awqati development build with serialized alert audio and speech presentation."
+msgstr "نسخة تطويرية من أوقاتي مع عرض متسلسل لتنبيهات الصوت والنطق."

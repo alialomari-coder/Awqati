@@ -95,7 +95,7 @@ class ClockTime:
 
 @dataclass(slots=True)
 class SoundReference:
-	"""Canonical path relative to the future Awqati user-data root."""
+	"""Canonical path relative to the Awqati user-data root."""
 
 	value: str
 
@@ -312,7 +312,7 @@ def _validate_sound(value: SoundReference | None, path: str) -> None:
 	parts = reference.split("/")
 	if any(part in ("", ".", "..") or ":" in part for part in parts):
 		_fail(f"{path} must remain inside the Awqati sound root", path, "invalidSound")
-	if len(parts) < 3 or parts[0] != "sounds" or parts[1] not in {"adhan", "alerts", "adhkar"}:
+	if len(parts) < 3 or parts[0] != "sounds" or parts[1] not in {"alerts", "clock", "adhkar", "adhan"}:
 		_fail(f"{path} must be under a supported Awqati sound category", path, "invalidSound")
 
 

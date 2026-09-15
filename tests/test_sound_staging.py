@@ -5,6 +5,7 @@ import sys
 import tempfile
 import time
 import unittest
+import wave
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -23,7 +24,11 @@ class SoundStagingSessionTests(unittest.TestCase):
 		self.base = Path(self.temporary.name)
 		self.root = self.base / "awqati"
 		self.source = self.base / "sample.wav"
-		self.source.write_bytes(b"RIFF" + b"test-wave-data" * 1000)
+		with wave.open(str(self.source), "wb") as target:
+			target.setnchannels(1)
+			target.setsampwidth(1)
+			target.setframerate(8000)
+			target.writeframes(b"\x80" * 800)
 
 	def tearDown(self) -> None:
 		self.temporary.cleanup()

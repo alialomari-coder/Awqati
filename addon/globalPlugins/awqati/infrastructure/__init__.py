@@ -32,6 +32,12 @@ __all__ = [
 	"UmmAlQuraProvider",
 	"UnknownTimezoneError",
 	"WindowsLocationAdapter",
+	"InvalidWaveFile",
+	"ResolvedSound",
+	"SoundFileService",
+	"WaveInfo",
+	"safe_reference_path",
+	"validate_wav",
 	"normalize_location_text",
 ]
 
@@ -60,6 +66,12 @@ _EXPORT_MODULES = {
 	"UmmAlQuraProvider": ".ummalqura_provider",
 	"UnknownTimezoneError": ".timezone_provider",
 	"WindowsLocationAdapter": ".windows_location",
+	"InvalidWaveFile": ".audio_files",
+	"ResolvedSound": ".audio_files",
+	"SoundFileService": ".audio_files",
+	"WaveInfo": ".audio_files",
+	"safe_reference_path": ".audio_files",
+	"validate_wav": ".audio_files",
 }
 
 

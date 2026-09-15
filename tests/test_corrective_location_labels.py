@@ -12,7 +12,7 @@ from unittest.mock import Mock, patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT/'addon/globalPlugins'), str(ROOT/'.build-deps'), str(ROOT)]
-from awqati.domain import MorningReference, EveningReference, FridayReference, LocationDetectionFailure
+from awqati.domain import AlertEventType, MorningReference, EveningReference, FridayReference, LocationDetectionFailure
 from awqati.application import LocationDetectionError
 from awqati.infrastructure import BundledLocationRepository, WindowsLocationAdapter
 from awqati.infrastructure.windows_location import _status_failure, _LIVE_SINKS
@@ -32,7 +32,7 @@ class TimingLabelsTests(unittest.TestCase):
    self.assertNotIn(text, values)
   self.assertEqual(self.catalog['Enable recurring Dhikr reminder'].string,'تفعيل الأذكار الدورية')
  def test_each_reference_updates_native_label_and_accessible_name_without_focus_or_rebuild(self):
-  ns={'set_spin_name':lambda control,name:control.SetName(name),'N_':lambda s:s,'_':lambda s:self.catalog[s].string,'MorningReference':MorningReference,'EveningReference':EveningReference,'FridayReference':FridayReference,'STANDARD_ALERT_ACTIONS':(), 'AlertOutputEditor':Mock()}
+  ns={'set_spin_name':lambda control,name:control.SetName(name),'N_':lambda s:s,'_':lambda s:self.catalog[s].string,'MorningReference':MorningReference,'EveningReference':EveningReference,'FridayReference':FridayReference,'AlertEventType':AlertEventType,'STANDARD_ALERT_ACTIONS':(), 'AlertOutputEditor':Mock()}
   assignment=next(n for n in self.tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='TIMED_ALERT_LABELS' for t in n.targets))
   method=next(n for c in self.tree.body if isinstance(c,ast.ClassDef) for n in c.body if isinstance(n,ast.FunctionDef) and n.name=='_build_timed_adhkar')
   exec(compile(ast.Module(body=[assignment,method],type_ignores=[]),'timed-labels','exec'),ns)

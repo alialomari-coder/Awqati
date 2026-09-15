@@ -6,9 +6,9 @@ Values marked as development placeholders must be reviewed before a release.
 addon_info = {
 	"addon_name": "awqati",
 	"addon_summary": "Awqati",
-	"addon_description": "Awqati development build: prayer, clock and date settings, before automatic presentation integration.",
-	"addon_version": "0.4.3.2",
-	"addon_changelog": "Fix the existing settings interface translation and direction for the NVDA interface language.",
+	"addon_description": "Awqati development build with serialized alert audio and speech presentation.",
+	"addon_version": "0.4.4.2",
+	"addon_changelog": "Add validated WAV storage, non-blocking playback, speech completion and serialized alert presentation.",
 	"addon_author": "Awqati project (development placeholder)",
 	"addon_url": None,
 	"addon_sourceURL": None,

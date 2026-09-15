@@ -5,17 +5,17 @@ from __future__ import annotations
 from dataclasses import fields, is_dataclass
 import hashlib
 import os
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 import shutil
 import threading
 from typing import Iterable, Mapping
 from uuid import uuid4
 
 from ..domain import SoundReference
+from ..infrastructure.audio_files import SOUND_CATEGORIES, SoundFileService, validate_wav
 
 
 _COPY_CHUNK_SIZE = 1024 * 1024
-_SOUND_CATEGORIES = {"adhan", "alerts", "adhkar"}
 
 
 class SoundPreparationCancelled(RuntimeError):
@@ -54,8 +54,9 @@ def collect_sound_reference_values(value: object) -> set[str]:
 class SoundStagingSession:
 	"""Own temporary files until the surrounding settings draft is committed."""
 
-	def __init__(self, root: Path) -> None:
-		self.root = root
+	def __init__(self, root: Path, file_service: SoundFileService | None = None) -> None:
+		self.root = Path(root)
+		self.files = file_service or SoundFileService(self.root, Path())
 		self._lock = threading.RLock()
 		self._io_lock = threading.Lock()
 		self._closed = threading.Event()
@@ -83,23 +84,24 @@ class SoundStagingSession:
 			self._pending = max(0, self._pending - 1)
 
 	def prepare(self, source: Path, category: str) -> SoundReference:
-		"""Stream a WAV into session staging and return its eventual safe reference."""
-		if category not in _SOUND_CATEGORIES:
+		"""Validate and stream a WAV into staging, or reference a safe in-place file."""
+		if category not in SOUND_CATEGORIES:
 			raise ValueError("unsupported sound category")
-		if source.suffix.casefold() != ".wav":
-			raise ValueError("only WAV sound files are supported")
+		validate_wav(source)
 		if self._closed.is_set():
 			raise SoundPreparationCancelled()
 		with self._io_lock:
 			if self._closed.is_set():
 				raise SoundPreparationCancelled()
+			if self.files.is_inside_category(source, category):
+				return self.files.reference_for_existing(source)
 			with self._lock:
 				staging_dir = self._staging_dir / category
 			staging_dir.mkdir(parents=True, exist_ok=True)
 			temporary = staging_dir / f"{uuid4().hex}.wav"
 			digest = hashlib.sha256()
 			try:
-				with source.open("rb") as source_file, temporary.open("xb") as staged_file:
+				with Path(source).open("rb") as source_file, temporary.open("xb") as staged_file:
 					while True:
 						if self._closed.is_set():
 							raise SoundPreparationCancelled()
@@ -108,11 +110,14 @@ class SoundStagingSession:
 							break
 						digest.update(chunk)
 						staged_file.write(chunk)
-				reference = SoundReference(
-					f"sounds/{category}/{digest.hexdigest()[:16]}-{source.name}",
-				)
-				final_staged = staging_dir / Path(reference.value).name
-				os.replace(temporary, final_staged)
+				managed_name = f"awqati-managed-{digest.hexdigest()[:16]}-{Path(source).stem}.wav"
+				reference = SoundReference(PurePosixPath("sounds", category, managed_name).as_posix())
+				final_staged = staging_dir / managed_name
+				if final_staged.exists():
+					temporary.unlink()
+				else:
+					os.replace(temporary, final_staged)
+				validate_wav(final_staged)
 				with self._lock:
 					if self._closed.is_set():
 						raise SoundPreparationCancelled()
@@ -131,7 +136,8 @@ class SoundStagingSession:
 			staged = self._staged.get(reference.value)
 		if staged is not None and staged.is_file():
 			return staged
-		return self.root / Path(reference.value)
+		from ..infrastructure.audio_files import safe_reference_path
+		return safe_reference_path(self.root, reference.value)
 
 	def begin_commit(self, used_references: Iterable[str]) -> SoundCommit:
 		"""Move used staged files into place, retaining enough state to roll back."""
@@ -144,7 +150,7 @@ class SoundStagingSession:
 				for reference, staged in tuple(self._staged.items()):
 					if reference not in used or not staged.is_file():
 						continue
-					target = self.root / Path(reference)
+					target = self.root.joinpath(*PurePosixPath(reference).parts)
 					if target.is_file():
 						continue
 					missing: list[Path] = []
@@ -176,11 +182,11 @@ class SoundStagingSession:
 			except OSError:
 				pass
 
-	def complete(self, commit: SoundCommit) -> None:
-		"""Accept a commit and clean all unused staging away off the UI thread."""
+	def complete(self, commit: SoundCommit, used_references: Iterable[str] | None = None) -> None:
+		"""Accept a commit and clean unused managed copies off the UI thread."""
 		del commit
 		old_staging = self._rotate_staging()
-		self._cleanup_later(old_staging)
+		self._cleanup_later(old_staging, None if used_references is None else set(used_references))
 
 	def discard(self) -> None:
 		"""Cancel the session without making the UI wait for file deletion."""
@@ -193,19 +199,21 @@ class SoundStagingSession:
 			old_staging = self._staging_dir
 			self._staging_dir = self._new_staging_dir()
 			self._staged = {}
-		return old_staging
+			return old_staging
 
-	def _cleanup_later(self, path: Path) -> None:
+	def _cleanup_later(self, path: Path, used_references: set[str] | None = None) -> None:
 		threading.Thread(
 			target=self._cleanup_worker,
-			args=(path,),
+			args=(path, used_references),
 			name="AwqatiSoundCleanup",
 			daemon=True,
 		).start()
 
-	def _cleanup_worker(self, path: Path) -> None:
+	def _cleanup_worker(self, path: Path, used_references: set[str] | None) -> None:
 		with self._io_lock:
 			self._remove_tree(path)
+			if used_references is not None:
+				self.files.cleanup_unreferenced_managed(used_references)
 
 	def _remove_tree(self, path: Path) -> None:
 		shutil.rmtree(path, ignore_errors=True)
