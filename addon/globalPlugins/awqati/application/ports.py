@@ -76,6 +76,10 @@ class LocationMatch:
 	admin2_name: str
 	population: int
 	feature_code: str
+	arabic_names: tuple[str, ...] = ()
+	english_names: tuple[str, ...] = ()
+	arabic_admin1_names: tuple[str, ...] = ()
+	arabic_admin2_names: tuple[str, ...] = ()
 
 	@property
 	def subdivisions(self) -> tuple[str, ...]:

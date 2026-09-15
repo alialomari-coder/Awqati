@@ -127,9 +127,11 @@ def add_alternate_names(path: Path, cities: dict[str, dict[str, object]]) -> Non
 			if len(fields) < 8 or fields[1] not in cities or fields[2] not in {"ar", "en"}:
 				continue
 			name = fields[3].strip()
-			if not name or fields[7] == "1":
+			if not name or fields[7] == "1" or (len(fields) > 9 and fields[9].strip()):
 				continue
 			language = fields[2]
+			if language == "ar" and not any("\u0620" <= char <= "\u06ff" for char in name):
+				continue
 			names = cities[fields[1]][language]
 			assert isinstance(names, dict)
 			priority = 0 if fields[4] == "1" else 1
@@ -213,13 +215,13 @@ def apply_sa_supplement(path: Path, cities: dict[str, dict[str, object]]) -> dic
 		for language, key in (("ar", "arabicNames"), ("en", "englishNames")):
 			names = cities[identifier][language]
 			assert isinstance(names, dict)
-			for raw_name in item.get(key, []):
+			for name_index, raw_name in enumerate(item.get(key, [])):
 				name = str(raw_name).strip()
 				if not name:
 					raise BuildLocationError(f"Saudi alias {identifier} contains an empty name")
 				if name not in names:
-					names[name] = 1
 					changed = True
+				names[name] = -100 + name_index if language == "ar" else names.get(name, 1)
 		if changed:
 			augmented += 1
 
@@ -310,12 +312,22 @@ def build(args: argparse.Namespace) -> dict[str, object]:
 			raise BuildLocationError(f"Source file does not exist: {path}")
 
 	cities = read_cities(cities_path)
-	add_alternate_names(alternate_path, cities)
+	# Administrative IDs join to the same versioned alternateNames snapshot.
+	admin_records = {}
+	admin_ids = {}
+	for path, member in ((admin1_path, "admin1CodesASCII.txt"), (admin2_path, "admin2Codes.txt")):
+		with source_lines(path, member) as lines:
+			for fields in csv.reader(lines, delimiter="\t"):
+				if len(fields) >= 4:
+					admin_ids[fields[0]] = fields[3]
+					admin_records[fields[3]] = {"ar": {}, "en": {}}
+	add_alternate_names(alternate_path, {**admin_records, **cities})
 	sa_supplement_result = apply_sa_supplement(sa_supplement_path, cities) if sa_supplement_path else None
 	country_names = read_country_names(country_path)
 	admin1_names = read_admin_names(admin1_path, "admin1CodesASCII.txt")
 	admin2_names = read_admin_names(admin2_path, "admin2Codes.txt")
 
+	admin_ar = {identifier: dict(record["ar"]) for identifier, record in {**admin_records, **cities}.items()}
 	grouped: dict[str, list[dict[str, object]]] = {}
 	for city in cities.values():
 		country = str(city.pop("cc"))
@@ -323,6 +335,9 @@ def build(args: argparse.Namespace) -> dict[str, object]:
 		admin2_code = str(city.pop("a2c"))
 		city["a1"] = admin1_names.get(f"{country}.{admin1_code}", admin1_code)
 		city["a2"] = admin2_names.get(f"{country}.{admin1_code}.{admin2_code}", admin2_code)
+		for key, code in (("a1ar", f"{country}.{admin1_code}"), ("a2ar", f"{country}.{admin1_code}.{admin2_code}")):
+			identifier = admin_ids.get(code)
+			city[key] = _ordered_names(admin_ar.get(identifier, {}))
 		city["e"] = _ordered_names(city.pop("en"))
 		city["a"] = _ordered_names(city.pop("ar"))
 		grouped.setdefault(country, []).append(city)
@@ -364,6 +379,12 @@ def build(args: argparse.Namespace) -> dict[str, object]:
 		"sourceSnapshotDate": args.source_snapshot_date,
 		"source": "GeoNames cities500 with reviewed Saudi supplement" if sa_supplement_path else "GeoNames cities500",
 		"license": "CC BY 4.0",
+		"arabicDisplayPolicy": "sa-reviewed-first; geonames-preferred; non-historic-current; deterministic-name-order; original-fallback",
+		"arabicCoverage": {
+			"cityCount": len(cities),
+			"namedCityCount": sum(bool(city["a"]) for city in cities.values()),
+			"missingCityCount": sum(not city["a"] for city in cities.values()),
+		},
 		"cityCount": len(cities),
 		"countryCount": len(entries),
 		"countries": entries,

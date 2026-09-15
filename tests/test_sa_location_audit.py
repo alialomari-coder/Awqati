@@ -50,7 +50,7 @@ class SaudiLocationAuditTests(unittest.TestCase):
 		metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
 		self.assertEqual(
 			metadata["locationDataVersion"],
-			"geonames-cities500-2026-09-11+sa-2026-09-12.1+spatial-1",
+			"geonames-cities500-2026-09-11+sa-2026-09-15.2+localized-1+spatial-1",
 		)
 		self.assertEqual(
 			metadata["saudiSupplement"]["sha256"],
@@ -58,10 +58,10 @@ class SaudiLocationAuditTests(unittest.TestCase):
 		)
 		self.assertEqual(
 			(metadata["saudiSupplement"]["added"], metadata["saudiSupplement"]["augmented"], metadata["saudiSupplement"]["merged"]),
-			(25, 45, 3),
+			(25, 46, 3),
 		)
 		source_ids = {source["id"] for source in payload["sources"]}
-		self.assertEqual((len(payload["additions"]), len(payload["aliases"]), len(payload["merges"])), (25, 45, 3))
+		self.assertEqual((len(payload["additions"]), len(payload["aliases"]), len(payload["merges"])), (25, 46, 3))
 		for section in ("additions", "aliases", "merges", "reviewedSimilarities"):
 			for item in payload[section]:
 				self.assertTrue(item["sourceRefs"])

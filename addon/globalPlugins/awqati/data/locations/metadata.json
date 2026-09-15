@@ -1,4 +1,10 @@
 {
+  "arabicCoverage": {
+    "cityCount": 235757,
+    "missingCityCount": 212910,
+    "namedCityCount": 22847
+  },
+  "arabicDisplayPolicy": "sa-reviewed-first; geonames-preferred; non-historic-current; deterministic-name-order; original-fallback",
   "cityCount": 235757,
   "countries": [
     {
@@ -6,1735 +12,1735 @@
       "code": "AD",
       "file": "countries/AD.json.gz",
       "name": "Andorra",
-      "sha256": "afb203beaacddac87fe23bf9b127292b41db741e1086d1cf296f41f2b322b091"
+      "sha256": "cf814bcb791bb743698990d5a1ee223e9dade5754dd34d00f2fb5e0c073613ec"
     },
     {
       "cityCount": 107,
       "code": "AE",
       "file": "countries/AE.json.gz",
       "name": "United Arab Emirates",
-      "sha256": "f72356c43a1ca87080de55f9749dba7689eb3c1820471470cd49ee08ac0d3001"
+      "sha256": "15c6000a1e30616add5a70ab760b2d07554b2f075e7ebe64cdf4b39655a25853"
     },
     {
       "cityCount": 320,
       "code": "AF",
       "file": "countries/AF.json.gz",
       "name": "Afghanistan",
-      "sha256": "3324aa9f2d3ab766cc84aadbb5c9b994362127472302e7a1b6d6776dc006b315"
+      "sha256": "aa772e9bb99a146d9dee1dd0702c47524f12173275ea87e5a821cf6340bf6aff"
     },
     {
       "cityCount": 41,
       "code": "AG",
       "file": "countries/AG.json.gz",
       "name": "Antigua and Barbuda",
-      "sha256": "8744173dbc3fd5fdacd88e5d33994467c5f66ae093558002c1b7c1f8e8b6a479"
+      "sha256": "1e7dab1320ed05a239bb3844af88a3dbd592b68db842fac6e819e0548b27dc03"
     },
     {
       "cityCount": 14,
       "code": "AI",
       "file": "countries/AI.json.gz",
       "name": "Anguilla",
-      "sha256": "f00d3004cf05e93e27ba753e81a2c489544cedbc2e8e7da1e0c7c2c9a692b850"
+      "sha256": "d542b948ea8f61abfd86cba1387e7af4a71985f75f6bc2a828ff0deaef9cf19c"
     },
     {
       "cityCount": 419,
       "code": "AL",
       "file": "countries/AL.json.gz",
       "name": "Albania",
-      "sha256": "749b1c57dfeea494258cd2cd25c7c9591cb9c0d7f4ec3d49dafc37172c934e9a"
+      "sha256": "0df02b78dec782a25cc79d5615c2dc729739872ac8607cff13718efe38679dab"
     },
     {
       "cityCount": 625,
       "code": "AM",
       "file": "countries/AM.json.gz",
       "name": "Armenia",
-      "sha256": "2b1f4344f4f31254b598099ab8cdf818431533591fbd9fca0ab7743a392abeef"
+      "sha256": "3962ee077056a3d5c5c7d219df2145ebd6a41d0f33c621a01f3acce9cffac0b8"
     },
     {
       "cityCount": 565,
       "code": "AO",
       "file": "countries/AO.json.gz",
       "name": "Angola",
-      "sha256": "de4a42ac1ab0d305573344b14cd640ee3518058332b762286eecc3e3b683098e"
+      "sha256": "4dd3fb2304614ad2d90a73f87635aef5259c46680a0da19308a150d42934e6e2"
     },
     {
       "cityCount": 1205,
       "code": "AR",
       "file": "countries/AR.json.gz",
       "name": "Argentina",
-      "sha256": "bdb005905dea7bde78ca837f5b1c4735e9de2957005e52ba85686f0a1a797757"
+      "sha256": "c57ec3d8aff440f790741e65dcb62e49a3b7c8bd9c2e199c8edbfda0ade4645d"
     },
     {
       "cityCount": 28,
       "code": "AS",
       "file": "countries/AS.json.gz",
       "name": "American Samoa",
-      "sha256": "831c18df434b92193c99235d4d6671ff632819df2161beb2564fa6adab302707"
+      "sha256": "860ab0a86a6a85df340b9e5f771519e96eb20247ef07471d7072b2c88d42aad5"
     },
     {
       "cityCount": 3045,
       "code": "AT",
       "file": "countries/AT.json.gz",
       "name": "Austria",
-      "sha256": "edb1cb0a195f7bc43ec283a87a5be4e0348e21b649b71339a65e2e6d72e90ace"
+      "sha256": "d4ff12d6fb788ee59817eb27620c88fd7a99cca54bad5da0f26f1947b578be1f"
     },
     {
       "cityCount": 4901,
       "code": "AU",
       "file": "countries/AU.json.gz",
       "name": "Australia",
-      "sha256": "fbcb1d6e09451c6067c2d7128ea75c4053a574b5342671ec95bf978b1f1c1c48"
+      "sha256": "95f7a108abc5e60d55f5f203806748226a87058dda076eda86896a8a48180568"
     },
     {
       "cityCount": 14,
       "code": "AW",
       "file": "countries/AW.json.gz",
       "name": "Aruba",
-      "sha256": "5aaf16df2dcb095e6f0a05ce5f29cfd07eb51941d2c71403b463caeec54f2ffa"
+      "sha256": "898df7fd25520d4c496dc41c1fb548ca6195e49afae25304804a116ce0328557"
     },
     {
       "cityCount": 21,
       "code": "AX",
       "file": "countries/AX.json.gz",
       "name": "Aland Islands",
-      "sha256": "0ddfd3c7ccf8a558040b29067456fd89cdb16a2c3d1309465bdb898523946dde"
+      "sha256": "03f58732e24124afe6d79df1753cc9ef02200d0eac11ed77b390e001a56eb612"
     },
     {
       "cityCount": 245,
       "code": "AZ",
       "file": "countries/AZ.json.gz",
       "name": "Azerbaijan",
-      "sha256": "7fd4f46e3b116e49a02a596f102ad7795502e24c670ebc10cd20ecb580c90572"
+      "sha256": "d80f9c662edf12f5731eb2c0f0ea6c6cb449d6ea44eda7ae4038c0690d7c536c"
     },
     {
       "cityCount": 313,
       "code": "BA",
       "file": "countries/BA.json.gz",
       "name": "Bosnia and Herzegovina",
-      "sha256": "9d904781b36a4b4f9c7360dd5c084dca509e1ff5d67275d9aa836fde6509423d"
+      "sha256": "def6139a4ee5208b54da867def2f7da56146e13b9995c222e1f0ebe9cefd860c"
     },
     {
       "cityCount": 16,
       "code": "BB",
       "file": "countries/BB.json.gz",
       "name": "Barbados",
-      "sha256": "1fcbccdadc41c1a34dc7de98a403767f18a62d382d563a399b5f860f81c8f256"
+      "sha256": "f356156766c6e4088c4e677db2580b7d585d2506f2a5d5c4bade5b03a358ff40"
     },
     {
       "cityCount": 164,
       "code": "BD",
       "file": "countries/BD.json.gz",
       "name": "Bangladesh",
-      "sha256": "8ea6a6aa61d053a6d5590c9c99082b19da3a9303659cebff80557eb9f817071b"
+      "sha256": "9c733ad8e649e18aca91b3f560d6db84ebf91eda91fc85020eac970db2d27bcd"
     },
     {
       "cityCount": 2256,
       "code": "BE",
       "file": "countries/BE.json.gz",
       "name": "Belgium",
-      "sha256": "b7b121c3475a204daad9b3499b6c184d5fba18c80bfc79376445a1779e5a4500"
+      "sha256": "471ae02c5fe3e02c41ca857e7b449ea4b1558e6c5ef58e48b9abee8fbb2ad8ab"
     },
     {
       "cityCount": 118,
       "code": "BF",
       "file": "countries/BF.json.gz",
       "name": "Burkina Faso",
-      "sha256": "109da1604331bc6c1646ed67f502f5ce4eb3fadeb8c3a18a4a3b58a5339c8c66"
+      "sha256": "3a4db110b3ba4b258383a7149dc29f25e8e18232fe608c36b16297c78fa5d125"
     },
     {
       "cityCount": 333,
       "code": "BG",
       "file": "countries/BG.json.gz",
       "name": "Bulgaria",
-      "sha256": "9a616a0c4e0128a964a6dfa300022ef3cc041f9c48bc4175e4c1b1f88b406cc8"
+      "sha256": "5a4a0ebf6655c5a67d8cfc708ff0fdad56f6eaf021127a6f2fa621c1a20c9f2f"
     },
     {
       "cityCount": 12,
       "code": "BH",
       "file": "countries/BH.json.gz",
       "name": "Bahrain",
-      "sha256": "6c39f0964d7ca39cda1adee361cfa92a2f0946efc07de8f6d7f7e70c2730c178"
+      "sha256": "4545114d3dab71ca86c299b022e116e8f78f731b88080f08cb45041dc06df534"
     },
     {
       "cityCount": 33,
       "code": "BI",
       "file": "countries/BI.json.gz",
       "name": "Burundi",
-      "sha256": "c3fa257533c85ba680e8d2fcd572c159cea5fc115bb65ebf60d90bbc18dc4c19"
+      "sha256": "6cfa183be0395ce91e5f373d4fb3b8b6fde5018d6b3548bf523484374256dde7"
     },
     {
       "cityCount": 87,
       "code": "BJ",
       "file": "countries/BJ.json.gz",
       "name": "Benin",
-      "sha256": "c33418060d07f65f9be70551b1f12500e0e67691e9d1fc912302bb9d0f14f12a"
+      "sha256": "77f71fb9573a7065df2772b8fabbeda8c4cf828e592ef478fb81cabedc31f25d"
     },
     {
       "cityCount": 1,
       "code": "BL",
       "file": "countries/BL.json.gz",
       "name": "Saint Barthelemy",
-      "sha256": "f655b444015e92d79bcf1f43ee3225002591504c46520b463d64c6f96e6cb327"
+      "sha256": "a24f9ed99971d485d27632402778da152ad778c7f32563cbad8845b6d1a12cb1"
     },
     {
       "cityCount": 12,
       "code": "BM",
       "file": "countries/BM.json.gz",
       "name": "Bermuda",
-      "sha256": "403aec9998607f8350a1a5c34df921e2a603dfa392173c9f563708259801d87d"
+      "sha256": "2394caf2e847c608776026770eabab9afd2dc6b01857d3c5551030e45a010a4c"
     },
     {
       "cityCount": 63,
       "code": "BN",
       "file": "countries/BN.json.gz",
       "name": "Brunei",
-      "sha256": "4b089ed445aa0faf966a28b6df7f8ca0f64e4287de379555166b01d260715c2f"
+      "sha256": "183973c565683c70fa75287d0ed0529dc30031dde9d56fce4e5e897a456ee681"
     },
     {
       "cityCount": 183,
       "code": "BO",
       "file": "countries/BO.json.gz",
       "name": "Bolivia",
-      "sha256": "72c317c2ea0efab4b6e26fc4bd2b1c038226f7689727d407ad5f1676cf7429ab"
+      "sha256": "d6105dbfb44157c184b52925d1d627aa4e36be227efc7acd7ee687eed03ce873"
     },
     {
       "cityCount": 10,
       "code": "BQ",
       "file": "countries/BQ.json.gz",
       "name": "Bonaire, Saint Eustatius and Saba ",
-      "sha256": "972dfacbd42045e7e3311d24476d3c48eb8c1b8ee3f60e5ae38db96ff77c1c4a"
+      "sha256": "b461d32e7ce93e3c938f2f61fa77401dca4359e2520abde7e2045c4f0991499c"
     },
     {
       "cityCount": 5897,
       "code": "BR",
       "file": "countries/BR.json.gz",
       "name": "Brazil",
-      "sha256": "4ed3bd661ae5327547997d4fdb1bdd45460833bee50b3f5746e5ff1b933bed32"
+      "sha256": "7111dabd57db314ce2cecb9af0ec38372c26b3e3ce91e3a11b28591feaed3f1e"
     },
     {
       "cityCount": 28,
       "code": "BS",
       "file": "countries/BS.json.gz",
       "name": "Bahamas",
-      "sha256": "dbf3cbb6f89c862630a5e7d74eb57a13ea40a45878029f14ae34387905cc3682"
+      "sha256": "b58bbbfb0f2f22c2976cd748b886c66357b32ec4d780e8250c8321ad9152c1f8"
     },
     {
       "cityCount": 34,
       "code": "BT",
       "file": "countries/BT.json.gz",
       "name": "Bhutan",
-      "sha256": "dd3045875f08c3db2d56fa5425b71658bed5340e835ce08483b16dffa85e117b"
+      "sha256": "abccda8a2d7cfaf1632b287cc720ec71403cdd8f4033a48bd84d72b27cef23f5"
     },
     {
       "cityCount": 139,
       "code": "BW",
       "file": "countries/BW.json.gz",
       "name": "Botswana",
-      "sha256": "fe6f62e097d1c6892b4a8dbde4069a2b1530cba98539ef620ef6b71fd2261c86"
+      "sha256": "4b39cf5e8ba728aef2a7957608e1ab5a5f64c42bead471672015bfd36a94b677"
     },
     {
       "cityCount": 314,
       "code": "BY",
       "file": "countries/BY.json.gz",
       "name": "Belarus",
-      "sha256": "05e39a71525cfaea5da78287d66f7c66c6791fd3454ea562e5ee9ef57fd03587"
+      "sha256": "bb5d1c29d9c3bd819c8ecd6e8799112c5ea914f94fdf4522a9b71837e7be4c35"
     },
     {
       "cityCount": 138,
       "code": "BZ",
       "file": "countries/BZ.json.gz",
       "name": "Belize",
-      "sha256": "a81c88f17bd03c82cf62361f73b7dc8a8615f77336572af70ad00c5fa1efb683"
+      "sha256": "237ee34ae681407c604f38ce61d5e67b9b05410dff4c48c3087bb69f70c65b25"
     },
     {
       "cityCount": 3296,
       "code": "CA",
       "file": "countries/CA.json.gz",
       "name": "Canada",
-      "sha256": "b29c8deb98e0e8ddf23ed953a99e721d22a57ff48232bf0b07e3a223df158c77"
+      "sha256": "f4a5d30a3603c5ecd0525a699d94dd42d7a0df00880502f5dd368e25d4330221"
     },
     {
       "cityCount": 1,
       "code": "CC",
       "file": "countries/CC.json.gz",
       "name": "Cocos Islands",
-      "sha256": "80a573746bbae76aafaf42c354b84283ee31fcbcb63b4ee5ab3e966accdc75f1"
+      "sha256": "82fd66cd544943435bfb8394f850136d22af83bd6900dc6d9a9f83a51f1f40f6"
     },
     {
       "cityCount": 118,
       "code": "CD",
       "file": "countries/CD.json.gz",
       "name": "Democratic Republic of the Congo",
-      "sha256": "0d2c302b77ebf16fd4043aacd57f2102a4daa34541f40caa666986ca03a19004"
+      "sha256": "44550d1e9801f62a4366e5a9ce903ed4f9714e38297cc83d2649320b27919b87"
     },
     {
       "cityCount": 51,
       "code": "CF",
       "file": "countries/CF.json.gz",
       "name": "Central African Republic",
-      "sha256": "b8ae13d4d9d2dd863eb5b205b1b6c5bcd9e406f2a3cd349c1b1f8940eddd416f"
+      "sha256": "017d4ed00debf08d565cc7a156652b4f29a3d8644a630591dd6b136ca65081a4"
     },
     {
       "cityCount": 60,
       "code": "CG",
       "file": "countries/CG.json.gz",
       "name": "Republic of the Congo",
-      "sha256": "fab0c3de3f0fbcd745a57b6134fda9c44f3afc4269d063a262fc964a39ee1d5d"
+      "sha256": "7fb8d9216960d5f40e1bf6215cd51fc8977f7955ee9a692593a1dfe5ec95a69f"
     },
     {
       "cityCount": 1897,
       "code": "CH",
       "file": "countries/CH.json.gz",
       "name": "Switzerland",
-      "sha256": "8a8cb3ffddb7c97d1f5d4b1a4f0e233300b1a070a957ee148ae0af2b1bfe7a40"
+      "sha256": "76b1ab5492bd013ce9bc04dc9b6157b378685fd5875e3b748c891cd5a49d58fd"
     },
     {
       "cityCount": 5136,
       "code": "CI",
       "file": "countries/CI.json.gz",
       "name": "Ivory Coast",
-      "sha256": "b27907fe88051f6e4f5d980d67e5d2592c6a53e589288e4640d01920ea802a87"
+      "sha256": "600889feab024e87c0299389db1d1fa0473d2b7c3ba8507dd9828f1585163caf"
     },
     {
       "cityCount": 2,
       "code": "CK",
       "file": "countries/CK.json.gz",
       "name": "Cook Islands",
-      "sha256": "d4cd674198814f95e7e48332607323a5c26c1f3a19653b8301922fb938796ae6"
+      "sha256": "6441ff4a81ebfcec2f63a7ce01c4b7c05703080037a0be8de6c7add057fbb205"
     },
     {
       "cityCount": 315,
       "code": "CL",
       "file": "countries/CL.json.gz",
       "name": "Chile",
-      "sha256": "ef204a1fb8551907dc547b60fa7916536dd8f937435f43cb3457feaf639ba3fb"
+      "sha256": "6860a138f1bbe798c3bc7b61f5ae1406d90f0e4acbb0c99c86617e1d7d49eb08"
     },
     {
       "cityCount": 145,
       "code": "CM",
       "file": "countries/CM.json.gz",
       "name": "Cameroon",
-      "sha256": "d05125d42b5c4e5e383bea524895092e2381d39ad9f22c23fac5c7ec0cd0fe9a"
+      "sha256": "e0b93b9e846943bac2cfbc4bc410133bca29bb297afc4134397c47f8a3f441c9"
     },
     {
       "cityCount": 16055,
       "code": "CN",
       "file": "countries/CN.json.gz",
       "name": "China",
-      "sha256": "ba36d0c11f368b2ebeef200adf54bbf8ffe518febad2b5743e1fb555b321a036"
+      "sha256": "cd0ae017241af0b1a7f32e9afb035262c8adb9e557e63b3d8bfa1a9b34eca1f8"
     },
     {
       "cityCount": 1180,
       "code": "CO",
       "file": "countries/CO.json.gz",
       "name": "Colombia",
-      "sha256": "bb5a5e7e320f69f3a5e0a6a086956d63c9f5f7e3f03f5da19193d0c0d5b00b1b"
+      "sha256": "a4c398e4d2650713bb8d0d7e88cba0fea7a3eefa5ad32fda0efde4419057c5f9"
     },
     {
       "cityCount": 137,
       "code": "CR",
       "file": "countries/CR.json.gz",
       "name": "Costa Rica",
-      "sha256": "a3cf46dd313f412fc8d97527c0c8c573b09e8d422f3537f573bbd3d7f7800c57"
+      "sha256": "d809cf8f1c937c7bf6650cfb81129aa4ee0b038dfc59f157ac7a7dc185c7f737"
     },
     {
       "cityCount": 211,
       "code": "CU",
       "file": "countries/CU.json.gz",
       "name": "Cuba",
-      "sha256": "3ae33da0f27310b45e399224ea3edef232c598fb56c056a6bf15e3d262bce3de"
+      "sha256": "98779268157284970ae89cf425518df6edf211b8c9e1be0e5cc14b7042bc972a"
     },
     {
       "cityCount": 228,
       "code": "CV",
       "file": "countries/CV.json.gz",
       "name": "Cabo Verde",
-      "sha256": "eb5c6b16008444889bbfe5c3918493363d45e76922a9f2a64dfe38b652769fb2"
+      "sha256": "f16ee91298955cd914e9477c68feb86e9cf3494bb91485c3c63ccbf72fc26d31"
     },
     {
       "cityCount": 14,
       "code": "CW",
       "file": "countries/CW.json.gz",
       "name": "Curacao",
-      "sha256": "7dd7f130a61f9abe1a819c5ccd95117bcae1ac066163263380d9c26cb8751da0"
+      "sha256": "ec576c7be15f739d20a46e61aab8c844466d4e0dca425db17eeafe04fa8625d7"
     },
     {
       "cityCount": 1,
       "code": "CX",
       "file": "countries/CX.json.gz",
       "name": "Christmas Island",
-      "sha256": "c6900f2937cb440ba025b9e2fe83291293d66a080d33050c3c2af34091de8c32"
+      "sha256": "7725758b20575abaef373d2b3286578e489dd059642b42635ebee2431ade8a3f"
     },
     {
       "cityCount": 132,
       "code": "CY",
       "file": "countries/CY.json.gz",
       "name": "Cyprus",
-      "sha256": "62a7e9699525036ea85442f473da448a9caf8f60bdfc2764d0fcd1eb89b3f1e2"
+      "sha256": "48a58650c742ad60b1ed12a68e687768be9ad9b1d02342518704854ad528b91b"
     },
     {
       "cityCount": 2772,
       "code": "CZ",
       "file": "countries/CZ.json.gz",
       "name": "Czechia",
-      "sha256": "5c4ba11226ca688dc83b7796bf79f3806fbd714332549677777c8a5eeebf7d7b"
+      "sha256": "a360b05eaa0e75dc954b694c7429981dc090e1a9d56084c9e6eb3815f2ca62e4"
     },
     {
       "cityCount": 11920,
       "code": "DE",
       "file": "countries/DE.json.gz",
       "name": "Germany",
-      "sha256": "b5766246bb9da07dc326f780956b0ccdff3e72be93027b9691844cd041423b36"
+      "sha256": "c8868a2aaa429cfde6eb8370cb54f379f94b14a829c338e22631bbdace94d98c"
     },
     {
       "cityCount": 32,
       "code": "DJ",
       "file": "countries/DJ.json.gz",
       "name": "Djibouti",
-      "sha256": "ca47b5b8eee46d12b8c648881699dd159b1a23efc12640858a763407d9cd24f6"
+      "sha256": "611802826f0e0fad4b067d0a80ccc33a48124b2932e73db91ad4feb328370a72"
     },
     {
       "cityCount": 507,
       "code": "DK",
       "file": "countries/DK.json.gz",
       "name": "Denmark",
-      "sha256": "9bf796a52902ac789c2cd799760f79fdc3fd02a565b9272095148c4c4bb0cfcf"
+      "sha256": "0b4a19bf9cef3ce4bc883a76d617ec1eaac4a860ed6770bf3b1d25899e85f8e4"
     },
     {
       "cityCount": 20,
       "code": "DM",
       "file": "countries/DM.json.gz",
       "name": "Dominica",
-      "sha256": "2d9faa376fa7ab6b4e8cf54e0eb1c740d2b44a99dba6a18472ac00056eebe467"
+      "sha256": "2d3392bc944c2cd453d4989af56a4129c713ca600f2672269bffb2ec2fe9a937"
     },
     {
       "cityCount": 214,
       "code": "DO",
       "file": "countries/DO.json.gz",
       "name": "Dominican Republic",
-      "sha256": "8a300bc004b9bd70fc9f28d78b9bdaa7976149ac4f65e7762a9ae474b8001991"
+      "sha256": "524c039b7ee8b18dc8f5b4efe3129c3ae54d49a2684e73dddd53a55b64b4814c"
     },
     {
       "cityCount": 353,
       "code": "DZ",
       "file": "countries/DZ.json.gz",
       "name": "Algeria",
-      "sha256": "8af2f36d4d1cabb76c5db579b3b765a305115f96fc020a8c248f1d40b580549e"
+      "sha256": "07c6bc7804003a0f1db920c7e60962ad29c6a51fb584eb1ed9d8dc3da7f62155"
     },
     {
       "cityCount": 542,
       "code": "EC",
       "file": "countries/EC.json.gz",
       "name": "Ecuador",
-      "sha256": "61c55a971dd967ad50edb48423b00e5aaf017d7d4dddfc5640c367c77978c1e4"
+      "sha256": "77ad06b6a18de749fc335d42cde1d7af1a623d323e75a24f89d54f106bf13038"
     },
     {
       "cityCount": 218,
       "code": "EE",
       "file": "countries/EE.json.gz",
       "name": "Estonia",
-      "sha256": "75572fd994d20cd1d2d670f53541c860e475a8556d835e1d3edeb3ba5b42155f"
+      "sha256": "e7aece85c183377a715cec332d9a73af6ebba1c9283eee7c2e36e7ca4e41771a"
     },
     {
       "cityCount": 260,
       "code": "EG",
       "file": "countries/EG.json.gz",
       "name": "Egypt",
-      "sha256": "22f7f480b3f53ce04a05848f0d37994afa99a14664628af72f6e8e0dcc6143dc"
+      "sha256": "85aca3449a5c18f52011768a56a299055a079670061a9c550089d15485c2a4f5"
     },
     {
       "cityCount": 27,
       "code": "EH",
       "file": "countries/EH.json.gz",
       "name": "Western Sahara",
-      "sha256": "fe4a5274a6fdc23d0393ed7c1160b4ff98c4f208c95b78d0db1859b852d40ac1"
+      "sha256": "7dbd6f76e31aa9c490d6a11d0279ce0d65b9844e345943d2430115fad214c58c"
     },
     {
       "cityCount": 19,
       "code": "ER",
       "file": "countries/ER.json.gz",
       "name": "Eritrea",
-      "sha256": "06bb96759492807cd1a6ac6b545ed31d9d34f638d7ff13871ea1152c14d54b02"
+      "sha256": "4e25b44229b0c7e362d27e17cdc1fef9b4684c24f6fe7af24411bc24d8b95d45"
     },
     {
       "cityCount": 7421,
       "code": "ES",
       "file": "countries/ES.json.gz",
       "name": "Spain",
-      "sha256": "8e7da982541cb24329c128696796d657287b3c7a6e66f552cfa6228fae642b10"
+      "sha256": "9cd4e8246434710c3684088ded6b5880e36c690ee9ae60751b520ffbf48a7347"
     },
     {
       "cityCount": 255,
       "code": "ET",
       "file": "countries/ET.json.gz",
       "name": "Ethiopia",
-      "sha256": "e68c19fcfc13796e86a0e6ce88407d53dce593f6fb5f6bf8485d80dbb941be77"
+      "sha256": "a3dad5b6bb6d9f4d1251b702421ea0ada9fe7dff5ebc83b471b4540ad8349207"
     },
     {
       "cityCount": 930,
       "code": "FI",
       "file": "countries/FI.json.gz",
       "name": "Finland",
-      "sha256": "2161929383bd586fcdef0938702bfa6fd97570727f493b318ffc734425241423"
+      "sha256": "0e43d63d4845981145f5c1a3a2aa56570bc7b62efe809c28cdba6c13b607973b"
     },
     {
       "cityCount": 16,
       "code": "FJ",
       "file": "countries/FJ.json.gz",
       "name": "Fiji",
-      "sha256": "2e9657b0e963e1e4bcaec9e728bd49171ed5001a86c2d44ef906195f82478eca"
+      "sha256": "ef8b06cbe7a554425d1c0720ce61f455662a0798e302284994fead0154c65787"
     },
     {
       "cityCount": 1,
       "code": "FK",
       "file": "countries/FK.json.gz",
       "name": "Falkland Islands",
-      "sha256": "6c071e733a3c4632507c3cca009b98ecef2492d9f6bc34c5b0d2ef6e2843d179"
+      "sha256": "fe80eeaa3de6c54077a45d7e5c7d933ccc0e01696f66d4afa4e0d2abcd88b7d0"
     },
     {
       "cityCount": 62,
       "code": "FM",
       "file": "countries/FM.json.gz",
       "name": "Micronesia",
-      "sha256": "20e3573f9325e2b13c216f037e8b3c45bc3d68bdc2ed27e960b24dd9e0a80190"
+      "sha256": "d90719177f2fae6c8e1b91ce7a59d54d7b490645333382e1b5a6392f19d40c25"
     },
     {
       "cityCount": 35,
       "code": "FO",
       "file": "countries/FO.json.gz",
       "name": "Faroe Islands",
-      "sha256": "456d0e298ba4392da1b643b6400189eb687283db86d42d3bb4648466f1efbc97"
+      "sha256": "60f3175a9c30b8b520ba25afb80e134730b3a93f071c9cb1e105fba396469a2b"
     },
     {
       "cityCount": 15363,
       "code": "FR",
       "file": "countries/FR.json.gz",
       "name": "France",
-      "sha256": "f535e3b131e16d0c81eac4954f15a09e4464901fafbaafe4eb6a81237870580d"
+      "sha256": "569bd08134b10d5f4fa779fd719fc0d5e4d5237cdc70f781569ec5f97301feba"
     },
     {
       "cityCount": 50,
       "code": "GA",
       "file": "countries/GA.json.gz",
       "name": "Gabon",
-      "sha256": "e5b38b5f233b2bf24ebe880bbdd375a11e615c50fdf3b60a2c63ad95b5b435c0"
+      "sha256": "b6b2c92a76da5b92d4d7f95626507476ca6dc2bf0028b2c6634bab59eb6ec3a1"
     },
     {
       "cityCount": 5918,
       "code": "GB",
       "file": "countries/GB.json.gz",
       "name": "United Kingdom",
-      "sha256": "9f44b55e5e495876a5ea46bd7b674834a35408f6e63d4641b2fafd63a602ab6d"
+      "sha256": "725c6895028b12630474c8ec94017ccfa9f337d22e160bcc29b8874ecb7de639"
     },
     {
       "cityCount": 10,
       "code": "GD",
       "file": "countries/GD.json.gz",
       "name": "Grenada",
-      "sha256": "229263d27042805a761be023a66e2a87429bf73c30471b3f48bf4e0950682556"
+      "sha256": "051d2acf567d3b66f8e60ec63c97f11936ec6805245e98c8da280536a2e7f3b1"
     },
     {
       "cityCount": 218,
       "code": "GE",
       "file": "countries/GE.json.gz",
       "name": "Georgia",
-      "sha256": "ab5522f7bb812f569a43ec81bd8e3e6e5cf4a0233e83309f7e3ffac01e21a059"
+      "sha256": "741ba5da7300a920c3737da08e668602921640266d55b7df84163e59b4e44d74"
     },
     {
       "cityCount": 20,
       "code": "GF",
       "file": "countries/GF.json.gz",
       "name": "French Guiana",
-      "sha256": "8e4132a0921ff624ac8c8b099b9f51e8d228c428766312768d7b6b709ab6395e"
+      "sha256": "d9d6f2f24ebfc780ad9e1379049cfaf1e2a4daa6aa812aad4caccc86d9c5ed88"
     },
     {
       "cityCount": 12,
       "code": "GG",
       "file": "countries/GG.json.gz",
       "name": "Guernsey",
-      "sha256": "2423492049a146a562e9c165bdba4539ce3033692480fbe2ea95c041acb64238"
+      "sha256": "063edb31a2d721350808e539fd987f29623d060f2e2275a2bca251f9295cee39"
     },
     {
       "cityCount": 120,
       "code": "GH",
       "file": "countries/GH.json.gz",
       "name": "Ghana",
-      "sha256": "bbb6846ed6fe8ef18780fd75d037bd011bfbeaef1da2d0f550966fb6eca1a9a6"
+      "sha256": "29041f87298c871c2c07b5241b48b72ccceb612cdb9b12960f1817e2216cb7d9"
     },
     {
       "cityCount": 7,
       "code": "GI",
       "file": "countries/GI.json.gz",
       "name": "Gibraltar",
-      "sha256": "c800623e8a21ecfab6491623b952c0e97312d826eb6e8f45e4dd46713e261787"
+      "sha256": "1ca0819a646f1ec02f200d8fb19d52e6a51eafd2482baf10a96a33bb945cf73b"
     },
     {
       "cityCount": 18,
       "code": "GL",
       "file": "countries/GL.json.gz",
       "name": "Greenland",
-      "sha256": "19d0372a13124854a7445fd139d5695ed868dba28900c7d9ba8a95c03417fff2"
+      "sha256": "0a403ee604ebebd059e8b197137583eed4cff88c621de9e2a39cef4ea8b101e7"
     },
     {
       "cityCount": 180,
       "code": "GM",
       "file": "countries/GM.json.gz",
       "name": "Gambia",
-      "sha256": "5d5eed07c5f7481757f2dee7f84d4f2e7bdda1287e5cea349e350aebc9b7abc5"
+      "sha256": "fe80bafb48beffa01a8ec2be07431b101adab513d052b12233ca4881b19b130d"
     },
     {
       "cityCount": 83,
       "code": "GN",
       "file": "countries/GN.json.gz",
       "name": "Guinea",
-      "sha256": "2cbca51d288aba2fd54473dc1e97721ccf7ee3403bba1ab1cc9a9384a5f4d1bc"
+      "sha256": "66d259693b1ba6933a5d7497a2fd0a516cb9ffdf02a99a02de622d7f500cb00c"
     },
     {
       "cityCount": 25,
       "code": "GP",
       "file": "countries/GP.json.gz",
       "name": "Guadeloupe",
-      "sha256": "f520cd738f618500002a317901784e9a6f0e8fe1a1652b9f50edfd189b204189"
+      "sha256": "45b0dd297d6955c920fb4164cc892ca7ae497a322a40d349da93fa3df76472cf"
     },
     {
       "cityCount": 27,
       "code": "GQ",
       "file": "countries/GQ.json.gz",
       "name": "Equatorial Guinea",
-      "sha256": "5ee253a89aa4fe39e137f6820161fc763940346332dc4d7a34684c01c2365f66"
+      "sha256": "c1e7f96e1d92beb545cd1db1e6ed197909d0774465941bfa78317c6f909ae626"
     },
     {
       "cityCount": 1986,
       "code": "GR",
       "file": "countries/GR.json.gz",
       "name": "Greece",
-      "sha256": "13f1fe893920b3870aba7170e00bc5a3a2631d4f52239e78aaee3d61bfa07b5e"
+      "sha256": "5e834a95a202e6081da3da397fa1570aae6ed6945340734d3db064ea9bdb2e75"
     },
     {
       "cityCount": 1,
       "code": "GS",
       "file": "countries/GS.json.gz",
       "name": "South Georgia and the South Sandwich Islands",
-      "sha256": "634698a438b05cc133ebc37dbe5a48d1fe44ada52b9256d59f7c533d0ef3ed93"
+      "sha256": "e54fae924621573d197f1468e0943cc3c67ecbd54bd83e67ad7de56e99cc97df"
     },
     {
       "cityCount": 340,
       "code": "GT",
       "file": "countries/GT.json.gz",
       "name": "Guatemala",
-      "sha256": "c38996e855100a16a7189afdd437d15022074704add6a51866d849aa9999b78e"
+      "sha256": "a87d62c83594545c875c015564a6dcf55d6e5fe45a6255cdac144a4d3c3ffc9c"
     },
     {
       "cityCount": 28,
       "code": "GU",
       "file": "countries/GU.json.gz",
       "name": "Guam",
-      "sha256": "6eb6939edc769ab24bd264a3c33d968f16102adb7e043504aef0439893d3d4a8"
+      "sha256": "3f16b1ebaaa9504e9a8c1e7e3496a289b1a49efcfd42e1714e7dff1c074dc251"
     },
     {
       "cityCount": 52,
       "code": "GW",
       "file": "countries/GW.json.gz",
       "name": "Guinea-Bissau",
-      "sha256": "f13145e5ff3cc8b9dab7e5ea16ef3289c802d1a3bb463d8c23973fee72d6f848"
+      "sha256": "2a1c7dd0e20cbd29a1b05cb0ff14f7a0e6d6328d1904f36c5b528d2f01525c0d"
     },
     {
       "cityCount": 23,
       "code": "GY",
       "file": "countries/GY.json.gz",
       "name": "Guyana",
-      "sha256": "ca3c916e5ad479fcfdfbf526bd87391931dd695b166adcdfdbd6b6a04070da12"
+      "sha256": "b1ec2f3efac9c67b4c5d6f0fa753d08e86ee745d9f37644279fd46ae492305e2"
     },
     {
       "cityCount": 325,
       "code": "HK",
       "file": "countries/HK.json.gz",
       "name": "Hong Kong",
-      "sha256": "be2368facbb87b3418163fbd2583c26a732e351636822b1fbf944852f275e2e7"
+      "sha256": "e0c9a59b4fc49649b13a2ddfaf372845a324a28c8bba9ad90124c059a2213eee"
     },
     {
       "cityCount": 544,
       "code": "HN",
       "file": "countries/HN.json.gz",
       "name": "Honduras",
-      "sha256": "4b9d7fac83aad6d184ebcdf50b4fb57c3c655bdb29085ac13555cb27e2d68899"
+      "sha256": "707fcc9cdc1e1f6ec81f0b61e9ae27cd01ee67d90cd7df407db62b9efbe386d4"
     },
     {
       "cityCount": 1215,
       "code": "HR",
       "file": "countries/HR.json.gz",
       "name": "Croatia",
-      "sha256": "63db04c0357e6079bb7c18c0801ed2689e7a11b491decbe9b17c4e66c2b5a6dd"
+      "sha256": "b16c50136b9e9149bf9ab1edf8335d50e5291c5877f323067df835b4c2f276c4"
     },
     {
       "cityCount": 114,
       "code": "HT",
       "file": "countries/HT.json.gz",
       "name": "Haiti",
-      "sha256": "5744350e1e2b4c259140cc4c951ed13370ca5cb2e98fc2c7396835d49f1b56dc"
+      "sha256": "15b22fe0cb28bd80a732fc7bc790f4266c7cd5a28e090d999bc90d9f939a6c28"
     },
     {
       "cityCount": 1226,
       "code": "HU",
       "file": "countries/HU.json.gz",
       "name": "Hungary",
-      "sha256": "315e589f901af8fe3454498263f5e83ad722549b7c088b9dee3c84ce3ceb42a6"
+      "sha256": "000871ab4b943e355b7e179e014d8a3b3326a659217a5055b5e89a299422313c"
     },
     {
       "cityCount": 9302,
       "code": "ID",
       "file": "countries/ID.json.gz",
       "name": "Indonesia",
-      "sha256": "8d4b4508318fefba7b9b7a290cd4dd4febbd0cd5b5363521f30ebabb74c331f9"
+      "sha256": "623e8a8b205eddd24d275546639918d76608da102b7c3f0316acc01a8693851a"
     },
     {
       "cityCount": 566,
       "code": "IE",
       "file": "countries/IE.json.gz",
       "name": "Ireland",
-      "sha256": "f8201396cf116d0da0d50a4f50cbeba9e4e464020215e1cf9862967f2316a47c"
+      "sha256": "0fee61a8a88e118fdcb0d6e0c5edcff7a9c4ca586e6b47643fb75c2a84bfe788"
     },
     {
       "cityCount": 724,
       "code": "IL",
       "file": "countries/IL.json.gz",
       "name": "Israel",
-      "sha256": "3c86d7d0026cab59751fc0bbf0a2d91d26fd9d2385ee08a9896edd14eecdddb3"
+      "sha256": "18122d173ed95ed59ffc1a47a0116069b4556b0cf2b5011226f9d62baef186d6"
     },
     {
       "cityCount": 21,
       "code": "IM",
       "file": "countries/IM.json.gz",
       "name": "Isle of Man",
-      "sha256": "33014b846a4bc5247309b654e50cd8fd9039fe5223ba510d718f0400dcebd384"
+      "sha256": "8a00ed4dad060e87273feb54ee90b6d49d894cc8cdf7e01a4b0c2fe656d9a590"
     },
     {
       "cityCount": 7114,
       "code": "IN",
       "file": "countries/IN.json.gz",
       "name": "India",
-      "sha256": "bfce86ee7b0ec18eef5d033fc8081731818bc6fb1f4a39ad257bdf2e4cdcf311"
+      "sha256": "eb23a17cabe4804537dd11de3d79ab36a10dc25422003ef0826cdcbe757999dc"
     },
     {
       "cityCount": 2,
       "code": "IO",
       "file": "countries/IO.json.gz",
       "name": "British Indian Ocean Territory",
-      "sha256": "ea5b728c01a1c7e1c088a8bed34bf04ea170a1ead089b2ff885809379a22c154"
+      "sha256": "decec79b650f3bdfd221b4025d1ba84968ef059af96000874aa4824b0d10f60e"
     },
     {
       "cityCount": 173,
       "code": "IQ",
       "file": "countries/IQ.json.gz",
       "name": "Iraq",
-      "sha256": "4fe598f430c1972440e3e1650a874583ff903f64c4b8292003a864ee72f0ecfd"
+      "sha256": "af0f47daf3bff1a5506bd7c7ac78047e63fca83a432316c8ed3bee3c2a5b27c4"
     },
     {
       "cityCount": 2646,
       "code": "IR",
       "file": "countries/IR.json.gz",
       "name": "Iran",
-      "sha256": "3b3764606c9d879b49c4a9081a4672465da6d017d81c5fcb0cfa88acfa4da148"
+      "sha256": "e3410bfbee76b5f2196c252007b77c7fa341761d228f8b88793355a352f22c82"
     },
     {
       "cityCount": 50,
       "code": "IS",
       "file": "countries/IS.json.gz",
       "name": "Iceland",
-      "sha256": "9e190eb9ee70f3f593bb4ee971653d60966cb65fcd3cda4d872e8507b59b843a"
+      "sha256": "c34e12a626e5e19d5d62f5afa9c972bf8134697c3a7d0903fb7c8631f5bd7cad"
     },
     {
       "cityCount": 11856,
       "code": "IT",
       "file": "countries/IT.json.gz",
       "name": "Italy",
-      "sha256": "28fbb8388293d2dce29a03cf8b0b03297bd01c30b932a7d1aa32f3beafc711a1"
+      "sha256": "531e542f927e33528fe3bb22c83bd56332e93aaf019bfe389ba1a4d0a4e1569e"
     },
     {
       "cityCount": 6,
       "code": "JE",
       "file": "countries/JE.json.gz",
       "name": "Jersey",
-      "sha256": "25916d5146d977874ec5a49e70ace87a5e6b207dc37f49a55d01a12837b3d9a9"
+      "sha256": "51e2fa6454caffc0ce668a93fe82273beee60d509cc721637d5543664037a6f2"
     },
     {
       "cityCount": 104,
       "code": "JM",
       "file": "countries/JM.json.gz",
       "name": "Jamaica",
-      "sha256": "205988255d8a671f902cfb2adcfa79a6afea489a0e49bf728a307e0b29f4f666"
+      "sha256": "318355f310fccee237ac5e0d53c441b5d6f2a61b4a6f6ed0838c45b509b0713e"
     },
     {
       "cityCount": 148,
       "code": "JO",
       "file": "countries/JO.json.gz",
       "name": "Jordan",
-      "sha256": "3b5cc3f5c169cbdeba829436655632af0a0d5ab698a58e84ce94a0964b43fa27"
+      "sha256": "f286ed4532634e958a37af0732042a4549a9709008de8aa25d2a288f39b559b6"
     },
     {
       "cityCount": 2190,
       "code": "JP",
       "file": "countries/JP.json.gz",
       "name": "Japan",
-      "sha256": "365a2fdb9386657aec63a3aa4812b6f5d17db34db2a99b58561590c345485c0e"
+      "sha256": "fd36fd1fe5061b0248616d465a1c728011c18b768f8979734b62c2e65b2c25ea"
     },
     {
       "cityCount": 336,
       "code": "KE",
       "file": "countries/KE.json.gz",
       "name": "Kenya",
-      "sha256": "b197e6461d08abcb510eae399e4c2db15cb5954e3486eec3db10397503856e39"
+      "sha256": "ac62e9906fdc86906d559ed53bf83249b4bd8decb1600190b085371d1919b0ea"
     },
     {
       "cityCount": 112,
       "code": "KG",
       "file": "countries/KG.json.gz",
       "name": "Kyrgyzstan",
-      "sha256": "15f071ef1a98e6e22dbd775c8be1f8509d774bcb6d7a10328205c29b7597b795"
+      "sha256": "282b92e08854afd56e4b701e66eb9f8fd916811328496110175be8767a398d38"
     },
     {
       "cityCount": 341,
       "code": "KH",
       "file": "countries/KH.json.gz",
       "name": "Cambodia",
-      "sha256": "14f69e3b4d1af2a7d9325628269722fb2cc295ba2e5329838df7db7dae4ddfe5"
+      "sha256": "42df1522522b18726a48fa1050f1eb3ad28d8d2f9f6b9fdaec9d6e284428b9c0"
     },
     {
       "cityCount": 37,
       "code": "KI",
       "file": "countries/KI.json.gz",
       "name": "Kiribati",
-      "sha256": "6454f1e3d841990952ca33d723442cf93fed268b24f82db108d6b94f870affc0"
+      "sha256": "d724231d287c04a4aa1b7a23afef3b6816af7cebf42b5b00e096a94d5dceb6b7"
     },
     {
       "cityCount": 119,
       "code": "KM",
       "file": "countries/KM.json.gz",
       "name": "Comoros",
-      "sha256": "407486f59dd6846681e86fd22a085ebda844c6b0a968eeccc599a6faa3693d62"
+      "sha256": "b82a11f62d4c6e5a640484fbeb7a3171007bcbf416678f1d0a81f7695bd00e6c"
     },
     {
       "cityCount": 18,
       "code": "KN",
       "file": "countries/KN.json.gz",
       "name": "Saint Kitts and Nevis",
-      "sha256": "e31cc1b9ef308e3f8592065670a128e43a131d22feaf5afbab1325dcbef62a91"
+      "sha256": "25fbdd20dccbabd26f5b0e6c1a1553f00a02153e24e113225914dd05d92474e6"
     },
     {
       "cityCount": 127,
       "code": "KP",
       "file": "countries/KP.json.gz",
       "name": "North Korea",
-      "sha256": "ad01734f5bf63debdf16660901cde59f87373e8fc9c87d8e457759576963a3f6"
+      "sha256": "5957c30c39f59bf20109532bd57020e2f3be75103466af2c1c42617482c34d9d"
     },
     {
       "cityCount": 311,
       "code": "KR",
       "file": "countries/KR.json.gz",
       "name": "South Korea",
-      "sha256": "b21b560057ee1d90d75bf1685fa75a4c1e0a5dcf02f6744cc94a4479b90e117b"
+      "sha256": "52e0876e5bb6dedaae3a3009d931396d7181c445910267b29d1df652b1200cac"
     },
     {
       "cityCount": 28,
       "code": "KW",
       "file": "countries/KW.json.gz",
       "name": "Kuwait",
-      "sha256": "f741b717068a4b0b5637c4971edc1d74b6d0387d93b2508985c26f117814d4fb"
+      "sha256": "13f7c157a76c47d92ccb8a4579bca550343d0a4aee753c34844a9b69872515f4"
     },
     {
       "cityCount": 72,
       "code": "KY",
       "file": "countries/KY.json.gz",
       "name": "Cayman Islands",
-      "sha256": "38283ffd600b7b0287dcd551a866016e0343a371a14f4cfc6b0eafef9ff19a21"
+      "sha256": "797e37458d4069e4c20bbb96d48c340735684b3034528d2eced991c7af5dbca6"
     },
     {
       "cityCount": 352,
       "code": "KZ",
       "file": "countries/KZ.json.gz",
       "name": "Kazakhstan",
-      "sha256": "0f304eb59c0758cd37b09b147d5c807ebf9a4e29bfc5854eba39e13884b6efbd"
+      "sha256": "6093dc3167577086e11540f038e7ff4a6298cfe0dfd802d9775e53841e9b557b"
     },
     {
       "cityCount": 117,
       "code": "LA",
       "file": "countries/LA.json.gz",
       "name": "Laos",
-      "sha256": "4daf2782a17ac4d61f4cd372ea50ddc5893a433bf86d2f89917ea113ee98c962"
+      "sha256": "9028f0ff1b13e76f882b116975feb0f29a2b732e0a5fec147906bf2c2cfcf21c"
     },
     {
       "cityCount": 52,
       "code": "LB",
       "file": "countries/LB.json.gz",
       "name": "Lebanon",
-      "sha256": "4c88ac6c40caeafb113435311fb9238dd9d7974c507d40a71a356bcd74babdb0"
+      "sha256": "1948c730763a38556ececd5ba98f03f0e23a770ffe0a0ad3c6eed3871454dd01"
     },
     {
       "cityCount": 38,
       "code": "LC",
       "file": "countries/LC.json.gz",
       "name": "Saint Lucia",
-      "sha256": "b36b59b01d4b0793eb45e68bdd1e779821a487b8fe1bb8806fb1ce7f427ea2c9"
+      "sha256": "71febed2b5c854491d8f12bed8c33255f35fe828c5e7777fc276135a3e180369"
     },
     {
       "cityCount": 14,
       "code": "LI",
       "file": "countries/LI.json.gz",
       "name": "Liechtenstein",
-      "sha256": "375c9a67f91bdda816ba07d3d61f9536510bed5948da7e8d8331870adf380ad0"
+      "sha256": "f3b0036320c5255b93bffd45217e4220ac787580162ca1fc7d7166464bed69ad"
     },
     {
       "cityCount": 89,
       "code": "LK",
       "file": "countries/LK.json.gz",
       "name": "Sri Lanka",
-      "sha256": "1375328d1d8e9d19dbea9897b90e63c51fe5d4e781d0f4441ed6705d05a66305"
+      "sha256": "7f7a2a9ede532557c57dd64107ddb98ff080fd1390d46fc6a8a261d845b51e09"
     },
     {
       "cityCount": 27,
       "code": "LR",
       "file": "countries/LR.json.gz",
       "name": "Liberia",
-      "sha256": "fc137bf6a9a1095741dbc5a4d9910ec3badfd64dddd409900a2001773911f8a0"
+      "sha256": "f897515eed94847a991022609b708145ebe14735c7b84bb14e888a64433f1e13"
     },
     {
       "cityCount": 47,
       "code": "LS",
       "file": "countries/LS.json.gz",
       "name": "Lesotho",
-      "sha256": "b82ce792e03a261d2050fabc117aaf8e5af4b53b4660e3b10741fe70a839d6fd"
+      "sha256": "f6e24b1527fdb94a9cf077186bb6acc894d32616793bde7e13022a397b3d617f"
     },
     {
       "cityCount": 164,
       "code": "LT",
       "file": "countries/LT.json.gz",
       "name": "Lithuania",
-      "sha256": "aa8eccc5412db1d494d762c57eac5b53781ac5bbefb85dd5423b9b8cbf8d1f09"
+      "sha256": "c2c5aa4707cabba078179706e4aa3dd5e40c737b5c8d968ca260fb3212e6c301"
     },
     {
       "cityCount": 235,
       "code": "LU",
       "file": "countries/LU.json.gz",
       "name": "Luxembourg",
-      "sha256": "8be99d1bdc9f2d13d909366a6406559c9ef82ba9959dce6a10020a9695865d57"
+      "sha256": "4b14189fc355a5be23b745c23f36277433559897088f6cbf2dd8f78583c64a29"
     },
     {
       "cityCount": 147,
       "code": "LV",
       "file": "countries/LV.json.gz",
       "name": "Latvia",
-      "sha256": "44e3b26e48ee7bfa237ad01be50d3131da9c489c1b07d5647395566c9ba72e3e"
+      "sha256": "74adc09988157784de806890a1eba80e9363f43c75b8d2c1873172c4913dd868"
     },
     {
       "cityCount": 119,
       "code": "LY",
       "file": "countries/LY.json.gz",
       "name": "Libya",
-      "sha256": "dcbf95c0f7ea8e298d9af31c8ef79096a2e29f10fa06ecfa94ad3f9e4efd6e41"
+      "sha256": "816e0e4a88c72b7fc2630a0f451f4984895b85e568e9324d3247eacca8d52e10"
     },
     {
       "cityCount": 480,
       "code": "MA",
       "file": "countries/MA.json.gz",
       "name": "Morocco",
-      "sha256": "c2431ed30876d1ad9a3e5fa2a541113566cb1e76fb414d5016f67cc0ecbf7994"
+      "sha256": "2979cd481b4287ab48a88ad74e647ed514e14945aa78760abc4c0c4c21e37b12"
     },
     {
       "cityCount": 12,
       "code": "MC",
       "file": "countries/MC.json.gz",
       "name": "Monaco",
-      "sha256": "dcf8d35472627314c8681e6df3afb099f526f4d75d3820d254251b6bf6a07b8b"
+      "sha256": "cbd159fd66743e7a99a0fd0b13b76f58685a0457dbed634ecb695d307b8cc499"
     },
     {
       "cityCount": 101,
       "code": "MD",
       "file": "countries/MD.json.gz",
       "name": "Moldova",
-      "sha256": "e59d64cf87fb8c23d4272e72c314ff00d300c7ce7e24522c001277e3a22225f8"
+      "sha256": "b7513589515c868590451004d70258cb03ea0b263b5d2a1b9dc789f8aaf1cb5f"
     },
     {
       "cityCount": 66,
       "code": "ME",
       "file": "countries/ME.json.gz",
       "name": "Montenegro",
-      "sha256": "e84291413cd4db005bcff6de0ce10e2e00aabf68ca0c693a6acc8e37fb3b45c2"
+      "sha256": "645d96f2451af758172c632eab0e7e0cb71d614f19dc2c289eeecbd21274047b"
     },
     {
       "cityCount": 9,
       "code": "MF",
       "file": "countries/MF.json.gz",
       "name": "Saint Martin",
-      "sha256": "186f6ccb062bd4e3aa118696d532bf7f1ba7335fcdd6960e49cf9f8d3d204de1"
+      "sha256": "37a00c849b4c56108debe758043607c592979c8304f951703cd25163d937fde6"
     },
     {
       "cityCount": 152,
       "code": "MG",
       "file": "countries/MG.json.gz",
       "name": "Madagascar",
-      "sha256": "d0c56baa667e494c770b811a09e7bd8b857bcf6fd83b48b5fafbffa88d219b73"
+      "sha256": "507f81be912f36e0e29740b048af21e68f822b006ba3297cede92a5cb07d139b"
     },
     {
       "cityCount": 26,
       "code": "MH",
       "file": "countries/MH.json.gz",
       "name": "Marshall Islands",
-      "sha256": "fecdc9c5ae8e063b0a85f4e6624f90907bccc5302f2f42fe5de3c0859e16106b"
+      "sha256": "39579d3cd49f3b2f3bdb1a8210c50b6fca94302ce657e4f50015586cda095914"
     },
     {
       "cityCount": 302,
       "code": "MK",
       "file": "countries/MK.json.gz",
       "name": "North Macedonia",
-      "sha256": "f1b11980bb4b3cd976f2f61233b2c5d6e52abd72a4533f26b047797c2a76566c"
+      "sha256": "7f94a425adaf27474e6e4411630b0094434d61a9364cd62b6e65bc749ec1c7ac"
     },
     {
       "cityCount": 94,
       "code": "ML",
       "file": "countries/ML.json.gz",
       "name": "Mali",
-      "sha256": "1bc6a275ed4fcc58bd413f2bb40d73ba5179f32af91bc784b2807828754cc1a7"
+      "sha256": "21adf4f17061d66b97f065bc7434ea283622574404aa33c48df51cf05b23e08e"
     },
     {
       "cityCount": 576,
       "code": "MM",
       "file": "countries/MM.json.gz",
       "name": "Myanmar",
-      "sha256": "cb88b5a75f4185557cf3c3ffb6fcde343c515861623082bd2421b1bdac930917"
+      "sha256": "a7259cc149e694d96643534a49cb01794caddadbeb0986c06331c69350e3a16d"
     },
     {
       "cityCount": 332,
       "code": "MN",
       "file": "countries/MN.json.gz",
       "name": "Mongolia",
-      "sha256": "f0abcdcf49e83562530482e5cfd45ca28b8a2efdadb3f236f1e308b20318fe00"
+      "sha256": "4b0bb8971d8baefd108fba414a494573fa3b6fa6f1fd0888c48a1db6cf0f1c15"
     },
     {
       "cityCount": 8,
       "code": "MO",
       "file": "countries/MO.json.gz",
       "name": "Macao",
-      "sha256": "0bed0a8a1be64c7328d7fb527801fbe8ce379b73e74375a67f5b15cfc0f71fca"
+      "sha256": "f4076f231f9a564298c937d5eae49d6bfd037eca0e2e87abe7763f7da5c16373"
     },
     {
       "cityCount": 10,
       "code": "MP",
       "file": "countries/MP.json.gz",
       "name": "Northern Mariana Islands",
-      "sha256": "73538dbf87443c59185b590bce671bd0385402b9ce61fa53734b7520395d95bc"
+      "sha256": "76bcc638c161faf252f0e55807a5bede8314bcc52c663c1a11d2081d266e4a6f"
     },
     {
       "cityCount": 23,
       "code": "MQ",
       "file": "countries/MQ.json.gz",
       "name": "Martinique",
-      "sha256": "4753d38d47e193b73d5ed6ffb47c1b3b1938a536b5be62c6672878f0f1043112"
+      "sha256": "41b7b3bf7665588316e02412e14b8eba51eae47d12adde1676afcac500dc926c"
     },
     {
       "cityCount": 88,
       "code": "MR",
       "file": "countries/MR.json.gz",
       "name": "Mauritania",
-      "sha256": "2da3ea287b75bbf4fc98f0bd93fea5f2e188bc73ff42505e4026f1a80814a8d4"
+      "sha256": "75e61cd9e696b58d975fc1422b0b47494dc2f2edf375b071573b4b1719ab4cf3"
     },
     {
       "cityCount": 4,
       "code": "MS",
       "file": "countries/MS.json.gz",
       "name": "Montserrat",
-      "sha256": "1184ee821336528e1ad7dc27533ea91e8d06226657f869567cdd09373c79a0ea"
+      "sha256": "7456925cac2e3ab0d7e01dbcfba88fe63c85c86191570ac8563786adce7a3930"
     },
     {
       "cityCount": 70,
       "code": "MT",
       "file": "countries/MT.json.gz",
       "name": "Malta",
-      "sha256": "f5668e269b437eca42b4992b1b894ae90de14d905e3e39161c615f5998685758"
+      "sha256": "f8a0e27a75c06538cdec9009b7c54074e6d72ff8c1af048d5de03b6e6dce65f4"
     },
     {
       "cityCount": 116,
       "code": "MU",
       "file": "countries/MU.json.gz",
       "name": "Mauritius",
-      "sha256": "8784c681e893e70ee869374aaedcfae22af6487b234447a5b6d33df621a7ec19"
+      "sha256": "c1f8ace3991f77f16cfce4cffcdcfc56fd6028e8d9bcc91a60d3cd801ea8dcc7"
     },
     {
       "cityCount": 34,
       "code": "MV",
       "file": "countries/MV.json.gz",
       "name": "Maldives",
-      "sha256": "cac1f599b04c439e3ceb3b0dbbc475857d79bf32753921cf041973f338ac01c4"
+      "sha256": "d33873e5be137eb1ac9c8b1cc023ffa95102d82767656ebc52844e344d91d719"
     },
     {
       "cityCount": 39,
       "code": "MW",
       "file": "countries/MW.json.gz",
       "name": "Malawi",
-      "sha256": "c22bd5529beeec5915846da23893f377e154b2ed62dc2f264cae33625ba4ed57"
+      "sha256": "1dd925e9aaa950a196f633e38ee5ae73da004496d3cedd7ee8306807594abdf4"
     },
     {
       "cityCount": 16880,
       "code": "MX",
       "file": "countries/MX.json.gz",
       "name": "Mexico",
-      "sha256": "de32f6e7f249f8c54dc1cb561fc7ebff0cb89975eafa083c895fc24ce13e9384"
+      "sha256": "ce7bb7b1696c6be92320a0f2f8729fc2086e8daa26c498b8077ff4c40f3bee25"
     },
     {
       "cityCount": 740,
       "code": "MY",
       "file": "countries/MY.json.gz",
       "name": "Malaysia",
-      "sha256": "a6de07d77e0a6a5241d6369d80e2e2b41c6b56dbb469de83492e6d98311054ca"
+      "sha256": "9f4d3ea9912dcf67db7c66330b47801120ca5859238ef4a57d0b43d8ad7204b7"
     },
     {
       "cityCount": 94,
       "code": "MZ",
       "file": "countries/MZ.json.gz",
       "name": "Mozambique",
-      "sha256": "99083f7ee38bea7f72ac8e0e97bb5a6096b238deccbdb98f32d6e541a60d010e"
+      "sha256": "9ae8f5a1c727785c9b769f53d6d4e2a70a5ff0dd2ae22ce48b8b8fd90baf8cbd"
     },
     {
       "cityCount": 93,
       "code": "NA",
       "file": "countries/NA.json.gz",
       "name": "Namibia",
-      "sha256": "b3b76699bf706b2ef8931a88ab2d89019f95c229556e7cb76ec674d139dd779a"
+      "sha256": "08dfcf6086353c8c6ffbed752be08add019d2e45de93a5dbcd30210f1e6f4662"
     },
     {
       "cityCount": 63,
       "code": "NC",
       "file": "countries/NC.json.gz",
       "name": "New Caledonia",
-      "sha256": "e9a9e053d4d1aaf8fa8d28ebed95c74f6b67e1e548d178dda44c2e3c3e786efd"
+      "sha256": "95ed295f9b176386045398a7f6c9248d42a0322fd27575d72ce8421433e65b6b"
     },
     {
       "cityCount": 74,
       "code": "NE",
       "file": "countries/NE.json.gz",
       "name": "Niger",
-      "sha256": "ab18dca0ad0ca2830179c7d603d935fb4aa4aa4d43589df6417c4b2b312c4630"
+      "sha256": "b17d2c82ae54672d6a49fb2fd68cbb1f9d5d8f77aa485390d852d4a3e287ce18"
     },
     {
       "cityCount": 1,
       "code": "NF",
       "file": "countries/NF.json.gz",
       "name": "Norfolk Island",
-      "sha256": "52d5704b4a3410c0473475614fd84bf378b06f802dcef8c46d2f991fa1cb1abc"
+      "sha256": "7346160d8ccd069ef024f0a622cefc4ee5e84767b11924fc9e732268fb64df1c"
     },
     {
       "cityCount": 927,
       "code": "NG",
       "file": "countries/NG.json.gz",
       "name": "Nigeria",
-      "sha256": "be025887f522b61cdbfbbf51009d6ac52e46768f19c709aaec17e45f1eea1457"
+      "sha256": "8a19dcce0c396a583cd1793c86df48b200d60455f251a948c36e82b76c3f0b4c"
     },
     {
       "cityCount": 168,
       "code": "NI",
       "file": "countries/NI.json.gz",
       "name": "Nicaragua",
-      "sha256": "3aa26fd11f87be613669690d3cac5d3de161985ecb502705487f3d5cba153b56"
+      "sha256": "ba658850759aea866fe45ce9c1fe8db4ec68197a693c3dfa61d1e41812bde442"
     },
     {
       "cityCount": 2029,
       "code": "NL",
       "file": "countries/NL.json.gz",
       "name": "The Netherlands",
-      "sha256": "0fbbe68be45bf0055a1f832ed6adce094b4830502316ed7fddeed6146000603c"
+      "sha256": "8d74ca0a0d9b03d430a25a56d0b53adaad327cbbbd35dffb26d1707a8ce6d808"
     },
     {
       "cityCount": 632,
       "code": "NO",
       "file": "countries/NO.json.gz",
       "name": "Norway",
-      "sha256": "a298a6750a8b364c2f89fa3caafee542d7f308e0d94e97adf36c880027c828b3"
+      "sha256": "4c1a7fd2c1fd754ae110941a7a75938b83f83d82ebe2fe5761c41e1a85615ea0"
     },
     {
       "cityCount": 84,
       "code": "NP",
       "file": "countries/NP.json.gz",
       "name": "Nepal",
-      "sha256": "bd2ae64a47e7562b19357c4d5eb7c434ce324794bb9a780f8f45c78e66397c6e"
+      "sha256": "be79b5479af0c392321594678b852b279653d93f83c41a66db200733acf6c478"
     },
     {
       "cityCount": 15,
       "code": "NR",
       "file": "countries/NR.json.gz",
       "name": "Nauru",
-      "sha256": "0b5ad868c39234937fa91be523f64223c3a6fa904f918f61a332aadf6ea77f01"
+      "sha256": "b6618662dad80a38b59885a069e4c4664ae7b7fdd9c53ff8edac7dd91863beb3"
     },
     {
       "cityCount": 1,
       "code": "NU",
       "file": "countries/NU.json.gz",
       "name": "Niue",
-      "sha256": "02ae089d68a650c382090300ab1f8e5a770df07c8290283d44b89d8169a415d7"
+      "sha256": "c0ffeb5dac450f129b8c4180fc08af2ef984ccd17b1506cfcdb32bc71b5ce8e5"
     },
     {
       "cityCount": 732,
       "code": "NZ",
       "file": "countries/NZ.json.gz",
       "name": "New Zealand",
-      "sha256": "6d9b90e1abbdd94eaf01eb60f738db34b78f4048eee102deabbcd3aea486e890"
+      "sha256": "2b5fa54b0ba3221930a13d426c64eb12428b61b8693919a1f2be7399dad17777"
     },
     {
       "cityCount": 39,
       "code": "OM",
       "file": "countries/OM.json.gz",
       "name": "Oman",
-      "sha256": "c9ea5fe6ccf3442394f01d9e3c146fcd121c4caad2e776f563291b361f494cfc"
+      "sha256": "ee4025dcd8eaab7a311ff26be2efb8e6a9c407d0077971322b780d2b054a89da"
     },
     {
       "cityCount": 801,
       "code": "PA",
       "file": "countries/PA.json.gz",
       "name": "Panama",
-      "sha256": "9bb7600063381be77b1395c2e1194220542ae046cdc3665c66f9f0a9861b4e00"
+      "sha256": "1bab8e11a2bb16f397413b5457a968d6d154b96ffb3e9c9c65b174aa016c9651"
     },
     {
       "cityCount": 2296,
       "code": "PE",
       "file": "countries/PE.json.gz",
       "name": "Peru",
-      "sha256": "29cfe824c16258f7618f4040a9c10491292eb595138686c6d9003e5934c12f33"
+      "sha256": "8f7d8809c6fd41815246a48b8446ba00247b975957b29c12510acdb6f3b2914c"
     },
     {
       "cityCount": 45,
       "code": "PF",
       "file": "countries/PF.json.gz",
       "name": "French Polynesia",
-      "sha256": "c1ccb8a930cdf0b8f6ea1678b8aa57882f85254404ee9d5910ab0446fd783a75"
+      "sha256": "df2d5a03a8eb731a2dc86b9bafcf07914253d25ea08d83c398077fd150f93666"
     },
     {
       "cityCount": 59,
       "code": "PG",
       "file": "countries/PG.json.gz",
       "name": "Papua New Guinea",
-      "sha256": "eedabab2e375748feb0832e3b86bea61c813acb8bc18fa5ede9a4e16bd181c60"
+      "sha256": "e62de3f5b531642fd8772da3e3e4bbb24ab75fad7b991c6a47ef539ae409e6cc"
     },
     {
       "cityCount": 4530,
       "code": "PH",
       "file": "countries/PH.json.gz",
       "name": "Philippines",
-      "sha256": "0844b7ea9d49a55e28664772fa0490a0290e9b71eee752b5d7ae479b951a1467"
+      "sha256": "69487cbb90d4492a5f6cde8332918db933f58baa2850184ec0be74eb461a845a"
     },
     {
       "cityCount": 572,
       "code": "PK",
       "file": "countries/PK.json.gz",
       "name": "Pakistan",
-      "sha256": "9f0cdad626caf1703fda5ec03def8b352d2e973f82b0880d885025a0f4e78d87"
+      "sha256": "531a5507fe9e2b940a1567f6e4d1e1dc20ee79105cdd928f022e9cdcf5351a07"
     },
     {
       "cityCount": 3868,
       "code": "PL",
       "file": "countries/PL.json.gz",
       "name": "Poland",
-      "sha256": "48a98a5cb7696474f191ca36695df1f4473bcfddc829567fc5a97df9fd196022"
+      "sha256": "0d6fb30aedae81d9c963c228c1e0e6a33e2c011d363533a245fedfd455272fe5"
     },
     {
       "cityCount": 2,
       "code": "PM",
       "file": "countries/PM.json.gz",
       "name": "Saint Pierre and Miquelon",
-      "sha256": "a17a22c836381d88b4e781c176f2ac363ddb3a2364949f84953d23ec3f62005b"
+      "sha256": "a08e8746cf61773c2d6511442137dcecc653a667664824f3d2f763dedac7ca0f"
     },
     {
       "cityCount": 1,
       "code": "PN",
       "file": "countries/PN.json.gz",
       "name": "Pitcairn",
-      "sha256": "b857b2588f14fc241019a45892f8c5ebff95f8005557617e64e4c530be10ed89"
+      "sha256": "1137d7896fa55705de49a88577690b8fabc053ad106207910048dd5f0da56052"
     },
     {
       "cityCount": 227,
       "code": "PR",
       "file": "countries/PR.json.gz",
       "name": "Puerto Rico",
-      "sha256": "579c93cfd3e11c9bd621baa726809c7a25c41cfa0800ac9a5a1f1f04da2cd42d"
+      "sha256": "bc967a69ef71b1325ef0abd634d6872a21db8ac143cb9b576ff98665182a025d"
     },
     {
       "cityCount": 448,
       "code": "PS",
       "file": "countries/PS.json.gz",
       "name": "Palestinian Territory",
-      "sha256": "1bf27877feef6e8f4f40abbccccb958447c23fcea46545759a00615648f4fd3f"
+      "sha256": "0a85fc66fc5bfd0a5306644924fe6b8c956a363c7a0c1b727f2a69be23320f01"
     },
     {
       "cityCount": 1079,
       "code": "PT",
       "file": "countries/PT.json.gz",
       "name": "Portugal",
-      "sha256": "f9789001d787277153c1e7636ddfdf8f44e32ece4356521fddd76c55cd6ac056"
+      "sha256": "b148ca272e39ade3d0abb901d08e23b6a8ad4848965e5604435a5fd303c8c76d"
     },
     {
       "cityCount": 29,
       "code": "PW",
       "file": "countries/PW.json.gz",
       "name": "Palau",
-      "sha256": "7dac7c652914a1c6262777be18c202c2baad223d7421b1c6a4f3b91fa77f7201"
+      "sha256": "a5d3d470be1dd88b1e810a47bc0b137712bb9a84f4722aea35b92ab18af78ad2"
     },
     {
       "cityCount": 173,
       "code": "PY",
       "file": "countries/PY.json.gz",
       "name": "Paraguay",
-      "sha256": "374d997759264e86ecc824149acd6b5ed07c3dbc52ab9cc8ce4bf78632037f2d"
+      "sha256": "b3cb6c5fd6f0ee77f7ff791614823fab3ace119473347a7d19e4a4585b4cbe88"
     },
     {
       "cityCount": 43,
       "code": "QA",
       "file": "countries/QA.json.gz",
       "name": "Qatar",
-      "sha256": "9a2948dd4978752c85c41852a65b5225961cbad56b281e3775e56767650134a2"
+      "sha256": "8170a6bb2a01256d611310e986225ba0cc1427e39e56d5a4dda57c3b7cfea152"
     },
     {
       "cityCount": 28,
       "code": "RE",
       "file": "countries/RE.json.gz",
       "name": "Reunion",
-      "sha256": "7521513961a6953c91c8551acc45886bc3332d1f11166bfa12ea6f5e7707ac22"
+      "sha256": "4a0f606eb147720ee59b0e3cd956d8c384e4bef2738a8966dc8668ff90f9d7d4"
     },
     {
       "cityCount": 7149,
       "code": "RO",
       "file": "countries/RO.json.gz",
       "name": "Romania",
-      "sha256": "6fa652d2aaf429c6426044ccce46ed4403ea6aac2ba300ffbf8fdc71461aa2fd"
+      "sha256": "77d1a2a435a53e59ae8b9cbf22f0f908b3a3c2b5a27336fa46cba6c9a8a1727e"
     },
     {
       "cityCount": 492,
       "code": "RS",
       "file": "countries/RS.json.gz",
       "name": "Serbia",
-      "sha256": "0a72034763a1a8088f9e503ae9418f8daaaa49f288874648111918241bb4f190"
+      "sha256": "ccafde4a2c61d17b44a7b29c1663f0856c411ca9f008aea7d4ff8bb1e83c2486"
     },
     {
       "cityCount": 5324,
       "code": "RU",
       "file": "countries/RU.json.gz",
       "name": "Russia",
-      "sha256": "79d63e3d48099105d7238837bf4ede4c8cee1aaff6950c7c36ff63a1efd8cbcb"
+      "sha256": "a6d9dae0b7d9c541e88a4c0692e00e043dba5701e691a4b11f9b0ca772cdc924"
     },
     {
       "cityCount": 51,
       "code": "RW",
       "file": "countries/RW.json.gz",
       "name": "Rwanda",
-      "sha256": "27da77839265176ffacef1d298b68726f845acf0eb99f187a54d7fd1ba250dfd"
+      "sha256": "b66a1683018fa9b396d7f9d8f26c029898f07ef95913aa0bddae5dd7d55f1b8e"
     },
     {
       "cityCount": 183,
       "code": "SA",
       "file": "countries/SA.json.gz",
       "name": "Saudi Arabia",
-      "sha256": "e71e1f548a3d5729c56139d26f44078af89e03bed6184fa839025f8e6fcde979"
+      "sha256": "a51b00f8e965224ec15081f3eaad869b4152b3d4841aed66746a825d54997c2c"
     },
     {
       "cityCount": 23,
       "code": "SB",
       "file": "countries/SB.json.gz",
       "name": "Solomon Islands",
-      "sha256": "75a4e69083964e28b5a244a4a6760a3662aeaf15eba0add72af664fcca35866d"
+      "sha256": "f222f01a2ec6235146f0508d8fb3a1ea041bd01a20394da47a66109c92efe466"
     },
     {
       "cityCount": 26,
       "code": "SC",
       "file": "countries/SC.json.gz",
       "name": "Seychelles",
-      "sha256": "1c3fecfd8bf5b2520a2c9a73c512daca386b74811ffca9268eb1090a357e6267"
+      "sha256": "d13bc29534b040ded995b03974b57185411de677e475255230e6aac12c1a9203"
     },
     {
       "cityCount": 112,
       "code": "SD",
       "file": "countries/SD.json.gz",
       "name": "Sudan",
-      "sha256": "b4e2cd65ba094f4c3e040dd76584606812cbd4cf5f6d51c31bf63d0acc81da32"
+      "sha256": "7d88828bc084e071ba2b4935305e3c37d064cd1f7c95f27da119aa003c3c1e20"
     },
     {
       "cityCount": 1326,
       "code": "SE",
       "file": "countries/SE.json.gz",
       "name": "Sweden",
-      "sha256": "4059b49daefc3737adfdfab3492a51929e743e85ed63b9707c8930ce80b4427b"
+      "sha256": "78f859b84d99d1ec74f94e9f2e446d513ec265f0fc8be58d863c1fbf1cee3785"
     },
     {
       "cityCount": 121,
       "code": "SG",
       "file": "countries/SG.json.gz",
       "name": "Singapore",
-      "sha256": "ca328e82acda3e638a13b1376d5382e32fc8a83ab0d75fa0df6f6d2e6105187b"
+      "sha256": "823b8d2de4e333e948be48ce73cba835c3e3392f2beb6789ed506b524ca082f9"
     },
     {
       "cityCount": 6,
       "code": "SH",
       "file": "countries/SH.json.gz",
       "name": "Saint Helena",
-      "sha256": "9fecf3b0dfd13f60d085de661e7d77280d885377896b8f7dbb9c92a7d553afb8"
+      "sha256": "501b8387218a6660e38fba08972c8722608f9d57d73bfa0a55c39507091f8694"
     },
     {
       "cityCount": 602,
       "code": "SI",
       "file": "countries/SI.json.gz",
       "name": "Slovenia",
-      "sha256": "429c280db7b786de63b4b2cdae4ab1eda57ea567a960c4d43e1f870ffa0496b1"
+      "sha256": "db394d0cc4ebe090ff95b957bc8b60732adc848c56eb6ccb23803988a8eabe0c"
     },
     {
       "cityCount": 2,
       "code": "SJ",
       "file": "countries/SJ.json.gz",
       "name": "Svalbard and Jan Mayen",
-      "sha256": "1e02bc7096da0ba8a189b83f2909e2f2c9f89cbe50a17e6f41fb615295497a12"
+      "sha256": "546de0d1cb390fb638335d57f77293ba23bf28b4f3c6ef45b7ccb981bc7f388b"
     },
     {
       "cityCount": 831,
       "code": "SK",
       "file": "countries/SK.json.gz",
       "name": "Slovakia",
-      "sha256": "b46bcbfeeb5c41e51a8bd33a282609969b7944455a93cb4c6e66cef1b03daf7e"
+      "sha256": "d6290a369904441fbe2c662eab1794120214cfb0318b56b51c88afd7a88d9dd4"
     },
     {
       "cityCount": 88,
       "code": "SL",
       "file": "countries/SL.json.gz",
       "name": "Sierra Leone",
-      "sha256": "990b73c77f63e43c2f3e0d05ba2281528463dc87931b1e468238d698a1da012b"
+      "sha256": "a3d1d5a6a610aab9662cf9aec56ac868c7570841aad5267a292e123fc528cca4"
     },
     {
       "cityCount": 15,
       "code": "SM",
       "file": "countries/SM.json.gz",
       "name": "San Marino",
-      "sha256": "11bb9329bea592a0fc5d52b1b3ad3c76479065c923ee73e667719ac51a78c461"
+      "sha256": "a8c638386f56aac5f5ede65d9b0ada93a7c921d00a6c52d8b10e60c4f83f10eb"
     },
     {
       "cityCount": 157,
       "code": "SN",
       "file": "countries/SN.json.gz",
       "name": "Senegal",
-      "sha256": "9d848aa8ef1811b5f8381b2ea7ad4020bea429081768bdec7953eb679560f7fa"
+      "sha256": "5aee95a0626de241d4b99af2cd9fca423016d3328f5517a1ec4dfb040aa5922d"
     },
     {
       "cityCount": 76,
       "code": "SO",
       "file": "countries/SO.json.gz",
       "name": "Somalia",
-      "sha256": "39ba132a02b0267d5f23592e5924d460068fbfc3f659a280fc44c59aea161cc9"
+      "sha256": "267d334f7adb80086e59156b83fdb54fc3560e52a30f3bb87afd220f20f50017"
     },
     {
       "cityCount": 35,
       "code": "SR",
       "file": "countries/SR.json.gz",
       "name": "Suriname",
-      "sha256": "24813e745072177f3286a111dd1518f9f24ee0073ed94a742b255b88f26603d9"
+      "sha256": "c843498e5ff81f9e165c2f2885ef9a1ff4e71e9379afb7c2c55f677479f8b269"
     },
     {
       "cityCount": 23,
       "code": "SS",
       "file": "countries/SS.json.gz",
       "name": "South Sudan",
-      "sha256": "0096274e55c4a999ca9b0d4bfe7c1aa42bc3ea4aa10f6eb72a46b416ed113e27"
+      "sha256": "5e129bd3d00ebc45040c811c8d453424f56d63889e4ed4105142cca998a3deea"
     },
     {
       "cityCount": 51,
       "code": "ST",
       "file": "countries/ST.json.gz",
       "name": "Sao Tome and Principe",
-      "sha256": "9cd1dd74ea154dcc4bd13094e0b17162e7776fe23b7673bc03b8f0463a6c71e2"
+      "sha256": "d9e60c83a0e3783f24050a1a0a7b7cf675399f471564c007faf6bb247d70e176"
     },
     {
       "cityCount": 102,
       "code": "SV",
       "file": "countries/SV.json.gz",
       "name": "El Salvador",
-      "sha256": "b587a8774f5688f9aad47f1d8c4001ae00ef2a729c248287c40805be896f8271"
+      "sha256": "df358fa3a45cfce49e431e57c98f1d6c1e401c65a1ca49714f92321cf9690ae5"
     },
     {
       "cityCount": 7,
       "code": "SX",
       "file": "countries/SX.json.gz",
       "name": "Sint Maarten",
-      "sha256": "b84f9a23c72ee212d51fd8d08d93e57573f73478c02d1a48d3fe8a8da2a9d40c"
+      "sha256": "f2c862df113d74c48b9929cc8c317ad40a9d953e0e0d3ca551b58ba830906242"
     },
     {
       "cityCount": 310,
       "code": "SY",
       "file": "countries/SY.json.gz",
       "name": "Syria",
-      "sha256": "0bc6d2929efa12590ed5a700be96d4c5369cd36d2f66a7d66fb070a7c7e83f6d"
+      "sha256": "166a4dda7f44b67aae86bc4475bcd7d4664aa12f0ab4a85c99e6332850459f03"
     },
     {
       "cityCount": 25,
       "code": "SZ",
       "file": "countries/SZ.json.gz",
       "name": "Eswatini",
-      "sha256": "7fae78a60a124189a3af1168d784505889b541b4c1b7e665a4be843cb9977dc2"
+      "sha256": "5dce4ecefc75af9223f6a1132f6f42ccbedbafa9bc727b40eff8f8ecc054075e"
     },
     {
       "cityCount": 11,
       "code": "TC",
       "file": "countries/TC.json.gz",
       "name": "Turks and Caicos Islands",
-      "sha256": "b58b47a3abe33c5522b1836568c84a3c6a78d8a1b630a2947acc5690626294b8"
+      "sha256": "959a3584b405b5d215b6963233957db4ba7ed2cf52706a1b7bfd2ac6c6dcdd1f"
     },
     {
       "cityCount": 74,
       "code": "TD",
       "file": "countries/TD.json.gz",
       "name": "Chad",
-      "sha256": "b3efe7f5cec6b87302b2f0dfe02352e2b38884c52a49867ad561706b95d94097"
+      "sha256": "e9f6ea4ebca1d6d75c87dc97c43826cb7c973b8ca602570cb6114aa58a9d7874"
     },
     {
       "cityCount": 1,
       "code": "TF",
       "file": "countries/TF.json.gz",
       "name": "French Southern Territories",
-      "sha256": "9a1a5120772937e1094b4f9fb46bce7fa10b413a9d20b898e3093876b6bc4759"
+      "sha256": "fd0ee18b4e0423a46eb190025d0565a7220e8b869bf012b430f4bd0b1bc9bb87"
     },
     {
       "cityCount": 35,
       "code": "TG",
       "file": "countries/TG.json.gz",
       "name": "Togo",
-      "sha256": "f1e6db5db3517513bb389f45063545e3982376f5a3001134b52e4f95baac913b"
+      "sha256": "b62506cbbf5268912d58f221f6c2beabd13126004043ea2250563e88db3e0e8c"
     },
     {
       "cityCount": 1084,
       "code": "TH",
       "file": "countries/TH.json.gz",
       "name": "Thailand",
-      "sha256": "434dd74e3244502d58be0596feeb664219757966b890f1a450f5bda4326cf9c5"
+      "sha256": "a25a26f777594447b8eae8456bdba28b3db368944e77555d49813bb9af3e5a42"
     },
     {
       "cityCount": 103,
       "code": "TJ",
       "file": "countries/TJ.json.gz",
       "name": "Tajikistan",
-      "sha256": "63ae259d68de9039f5c8a5fa1cdd743118f8d152c1479b3af44813d74203be82"
+      "sha256": "9777d124e6c1b1ea9cfbb1b5b516093bf1b11b987f888bda1c3b706d5b0c0079"
     },
     {
       "cityCount": 3,
       "code": "TK",
       "file": "countries/TK.json.gz",
       "name": "Tokelau",
-      "sha256": "4eafefb50d52f334f1964e3f7aac7d21130929cceb83bae10976ab870615eb0a"
+      "sha256": "7fe7d25d859c6aba208af6c42bbdb8c65d0ae9b8ba75c62f23378faa28f24dc1"
     },
     {
       "cityCount": 32,
       "code": "TL",
       "file": "countries/TL.json.gz",
       "name": "Timor Leste",
-      "sha256": "d5b63060064b310c32338fdcd675fd9797a0571da2e165e19545cc8452bb07aa"
+      "sha256": "ca4e89f6e1115fc48da448c69fec5b6fd146eda8e44a1a4a0484b38896d6126f"
     },
     {
       "cityCount": 126,
       "code": "TM",
       "file": "countries/TM.json.gz",
       "name": "Turkmenistan",
-      "sha256": "746608cc242f6deab3d7d69ae6a91e484bc2ec886df4d046c4d5bcac57f4f29e"
+      "sha256": "6d1918bd567238f965bca078b00c76ceb1543a38f212feebe1b872decf6dfe03"
     },
     {
       "cityCount": 286,
       "code": "TN",
       "file": "countries/TN.json.gz",
       "name": "Tunisia",
-      "sha256": "fd1d7f78afec3b12c5429763de3559d150ee87e98966f22f64a25dd5e1c63b7f"
+      "sha256": "ab887d8f2e8f6653021193c13d08ea3c6f4fd91fd4eee777156dc7fb23c29932"
     },
     {
       "cityCount": 47,
       "code": "TO",
       "file": "countries/TO.json.gz",
       "name": "Tonga",
-      "sha256": "799d150adcb2ee8bfadf2a5449c92c447dfc6c23591d85068f5055bf98cb73b5"
+      "sha256": "a24f52c44b57dd4abf0f8aa172f99189b7e6239762b457e6b9f9aac29a5fe76e"
     },
     {
       "cityCount": 4031,
       "code": "TR",
       "file": "countries/TR.json.gz",
       "name": "Turkey",
-      "sha256": "2100f192324f0d988806bed5e1c2af32ed4589e8b0d2cde474c01bcb65551f5c"
+      "sha256": "25d2c6fe84524829e849f07f94c5fa2d436e4ef5402ea29991bc15b17c2e3836"
     },
     {
       "cityCount": 27,
       "code": "TT",
       "file": "countries/TT.json.gz",
       "name": "Trinidad and Tobago",
-      "sha256": "3f7de9bd14f43d0b99ad493befbdd2a870eb4074852021aeec80b3d24c902aa4"
+      "sha256": "b70ac5006ae24c1f901e89f63d881111a25104d781a10bf69b46906ccbe6003b"
     },
     {
       "cityCount": 12,
       "code": "TV",
       "file": "countries/TV.json.gz",
       "name": "Tuvalu",
-      "sha256": "9ee04ba1b393206bfa3c63ca7f418cd68902598c028a05817ec1c748fecc16e3"
+      "sha256": "cf516a064eb537b6c96a337e638a96d608f16738b35d6cc807549e13d33aecdd"
     },
     {
       "cityCount": 89,
       "code": "TW",
       "file": "countries/TW.json.gz",
       "name": "Taiwan",
-      "sha256": "1167317d1dc547a04d4a921c03437c1842e7c9b58225ed75a010a9604f9f5f15"
+      "sha256": "e39ec597694a724c398786dd2879f77d32f9b6bd4c51fdb2e820b6aa72b594f1"
     },
     {
       "cityCount": 324,
       "code": "TZ",
       "file": "countries/TZ.json.gz",
       "name": "Tanzania",
-      "sha256": "80f84f4724105181713b4d683de4c66f76b2afa034e65900520583d5998164ed"
+      "sha256": "f22cc3739b01d4e86ce1ca128b38732514b109959428873c7bf048c8560a568c"
     },
     {
       "cityCount": 5564,
       "code": "UA",
       "file": "countries/UA.json.gz",
       "name": "Ukraine",
-      "sha256": "f95497e85b25530303ef6e3c82bbf68be6241c471f27b72c30eda93b024d63d1"
+      "sha256": "596a754ff0bd31c12c9adb0e85c03acfb60fd5bb00eb3bf92bd3126421e4ff9f"
     },
     {
       "cityCount": 212,
       "code": "UG",
       "file": "countries/UG.json.gz",
       "name": "Uganda",
-      "sha256": "9f01b58c4ab34c3bc636ecf34860b645f51e5e41678083eb9165c199a0b4510e"
+      "sha256": "5bc93c13e8e2b875ae229540e16989c178f4df359a7b7bacfbaafd0184071d7f"
     },
     {
       "cityCount": 21784,
       "code": "US",
       "file": "countries/US.json.gz",
       "name": "United States",
-      "sha256": "fc8e4ee132be15a15af8ea6baa9c1cc0842ec27d873b67a0fd5ea263ce624fd5"
+      "sha256": "bdfaae40a337b97194ac200c0c26ce82be9a7a4b224648bf5a257d5991a14d37"
     },
     {
       "cityCount": 154,
       "code": "UY",
       "file": "countries/UY.json.gz",
       "name": "Uruguay",
-      "sha256": "248eaccdcc6d37dbb45e9ec8220dbe3d82d2cc8fd8e9a92836ce7fbbd00db49e"
+      "sha256": "65dd2468444a58b8fa67164b0c3545951176dfb1c4c6dd2445db7e8ca5b01a16"
     },
     {
       "cityCount": 221,
       "code": "UZ",
       "file": "countries/UZ.json.gz",
       "name": "Uzbekistan",
-      "sha256": "b02cd88d76c5a9275fa4fbf1b0d99a02be26c36e62ca161a2401d37c55dbe6ef"
+      "sha256": "72aafc3321d7e22eb267d0b3eea60ae19aca945e1aa44d342f0c3dd1ab497388"
     },
     {
       "cityCount": 1,
       "code": "VA",
       "file": "countries/VA.json.gz",
       "name": "Vatican",
-      "sha256": "935f8e2d264bbeb6b118723cbc2ade1087f0782b2e88113410c04668284fff4b"
+      "sha256": "c286b7be0a03a2e33568c5aa9e41484e622322d615a185b26a4db89dd01e8ad9"
     },
     {
       "cityCount": 25,
       "code": "VC",
       "file": "countries/VC.json.gz",
       "name": "Saint Vincent and the Grenadines",
-      "sha256": "f79a80d70e2c61b643bbeddacd0b450125909dc24845cad4ba0fe1a2db7ee52e"
+      "sha256": "ccff1457258ea65931b3ed762dcd9d5c76bbf4cfeabf912c2cd2083bf7e8e068"
     },
     {
       "cityCount": 414,
       "code": "VE",
       "file": "countries/VE.json.gz",
       "name": "Venezuela",
-      "sha256": "abbc39ff0937ec5c6193544ab1809959dd01e4a861839bd0c69b0b2a737de484"
+      "sha256": "0618fe025d28fa66e14da8f4a9e6beeda1437fe8cf0fc78be4c4edbf05725c9d"
     },
     {
       "cityCount": 2,
       "code": "VG",
       "file": "countries/VG.json.gz",
       "name": "British Virgin Islands",
-      "sha256": "655d3f250de13a5c665136fe2650c51805cbfb64424bd1a9017af1ee1675353e"
+      "sha256": "b45f43ade3b2a2f96635637673eeae9ec0918525b70e0285882864447a4e224c"
     },
     {
       "cityCount": 8,
       "code": "VI",
       "file": "countries/VI.json.gz",
       "name": "U.S. Virgin Islands",
-      "sha256": "4d811ccf41bf297c462f65e6efd917465a09a0a3b76d14b6c56ae9eb4f92ed46"
+      "sha256": "10a500dc60019f7afcf8e6a22233eac60d247522aa59236d8c92fe3ee7702c23"
     },
     {
       "cityCount": 915,
       "code": "VN",
       "file": "countries/VN.json.gz",
       "name": "Vietnam",
-      "sha256": "4adfc321b9153c75a675a866a51e0a03d8ba1237ab625cc6b0b07b4b51d75817"
+      "sha256": "cf7da0eebab485839819290e953e48549fdc77e1ea98d137c52b90aeb3c311e5"
     },
     {
       "cityCount": 10,
       "code": "VU",
       "file": "countries/VU.json.gz",
       "name": "Vanuatu",
-      "sha256": "a060a874ef13ab1610546c27008687f5a285c515a92a1943f693e4eabfe44966"
+      "sha256": "f5caf9438e4bd85ef7df31c4f12e4339c697f34feb20f0af08da24f20ed332a9"
     },
     {
       "cityCount": 8,
       "code": "WF",
       "file": "countries/WF.json.gz",
       "name": "Wallis and Futuna",
-      "sha256": "e8ce0a7029f8911181f96ad9aedaa5db1f99ab53e4b4787a62c0b902460f4bc0"
+      "sha256": "94311a9607ffc5b4f7f7fbf7d9a3b55da2e5c2c62715bc10babb89f7f72eb43f"
     },
     {
       "cityCount": 74,
       "code": "WS",
       "file": "countries/WS.json.gz",
       "name": "Samoa",
-      "sha256": "f988c0e68675415d0e588ea5da4d530cfca190b16919e5a9c95bc94970f51799"
+      "sha256": "9c908aef8c9f47096b215009b53bdce0bd53cd2d4b95ce1620ce03496767d1b4"
     },
     {
       "cityCount": 77,
       "code": "XK",
       "file": "countries/XK.json.gz",
       "name": "Kosovo",
-      "sha256": "3aac8c6dbc5baecb3c3982e8c0d7a85e2be1c332a8e4d76587e3ba2a2465a5e3"
+      "sha256": "f65c6042267aa4555be8d4e7034b4e3f38b517d7d4e5cae8ac01dd0b6bee6c33"
     },
     {
       "cityCount": 316,
       "code": "YE",
       "file": "countries/YE.json.gz",
       "name": "Yemen",
-      "sha256": "761dc87a9b0ce07f7ba41d79ef1be0d2fdea06b2362c267488c604987ffad9fc"
+      "sha256": "b6c76480bbbc272d1e2f4c887d277531c948c3a84b3881884b7e45ee1a981dec"
     },
     {
       "cityCount": 66,
       "code": "YT",
       "file": "countries/YT.json.gz",
       "name": "Mayotte",
-      "sha256": "dca0c8409b72d68420137840ae75e44a0fd1320cb365143c0dd7653fed960890"
+      "sha256": "619b459159d94174f1e604b1e7e3d63b3b7cfab1606136f4272acc9e5ffe3827"
     },
     {
       "cityCount": 989,
       "code": "ZA",
       "file": "countries/ZA.json.gz",
       "name": "South Africa",
-      "sha256": "042de49b3628edc4bd2013809f2c907d8f3c0563e9ef89c8b74f19bf096be56e"
+      "sha256": "c2d81474319843721bd3ab4d23e0e297728458890e17b74418877f170aabf0c5"
     },
     {
       "cityCount": 98,
       "code": "ZM",
       "file": "countries/ZM.json.gz",
       "name": "Zambia",
-      "sha256": "ee58f264ecf9b6bd3dad547d00bf91f8fb76430721d38546ed5ac8563499b874"
+      "sha256": "e246f1f4ba89b9b5c2e1660ef25f75ab8a62fab50527cd1a1694dbbe73d40123"
     },
     {
       "cityCount": 69,
       "code": "ZW",
       "file": "countries/ZW.json.gz",
       "name": "Zimbabwe",
-      "sha256": "cf10c697a8ad3815eac230e4c191f5e89d9c1dc4cd230ee53c3d051dc23db951"
+      "sha256": "961edef600c79d01076383b5bd92818f5c950b2a82c37797b5e6b6d4d4f2601d"
     }
   ],
   "countryCount": 246,
-  "generatedAt": "2026-09-12",
+  "generatedAt": "2026-09-15",
   "license": "CC BY 4.0",
-  "locationDataVersion": "geonames-cities500-2026-09-11+sa-2026-09-12.1+spatial-1",
+  "locationDataVersion": "geonames-cities500-2026-09-11+sa-2026-09-15.2+localized-1+spatial-1",
   "saudiSupplement": {
     "added": 25,
-    "augmented": 45,
+    "augmented": 46,
     "file": "sa_locations_supplement.v1.json",
     "merged": 3,
-    "sha256": "4bf8a71ba3c472fef8cf537244ebf5dbb616dc7278cd61a5a99e9dbcd64e84b5",
-    "version": "sa-official-review-2026-09-12.1"
+    "sha256": "17104e2b232d38e70a7d27574419df6adf5899b41f8513ba2b9f5ed0f3e7f2ec",
+    "version": "sa-official-review-2026-09-15.2"
   },
   "schemaVersion": 2,
   "source": "GeoNames cities500 with reviewed Saudi supplement",

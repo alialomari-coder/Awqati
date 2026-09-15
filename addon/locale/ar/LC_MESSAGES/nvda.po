@@ -266,12 +266,6 @@ msgstr "التنبيه عند ثلاثة أرباع الساعة"
 msgid "Alert before Iqama, minutes:"
 msgstr "التنبيه قبل الإقامة، بالدقائق:"
 
-msgid "Alert delay after the event, minutes:"
-msgstr "مدة التنبيه بعد دخول الوقت، بالدقائق:"
-
-msgid "Alert lead time before the event, minutes:"
-msgstr "مدة التنبيه قبل دخول الوقت، بالدقائق:"
-
 msgid "Alert on the hour"
 msgstr "التنبيه عند رأس الساعة"
 
@@ -1847,7 +1841,7 @@ msgstr "تفعيل ساعات الهدوء"
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:528
 msgid "Enable recurring Dhikr reminder"
-msgstr "تفعيل تذكير الأذكار المتكررة"
+msgstr "تفعيل الأذكار الدورية"
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:584
 msgid "Enable selected Dhikr"
@@ -2179,12 +2173,6 @@ msgstr "توقيت أوكرانيا (كييف)"
 msgid "Europe / Zurich"
 msgstr "توقيت سويسرا"
 
-msgid "Evening Dhikr alert action:"
-msgstr "إجراء تنبيه أذكار المساء:"
-
-msgid "Evening Dhikr offset, minutes:"
-msgstr "مدة أذكار المساء، بالدقائق:"
-
 msgid "Evening Dhikr reference time:"
 msgstr "وقت أذكار المساء:"
 
@@ -2226,12 +2214,6 @@ msgstr "بولينيزيا الفرنسية"
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "French Southern Territories"
 msgstr "الأقاليم الجنوبية الفرنسية"
-
-msgid "Friday hour alert action:"
-msgstr "إجراء تنبيه ساعة الجمعة:"
-
-msgid "Friday hour offset, minutes:"
-msgstr "مدة تذكير ساعة الجمعة، بالدقائق:"
 
 msgid "Friday hour reference time:"
 msgstr "وقت تذكير ساعة الجمعة:"
@@ -2773,12 +2755,6 @@ msgstr "الجبل الأسود"
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Montserrat"
 msgstr "مونتسرات"
-
-msgid "Morning Dhikr alert action:"
-msgstr "إجراء تنبيه أذكار الصباح:"
-
-msgid "Morning Dhikr offset, minutes:"
-msgstr "مدة أذكار الصباح، بالدقائق:"
 
 msgid "Morning Dhikr reference time:"
 msgstr "وقت أذكار الصباح:"
@@ -3755,3 +3731,57 @@ msgstr "زيمبابوي"
 
 msgid "Zulu"
 msgstr "توقيت منطقة غير معروفة (UTC)"
+
+msgid "Alert after Asr, minutes"
+msgstr "التنبيه بعد العصر بـ، بالدقائق"
+
+msgid "Alert after Asr:"
+msgstr "التنبيه بعد العصر بـ:"
+
+msgid "Alert after Fajr, minutes"
+msgstr "التنبيه بعد الفجر بـ، بالدقائق"
+
+msgid "Alert after Fajr:"
+msgstr "التنبيه بعد الفجر بـ:"
+
+msgid "Alert after Maghrib, minutes"
+msgstr "التنبيه بعد المغرب بـ، بالدقائق"
+
+msgid "Alert after Maghrib:"
+msgstr "التنبيه بعد المغرب بـ:"
+
+msgid "Alert after sunrise, minutes"
+msgstr "التنبيه بعد الشروق بـ، بالدقائق"
+
+msgid "Alert after sunrise:"
+msgstr "التنبيه بعد الشروق بـ:"
+
+msgid "Alert after the event, minutes"
+msgstr "التنبيه بعد دخول الوقت بـ، بالدقائق"
+
+msgid "Alert after the event:"
+msgstr "التنبيه بعد دخول الوقت بـ:"
+
+msgid "Alert before Maghrib, minutes"
+msgstr "التنبيه قبل المغرب بـ، بالدقائق"
+
+msgid "Alert before Maghrib:"
+msgstr "التنبيه قبل المغرب بـ:"
+
+msgid "Alert before sunrise, minutes"
+msgstr "التنبيه قبل الشروق بـ، بالدقائق"
+
+msgid "Alert before sunrise:"
+msgstr "التنبيه قبل الشروق بـ:"
+
+msgid "Alert before the event, minutes"
+msgstr "التنبيه قبل دخول الوقت بـ، بالدقائق"
+
+msgid "Alert before the event:"
+msgstr "التنبيه قبل دخول الوقت بـ:"
+
+msgid "The Windows location provider could not obtain a current location. Your previous location was not changed."
+msgstr "تعذر على مزود الموقع في Windows تحديد موقع حالي. لم يتغير موقعك السابق."
+
+msgid "Windows has no available location provider. You can still choose a city or enter a custom location."
+msgstr "لا يوجد مزود موقع متاح في Windows. يمكنك اختيار مدينة أو إدخال موقع مخصص."

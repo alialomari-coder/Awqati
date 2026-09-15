@@ -92,12 +92,12 @@ class UiTranslationTests(unittest.TestCase):
 		for node in tree.body:
 			if isinstance(node, ast.Assign) and isinstance(node.targets[0], ast.Name) and node.targets[0].id.endswith("_LABELS"):
 				maps[node.targets[0].id] = eval(compile(ast.Expression(node.value), "labels", "eval"), namespace)
-		self.assertEqual(len(maps), 7)
+		self.assertEqual(len(maps), 8)
 		self.assertEqual([self.ar.gettext(value) for value in maps["SECTION_LABELS"].values()], ["مواقيت الصلاة", "الساعة", "التاريخ", "تنبيهات الأذكار"])
 		for labels in maps.values():
 			keys_before = tuple(labels)
 			for translate in (self.ar.gettext, self.en.gettext):
-				self.assertTrue(all(translate(label) for label in labels.values()))
+				self.assertTrue(all(translate(text) for label in labels.values() for text in (label if isinstance(label, tuple) else (label,))))
 				self.assertEqual(tuple(labels), keys_before)
 		self.assertEqual(domain.PrayerEventName.FAJR.value, "fajr")
 

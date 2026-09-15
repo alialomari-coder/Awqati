@@ -1,0 +1,1416 @@
+{
+  "ar": {
+    "version": "0.4.2.11",
+    "nvda": "2026.2",
+    "language": "ar",
+    "checks": [
+      {
+        "name": "installed-version",
+        "pass": true,
+        "detail": "0.4.2.11"
+      },
+      {
+        "name": "NVDA-version",
+        "pass": true,
+        "detail": "2026.2"
+      },
+      {
+        "name": "direction",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "prayer-name-fajr-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "fajr-prayer.preMinutes",
+          "name": "التنبيه قبل دخول الوقت بـ، بالدقائق",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "prayer-name-sunrise-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "sunrise-prayer.preMinutes",
+          "name": "التنبيه قبل دخول الوقت بـ، بالدقائق",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "prayer-name-sunrise-prayer.postMinutes",
+        "pass": true,
+        "detail": {
+          "label": "sunrise-prayer.postMinutes",
+          "name": "التنبيه بعد دخول الوقت بـ، بالدقائق",
+          "role": "8",
+          "value": "20",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "prayer-name-dhuhr-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "dhuhr-prayer.preMinutes",
+          "name": "التنبيه قبل دخول الوقت بـ، بالدقائق",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "prayer-name-asr-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "asr-prayer.preMinutes",
+          "name": "التنبيه قبل دخول الوقت بـ، بالدقائق",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "prayer-name-maghrib-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "maghrib-prayer.preMinutes",
+          "name": "التنبيه قبل دخول الوقت بـ، بالدقائق",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "prayer-name-isha-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "isha-prayer.preMinutes",
+          "name": "التنبيه قبل دخول الوقت بـ، بالدقائق",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "prayer-name-midnight-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "midnight-prayer.preMinutes",
+          "name": "التنبيه قبل دخول الوقت بـ، بالدقائق",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "prayer-name-midnight-prayer.postMinutes",
+        "pass": true,
+        "detail": {
+          "label": "midnight-prayer.postMinutes",
+          "name": "التنبيه بعد دخول الوقت بـ، بالدقائق",
+          "role": "8",
+          "value": "0",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "prayer-name-lastThird-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "lastThird-prayer.preMinutes",
+          "name": "التنبيه قبل دخول الوقت بـ، بالدقائق",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "prayer-name-lastThird-prayer.postMinutes",
+        "pass": true,
+        "detail": {
+          "label": "lastThird-prayer.postMinutes",
+          "name": "التنبيه بعد دخول الوقت بـ، بالدقائق",
+          "role": "8",
+          "value": "0",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "morning-reference-count",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "morning-afterFajr-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "morning-afterFajr-tab-accessible",
+        "pass": true,
+        "detail": {
+          "label": "morning-afterFajr",
+          "name": "التنبيه بعد الفجر بـ، بالدقائق",
+          "role": "8",
+          "value": "15",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "morning-beforeSunrise-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "morning-beforeSunrise-tab-accessible",
+        "pass": true,
+        "detail": {
+          "label": "morning-beforeSunrise",
+          "name": "التنبيه قبل الشروق بـ، بالدقائق",
+          "role": "8",
+          "value": "15",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "morning-afterSunrise-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "morning-afterSunrise-tab-accessible",
+        "pass": true,
+        "detail": {
+          "label": "morning-afterSunrise",
+          "name": "التنبيه بعد الشروق بـ، بالدقائق",
+          "role": "8",
+          "value": "15",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "morning-action-name",
+        "pass": true,
+        "detail": {
+          "label": "morning-action",
+          "name": "إجراء التنبيه:",
+          "role": "13",
+          "value": "نطق فقط",
+          "wx": "Choice",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "evening-reference-count",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "evening-afterAsr-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "evening-afterAsr-tab-accessible",
+        "pass": true,
+        "detail": {
+          "label": "evening-afterAsr",
+          "name": "التنبيه بعد العصر بـ، بالدقائق",
+          "role": "8",
+          "value": "15",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "evening-beforeMaghrib-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "evening-beforeMaghrib-tab-accessible",
+        "pass": true,
+        "detail": {
+          "label": "evening-beforeMaghrib",
+          "name": "التنبيه قبل المغرب بـ، بالدقائق",
+          "role": "8",
+          "value": "15",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "evening-afterMaghrib-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "evening-afterMaghrib-tab-accessible",
+        "pass": true,
+        "detail": {
+          "label": "evening-afterMaghrib",
+          "name": "التنبيه بعد المغرب بـ، بالدقائق",
+          "role": "8",
+          "value": "15",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "evening-action-name",
+        "pass": true,
+        "detail": {
+          "label": "evening-action",
+          "name": "إجراء التنبيه:",
+          "role": "13",
+          "value": "نطق فقط",
+          "wx": "Choice",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "friday-reference-count",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "friday-afterAsr-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "friday-afterAsr-tab-accessible",
+        "pass": true,
+        "detail": {
+          "label": "friday-afterAsr",
+          "name": "التنبيه بعد العصر بـ، بالدقائق",
+          "role": "8",
+          "value": "60",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "friday-beforeMaghrib-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "friday-beforeMaghrib-tab-accessible",
+        "pass": true,
+        "detail": {
+          "label": "friday-beforeMaghrib",
+          "name": "التنبيه قبل المغرب بـ، بالدقائق",
+          "role": "8",
+          "value": "60",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "friday-action-name",
+        "pass": true,
+        "detail": {
+          "label": "friday-action",
+          "name": "إجراء التنبيه:",
+          "role": "13",
+          "value": "نطق فقط",
+          "wx": "Choice",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "recurring-term",
+        "pass": true,
+        "detail": "تفعيل الأذكار الدورية"
+      },
+      {
+        "name": "search-الرياض",
+        "pass": true,
+        "detail": "الرياض — منطقة الرياض‎ — آسيا / الرياض"
+      },
+      {
+        "name": "identity-الرياض",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "search-Riyadh",
+        "pass": true,
+        "detail": "الرياض — منطقة الرياض‎ — آسيا / الرياض"
+      },
+      {
+        "name": "identity-Riyadh",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "same-identity-both-queries",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "reopen-localized-name",
+        "pass": true,
+        "detail": "الرياض"
+      },
+      {
+        "name": "real-confirmation-no",
+        "pass": true,
+        "detail": [
+          "اكتُشف الموقع",
+          "اكتُشف الموقع",
+          "تم اكتشاف موقعك: سيهات، المملكة العربية السعودية. هل تريد اعتماد هذا الموقع؟",
+          "نعم",
+          "لا"
+        ]
+      },
+      {
+        "name": "confirmation-button-no",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "focus-after-confirmation-no",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "not-saved-before-apply-no",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-keeps-pending",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "real-confirmation-yes-apply",
+        "pass": true,
+        "detail": [
+          "اكتُشف الموقع",
+          "اكتُشف الموقع",
+          "تم اكتشاف موقعك: سيهات، المملكة العربية السعودية. هل تريد اعتماد هذا الموقع؟",
+          "نعم",
+          "لا"
+        ]
+      },
+      {
+        "name": "confirmation-button-yes-apply",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "focus-after-confirmation-yes-apply",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "not-saved-before-apply-yes-apply",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "yes-updates-pending-yes-apply",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "apply-saves-real-location",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "real-confirmation-yes-ok",
+        "pass": true,
+        "detail": [
+          "اكتُشف الموقع",
+          "اكتُشف الموقع",
+          "تم اكتشاف موقعك: سيهات، المملكة العربية السعودية. هل تريد اعتماد هذا الموقع؟",
+          "نعم",
+          "لا"
+        ]
+      },
+      {
+        "name": "confirmation-button-yes-ok",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "focus-after-confirmation-yes-ok",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "not-saved-before-apply-yes-ok",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "yes-updates-pending-yes-ok",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "ok-saves-real-location",
+        "pass": true,
+        "detail": null
+      }
+    ],
+    "focus": [
+      {
+        "label": "fajr-prayer.preMinutes",
+        "name": "التنبيه قبل دخول الوقت بـ، بالدقائق",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "sunrise-prayer.preMinutes",
+        "name": "التنبيه قبل دخول الوقت بـ، بالدقائق",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "sunrise-prayer.postMinutes",
+        "name": "التنبيه بعد دخول الوقت بـ، بالدقائق",
+        "role": "8",
+        "value": "20",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "dhuhr-prayer.preMinutes",
+        "name": "التنبيه قبل دخول الوقت بـ، بالدقائق",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "asr-prayer.preMinutes",
+        "name": "التنبيه قبل دخول الوقت بـ، بالدقائق",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "maghrib-prayer.preMinutes",
+        "name": "التنبيه قبل دخول الوقت بـ، بالدقائق",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "isha-prayer.preMinutes",
+        "name": "التنبيه قبل دخول الوقت بـ، بالدقائق",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "midnight-prayer.preMinutes",
+        "name": "التنبيه قبل دخول الوقت بـ، بالدقائق",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "midnight-prayer.postMinutes",
+        "name": "التنبيه بعد دخول الوقت بـ، بالدقائق",
+        "role": "8",
+        "value": "0",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "lastThird-prayer.preMinutes",
+        "name": "التنبيه قبل دخول الوقت بـ، بالدقائق",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "lastThird-prayer.postMinutes",
+        "name": "التنبيه بعد دخول الوقت بـ، بالدقائق",
+        "role": "8",
+        "value": "0",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "morning-afterFajr",
+        "name": "التنبيه بعد الفجر بـ، بالدقائق",
+        "role": "8",
+        "value": "15",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "morning-beforeSunrise",
+        "name": "التنبيه قبل الشروق بـ، بالدقائق",
+        "role": "8",
+        "value": "15",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "morning-afterSunrise",
+        "name": "التنبيه بعد الشروق بـ، بالدقائق",
+        "role": "8",
+        "value": "15",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "morning-action",
+        "name": "إجراء التنبيه:",
+        "role": "13",
+        "value": "نطق فقط",
+        "wx": "Choice",
+        "wx_label": ""
+      },
+      {
+        "label": "evening-afterAsr",
+        "name": "التنبيه بعد العصر بـ، بالدقائق",
+        "role": "8",
+        "value": "15",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "evening-beforeMaghrib",
+        "name": "التنبيه قبل المغرب بـ، بالدقائق",
+        "role": "8",
+        "value": "15",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "evening-afterMaghrib",
+        "name": "التنبيه بعد المغرب بـ، بالدقائق",
+        "role": "8",
+        "value": "15",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "evening-action",
+        "name": "إجراء التنبيه:",
+        "role": "13",
+        "value": "نطق فقط",
+        "wx": "Choice",
+        "wx_label": ""
+      },
+      {
+        "label": "friday-afterAsr",
+        "name": "التنبيه بعد العصر بـ، بالدقائق",
+        "role": "8",
+        "value": "60",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "friday-beforeMaghrib",
+        "name": "التنبيه قبل المغرب بـ، بالدقائق",
+        "role": "8",
+        "value": "60",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "friday-action",
+        "name": "إجراء التنبيه:",
+        "role": "13",
+        "value": "نطق فقط",
+        "wx": "Choice",
+        "wx_label": ""
+      }
+    ],
+    "real_detection": [
+      {
+        "answer": "no",
+        "seconds": 2.689,
+        "dialog_text": [
+          "اكتُشف الموقع",
+          "اكتُشف الموقع",
+          "تم اكتشاف موقعك: سيهات، المملكة العربية السعودية. هل تريد اعتماد هذا الموقع؟",
+          "نعم",
+          "لا"
+        ]
+      },
+      {
+        "answer": "yes-apply",
+        "seconds": 0.467,
+        "dialog_text": [
+          "اكتُشف الموقع",
+          "اكتُشف الموقع",
+          "تم اكتشاف موقعك: سيهات، المملكة العربية السعودية. هل تريد اعتماد هذا الموقع؟",
+          "نعم",
+          "لا"
+        ],
+        "matched_city": "Sayhāt"
+      },
+      {
+        "answer": "yes-ok",
+        "seconds": 0.442,
+        "dialog_text": [
+          "اكتُشف الموقع",
+          "اكتُشف الموقع",
+          "تم اكتشاف موقعك: سيهات، المملكة العربية السعودية. هل تريد اعتماد هذا الموقع؟",
+          "نعم",
+          "لا"
+        ],
+        "matched_city": "Sayhāt"
+      }
+    ],
+    "complete": true
+  },
+  "en": {
+    "version": "0.4.2.11",
+    "nvda": "2026.2",
+    "language": "en",
+    "checks": [
+      {
+        "name": "installed-version",
+        "pass": true,
+        "detail": "0.4.2.11"
+      },
+      {
+        "name": "NVDA-version",
+        "pass": true,
+        "detail": "2026.2"
+      },
+      {
+        "name": "direction",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "prayer-name-fajr-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "fajr-prayer.preMinutes",
+          "name": "Alert before the event, minutes",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "prayer-name-sunrise-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "sunrise-prayer.preMinutes",
+          "name": "Alert before the event, minutes",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "prayer-name-sunrise-prayer.postMinutes",
+        "pass": true,
+        "detail": {
+          "label": "sunrise-prayer.postMinutes",
+          "name": "Alert after the event, minutes",
+          "role": "8",
+          "value": "20",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "prayer-name-dhuhr-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "dhuhr-prayer.preMinutes",
+          "name": "Alert before the event, minutes",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "prayer-name-asr-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "asr-prayer.preMinutes",
+          "name": "Alert before the event, minutes",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "prayer-name-maghrib-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "maghrib-prayer.preMinutes",
+          "name": "Alert before the event, minutes",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "prayer-name-isha-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "isha-prayer.preMinutes",
+          "name": "Alert before the event, minutes",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "prayer-name-midnight-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "midnight-prayer.preMinutes",
+          "name": "Alert before the event, minutes",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "prayer-name-midnight-prayer.postMinutes",
+        "pass": true,
+        "detail": {
+          "label": "midnight-prayer.postMinutes",
+          "name": "Alert after the event, minutes",
+          "role": "8",
+          "value": "0",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "prayer-name-lastThird-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "lastThird-prayer.preMinutes",
+          "name": "Alert before the event, minutes",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "prayer-name-lastThird-prayer.postMinutes",
+        "pass": true,
+        "detail": {
+          "label": "lastThird-prayer.postMinutes",
+          "name": "Alert after the event, minutes",
+          "role": "8",
+          "value": "0",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "morning-reference-count",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "morning-afterFajr-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "morning-afterFajr-tab-accessible",
+        "pass": true,
+        "detail": {
+          "label": "morning-afterFajr",
+          "name": "Alert after Fajr, minutes",
+          "role": "8",
+          "value": "15",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "morning-beforeSunrise-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "morning-beforeSunrise-tab-accessible",
+        "pass": true,
+        "detail": {
+          "label": "morning-beforeSunrise",
+          "name": "Alert before sunrise, minutes",
+          "role": "8",
+          "value": "15",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "morning-afterSunrise-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "morning-afterSunrise-tab-accessible",
+        "pass": true,
+        "detail": {
+          "label": "morning-afterSunrise",
+          "name": "Alert after sunrise, minutes",
+          "role": "8",
+          "value": "15",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "morning-action-name",
+        "pass": true,
+        "detail": {
+          "label": "morning-action",
+          "name": "Alert action:",
+          "role": "13",
+          "value": "Speech only",
+          "wx": "Choice",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "evening-reference-count",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "evening-afterAsr-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "evening-afterAsr-tab-accessible",
+        "pass": true,
+        "detail": {
+          "label": "evening-afterAsr",
+          "name": "Alert after Asr, minutes",
+          "role": "8",
+          "value": "15",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "evening-beforeMaghrib-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "evening-beforeMaghrib-tab-accessible",
+        "pass": true,
+        "detail": {
+          "label": "evening-beforeMaghrib",
+          "name": "Alert before Maghrib, minutes",
+          "role": "8",
+          "value": "15",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "evening-afterMaghrib-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "evening-afterMaghrib-tab-accessible",
+        "pass": true,
+        "detail": {
+          "label": "evening-afterMaghrib",
+          "name": "Alert after Maghrib, minutes",
+          "role": "8",
+          "value": "15",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "evening-action-name",
+        "pass": true,
+        "detail": {
+          "label": "evening-action",
+          "name": "Alert action:",
+          "role": "13",
+          "value": "Speech only",
+          "wx": "Choice",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "friday-reference-count",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "friday-afterAsr-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "friday-afterAsr-tab-accessible",
+        "pass": true,
+        "detail": {
+          "label": "friday-afterAsr",
+          "name": "Alert after Asr, minutes",
+          "role": "8",
+          "value": "60",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "friday-beforeMaghrib-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "friday-beforeMaghrib-tab-accessible",
+        "pass": true,
+        "detail": {
+          "label": "friday-beforeMaghrib",
+          "name": "Alert before Maghrib, minutes",
+          "role": "8",
+          "value": "60",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "friday-action-name",
+        "pass": true,
+        "detail": {
+          "label": "friday-action",
+          "name": "Alert action:",
+          "role": "13",
+          "value": "Speech only",
+          "wx": "Choice",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "recurring-term",
+        "pass": true,
+        "detail": "Enable recurring Dhikr reminder"
+      },
+      {
+        "name": "search-الرياض",
+        "pass": true,
+        "detail": "Riyadh — Riyadh Region — Asia / Riyadh"
+      },
+      {
+        "name": "identity-الرياض",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "search-Riyadh",
+        "pass": true,
+        "detail": "Riyadh — Riyadh Region — Asia / Riyadh"
+      },
+      {
+        "name": "identity-Riyadh",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "same-identity-both-queries",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "reopen-localized-name",
+        "pass": true,
+        "detail": "Riyadh"
+      },
+      {
+        "name": "real-confirmation-no",
+        "pass": true,
+        "detail": [
+          "Location detected",
+          "Location detected",
+          "Your location was detected: Sayhāt, Saudi Arabia. Use this location?",
+          "Yes",
+          "No"
+        ]
+      },
+      {
+        "name": "confirmation-button-no",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "focus-after-confirmation-no",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "not-saved-before-apply-no",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-keeps-pending",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "real-confirmation-yes-apply",
+        "pass": true,
+        "detail": [
+          "Location detected",
+          "Location detected",
+          "Your location was detected: Sayhāt, Saudi Arabia. Use this location?",
+          "Yes",
+          "No"
+        ]
+      },
+      {
+        "name": "confirmation-button-yes-apply",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "focus-after-confirmation-yes-apply",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "not-saved-before-apply-yes-apply",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "yes-updates-pending-yes-apply",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "apply-saves-real-location",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "real-confirmation-yes-ok",
+        "pass": true,
+        "detail": [
+          "Location detected",
+          "Location detected",
+          "Your location was detected: Sayhāt, Saudi Arabia. Use this location?",
+          "Yes",
+          "No"
+        ]
+      },
+      {
+        "name": "confirmation-button-yes-ok",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "focus-after-confirmation-yes-ok",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "not-saved-before-apply-yes-ok",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "yes-updates-pending-yes-ok",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "ok-saves-real-location",
+        "pass": true,
+        "detail": null
+      }
+    ],
+    "focus": [
+      {
+        "label": "fajr-prayer.preMinutes",
+        "name": "Alert before the event, minutes",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "sunrise-prayer.preMinutes",
+        "name": "Alert before the event, minutes",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "sunrise-prayer.postMinutes",
+        "name": "Alert after the event, minutes",
+        "role": "8",
+        "value": "20",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "dhuhr-prayer.preMinutes",
+        "name": "Alert before the event, minutes",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "asr-prayer.preMinutes",
+        "name": "Alert before the event, minutes",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "maghrib-prayer.preMinutes",
+        "name": "Alert before the event, minutes",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "isha-prayer.preMinutes",
+        "name": "Alert before the event, minutes",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "midnight-prayer.preMinutes",
+        "name": "Alert before the event, minutes",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "midnight-prayer.postMinutes",
+        "name": "Alert after the event, minutes",
+        "role": "8",
+        "value": "0",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "lastThird-prayer.preMinutes",
+        "name": "Alert before the event, minutes",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "lastThird-prayer.postMinutes",
+        "name": "Alert after the event, minutes",
+        "role": "8",
+        "value": "0",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "morning-afterFajr",
+        "name": "Alert after Fajr, minutes",
+        "role": "8",
+        "value": "15",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "morning-beforeSunrise",
+        "name": "Alert before sunrise, minutes",
+        "role": "8",
+        "value": "15",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "morning-afterSunrise",
+        "name": "Alert after sunrise, minutes",
+        "role": "8",
+        "value": "15",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "morning-action",
+        "name": "Alert action:",
+        "role": "13",
+        "value": "Speech only",
+        "wx": "Choice",
+        "wx_label": ""
+      },
+      {
+        "label": "evening-afterAsr",
+        "name": "Alert after Asr, minutes",
+        "role": "8",
+        "value": "15",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "evening-beforeMaghrib",
+        "name": "Alert before Maghrib, minutes",
+        "role": "8",
+        "value": "15",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "evening-afterMaghrib",
+        "name": "Alert after Maghrib, minutes",
+        "role": "8",
+        "value": "15",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "evening-action",
+        "name": "Alert action:",
+        "role": "13",
+        "value": "Speech only",
+        "wx": "Choice",
+        "wx_label": ""
+      },
+      {
+        "label": "friday-afterAsr",
+        "name": "Alert after Asr, minutes",
+        "role": "8",
+        "value": "60",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "friday-beforeMaghrib",
+        "name": "Alert before Maghrib, minutes",
+        "role": "8",
+        "value": "60",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "friday-action",
+        "name": "Alert action:",
+        "role": "13",
+        "value": "Speech only",
+        "wx": "Choice",
+        "wx_label": ""
+      }
+    ],
+    "real_detection": [
+      {
+        "answer": "no",
+        "seconds": 7.615,
+        "dialog_text": [
+          "Location detected",
+          "Location detected",
+          "Your location was detected: Sayhāt, Saudi Arabia. Use this location?",
+          "Yes",
+          "No"
+        ]
+      },
+      {
+        "answer": "yes-apply",
+        "seconds": 0.472,
+        "dialog_text": [
+          "Location detected",
+          "Location detected",
+          "Your location was detected: Sayhāt, Saudi Arabia. Use this location?",
+          "Yes",
+          "No"
+        ],
+        "matched_city": "Sayhāt"
+      },
+      {
+        "answer": "yes-ok",
+        "seconds": 0.472,
+        "dialog_text": [
+          "Location detected",
+          "Location detected",
+          "Your location was detected: Sayhāt, Saudi Arabia. Use this location?",
+          "Yes",
+          "No"
+        ],
+        "matched_city": "Sayhāt"
+      }
+    ],
+    "complete": true
+  },
+  "restoration": {
+    "version": "0.4.2.11",
+    "packageSha256": "2d5a05dcc0aafc0c1724f4d5e9a6dddfd7c654e92daea700f8cbca6d1f44be6c",
+    "installedFilesMatch": true,
+    "restoredNvdaIni": true,
+    "restoredAwqatiFiles": 1,
+    "removedProbe": true,
+    "arabicChecks": 60,
+    "englishChecks": 60,
+    "singleNvdaProcess": true,
+    "temporaryCleanupRemoved": true
+  },
+  "finalPackageSha256": "b8f8c22a12f816d7811b49b1402cb3fc4cd7bf6956cbb7012ee2264a3f48bd0d",
+  "finalPackageMembersMatchInstalled": true,
+  "automatedChecks": {
+    "newTestMethods": 15,
+    "directedPassed": 295,
+    "allPassed": 530,
+    "runChecksPassed": true
+  },
+  "driveSync": {
+    "fileCount": 275,
+    "sha256Mismatches": 0
+  }
+}

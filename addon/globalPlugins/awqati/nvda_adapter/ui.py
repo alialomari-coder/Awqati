@@ -19,6 +19,7 @@ from ..application import (
 )
 from .settings_sections import is_rtl_language
 from .timezone_labels import TIMEZONE_LABELS
+from .location_labels import city_name, subdivisions
 
 from ..domain import ClockTime, LocationDetectionFailure, LocationKind, StoredLocation
 
@@ -46,17 +47,19 @@ def _context_or_raise() -> NvdaUiContext:
 	return _context
 
 
-def _location_summary(stored: StoredLocation | None) -> str:
+def _location_summary(stored: StoredLocation | None, display_name: str | None = None) -> str:
 	if stored is None:
 		return _("No location has been assigned")
 	return _("Assigned location: {name}; time zone: {timezone}").format(
-		name=stored.location.name,
-		timezone=stored.location.timezone_id,
+		name=display_name or stored.location.name,
+		timezone=_(TIMEZONE_LABELS.get(stored.location.timezone_id, stored.location.timezone_id)),
 	)
 
 
 def _detection_message(failure: LocationDetectionFailure | None) -> str:
 	return {
+		LocationDetectionFailure.NO_PROVIDER: _("Windows has no available location provider. You can still choose a city or enter a custom location."),
+		LocationDetectionFailure.NO_FIX: _("The Windows location provider could not obtain a current location. Your previous location was not changed."),
 		LocationDetectionFailure.DENIED: _("Windows location permission was denied. You can still choose a city or enter a custom location."),
 		LocationDetectionFailure.UNAVAILABLE: _("Windows Location is unavailable. You can still choose a city or enter a custom location."),
 		LocationDetectionFailure.TIMEOUT: _("Location detection timed out. You can still choose a city or enter a custom location."),
@@ -125,6 +128,8 @@ class LocationControls:
 			current: StoredLocation | None) -> None:
 		self.parent = parent
 		self.service = service
+		self.language = languageHandler.getLanguage()
+		self._display_matches = {}
 		self.pending = current
 		self.matches = ()
 		self._search_generation = 0
@@ -189,7 +194,25 @@ class LocationControls:
 		finally:
 			self._updating = False
 		if self._country_code:
+			threading.Thread(target=self._load_pending_name, args=(stored,), daemon=True).start()
 			self._search()
+
+	def _load_pending_name(self, stored):
+		try:
+			with self._search_lock:
+				match = self.service.match(stored.country_code, stored.location.location_id)
+		except Exception:
+			return
+		wx.CallAfter(self._finish_pending_name, stored, match)
+
+	def _finish_pending_name(self, stored, match):
+		if not self.parent or self.pending != stored or match is None:
+			return
+		name = city_name(match, self.language)
+		self._display_matches[(match.country_code, match.location.location_id)] = match
+		if self.city.GetValue() == stored.location.name:
+			self.city.ChangeValue(name)
+		self.summary.ChangeValue(_location_summary(stored, name))
 
 	def _on_country_text(self, event):
 		if not self._updating and self.country.GetSelection() == wx.NOT_FOUND:
@@ -248,8 +271,8 @@ class LocationControls:
 		self.matches = matches
 		labels = []
 		for match in matches:
-			details = ", ".join(match.subdivisions)
-			labels.append(" — ".join(part for part in (match.location.name, details,
+			details = ", ".join(subdivisions(match, self.language))
+			labels.append(" — ".join(part for part in (city_name(match, self.language), details,
 				_(TIMEZONE_LABELS.get(match.location.timezone_id, match.location.timezone_id))) if part))
 		self._replace_items(self.city, labels)
 
@@ -259,7 +282,7 @@ class LocationControls:
 			match = self.matches[index]
 			# Results already contain validated bundled identity and coordinates.
 			self.pending = StoredLocation(LocationKind.SELECTED, match.location, match.country_code)
-			self.summary.ChangeValue(_location_summary(self.pending))
+			self.summary.ChangeValue(_location_summary(self.pending, city_name(match, self.language)))
 		event.Skip()
 
 	def _on_custom(self, event: wx.CommandEvent) -> None:
@@ -284,9 +307,10 @@ class LocationControls:
 	def _detect_worker(self) -> None:
 		with self._search_lock:
 			result = self.service.detect()
-		wx.CallAfter(self._finish_detection, result)
+			match = self.service.match(result.location.country_code, result.location.location.location_id) if result.location else None
+		wx.CallAfter(self._finish_detection, result, match)
 
-	def _finish_detection(self, result: LocationSelectionResult) -> None:
+	def _finish_detection(self, result: LocationSelectionResult, match=None) -> None:
 		if not self.parent:
 			return
 		self._detecting = False
@@ -295,7 +319,7 @@ class LocationControls:
 			country = next((_(item.name) for item in self.countries if item.code == result.location.country_code), "")
 			answer = wx.MessageBox(
 				_("Your location was detected: {city}, {country}. Use this location?").format(
-					city=result.location.location.name, country=country),
+					city=city_name(match, self.language) if match else result.location.location.name, country=country),
 				_("Location detected"), wx.YES_NO | wx.NO_DEFAULT | wx.ICON_QUESTION, self.parent)
 			if answer == wx.YES:
 				self.pending = result.location

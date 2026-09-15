@@ -202,7 +202,7 @@ class BundledWorldCoverageTests(unittest.TestCase):
 	def test_metadata_matches_every_generated_country_file_and_is_global(self) -> None:
 		metadata = json.loads((DATA_ROOT / "metadata.json").read_text(encoding="utf-8"))
 		files = sorted((DATA_ROOT / "countries").glob("*.json.gz"))
-		self.assertEqual(metadata["locationDataVersion"], "geonames-cities500-2026-09-11+sa-2026-09-12.1+spatial-1")
+		self.assertEqual(metadata["locationDataVersion"], "geonames-cities500-2026-09-11+sa-2026-09-15.2+localized-1+spatial-1")
 		self.assertEqual(metadata["countryCount"], len(files))
 		self.assertEqual(metadata["countryCount"], len(metadata["countries"]))
 		self.assertEqual(metadata["cityCount"], sum(entry["cityCount"] for entry in metadata["countries"]))

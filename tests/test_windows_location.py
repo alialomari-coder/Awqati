@@ -82,11 +82,13 @@ assert 'zoneinfo' not in sys.modules
 
 	def test_source_has_no_network_reverse_geocoder_or_continuous_monitor(self) -> None:
 		source = (PLUGIN_PACKAGES / "awqati/infrastructure/windows_location.py").read_text(encoding="utf-8").casefold()
-		for forbidden in ("http://", "https://", "urllib", "requests", "socket", "positionchanged", "registerforreport"):
+		for forbidden in ("http://", "https://", "urllib", "requests", "socket", "positionchanged"):
 			with self.subTest(forbidden=forbidden):
 				self.assertNotIn(forbidden, source)
 		self.assertIn("request_permissions", source)
-		self.assertIn("get_report", source)
+		self.assertIn("register_for_report", source)
+		self.assertIn("unregisterforreport", source)
+		self.assertIn("done.wait", source)
 
 
 if __name__ == "__main__":

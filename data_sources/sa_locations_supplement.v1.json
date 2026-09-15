@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "countryCode": "SA",
-  "version": "sa-official-review-2026-09-12.1",
-  "reviewedAt": "2026-09-12",
+  "version": "sa-official-review-2026-09-15.2",
+  "reviewedAt": "2026-09-15",
   "sources": [
     {
       "id": "ncar-regions-coding",
@@ -124,6 +124,17 @@
       "accessed": "2026-09-12",
       "fieldsUsed": [
         "official Arabic city name"
+      ]
+    },
+    {
+      "id": "hrsd-afif-2026-09-15",
+      "authority": "وزارة الموارد البشرية والتنمية الاجتماعية",
+      "title": "وحدة الخدمات المساندة للأشخاص ذوي الإعاقة للذكور عفيف",
+      "url": "https://www.hrsd.gov.sa/contact-us/branch-directory/1-337",
+      "accessed": "2026-09-15",
+      "fieldsUsed": [
+        "Arabic place name: عفيف",
+        "region: الرياض"
       ]
     }
   ],
@@ -564,6 +575,17 @@
       "sourceRefs": [
         "ncar-regions-coding"
       ]
+    },
+    {
+      "geonameId": "110250",
+      "arabicNames": [
+        "عفيف"
+      ],
+      "englishNames": [],
+      "sourceRefs": [
+        "hrsd-afif-2026-09-15"
+      ],
+      "note": "GeoNames ar alternate 3688458 is Latin-script ‘Afīf; use the documented Arabic name, preserving the original identity."
     }
   ],
   "additions": [

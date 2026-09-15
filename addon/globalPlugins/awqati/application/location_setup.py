@@ -53,6 +53,9 @@ class LocationSetupService:
 	def timezone_ids(self) -> tuple[str, ...]:
 		return self._timezones.timezone_ids()
 
+	def match(self, country_code: str, location_id: str) -> LocationMatch | None:
+		return self._repository.get(country_code, location_id)
+
 	def selected(self, country_code: str, location_id: str) -> StoredLocation:
 		match = self._repository.get(country_code, location_id)
 		if match is None:

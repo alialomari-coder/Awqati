@@ -15,6 +15,7 @@ import wx.adv
 import ui as nvda_ui
 
 from .preview import preview_text
+from .native_accessibility import set_spin_name
 from ..application.settings_preview import PreviewLocationRequired
 from gui.settingsDialogs import SettingsPanel
 
@@ -80,6 +81,16 @@ DHIKR_LABELS = {
 }
 
 
+TIMED_ALERT_LABELS = {
+	"afterFajr": (N_("Alert after Fajr:"), N_("Alert after Fajr, minutes")),
+	"beforeSunrise": (N_("Alert before sunrise:"), N_("Alert before sunrise, minutes")),
+	"afterSunrise": (N_("Alert after sunrise:"), N_("Alert after sunrise, minutes")),
+	"afterAsr": (N_("Alert after Asr:"), N_("Alert after Asr, minutes")),
+	"beforeMaghrib": (N_("Alert before Maghrib:"), N_("Alert before Maghrib, minutes")),
+	"afterMaghrib": (N_("Alert after Maghrib:"), N_("Alert after Maghrib, minutes")),
+}
+
+
 def _translated(values: Sequence, labels: dict) -> list[str]:
 	return [_(labels[value]) for value in values]
 
@@ -94,9 +105,13 @@ def _choice(parent: wx.Window, sizer: wx.Sizer, label: str, values: Sequence,
 
 
 def _spin(parent: wx.Window, sizer: wx.Sizer, label: str, value: int,
-		minimum: int, maximum: int) -> wx.SpinCtrl:
-	sizer.Add(wx.StaticText(parent, label=_(label)), flag=wx.ALIGN_CENTER_VERTICAL)
-	control = wx.SpinCtrl(parent, min=minimum, max=maximum, initial=value, name=_(label).rstrip(":"))
+		minimum: int, maximum: int, accessible_name: str | None = None) -> wx.SpinCtrl:
+	text = wx.StaticText(parent, label=_(label))
+	sizer.Add(text, flag=wx.ALIGN_CENTER_VERTICAL)
+	control = wx.SpinCtrl(parent, min=minimum, max=maximum, initial=value, name=_(accessible_name or label).rstrip(":"))
+	control.awqati_label = text
+	if accessible_name:
+		set_spin_name(control, _(accessible_name))
 	sizer.Add(control, flag=wx.EXPAND)
 	return control
 
@@ -427,7 +442,7 @@ class AwqatiSettingsPanel(SettingsPanel):
 		correction = _spin(panel, grid, N_("Time correction, minutes:"), self._draft.settings.prayer.corrections_minutes[name], -30, 30)
 		self._register("prayer.correction", correction)
 		correction.Bind(wx.EVT_SPINCTRL, lambda e: (self._draft.settings.prayer.corrections_minutes.__setitem__(name, correction.GetValue()), e.Skip()))
-		pre = _spin(panel, grid, N_("Alert lead time before the event, minutes:"), event_settings.pre_alert_minutes, 0, 180)
+		pre = _spin(panel, grid, N_("Alert before the event:"), event_settings.pre_alert_minutes, 0, 180, N_("Alert before the event, minutes"))
 		self._register("prayer.preMinutes", pre)
 		pre.Bind(wx.EVT_SPINCTRL, lambda e: (setattr(event_settings, "pre_alert_minutes", pre.GetValue()), e.Skip()))
 		AlertOutputEditor(panel, grid, N_("Alert action before the event:"), event_settings.pre_alert, PRAYER_ACTIONS,
@@ -444,7 +459,7 @@ class AwqatiSettingsPanel(SettingsPanel):
 			AlertOutputEditor(panel, grid, N_("Alert action before Iqama:"), event_settings.iqama.alert, PRAYER_ACTIONS,
 				"adhan", self._layout, self._sound_staging, self._register, "prayer.iqama", _("Before Iqama — {time}").format(time=_(PRAYER_LABELS[name])))
 		else:
-			post = _spin(panel, grid, N_("Alert delay after the event, minutes:"), event_settings.post_alert_minutes, 0, 180)
+			post = _spin(panel, grid, N_("Alert after the event:"), event_settings.post_alert_minutes, 0, 180, N_("Alert after the event, minutes"))
 			self._register("prayer.postMinutes", post)
 			post.Bind(wx.EVT_SPINCTRL, lambda e: (setattr(event_settings, "post_alert_minutes", post.GetValue()), e.Skip()))
 			AlertOutputEditor(panel, grid, N_("Alert action after the event:"), event_settings.post_alert, PRAYER_ACTIONS,
@@ -610,14 +625,23 @@ class AwqatiSettingsPanel(SettingsPanel):
 		elif key=="evening":values=tuple(EveningReference);labels={EveningReference.AFTER_ASR:N_("After Asr"),EveningReference.BEFORE_MAGHRIB:N_("Before Maghrib"),EveningReference.AFTER_MAGHRIB:N_("After Maghrib")}
 		else:values=tuple(FridayReference);labels={FridayReference.AFTER_ASR:N_("After Asr"),FridayReference.BEFORE_MAGHRIB:N_("Before Maghrib")}
 		reference_label={"morning":N_("Morning Dhikr reference time:"),"evening":N_("Evening Dhikr reference time:"),"friday":N_("Friday hour reference time:")}[key]
-		minutes_label={"morning":N_("Morning Dhikr offset, minutes:"),"evening":N_("Evening Dhikr offset, minutes:"),"friday":N_("Friday hour offset, minutes:")}[key]
-		action_label={"morning":N_("Morning Dhikr alert action:"),"evening":N_("Evening Dhikr alert action:"),"friday":N_("Friday hour alert action:")}[key]
-		reference=_choice(panel,grid,reference_label,values,labels,value.reference);reference.Bind(wx.EVT_CHOICE,lambda e:(setattr(value,"reference",values[reference.GetSelection()]),e.Skip()))
-		minutes=_spin(panel,grid,minutes_label,value.minutes,0,180);minutes.Bind(wx.EVT_SPINCTRL,lambda e:(setattr(value,"minutes",minutes.GetValue()),e.Skip()))
+		reference = _choice(panel, grid, reference_label, values, labels, value.reference)
+		label, name = TIMED_ALERT_LABELS[value.reference.value]
+		minutes = _spin(panel, grid, label, value.minutes, 0, 180, name)
+		minutes.Bind(wx.EVT_SPINCTRL, lambda e: (setattr(value, "minutes", minutes.GetValue()), e.Skip()))
+		def change_reference(event):
+			value.reference = values[reference.GetSelection()]
+			label, name = TIMED_ALERT_LABELS[value.reference.value]
+			minutes.awqati_label.SetLabel(_(label))
+			set_spin_name(minutes, _(name))
+			panel.Layout()
+			event.Skip()
+		reference.Bind(wx.EVT_CHOICE, change_reference)
+		action_label = N_("Alert action:")
 		self._register(f"{key}.reference", reference)
 		self._register(f"{key}.minutes", minutes)
 		AlertOutputEditor(panel, grid, action_label, value.alert, STANDARD_ALERT_ACTIONS,
-			"adhkar", self._layout, self._sound_staging, self._register, key)
+			"adhkar", self._layout, self._sound_staging, self._register, key, _(reference_label).rstrip(":"))
 
 	def _build_wird(self,panel,grid,value)->None:
 		grid.Add(wx.StaticText(panel,label=_("Daily Wird reminder text:")),flag=wx.ALIGN_CENTER_VERTICAL);text=wx.TextCtrl(panel,value=value.text,name=_("Daily Wird reminder text"));grid.Add(text,flag=wx.EXPAND);text.Bind(wx.EVT_TEXT,lambda e:(setattr(value,"text",text.GetValue()),e.Skip()))

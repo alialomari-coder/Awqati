@@ -1,0 +1,1711 @@
+{
+  "schemaVersion": 1,
+  "locationDataVersion": "geonames-cities500-2026-09-11+sa-2026-09-15.2+localized-1+spatial-1",
+  "totalCities": 235757,
+  "withArabicName": 22847,
+  "coveragePercent": 9.6909,
+  "withoutArabicName": 212910,
+  "cityRecordsWithArabicAdmin1": 176338,
+  "cityRecordsWithArabicAdmin2": 41613,
+  "countryCount": 246,
+  "countries": [
+    {
+      "countryCode": "AD",
+      "total": 20,
+      "withArabicName": 7,
+      "withoutArabicName": 13
+    },
+    {
+      "countryCode": "AE",
+      "total": 107,
+      "withArabicName": 58,
+      "withoutArabicName": 49
+    },
+    {
+      "countryCode": "AF",
+      "total": 320,
+      "withArabicName": 286,
+      "withoutArabicName": 34
+    },
+    {
+      "countryCode": "AG",
+      "total": 41,
+      "withArabicName": 7,
+      "withoutArabicName": 34
+    },
+    {
+      "countryCode": "AI",
+      "total": 14,
+      "withArabicName": 13,
+      "withoutArabicName": 1
+    },
+    {
+      "countryCode": "AL",
+      "total": 419,
+      "withArabicName": 36,
+      "withoutArabicName": 383
+    },
+    {
+      "countryCode": "AM",
+      "total": 625,
+      "withArabicName": 36,
+      "withoutArabicName": 589
+    },
+    {
+      "countryCode": "AO",
+      "total": 565,
+      "withArabicName": 20,
+      "withoutArabicName": 545
+    },
+    {
+      "countryCode": "AR",
+      "total": 1205,
+      "withArabicName": 513,
+      "withoutArabicName": 692
+    },
+    {
+      "countryCode": "AS",
+      "total": 28,
+      "withArabicName": 4,
+      "withoutArabicName": 24
+    },
+    {
+      "countryCode": "AT",
+      "total": 3045,
+      "withArabicName": 43,
+      "withoutArabicName": 3002
+    },
+    {
+      "countryCode": "AU",
+      "total": 4901,
+      "withArabicName": 99,
+      "withoutArabicName": 4802
+    },
+    {
+      "countryCode": "AW",
+      "total": 14,
+      "withArabicName": 1,
+      "withoutArabicName": 13
+    },
+    {
+      "countryCode": "AX",
+      "total": 21,
+      "withArabicName": 13,
+      "withoutArabicName": 8
+    },
+    {
+      "countryCode": "AZ",
+      "total": 245,
+      "withArabicName": 84,
+      "withoutArabicName": 161
+    },
+    {
+      "countryCode": "BA",
+      "total": 313,
+      "withArabicName": 70,
+      "withoutArabicName": 243
+    },
+    {
+      "countryCode": "BB",
+      "total": 16,
+      "withArabicName": 10,
+      "withoutArabicName": 6
+    },
+    {
+      "countryCode": "BD",
+      "total": 164,
+      "withArabicName": 18,
+      "withoutArabicName": 146
+    },
+    {
+      "countryCode": "BE",
+      "total": 2256,
+      "withArabicName": 38,
+      "withoutArabicName": 2218
+    },
+    {
+      "countryCode": "BF",
+      "total": 118,
+      "withArabicName": 45,
+      "withoutArabicName": 73
+    },
+    {
+      "countryCode": "BG",
+      "total": 333,
+      "withArabicName": 100,
+      "withoutArabicName": 233
+    },
+    {
+      "countryCode": "BH",
+      "total": 12,
+      "withArabicName": 12,
+      "withoutArabicName": 0
+    },
+    {
+      "countryCode": "BI",
+      "total": 33,
+      "withArabicName": 14,
+      "withoutArabicName": 19
+    },
+    {
+      "countryCode": "BJ",
+      "total": 87,
+      "withArabicName": 11,
+      "withoutArabicName": 76
+    },
+    {
+      "countryCode": "BL",
+      "total": 1,
+      "withArabicName": 0,
+      "withoutArabicName": 1
+    },
+    {
+      "countryCode": "BM",
+      "total": 12,
+      "withArabicName": 1,
+      "withoutArabicName": 11
+    },
+    {
+      "countryCode": "BN",
+      "total": 63,
+      "withArabicName": 4,
+      "withoutArabicName": 59
+    },
+    {
+      "countryCode": "BO",
+      "total": 183,
+      "withArabicName": 26,
+      "withoutArabicName": 157
+    },
+    {
+      "countryCode": "BQ",
+      "total": 10,
+      "withArabicName": 3,
+      "withoutArabicName": 7
+    },
+    {
+      "countryCode": "BR",
+      "total": 5897,
+      "withArabicName": 53,
+      "withoutArabicName": 5844
+    },
+    {
+      "countryCode": "BS",
+      "total": 28,
+      "withArabicName": 21,
+      "withoutArabicName": 7
+    },
+    {
+      "countryCode": "BT",
+      "total": 34,
+      "withArabicName": 21,
+      "withoutArabicName": 13
+    },
+    {
+      "countryCode": "BW",
+      "total": 139,
+      "withArabicName": 12,
+      "withoutArabicName": 127
+    },
+    {
+      "countryCode": "BY",
+      "total": 314,
+      "withArabicName": 11,
+      "withoutArabicName": 303
+    },
+    {
+      "countryCode": "BZ",
+      "total": 138,
+      "withArabicName": 6,
+      "withoutArabicName": 132
+    },
+    {
+      "countryCode": "CA",
+      "total": 3296,
+      "withArabicName": 355,
+      "withoutArabicName": 2941
+    },
+    {
+      "countryCode": "CC",
+      "total": 1,
+      "withArabicName": 0,
+      "withoutArabicName": 1
+    },
+    {
+      "countryCode": "CD",
+      "total": 118,
+      "withArabicName": 32,
+      "withoutArabicName": 86
+    },
+    {
+      "countryCode": "CF",
+      "total": 51,
+      "withArabicName": 21,
+      "withoutArabicName": 30
+    },
+    {
+      "countryCode": "CG",
+      "total": 60,
+      "withArabicName": 13,
+      "withoutArabicName": 47
+    },
+    {
+      "countryCode": "CH",
+      "total": 1897,
+      "withArabicName": 103,
+      "withoutArabicName": 1794
+    },
+    {
+      "countryCode": "CI",
+      "total": 5136,
+      "withArabicName": 14,
+      "withoutArabicName": 5122
+    },
+    {
+      "countryCode": "CK",
+      "total": 2,
+      "withArabicName": 1,
+      "withoutArabicName": 1
+    },
+    {
+      "countryCode": "CL",
+      "total": 315,
+      "withArabicName": 59,
+      "withoutArabicName": 256
+    },
+    {
+      "countryCode": "CM",
+      "total": 145,
+      "withArabicName": 13,
+      "withoutArabicName": 132
+    },
+    {
+      "countryCode": "CN",
+      "total": 16055,
+      "withArabicName": 78,
+      "withoutArabicName": 15977
+    },
+    {
+      "countryCode": "CO",
+      "total": 1180,
+      "withArabicName": 33,
+      "withoutArabicName": 1147
+    },
+    {
+      "countryCode": "CR",
+      "total": 137,
+      "withArabicName": 8,
+      "withoutArabicName": 129
+    },
+    {
+      "countryCode": "CU",
+      "total": 211,
+      "withArabicName": 16,
+      "withoutArabicName": 195
+    },
+    {
+      "countryCode": "CV",
+      "total": 228,
+      "withArabicName": 20,
+      "withoutArabicName": 208
+    },
+    {
+      "countryCode": "CW",
+      "total": 14,
+      "withArabicName": 1,
+      "withoutArabicName": 13
+    },
+    {
+      "countryCode": "CX",
+      "total": 1,
+      "withArabicName": 1,
+      "withoutArabicName": 0
+    },
+    {
+      "countryCode": "CY",
+      "total": 132,
+      "withArabicName": 6,
+      "withoutArabicName": 126
+    },
+    {
+      "countryCode": "CZ",
+      "total": 2772,
+      "withArabicName": 56,
+      "withoutArabicName": 2716
+    },
+    {
+      "countryCode": "DE",
+      "total": 11920,
+      "withArabicName": 1568,
+      "withoutArabicName": 10352
+    },
+    {
+      "countryCode": "DJ",
+      "total": 32,
+      "withArabicName": 19,
+      "withoutArabicName": 13
+    },
+    {
+      "countryCode": "DK",
+      "total": 507,
+      "withArabicName": 18,
+      "withoutArabicName": 489
+    },
+    {
+      "countryCode": "DM",
+      "total": 20,
+      "withArabicName": 10,
+      "withoutArabicName": 10
+    },
+    {
+      "countryCode": "DO",
+      "total": 214,
+      "withArabicName": 31,
+      "withoutArabicName": 183
+    },
+    {
+      "countryCode": "DZ",
+      "total": 353,
+      "withArabicName": 151,
+      "withoutArabicName": 202
+    },
+    {
+      "countryCode": "EC",
+      "total": 542,
+      "withArabicName": 29,
+      "withoutArabicName": 513
+    },
+    {
+      "countryCode": "EE",
+      "total": 218,
+      "withArabicName": 6,
+      "withoutArabicName": 212
+    },
+    {
+      "countryCode": "EG",
+      "total": 260,
+      "withArabicName": 214,
+      "withoutArabicName": 46
+    },
+    {
+      "countryCode": "EH",
+      "total": 27,
+      "withArabicName": 17,
+      "withoutArabicName": 10
+    },
+    {
+      "countryCode": "ER",
+      "total": 19,
+      "withArabicName": 13,
+      "withoutArabicName": 6
+    },
+    {
+      "countryCode": "ES",
+      "total": 7421,
+      "withArabicName": 584,
+      "withoutArabicName": 6837
+    },
+    {
+      "countryCode": "ET",
+      "total": 255,
+      "withArabicName": 15,
+      "withoutArabicName": 240
+    },
+    {
+      "countryCode": "FI",
+      "total": 930,
+      "withArabicName": 53,
+      "withoutArabicName": 877
+    },
+    {
+      "countryCode": "FJ",
+      "total": 16,
+      "withArabicName": 4,
+      "withoutArabicName": 12
+    },
+    {
+      "countryCode": "FK",
+      "total": 1,
+      "withArabicName": 1,
+      "withoutArabicName": 0
+    },
+    {
+      "countryCode": "FM",
+      "total": 62,
+      "withArabicName": 0,
+      "withoutArabicName": 62
+    },
+    {
+      "countryCode": "FO",
+      "total": 35,
+      "withArabicName": 4,
+      "withoutArabicName": 31
+    },
+    {
+      "countryCode": "FR",
+      "total": 15363,
+      "withArabicName": 711,
+      "withoutArabicName": 14652
+    },
+    {
+      "countryCode": "GA",
+      "total": 50,
+      "withArabicName": 4,
+      "withoutArabicName": 46
+    },
+    {
+      "countryCode": "GB",
+      "total": 5918,
+      "withArabicName": 247,
+      "withoutArabicName": 5671
+    },
+    {
+      "countryCode": "GD",
+      "total": 10,
+      "withArabicName": 0,
+      "withoutArabicName": 10
+    },
+    {
+      "countryCode": "GE",
+      "total": 218,
+      "withArabicName": 8,
+      "withoutArabicName": 210
+    },
+    {
+      "countryCode": "GF",
+      "total": 20,
+      "withArabicName": 6,
+      "withoutArabicName": 14
+    },
+    {
+      "countryCode": "GG",
+      "total": 12,
+      "withArabicName": 1,
+      "withoutArabicName": 11
+    },
+    {
+      "countryCode": "GH",
+      "total": 120,
+      "withArabicName": 9,
+      "withoutArabicName": 111
+    },
+    {
+      "countryCode": "GI",
+      "total": 7,
+      "withArabicName": 1,
+      "withoutArabicName": 6
+    },
+    {
+      "countryCode": "GL",
+      "total": 18,
+      "withArabicName": 13,
+      "withoutArabicName": 5
+    },
+    {
+      "countryCode": "GM",
+      "total": 180,
+      "withArabicName": 5,
+      "withoutArabicName": 175
+    },
+    {
+      "countryCode": "GN",
+      "total": 83,
+      "withArabicName": 1,
+      "withoutArabicName": 82
+    },
+    {
+      "countryCode": "GP",
+      "total": 25,
+      "withArabicName": 15,
+      "withoutArabicName": 10
+    },
+    {
+      "countryCode": "GQ",
+      "total": 27,
+      "withArabicName": 4,
+      "withoutArabicName": 23
+    },
+    {
+      "countryCode": "GR",
+      "total": 1986,
+      "withArabicName": 112,
+      "withoutArabicName": 1874
+    },
+    {
+      "countryCode": "GS",
+      "total": 1,
+      "withArabicName": 0,
+      "withoutArabicName": 1
+    },
+    {
+      "countryCode": "GT",
+      "total": 340,
+      "withArabicName": 1,
+      "withoutArabicName": 339
+    },
+    {
+      "countryCode": "GU",
+      "total": 28,
+      "withArabicName": 1,
+      "withoutArabicName": 27
+    },
+    {
+      "countryCode": "GW",
+      "total": 52,
+      "withArabicName": 2,
+      "withoutArabicName": 50
+    },
+    {
+      "countryCode": "GY",
+      "total": 23,
+      "withArabicName": 2,
+      "withoutArabicName": 21
+    },
+    {
+      "countryCode": "HK",
+      "total": 325,
+      "withArabicName": 4,
+      "withoutArabicName": 321
+    },
+    {
+      "countryCode": "HN",
+      "total": 544,
+      "withArabicName": 2,
+      "withoutArabicName": 542
+    },
+    {
+      "countryCode": "HR",
+      "total": 1215,
+      "withArabicName": 23,
+      "withoutArabicName": 1192
+    },
+    {
+      "countryCode": "HT",
+      "total": 114,
+      "withArabicName": 2,
+      "withoutArabicName": 112
+    },
+    {
+      "countryCode": "HU",
+      "total": 1226,
+      "withArabicName": 16,
+      "withoutArabicName": 1210
+    },
+    {
+      "countryCode": "ID",
+      "total": 9302,
+      "withArabicName": 31,
+      "withoutArabicName": 9271
+    },
+    {
+      "countryCode": "IE",
+      "total": 566,
+      "withArabicName": 25,
+      "withoutArabicName": 541
+    },
+    {
+      "countryCode": "IL",
+      "total": 724,
+      "withArabicName": 227,
+      "withoutArabicName": 497
+    },
+    {
+      "countryCode": "IM",
+      "total": 21,
+      "withArabicName": 1,
+      "withoutArabicName": 20
+    },
+    {
+      "countryCode": "IN",
+      "total": 7114,
+      "withArabicName": 162,
+      "withoutArabicName": 6952
+    },
+    {
+      "countryCode": "IO",
+      "total": 2,
+      "withArabicName": 0,
+      "withoutArabicName": 2
+    },
+    {
+      "countryCode": "IQ",
+      "total": 173,
+      "withArabicName": 160,
+      "withoutArabicName": 13
+    },
+    {
+      "countryCode": "IR",
+      "total": 2646,
+      "withArabicName": 65,
+      "withoutArabicName": 2581
+    },
+    {
+      "countryCode": "IS",
+      "total": 50,
+      "withArabicName": 5,
+      "withoutArabicName": 45
+    },
+    {
+      "countryCode": "IT",
+      "total": 11856,
+      "withArabicName": 195,
+      "withoutArabicName": 11661
+    },
+    {
+      "countryCode": "JE",
+      "total": 6,
+      "withArabicName": 0,
+      "withoutArabicName": 6
+    },
+    {
+      "countryCode": "JM",
+      "total": 104,
+      "withArabicName": 4,
+      "withoutArabicName": 100
+    },
+    {
+      "countryCode": "JO",
+      "total": 148,
+      "withArabicName": 140,
+      "withoutArabicName": 8
+    },
+    {
+      "countryCode": "JP",
+      "total": 2190,
+      "withArabicName": 431,
+      "withoutArabicName": 1759
+    },
+    {
+      "countryCode": "KE",
+      "total": 336,
+      "withArabicName": 17,
+      "withoutArabicName": 319
+    },
+    {
+      "countryCode": "KG",
+      "total": 112,
+      "withArabicName": 10,
+      "withoutArabicName": 102
+    },
+    {
+      "countryCode": "KH",
+      "total": 341,
+      "withArabicName": 25,
+      "withoutArabicName": 316
+    },
+    {
+      "countryCode": "KI",
+      "total": 37,
+      "withArabicName": 0,
+      "withoutArabicName": 37
+    },
+    {
+      "countryCode": "KM",
+      "total": 119,
+      "withArabicName": 28,
+      "withoutArabicName": 91
+    },
+    {
+      "countryCode": "KN",
+      "total": 18,
+      "withArabicName": 15,
+      "withoutArabicName": 3
+    },
+    {
+      "countryCode": "KP",
+      "total": 127,
+      "withArabicName": 13,
+      "withoutArabicName": 114
+    },
+    {
+      "countryCode": "KR",
+      "total": 311,
+      "withArabicName": 20,
+      "withoutArabicName": 291
+    },
+    {
+      "countryCode": "KW",
+      "total": 28,
+      "withArabicName": 25,
+      "withoutArabicName": 3
+    },
+    {
+      "countryCode": "KY",
+      "total": 72,
+      "withArabicName": 6,
+      "withoutArabicName": 66
+    },
+    {
+      "countryCode": "KZ",
+      "total": 352,
+      "withArabicName": 27,
+      "withoutArabicName": 325
+    },
+    {
+      "countryCode": "LA",
+      "total": 117,
+      "withArabicName": 17,
+      "withoutArabicName": 100
+    },
+    {
+      "countryCode": "LB",
+      "total": 52,
+      "withArabicName": 45,
+      "withoutArabicName": 7
+    },
+    {
+      "countryCode": "LC",
+      "total": 38,
+      "withArabicName": 9,
+      "withoutArabicName": 29
+    },
+    {
+      "countryCode": "LI",
+      "total": 14,
+      "withArabicName": 10,
+      "withoutArabicName": 4
+    },
+    {
+      "countryCode": "LK",
+      "total": 89,
+      "withArabicName": 25,
+      "withoutArabicName": 64
+    },
+    {
+      "countryCode": "LR",
+      "total": 27,
+      "withArabicName": 17,
+      "withoutArabicName": 10
+    },
+    {
+      "countryCode": "LS",
+      "total": 47,
+      "withArabicName": 9,
+      "withoutArabicName": 38
+    },
+    {
+      "countryCode": "LT",
+      "total": 164,
+      "withArabicName": 36,
+      "withoutArabicName": 128
+    },
+    {
+      "countryCode": "LU",
+      "total": 235,
+      "withArabicName": 8,
+      "withoutArabicName": 227
+    },
+    {
+      "countryCode": "LV",
+      "total": 147,
+      "withArabicName": 49,
+      "withoutArabicName": 98
+    },
+    {
+      "countryCode": "LY",
+      "total": 119,
+      "withArabicName": 91,
+      "withoutArabicName": 28
+    },
+    {
+      "countryCode": "MA",
+      "total": 480,
+      "withArabicName": 57,
+      "withoutArabicName": 423
+    },
+    {
+      "countryCode": "MC",
+      "total": 12,
+      "withArabicName": 0,
+      "withoutArabicName": 12
+    },
+    {
+      "countryCode": "MD",
+      "total": 101,
+      "withArabicName": 38,
+      "withoutArabicName": 63
+    },
+    {
+      "countryCode": "ME",
+      "total": 66,
+      "withArabicName": 14,
+      "withoutArabicName": 52
+    },
+    {
+      "countryCode": "MF",
+      "total": 9,
+      "withArabicName": 0,
+      "withoutArabicName": 9
+    },
+    {
+      "countryCode": "MG",
+      "total": 152,
+      "withArabicName": 31,
+      "withoutArabicName": 121
+    },
+    {
+      "countryCode": "MH",
+      "total": 26,
+      "withArabicName": 23,
+      "withoutArabicName": 3
+    },
+    {
+      "countryCode": "MK",
+      "total": 302,
+      "withArabicName": 71,
+      "withoutArabicName": 231
+    },
+    {
+      "countryCode": "ML",
+      "total": 94,
+      "withArabicName": 13,
+      "withoutArabicName": 81
+    },
+    {
+      "countryCode": "MM",
+      "total": 576,
+      "withArabicName": 27,
+      "withoutArabicName": 549
+    },
+    {
+      "countryCode": "MN",
+      "total": 332,
+      "withArabicName": 22,
+      "withoutArabicName": 310
+    },
+    {
+      "countryCode": "MO",
+      "total": 8,
+      "withArabicName": 1,
+      "withoutArabicName": 7
+    },
+    {
+      "countryCode": "MP",
+      "total": 10,
+      "withArabicName": 1,
+      "withoutArabicName": 9
+    },
+    {
+      "countryCode": "MQ",
+      "total": 23,
+      "withArabicName": 1,
+      "withoutArabicName": 22
+    },
+    {
+      "countryCode": "MR",
+      "total": 88,
+      "withArabicName": 26,
+      "withoutArabicName": 62
+    },
+    {
+      "countryCode": "MS",
+      "total": 4,
+      "withArabicName": 2,
+      "withoutArabicName": 2
+    },
+    {
+      "countryCode": "MT",
+      "total": 70,
+      "withArabicName": 63,
+      "withoutArabicName": 7
+    },
+    {
+      "countryCode": "MU",
+      "total": 116,
+      "withArabicName": 15,
+      "withoutArabicName": 101
+    },
+    {
+      "countryCode": "MV",
+      "total": 34,
+      "withArabicName": 18,
+      "withoutArabicName": 16
+    },
+    {
+      "countryCode": "MW",
+      "total": 39,
+      "withArabicName": 3,
+      "withoutArabicName": 36
+    },
+    {
+      "countryCode": "MX",
+      "total": 16880,
+      "withArabicName": 61,
+      "withoutArabicName": 16819
+    },
+    {
+      "countryCode": "MY",
+      "total": 740,
+      "withArabicName": 30,
+      "withoutArabicName": 710
+    },
+    {
+      "countryCode": "MZ",
+      "total": 94,
+      "withArabicName": 14,
+      "withoutArabicName": 80
+    },
+    {
+      "countryCode": "NA",
+      "total": 93,
+      "withArabicName": 19,
+      "withoutArabicName": 74
+    },
+    {
+      "countryCode": "NC",
+      "total": 63,
+      "withArabicName": 4,
+      "withoutArabicName": 59
+    },
+    {
+      "countryCode": "NE",
+      "total": 74,
+      "withArabicName": 10,
+      "withoutArabicName": 64
+    },
+    {
+      "countryCode": "NF",
+      "total": 1,
+      "withArabicName": 1,
+      "withoutArabicName": 0
+    },
+    {
+      "countryCode": "NG",
+      "total": 927,
+      "withArabicName": 41,
+      "withoutArabicName": 886
+    },
+    {
+      "countryCode": "NI",
+      "total": 168,
+      "withArabicName": 17,
+      "withoutArabicName": 151
+    },
+    {
+      "countryCode": "NL",
+      "total": 2029,
+      "withArabicName": 126,
+      "withoutArabicName": 1903
+    },
+    {
+      "countryCode": "NO",
+      "total": 632,
+      "withArabicName": 30,
+      "withoutArabicName": 602
+    },
+    {
+      "countryCode": "NP",
+      "total": 84,
+      "withArabicName": 10,
+      "withoutArabicName": 74
+    },
+    {
+      "countryCode": "NR",
+      "total": 15,
+      "withArabicName": 7,
+      "withoutArabicName": 8
+    },
+    {
+      "countryCode": "NU",
+      "total": 1,
+      "withArabicName": 0,
+      "withoutArabicName": 1
+    },
+    {
+      "countryCode": "NZ",
+      "total": 732,
+      "withArabicName": 25,
+      "withoutArabicName": 707
+    },
+    {
+      "countryCode": "OM",
+      "total": 39,
+      "withArabicName": 31,
+      "withoutArabicName": 8
+    },
+    {
+      "countryCode": "PA",
+      "total": 801,
+      "withArabicName": 12,
+      "withoutArabicName": 789
+    },
+    {
+      "countryCode": "PE",
+      "total": 2296,
+      "withArabicName": 28,
+      "withoutArabicName": 2268
+    },
+    {
+      "countryCode": "PF",
+      "total": 45,
+      "withArabicName": 4,
+      "withoutArabicName": 41
+    },
+    {
+      "countryCode": "PG",
+      "total": 59,
+      "withArabicName": 22,
+      "withoutArabicName": 37
+    },
+    {
+      "countryCode": "PH",
+      "total": 4530,
+      "withArabicName": 32,
+      "withoutArabicName": 4498
+    },
+    {
+      "countryCode": "PK",
+      "total": 572,
+      "withArabicName": 43,
+      "withoutArabicName": 529
+    },
+    {
+      "countryCode": "PL",
+      "total": 3868,
+      "withArabicName": 64,
+      "withoutArabicName": 3804
+    },
+    {
+      "countryCode": "PM",
+      "total": 2,
+      "withArabicName": 1,
+      "withoutArabicName": 1
+    },
+    {
+      "countryCode": "PN",
+      "total": 1,
+      "withArabicName": 1,
+      "withoutArabicName": 0
+    },
+    {
+      "countryCode": "PR",
+      "total": 227,
+      "withArabicName": 78,
+      "withoutArabicName": 149
+    },
+    {
+      "countryCode": "PS",
+      "total": 448,
+      "withArabicName": 401,
+      "withoutArabicName": 47
+    },
+    {
+      "countryCode": "PT",
+      "total": 1079,
+      "withArabicName": 33,
+      "withoutArabicName": 1046
+    },
+    {
+      "countryCode": "PW",
+      "total": 29,
+      "withArabicName": 16,
+      "withoutArabicName": 13
+    },
+    {
+      "countryCode": "PY",
+      "total": 173,
+      "withArabicName": 22,
+      "withoutArabicName": 151
+    },
+    {
+      "countryCode": "QA",
+      "total": 43,
+      "withArabicName": 42,
+      "withoutArabicName": 1
+    },
+    {
+      "countryCode": "RE",
+      "total": 28,
+      "withArabicName": 0,
+      "withoutArabicName": 28
+    },
+    {
+      "countryCode": "RO",
+      "total": 7149,
+      "withArabicName": 50,
+      "withoutArabicName": 7099
+    },
+    {
+      "countryCode": "RS",
+      "total": 492,
+      "withArabicName": 60,
+      "withoutArabicName": 432
+    },
+    {
+      "countryCode": "RU",
+      "total": 5324,
+      "withArabicName": 714,
+      "withoutArabicName": 4610
+    },
+    {
+      "countryCode": "RW",
+      "total": 51,
+      "withArabicName": 6,
+      "withoutArabicName": 45
+    },
+    {
+      "countryCode": "SA",
+      "total": 183,
+      "withArabicName": 182,
+      "withoutArabicName": 1
+    },
+    {
+      "countryCode": "SB",
+      "total": 23,
+      "withArabicName": 8,
+      "withoutArabicName": 15
+    },
+    {
+      "countryCode": "SC",
+      "total": 26,
+      "withArabicName": 9,
+      "withoutArabicName": 17
+    },
+    {
+      "countryCode": "SD",
+      "total": 112,
+      "withArabicName": 48,
+      "withoutArabicName": 64
+    },
+    {
+      "countryCode": "SE",
+      "total": 1326,
+      "withArabicName": 76,
+      "withoutArabicName": 1250
+    },
+    {
+      "countryCode": "SG",
+      "total": 121,
+      "withArabicName": 1,
+      "withoutArabicName": 120
+    },
+    {
+      "countryCode": "SH",
+      "total": 6,
+      "withArabicName": 3,
+      "withoutArabicName": 3
+    },
+    {
+      "countryCode": "SI",
+      "total": 602,
+      "withArabicName": 187,
+      "withoutArabicName": 415
+    },
+    {
+      "countryCode": "SJ",
+      "total": 2,
+      "withArabicName": 2,
+      "withoutArabicName": 0
+    },
+    {
+      "countryCode": "SK",
+      "total": 831,
+      "withArabicName": 97,
+      "withoutArabicName": 734
+    },
+    {
+      "countryCode": "SL",
+      "total": 88,
+      "withArabicName": 8,
+      "withoutArabicName": 80
+    },
+    {
+      "countryCode": "SM",
+      "total": 15,
+      "withArabicName": 9,
+      "withoutArabicName": 6
+    },
+    {
+      "countryCode": "SN",
+      "total": 157,
+      "withArabicName": 19,
+      "withoutArabicName": 138
+    },
+    {
+      "countryCode": "SO",
+      "total": 76,
+      "withArabicName": 29,
+      "withoutArabicName": 47
+    },
+    {
+      "countryCode": "SR",
+      "total": 35,
+      "withArabicName": 9,
+      "withoutArabicName": 26
+    },
+    {
+      "countryCode": "SS",
+      "total": 23,
+      "withArabicName": 17,
+      "withoutArabicName": 6
+    },
+    {
+      "countryCode": "ST",
+      "total": 51,
+      "withArabicName": 2,
+      "withoutArabicName": 49
+    },
+    {
+      "countryCode": "SV",
+      "total": 102,
+      "withArabicName": 14,
+      "withoutArabicName": 88
+    },
+    {
+      "countryCode": "SX",
+      "total": 7,
+      "withArabicName": 1,
+      "withoutArabicName": 6
+    },
+    {
+      "countryCode": "SY",
+      "total": 310,
+      "withArabicName": 308,
+      "withoutArabicName": 2
+    },
+    {
+      "countryCode": "SZ",
+      "total": 25,
+      "withArabicName": 6,
+      "withoutArabicName": 19
+    },
+    {
+      "countryCode": "TC",
+      "total": 11,
+      "withArabicName": 0,
+      "withoutArabicName": 11
+    },
+    {
+      "countryCode": "TD",
+      "total": 74,
+      "withArabicName": 39,
+      "withoutArabicName": 35
+    },
+    {
+      "countryCode": "TF",
+      "total": 1,
+      "withArabicName": 0,
+      "withoutArabicName": 1
+    },
+    {
+      "countryCode": "TG",
+      "total": 35,
+      "withArabicName": 9,
+      "withoutArabicName": 26
+    },
+    {
+      "countryCode": "TH",
+      "total": 1084,
+      "withArabicName": 53,
+      "withoutArabicName": 1031
+    },
+    {
+      "countryCode": "TJ",
+      "total": 103,
+      "withArabicName": 8,
+      "withoutArabicName": 95
+    },
+    {
+      "countryCode": "TK",
+      "total": 3,
+      "withArabicName": 3,
+      "withoutArabicName": 0
+    },
+    {
+      "countryCode": "TL",
+      "total": 32,
+      "withArabicName": 13,
+      "withoutArabicName": 19
+    },
+    {
+      "countryCode": "TM",
+      "total": 126,
+      "withArabicName": 7,
+      "withoutArabicName": 119
+    },
+    {
+      "countryCode": "TN",
+      "total": 286,
+      "withArabicName": 95,
+      "withoutArabicName": 191
+    },
+    {
+      "countryCode": "TO",
+      "total": 47,
+      "withArabicName": 4,
+      "withoutArabicName": 43
+    },
+    {
+      "countryCode": "TR",
+      "total": 4031,
+      "withArabicName": 122,
+      "withoutArabicName": 3909
+    },
+    {
+      "countryCode": "TT",
+      "total": 27,
+      "withArabicName": 16,
+      "withoutArabicName": 11
+    },
+    {
+      "countryCode": "TV",
+      "total": 12,
+      "withArabicName": 5,
+      "withoutArabicName": 7
+    },
+    {
+      "countryCode": "TW",
+      "total": 89,
+      "withArabicName": 12,
+      "withoutArabicName": 77
+    },
+    {
+      "countryCode": "TZ",
+      "total": 324,
+      "withArabicName": 37,
+      "withoutArabicName": 287
+    },
+    {
+      "countryCode": "UA",
+      "total": 5564,
+      "withArabicName": 177,
+      "withoutArabicName": 5387
+    },
+    {
+      "countryCode": "UG",
+      "total": 212,
+      "withArabicName": 5,
+      "withoutArabicName": 207
+    },
+    {
+      "countryCode": "US",
+      "total": 21784,
+      "withArabicName": 9783,
+      "withoutArabicName": 12001
+    },
+    {
+      "countryCode": "UY",
+      "total": 154,
+      "withArabicName": 33,
+      "withoutArabicName": 121
+    },
+    {
+      "countryCode": "UZ",
+      "total": 221,
+      "withArabicName": 22,
+      "withoutArabicName": 199
+    },
+    {
+      "countryCode": "VA",
+      "total": 1,
+      "withArabicName": 0,
+      "withoutArabicName": 1
+    },
+    {
+      "countryCode": "VC",
+      "total": 25,
+      "withArabicName": 6,
+      "withoutArabicName": 19
+    },
+    {
+      "countryCode": "VE",
+      "total": 414,
+      "withArabicName": 26,
+      "withoutArabicName": 388
+    },
+    {
+      "countryCode": "VG",
+      "total": 2,
+      "withArabicName": 1,
+      "withoutArabicName": 1
+    },
+    {
+      "countryCode": "VI",
+      "total": 8,
+      "withArabicName": 3,
+      "withoutArabicName": 5
+    },
+    {
+      "countryCode": "VN",
+      "total": 915,
+      "withArabicName": 57,
+      "withoutArabicName": 858
+    },
+    {
+      "countryCode": "VU",
+      "total": 10,
+      "withArabicName": 5,
+      "withoutArabicName": 5
+    },
+    {
+      "countryCode": "WF",
+      "total": 8,
+      "withArabicName": 2,
+      "withoutArabicName": 6
+    },
+    {
+      "countryCode": "WS",
+      "total": 74,
+      "withArabicName": 11,
+      "withoutArabicName": 63
+    },
+    {
+      "countryCode": "XK",
+      "total": 77,
+      "withArabicName": 7,
+      "withoutArabicName": 70
+    },
+    {
+      "countryCode": "YE",
+      "total": 316,
+      "withArabicName": 299,
+      "withoutArabicName": 17
+    },
+    {
+      "countryCode": "YT",
+      "total": 66,
+      "withArabicName": 16,
+      "withoutArabicName": 50
+    },
+    {
+      "countryCode": "ZA",
+      "total": 989,
+      "withArabicName": 24,
+      "withoutArabicName": 965
+    },
+    {
+      "countryCode": "ZM",
+      "total": 98,
+      "withArabicName": 17,
+      "withoutArabicName": 81
+    },
+    {
+      "countryCode": "ZW",
+      "total": 69,
+      "withArabicName": 13,
+      "withoutArabicName": 56
+    }
+  ],
+  "missingExamples": [
+    {
+      "countryCode": "AD",
+      "locationId": "3039181",
+      "originalName": "Santa Coloma"
+    },
+    {
+      "countryCode": "AE",
+      "locationId": "13118432",
+      "originalName": "Business Bay"
+    },
+    {
+      "countryCode": "AF",
+      "locationId": "1147513",
+      "originalName": "Bagrām"
+    },
+    {
+      "countryCode": "AG",
+      "locationId": "3576022",
+      "originalName": "Saint John’s"
+    },
+    {
+      "countryCode": "AI",
+      "locationId": "3573374",
+      "originalName": "The Valley"
+    },
+    {
+      "countryCode": "AL",
+      "locationId": "3185670",
+      "originalName": "Fier-Çifçi"
+    },
+    {
+      "countryCode": "AM",
+      "locationId": "7670934",
+      "originalName": "Malatia-Sebastia"
+    },
+    {
+      "countryCode": "AO",
+      "locationId": "8307074",
+      "originalName": "Mulenvos"
+    },
+    {
+      "countryCode": "AR",
+      "locationId": "3430234",
+      "originalName": "Palermo"
+    },
+    {
+      "countryCode": "AS",
+      "locationId": "5881192",
+      "originalName": "Tāfuna"
+    },
+    {
+      "countryCode": "AT",
+      "locationId": "8063098",
+      "originalName": "Favoriten"
+    },
+    {
+      "countryCode": "AU",
+      "locationId": "2165087",
+      "originalName": "Gold Coast"
+    },
+    {
+      "countryCode": "AW",
+      "locationId": "3577159",
+      "originalName": "Noord"
+    },
+    {
+      "countryCode": "AX",
+      "locationId": "3041732",
+      "originalName": "Mariehamn"
+    },
+    {
+      "countryCode": "AZ",
+      "locationId": "585103",
+      "originalName": "Qaraçuxur"
+    },
+    {
+      "countryCode": "BA",
+      "locationId": "3199145",
+      "originalName": "Ilidža"
+    },
+    {
+      "countryCode": "BB",
+      "locationId": "3373419",
+      "originalName": "White Hill"
+    },
+    {
+      "countryCode": "BD",
+      "locationId": "1185186",
+      "originalName": "Comilla"
+    },
+    {
+      "countryCode": "BE",
+      "locationId": "2787149",
+      "originalName": "Schaerbeek"
+    },
+    {
+      "countryCode": "BF",
+      "locationId": "2356157",
+      "originalName": "Saaba"
+    },
+    {
+      "countryCode": "BG",
+      "locationId": "733618",
+      "originalName": "Asenovgrad"
+    },
+    {
+      "countryCode": "BI",
+      "locationId": "426272",
+      "originalName": "Gitega"
+    },
+    {
+      "countryCode": "BJ",
+      "locationId": "2395914",
+      "originalName": "Abomey-Calavi"
+    },
+    {
+      "countryCode": "BL",
+      "locationId": "3579132",
+      "originalName": "Gustavia"
+    },
+    {
+      "countryCode": "BM",
+      "locationId": "8533871",
+      "originalName": "Pembroke Parish"
+    },
+    {
+      "countryCode": "BN",
+      "locationId": "1820575",
+      "originalName": "Sengkurong"
+    },
+    {
+      "countryCode": "BO",
+      "locationId": "3906466",
+      "originalName": "Riberalta"
+    },
+    {
+      "countryCode": "BQ",
+      "locationId": "3513768",
+      "originalName": "Dorp Antriol"
+    },
+    {
+      "countryCode": "BR",
+      "locationId": "3461786",
+      "originalName": "Guarulhos"
+    },
+    {
+      "countryCode": "BS",
+      "locationId": "3571971",
+      "originalName": "Lucaya"
+    }
+  ],
+  "sampleNames": [
+    {
+      "locationId": "360630",
+      "countryCode": "EG",
+      "originalName": "Cairo",
+      "arabicName": "القاهرة"
+    },
+    {
+      "locationId": "2988507",
+      "countryCode": "FR",
+      "originalName": "Paris",
+      "arabicName": "باريس"
+    },
+    {
+      "locationId": "2643743",
+      "countryCode": "GB",
+      "originalName": "London",
+      "arabicName": "لندن"
+    },
+    {
+      "locationId": "1850147",
+      "countryCode": "JP",
+      "originalName": "Tokyo",
+      "arabicName": "طوكيو"
+    },
+    {
+      "locationId": "524901",
+      "countryCode": "RU",
+      "originalName": "Moscow",
+      "arabicName": "موسكو"
+    },
+    {
+      "locationId": "104515",
+      "countryCode": "SA",
+      "originalName": "Makkah",
+      "arabicName": "مكة المكرمة"
+    },
+    {
+      "locationId": "108410",
+      "countryCode": "SA",
+      "originalName": "Riyadh",
+      "arabicName": "الرياض"
+    },
+    {
+      "locationId": "110250",
+      "countryCode": "SA",
+      "originalName": "Afif",
+      "arabicName": "عفيف"
+    },
+    {
+      "locationId": "110336",
+      "countryCode": "SA",
+      "originalName": "Dammam",
+      "arabicName": "الدمام"
+    },
+    {
+      "locationId": "745044",
+      "countryCode": "TR",
+      "originalName": "Istanbul",
+      "arabicName": "اسطنبول"
+    },
+    {
+      "locationId": "5128581",
+      "countryCode": "US",
+      "originalName": "New York City",
+      "arabicName": "نيويورك"
+    }
+  ],
+  "policy": "sa-reviewed-first; geonames-preferred; non-historic-current; deterministic-name-order; original-fallback",
+  "scope": "Missing means absent from the validated bundled sources, not proof that no documented Arabic name exists elsewhere."
+}

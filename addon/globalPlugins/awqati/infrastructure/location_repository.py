@@ -278,4 +278,8 @@ class BundledLocationRepository:
 			admin2_name=record["a2"],
 			population=record["p"],
 			feature_code=record["f"],
+			arabic_names=tuple(record["a"]),
+			english_names=tuple(record["e"]),
+			arabic_admin1_names=tuple(record.get("a1ar", ())),
+			arabic_admin2_names=tuple(record.get("a2ar", ())),
 		)

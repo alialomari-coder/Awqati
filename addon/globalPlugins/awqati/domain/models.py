@@ -66,6 +66,8 @@ class LocationDetectionFailure(Enum):
 
 	DENIED = "denied"
 	UNAVAILABLE = "unavailable"
+	NO_PROVIDER = "noProvider"
+	NO_FIX = "noFix"
 	TIMEOUT = "timeout"
 	API_ERROR = "apiError"
 	INVALID_COORDINATES = "invalidCoordinates"
