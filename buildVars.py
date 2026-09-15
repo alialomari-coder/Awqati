@@ -7,7 +7,7 @@ addon_info = {
 	"addon_name": "awqati",
 	"addon_summary": "Awqati",
 	"addon_description": "Awqati development build: prayer, clock and date settings, before automatic presentation integration.",
-	"addon_version": "0.4.2.11",
+	"addon_version": "0.4.2.14",
 	"addon_changelog": "Fix the existing settings interface translation and direction for the NVDA interface language.",
 	"addon_author": "Awqati project (development placeholder)",
 	"addon_url": None,

@@ -258,7 +258,15 @@ def apply_sa_supplement(path: Path, cities: dict[str, dict[str, object]]) -> dic
 				)
 		cities[identifier] = candidate
 		added += 1
-	return {"version": payload["version"], "added": added, "augmented": augmented, "merged": merged}
+	for item in payload.get("adminCorrections", []):
+		validate_refs(item)
+		identifier = str(item["geonameId"])
+		if identifier not in cities or cities[identifier]["cc"] != "SA" or not re.fullmatch(r"[0-9]{2}", item["admin1Code"]):
+			raise BuildLocationError("Invalid reviewed Saudi administrative correction")
+		cities[identifier]["a1c"] = item["admin1Code"]
+		cities[identifier]["a2c"] = ""
+	return {"version": payload["version"], "added": added, "augmented": augmented, "merged": merged,
+		"adminCorrected": len(payload.get("adminCorrections", []))}
 
 def _ordered_names(value: object) -> list[str]:
 	assert isinstance(value, dict)
@@ -300,6 +308,61 @@ def write_spatial_index(grouped: dict[str, list[dict[str, object]]], output: Pat
 	}
 
 
+def apply_arabic_names(wikidata_path, reviewed_path, records):
+	"""Validate complete versioned snapshots, then add current Arabic names only."""
+	result = {}
+	if wikidata_path:
+		payload = json.loads(wikidata_path.read_text(encoding="utf-8"))
+		if payload.get("schemaVersion") != 1 or payload.get("license") != "CC0-1.0":
+			raise BuildLocationError("Invalid Wikidata snapshot")
+		requested = set()
+		labels = {}
+		for batch in payload["batches"]:
+			if batch.get("complete") is not True or "LIMIT" in batch["query"].upper():
+				raise BuildLocationError("Incomplete Wikidata extraction")
+			ids = set(batch["requestedIds"])
+			if requested & ids:
+				raise BuildLocationError("Duplicate extraction batch")
+			requested.update(ids)
+			for row in batch["names"]:
+				if row["geonameId"] not in ids or not re.fullmatch(r"Q[0-9]+", row["entity"]):
+					raise BuildLocationError("Wikidata identity outside requested batch")
+				labels.setdefault(row["geonameId"], set()).add(row["ar"])
+		if len(requested) != payload["requestedCount"]:
+			raise BuildLocationError("Wikidata request coverage mismatch")
+		added = 0
+		for identifier, names in labels.items():
+			if identifier not in records:
+				continue
+			for name in sorted(names):
+				if re.search(r"[\u0620-\u064a]", name) and not any("LATIN" in unicodedata.name(c, "") for c in name):
+					if name not in records[identifier]["ar"]:
+						records[identifier]["ar"][name] = 2
+						added += 1
+		result["wikidata"] = {"version": payload["version"], "file": wikidata_path.name,
+			"sha256": sha256(wikidata_path), "addedNames": added, "requestedCount": len(requested), "license": "CC0-1.0"}
+	if reviewed_path:
+		payload = json.loads(reviewed_path.read_text(encoding="utf-8"))
+		if payload.get("schemaVersion") != 1 or not payload.get("version"):
+			raise BuildLocationError("Invalid reviewed Arabic snapshot")
+		sources = {source["id"] for source in payload["sources"]}
+		seen = set()
+		for row in payload["names"]:
+			identifier = row["geonameId"]
+			if identifier in seen or identifier not in records or records[identifier].get("cc") != row["countryCode"]:
+				raise BuildLocationError("Invalid reviewed place identity")
+			if not row["sourceRefs"] or not set(row["sourceRefs"]) <= sources:
+				raise BuildLocationError("Undocumented Arabic place name")
+			name = row["arabicName"]
+			if not re.search(r"[\u0620-\u064a]", name) or any("LATIN" in unicodedata.name(c, "") for c in name):
+				raise BuildLocationError("Invalid reviewed Arabic name")
+			records[identifier]["ar"][name] = -50
+			seen.add(identifier)
+		result["reviewed"] = {"version": payload["version"], "file": reviewed_path.name,
+			"sha256": sha256(reviewed_path), "reviewedNames": len(seen)}
+	return result
+
+
 def build(args: argparse.Namespace) -> dict[str, object]:
 	cities_path = Path(args.cities)
 	alternate_path = Path(args.alternate_names)
@@ -323,6 +386,10 @@ def build(args: argparse.Namespace) -> dict[str, object]:
 					admin_records[fields[3]] = {"ar": {}, "en": {}}
 	add_alternate_names(alternate_path, {**admin_records, **cities})
 	sa_supplement_result = apply_sa_supplement(sa_supplement_path, cities) if sa_supplement_path else None
+	arabic_sources = apply_arabic_names(
+		Path(args.wikidata_arabic) if getattr(args, "wikidata_arabic", None) else None,
+		Path(args.reviewed_arabic) if getattr(args, "reviewed_arabic", None) else None,
+		{**admin_records, **cities})
 	country_names = read_country_names(country_path)
 	admin1_names = read_admin_names(admin1_path, "admin1CodesASCII.txt")
 	admin2_names = read_admin_names(admin2_path, "admin2Codes.txt")
@@ -333,11 +400,15 @@ def build(args: argparse.Namespace) -> dict[str, object]:
 		country = str(city.pop("cc"))
 		admin1_code = str(city.pop("a1c"))
 		admin2_code = str(city.pop("a2c"))
-		city["a1"] = admin1_names.get(f"{country}.{admin1_code}", admin1_code)
-		city["a2"] = admin2_names.get(f"{country}.{admin1_code}.{admin2_code}", admin2_code)
+		city["a1"] = admin1_names.get(f"{country}.{admin1_code}", "")
+		city["a2"] = admin2_names.get(f"{country}.{admin1_code}.{admin2_code}", "")
 		for key, code in (("a1ar", f"{country}.{admin1_code}"), ("a2ar", f"{country}.{admin1_code}.{admin2_code}")):
 			identifier = admin_ids.get(code)
 			city[key] = _ordered_names(admin_ar.get(identifier, {}))
+			if country == "AE" and arabic_sources.get("reviewed") and not city[key]:
+				original = city["a1" if key == "a1ar" else "a2"]
+				if sector := re.fullmatch(r"Sector ([0-9]+)", original):
+					city[key] = ["القطاع " + sector.group(1)]
 		city["e"] = _ordered_names(city.pop("en"))
 		city["a"] = _ordered_names(city.pop("ar"))
 		grouped.setdefault(country, []).append(city)
@@ -380,6 +451,7 @@ def build(args: argparse.Namespace) -> dict[str, object]:
 		"source": "GeoNames cities500 with reviewed Saudi supplement" if sa_supplement_path else "GeoNames cities500",
 		"license": "CC BY 4.0",
 		"arabicDisplayPolicy": "sa-reviewed-first; geonames-preferred; non-historic-current; deterministic-name-order; original-fallback",
+		"arabicSupplements": arabic_sources,
 		"arabicCoverage": {
 			"cityCount": len(cities),
 			"namedCityCount": sum(bool(city["a"]) for city in cities.values()),
@@ -416,6 +488,8 @@ def parse_args() -> argparse.Namespace:
 	parser.add_argument("--admin1", required=True)
 	parser.add_argument("--admin2", required=True)
 	parser.add_argument("--sa-supplement")
+	parser.add_argument("--wikidata-arabic")
+	parser.add_argument("--reviewed-arabic")
 	parser.add_argument("--output", required=True)
 	parser.add_argument("--location-data-version", required=True)
 	parser.add_argument("--source-snapshot-date", required=True)

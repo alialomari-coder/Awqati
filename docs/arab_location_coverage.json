@@ -1,0 +1,5793 @@
+{
+  "schemaVersion": 1,
+  "locationDataVersion": "geonames-cities500-2026-09-11+sa-2026-09-15.3+arab-2+spatial-1",
+  "eligibility": "All populated-place records in the approved cities500 base plus reviewed Saudi governorate seats. Includes named populated localities and existing districts; not all administrative polygons or every village.",
+  "countries": [
+    {
+      "countryCode": "AE",
+      "total": 107,
+      "withArabicName": 85,
+      "coveragePercent": 79.4393,
+      "withoutArabicName": 22,
+      "missingExamples": [
+        {
+          "locationId": "8541937",
+          "name": "Dubai Festival City"
+        },
+        {
+          "locationId": "8541977",
+          "name": "Dubai International Financial Centre"
+        },
+        {
+          "locationId": "13118431",
+          "name": "Al Furjan"
+        },
+        {
+          "locationId": "13118437",
+          "name": "Halwan"
+        },
+        {
+          "locationId": "13118422",
+          "name": "Al Mizhar First"
+        },
+        {
+          "locationId": "8469819",
+          "name": "Al Safa"
+        },
+        {
+          "locationId": "13118448",
+          "name": "Masdar City"
+        },
+        {
+          "locationId": "6691109",
+          "name": "Knowledge Village"
+        },
+        {
+          "locationId": "8469805",
+          "name": "Dubai Sports City"
+        },
+        {
+          "locationId": "13118436",
+          "name": "Al Khawaneej 1"
+        }
+      ],
+      "arabicAdmin1Count": 106,
+      "arabicAdmin2Count": 35
+    },
+    {
+      "countryCode": "BH",
+      "total": 12,
+      "withArabicName": 12,
+      "coveragePercent": 100.0,
+      "withoutArabicName": 0,
+      "missingExamples": [],
+      "arabicAdmin1Count": 12,
+      "arabicAdmin2Count": 0
+    },
+    {
+      "countryCode": "DJ",
+      "total": 32,
+      "withArabicName": 28,
+      "coveragePercent": 87.5,
+      "withoutArabicName": 4,
+      "missingExamples": [
+        {
+          "locationId": "7828770",
+          "name": "Waddi"
+        },
+        {
+          "locationId": "12041421",
+          "name": "Adailou"
+        },
+        {
+          "locationId": "12036312",
+          "name": "Chabelley"
+        },
+        {
+          "locationId": "12041422",
+          "name": "Ali Oune"
+        }
+      ],
+      "arabicAdmin1Count": 31,
+      "arabicAdmin2Count": 0
+    },
+    {
+      "countryCode": "DZ",
+      "total": 353,
+      "withArabicName": 321,
+      "coveragePercent": 90.9348,
+      "withoutArabicName": 32,
+      "missingExamples": [
+        {
+          "locationId": "11204500",
+          "name": "Ali Mendjeli"
+        },
+        {
+          "locationId": "12326384",
+          "name": "District of Taher"
+        },
+        {
+          "locationId": "2504099",
+          "name": "Berrouaghia"
+        },
+        {
+          "locationId": "2494065",
+          "name": "Assi Bou Nif"
+        },
+        {
+          "locationId": "2497269",
+          "name": "En Nedjma"
+        },
+        {
+          "locationId": "12640239",
+          "name": "Sidi Amar"
+        },
+        {
+          "locationId": "2503641",
+          "name": "Bordj Menaïel"
+        },
+        {
+          "locationId": "2503468",
+          "name": "Boû Arfa"
+        },
+        {
+          "locationId": "2508295",
+          "name": "’Aïn Azel"
+        },
+        {
+          "locationId": "2508174",
+          "name": "Aïn el Bya"
+        }
+      ],
+      "arabicAdmin1Count": 353,
+      "arabicAdmin2Count": 236
+    },
+    {
+      "countryCode": "EG",
+      "total": 260,
+      "withArabicName": 241,
+      "coveragePercent": 92.6923,
+      "withoutArabicName": 19,
+      "missingExamples": [
+        {
+          "locationId": "360890",
+          "name": "Al Khuşūş"
+        },
+        {
+          "locationId": "361179",
+          "name": "Al Ḩawāmidīyah"
+        },
+        {
+          "locationId": "347907",
+          "name": "Sinnūris"
+        },
+        {
+          "locationId": "362865",
+          "name": "Abū an Numrus"
+        },
+        {
+          "locationId": "12640357",
+          "name": "Al-Khārijah"
+        },
+        {
+          "locationId": "355596",
+          "name": "Ihnāsīyah"
+        },
+        {
+          "locationId": "346201",
+          "name": "Zaafarana"
+        },
+        {
+          "locationId": "361405",
+          "name": "Al Başalīyah Baḩrī"
+        },
+        {
+          "locationId": "362028",
+          "name": "Abu Suweir-el-Mahatta"
+        },
+        {
+          "locationId": "433441",
+          "name": "Banī Suwayf al Jadīdah"
+        }
+      ],
+      "arabicAdmin1Count": 258,
+      "arabicAdmin2Count": 1
+    },
+    {
+      "countryCode": "IQ",
+      "total": 173,
+      "withArabicName": 164,
+      "coveragePercent": 94.7977,
+      "withoutArabicName": 9,
+      "missingExamples": [
+        {
+          "locationId": "13631407",
+          "name": "Abū al-Kahṣīb"
+        },
+        {
+          "locationId": "10303650",
+          "name": "Simele"
+        },
+        {
+          "locationId": "387345",
+          "name": "Abu Gharaq"
+        },
+        {
+          "locationId": "13680586",
+          "name": "Shelādiz"
+        },
+        {
+          "locationId": "99439",
+          "name": "Nāḩiyat al Fuhūd"
+        },
+        {
+          "locationId": "12494059",
+          "name": "AlZwya"
+        },
+        {
+          "locationId": "12494060",
+          "name": "Hawe Ben Alean"
+        },
+        {
+          "locationId": "8659334",
+          "name": "Hilora"
+        },
+        {
+          "locationId": "90494",
+          "name": "Ruye shen"
+        }
+      ],
+      "arabicAdmin1Count": 173,
+      "arabicAdmin2Count": 164
+    },
+    {
+      "countryCode": "JO",
+      "total": 148,
+      "withArabicName": 144,
+      "coveragePercent": 97.2973,
+      "withoutArabicName": 4,
+      "missingExamples": [
+        {
+          "locationId": "248923",
+          "name": "‘Izrā"
+        },
+        {
+          "locationId": "6946409",
+          "name": "Karak City"
+        },
+        {
+          "locationId": "13353995",
+          "name": "Ash-Shūbak"
+        },
+        {
+          "locationId": "10793675",
+          "name": "Tala Bay"
+        }
+      ],
+      "arabicAdmin1Count": 148,
+      "arabicAdmin2Count": 2
+    },
+    {
+      "countryCode": "KM",
+      "total": 119,
+      "withArabicName": 93,
+      "coveragePercent": 78.1513,
+      "withoutArabicName": 26,
+      "missingExamples": [
+        {
+          "locationId": "1091669",
+          "name": "Nkourani"
+        },
+        {
+          "locationId": "921719",
+          "name": "Ouellah"
+        },
+        {
+          "locationId": "1092369",
+          "name": "Ikoni"
+        },
+        {
+          "locationId": "921992",
+          "name": "Bambao"
+        },
+        {
+          "locationId": "921856",
+          "name": "Itsandra"
+        },
+        {
+          "locationId": "921746",
+          "name": "Kyo"
+        },
+        {
+          "locationId": "1090919",
+          "name": "Kavani"
+        },
+        {
+          "locationId": "921984",
+          "name": "Bandamadji-Domba"
+        },
+        {
+          "locationId": "1091121",
+          "name": "Pajé"
+        },
+        {
+          "locationId": "1091996",
+          "name": "Mnoungou"
+        }
+      ],
+      "arabicAdmin1Count": 119,
+      "arabicAdmin2Count": 0
+    },
+    {
+      "countryCode": "KW",
+      "total": 28,
+      "withArabicName": 25,
+      "coveragePercent": 89.2857,
+      "withoutArabicName": 3,
+      "missingExamples": [
+        {
+          "locationId": "11593497",
+          "name": "Al-Masayel"
+        },
+        {
+          "locationId": "11593501",
+          "name": "Abu Al Hasaniya"
+        },
+        {
+          "locationId": "11593499",
+          "name": "Abu Fatira"
+        }
+      ],
+      "arabicAdmin1Count": 28,
+      "arabicAdmin2Count": 0
+    },
+    {
+      "countryCode": "LB",
+      "total": 52,
+      "withArabicName": 46,
+      "coveragePercent": 88.4615,
+      "withoutArabicName": 6,
+      "missingExamples": [
+        {
+          "locationId": "268743",
+          "name": "Ra’s Bayrūt"
+        },
+        {
+          "locationId": "276294",
+          "name": "Boudaï"
+        },
+        {
+          "locationId": "276380",
+          "name": "Brîtel"
+        },
+        {
+          "locationId": "277534",
+          "name": "Aïnâta"
+        },
+        {
+          "locationId": "276633",
+          "name": "Bhamdoun"
+        },
+        {
+          "locationId": "275368",
+          "name": "Fadous"
+        }
+      ],
+      "arabicAdmin1Count": 52,
+      "arabicAdmin2Count": 5
+    },
+    {
+      "countryCode": "LY",
+      "total": 119,
+      "withArabicName": 103,
+      "coveragePercent": 86.5546,
+      "withoutArabicName": 16,
+      "missingExamples": [
+        {
+          "locationId": "2219356",
+          "name": "As Sawānī"
+        },
+        {
+          "locationId": "2218983",
+          "name": "Az Zahrā’"
+        },
+        {
+          "locationId": "2219591",
+          "name": "An Nāşirīyah"
+        },
+        {
+          "locationId": "12687305",
+          "name": "Qarqūzah"
+        },
+        {
+          "locationId": "12687304",
+          "name": "Al-'Alūaṣ"
+        },
+        {
+          "locationId": "12687308",
+          "name": "Wādī 'Utbah"
+        },
+        {
+          "locationId": "2219736",
+          "name": "Al Qawāsim"
+        },
+        {
+          "locationId": "2219471",
+          "name": "Ar Rayāyinah"
+        },
+        {
+          "locationId": "2220368",
+          "name": "Abū Zayyān"
+        },
+        {
+          "locationId": "2215758",
+          "name": "Kiklah"
+        }
+      ],
+      "arabicAdmin1Count": 119,
+      "arabicAdmin2Count": 0
+    },
+    {
+      "countryCode": "MA",
+      "total": 480,
+      "withArabicName": 211,
+      "coveragePercent": 43.9583,
+      "withoutArabicName": 269,
+      "missingExamples": [
+        {
+          "locationId": "10920963",
+          "name": "Salé Al Jadida"
+        },
+        {
+          "locationId": "10374934",
+          "name": "Ait Melloul"
+        },
+        {
+          "locationId": "2552615",
+          "name": "Dar Bouazza"
+        },
+        {
+          "locationId": "2556272",
+          "name": "Berrechid"
+        },
+        {
+          "locationId": "2554006",
+          "name": "Bouskoura"
+        },
+        {
+          "locationId": "2548830",
+          "name": "Al Fqih Ben Çalah"
+        },
+        {
+          "locationId": "10374906",
+          "name": "Dchira El Jihadia"
+        },
+        {
+          "locationId": "2549979",
+          "name": "El Kelaa des Srarhna"
+        },
+        {
+          "locationId": "2556018",
+          "name": "Ben Guerir"
+        },
+        {
+          "locationId": "12718669",
+          "name": "Ouislane"
+        }
+      ],
+      "arabicAdmin1Count": 400,
+      "arabicAdmin2Count": 460
+    },
+    {
+      "countryCode": "MR",
+      "total": 88,
+      "withArabicName": 72,
+      "coveragePercent": 81.8182,
+      "withoutArabicName": 16,
+      "missingExamples": [
+        {
+          "locationId": "12718654",
+          "name": "Mbera"
+        },
+        {
+          "locationId": "2595352",
+          "name": "Ksar"
+        },
+        {
+          "locationId": "12718653",
+          "name": "Guerou"
+        },
+        {
+          "locationId": "2380066",
+          "name": "El ’Ayoûn"
+        },
+        {
+          "locationId": "13527105",
+          "name": "Fondé Elimane"
+        },
+        {
+          "locationId": "12718652",
+          "name": "Bouhdida"
+        },
+        {
+          "locationId": "12718657",
+          "name": "Wali Djantang"
+        },
+        {
+          "locationId": "2380254",
+          "name": "Diogountourou"
+        },
+        {
+          "locationId": "2376398",
+          "name": "Tachott Brana"
+        },
+        {
+          "locationId": "2377822",
+          "name": "Mônguel"
+        }
+      ],
+      "arabicAdmin1Count": 87,
+      "arabicAdmin2Count": 13
+    },
+    {
+      "countryCode": "OM",
+      "total": 39,
+      "withArabicName": 34,
+      "coveragePercent": 87.1795,
+      "withoutArabicName": 5,
+      "missingExamples": [
+        {
+          "locationId": "286293",
+          "name": "Sufālat Samā’il"
+        },
+        {
+          "locationId": "288902",
+          "name": "Badīyah"
+        },
+        {
+          "locationId": "412084",
+          "name": "Bayt al ‘Awābī"
+        },
+        {
+          "locationId": "288507",
+          "name": "Dib Dibba"
+        },
+        {
+          "locationId": "12470176",
+          "name": "Al Wadan"
+        }
+      ],
+      "arabicAdmin1Count": 39,
+      "arabicAdmin2Count": 1
+    },
+    {
+      "countryCode": "PS",
+      "total": 448,
+      "withArabicName": 415,
+      "coveragePercent": 92.6339,
+      "withoutArabicName": 33,
+      "missingExamples": [
+        {
+          "locationId": "284375",
+          "name": "Battir"
+        },
+        {
+          "locationId": "281818",
+          "name": "Shu‘fāţ"
+        },
+        {
+          "locationId": "284362",
+          "name": "Baytā al Fawqā"
+        },
+        {
+          "locationId": "283046",
+          "name": "Kokhav Ya‘aqov"
+        },
+        {
+          "locationId": "285101",
+          "name": "Alfei Menasheh"
+        },
+        {
+          "locationId": "282431",
+          "name": "Qarne Shomeron"
+        },
+        {
+          "locationId": "12156437",
+          "name": "Beit El"
+        },
+        {
+          "locationId": "11979646",
+          "name": "Geva Binyamin"
+        },
+        {
+          "locationId": "284279",
+          "name": "Bet Arye"
+        },
+        {
+          "locationId": "282353",
+          "name": "Qedumim"
+        }
+      ],
+      "arabicAdmin1Count": 448,
+      "arabicAdmin2Count": 146
+    },
+    {
+      "countryCode": "QA",
+      "total": 43,
+      "withArabicName": 42,
+      "coveragePercent": 97.6744,
+      "withoutArabicName": 1,
+      "missingExamples": [
+        {
+          "locationId": "13512674",
+          "name": "Lusail"
+        }
+      ],
+      "arabicAdmin1Count": 39,
+      "arabicAdmin2Count": 0
+    },
+    {
+      "countryCode": "SA",
+      "total": 186,
+      "withArabicName": 185,
+      "coveragePercent": 99.4624,
+      "withoutArabicName": 1,
+      "missingExamples": [
+        {
+          "locationId": "9031043",
+          "name": "Alrmtheiah"
+        }
+      ],
+      "arabicAdmin1Count": 186,
+      "arabicAdmin2Count": 13
+    },
+    {
+      "countryCode": "SD",
+      "total": 112,
+      "withArabicName": 79,
+      "coveragePercent": 70.5357,
+      "withoutArabicName": 33,
+      "missingExamples": [
+        {
+          "locationId": "379302",
+          "name": "El Geneina Fort"
+        },
+        {
+          "locationId": "13132452",
+          "name": "'Ārdamatā"
+        },
+        {
+          "locationId": "372773",
+          "name": "Kas"
+        },
+        {
+          "locationId": "13132453",
+          "name": "Sh'īarīah"
+        },
+        {
+          "locationId": "365641",
+          "name": "Tullus"
+        },
+        {
+          "locationId": "13132450",
+          "name": "Al-Fāw"
+        },
+        {
+          "locationId": "370838",
+          "name": "Maiurno"
+        },
+        {
+          "locationId": "13132451",
+          "name": "Al-Quṭaynah"
+        },
+        {
+          "locationId": "372386",
+          "name": "Kināna"
+        },
+        {
+          "locationId": "13132448",
+          "name": "Ad-Dindar"
+        }
+      ],
+      "arabicAdmin1Count": 112,
+      "arabicAdmin2Count": 1
+    },
+    {
+      "countryCode": "SO",
+      "total": 76,
+      "withArabicName": 60,
+      "coveragePercent": 78.9474,
+      "withoutArabicName": 16,
+      "missingExamples": [
+        {
+          "locationId": "52407",
+          "name": "Ruqi"
+        },
+        {
+          "locationId": "58831",
+          "name": "Gebiley"
+        },
+        {
+          "locationId": "12212406",
+          "name": "Beled Hawo"
+        },
+        {
+          "locationId": "342803",
+          "name": "Balanbale"
+        },
+        {
+          "locationId": "6311126",
+          "name": "Dhabad"
+        },
+        {
+          "locationId": "61360",
+          "name": "Dhamas"
+        },
+        {
+          "locationId": "6311111",
+          "name": "Saaxo"
+        },
+        {
+          "locationId": "51228",
+          "name": "Tog Wajaale"
+        },
+        {
+          "locationId": "52381",
+          "name": "Saacow"
+        },
+        {
+          "locationId": "65722",
+          "name": "Agabar"
+        }
+      ],
+      "arabicAdmin1Count": 76,
+      "arabicAdmin2Count": 0
+    },
+    {
+      "countryCode": "SY",
+      "total": 310,
+      "withArabicName": 309,
+      "coveragePercent": 99.6774,
+      "withoutArabicName": 1,
+      "missingExamples": [
+        {
+          "locationId": "11257949",
+          "name": "Qenterê"
+        }
+      ],
+      "arabicAdmin1Count": 310,
+      "arabicAdmin2Count": 18
+    },
+    {
+      "countryCode": "TN",
+      "total": 286,
+      "withArabicName": 195,
+      "coveragePercent": 68.1818,
+      "withoutArabicName": 91,
+      "missingExamples": [
+        {
+          "locationId": "2473164",
+          "name": "Sīdī Ḥusayn"
+        },
+        {
+          "locationId": "2467243",
+          "name": "Sakiet ed Daier"
+        },
+        {
+          "locationId": "11204413",
+          "name": "El Mourouj"
+        },
+        {
+          "locationId": "2467242",
+          "name": "Sakiet ez Zit"
+        },
+        {
+          "locationId": "7870240",
+          "name": "Rawad"
+        },
+        {
+          "locationId": "2473626",
+          "name": "Le Kram"
+        },
+        {
+          "locationId": "13132712",
+          "name": "Ettadhamen"
+        },
+        {
+          "locationId": "13132711",
+          "name": "Douar Hicher"
+        },
+        {
+          "locationId": "2473551",
+          "name": "El Mgarsa"
+        },
+        {
+          "locationId": "2581754",
+          "name": "Douane"
+        }
+      ],
+      "arabicAdmin1Count": 286,
+      "arabicAdmin2Count": 258
+    },
+    {
+      "countryCode": "YE",
+      "total": 316,
+      "withArabicName": 303,
+      "coveragePercent": 95.8861,
+      "withoutArabicName": 13,
+      "missingExamples": [
+        {
+          "locationId": "11776817",
+          "name": "Jadder Cemetery"
+        },
+        {
+          "locationId": "12217890",
+          "name": "CPF"
+        },
+        {
+          "locationId": "12167139",
+          "name": "Al Madakisha"
+        },
+        {
+          "locationId": "11776813",
+          "name": "Village of ALAMRAH"
+        },
+        {
+          "locationId": "12167129",
+          "name": "Al Qabyal"
+        },
+        {
+          "locationId": "12097222",
+          "name": "Ahl Mohammed bin Ahmed"
+        },
+        {
+          "locationId": "11125824",
+          "name": "AL-khashā upper"
+        },
+        {
+          "locationId": "12167138",
+          "name": "Najd Al Tha'ub"
+        },
+        {
+          "locationId": "11125823",
+          "name": "AL-khashā Lower"
+        },
+        {
+          "locationId": "7356251",
+          "name": "Qaryat Al kudshi al Ra'inah"
+        }
+      ],
+      "arabicAdmin1Count": 316,
+      "arabicAdmin2Count": 313
+    }
+  ],
+  "saudiRecords": [
+    {
+      "locationId": "100399",
+      "originalName": "Az̧ Z̧abyah",
+      "arabicName": "الظبية",
+      "admin1": "Jazan Region",
+      "admin2": "",
+      "displayAdmins": [
+        "جازان"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الظبية"
+      ]
+    },
+    {
+      "locationId": "100425",
+      "originalName": "Yanbu",
+      "arabicName": "ينبع",
+      "admin1": "Medina Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة المدينة المنورة"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "ينبع",
+        "محافظة ينبع"
+      ]
+    },
+    {
+      "locationId": "100596",
+      "originalName": "Wadi ad-Dawasir",
+      "arabicName": "وادي الدواسر",
+      "admin1": "Riyadh Region",
+      "admin2": "Wādī ad Dawāsir",
+      "displayAdmins": [
+        "منطقة الرياض‎",
+        "محافظة وادي الدواسر"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "وادي الدواسر",
+        "محافظة وادي الدواسر"
+      ]
+    },
+    {
+      "locationId": "100732",
+      "originalName": "‘Uqlat aş Şuqūr",
+      "arabicName": "عقلة الصُّقور",
+      "admin1": "Al-Qassim Region",
+      "admin2": "",
+      "displayAdmins": [
+        "القصيم"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "عقلة الصُّقور",
+        "محافظة عقلة الصقور"
+      ]
+    },
+    {
+      "locationId": "100768",
+      "originalName": "Unaizah",
+      "arabicName": "عنيزة",
+      "admin1": "Al-Qassim Region",
+      "admin2": "Governorate of Unaizah",
+      "displayAdmins": [
+        "القصيم",
+        "عنيزة"
+      ],
+      "featureCode": "PPLA2",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "عنيزة"
+      ]
+    },
+    {
+      "locationId": "100926",
+      "originalName": "Umluj",
+      "arabicName": "أملج",
+      "admin1": "Tabuk Region",
+      "admin2": "",
+      "displayAdmins": [
+        "تبوك"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "أملج"
+      ]
+    },
+    {
+      "locationId": "101035",
+      "originalName": "Umm as Sāhik",
+      "arabicName": "أم الساهك",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ],
+      "aliases": [
+        "أم الساهك"
+      ]
+    },
+    {
+      "locationId": "101313",
+      "originalName": "Ţurayf",
+      "arabicName": "طريف",
+      "admin1": "Northern Borders Region",
+      "admin2": "",
+      "displayAdmins": [
+        "الحدود الشمالية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "aliases": [
+        "طريف",
+        "طريف‎‎"
+      ]
+    },
+    {
+      "locationId": "101322",
+      "originalName": "Turabah",
+      "arabicName": "تربة",
+      "admin1": "Mecca Region",
+      "admin2": "",
+      "displayAdmins": [
+        "مكة المكرّمة"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "aliases": [
+        "تربة"
+      ]
+    },
+    {
+      "locationId": "101344",
+      "originalName": "At Tūbī",
+      "arabicName": "التوبي",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ],
+      "aliases": [
+        "التوبي"
+      ]
+    },
+    {
+      "locationId": "101484",
+      "originalName": "Thādiq",
+      "arabicName": "ثادق",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "ثادق",
+        "محافظة ثادق"
+      ]
+    },
+    {
+      "locationId": "101516",
+      "originalName": "Taymā’",
+      "arabicName": "تيماء",
+      "admin1": "Tabuk Region",
+      "admin2": "",
+      "displayAdmins": [
+        "تبوك"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "aliases": [
+        "تيماء"
+      ]
+    },
+    {
+      "locationId": "101547",
+      "originalName": "Tathlīth",
+      "arabicName": "تثليث",
+      "admin1": "'Asir Region",
+      "admin2": "Tathlīth",
+      "displayAdmins": [
+        "عسير",
+        "تثليث"
+      ],
+      "featureCode": "PPLA2",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "تثليث"
+      ]
+    },
+    {
+      "locationId": "101554",
+      "originalName": "Tārūt",
+      "arabicName": "تاروت",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "تاروت"
+      ]
+    },
+    {
+      "locationId": "101581",
+      "originalName": "Tanūmah",
+      "arabicName": "التنومة",
+      "admin1": "Al-Qassim Region",
+      "admin2": "",
+      "displayAdmins": [
+        "القصيم"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "aliases": [
+        "التنومة"
+      ]
+    },
+    {
+      "locationId": "101628",
+      "originalName": "Tabuk",
+      "arabicName": "تبوك",
+      "admin1": "Tabuk Region",
+      "admin2": "",
+      "displayAdmins": [
+        "تبوك"
+      ],
+      "featureCode": "PPLA",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "تبوك"
+      ]
+    },
+    {
+      "locationId": "101631",
+      "originalName": "Ţubarjal",
+      "arabicName": "طبرجل",
+      "admin1": "Al Jawf Region",
+      "admin2": "",
+      "displayAdmins": [
+        "الجوف"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "طبرجل"
+      ]
+    },
+    {
+      "locationId": "101633",
+      "originalName": "Tabālah",
+      "arabicName": "تبالة",
+      "admin1": "'Asir Region",
+      "admin2": "",
+      "displayAdmins": [
+        "عسير"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ],
+      "aliases": [
+        "تبالة"
+      ]
+    },
+    {
+      "locationId": "101760",
+      "originalName": "Sulţānah",
+      "arabicName": "سلطانة",
+      "admin1": "Medina Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة المدينة المنورة"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ],
+      "aliases": [
+        "سلطانة"
+      ]
+    },
+    {
+      "locationId": "101973",
+      "originalName": "Ash Shuqayrī",
+      "arabicName": "الشقيري",
+      "admin1": "Jazan Region",
+      "admin2": "",
+      "displayAdmins": [
+        "جازان"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الشقيري"
+      ]
+    },
+    {
+      "locationId": "102170",
+      "originalName": "Shaqra",
+      "arabicName": "شقراء",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "شقراء",
+        "محافظة شقراء"
+      ]
+    },
+    {
+      "locationId": "102318",
+      "originalName": "Sayhāt",
+      "arabicName": "سيهات",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "سيهات"
+      ]
+    },
+    {
+      "locationId": "102451",
+      "originalName": "Şāmitah",
+      "arabicName": "صامطة",
+      "admin1": "Jazan Region",
+      "admin2": "",
+      "displayAdmins": [
+        "جازان"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "aliases": [
+        "صامطة",
+        "محافظة صامطة"
+      ]
+    },
+    {
+      "locationId": "102527",
+      "originalName": "Sakakah",
+      "arabicName": "سكاكا",
+      "admin1": "Al Jawf Region",
+      "admin2": "",
+      "displayAdmins": [
+        "الجوف"
+      ],
+      "featureCode": "PPLA",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "سكاكا"
+      ]
+    },
+    {
+      "locationId": "102585",
+      "originalName": "Şafwá",
+      "arabicName": "صفوى",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "صفوى"
+      ]
+    },
+    {
+      "locationId": "102651",
+      "originalName": "Şabyā",
+      "arabicName": "صبيا",
+      "admin1": "Jazan Region",
+      "admin2": "",
+      "displayAdmins": [
+        "جازان"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "صبيا",
+        "محافظة صبيا"
+      ]
+    },
+    {
+      "locationId": "102744",
+      "originalName": "Rumāḩ",
+      "arabicName": "رماح",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "رماح"
+      ]
+    },
+    {
+      "locationId": "102891",
+      "originalName": "Ras Tanura",
+      "arabicName": "رأس تنورة",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "رأس تنورة",
+        "رحيمة"
+      ]
+    },
+    {
+      "locationId": "103012",
+      "originalName": "Rafha",
+      "arabicName": "رفحاء",
+      "admin1": "Northern Borders Region",
+      "admin2": "Rafha",
+      "displayAdmins": [
+        "الحدود الشمالية",
+        "رفحاء"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "رفحاء"
+      ]
+    },
+    {
+      "locationId": "103035",
+      "originalName": "Rābigh",
+      "arabicName": "رابغ",
+      "admin1": "Mecca Region",
+      "admin2": "",
+      "displayAdmins": [
+        "مكة المكرّمة"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "aliases": [
+        "رابغ",
+        "محافظة رابغ"
+      ]
+    },
+    {
+      "locationId": "103220",
+      "originalName": "Qibah",
+      "arabicName": "قبة",
+      "admin1": "Al-Qassim Region",
+      "admin2": "",
+      "displayAdmins": [
+        "القصيم"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "قبة"
+      ]
+    },
+    {
+      "locationId": "103283",
+      "originalName": "Qaryah al ‘Ulyā",
+      "arabicName": "قرية العليا",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "قرية العليا",
+        "محافظة قرية العليا"
+      ]
+    },
+    {
+      "locationId": "103369",
+      "originalName": "Bīshah",
+      "arabicName": "بيشة",
+      "admin1": "'Asir Region",
+      "admin2": "",
+      "displayAdmins": [
+        "عسير"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "بيشة",
+        "قلعة بيشة"
+      ]
+    },
+    {
+      "locationId": "103630",
+      "originalName": "Najrān",
+      "arabicName": "نجران",
+      "admin1": "Najran Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة نجران"
+      ],
+      "featureCode": "PPLA",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "نجران"
+      ]
+    },
+    {
+      "locationId": "103688",
+      "originalName": "An Nabhānīyah",
+      "arabicName": "النبهانية",
+      "admin1": "Al-Qassim Region",
+      "admin2": "",
+      "displayAdmins": [
+        "القصيم"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "النبهانية"
+      ]
+    },
+    {
+      "locationId": "103922",
+      "originalName": "Mulayjah",
+      "arabicName": "مليجة",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ],
+      "aliases": [
+        "مليجة"
+      ]
+    },
+    {
+      "locationId": "104201",
+      "originalName": "Mawqaq",
+      "arabicName": "موقق",
+      "admin1": "Ha'il Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة حائل"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "موقق"
+      ]
+    },
+    {
+      "locationId": "104269",
+      "originalName": "Mislīyah",
+      "arabicName": "مسلية",
+      "admin1": "Jazan Region",
+      "admin2": "",
+      "displayAdmins": [
+        "جازان"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "مسلية"
+      ]
+    },
+    {
+      "locationId": "104376",
+      "originalName": "Marāt",
+      "arabicName": "مرات",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "مرات"
+      ]
+    },
+    {
+      "locationId": "104515",
+      "originalName": "Makkah",
+      "arabicName": "مكة المكرمة",
+      "admin1": "Mecca Region",
+      "admin2": "",
+      "displayAdmins": [
+        "مكة المكرّمة"
+      ],
+      "featureCode": "PPLA",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "مكة المكرمة",
+        "مكة"
+      ]
+    },
+    {
+      "locationId": "104578",
+      "originalName": "Mahd adh Dhahab",
+      "arabicName": "مهد الذهب",
+      "admin1": "Medina Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة المدينة المنورة"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "aliases": [
+        "مهد الذهب"
+      ]
+    },
+    {
+      "locationId": "104716",
+      "originalName": "Laylá",
+      "arabicName": "ليلى",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ],
+      "aliases": [
+        "ليلى",
+        "الخرفة"
+      ]
+    },
+    {
+      "locationId": "104828",
+      "originalName": "King Faisal Military City",
+      "arabicName": "مدينة الملك فيصل العسكرية",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ],
+      "aliases": [
+        "مدينة الملك فيصل العسكرية"
+      ]
+    },
+    {
+      "locationId": "104923",
+      "originalName": "Khulayş",
+      "arabicName": "خليص",
+      "admin1": "Mecca Region",
+      "admin2": "",
+      "displayAdmins": [
+        "مكة المكرّمة"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "aliases": [
+        "خليص",
+        "محافظة خليص"
+      ]
+    },
+    {
+      "locationId": "104979",
+      "originalName": "Khaybar",
+      "arabicName": "خيبر",
+      "admin1": "Medina Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة المدينة المنورة"
+      ],
+      "featureCode": "PPLA2",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "خيبر"
+      ]
+    },
+    {
+      "locationId": "105072",
+      "originalName": "Khamis Mushait",
+      "arabicName": "خميس مشيط",
+      "admin1": "'Asir Region",
+      "admin2": "",
+      "displayAdmins": [
+        "عسير"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "خميس مشيط"
+      ]
+    },
+    {
+      "locationId": "105252",
+      "originalName": "Julayjilah",
+      "arabicName": "جليجلة",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ],
+      "aliases": [
+        "جليجلة"
+      ]
+    },
+    {
+      "locationId": "105299",
+      "originalName": "Jizan",
+      "arabicName": "جازان",
+      "admin1": "Jazan Region",
+      "admin2": "",
+      "displayAdmins": [
+        "جازان"
+      ],
+      "featureCode": "PPLA",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "جازان",
+        "جيزان"
+      ]
+    },
+    {
+      "locationId": "105343",
+      "originalName": "Jeddah",
+      "arabicName": "جدة",
+      "admin1": "Mecca Region",
+      "admin2": "",
+      "displayAdmins": [
+        "مكة المكرّمة"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "جدة",
+        "جدّة"
+      ]
+    },
+    {
+      "locationId": "105586",
+      "originalName": "‘Irqah",
+      "arabicName": "عرقة",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPLX",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "عرقة"
+      ]
+    },
+    {
+      "locationId": "105703",
+      "originalName": "Ḩuraymilā’",
+      "arabicName": "حريملاء",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "حريملاء"
+      ]
+    },
+    {
+      "locationId": "106043",
+      "originalName": "Ḩarūb",
+      "arabicName": "هروب",
+      "admin1": "Jazan Region",
+      "admin2": "",
+      "displayAdmins": [
+        "جازان"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "هروب",
+        "محافظة هروب"
+      ]
+    },
+    {
+      "locationId": "106102",
+      "originalName": "Ḩaql",
+      "arabicName": "حقل",
+      "admin1": "Tabuk Region",
+      "admin2": "",
+      "displayAdmins": [
+        "تبوك"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "aliases": [
+        "حقل",
+        "محافظة حقل"
+      ]
+    },
+    {
+      "locationId": "106273",
+      "originalName": "Ḩā’iţ",
+      "arabicName": "الحائط",
+      "admin1": "Ha'il Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة حائل"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "الحائط"
+      ]
+    },
+    {
+      "locationId": "106281",
+      "originalName": "Ha'il",
+      "arabicName": "حائل",
+      "admin1": "Ha'il Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة حائل"
+      ],
+      "featureCode": "PPLA",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "حائل"
+      ]
+    },
+    {
+      "locationId": "106297",
+      "originalName": "Hafar Al-Batin",
+      "arabicName": "حفر الباطن‎",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "حفر الباطن‎",
+        "محافظة حفر الباطن"
+      ]
+    },
+    {
+      "locationId": "106667",
+      "originalName": "Fayfā’",
+      "arabicName": "فيفاء",
+      "admin1": "Jazan Region",
+      "admin2": "",
+      "displayAdmins": [
+        "جازان"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "فيفاء"
+      ]
+    },
+    {
+      "locationId": "106744",
+      "originalName": "Farasān",
+      "arabicName": "فرسان",
+      "admin1": "Jazan Region",
+      "admin2": "",
+      "displayAdmins": [
+        "جازان"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "aliases": [
+        "فرسان"
+      ]
+    },
+    {
+      "locationId": "106872",
+      "originalName": "Dukhnah",
+      "arabicName": "دخنة",
+      "admin1": "Al-Qassim Region",
+      "admin2": "",
+      "displayAdmins": [
+        "القصيم"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "دخنة"
+      ]
+    },
+    {
+      "locationId": "106909",
+      "originalName": "Duba",
+      "arabicName": "ضبا",
+      "admin1": "Tabuk Region",
+      "admin2": "",
+      "displayAdmins": [
+        "تبوك"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "ضبا"
+      ]
+    },
+    {
+      "locationId": "107117",
+      "originalName": "Ḑamad",
+      "arabicName": "ضمد",
+      "admin1": "Jazan Region",
+      "admin2": "",
+      "displayAdmins": [
+        "جازان"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "ضمد"
+      ]
+    },
+    {
+      "locationId": "107304",
+      "originalName": "Buraydah",
+      "arabicName": "بُرَيدَة",
+      "admin1": "Al-Qassim Region",
+      "admin2": "",
+      "displayAdmins": [
+        "القصيم"
+      ],
+      "featureCode": "PPLA",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "بُرَيدَة",
+        "بريدة"
+      ]
+    },
+    {
+      "locationId": "107312",
+      "originalName": "Abqaiq",
+      "arabicName": "بقيق",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "بقيق"
+      ]
+    },
+    {
+      "locationId": "107588",
+      "originalName": "Baq‘ā’",
+      "arabicName": "بَقعاء",
+      "admin1": "Ha'il Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة حائل"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "بَقعاء"
+      ]
+    },
+    {
+      "locationId": "107692",
+      "originalName": "Baljurashi",
+      "arabicName": "بلجرشي",
+      "admin1": "Al Bahah Region",
+      "admin2": "",
+      "displayAdmins": [
+        "الباحة"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "بلجرشي"
+      ]
+    },
+    {
+      "locationId": "107744",
+      "originalName": "Badr Ḩunayn",
+      "arabicName": "بدر",
+      "admin1": "Medina Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة المدينة المنورة"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "aliases": [
+        "بدر",
+        "محافظة بدر"
+      ]
+    },
+    {
+      "locationId": "107746",
+      "originalName": "Badr al-Janūb",
+      "arabicName": "بدر الجنوب",
+      "admin1": "Najran Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة نجران"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "بدر الجنوب"
+      ]
+    },
+    {
+      "locationId": "107781",
+      "originalName": "Az Zulfī",
+      "arabicName": "الزُّلفِي",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الزُّلفِي"
+      ]
+    },
+    {
+      "locationId": "107797",
+      "originalName": "Dhahran",
+      "arabicName": "الظهران",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الظهران"
+      ]
+    },
+    {
+      "locationId": "107840",
+      "originalName": "Ayn Ibn Fuhayd",
+      "arabicName": "عَين ابن فهيد",
+      "admin1": "Al-Qassim Region",
+      "admin2": "",
+      "displayAdmins": [
+        "القصيم"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "عَين ابن فهيد"
+      ]
+    },
+    {
+      "locationId": "107959",
+      "originalName": "Aţ Ţaraf",
+      "arabicName": "الطرف",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الطرف"
+      ]
+    },
+    {
+      "locationId": "107968",
+      "originalName": "Ta’if",
+      "arabicName": "الطائف",
+      "admin1": "Mecca Region",
+      "admin2": "",
+      "displayAdmins": [
+        "مكة المكرّمة"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الطائف"
+      ]
+    },
+    {
+      "locationId": "107991",
+      "originalName": "Thuqbah",
+      "arabicName": "الثقبة",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPLX",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الثقبة"
+      ]
+    },
+    {
+      "locationId": "108048",
+      "originalName": "As Sulayyil",
+      "arabicName": "السليل",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "aliases": [
+        "السليل"
+      ]
+    },
+    {
+      "locationId": "108051",
+      "originalName": "As Sulaymī",
+      "arabicName": "السليمي",
+      "admin1": "Ha'il Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة حائل"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "السليمي"
+      ]
+    },
+    {
+      "locationId": "108121",
+      "originalName": "Sājir",
+      "arabicName": "ساجر",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "ساجر"
+      ]
+    },
+    {
+      "locationId": "108142",
+      "originalName": "As Saffānīyah",
+      "arabicName": "السفانية",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ],
+      "aliases": [
+        "السفانية"
+      ]
+    },
+    {
+      "locationId": "108198",
+      "originalName": "Ash-Shaqīq",
+      "arabicName": "الشقيق",
+      "admin1": "Jazan Region",
+      "admin2": "",
+      "displayAdmins": [
+        "جازان"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الشقيق"
+      ]
+    },
+    {
+      "locationId": "108262",
+      "originalName": "Ash Shimāsīyah",
+      "arabicName": "الشماسية",
+      "admin1": "Al-Qassim Region",
+      "admin2": "",
+      "displayAdmins": [
+        "القصيم"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "الشماسية"
+      ]
+    },
+    {
+      "locationId": "108410",
+      "originalName": "Riyadh",
+      "arabicName": "الرياض",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPLC",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الرياض"
+      ]
+    },
+    {
+      "locationId": "108418",
+      "originalName": "Ar Rayth",
+      "arabicName": "الريث",
+      "admin1": "Jazan Region",
+      "admin2": "",
+      "displayAdmins": [
+        "جازان"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "الريث"
+      ]
+    },
+    {
+      "locationId": "108419",
+      "originalName": "Ar Rayn",
+      "arabicName": "الرين",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "aliases": [
+        "الرين",
+        "مدينة الرين"
+      ]
+    },
+    {
+      "locationId": "108435",
+      "originalName": "Ar Rass",
+      "arabicName": "الرس",
+      "admin1": "Al-Qassim Region",
+      "admin2": "",
+      "displayAdmins": [
+        "القصيم"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الرس",
+        "الرَّس"
+      ]
+    },
+    {
+      "locationId": "108512",
+      "originalName": "Arar",
+      "arabicName": "عرعر",
+      "admin1": "Northern Borders Region",
+      "admin2": "",
+      "displayAdmins": [
+        "الحدود الشمالية"
+      ],
+      "featureCode": "PPLA",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "عرعر"
+      ]
+    },
+    {
+      "locationId": "108617",
+      "originalName": "An Nimas",
+      "arabicName": "النماص",
+      "admin1": "'Asir Region",
+      "admin2": "An Nimas",
+      "displayAdmins": [
+        "عسير",
+        "النماص"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "النماص",
+        "محافظة النماص"
+      ]
+    },
+    {
+      "locationId": "108648",
+      "originalName": "Qurayyat",
+      "arabicName": "القريات",
+      "admin1": "Al Jawf Region",
+      "admin2": "Al Qurayyāt",
+      "displayAdmins": [
+        "الجوف",
+        "القريات"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "القريات"
+      ]
+    },
+    {
+      "locationId": "108655",
+      "originalName": "‘Inak",
+      "arabicName": "عنك",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "عنك"
+      ]
+    },
+    {
+      "locationId": "108753",
+      "originalName": "Al Wadī‘ah",
+      "arabicName": "الوديعة",
+      "admin1": "Najran Region",
+      "admin2": "Sharūrah",
+      "displayAdmins": [
+        "منطقة نجران",
+        "شرورة"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الوديعة"
+      ]
+    },
+    {
+      "locationId": "108773",
+      "originalName": "Al Wajh",
+      "arabicName": "الوجه",
+      "admin1": "Tabuk Region",
+      "admin2": "",
+      "displayAdmins": [
+        "تبوك"
+      ],
+      "featureCode": "PPLA2",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الوجه",
+        "محافظة الوجه"
+      ]
+    },
+    {
+      "locationId": "108782",
+      "originalName": "‘Uyūn al Jiwā’",
+      "arabicName": "عُيُون الجِواء",
+      "admin1": "Al-Qassim Region",
+      "admin2": "",
+      "displayAdmins": [
+        "القصيم"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "عُيُون الجِواء"
+      ]
+    },
+    {
+      "locationId": "108787",
+      "originalName": "Al ‘Uyaynah",
+      "arabicName": "العيينة",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "العيينة"
+      ]
+    },
+    {
+      "locationId": "108791",
+      "originalName": "Al ‘Uwayqīlah",
+      "arabicName": "العويقيلة",
+      "admin1": "Northern Borders Region",
+      "admin2": "",
+      "displayAdmins": [
+        "الحدود الشمالية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "العويقيلة"
+      ]
+    },
+    {
+      "locationId": "108841",
+      "originalName": "Al-`Ula",
+      "arabicName": "العلا",
+      "admin1": "Medina Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة المدينة المنورة"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "العلا",
+        "العُـلا"
+      ]
+    },
+    {
+      "locationId": "108852",
+      "originalName": "Udhailiyah",
+      "arabicName": "العضيلية",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "العضيلية"
+      ]
+    },
+    {
+      "locationId": "108868",
+      "originalName": "Al Quway‘īyah",
+      "arabicName": "القويعية",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "القويعية"
+      ]
+    },
+    {
+      "locationId": "108890",
+      "originalName": "Al Qurayn",
+      "arabicName": "القرين",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ],
+      "aliases": [
+        "القرين"
+      ]
+    },
+    {
+      "locationId": "108918",
+      "originalName": "Qaisumah",
+      "arabicName": "القيصومة‎‎",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "القيصومة‎‎",
+        "القيصومة"
+      ]
+    },
+    {
+      "locationId": "108927",
+      "originalName": "Al Qaţīf",
+      "arabicName": "القطيف",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "القطيف"
+      ]
+    },
+    {
+      "locationId": "108957",
+      "originalName": "Al Qārah",
+      "arabicName": "القارة",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ],
+      "aliases": [
+        "القارة"
+      ]
+    },
+    {
+      "locationId": "108994",
+      "originalName": "Al Muzāḩimīyah",
+      "arabicName": "المزاحمية",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "المزاحمية",
+        "محافظة المزاحمية....."
+      ]
+    },
+    {
+      "locationId": "109008",
+      "originalName": "Al Muţayrifī",
+      "arabicName": "المطيرفي",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "المطيرفي"
+      ]
+    },
+    {
+      "locationId": "109059",
+      "originalName": "Al Munayzilah",
+      "arabicName": "المنيزلة",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ],
+      "aliases": [
+        "المنيزلة"
+      ]
+    },
+    {
+      "locationId": "109101",
+      "originalName": "Al Mubarraz",
+      "arabicName": "المبرز",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "المبرز"
+      ]
+    },
+    {
+      "locationId": "109118",
+      "originalName": "Al Mindak",
+      "arabicName": "المندق",
+      "admin1": "Al Bahah Region",
+      "admin2": "",
+      "displayAdmins": [
+        "الباحة"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "aliases": [
+        "المندق"
+      ]
+    },
+    {
+      "locationId": "109131",
+      "originalName": "Al Mithnab",
+      "arabicName": "المذنب",
+      "admin1": "Al-Qassim Region",
+      "admin2": "",
+      "displayAdmins": [
+        "القصيم"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "المذنب",
+        "محافظة المذنب"
+      ]
+    },
+    {
+      "locationId": "109165",
+      "originalName": "Al Markaz",
+      "arabicName": "المركز",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ],
+      "aliases": [
+        "المركز"
+      ]
+    },
+    {
+      "locationId": "109194",
+      "originalName": "Al Majma‘ah",
+      "arabicName": "المجمعة",
+      "admin1": "Riyadh Region",
+      "admin2": "Ar Riyāḑ",
+      "displayAdmins": [
+        "منطقة الرياض‎",
+        "الرياض"
+      ],
+      "featureCode": "PPLA2",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "المجمعة"
+      ]
+    },
+    {
+      "locationId": "109223",
+      "originalName": "Madinah",
+      "arabicName": "المدينة",
+      "admin1": "Medina Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة المدينة المنورة"
+      ],
+      "featureCode": "PPLA",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "المدينة",
+        "المدينة المنورة"
+      ]
+    },
+    {
+      "locationId": "109253",
+      "originalName": "Al Līth",
+      "arabicName": "الليث",
+      "admin1": "Mecca Region",
+      "admin2": "",
+      "displayAdmins": [
+        "مكة المكرّمة"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "aliases": [
+        "الليث",
+        "محافظة الليث"
+      ]
+    },
+    {
+      "locationId": "109306",
+      "originalName": "Al Khurmah",
+      "arabicName": "الخرمة",
+      "admin1": "Mecca Region",
+      "admin2": "",
+      "displayAdmins": [
+        "مكة المكرّمة"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "aliases": [
+        "الخرمة"
+      ]
+    },
+    {
+      "locationId": "109323",
+      "originalName": "Khobar",
+      "arabicName": "الخبر",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الخبر"
+      ]
+    },
+    {
+      "locationId": "109353",
+      "originalName": "Al Kharj",
+      "arabicName": "الخرج",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الخرج",
+        "محافظة الخرج"
+      ]
+    },
+    {
+      "locationId": "109380",
+      "originalName": "Al Khafjī",
+      "arabicName": "الخفجي",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "aliases": [
+        "الخفجي"
+      ]
+    },
+    {
+      "locationId": "109391",
+      "originalName": "Al Khabrā’",
+      "arabicName": "الخَبراء",
+      "admin1": "Al-Qassim Region",
+      "admin2": "",
+      "displayAdmins": [
+        "القصيم"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الخَبراء"
+      ]
+    },
+    {
+      "locationId": "109417",
+      "originalName": "Al Jumūm",
+      "arabicName": "الجموم",
+      "admin1": "Mecca Region",
+      "admin2": "",
+      "displayAdmins": [
+        "مكة المكرّمة"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الجموم",
+        "محافظة الجموم"
+      ]
+    },
+    {
+      "locationId": "109432",
+      "originalName": "Al Jubaylah",
+      "arabicName": "الجبيلة",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الجبيلة"
+      ]
+    },
+    {
+      "locationId": "109435",
+      "originalName": "Al Jubayl",
+      "arabicName": "الجبيل",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الجبيل"
+      ]
+    },
+    {
+      "locationId": "109436",
+      "originalName": "Al Jubayl",
+      "arabicName": "الجبيل",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ],
+      "aliases": [
+        "الجبيل"
+      ]
+    },
+    {
+      "locationId": "109481",
+      "originalName": "Al Jarādīyah",
+      "arabicName": "الجرادية",
+      "admin1": "Jazan Region",
+      "admin2": "",
+      "displayAdmins": [
+        "جازان"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ],
+      "aliases": [
+        "الجرادية"
+      ]
+    },
+    {
+      "locationId": "109502",
+      "originalName": "Al Jafr",
+      "arabicName": "الجفر",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الجفر"
+      ]
+    },
+    {
+      "locationId": "109551",
+      "originalName": "Al Ḩurayyiq",
+      "arabicName": "الحريق",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "الحريق"
+      ]
+    },
+    {
+      "locationId": "109563",
+      "originalName": "Al Ḩulwah",
+      "arabicName": "الحلوة",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "aliases": [
+        "الحلوة"
+      ]
+    },
+    {
+      "locationId": "109571",
+      "originalName": "Al Hufūf",
+      "arabicName": "الهفوف",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الهفوف"
+      ]
+    },
+    {
+      "locationId": "109615",
+      "originalName": "Al Hayāthim",
+      "arabicName": "الهياثم",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الهياثم"
+      ]
+    },
+    {
+      "locationId": "109655",
+      "originalName": "Al Harajah",
+      "arabicName": "الحرجة",
+      "admin1": "'Asir Region",
+      "admin2": "Sabt Al Alayah",
+      "displayAdmins": [
+        "عسير",
+        "سبت العلايا"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "الحرجة"
+      ]
+    },
+    {
+      "locationId": "109772",
+      "originalName": "Al Ghāţ",
+      "arabicName": "الغاط",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "الغاط",
+        "محافظة الغاط"
+      ]
+    },
+    {
+      "locationId": "109878",
+      "originalName": "Al Bukayrīyah",
+      "arabicName": "البُكَيرِيَّة",
+      "admin1": "Al-Qassim Region",
+      "admin2": "",
+      "displayAdmins": [
+        "القصيم"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "البُكَيرِيَّة",
+        "البكيرية",
+        "محافظة البكيرية"
+      ]
+    },
+    {
+      "locationId": "109915",
+      "originalName": "Al Baţţālīyah",
+      "arabicName": "البطالية",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ],
+      "aliases": [
+        "البطالية"
+      ]
+    },
+    {
+      "locationId": "109953",
+      "originalName": "Al Bahah",
+      "arabicName": "الباحة",
+      "admin1": "Al Bahah Region",
+      "admin2": "",
+      "displayAdmins": [
+        "الباحة"
+      ],
+      "featureCode": "PPLA",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الباحة"
+      ]
+    },
+    {
+      "locationId": "109998",
+      "originalName": "Al ‘Awwāmīyah",
+      "arabicName": "العوامية",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "العوامية"
+      ]
+    },
+    {
+      "locationId": "110031",
+      "originalName": "Al Arţāwīyah",
+      "arabicName": "الارطاوية",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الارطاوية"
+      ]
+    },
+    {
+      "locationId": "110040",
+      "originalName": "Al ‘Āriḑah",
+      "arabicName": "العارضة",
+      "admin1": "Jazan Region",
+      "admin2": "",
+      "displayAdmins": [
+        "جازان"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "العارضة"
+      ]
+    },
+    {
+      "locationId": "110059",
+      "originalName": "Al ‘Aqīq",
+      "arabicName": "العقيق",
+      "admin1": "Al Bahah Region",
+      "admin2": "",
+      "displayAdmins": [
+        "الباحة"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "aliases": [
+        "العقيق"
+      ]
+    },
+    {
+      "locationId": "110060",
+      "originalName": "Al ‘Aqīq",
+      "arabicName": "العقيق",
+      "admin1": "Al Bahah Region",
+      "admin2": "Al ‘Aqīq",
+      "displayAdmins": [
+        "الباحة",
+        "العقيق"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "العقيق",
+        "محافظة العقيق"
+      ]
+    },
+    {
+      "locationId": "110107",
+      "originalName": "Al Awjām",
+      "arabicName": "الاوجام",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الاوجام"
+      ]
+    },
+    {
+      "locationId": "110250",
+      "originalName": "Afif",
+      "arabicName": "عفيف",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "hrsd-afif-2026-09-15"
+      ],
+      "aliases": [
+        "عفيف",
+        "محافظة عفيف"
+      ]
+    },
+    {
+      "locationId": "110275",
+      "originalName": "Adh Dhibiyah",
+      "arabicName": "الذيبية",
+      "admin1": "Al-Qassim Region",
+      "admin2": "",
+      "displayAdmins": [
+        "القصيم"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الذيبية",
+        "الذيبية القصيم",
+        "الذيبية بالقصيم",
+        "الذيبية في القصيم",
+        "الذيبيه",
+        "الذيبيه القصيم",
+        "الذيبيه بالقصيم",
+        "الذيبيه في القصيم",
+        "ذيبية",
+        "ذيبية القصيم",
+        "ذيبيه",
+        "ذيبيه القصيم"
+      ]
+    },
+    {
+      "locationId": "110281",
+      "originalName": "Al ‘Aydābī",
+      "arabicName": "العيدابي",
+      "admin1": "Jazan Region",
+      "admin2": "",
+      "displayAdmins": [
+        "جازان"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "العيدابي"
+      ]
+    },
+    {
+      "locationId": "110312",
+      "originalName": "Ad Dir‘īyah",
+      "arabicName": "الدرعية",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الدرعية"
+      ]
+    },
+    {
+      "locationId": "110314",
+      "originalName": "Ad Dilam",
+      "arabicName": "الدلم",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الدلم"
+      ]
+    },
+    {
+      "locationId": "110325",
+      "originalName": "Ad Dawādimī",
+      "arabicName": "الدوادمي",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "aliases": [
+        "الدوادمي"
+      ]
+    },
+    {
+      "locationId": "110328",
+      "originalName": "Ad Darb",
+      "arabicName": "الدرب",
+      "admin1": "Jazan Region",
+      "admin2": "",
+      "displayAdmins": [
+        "جازان"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الدرب"
+      ]
+    },
+    {
+      "locationId": "110336",
+      "originalName": "Dammam",
+      "arabicName": "الدمام",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPLA",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الدمام"
+      ]
+    },
+    {
+      "locationId": "110619",
+      "originalName": "Abū ‘Arīsh",
+      "arabicName": "ٲبو عريش",
+      "admin1": "Jazan Region",
+      "admin2": "",
+      "displayAdmins": [
+        "جازان"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "ٲبو عريش",
+        "أبو عريش"
+      ]
+    },
+    {
+      "locationId": "110690",
+      "originalName": "Abha",
+      "arabicName": "أبها",
+      "admin1": "'Asir Region",
+      "admin2": "",
+      "displayAdmins": [
+        "عسير"
+      ],
+      "featureCode": "PPLA",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "أبها"
+      ]
+    },
+    {
+      "locationId": "392753",
+      "originalName": "Şuwayr",
+      "arabicName": "صوير",
+      "admin1": "Al Jawf Region",
+      "admin2": "",
+      "displayAdmins": [
+        "الجوف"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "aliases": [
+        "صوير"
+      ]
+    },
+    {
+      "locationId": "393275",
+      "originalName": "Turubah",
+      "arabicName": "تربة",
+      "admin1": "Ha'il Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة حائل"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "تربة"
+      ]
+    },
+    {
+      "locationId": "394983",
+      "originalName": "Ash Shinān",
+      "arabicName": "الشنان",
+      "admin1": "Ha'il Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة حائل"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "الشنان"
+      ]
+    },
+    {
+      "locationId": "395153",
+      "originalName": "Simīrā’",
+      "arabicName": "سميراء",
+      "admin1": "Ha'il Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة حائل"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "سميراء"
+      ]
+    },
+    {
+      "locationId": "395628",
+      "originalName": "Wed Alnkil",
+      "arabicName": "وادي النخيل",
+      "admin1": "Al-Qassim Region",
+      "admin2": "",
+      "displayAdmins": [
+        "القصيم"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "وادي النخيل"
+      ]
+    },
+    {
+      "locationId": "396550",
+      "originalName": "Tumayr",
+      "arabicName": "تمير",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "تمير"
+      ]
+    },
+    {
+      "locationId": "397513",
+      "originalName": "Al Fuwayliq",
+      "arabicName": "الفويلق",
+      "admin1": "Al-Qassim Region",
+      "admin2": "",
+      "displayAdmins": [
+        "القصيم"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "aliases": [
+        "الفويلق",
+        "القويلق"
+      ]
+    },
+    {
+      "locationId": "397833",
+      "originalName": "Al Badā’i‘ al Wusţá",
+      "arabicName": "البَدائع",
+      "admin1": "Al-Qassim Region",
+      "admin2": "",
+      "displayAdmins": [
+        "القصيم"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "البَدائع",
+        "البَدائع الوُسطى"
+      ]
+    },
+    {
+      "locationId": "399518",
+      "originalName": "Al Majāridah",
+      "arabicName": "المجاردة",
+      "admin1": "'Asir Region",
+      "admin2": "",
+      "displayAdmins": [
+        "عسير"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "aliases": [
+        "المجاردة"
+      ]
+    },
+    {
+      "locationId": "399659",
+      "originalName": "Yadamah",
+      "arabicName": "يدمة",
+      "admin1": "Najran Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة نجران"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "يدمة"
+      ]
+    },
+    {
+      "locationId": "400009",
+      "originalName": "Ain AlBaraha",
+      "arabicName": "عين البراحة",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "عين البراحة"
+      ]
+    },
+    {
+      "locationId": "400461",
+      "originalName": "Dawmat al Jandal",
+      "arabicName": "دومة الجندل",
+      "admin1": "Al Jawf Region",
+      "admin2": "",
+      "displayAdmins": [
+        "الجوف"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "دومة الجندل"
+      ]
+    },
+    {
+      "locationId": "409682",
+      "originalName": "Thuwal",
+      "arabicName": "ثول",
+      "admin1": "Mecca Region",
+      "admin2": "",
+      "displayAdmins": [
+        "مكة المكرّمة"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "sa-government-place-evidence"
+      ],
+      "aliases": [
+        "ثول"
+      ]
+    },
+    {
+      "locationId": "409993",
+      "originalName": "Al Muwayh",
+      "arabicName": "المويه",
+      "admin1": "Mecca Region",
+      "admin2": "",
+      "displayAdmins": [
+        "مكة المكرّمة"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "aliases": [
+        "المويه",
+        "محافظة المويه"
+      ]
+    },
+    {
+      "locationId": "410084",
+      "originalName": "Al Hadā",
+      "arabicName": "الهدا",
+      "admin1": "Mecca Region",
+      "admin2": "",
+      "displayAdmins": [
+        "مكة المكرّمة"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الهدا"
+      ]
+    },
+    {
+      "locationId": "410096",
+      "originalName": "Ash Shafā",
+      "arabicName": "الشفا",
+      "admin1": "Mecca Region",
+      "admin2": "",
+      "displayAdmins": [
+        "مكة المكرّمة"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الشفا"
+      ]
+    },
+    {
+      "locationId": "410874",
+      "originalName": "Mizhirah",
+      "arabicName": "مزهرة",
+      "admin1": "Jazan Region",
+      "admin2": "",
+      "displayAdmins": [
+        "جازان"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "مزهرة"
+      ]
+    },
+    {
+      "locationId": "411006",
+      "originalName": "Aţ Ţuwāl",
+      "arabicName": "الطوال",
+      "admin1": "Jazan Region",
+      "admin2": "",
+      "displayAdmins": [
+        "جازان"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "الطوال",
+        "محافظة الطوال"
+      ]
+    },
+    {
+      "locationId": "6692745",
+      "originalName": "shokhaibٍ",
+      "arabicName": "شخيب",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPLL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "شخيب"
+      ]
+    },
+    {
+      "locationId": "7288343",
+      "originalName": "Shaybah",
+      "arabicName": "شيبة",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "aramco-place-evidence"
+      ],
+      "aliases": [
+        "شيبة"
+      ]
+    },
+    {
+      "locationId": "7370569",
+      "originalName": "Baysh",
+      "arabicName": "بيش",
+      "admin1": "Jazan Region",
+      "admin2": "",
+      "displayAdmins": [
+        "جازان"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "بيش"
+      ]
+    },
+    {
+      "locationId": "8019123",
+      "originalName": "Sharurah",
+      "arabicName": "شرورة",
+      "admin1": "Najran Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة نجران"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "شرورة",
+        "محافظة شرورة"
+      ]
+    },
+    {
+      "locationId": "8449855",
+      "originalName": "King Khalid Military City",
+      "arabicName": "مدينة الملك خالد العسكرية",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPLL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "مدينة الملك خالد العسكرية"
+      ]
+    },
+    {
+      "locationId": "9031043",
+      "originalName": "Alrmtheiah",
+      "arabicName": null,
+      "admin1": "Al-Qassim Region",
+      "admin2": "",
+      "displayAdmins": [
+        "القصيم"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "unresolved-original-fallback",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": []
+    },
+    {
+      "locationId": "11524299",
+      "originalName": "King Abdullah City",
+      "arabicName": "مدينة الملك عبدالله الاقتصادية",
+      "admin1": "Mecca Region",
+      "admin2": "",
+      "displayAdmins": [
+        "مكة المكرّمة"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ecza-kaec"
+      ],
+      "aliases": [
+        "مدينة الملك عبدالله الاقتصادية"
+      ]
+    },
+    {
+      "locationId": "11670045",
+      "originalName": "Sabt Alalayah",
+      "arabicName": "سبت العلايا",
+      "admin1": "'Asir Region",
+      "admin2": "Sabt Al Alayah",
+      "displayAdmins": [
+        "عسير",
+        "سبت العلايا"
+      ],
+      "featureCode": "PPLL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "سبت العلايا"
+      ]
+    },
+    {
+      "locationId": "11670741",
+      "originalName": "Ad Dā’ir",
+      "arabicName": "الدائر",
+      "admin1": "Jazan Region",
+      "admin2": "",
+      "displayAdmins": [
+        "جازان"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "الدائر"
+      ]
+    },
+    {
+      "locationId": "11829674",
+      "originalName": "Al Mulaydā’",
+      "arabicName": "المُلَيدَاء",
+      "admin1": "Al-Qassim Region",
+      "admin2": "",
+      "displayAdmins": [
+        "القصيم"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "المُلَيدَاء"
+      ]
+    },
+    {
+      "locationId": "11835536",
+      "originalName": "Riyāḑ al Khabrā’",
+      "arabicName": "رِياض الخَبراء",
+      "admin1": "Al-Qassim Region",
+      "admin2": "",
+      "displayAdmins": [
+        "القصيم"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "رِياض الخَبراء"
+      ]
+    },
+    {
+      "locationId": "12495725",
+      "originalName": "Bariq",
+      "arabicName": "بارق",
+      "admin1": "'Asir Region",
+      "admin2": "",
+      "displayAdmins": [
+        "عسير"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "aliases": [
+        "بارق"
+      ]
+    },
+    {
+      "locationId": "12495738",
+      "originalName": "Al Ju‘aymah",
+      "arabicName": "الجعيمة",
+      "admin1": "Eastern Province",
+      "admin2": "",
+      "displayAdmins": [
+        "الشرقية"
+      ],
+      "featureCode": "PPLF",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "aramco-place-evidence"
+      ],
+      "aliases": [
+        "الجعيمة"
+      ]
+    },
+    {
+      "locationId": "12500245",
+      "originalName": "Sarāt ‘Abīdah",
+      "arabicName": "سراة عبيدة",
+      "admin1": "'Asir Region",
+      "admin2": "",
+      "displayAdmins": [
+        "عسير"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "سراة عبيدة"
+      ]
+    },
+    {
+      "locationId": "12513572",
+      "originalName": "Al Mash‘ilīyah",
+      "arabicName": "المشعلية",
+      "admin1": "Najran Region",
+      "admin2": "Najrān",
+      "displayAdmins": [
+        "منطقة نجران",
+        "محافظة نجران"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "المشعلية"
+      ]
+    },
+    {
+      "locationId": "12513575",
+      "originalName": "Ḩabūnā",
+      "arabicName": "حبونا",
+      "admin1": "Najran Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة نجران"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "حبونا"
+      ]
+    },
+    {
+      "locationId": "12545858",
+      "originalName": "Al Amwāh",
+      "arabicName": "الأمواه",
+      "admin1": "'Asir Region",
+      "admin2": "",
+      "displayAdmins": [
+        "عسير"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "aliases": [
+        "الأمواه"
+      ]
+    },
+    {
+      "locationId": "12546009",
+      "originalName": "Ranyah",
+      "arabicName": "رنية",
+      "admin1": "Mecca Region",
+      "admin2": "",
+      "displayAdmins": [
+        "مكة المكرّمة"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "رنية"
+      ]
+    },
+    {
+      "locationId": "13157454",
+      "originalName": "Al-Juwain",
+      "arabicName": "الجوين",
+      "admin1": "Jazan Region",
+      "admin2": "Harub",
+      "displayAdmins": [
+        "جازان"
+      ],
+      "featureCode": "PPLA3",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الجوين"
+      ]
+    },
+    {
+      "locationId": "13237017",
+      "originalName": "Ash Shamli",
+      "arabicName": "الشملي",
+      "admin1": "Ha'il Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة حائل"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "الشملي"
+      ]
+    },
+    {
+      "locationId": "13631408",
+      "originalName": "Ḥawṭah Banī Tamīm",
+      "arabicName": "حوطة بني تميم",
+      "admin1": "Riyadh Region",
+      "admin2": "",
+      "displayAdmins": [
+        "منطقة الرياض‎"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "reviewed-current-source",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "aliases": [
+        "حوطة بني تميم"
+      ]
+    },
+    {
+      "locationId": "13645278",
+      "originalName": "Khubāsh",
+      "arabicName": "خباش",
+      "admin1": "Najran Region",
+      "admin2": "Khubāsh",
+      "displayAdmins": [
+        "منطقة نجران",
+        "خباش"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "خباش"
+      ]
+    },
+    {
+      "locationId": "13645279",
+      "originalName": "Dhahabān",
+      "arabicName": "ذهبان",
+      "admin1": "Jazan Region",
+      "admin2": "",
+      "displayAdmins": [
+        "جازان"
+      ],
+      "featureCode": "PPL",
+      "nameStatus": "current-source-name-not-independent-official-certification",
+      "sourceRefs": [
+        "GeoNames alternateNamesV2 current snapshot; Wikidata if present"
+      ],
+      "aliases": [
+        "ذهبان"
+      ]
+    }
+  ],
+  "saudiGovernorateComparison": [
+    {
+      "region": "منطقة الرياض",
+      "name": "مدينة الرياض",
+      "code": "0100",
+      "category": "مقر الإمارة",
+      "matchedLocationIds": [
+        "108410"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الرياض",
+      "name": "محافظة الدرعية",
+      "code": "0101",
+      "category": "أ",
+      "matchedLocationIds": [
+        "110312"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الرياض",
+      "name": "محافظة  الخرج",
+      "code": "0102",
+      "category": "أ",
+      "matchedLocationIds": [
+        "109353"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الرياض",
+      "name": "محافظة  الدوادمي",
+      "code": "0103",
+      "category": "أ",
+      "matchedLocationIds": [
+        "110325"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الرياض",
+      "name": "محافظة  المجمعة",
+      "code": "0104",
+      "category": "أ",
+      "matchedLocationIds": [
+        "109194"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الرياض",
+      "name": "محافظة  القويعية",
+      "code": "0105",
+      "category": "أ",
+      "matchedLocationIds": [
+        "108868"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الرياض",
+      "name": "محافظة  وادي الدواسر",
+      "code": "0106",
+      "category": "أ",
+      "matchedLocationIds": [
+        "100596"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الرياض",
+      "name": "محافظة  الأفلاج",
+      "code": "0107",
+      "category": "أ",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة الرياض",
+      "name": "محافظة  الزلفي",
+      "code": "0108",
+      "category": "أ",
+      "matchedLocationIds": [
+        "107781"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الرياض",
+      "name": "محافظة  شقراء",
+      "code": "0109",
+      "category": "أ",
+      "matchedLocationIds": [
+        "102170"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الرياض",
+      "name": "محافظة  حوطة بني تميم",
+      "code": "0110",
+      "category": "أ",
+      "matchedLocationIds": [
+        "13631408"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الرياض",
+      "name": "محافظة  عفيف",
+      "code": "0111",
+      "category": "أ",
+      "matchedLocationIds": [
+        "110250"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الرياض",
+      "name": "محافظة  السليل",
+      "code": "0112",
+      "category": "ب",
+      "matchedLocationIds": [
+        "108048"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الرياض",
+      "name": "محافظة  ضرماء",
+      "code": "0113",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة الرياض",
+      "name": "محافظة  المزاحمية",
+      "code": "0114",
+      "category": "ب",
+      "matchedLocationIds": [
+        "108994"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الرياض",
+      "name": "محافظة  رماح",
+      "code": "0115",
+      "category": "ب",
+      "matchedLocationIds": [
+        "102744"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الرياض",
+      "name": "محافظة  ثادق",
+      "code": "0116",
+      "category": "ب",
+      "matchedLocationIds": [
+        "101484"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الرياض",
+      "name": "محافظة  حريملاء",
+      "code": "0117",
+      "category": "ب",
+      "matchedLocationIds": [
+        "105703"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الرياض",
+      "name": "محافظة  الحريق",
+      "code": "0118",
+      "category": "ب",
+      "matchedLocationIds": [
+        "109551"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الرياض",
+      "name": "محافظة  الغاط",
+      "code": "0119",
+      "category": "أ",
+      "matchedLocationIds": [
+        "109772"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الرياض",
+      "name": "محافظة  مرات",
+      "code": "0120",
+      "category": "ب",
+      "matchedLocationIds": [
+        "104376"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الرياض",
+      "name": "محافظة الدلم",
+      "code": "0121",
+      "category": "ب",
+      "matchedLocationIds": [
+        "110314"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الرياض",
+      "name": "محافظة الرين",
+      "code": "0122",
+      "category": "ب",
+      "matchedLocationIds": [
+        "108419"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة مكة المكرمة",
+      "name": "مدينة   مكة المكرمة",
+      "code": "0123",
+      "category": "مقر الإمارة",
+      "matchedLocationIds": [
+        "104515"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة مكة المكرمة",
+      "name": "محافظة  جده",
+      "code": "0124",
+      "category": "أ",
+      "matchedLocationIds": [
+        "105343",
+        "105343"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة مكة المكرمة",
+      "name": "محافظة  الطائف",
+      "code": "0125",
+      "category": "أ",
+      "matchedLocationIds": [
+        "107968"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة مكة المكرمة",
+      "name": "محافظة  القنفذه",
+      "code": "0126",
+      "category": "أ",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة مكة المكرمة",
+      "name": "محافظة  الليث",
+      "code": "0127",
+      "category": "أ",
+      "matchedLocationIds": [
+        "109253"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة مكة المكرمة",
+      "name": "محافظة  رابغ",
+      "code": "0128",
+      "category": "أ",
+      "matchedLocationIds": [
+        "103035"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة مكة المكرمة",
+      "name": "محافظة  الجموم",
+      "code": "0129",
+      "category": "ب",
+      "matchedLocationIds": [
+        "109417"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة مكة المكرمة",
+      "name": "محافظة  خليص",
+      "code": "0130",
+      "category": "أ",
+      "matchedLocationIds": [
+        "104923"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة مكة المكرمة",
+      "name": "محافظة  الكامل",
+      "code": "0131",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة مكة المكرمة",
+      "name": "محافظة  الخرمة",
+      "code": "0132",
+      "category": "أ",
+      "matchedLocationIds": [
+        "109306"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة مكة المكرمة",
+      "name": "محافظة  رنيه",
+      "code": "0133",
+      "category": "أ",
+      "matchedLocationIds": [
+        "12546009"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة مكة المكرمة",
+      "name": "محافظة  تربة",
+      "code": "0134",
+      "category": "أ",
+      "matchedLocationIds": [
+        "101322",
+        "393275"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة مكة المكرمة",
+      "name": "محافظة  ميسان",
+      "code": "0135",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة مكة المكرمة",
+      "name": "محافظة  المويه",
+      "code": "0136",
+      "category": "ب",
+      "matchedLocationIds": [
+        "409993"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة مكة المكرمة",
+      "name": "محافظة  أضم",
+      "code": "0137",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة مكة المكرمة",
+      "name": "محافظة  العرضيات",
+      "code": "0138",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة مكة المكرمة",
+      "name": "محافظة  بحره",
+      "code": "0139",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة المدينة المنورة",
+      "name": "مدينة   المدينة المنورة",
+      "code": "0140",
+      "category": "مقر الإمارة",
+      "matchedLocationIds": [
+        "109223"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة المدينة المنورة",
+      "name": "محافظة  ينبع",
+      "code": "0141",
+      "category": "أ",
+      "matchedLocationIds": [
+        "100425"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة المدينة المنورة",
+      "name": "محافظة  العلا",
+      "code": "0142",
+      "category": "أ",
+      "matchedLocationIds": [
+        "108841",
+        "108841"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة المدينة المنورة",
+      "name": "محافظة  المهد",
+      "code": "0143",
+      "category": "أ",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة المدينة المنورة",
+      "name": "محافظة  بدر",
+      "code": "0144",
+      "category": "ب",
+      "matchedLocationIds": [
+        "107744"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة المدينة المنورة",
+      "name": "محافظة  خيبر",
+      "code": "0145",
+      "category": "ب",
+      "matchedLocationIds": [
+        "104979"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة المدينة المنورة",
+      "name": "محافظة  الحناكية",
+      "code": "0146",
+      "category": "أ",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة المدينة المنورة",
+      "name": "محافظة  العيص",
+      "code": "0147",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة المدينة المنورة",
+      "name": "محافظة  وادي الفرع",
+      "code": "0148",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة القصيم",
+      "name": "مدينة   بريدة",
+      "code": "0149",
+      "category": "مقر الإمارة",
+      "matchedLocationIds": [
+        "107304",
+        "107304"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة القصيم",
+      "name": "محافظة  عنيزة",
+      "code": "0150",
+      "category": "أ",
+      "matchedLocationIds": [
+        "100768"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة القصيم",
+      "name": "محافظة  الرس",
+      "code": "0151",
+      "category": "أ",
+      "matchedLocationIds": [
+        "108435",
+        "108435"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة القصيم",
+      "name": "محافظة  المذنب",
+      "code": "0152",
+      "category": "أ",
+      "matchedLocationIds": [
+        "109131"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة القصيم",
+      "name": "محافظة  البكيرية",
+      "code": "0153",
+      "category": "أ",
+      "matchedLocationIds": [
+        "109878",
+        "109878"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة القصيم",
+      "name": "محافظة  البدائع",
+      "code": "0154",
+      "category": "أ",
+      "matchedLocationIds": [
+        "397833"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة القصيم",
+      "name": "محافظة  الأسياح",
+      "code": "0155",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة القصيم",
+      "name": "محافظة  النبهانية",
+      "code": "0156",
+      "category": "ب",
+      "matchedLocationIds": [
+        "103688"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة القصيم",
+      "name": "محافظة  عيون الجواء",
+      "code": "0157",
+      "category": "ب",
+      "matchedLocationIds": [
+        "108782"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة القصيم",
+      "name": "محافظة  رياض الخبراء",
+      "code": "0158",
+      "category": "ب",
+      "matchedLocationIds": [
+        "11835536"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة القصيم",
+      "name": "محافظة  الشماسية",
+      "code": "0159",
+      "category": "ب",
+      "matchedLocationIds": [
+        "108262"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة القصيم",
+      "name": "محافظة عقلة الصقور",
+      "code": "0160",
+      "category": "ب",
+      "matchedLocationIds": [
+        "100732"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة القصيم",
+      "name": "محافظة ضرية",
+      "code": "0161",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة القصيم",
+      "name": "محافظة أبانات",
+      "code": "0251",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "المنطقة الشرقية",
+      "name": "مدينة   الدمام",
+      "code": "0162",
+      "category": "مقر الإمارة",
+      "matchedLocationIds": [
+        "110336"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "المنطقة الشرقية",
+      "name": "محافظة  الإحساء",
+      "code": "0163",
+      "category": "أ",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "المنطقة الشرقية",
+      "name": "محافظة  حفر الباطن",
+      "code": "0164",
+      "category": "أ",
+      "matchedLocationIds": [
+        "106297"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "المنطقة الشرقية",
+      "name": "محافظة  الجبيل",
+      "code": "0165",
+      "category": "أ",
+      "matchedLocationIds": [
+        "109435",
+        "109436"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "المنطقة الشرقية",
+      "name": "محافظة  القطيف",
+      "code": "0166",
+      "category": "أ",
+      "matchedLocationIds": [
+        "108927"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "المنطقة الشرقية",
+      "name": "محافظة  الخبر",
+      "code": "0167",
+      "category": "أ",
+      "matchedLocationIds": [
+        "109323"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "المنطقة الشرقية",
+      "name": "محافظة  الخفجي",
+      "code": "0168",
+      "category": "أ",
+      "matchedLocationIds": [
+        "109380"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "المنطقة الشرقية",
+      "name": "محافظة  رأس تنورة",
+      "code": "0169",
+      "category": "ب",
+      "matchedLocationIds": [
+        "102891"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "المنطقة الشرقية",
+      "name": "محافظة  أبقيق",
+      "code": "0170",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "المنطقة الشرقية",
+      "name": "محافظة  النعيرية",
+      "code": "0171",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "المنطقة الشرقية",
+      "name": "محافظة  قرية العليا",
+      "code": "0172",
+      "category": "ب",
+      "matchedLocationIds": [
+        "103283"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "المنطقة الشرقية",
+      "name": "محافظة العديد",
+      "code": "0173",
+      "category": "أ",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "المنطقة الشرقية",
+      "name": "محافظة البيضاء",
+      "code": "0174",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة عسير",
+      "name": "مدينة  أبـها",
+      "code": "0175",
+      "category": "مقر الإمارة",
+      "matchedLocationIds": [
+        "110690"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة عسير",
+      "name": "محافظة  خميس مشيط",
+      "code": "0176",
+      "category": "أ",
+      "matchedLocationIds": [
+        "105072"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة عسير",
+      "name": "محافظة  بيشة",
+      "code": "0177",
+      "category": "أ",
+      "matchedLocationIds": [
+        "103369"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة عسير",
+      "name": "محافظة  النماص",
+      "code": "0178",
+      "category": "أ",
+      "matchedLocationIds": [
+        "108617"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة عسير",
+      "name": "محافظة  محايل",
+      "code": "0179",
+      "category": "أ",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة عسير",
+      "name": "محافظة  سراة عبيدة",
+      "code": "0180",
+      "category": "ب",
+      "matchedLocationIds": [
+        "12500245"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة عسير",
+      "name": "محافظة  تثليث",
+      "code": "0181",
+      "category": "أ",
+      "matchedLocationIds": [
+        "101547"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة عسير",
+      "name": "محافظة  رجال ألمع",
+      "code": "0182",
+      "category": "أ",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة عسير",
+      "name": "محافظة  أحد رفيدة",
+      "code": "0183",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة عسير",
+      "name": "محافظة  ظهران الجنوب",
+      "code": "0184",
+      "category": "أ",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة عسير",
+      "name": "محافظة  بلقرن",
+      "code": "0185",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة عسير",
+      "name": "محافظة  المجاردة",
+      "code": "0186",
+      "category": "ب",
+      "matchedLocationIds": [
+        "399518"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة عسير",
+      "name": "محافظة  تنومة",
+      "code": "0187",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة عسير",
+      "name": "محافظة  طريب",
+      "code": "0188",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة عسير",
+      "name": "محافظة  بارق",
+      "code": "0189",
+      "category": "ب",
+      "matchedLocationIds": [
+        "12495725"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة عسير",
+      "name": "محافظة  البرك",
+      "code": "0190",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة عسير",
+      "name": "محافظة الحرجة",
+      "code": "0191",
+      "category": "ب",
+      "matchedLocationIds": [
+        "109655"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة عسير",
+      "name": "محافظة الأمواه",
+      "code": "0192",
+      "category": "ب",
+      "matchedLocationIds": [
+        "12545858"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة عسير",
+      "name": "محافظة الفرشة",
+      "code": "0253",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة تبوك",
+      "name": "مدينة    تبوك",
+      "code": "0193",
+      "category": "مقر الإمارة",
+      "matchedLocationIds": [
+        "101628"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة تبوك",
+      "name": "محافظة  الوجه",
+      "code": "0194",
+      "category": "أ",
+      "matchedLocationIds": [
+        "108773"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة تبوك",
+      "name": "محافظة  ضباء",
+      "code": "0195",
+      "category": "أ",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة تبوك",
+      "name": "محافظة  تيماء",
+      "code": "0196",
+      "category": "أ",
+      "matchedLocationIds": [
+        "101516"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة تبوك",
+      "name": "محافظة  أملج",
+      "code": "0197",
+      "category": "أ",
+      "matchedLocationIds": [
+        "100926"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة تبوك",
+      "name": "محافظة  حقل",
+      "code": "0198",
+      "category": "ب",
+      "matchedLocationIds": [
+        "106102"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة تبوك",
+      "name": "محافظة  البدع",
+      "code": "0199",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة حائل",
+      "name": "مدينة  حائل",
+      "code": "0200",
+      "category": "مقر الإمارة",
+      "matchedLocationIds": [
+        "106281"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة حائل",
+      "name": "محافظة  بقعاء",
+      "code": "0201",
+      "category": "أ",
+      "matchedLocationIds": [
+        "107588"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة حائل",
+      "name": "محافظة  الغزالة",
+      "code": "0202",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة حائل",
+      "name": "محافظة  الشنان",
+      "code": "0203",
+      "category": "ب",
+      "matchedLocationIds": [
+        "394983"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة حائل",
+      "name": "محافظة  السليمي",
+      "code": "0204",
+      "category": "ب",
+      "matchedLocationIds": [
+        "108051"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة حائل",
+      "name": "محافظة  الحائط",
+      "code": "0205",
+      "category": "أ",
+      "matchedLocationIds": [
+        "106273"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة حائل",
+      "name": "محافظة  سميراء",
+      "code": "0206",
+      "category": "ب",
+      "matchedLocationIds": [
+        "395153"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة حائل",
+      "name": "محافظة  الشملي",
+      "code": "0207",
+      "category": "ب",
+      "matchedLocationIds": [
+        "13237017"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة حائل",
+      "name": "محافظة  موقق",
+      "code": "0208",
+      "category": "ب",
+      "matchedLocationIds": [
+        "104201"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الحدود الشمالية",
+      "name": "مدينة    عرعر",
+      "code": "0209",
+      "category": "مقر الإمارة",
+      "matchedLocationIds": [
+        "108512"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الحدود الشمالية",
+      "name": "محافظة  رفحاء",
+      "code": "0210",
+      "category": "أ",
+      "matchedLocationIds": [
+        "103012"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الحدود الشمالية",
+      "name": "محافظة  طريف",
+      "code": "0211",
+      "category": "أ",
+      "matchedLocationIds": [
+        "101313",
+        "101313"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الحدود الشمالية",
+      "name": "محافظة  العويقيلة",
+      "code": "0212",
+      "category": "ب",
+      "matchedLocationIds": [
+        "108791"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة جازان",
+      "name": "مدينة  جازان",
+      "code": "0213",
+      "category": "مقر الإمارة",
+      "matchedLocationIds": [
+        "105299"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة جازان",
+      "name": "محافظة  صبياء",
+      "code": "0214",
+      "category": "أ",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة جازان",
+      "name": "محافظة  أبو عريش",
+      "code": "0215",
+      "category": "أ",
+      "matchedLocationIds": [
+        "110619"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة جازان",
+      "name": "محافظة صامطة",
+      "code": "0216",
+      "category": "أ",
+      "matchedLocationIds": [
+        "102451"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة جازان",
+      "name": "محافظة  الحرث",
+      "code": "0217",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة جازان",
+      "name": "محافظة  ضمد",
+      "code": "0218",
+      "category": "ب",
+      "matchedLocationIds": [
+        "107117"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة جازان",
+      "name": "محافظة  الريث",
+      "code": "0219",
+      "category": "ب",
+      "matchedLocationIds": [
+        "108418"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة جازان",
+      "name": "محافظة  بيش",
+      "code": "0220",
+      "category": "أ",
+      "matchedLocationIds": [
+        "7370569"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة جازان",
+      "name": "محافظة  جزر فرسان",
+      "code": "0221",
+      "category": "أ",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة جازان",
+      "name": "محافظة  الدائر",
+      "code": "0222",
+      "category": "ب",
+      "matchedLocationIds": [
+        "11670741"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة جازان",
+      "name": "محافظة  أحد المسارحة",
+      "code": "0223",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة جازان",
+      "name": "محافظة  العيدابي",
+      "code": "0224",
+      "category": "ب",
+      "matchedLocationIds": [
+        "110281"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة جازان",
+      "name": "محافظة  العارضة",
+      "code": "0225",
+      "category": "ب",
+      "matchedLocationIds": [
+        "110040"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة جازان",
+      "name": "محافظة  الدرب",
+      "code": "0226",
+      "category": "أ",
+      "matchedLocationIds": [
+        "110328"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة جازان",
+      "name": "محافظة  هروب",
+      "code": "0227",
+      "category": "ب",
+      "matchedLocationIds": [
+        "106043"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة جازان",
+      "name": "محافظة فيفا",
+      "code": "0228",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة جازان",
+      "name": "محافظة الطوال",
+      "code": "0229",
+      "category": "ب",
+      "matchedLocationIds": [
+        "411006"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الجوف",
+      "name": "مدينة   سكاكا",
+      "code": "0247",
+      "category": "مقر الإمارة",
+      "matchedLocationIds": [
+        "102527"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الجوف",
+      "name": "محافظة  القريات",
+      "code": "0248",
+      "category": "أ",
+      "matchedLocationIds": [
+        "108648"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الجوف",
+      "name": "محافظة  دومة الجندل",
+      "code": "0249",
+      "category": "أ",
+      "matchedLocationIds": [
+        "400461"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الجوف",
+      "name": "محافظة  طبرجل",
+      "code": "0250",
+      "category": "أ",
+      "matchedLocationIds": [
+        "101631"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الجوف",
+      "name": "محافظة صوير",
+      "code": "0252",
+      "category": "ب",
+      "matchedLocationIds": [
+        "392753"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الباحة",
+      "name": "مدينة   الباحة",
+      "code": "0237",
+      "category": "مقر الإمارة",
+      "matchedLocationIds": [
+        "109953"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الباحة",
+      "name": "محافظة  بالجرشي",
+      "code": "0238",
+      "category": "أ",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة الباحة",
+      "name": "محافظة  المندق",
+      "code": "0239",
+      "category": "أ",
+      "matchedLocationIds": [
+        "109118"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الباحة",
+      "name": "محافظة  المخواة",
+      "code": "0240",
+      "category": "أ",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة الباحة",
+      "name": "محافظة  العقيق",
+      "code": "0241",
+      "category": "ب",
+      "matchedLocationIds": [
+        "110059",
+        "110060"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة الباحة",
+      "name": "محافظة  قلوه",
+      "code": "0242",
+      "category": "أ",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة الباحة",
+      "name": "محافظة  القرى",
+      "code": "0243",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة الباحة",
+      "name": "محافظة  بني حسن",
+      "code": "0244",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة الباحة",
+      "name": "محافظة  غامد الزناد",
+      "code": "0245",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة الباحة",
+      "name": "محافظة  الحجرة",
+      "code": "0246",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة نجران",
+      "name": "مدينة   نجران",
+      "code": "0230",
+      "category": "مقر الإمارة",
+      "matchedLocationIds": [
+        "103630"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة نجران",
+      "name": "محافظة   شرورة",
+      "code": "0231",
+      "category": "أ",
+      "matchedLocationIds": [
+        "8019123"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة نجران",
+      "name": "محافظة   حبونا",
+      "code": "0232",
+      "category": "ب",
+      "matchedLocationIds": [
+        "12513575"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة نجران",
+      "name": "محافظة  بدر الجنوب",
+      "code": "0233",
+      "category": "ب",
+      "matchedLocationIds": [
+        "107746"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة نجران",
+      "name": "محافظة   يدمة",
+      "code": "0234",
+      "category": "ب",
+      "matchedLocationIds": [
+        "399659"
+      ],
+      "status": "name-match-review-region"
+    },
+    {
+      "region": "منطقة نجران",
+      "name": "محافظة  ثار",
+      "code": "0235",
+      "category": "ب",
+      "matchedLocationIds": [],
+      "status": "unresolved-name-or-seat-mapping-not-proof-of-absence"
+    },
+    {
+      "region": "منطقة نجران",
+      "name": "محافظة   خباش",
+      "code": "0236",
+      "category": "ب",
+      "matchedLocationIds": [
+        "13645278"
+      ],
+      "status": "name-match-review-region"
+    }
+  ],
+  "saudiReviewLimit": "Current non-historic source labels are audited individually for presence and script; they are not asserted to have independent official name certification. Unresolved source/admin anomalies remain documented, not guessed.",
+  "knownSaudiSourceAnomalies": [
+    {
+      "locationId": "9031043",
+      "issue": "No reliable Arabic name located; original fallback retained."
+    }
+  ],
+  "sources": {
+    "reviewed": {
+      "file": "arabic_reviewed_names.v1.json",
+      "reviewedNames": 12,
+      "sha256": "5e13c1b7804ea58a3f7918d4b3467954eeeaf90dcc8987e365ba3df1c7ed342c",
+      "version": "arab-reviewed-2026-09-15.2"
+    },
+    "wikidata": {
+      "addedNames": 1721,
+      "file": "wikidata_arabic_names.v1.json",
+      "license": "CC0-1.0",
+      "requestedCount": 6261,
+      "sha256": "352de3c7df2295c05fea2e9cbbc1ef577d078eece5f6dac66669d4845e985f63",
+      "version": "wikidata-arab-2026-09-15.1"
+    }
+  }
+}

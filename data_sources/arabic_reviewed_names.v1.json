@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "version": "arab-reviewed-2026-09-15.2",
+  "reviewedAt": "2026-09-15",
+  "policy": "Place-name facts verified against cited primary sources; no prose or maps reproduced. IDs and coordinates remain GeoNames CC BY 4.0.",
+  "sources": [
+    {
+      "id": "dewa-stations",
+      "url": "https://dewa.gov.ae/ar-AE/consumer/ev-community/ev-green-charger-stations/ev-green-charger-locations"
+    },
+    {
+      "id": "khda-directory",
+      "url": "https://web.khda.gov.ae/ar/education-directory/Higher-Education"
+    },
+    {
+      "id": "rta-routes",
+      "url": "https://www.rta.ae/links/Bus-Route-List-January-2019.pdf"
+    },
+    {
+      "id": "rta-improvements",
+      "url": "https://www.mediaoffice.ae/ar/news/2025/february/09-02/rta-enhances-traffic-flow-at-50-locations-across-dubai-in-2024"
+    },
+    {
+      "id": "sharjah-sajaah",
+      "url": "https://sharjah24.ae/ar/Articles/2025/08/14/aa14"
+    },
+    {
+      "id": "sharjah-majaz",
+      "url": "https://sharjah24.ae/ar/Articles/2025/07/23/NG082"
+    },
+    {
+      "id": "abu-dhabi-mbz",
+      "url": "https://www.dmt.gov.ae/adm/Public-Facilities/Public-Parks-and-Residential-Neighborhood-Parks"
+    },
+    {
+      "id": "dubai-statistics",
+      "url": "https://www.dsc.gov.ae/Publication/Economic_Survey_03.CV01.pdf"
+    },
+    {
+      "id": "geonames-current-ar",
+      "url": "https://download.geonames.org/export/dump/alternateNamesV2.zip",
+      "snapshotDate": "2026-09-11",
+      "note": "Existing current Arabic alias for GeoNames city 292672; prefer city name over emirate label."
+    }
+  ],
+  "names": [
+    {
+      "geonameId": "13118432",
+      "countryCode": "AE",
+      "arabicName": "الخليج التجاري",
+      "sourceRefs": [
+        "khda-directory"
+      ]
+    },
+    {
+      "geonameId": "11048853",
+      "countryCode": "AE",
+      "arabicName": "مجمع دبي للاستثمار",
+      "sourceRefs": [
+        "dewa-stations"
+      ]
+    },
+    {
+      "geonameId": "8469668",
+      "countryCode": "AE",
+      "arabicName": "المدينة العالمية",
+      "sourceRefs": [
+        "rta-routes"
+      ]
+    },
+    {
+      "geonameId": "8476509",
+      "countryCode": "AE",
+      "arabicName": "المجاز",
+      "sourceRefs": [
+        "sharjah-majaz"
+      ]
+    },
+    {
+      "geonameId": "13118447",
+      "countryCode": "AE",
+      "arabicName": "مدينة محمد بن زايد",
+      "sourceRefs": [
+        "abu-dhabi-mbz"
+      ]
+    },
+    {
+      "geonameId": "8469658",
+      "countryCode": "AE",
+      "arabicName": "الورقاء",
+      "sourceRefs": [
+        "rta-improvements"
+      ]
+    },
+    {
+      "geonameId": "13118438",
+      "countryCode": "AE",
+      "arabicName": "الصجعة",
+      "sourceRefs": [
+        "sharjah-sajaah"
+      ]
+    },
+    {
+      "geonameId": "13118421",
+      "countryCode": "AE",
+      "arabicName": "المطينة",
+      "sourceRefs": [
+        "dubai-statistics"
+      ]
+    },
+    {
+      "geonameId": "13118433",
+      "countryCode": "AE",
+      "arabicName": "القصيص 1",
+      "sourceRefs": [
+        "rta-improvements"
+      ]
+    },
+    {
+      "geonameId": "6691086",
+      "countryCode": "AE",
+      "arabicName": "القصيص الثانية",
+      "sourceRefs": [
+        "rta-routes"
+      ]
+    },
+    {
+      "geonameId": "13118424",
+      "countryCode": "AE",
+      "arabicName": "واحة دبي للسيليكون",
+      "sourceRefs": [
+        "dewa-stations"
+      ]
+    },
+    {
+      "geonameId": "292672",
+      "countryCode": "AE",
+      "arabicName": "الشارقة",
+      "sourceRefs": [
+        "geonames-current-ar"
+      ]
+    }
+  ],
+  "genericAdminPolicy": {
+    "countryCode": "AE",
+    "source": "GeoNames admin2Codes.txt",
+    "pattern": "Sector <integer>",
+    "arabic": "القطاع <integer>",
+    "note": "Translation of generic numbered administrative division, not a guessed proper name."
+  }
+}

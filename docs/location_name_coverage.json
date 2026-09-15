@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "locationDataVersion": "geonames-cities500-2026-09-11+sa-2026-09-15.2+localized-1+spatial-1",
-  "totalCities": 235757,
-  "withArabicName": 22847,
-  "coveragePercent": 9.6909,
-  "withoutArabicName": 212910,
-  "cityRecordsWithArabicAdmin1": 176338,
-  "cityRecordsWithArabicAdmin2": 41613,
+  "locationDataVersion": "geonames-cities500-2026-09-11+sa-2026-09-15.3+arab-2+spatial-1",
+  "totalCities": 235760,
+  "withArabicName": 23553,
+  "coveragePercent": 9.9902,
+  "withoutArabicName": 212207,
+  "cityRecordsWithArabicAdmin1": 176370,
+  "cityRecordsWithArabicAdmin2": 42034,
   "countryCount": 246,
   "countries": [
     {
@@ -18,8 +18,8 @@
     {
       "countryCode": "AE",
       "total": 107,
-      "withArabicName": 58,
-      "withoutArabicName": 49
+      "withArabicName": 85,
+      "withoutArabicName": 22
     },
     {
       "countryCode": "AF",
@@ -342,8 +342,8 @@
     {
       "countryCode": "DJ",
       "total": 32,
-      "withArabicName": 19,
-      "withoutArabicName": 13
+      "withArabicName": 28,
+      "withoutArabicName": 4
     },
     {
       "countryCode": "DK",
@@ -366,8 +366,8 @@
     {
       "countryCode": "DZ",
       "total": 353,
-      "withArabicName": 151,
-      "withoutArabicName": 202
+      "withArabicName": 321,
+      "withoutArabicName": 32
     },
     {
       "countryCode": "EC",
@@ -384,8 +384,8 @@
     {
       "countryCode": "EG",
       "total": 260,
-      "withArabicName": 214,
-      "withoutArabicName": 46
+      "withArabicName": 241,
+      "withoutArabicName": 19
     },
     {
       "countryCode": "EH",
@@ -630,8 +630,8 @@
     {
       "countryCode": "IQ",
       "total": 173,
-      "withArabicName": 160,
-      "withoutArabicName": 13
+      "withArabicName": 164,
+      "withoutArabicName": 9
     },
     {
       "countryCode": "IR",
@@ -666,8 +666,8 @@
     {
       "countryCode": "JO",
       "total": 148,
-      "withArabicName": 140,
-      "withoutArabicName": 8
+      "withArabicName": 144,
+      "withoutArabicName": 4
     },
     {
       "countryCode": "JP",
@@ -702,8 +702,8 @@
     {
       "countryCode": "KM",
       "total": 119,
-      "withArabicName": 28,
-      "withoutArabicName": 91
+      "withArabicName": 93,
+      "withoutArabicName": 26
     },
     {
       "countryCode": "KN",
@@ -750,8 +750,8 @@
     {
       "countryCode": "LB",
       "total": 52,
-      "withArabicName": 45,
-      "withoutArabicName": 7
+      "withArabicName": 46,
+      "withoutArabicName": 6
     },
     {
       "countryCode": "LC",
@@ -804,14 +804,14 @@
     {
       "countryCode": "LY",
       "total": 119,
-      "withArabicName": 91,
-      "withoutArabicName": 28
+      "withArabicName": 103,
+      "withoutArabicName": 16
     },
     {
       "countryCode": "MA",
       "total": 480,
-      "withArabicName": 57,
-      "withoutArabicName": 423
+      "withArabicName": 211,
+      "withoutArabicName": 269
     },
     {
       "countryCode": "MC",
@@ -894,8 +894,8 @@
     {
       "countryCode": "MR",
       "total": 88,
-      "withArabicName": 26,
-      "withoutArabicName": 62
+      "withArabicName": 72,
+      "withoutArabicName": 16
     },
     {
       "countryCode": "MS",
@@ -1020,8 +1020,8 @@
     {
       "countryCode": "OM",
       "total": 39,
-      "withArabicName": 31,
-      "withoutArabicName": 8
+      "withArabicName": 34,
+      "withoutArabicName": 5
     },
     {
       "countryCode": "PA",
@@ -1086,8 +1086,8 @@
     {
       "countryCode": "PS",
       "total": 448,
-      "withArabicName": 401,
-      "withoutArabicName": 47
+      "withArabicName": 415,
+      "withoutArabicName": 33
     },
     {
       "countryCode": "PT",
@@ -1145,8 +1145,8 @@
     },
     {
       "countryCode": "SA",
-      "total": 183,
-      "withArabicName": 182,
+      "total": 186,
+      "withArabicName": 185,
       "withoutArabicName": 1
     },
     {
@@ -1164,8 +1164,8 @@
     {
       "countryCode": "SD",
       "total": 112,
-      "withArabicName": 48,
-      "withoutArabicName": 64
+      "withArabicName": 79,
+      "withoutArabicName": 33
     },
     {
       "countryCode": "SE",
@@ -1224,8 +1224,8 @@
     {
       "countryCode": "SO",
       "total": 76,
-      "withArabicName": 29,
-      "withoutArabicName": 47
+      "withArabicName": 60,
+      "withoutArabicName": 16
     },
     {
       "countryCode": "SR",
@@ -1260,8 +1260,8 @@
     {
       "countryCode": "SY",
       "total": 310,
-      "withArabicName": 308,
-      "withoutArabicName": 2
+      "withArabicName": 309,
+      "withoutArabicName": 1
     },
     {
       "countryCode": "SZ",
@@ -1326,8 +1326,8 @@
     {
       "countryCode": "TN",
       "total": 286,
-      "withArabicName": 95,
-      "withoutArabicName": 191
+      "withArabicName": 195,
+      "withoutArabicName": 91
     },
     {
       "countryCode": "TO",
@@ -1458,8 +1458,8 @@
     {
       "countryCode": "YE",
       "total": 316,
-      "withArabicName": 299,
-      "withoutArabicName": 17
+      "withArabicName": 303,
+      "withoutArabicName": 13
     },
     {
       "countryCode": "YT",
@@ -1494,8 +1494,8 @@
     },
     {
       "countryCode": "AE",
-      "locationId": "13118432",
-      "originalName": "Business Bay"
+      "locationId": "8541937",
+      "originalName": "Dubai Festival City"
     },
     {
       "countryCode": "AF",

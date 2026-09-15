@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "countryCode": "SA",
-  "version": "sa-official-review-2026-09-15.2",
+  "version": "sa-official-review-2026-09-15.3",
   "reviewedAt": "2026-09-15",
   "sources": [
     {
@@ -586,6 +586,17 @@
         "hrsd-afif-2026-09-15"
       ],
       "note": "GeoNames ar alternate 3688458 is Latin-script ‘Afīf; use the documented Arabic name, preserving the original identity."
+    },
+    {
+      "geonameId": "397513",
+      "arabicNames": [
+        "الفويلق"
+      ],
+      "officialCode": "1790",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "reviewNote": "NCAR: Al Fuwayliq center in Al Bukayriyah, Qassim. Corrects the primary misspelling; old aliases remain searchable."
     }
   ],
   "additions": [
@@ -1088,6 +1099,69 @@
         "ncar-regions-coding",
         "geonames-sa-full-2026-09-12"
       ]
+    },
+    {
+      "geonameId": "106273",
+      "name": "Ḩā’iţ",
+      "asciiName": "Ha'it",
+      "latitude": 26.15,
+      "longitude": 40.6,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "13",
+      "admin2Code": "",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "الحائط"
+      ],
+      "officialCode": "0205",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "reviewNote": "NCAR governorate seat; GeoNames populated place and coordinates retained. Unknown admin1 code 00 resolved by official region."
+    },
+    {
+      "geonameId": "108051",
+      "name": "As Sulaymī",
+      "asciiName": "As Sulaymi",
+      "latitude": 26.1784,
+      "longitude": 41.2147,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "13",
+      "admin2Code": "",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "السليمي"
+      ],
+      "officialCode": "0204",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "reviewNote": "NCAR governorate seat; GeoNames populated place and coordinates retained. Unknown admin1 code 00 resolved by official region."
+    },
+    {
+      "geonameId": "110281",
+      "name": "Al ‘Aydābī",
+      "asciiName": "Al `Aydabi",
+      "latitude": 17.23337,
+      "longitude": 42.9419,
+      "timezoneId": "Asia/Riyadh",
+      "admin1Code": "17",
+      "admin2Code": "",
+      "population": 0,
+      "featureCode": "PPL",
+      "arabicNames": [
+        "العيدابي"
+      ],
+      "officialCode": "0224",
+      "sourceRefs": [
+        "ncar-regions-coding",
+        "geonames-sa-full-2026-09-12"
+      ],
+      "reviewNote": "NCAR governorate seat; GeoNames populated place and coordinates retained. Unknown admin1 code 00 resolved by official region."
     }
   ],
   "reviewedSimilarities": [
@@ -1102,6 +1176,32 @@
         "sa-government-place-evidence",
         "geonames-sa-full-2026-09-12"
       ]
+    }
+  ],
+  "adminCorrections": [
+    {
+      "geonameId": "106102",
+      "admin1Code": "19",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "reviewNote": "حقل محافظة في منطقة تبوك؛ الإحداثيات الحالية توافق حقل."
+    },
+    {
+      "geonameId": "12546009",
+      "admin1Code": "14",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "reviewNote": "رنية محافظة في منطقة مكة المكرمة؛ الإحداثيات الحالية توافق رنية."
+    },
+    {
+      "geonameId": "107746",
+      "admin1Code": "16",
+      "sourceRefs": [
+        "ncar-regions-coding"
+      ],
+      "reviewNote": "بدر الجنوب محافظة في منطقة نجران؛ إزالة الرمز غير المعروف 00."
     }
   ]
 }

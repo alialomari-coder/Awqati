@@ -19,7 +19,7 @@ from ..application import (
 )
 from .settings_sections import is_rtl_language
 from .timezone_labels import TIMEZONE_LABELS
-from .location_labels import city_name, subdivisions
+from .location_labels import city_name, subdivisions, country_choices, location_choices, normalized_name
 
 from ..domain import ClockTime, LocationDetectionFailure, LocationKind, StoredLocation
 
@@ -134,7 +134,7 @@ class LocationControls:
 		self.matches = ()
 		self._search_generation = 0
 		self._search_lock = threading.Lock()
-		self.countries = service.countries()
+		self.countries = country_choices(service.countries(), self.language, _)
 		grid = wx.FlexGridSizer(cols=2, hgap=8, vgap=8)
 		grid.AddGrowableCol(1, 1)
 		grid.Add(wx.StaticText(parent, label=_("Country:")), flag=wx.ALIGN_CENTER_VERTICAL)
@@ -215,9 +215,9 @@ class LocationControls:
 		self.summary.ChangeValue(_location_summary(stored, name))
 
 	def _on_country_text(self, event):
-		if not self._updating and self.country.GetSelection() == wx.NOT_FOUND:
-			query = self.country.GetValue().casefold().strip()
-			self._country_matches = tuple(item for item in self.countries if query in _(item.name).casefold())
+		if not self._updating and self.country.GetSelection() == wx.NOT_FOUND and self.country.GetValue() not in self.country.GetStrings():
+			query = normalized_name(self.country.GetValue())
+			self._country_matches = tuple(item for item in self.countries if query in normalized_name(_(item.name)))
 			self._replace_items(self.country, [_(item.name) for item in self._country_matches])
 			self._country_code = None
 			self._clear_city()
@@ -242,7 +242,9 @@ class LocationControls:
 		event.Skip()
 
 	def _on_search(self, event):
-		if not self._updating and self.city.GetSelection() == wx.NOT_FOUND:
+		# Native dropdown arrow changes emit EVT_TEXT before selection is committed.
+		# A displayed item is navigation, not a new query containing admin/timezone.
+		if not self._updating and self.city.GetSelection() == wx.NOT_FOUND and self.city.GetValue() not in self.city.GetStrings():
 			self._search()
 		event.Skip()
 
@@ -260,7 +262,7 @@ class LocationControls:
 			with self._search_lock:
 				if generation != self._search_generation:
 					return
-				matches = self.service.search(country_code, query, 40) if query else self.service.browse(country_code, 40)
+				matches = location_choices(self.service, country_code, query, self.language)
 		except Exception:
 			matches = ()
 		wx.CallAfter(self._finish_search, generation, matches)
@@ -279,6 +281,7 @@ class LocationControls:
 	def _on_city(self, event):
 		index = self.city.GetSelection()
 		if 0 <= index < len(self.matches):
+			self._search_generation += 1
 			match = self.matches[index]
 			# Results already contain validated bundled identity and coordinates.
 			self.pending = StoredLocation(LocationKind.SELECTED, match.location, match.country_code)

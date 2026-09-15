@@ -58,7 +58,7 @@ def _match_strength(candidate: str, query: str) -> int | None:
 class BundledLocationRepository:
 	"""Load the metadata index lazily and cache only a few requested countries."""
 
-	def __init__(self, data_root: Path | None = None, *, max_cached_countries: int = 4) -> None:
+	def __init__(self, data_root: Path | None = None, *, max_cached_countries: int = 1) -> None:
 		if max_cached_countries < 1:
 			raise ValueError("max_cached_countries must be at least 1")
 		self._data_root = data_root or Path(__file__).resolve().parent.parent / "data" / "locations"
@@ -107,7 +107,7 @@ class BundledLocationRepository:
 			if strength is not None:
 				matches.append(((strength, record["r"], -record["p"], int(record["i"])), record))
 		matches.sort(key=lambda item: item[0])
-		return tuple(self._to_match(code, record) for _, record in matches[:limit])
+		return tuple(self._to_match(code, record, rank[0]) for rank, record in matches[:limit])
 
 	def browse(self, country_code: str, limit: int = 40) -> tuple[LocationMatch, ...]:
 		"""A bounded initial list ranked by administrative importance and population."""
@@ -267,7 +267,7 @@ class BundledLocationRepository:
 		values = (record["n"], record["x"], *record["e"], *record["a"])
 		return tuple(dict.fromkeys(normalize_location_text(value) for value in values if value))
 
-	def _to_match(self, code: str, record: dict[str, Any]) -> LocationMatch:
+	def _to_match(self, code: str, record: dict[str, Any], strength: int = 0) -> LocationMatch:
 		assert self._country_entries is not None
 		location = Location(record["i"], record["n"], record["lat"], record["lon"], record["tz"])
 		return LocationMatch(
@@ -279,6 +279,7 @@ class BundledLocationRepository:
 			population=record["p"],
 			feature_code=record["f"],
 			arabic_names=tuple(record["a"]),
+			match_strength=strength,
 			english_names=tuple(record["e"]),
 			arabic_admin1_names=tuple(record.get("a1ar", ())),
 			arabic_admin2_names=tuple(record.get("a2ar", ())),

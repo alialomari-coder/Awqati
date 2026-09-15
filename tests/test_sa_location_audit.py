@@ -16,7 +16,7 @@ SUPPLEMENT = ROOT / "data_sources" / "sa_locations_supplement.v1.json"
 class SaudiLocationAuditTests(unittest.TestCase):
 	def test_final_saudi_data_has_no_confirmed_duplicate_and_documents_candidates(self) -> None:
 		result = audit_sa_locations.audit(SA_DATA, SUPPLEMENT)
-		self.assertEqual(result["recordCount"], 183)
+		self.assertEqual(result["recordCount"], next(c["cityCount"] for c in json.loads((SA_DATA.parent.parent / "metadata.json").read_text("utf-8"))["countries"] if c["code"] == "SA"))
 		self.assertEqual(result["confirmedDuplicateCount"], 0)
 		self.assertEqual(result["potentialDuplicateCount"], 1)
 		self.assertEqual(result["reviewedLegitimateSimilarityCount"], 1)
@@ -50,7 +50,7 @@ class SaudiLocationAuditTests(unittest.TestCase):
 		metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
 		self.assertEqual(
 			metadata["locationDataVersion"],
-			"geonames-cities500-2026-09-11+sa-2026-09-15.2+localized-1+spatial-1",
+			"geonames-cities500-2026-09-11+sa-2026-09-15.3+arab-2+spatial-1",
 		)
 		self.assertEqual(
 			metadata["saudiSupplement"]["sha256"],
@@ -58,10 +58,10 @@ class SaudiLocationAuditTests(unittest.TestCase):
 		)
 		self.assertEqual(
 			(metadata["saudiSupplement"]["added"], metadata["saudiSupplement"]["augmented"], metadata["saudiSupplement"]["merged"]),
-			(25, 46, 3),
+			(28, 47, 3),
 		)
 		source_ids = {source["id"] for source in payload["sources"]}
-		self.assertEqual((len(payload["additions"]), len(payload["aliases"]), len(payload["merges"])), (25, 46, 3))
+		self.assertEqual((len(payload["additions"]), len(payload["aliases"]), len(payload["merges"])), (28, 47, 3))
 		for section in ("additions", "aliases", "merges", "reviewedSimilarities"):
 			for item in payload[section]:
 				self.assertTrue(item["sourceRefs"])

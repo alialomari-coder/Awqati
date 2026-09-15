@@ -57,8 +57,8 @@ class TimingLabelsTests(unittest.TestCase):
    self.assertEqual(ns['AlertOutputEditor'].call_args.args[2],'Alert action:')
  def test_prayer_visible_labels_and_accessible_units(self):
   for direction,arabic in (('before','قبل'),('after','بعد')):
-   self.assertEqual(self.catalog[f'Alert {direction} the event:'].string,f'التنبيه {arabic} دخول الوقت بـ:')
-   self.assertEqual(self.catalog[f'Alert {direction} the event, minutes'].string,f'التنبيه {arabic} دخول الوقت بـ، بالدقائق')
+   self.assertEqual(self.catalog[f'Alert {direction} the event:'].string,f'التنبيه {arabic} دخول الوقت بالدقائق:')
+   self.assertEqual(self.catalog[f'Alert {direction} the event, minutes'].string,f'التنبيه {arabic} دخول الوقت بالدقائق')
 
 class PlaceDisplayTests(unittest.TestCase):
  def setUp(self): self.repo=BundledLocationRepository()

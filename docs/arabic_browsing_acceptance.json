@@ -1,0 +1,6500 @@
+{
+  "schemaVersion": 1,
+  "baseCommit": "cd8a740",
+  "packageVersion": "0.4.2.14",
+  "packageSha256": "ea0a4631b2ca9d38194d3f15bba9154de1891cc5abe34f88f2d1ec799f78ce75",
+  "locationDataVersion": "geonames-cities500-2026-09-11+sa-2026-09-15.3+arab-2+spatial-1",
+  "baseline": {
+    "checks": [
+      {
+        "name": "baseline",
+        "pass": true,
+        "detail": null
+      }
+    ],
+    "version": "0.4.2.11",
+    "nvda": "2026.2",
+    "language": "ar_SA",
+    "countries": [
+      {
+        "code": "AD",
+        "original": "Andorra",
+        "display": "أندورا"
+      },
+      {
+        "code": "AE",
+        "original": "United Arab Emirates",
+        "display": "الإمارات العربية المتحدة"
+      },
+      {
+        "code": "AF",
+        "original": "Afghanistan",
+        "display": "أفغانستان"
+      },
+      {
+        "code": "AG",
+        "original": "Antigua and Barbuda",
+        "display": "أنتيغوا وبربودا"
+      },
+      {
+        "code": "AI",
+        "original": "Anguilla",
+        "display": "أنغويلا"
+      },
+      {
+        "code": "AL",
+        "original": "Albania",
+        "display": "ألبانيا"
+      },
+      {
+        "code": "AM",
+        "original": "Armenia",
+        "display": "أرمينيا"
+      },
+      {
+        "code": "AO",
+        "original": "Angola",
+        "display": "أنغولا"
+      },
+      {
+        "code": "AR",
+        "original": "Argentina",
+        "display": "الأرجنتين"
+      },
+      {
+        "code": "AS",
+        "original": "American Samoa",
+        "display": "ساموا الأمريكية"
+      },
+      {
+        "code": "AT",
+        "original": "Austria",
+        "display": "النمسا"
+      },
+      {
+        "code": "AU",
+        "original": "Australia",
+        "display": "أستراليا"
+      },
+      {
+        "code": "AW",
+        "original": "Aruba",
+        "display": "أروبا"
+      },
+      {
+        "code": "AX",
+        "original": "Aland Islands",
+        "display": "جزر آلاند"
+      },
+      {
+        "code": "AZ",
+        "original": "Azerbaijan",
+        "display": "أذربيجان"
+      },
+      {
+        "code": "BA",
+        "original": "Bosnia and Herzegovina",
+        "display": "البوسنة والهرسك"
+      },
+      {
+        "code": "BB",
+        "original": "Barbados",
+        "display": "بربادوس"
+      },
+      {
+        "code": "BD",
+        "original": "Bangladesh",
+        "display": "بنغلاديش"
+      },
+      {
+        "code": "BE",
+        "original": "Belgium",
+        "display": "بلجيكا"
+      },
+      {
+        "code": "BF",
+        "original": "Burkina Faso",
+        "display": "بوركينا فاسو"
+      },
+      {
+        "code": "BG",
+        "original": "Bulgaria",
+        "display": "بلغاريا"
+      },
+      {
+        "code": "BH",
+        "original": "Bahrain",
+        "display": "البحرين"
+      },
+      {
+        "code": "BI",
+        "original": "Burundi",
+        "display": "بوروندي"
+      },
+      {
+        "code": "BJ",
+        "original": "Benin",
+        "display": "بنين"
+      },
+      {
+        "code": "BL",
+        "original": "Saint Barthelemy",
+        "display": "سان بارتليمي"
+      },
+      {
+        "code": "BM",
+        "original": "Bermuda",
+        "display": "برمودا"
+      },
+      {
+        "code": "BN",
+        "original": "Brunei",
+        "display": "بروناي"
+      },
+      {
+        "code": "BO",
+        "original": "Bolivia",
+        "display": "بوليفيا"
+      },
+      {
+        "code": "BQ",
+        "original": "Bonaire, Saint Eustatius and Saba ",
+        "display": "هولندا الكاريبية"
+      },
+      {
+        "code": "BR",
+        "original": "Brazil",
+        "display": "البرازيل"
+      },
+      {
+        "code": "BS",
+        "original": "Bahamas",
+        "display": "جزر البهاما"
+      },
+      {
+        "code": "BT",
+        "original": "Bhutan",
+        "display": "بوتان"
+      },
+      {
+        "code": "BW",
+        "original": "Botswana",
+        "display": "بوتسوانا"
+      },
+      {
+        "code": "BY",
+        "original": "Belarus",
+        "display": "بيلاروس"
+      },
+      {
+        "code": "BZ",
+        "original": "Belize",
+        "display": "بليز"
+      },
+      {
+        "code": "CA",
+        "original": "Canada",
+        "display": "كندا"
+      },
+      {
+        "code": "CC",
+        "original": "Cocos Islands",
+        "display": "جزر كوكوس (كيلينغ)"
+      },
+      {
+        "code": "CD",
+        "original": "Democratic Republic of the Congo",
+        "display": "الكونغو - كينشاسا"
+      },
+      {
+        "code": "CF",
+        "original": "Central African Republic",
+        "display": "جمهورية أفريقيا الوسطى"
+      },
+      {
+        "code": "CG",
+        "original": "Republic of the Congo",
+        "display": "الكونغو - برازافيل"
+      },
+      {
+        "code": "CH",
+        "original": "Switzerland",
+        "display": "سويسرا"
+      },
+      {
+        "code": "CI",
+        "original": "Ivory Coast",
+        "display": "ساحل العاج"
+      },
+      {
+        "code": "CK",
+        "original": "Cook Islands",
+        "display": "جزر كوك"
+      },
+      {
+        "code": "CL",
+        "original": "Chile",
+        "display": "تشيلي"
+      },
+      {
+        "code": "CM",
+        "original": "Cameroon",
+        "display": "الكاميرون"
+      },
+      {
+        "code": "CN",
+        "original": "China",
+        "display": "الصين"
+      },
+      {
+        "code": "CO",
+        "original": "Colombia",
+        "display": "كولومبيا"
+      },
+      {
+        "code": "CR",
+        "original": "Costa Rica",
+        "display": "كوستاريكا"
+      },
+      {
+        "code": "CU",
+        "original": "Cuba",
+        "display": "كوبا"
+      },
+      {
+        "code": "CV",
+        "original": "Cabo Verde",
+        "display": "الرأس الأخضر"
+      },
+      {
+        "code": "CW",
+        "original": "Curacao",
+        "display": "كوراساو"
+      },
+      {
+        "code": "CX",
+        "original": "Christmas Island",
+        "display": "جزيرة كريسماس"
+      },
+      {
+        "code": "CY",
+        "original": "Cyprus",
+        "display": "قبرص"
+      },
+      {
+        "code": "CZ",
+        "original": "Czechia",
+        "display": "التشيك"
+      },
+      {
+        "code": "DE",
+        "original": "Germany",
+        "display": "ألمانيا"
+      },
+      {
+        "code": "DJ",
+        "original": "Djibouti",
+        "display": "جيبوتي"
+      },
+      {
+        "code": "DK",
+        "original": "Denmark",
+        "display": "الدانمرك"
+      },
+      {
+        "code": "DM",
+        "original": "Dominica",
+        "display": "دومينيكا"
+      },
+      {
+        "code": "DO",
+        "original": "Dominican Republic",
+        "display": "جمهورية الدومينيكان"
+      },
+      {
+        "code": "DZ",
+        "original": "Algeria",
+        "display": "الجزائر"
+      },
+      {
+        "code": "EC",
+        "original": "Ecuador",
+        "display": "الإكوادور"
+      },
+      {
+        "code": "EE",
+        "original": "Estonia",
+        "display": "إستونيا"
+      },
+      {
+        "code": "EG",
+        "original": "Egypt",
+        "display": "مصر"
+      },
+      {
+        "code": "EH",
+        "original": "Western Sahara",
+        "display": "الصحراء الغربية"
+      },
+      {
+        "code": "ER",
+        "original": "Eritrea",
+        "display": "إريتريا"
+      },
+      {
+        "code": "ES",
+        "original": "Spain",
+        "display": "إسبانيا"
+      },
+      {
+        "code": "ET",
+        "original": "Ethiopia",
+        "display": "إثيوبيا"
+      },
+      {
+        "code": "FI",
+        "original": "Finland",
+        "display": "فنلندا"
+      },
+      {
+        "code": "FJ",
+        "original": "Fiji",
+        "display": "فيجي"
+      },
+      {
+        "code": "FK",
+        "original": "Falkland Islands",
+        "display": "جزر فوكلاند"
+      },
+      {
+        "code": "FM",
+        "original": "Micronesia",
+        "display": "ميكرونيزيا"
+      },
+      {
+        "code": "FO",
+        "original": "Faroe Islands",
+        "display": "جزر فارو"
+      },
+      {
+        "code": "FR",
+        "original": "France",
+        "display": "فرنسا"
+      },
+      {
+        "code": "GA",
+        "original": "Gabon",
+        "display": "الغابون"
+      },
+      {
+        "code": "GB",
+        "original": "United Kingdom",
+        "display": "المملكة المتحدة"
+      },
+      {
+        "code": "GD",
+        "original": "Grenada",
+        "display": "غرينادا"
+      },
+      {
+        "code": "GE",
+        "original": "Georgia",
+        "display": "جورجيا"
+      },
+      {
+        "code": "GF",
+        "original": "French Guiana",
+        "display": "غويانا الفرنسية"
+      },
+      {
+        "code": "GG",
+        "original": "Guernsey",
+        "display": "غيرنزي"
+      },
+      {
+        "code": "GH",
+        "original": "Ghana",
+        "display": "غانا"
+      },
+      {
+        "code": "GI",
+        "original": "Gibraltar",
+        "display": "جبل طارق"
+      },
+      {
+        "code": "GL",
+        "original": "Greenland",
+        "display": "غرينلاند"
+      },
+      {
+        "code": "GM",
+        "original": "Gambia",
+        "display": "غامبيا"
+      },
+      {
+        "code": "GN",
+        "original": "Guinea",
+        "display": "غينيا"
+      },
+      {
+        "code": "GP",
+        "original": "Guadeloupe",
+        "display": "غوادلوب"
+      },
+      {
+        "code": "GQ",
+        "original": "Equatorial Guinea",
+        "display": "غينيا الاستوائية"
+      },
+      {
+        "code": "GR",
+        "original": "Greece",
+        "display": "اليونان"
+      },
+      {
+        "code": "GS",
+        "original": "South Georgia and the South Sandwich Islands",
+        "display": "جورجيا الجنوبية وجزر ساندويتش الجنوبية"
+      },
+      {
+        "code": "GT",
+        "original": "Guatemala",
+        "display": "غواتيمالا"
+      },
+      {
+        "code": "GU",
+        "original": "Guam",
+        "display": "غوام"
+      },
+      {
+        "code": "GW",
+        "original": "Guinea-Bissau",
+        "display": "غينيا بيساو"
+      },
+      {
+        "code": "GY",
+        "original": "Guyana",
+        "display": "غيانا"
+      },
+      {
+        "code": "HK",
+        "original": "Hong Kong",
+        "display": "هونغ كونغ الصينية (منطقة إدارية خاصة)"
+      },
+      {
+        "code": "HN",
+        "original": "Honduras",
+        "display": "هندوراس"
+      },
+      {
+        "code": "HR",
+        "original": "Croatia",
+        "display": "كرواتيا"
+      },
+      {
+        "code": "HT",
+        "original": "Haiti",
+        "display": "هايتي"
+      },
+      {
+        "code": "HU",
+        "original": "Hungary",
+        "display": "هنغاريا"
+      },
+      {
+        "code": "ID",
+        "original": "Indonesia",
+        "display": "إندونيسيا"
+      },
+      {
+        "code": "IE",
+        "original": "Ireland",
+        "display": "أيرلندا"
+      },
+      {
+        "code": "IL",
+        "original": "Israel",
+        "display": "إسرائيل"
+      },
+      {
+        "code": "IM",
+        "original": "Isle of Man",
+        "display": "جزيرة مان"
+      },
+      {
+        "code": "IN",
+        "original": "India",
+        "display": "الهند"
+      },
+      {
+        "code": "IO",
+        "original": "British Indian Ocean Territory",
+        "display": "الإقليم البريطاني في المحيط الهندي"
+      },
+      {
+        "code": "IQ",
+        "original": "Iraq",
+        "display": "العراق"
+      },
+      {
+        "code": "IR",
+        "original": "Iran",
+        "display": "إيران"
+      },
+      {
+        "code": "IS",
+        "original": "Iceland",
+        "display": "آيسلندا"
+      },
+      {
+        "code": "IT",
+        "original": "Italy",
+        "display": "إيطاليا"
+      },
+      {
+        "code": "JE",
+        "original": "Jersey",
+        "display": "جيرسي"
+      },
+      {
+        "code": "JM",
+        "original": "Jamaica",
+        "display": "جامايكا"
+      },
+      {
+        "code": "JO",
+        "original": "Jordan",
+        "display": "الأردن"
+      },
+      {
+        "code": "JP",
+        "original": "Japan",
+        "display": "اليابان"
+      },
+      {
+        "code": "KE",
+        "original": "Kenya",
+        "display": "كينيا"
+      },
+      {
+        "code": "KG",
+        "original": "Kyrgyzstan",
+        "display": "قيرغيزستان"
+      },
+      {
+        "code": "KH",
+        "original": "Cambodia",
+        "display": "كمبوديا"
+      },
+      {
+        "code": "KI",
+        "original": "Kiribati",
+        "display": "كيريباتي"
+      },
+      {
+        "code": "KM",
+        "original": "Comoros",
+        "display": "جزر القمر"
+      },
+      {
+        "code": "KN",
+        "original": "Saint Kitts and Nevis",
+        "display": "سانت كيتس ونيفيس"
+      },
+      {
+        "code": "KP",
+        "original": "North Korea",
+        "display": "كوريا الشمالية"
+      },
+      {
+        "code": "KR",
+        "original": "South Korea",
+        "display": "كوريا الجنوبية"
+      },
+      {
+        "code": "KW",
+        "original": "Kuwait",
+        "display": "الكويت"
+      },
+      {
+        "code": "KY",
+        "original": "Cayman Islands",
+        "display": "جزر كايمان"
+      },
+      {
+        "code": "KZ",
+        "original": "Kazakhstan",
+        "display": "كازاخستان"
+      },
+      {
+        "code": "LA",
+        "original": "Laos",
+        "display": "لاوس"
+      },
+      {
+        "code": "LB",
+        "original": "Lebanon",
+        "display": "لبنان"
+      },
+      {
+        "code": "LC",
+        "original": "Saint Lucia",
+        "display": "سانت لوسيا"
+      },
+      {
+        "code": "LI",
+        "original": "Liechtenstein",
+        "display": "ليختنشتاين"
+      },
+      {
+        "code": "LK",
+        "original": "Sri Lanka",
+        "display": "سريلانكا"
+      },
+      {
+        "code": "LR",
+        "original": "Liberia",
+        "display": "ليبيريا"
+      },
+      {
+        "code": "LS",
+        "original": "Lesotho",
+        "display": "ليسوتو"
+      },
+      {
+        "code": "LT",
+        "original": "Lithuania",
+        "display": "ليتوانيا"
+      },
+      {
+        "code": "LU",
+        "original": "Luxembourg",
+        "display": "لوكسمبورغ"
+      },
+      {
+        "code": "LV",
+        "original": "Latvia",
+        "display": "لاتفيا"
+      },
+      {
+        "code": "LY",
+        "original": "Libya",
+        "display": "ليبيا"
+      },
+      {
+        "code": "MA",
+        "original": "Morocco",
+        "display": "المغرب"
+      },
+      {
+        "code": "MC",
+        "original": "Monaco",
+        "display": "موناكو"
+      },
+      {
+        "code": "MD",
+        "original": "Moldova",
+        "display": "مولدوفا"
+      },
+      {
+        "code": "ME",
+        "original": "Montenegro",
+        "display": "الجبل الأسود"
+      },
+      {
+        "code": "MF",
+        "original": "Saint Martin",
+        "display": "سان مارتن"
+      },
+      {
+        "code": "MG",
+        "original": "Madagascar",
+        "display": "مدغشقر"
+      },
+      {
+        "code": "MH",
+        "original": "Marshall Islands",
+        "display": "جزر مارشال"
+      },
+      {
+        "code": "MK",
+        "original": "North Macedonia",
+        "display": "مقدونيا الشمالية"
+      },
+      {
+        "code": "ML",
+        "original": "Mali",
+        "display": "مالي"
+      },
+      {
+        "code": "MM",
+        "original": "Myanmar",
+        "display": "ميانمار (بورما)"
+      },
+      {
+        "code": "MN",
+        "original": "Mongolia",
+        "display": "منغوليا"
+      },
+      {
+        "code": "MO",
+        "original": "Macao",
+        "display": "منطقة ماكاو الإدارية الخاصة"
+      },
+      {
+        "code": "MP",
+        "original": "Northern Mariana Islands",
+        "display": "جزر ماريانا الشمالية"
+      },
+      {
+        "code": "MQ",
+        "original": "Martinique",
+        "display": "جزر المارتينيك"
+      },
+      {
+        "code": "MR",
+        "original": "Mauritania",
+        "display": "موريتانيا"
+      },
+      {
+        "code": "MS",
+        "original": "Montserrat",
+        "display": "مونتسرات"
+      },
+      {
+        "code": "MT",
+        "original": "Malta",
+        "display": "مالطا"
+      },
+      {
+        "code": "MU",
+        "original": "Mauritius",
+        "display": "موريشيوس"
+      },
+      {
+        "code": "MV",
+        "original": "Maldives",
+        "display": "جزر المالديف"
+      },
+      {
+        "code": "MW",
+        "original": "Malawi",
+        "display": "ملاوي"
+      },
+      {
+        "code": "MX",
+        "original": "Mexico",
+        "display": "المكسيك"
+      },
+      {
+        "code": "MY",
+        "original": "Malaysia",
+        "display": "ماليزيا"
+      },
+      {
+        "code": "MZ",
+        "original": "Mozambique",
+        "display": "موزمبيق"
+      },
+      {
+        "code": "NA",
+        "original": "Namibia",
+        "display": "ناميبيا"
+      },
+      {
+        "code": "NC",
+        "original": "New Caledonia",
+        "display": "كاليدونيا الجديدة"
+      },
+      {
+        "code": "NE",
+        "original": "Niger",
+        "display": "النيجر"
+      },
+      {
+        "code": "NF",
+        "original": "Norfolk Island",
+        "display": "جزيرة نورفولك"
+      },
+      {
+        "code": "NG",
+        "original": "Nigeria",
+        "display": "نيجيريا"
+      },
+      {
+        "code": "NI",
+        "original": "Nicaragua",
+        "display": "نيكاراغوا"
+      },
+      {
+        "code": "NL",
+        "original": "The Netherlands",
+        "display": "هولندا"
+      },
+      {
+        "code": "NO",
+        "original": "Norway",
+        "display": "النرويج"
+      },
+      {
+        "code": "NP",
+        "original": "Nepal",
+        "display": "نيبال"
+      },
+      {
+        "code": "NR",
+        "original": "Nauru",
+        "display": "ناورو"
+      },
+      {
+        "code": "NU",
+        "original": "Niue",
+        "display": "نيوي"
+      },
+      {
+        "code": "NZ",
+        "original": "New Zealand",
+        "display": "نيوزيلندا"
+      },
+      {
+        "code": "OM",
+        "original": "Oman",
+        "display": "عُمان"
+      },
+      {
+        "code": "PA",
+        "original": "Panama",
+        "display": "بنما"
+      },
+      {
+        "code": "PE",
+        "original": "Peru",
+        "display": "بيرو"
+      },
+      {
+        "code": "PF",
+        "original": "French Polynesia",
+        "display": "بولينيزيا الفرنسية"
+      },
+      {
+        "code": "PG",
+        "original": "Papua New Guinea",
+        "display": "بابوا غينيا الجديدة"
+      },
+      {
+        "code": "PH",
+        "original": "Philippines",
+        "display": "الفلبين"
+      },
+      {
+        "code": "PK",
+        "original": "Pakistan",
+        "display": "باكستان"
+      },
+      {
+        "code": "PL",
+        "original": "Poland",
+        "display": "بولندا"
+      },
+      {
+        "code": "PM",
+        "original": "Saint Pierre and Miquelon",
+        "display": "سان بيير ومكويلون"
+      },
+      {
+        "code": "PN",
+        "original": "Pitcairn",
+        "display": "جزر بيتكيرن"
+      },
+      {
+        "code": "PR",
+        "original": "Puerto Rico",
+        "display": "بورتوريكو"
+      },
+      {
+        "code": "PS",
+        "original": "Palestinian Territory",
+        "display": "الأراضي الفلسطينية"
+      },
+      {
+        "code": "PT",
+        "original": "Portugal",
+        "display": "البرتغال"
+      },
+      {
+        "code": "PW",
+        "original": "Palau",
+        "display": "بالاو"
+      },
+      {
+        "code": "PY",
+        "original": "Paraguay",
+        "display": "باراغواي"
+      },
+      {
+        "code": "QA",
+        "original": "Qatar",
+        "display": "قطر"
+      },
+      {
+        "code": "RE",
+        "original": "Reunion",
+        "display": "روينيون"
+      },
+      {
+        "code": "RO",
+        "original": "Romania",
+        "display": "رومانيا"
+      },
+      {
+        "code": "RS",
+        "original": "Serbia",
+        "display": "صربيا"
+      },
+      {
+        "code": "RU",
+        "original": "Russia",
+        "display": "روسيا"
+      },
+      {
+        "code": "RW",
+        "original": "Rwanda",
+        "display": "رواندا"
+      },
+      {
+        "code": "SA",
+        "original": "Saudi Arabia",
+        "display": "المملكة العربية السعودية"
+      },
+      {
+        "code": "SB",
+        "original": "Solomon Islands",
+        "display": "جزر سليمان"
+      },
+      {
+        "code": "SC",
+        "original": "Seychelles",
+        "display": "سيشل"
+      },
+      {
+        "code": "SD",
+        "original": "Sudan",
+        "display": "السودان"
+      },
+      {
+        "code": "SE",
+        "original": "Sweden",
+        "display": "السويد"
+      },
+      {
+        "code": "SG",
+        "original": "Singapore",
+        "display": "سنغافورة"
+      },
+      {
+        "code": "SH",
+        "original": "Saint Helena",
+        "display": "سانت هيلينا"
+      },
+      {
+        "code": "SI",
+        "original": "Slovenia",
+        "display": "سلوفينيا"
+      },
+      {
+        "code": "SJ",
+        "original": "Svalbard and Jan Mayen",
+        "display": "سفالبارد وجان ماين"
+      },
+      {
+        "code": "SK",
+        "original": "Slovakia",
+        "display": "سلوفاكيا"
+      },
+      {
+        "code": "SL",
+        "original": "Sierra Leone",
+        "display": "سيراليون"
+      },
+      {
+        "code": "SM",
+        "original": "San Marino",
+        "display": "سان مارينو"
+      },
+      {
+        "code": "SN",
+        "original": "Senegal",
+        "display": "السنغال"
+      },
+      {
+        "code": "SO",
+        "original": "Somalia",
+        "display": "الصومال"
+      },
+      {
+        "code": "SR",
+        "original": "Suriname",
+        "display": "سورينام"
+      },
+      {
+        "code": "SS",
+        "original": "South Sudan",
+        "display": "جنوب السودان"
+      },
+      {
+        "code": "ST",
+        "original": "Sao Tome and Principe",
+        "display": "ساو تومي وبرينسيبي"
+      },
+      {
+        "code": "SV",
+        "original": "El Salvador",
+        "display": "السلفادور"
+      },
+      {
+        "code": "SX",
+        "original": "Sint Maarten",
+        "display": "سانت مارتن"
+      },
+      {
+        "code": "SY",
+        "original": "Syria",
+        "display": "سوريا"
+      },
+      {
+        "code": "SZ",
+        "original": "Eswatini",
+        "display": "إسواتيني"
+      },
+      {
+        "code": "TC",
+        "original": "Turks and Caicos Islands",
+        "display": "جزر توركس وكايكوس"
+      },
+      {
+        "code": "TD",
+        "original": "Chad",
+        "display": "تشاد"
+      },
+      {
+        "code": "TF",
+        "original": "French Southern Territories",
+        "display": "الأقاليم الجنوبية الفرنسية"
+      },
+      {
+        "code": "TG",
+        "original": "Togo",
+        "display": "توغو"
+      },
+      {
+        "code": "TH",
+        "original": "Thailand",
+        "display": "تايلاند"
+      },
+      {
+        "code": "TJ",
+        "original": "Tajikistan",
+        "display": "طاجيكستان"
+      },
+      {
+        "code": "TK",
+        "original": "Tokelau",
+        "display": "توكيلاو"
+      },
+      {
+        "code": "TL",
+        "original": "Timor Leste",
+        "display": "تيمور - ليشتي"
+      },
+      {
+        "code": "TM",
+        "original": "Turkmenistan",
+        "display": "تركمانستان"
+      },
+      {
+        "code": "TN",
+        "original": "Tunisia",
+        "display": "تونس"
+      },
+      {
+        "code": "TO",
+        "original": "Tonga",
+        "display": "تونغا"
+      },
+      {
+        "code": "TR",
+        "original": "Turkey",
+        "display": "تركيا"
+      },
+      {
+        "code": "TT",
+        "original": "Trinidad and Tobago",
+        "display": "ترينيداد وتوباغو"
+      },
+      {
+        "code": "TV",
+        "original": "Tuvalu",
+        "display": "توفالو"
+      },
+      {
+        "code": "TW",
+        "original": "Taiwan",
+        "display": "تايوان"
+      },
+      {
+        "code": "TZ",
+        "original": "Tanzania",
+        "display": "تنزانيا"
+      },
+      {
+        "code": "UA",
+        "original": "Ukraine",
+        "display": "أوكرانيا"
+      },
+      {
+        "code": "UG",
+        "original": "Uganda",
+        "display": "أوغندا"
+      },
+      {
+        "code": "US",
+        "original": "United States",
+        "display": "الولايات المتحدة"
+      },
+      {
+        "code": "UY",
+        "original": "Uruguay",
+        "display": "أورغواي"
+      },
+      {
+        "code": "UZ",
+        "original": "Uzbekistan",
+        "display": "أوزبكستان"
+      },
+      {
+        "code": "VA",
+        "original": "Vatican",
+        "display": "الفاتيكان"
+      },
+      {
+        "code": "VC",
+        "original": "Saint Vincent and the Grenadines",
+        "display": "سانت فنسنت وجزر غرينادين"
+      },
+      {
+        "code": "VE",
+        "original": "Venezuela",
+        "display": "فنزويلا"
+      },
+      {
+        "code": "VG",
+        "original": "British Virgin Islands",
+        "display": "جزر فيرجن البريطانية"
+      },
+      {
+        "code": "VI",
+        "original": "U.S. Virgin Islands",
+        "display": "جزر فيرجن الأمريكية"
+      },
+      {
+        "code": "VN",
+        "original": "Vietnam",
+        "display": "فيتنام"
+      },
+      {
+        "code": "VU",
+        "original": "Vanuatu",
+        "display": "فانواتو"
+      },
+      {
+        "code": "WF",
+        "original": "Wallis and Futuna",
+        "display": "جزر والس وفوتونا"
+      },
+      {
+        "code": "WS",
+        "original": "Samoa",
+        "display": "ساموا"
+      },
+      {
+        "code": "XK",
+        "original": "Kosovo",
+        "display": "كوسوفو"
+      },
+      {
+        "code": "YE",
+        "original": "Yemen",
+        "display": "اليمن"
+      },
+      {
+        "code": "YT",
+        "original": "Mayotte",
+        "display": "مايوت"
+      },
+      {
+        "code": "ZA",
+        "original": "South Africa",
+        "display": "جنوب أفريقيا"
+      },
+      {
+        "code": "ZM",
+        "original": "Zambia",
+        "display": "زامبيا"
+      },
+      {
+        "code": "ZW",
+        "original": "Zimbabwe",
+        "display": "زيمبابوي"
+      }
+    ],
+    "sa_count": 40,
+    "complete": true
+  },
+  "arabic": {
+    "checks": [
+      {
+        "name": "installed-version",
+        "pass": true,
+        "detail": "0.4.2.14"
+      },
+      {
+        "name": "NVDA-version",
+        "pass": true,
+        "detail": "2026.2"
+      },
+      {
+        "name": "minutes-fajr-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "fajr-prayer.preMinutes",
+          "name": "التنبيه قبل دخول الوقت بالدقائق",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "numeric-value-fajr-prayer.preMinutes",
+        "pass": true,
+        "detail": "10"
+      },
+      {
+        "name": "minutes-sunrise-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "sunrise-prayer.preMinutes",
+          "name": "التنبيه قبل دخول الوقت بالدقائق",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "numeric-value-sunrise-prayer.preMinutes",
+        "pass": true,
+        "detail": "10"
+      },
+      {
+        "name": "minutes-sunrise-prayer.postMinutes",
+        "pass": true,
+        "detail": {
+          "label": "sunrise-prayer.postMinutes",
+          "name": "التنبيه بعد دخول الوقت بالدقائق",
+          "role": "8",
+          "value": "20",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "numeric-value-sunrise-prayer.postMinutes",
+        "pass": true,
+        "detail": "20"
+      },
+      {
+        "name": "minutes-dhuhr-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "dhuhr-prayer.preMinutes",
+          "name": "التنبيه قبل دخول الوقت بالدقائق",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "numeric-value-dhuhr-prayer.preMinutes",
+        "pass": true,
+        "detail": "10"
+      },
+      {
+        "name": "minutes-asr-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "asr-prayer.preMinutes",
+          "name": "التنبيه قبل دخول الوقت بالدقائق",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "numeric-value-asr-prayer.preMinutes",
+        "pass": true,
+        "detail": "10"
+      },
+      {
+        "name": "minutes-maghrib-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "maghrib-prayer.preMinutes",
+          "name": "التنبيه قبل دخول الوقت بالدقائق",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "numeric-value-maghrib-prayer.preMinutes",
+        "pass": true,
+        "detail": "10"
+      },
+      {
+        "name": "minutes-isha-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "isha-prayer.preMinutes",
+          "name": "التنبيه قبل دخول الوقت بالدقائق",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "numeric-value-isha-prayer.preMinutes",
+        "pass": true,
+        "detail": "10"
+      },
+      {
+        "name": "minutes-midnight-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "midnight-prayer.preMinutes",
+          "name": "التنبيه قبل دخول الوقت بالدقائق",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "numeric-value-midnight-prayer.preMinutes",
+        "pass": true,
+        "detail": "10"
+      },
+      {
+        "name": "minutes-midnight-prayer.postMinutes",
+        "pass": true,
+        "detail": {
+          "label": "midnight-prayer.postMinutes",
+          "name": "التنبيه بعد دخول الوقت بالدقائق",
+          "role": "8",
+          "value": "0",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "numeric-value-midnight-prayer.postMinutes",
+        "pass": true,
+        "detail": "0"
+      },
+      {
+        "name": "minutes-lastThird-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "lastThird-prayer.preMinutes",
+          "name": "التنبيه قبل دخول الوقت بالدقائق",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "numeric-value-lastThird-prayer.preMinutes",
+        "pass": true,
+        "detail": "10"
+      },
+      {
+        "name": "minutes-lastThird-prayer.postMinutes",
+        "pass": true,
+        "detail": {
+          "label": "lastThird-prayer.postMinutes",
+          "name": "التنبيه بعد دخول الوقت بالدقائق",
+          "role": "8",
+          "value": "0",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "numeric-value-lastThird-prayer.postMinutes",
+        "pass": true,
+        "detail": "0"
+      },
+      {
+        "name": "morning-afterFajr-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "morning-afterFajr-tab-name",
+        "pass": true,
+        "detail": {
+          "label": "morning-afterFajr",
+          "name": "التنبيه بعد الفجر بالدقائق",
+          "role": "8",
+          "value": "15",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "morning-beforeSunrise-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "morning-beforeSunrise-tab-name",
+        "pass": true,
+        "detail": {
+          "label": "morning-beforeSunrise",
+          "name": "التنبيه قبل الشروق بالدقائق",
+          "role": "8",
+          "value": "15",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "morning-afterSunrise-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "morning-afterSunrise-tab-name",
+        "pass": true,
+        "detail": {
+          "label": "morning-afterSunrise",
+          "name": "التنبيه بعد الشروق بالدقائق",
+          "role": "8",
+          "value": "15",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "evening-afterAsr-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "evening-afterAsr-tab-name",
+        "pass": true,
+        "detail": {
+          "label": "evening-afterAsr",
+          "name": "التنبيه بعد العصر بالدقائق",
+          "role": "8",
+          "value": "15",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "evening-beforeMaghrib-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "evening-beforeMaghrib-tab-name",
+        "pass": true,
+        "detail": {
+          "label": "evening-beforeMaghrib",
+          "name": "التنبيه قبل المغرب بالدقائق",
+          "role": "8",
+          "value": "15",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "evening-afterMaghrib-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "evening-afterMaghrib-tab-name",
+        "pass": true,
+        "detail": {
+          "label": "evening-afterMaghrib",
+          "name": "التنبيه بعد المغرب بالدقائق",
+          "role": "8",
+          "value": "15",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "friday-afterAsr-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "friday-afterAsr-tab-name",
+        "pass": true,
+        "detail": {
+          "label": "friday-afterAsr",
+          "name": "التنبيه بعد العصر بالدقائق",
+          "role": "8",
+          "value": "60",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "friday-beforeMaghrib-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "friday-beforeMaghrib-tab-name",
+        "pass": true,
+        "detail": {
+          "label": "friday-beforeMaghrib",
+          "name": "التنبيه قبل المغرب بالدقائق",
+          "role": "8",
+          "value": "60",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "all-countries-linguistic-order",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-macroregions",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "country-native-arrow-1",
+        "pass": true,
+        "detail": {
+          "index": 1,
+          "expected": 1,
+          "display": "أذربيجان",
+          "focus": {
+            "label": "country-1",
+            "name": "",
+            "role": "8",
+            "value": "أذربيجان",
+            "wx": "ComboBox",
+            "wx_label": ""
+          }
+        }
+      },
+      {
+        "name": "country-native-arrow-40",
+        "pass": true,
+        "detail": {
+          "index": 40,
+          "expected": 40,
+          "display": "الكونغو - برازافيل",
+          "focus": {
+            "label": "country-40",
+            "name": "",
+            "role": "8",
+            "value": "الكونغو - برازافيل",
+            "wx": "ComboBox",
+            "wx_label": ""
+          }
+        }
+      },
+      {
+        "name": "country-native-arrow-80",
+        "pass": true,
+        "detail": {
+          "index": 80,
+          "expected": 80,
+          "display": "بنما",
+          "focus": {
+            "label": "country-80",
+            "name": "",
+            "role": "8",
+            "value": "بنما",
+            "wx": "ComboBox",
+            "wx_label": ""
+          }
+        }
+      },
+      {
+        "name": "country-native-arrow-120",
+        "pass": true,
+        "detail": {
+          "index": 120,
+          "expected": 120,
+          "display": "جزر كايمان",
+          "focus": {
+            "label": "country-120",
+            "name": "",
+            "role": "8",
+            "value": "جزر كايمان",
+            "wx": "ComboBox",
+            "wx_label": ""
+          }
+        }
+      },
+      {
+        "name": "country-native-arrow-160",
+        "pass": true,
+        "detail": {
+          "index": 160,
+          "expected": 160,
+          "display": "سلوفينيا",
+          "focus": {
+            "label": "country-160",
+            "name": "",
+            "role": "8",
+            "value": "سلوفينيا",
+            "wx": "ComboBox",
+            "wx_label": ""
+          }
+        }
+      },
+      {
+        "name": "country-native-arrow-200",
+        "pass": true,
+        "detail": {
+          "index": 200,
+          "expected": 200,
+          "display": "كوريا الشمالية",
+          "focus": {
+            "label": "country-200",
+            "name": "",
+            "role": "8",
+            "value": "كوريا الشمالية",
+            "wx": "ComboBox",
+            "wx_label": ""
+          }
+        }
+      },
+      {
+        "name": "country-native-arrow-245",
+        "pass": true,
+        "detail": {
+          "index": 245,
+          "expected": 245,
+          "display": "هونغ كونغ الصينية (منطقة إدارية خاصة)",
+          "focus": {
+            "label": "country-245",
+            "name": "",
+            "role": "8",
+            "value": "هونغ كونغ الصينية (منطقة إدارية خاصة)",
+            "wx": "ComboBox",
+            "wx_label": ""
+          }
+        }
+      },
+      {
+        "name": "complete-SA",
+        "pass": true,
+        "detail": 186
+      },
+      {
+        "name": "sorted-SA",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-SA",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "sa-native-arrow-1",
+        "pass": true,
+        "detail": {
+          "index": -1,
+          "count": 186,
+          "name": "ٲبو عريش — جازان — آسيا / الرياض",
+          "id": "110619",
+          "focus": {
+            "label": "sa-1",
+            "name": "",
+            "role": "8",
+            "value": "ٲبو عريش — جازان — آسيا / الرياض",
+            "wx": "ComboBox",
+            "wx_label": ""
+          }
+        }
+      },
+      {
+        "name": "sa-native-arrow-93",
+        "pass": true,
+        "detail": {
+          "index": -1,
+          "count": 186,
+          "name": "الوديعة — منطقة نجران, شرورة — آسيا / الرياض",
+          "id": "108753",
+          "focus": {
+            "label": "sa-93",
+            "name": "",
+            "role": "8",
+            "value": "الوديعة — منطقة نجران, شرورة — آسيا / الرياض",
+            "wx": "ComboBox",
+            "wx_label": ""
+          }
+        }
+      },
+      {
+        "name": "sa-native-arrow-185",
+        "pass": true,
+        "detail": {
+          "index": -1,
+          "count": 186,
+          "name": "ينبع — منطقة المدينة المنورة — آسيا / الرياض",
+          "id": "100425",
+          "focus": {
+            "label": "sa-185",
+            "name": "",
+            "role": "8",
+            "value": "ينبع — منطقة المدينة المنورة — آسيا / الرياض",
+            "wx": "ComboBox",
+            "wx_label": ""
+          }
+        }
+      },
+      {
+        "name": "native-arrow-enter-selects-id",
+        "pass": true,
+        "detail": "100425"
+      },
+      {
+        "name": "native-edit-keeps-handle-focus",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "sa-search-identity-الرياض",
+        "pass": true,
+        "detail": "الرياض — منطقة الرياض‎ — آسيا / الرياض"
+      },
+      {
+        "name": "sa-search-identity-Riyadh",
+        "pass": true,
+        "detail": "الرياض — منطقة الرياض‎ — آسيا / الرياض"
+      },
+      {
+        "name": "latest-generation-wins",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-AE",
+        "pass": true,
+        "detail": 107
+      },
+      {
+        "name": "sorted-AE",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-AE",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "uae-eight-major-cities",
+        "pass": true,
+        "detail": {
+          "292968": "أبوظبي",
+          "292672": "الشارقة",
+          "292913": "العين",
+          "292878": "الفجيرة",
+          "290594": "أم القيوين",
+          "292223": "دبي",
+          "291074": "رَأْس ٱلْخَيْمَة",
+          "292932": "عجمان"
+        }
+      },
+      {
+        "name": "uae-ten-arabic",
+        "pass": true,
+        "detail": [
+          {
+            "id": "13118432",
+            "name": "الخليج التجاري",
+            "admin": [
+              "دبي",
+              "القطاع 3"
+            ]
+          },
+          {
+            "id": "13118438",
+            "name": "الصجعة",
+            "admin": [
+              "إِمَارَة ٱلشَّارِقَة"
+            ]
+          },
+          {
+            "id": "13118433",
+            "name": "القصيص 1",
+            "admin": [
+              "دبي",
+              "القطاع 2"
+            ]
+          },
+          {
+            "id": "8476509",
+            "name": "المجاز",
+            "admin": [
+              "إِمَارَة ٱلشَّارِقَة"
+            ]
+          },
+          {
+            "id": "8469668",
+            "name": "المدينة العالمية",
+            "admin": [
+              "دبي"
+            ]
+          },
+          {
+            "id": "13118421",
+            "name": "المطينة",
+            "admin": [
+              "دبي",
+              "القطاع 1"
+            ]
+          },
+          {
+            "id": "8469658",
+            "name": "الورقاء",
+            "admin": [
+              "دبي"
+            ]
+          },
+          {
+            "id": "11048853",
+            "name": "مجمع دبي للاستثمار",
+            "admin": [
+              "دبي"
+            ]
+          },
+          {
+            "id": "13118447",
+            "name": "مدينة محمد بن زايد",
+            "admin": [
+              "أبو ظبي",
+              "أبوظبي"
+            ]
+          },
+          {
+            "id": "13118424",
+            "name": "واحة دبي للسيليكون",
+            "admin": [
+              "دبي",
+              "القطاع 6"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "ae-search-الخليج التجاري",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "ae-search-Business Bay",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-EG",
+        "pass": true,
+        "detail": 260
+      },
+      {
+        "name": "sorted-EG",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-EG",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-MA",
+        "pass": true,
+        "detail": 480
+      },
+      {
+        "name": "sorted-MA",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-MA",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-BH",
+        "pass": true,
+        "detail": 12
+      },
+      {
+        "name": "sorted-BH",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-BH",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-DJ",
+        "pass": true,
+        "detail": 32
+      },
+      {
+        "name": "sorted-DJ",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-DJ",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-DZ",
+        "pass": true,
+        "detail": 353
+      },
+      {
+        "name": "sorted-DZ",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-DZ",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-IQ",
+        "pass": true,
+        "detail": 173
+      },
+      {
+        "name": "sorted-IQ",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-IQ",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-JO",
+        "pass": true,
+        "detail": 148
+      },
+      {
+        "name": "sorted-JO",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-JO",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-KM",
+        "pass": true,
+        "detail": 119
+      },
+      {
+        "name": "sorted-KM",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-KM",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-KW",
+        "pass": true,
+        "detail": 28
+      },
+      {
+        "name": "sorted-KW",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-KW",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-LB",
+        "pass": true,
+        "detail": 52
+      },
+      {
+        "name": "sorted-LB",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-LB",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-LY",
+        "pass": true,
+        "detail": 119
+      },
+      {
+        "name": "sorted-LY",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-LY",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-MR",
+        "pass": true,
+        "detail": 88
+      },
+      {
+        "name": "sorted-MR",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-MR",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-OM",
+        "pass": true,
+        "detail": 39
+      },
+      {
+        "name": "sorted-OM",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-OM",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-PS",
+        "pass": true,
+        "detail": 448
+      },
+      {
+        "name": "sorted-PS",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-PS",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-QA",
+        "pass": true,
+        "detail": 43
+      },
+      {
+        "name": "sorted-QA",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-QA",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-SD",
+        "pass": true,
+        "detail": 112
+      },
+      {
+        "name": "sorted-SD",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-SD",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-SO",
+        "pass": true,
+        "detail": 76
+      },
+      {
+        "name": "sorted-SO",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-SO",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-SY",
+        "pass": true,
+        "detail": 310
+      },
+      {
+        "name": "sorted-SY",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-SY",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-TN",
+        "pass": true,
+        "detail": 286
+      },
+      {
+        "name": "sorted-TN",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-TN",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-YE",
+        "pass": true,
+        "detail": 316
+      },
+      {
+        "name": "sorted-YE",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-YE",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "draft-not-applied",
+        "pass": true,
+        "detail": "Dialog is cancelled; no Apply/OK or automatic location calls."
+      }
+    ],
+    "version": "0.4.2.14",
+    "nvda": "2026.2",
+    "language": "ar_SA",
+    "focus": [
+      {
+        "label": "fajr-prayer.preMinutes",
+        "name": "التنبيه قبل دخول الوقت بالدقائق",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "sunrise-prayer.preMinutes",
+        "name": "التنبيه قبل دخول الوقت بالدقائق",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "sunrise-prayer.postMinutes",
+        "name": "التنبيه بعد دخول الوقت بالدقائق",
+        "role": "8",
+        "value": "20",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "dhuhr-prayer.preMinutes",
+        "name": "التنبيه قبل دخول الوقت بالدقائق",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "asr-prayer.preMinutes",
+        "name": "التنبيه قبل دخول الوقت بالدقائق",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "maghrib-prayer.preMinutes",
+        "name": "التنبيه قبل دخول الوقت بالدقائق",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "isha-prayer.preMinutes",
+        "name": "التنبيه قبل دخول الوقت بالدقائق",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "midnight-prayer.preMinutes",
+        "name": "التنبيه قبل دخول الوقت بالدقائق",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "midnight-prayer.postMinutes",
+        "name": "التنبيه بعد دخول الوقت بالدقائق",
+        "role": "8",
+        "value": "0",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "lastThird-prayer.preMinutes",
+        "name": "التنبيه قبل دخول الوقت بالدقائق",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "lastThird-prayer.postMinutes",
+        "name": "التنبيه بعد دخول الوقت بالدقائق",
+        "role": "8",
+        "value": "0",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "morning-afterFajr",
+        "name": "التنبيه بعد الفجر بالدقائق",
+        "role": "8",
+        "value": "15",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "morning-beforeSunrise",
+        "name": "التنبيه قبل الشروق بالدقائق",
+        "role": "8",
+        "value": "15",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "morning-afterSunrise",
+        "name": "التنبيه بعد الشروق بالدقائق",
+        "role": "8",
+        "value": "15",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "evening-afterAsr",
+        "name": "التنبيه بعد العصر بالدقائق",
+        "role": "8",
+        "value": "15",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "evening-beforeMaghrib",
+        "name": "التنبيه قبل المغرب بالدقائق",
+        "role": "8",
+        "value": "15",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "evening-afterMaghrib",
+        "name": "التنبيه بعد المغرب بالدقائق",
+        "role": "8",
+        "value": "15",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "friday-afterAsr",
+        "name": "التنبيه بعد العصر بالدقائق",
+        "role": "8",
+        "value": "60",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "friday-beforeMaghrib",
+        "name": "التنبيه قبل المغرب بالدقائق",
+        "role": "8",
+        "value": "60",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "country-1",
+        "name": "",
+        "role": "8",
+        "value": "أذربيجان",
+        "wx": "ComboBox",
+        "wx_label": ""
+      },
+      {
+        "label": "country-40",
+        "name": "",
+        "role": "8",
+        "value": "الكونغو - برازافيل",
+        "wx": "ComboBox",
+        "wx_label": ""
+      },
+      {
+        "label": "country-80",
+        "name": "",
+        "role": "8",
+        "value": "بنما",
+        "wx": "ComboBox",
+        "wx_label": ""
+      },
+      {
+        "label": "country-120",
+        "name": "",
+        "role": "8",
+        "value": "جزر كايمان",
+        "wx": "ComboBox",
+        "wx_label": ""
+      },
+      {
+        "label": "country-160",
+        "name": "",
+        "role": "8",
+        "value": "سلوفينيا",
+        "wx": "ComboBox",
+        "wx_label": ""
+      },
+      {
+        "label": "country-200",
+        "name": "",
+        "role": "8",
+        "value": "كوريا الشمالية",
+        "wx": "ComboBox",
+        "wx_label": ""
+      },
+      {
+        "label": "country-245",
+        "name": "",
+        "role": "8",
+        "value": "هونغ كونغ الصينية (منطقة إدارية خاصة)",
+        "wx": "ComboBox",
+        "wx_label": ""
+      },
+      {
+        "label": "sa-1",
+        "name": "",
+        "role": "8",
+        "value": "ٲبو عريش — جازان — آسيا / الرياض",
+        "wx": "ComboBox",
+        "wx_label": ""
+      },
+      {
+        "label": "sa-93",
+        "name": "",
+        "role": "8",
+        "value": "الوديعة — منطقة نجران, شرورة — آسيا / الرياض",
+        "wx": "ComboBox",
+        "wx_label": ""
+      },
+      {
+        "label": "sa-185",
+        "name": "",
+        "role": "8",
+        "value": "ينبع — منطقة المدينة المنورة — آسيا / الرياض",
+        "wx": "ComboBox",
+        "wx_label": ""
+      }
+    ],
+    "countries": [
+      {
+        "code": "ET",
+        "original": "Ethiopia",
+        "display": "إثيوبيا"
+      },
+      {
+        "code": "AZ",
+        "original": "Azerbaijan",
+        "display": "أذربيجان"
+      },
+      {
+        "code": "AM",
+        "original": "Armenia",
+        "display": "أرمينيا"
+      },
+      {
+        "code": "AW",
+        "original": "Aruba",
+        "display": "أروبا"
+      },
+      {
+        "code": "ER",
+        "original": "Eritrea",
+        "display": "إريتريا"
+      },
+      {
+        "code": "ES",
+        "original": "Spain",
+        "display": "إسبانيا"
+      },
+      {
+        "code": "AU",
+        "original": "Australia",
+        "display": "أستراليا"
+      },
+      {
+        "code": "EE",
+        "original": "Estonia",
+        "display": "إستونيا"
+      },
+      {
+        "code": "IL",
+        "original": "Israel",
+        "display": "إسرائيل"
+      },
+      {
+        "code": "SZ",
+        "original": "Eswatini",
+        "display": "إسواتيني"
+      },
+      {
+        "code": "AF",
+        "original": "Afghanistan",
+        "display": "أفغانستان"
+      },
+      {
+        "code": "PS",
+        "original": "Palestinian Territory",
+        "display": "الأراضي الفلسطينية"
+      },
+      {
+        "code": "AR",
+        "original": "Argentina",
+        "display": "الأرجنتين"
+      },
+      {
+        "code": "JO",
+        "original": "Jordan",
+        "display": "الأردن"
+      },
+      {
+        "code": "TF",
+        "original": "French Southern Territories",
+        "display": "الأقاليم الجنوبية الفرنسية"
+      },
+      {
+        "code": "IO",
+        "original": "British Indian Ocean Territory",
+        "display": "الإقليم البريطاني في المحيط الهندي"
+      },
+      {
+        "code": "EC",
+        "original": "Ecuador",
+        "display": "الإكوادور"
+      },
+      {
+        "code": "AE",
+        "original": "United Arab Emirates",
+        "display": "الإمارات العربية المتحدة"
+      },
+      {
+        "code": "AL",
+        "original": "Albania",
+        "display": "ألبانيا"
+      },
+      {
+        "code": "BH",
+        "original": "Bahrain",
+        "display": "البحرين"
+      },
+      {
+        "code": "BR",
+        "original": "Brazil",
+        "display": "البرازيل"
+      },
+      {
+        "code": "PT",
+        "original": "Portugal",
+        "display": "البرتغال"
+      },
+      {
+        "code": "BA",
+        "original": "Bosnia and Herzegovina",
+        "display": "البوسنة والهرسك"
+      },
+      {
+        "code": "CZ",
+        "original": "Czechia",
+        "display": "التشيك"
+      },
+      {
+        "code": "ME",
+        "original": "Montenegro",
+        "display": "الجبل الأسود"
+      },
+      {
+        "code": "DZ",
+        "original": "Algeria",
+        "display": "الجزائر"
+      },
+      {
+        "code": "DK",
+        "original": "Denmark",
+        "display": "الدانمرك"
+      },
+      {
+        "code": "CV",
+        "original": "Cabo Verde",
+        "display": "الرأس الأخضر"
+      },
+      {
+        "code": "SV",
+        "original": "El Salvador",
+        "display": "السلفادور"
+      },
+      {
+        "code": "SN",
+        "original": "Senegal",
+        "display": "السنغال"
+      },
+      {
+        "code": "SD",
+        "original": "Sudan",
+        "display": "السودان"
+      },
+      {
+        "code": "SE",
+        "original": "Sweden",
+        "display": "السويد"
+      },
+      {
+        "code": "EH",
+        "original": "Western Sahara",
+        "display": "الصحراء الغربية"
+      },
+      {
+        "code": "SO",
+        "original": "Somalia",
+        "display": "الصومال"
+      },
+      {
+        "code": "CN",
+        "original": "China",
+        "display": "الصين"
+      },
+      {
+        "code": "IQ",
+        "original": "Iraq",
+        "display": "العراق"
+      },
+      {
+        "code": "GA",
+        "original": "Gabon",
+        "display": "الغابون"
+      },
+      {
+        "code": "VA",
+        "original": "Vatican",
+        "display": "الفاتيكان"
+      },
+      {
+        "code": "PH",
+        "original": "Philippines",
+        "display": "الفلبين"
+      },
+      {
+        "code": "CM",
+        "original": "Cameroon",
+        "display": "الكاميرون"
+      },
+      {
+        "code": "CG",
+        "original": "Republic of the Congo",
+        "display": "الكونغو - برازافيل"
+      },
+      {
+        "code": "CD",
+        "original": "Democratic Republic of the Congo",
+        "display": "الكونغو - كينشاسا"
+      },
+      {
+        "code": "KW",
+        "original": "Kuwait",
+        "display": "الكويت"
+      },
+      {
+        "code": "DE",
+        "original": "Germany",
+        "display": "ألمانيا"
+      },
+      {
+        "code": "MA",
+        "original": "Morocco",
+        "display": "المغرب"
+      },
+      {
+        "code": "MX",
+        "original": "Mexico",
+        "display": "المكسيك"
+      },
+      {
+        "code": "SA",
+        "original": "Saudi Arabia",
+        "display": "المملكة العربية السعودية"
+      },
+      {
+        "code": "GB",
+        "original": "United Kingdom",
+        "display": "المملكة المتحدة"
+      },
+      {
+        "code": "NO",
+        "original": "Norway",
+        "display": "النرويج"
+      },
+      {
+        "code": "AT",
+        "original": "Austria",
+        "display": "النمسا"
+      },
+      {
+        "code": "NE",
+        "original": "Niger",
+        "display": "النيجر"
+      },
+      {
+        "code": "IN",
+        "original": "India",
+        "display": "الهند"
+      },
+      {
+        "code": "US",
+        "original": "United States",
+        "display": "الولايات المتحدة"
+      },
+      {
+        "code": "JP",
+        "original": "Japan",
+        "display": "اليابان"
+      },
+      {
+        "code": "YE",
+        "original": "Yemen",
+        "display": "اليمن"
+      },
+      {
+        "code": "GR",
+        "original": "Greece",
+        "display": "اليونان"
+      },
+      {
+        "code": "AG",
+        "original": "Antigua and Barbuda",
+        "display": "أنتيغوا وبربودا"
+      },
+      {
+        "code": "AD",
+        "original": "Andorra",
+        "display": "أندورا"
+      },
+      {
+        "code": "ID",
+        "original": "Indonesia",
+        "display": "إندونيسيا"
+      },
+      {
+        "code": "AO",
+        "original": "Angola",
+        "display": "أنغولا"
+      },
+      {
+        "code": "AI",
+        "original": "Anguilla",
+        "display": "أنغويلا"
+      },
+      {
+        "code": "UY",
+        "original": "Uruguay",
+        "display": "أورغواي"
+      },
+      {
+        "code": "UZ",
+        "original": "Uzbekistan",
+        "display": "أوزبكستان"
+      },
+      {
+        "code": "UG",
+        "original": "Uganda",
+        "display": "أوغندا"
+      },
+      {
+        "code": "UA",
+        "original": "Ukraine",
+        "display": "أوكرانيا"
+      },
+      {
+        "code": "IR",
+        "original": "Iran",
+        "display": "إيران"
+      },
+      {
+        "code": "IE",
+        "original": "Ireland",
+        "display": "أيرلندا"
+      },
+      {
+        "code": "IS",
+        "original": "Iceland",
+        "display": "آيسلندا"
+      },
+      {
+        "code": "IT",
+        "original": "Italy",
+        "display": "إيطاليا"
+      },
+      {
+        "code": "PG",
+        "original": "Papua New Guinea",
+        "display": "بابوا غينيا الجديدة"
+      },
+      {
+        "code": "PY",
+        "original": "Paraguay",
+        "display": "باراغواي"
+      },
+      {
+        "code": "PK",
+        "original": "Pakistan",
+        "display": "باكستان"
+      },
+      {
+        "code": "PW",
+        "original": "Palau",
+        "display": "بالاو"
+      },
+      {
+        "code": "BB",
+        "original": "Barbados",
+        "display": "بربادوس"
+      },
+      {
+        "code": "BM",
+        "original": "Bermuda",
+        "display": "برمودا"
+      },
+      {
+        "code": "BN",
+        "original": "Brunei",
+        "display": "بروناي"
+      },
+      {
+        "code": "BE",
+        "original": "Belgium",
+        "display": "بلجيكا"
+      },
+      {
+        "code": "BG",
+        "original": "Bulgaria",
+        "display": "بلغاريا"
+      },
+      {
+        "code": "BZ",
+        "original": "Belize",
+        "display": "بليز"
+      },
+      {
+        "code": "BD",
+        "original": "Bangladesh",
+        "display": "بنغلاديش"
+      },
+      {
+        "code": "PA",
+        "original": "Panama",
+        "display": "بنما"
+      },
+      {
+        "code": "BJ",
+        "original": "Benin",
+        "display": "بنين"
+      },
+      {
+        "code": "BT",
+        "original": "Bhutan",
+        "display": "بوتان"
+      },
+      {
+        "code": "BW",
+        "original": "Botswana",
+        "display": "بوتسوانا"
+      },
+      {
+        "code": "PR",
+        "original": "Puerto Rico",
+        "display": "بورتوريكو"
+      },
+      {
+        "code": "BF",
+        "original": "Burkina Faso",
+        "display": "بوركينا فاسو"
+      },
+      {
+        "code": "BI",
+        "original": "Burundi",
+        "display": "بوروندي"
+      },
+      {
+        "code": "PL",
+        "original": "Poland",
+        "display": "بولندا"
+      },
+      {
+        "code": "BO",
+        "original": "Bolivia",
+        "display": "بوليفيا"
+      },
+      {
+        "code": "PF",
+        "original": "French Polynesia",
+        "display": "بولينيزيا الفرنسية"
+      },
+      {
+        "code": "PE",
+        "original": "Peru",
+        "display": "بيرو"
+      },
+      {
+        "code": "BY",
+        "original": "Belarus",
+        "display": "بيلاروس"
+      },
+      {
+        "code": "TH",
+        "original": "Thailand",
+        "display": "تايلاند"
+      },
+      {
+        "code": "TW",
+        "original": "Taiwan",
+        "display": "تايوان"
+      },
+      {
+        "code": "TM",
+        "original": "Turkmenistan",
+        "display": "تركمانستان"
+      },
+      {
+        "code": "TR",
+        "original": "Turkey",
+        "display": "تركيا"
+      },
+      {
+        "code": "TT",
+        "original": "Trinidad and Tobago",
+        "display": "ترينيداد وتوباغو"
+      },
+      {
+        "code": "TD",
+        "original": "Chad",
+        "display": "تشاد"
+      },
+      {
+        "code": "CL",
+        "original": "Chile",
+        "display": "تشيلي"
+      },
+      {
+        "code": "TZ",
+        "original": "Tanzania",
+        "display": "تنزانيا"
+      },
+      {
+        "code": "TG",
+        "original": "Togo",
+        "display": "توغو"
+      },
+      {
+        "code": "TV",
+        "original": "Tuvalu",
+        "display": "توفالو"
+      },
+      {
+        "code": "TK",
+        "original": "Tokelau",
+        "display": "توكيلاو"
+      },
+      {
+        "code": "TN",
+        "original": "Tunisia",
+        "display": "تونس"
+      },
+      {
+        "code": "TO",
+        "original": "Tonga",
+        "display": "تونغا"
+      },
+      {
+        "code": "TL",
+        "original": "Timor Leste",
+        "display": "تيمور - ليشتي"
+      },
+      {
+        "code": "JM",
+        "original": "Jamaica",
+        "display": "جامايكا"
+      },
+      {
+        "code": "GI",
+        "original": "Gibraltar",
+        "display": "جبل طارق"
+      },
+      {
+        "code": "AX",
+        "original": "Aland Islands",
+        "display": "جزر آلاند"
+      },
+      {
+        "code": "BS",
+        "original": "Bahamas",
+        "display": "جزر البهاما"
+      },
+      {
+        "code": "KM",
+        "original": "Comoros",
+        "display": "جزر القمر"
+      },
+      {
+        "code": "MQ",
+        "original": "Martinique",
+        "display": "جزر المارتينيك"
+      },
+      {
+        "code": "MV",
+        "original": "Maldives",
+        "display": "جزر المالديف"
+      },
+      {
+        "code": "PN",
+        "original": "Pitcairn",
+        "display": "جزر بيتكيرن"
+      },
+      {
+        "code": "TC",
+        "original": "Turks and Caicos Islands",
+        "display": "جزر توركس وكايكوس"
+      },
+      {
+        "code": "SB",
+        "original": "Solomon Islands",
+        "display": "جزر سليمان"
+      },
+      {
+        "code": "FO",
+        "original": "Faroe Islands",
+        "display": "جزر فارو"
+      },
+      {
+        "code": "FK",
+        "original": "Falkland Islands",
+        "display": "جزر فوكلاند"
+      },
+      {
+        "code": "VI",
+        "original": "U.S. Virgin Islands",
+        "display": "جزر فيرجن الأمريكية"
+      },
+      {
+        "code": "VG",
+        "original": "British Virgin Islands",
+        "display": "جزر فيرجن البريطانية"
+      },
+      {
+        "code": "KY",
+        "original": "Cayman Islands",
+        "display": "جزر كايمان"
+      },
+      {
+        "code": "CK",
+        "original": "Cook Islands",
+        "display": "جزر كوك"
+      },
+      {
+        "code": "CC",
+        "original": "Cocos Islands",
+        "display": "جزر كوكوس (كيلينغ)"
+      },
+      {
+        "code": "MH",
+        "original": "Marshall Islands",
+        "display": "جزر مارشال"
+      },
+      {
+        "code": "MP",
+        "original": "Northern Mariana Islands",
+        "display": "جزر ماريانا الشمالية"
+      },
+      {
+        "code": "WF",
+        "original": "Wallis and Futuna",
+        "display": "جزر والس وفوتونا"
+      },
+      {
+        "code": "CX",
+        "original": "Christmas Island",
+        "display": "جزيرة كريسماس"
+      },
+      {
+        "code": "IM",
+        "original": "Isle of Man",
+        "display": "جزيرة مان"
+      },
+      {
+        "code": "NF",
+        "original": "Norfolk Island",
+        "display": "جزيرة نورفولك"
+      },
+      {
+        "code": "CF",
+        "original": "Central African Republic",
+        "display": "جمهورية أفريقيا الوسطى"
+      },
+      {
+        "code": "DO",
+        "original": "Dominican Republic",
+        "display": "جمهورية الدومينيكان"
+      },
+      {
+        "code": "ZA",
+        "original": "South Africa",
+        "display": "جنوب أفريقيا"
+      },
+      {
+        "code": "SS",
+        "original": "South Sudan",
+        "display": "جنوب السودان"
+      },
+      {
+        "code": "GE",
+        "original": "Georgia",
+        "display": "جورجيا"
+      },
+      {
+        "code": "GS",
+        "original": "South Georgia and the South Sandwich Islands",
+        "display": "جورجيا الجنوبية وجزر ساندويتش الجنوبية"
+      },
+      {
+        "code": "DJ",
+        "original": "Djibouti",
+        "display": "جيبوتي"
+      },
+      {
+        "code": "JE",
+        "original": "Jersey",
+        "display": "جيرسي"
+      },
+      {
+        "code": "DM",
+        "original": "Dominica",
+        "display": "دومينيكا"
+      },
+      {
+        "code": "RW",
+        "original": "Rwanda",
+        "display": "رواندا"
+      },
+      {
+        "code": "RU",
+        "original": "Russia",
+        "display": "روسيا"
+      },
+      {
+        "code": "RO",
+        "original": "Romania",
+        "display": "رومانيا"
+      },
+      {
+        "code": "RE",
+        "original": "Reunion",
+        "display": "روينيون"
+      },
+      {
+        "code": "ZM",
+        "original": "Zambia",
+        "display": "زامبيا"
+      },
+      {
+        "code": "ZW",
+        "original": "Zimbabwe",
+        "display": "زيمبابوي"
+      },
+      {
+        "code": "CI",
+        "original": "Ivory Coast",
+        "display": "ساحل العاج"
+      },
+      {
+        "code": "WS",
+        "original": "Samoa",
+        "display": "ساموا"
+      },
+      {
+        "code": "AS",
+        "original": "American Samoa",
+        "display": "ساموا الأمريكية"
+      },
+      {
+        "code": "BL",
+        "original": "Saint Barthelemy",
+        "display": "سان بارتليمي"
+      },
+      {
+        "code": "PM",
+        "original": "Saint Pierre and Miquelon",
+        "display": "سان بيير ومكويلون"
+      },
+      {
+        "code": "MF",
+        "original": "Saint Martin",
+        "display": "سان مارتن"
+      },
+      {
+        "code": "SM",
+        "original": "San Marino",
+        "display": "سان مارينو"
+      },
+      {
+        "code": "VC",
+        "original": "Saint Vincent and the Grenadines",
+        "display": "سانت فنسنت وجزر غرينادين"
+      },
+      {
+        "code": "KN",
+        "original": "Saint Kitts and Nevis",
+        "display": "سانت كيتس ونيفيس"
+      },
+      {
+        "code": "LC",
+        "original": "Saint Lucia",
+        "display": "سانت لوسيا"
+      },
+      {
+        "code": "SX",
+        "original": "Sint Maarten",
+        "display": "سانت مارتن"
+      },
+      {
+        "code": "SH",
+        "original": "Saint Helena",
+        "display": "سانت هيلينا"
+      },
+      {
+        "code": "ST",
+        "original": "Sao Tome and Principe",
+        "display": "ساو تومي وبرينسيبي"
+      },
+      {
+        "code": "LK",
+        "original": "Sri Lanka",
+        "display": "سريلانكا"
+      },
+      {
+        "code": "SJ",
+        "original": "Svalbard and Jan Mayen",
+        "display": "سفالبارد وجان ماين"
+      },
+      {
+        "code": "SK",
+        "original": "Slovakia",
+        "display": "سلوفاكيا"
+      },
+      {
+        "code": "SI",
+        "original": "Slovenia",
+        "display": "سلوفينيا"
+      },
+      {
+        "code": "SG",
+        "original": "Singapore",
+        "display": "سنغافورة"
+      },
+      {
+        "code": "SY",
+        "original": "Syria",
+        "display": "سوريا"
+      },
+      {
+        "code": "SR",
+        "original": "Suriname",
+        "display": "سورينام"
+      },
+      {
+        "code": "CH",
+        "original": "Switzerland",
+        "display": "سويسرا"
+      },
+      {
+        "code": "SL",
+        "original": "Sierra Leone",
+        "display": "سيراليون"
+      },
+      {
+        "code": "SC",
+        "original": "Seychelles",
+        "display": "سيشل"
+      },
+      {
+        "code": "RS",
+        "original": "Serbia",
+        "display": "صربيا"
+      },
+      {
+        "code": "TJ",
+        "original": "Tajikistan",
+        "display": "طاجيكستان"
+      },
+      {
+        "code": "OM",
+        "original": "Oman",
+        "display": "عُمان"
+      },
+      {
+        "code": "GM",
+        "original": "Gambia",
+        "display": "غامبيا"
+      },
+      {
+        "code": "GH",
+        "original": "Ghana",
+        "display": "غانا"
+      },
+      {
+        "code": "GD",
+        "original": "Grenada",
+        "display": "غرينادا"
+      },
+      {
+        "code": "GL",
+        "original": "Greenland",
+        "display": "غرينلاند"
+      },
+      {
+        "code": "GT",
+        "original": "Guatemala",
+        "display": "غواتيمالا"
+      },
+      {
+        "code": "GP",
+        "original": "Guadeloupe",
+        "display": "غوادلوب"
+      },
+      {
+        "code": "GU",
+        "original": "Guam",
+        "display": "غوام"
+      },
+      {
+        "code": "GF",
+        "original": "French Guiana",
+        "display": "غويانا الفرنسية"
+      },
+      {
+        "code": "GY",
+        "original": "Guyana",
+        "display": "غيانا"
+      },
+      {
+        "code": "GG",
+        "original": "Guernsey",
+        "display": "غيرنزي"
+      },
+      {
+        "code": "GN",
+        "original": "Guinea",
+        "display": "غينيا"
+      },
+      {
+        "code": "GQ",
+        "original": "Equatorial Guinea",
+        "display": "غينيا الاستوائية"
+      },
+      {
+        "code": "GW",
+        "original": "Guinea-Bissau",
+        "display": "غينيا بيساو"
+      },
+      {
+        "code": "VU",
+        "original": "Vanuatu",
+        "display": "فانواتو"
+      },
+      {
+        "code": "FR",
+        "original": "France",
+        "display": "فرنسا"
+      },
+      {
+        "code": "VE",
+        "original": "Venezuela",
+        "display": "فنزويلا"
+      },
+      {
+        "code": "FI",
+        "original": "Finland",
+        "display": "فنلندا"
+      },
+      {
+        "code": "VN",
+        "original": "Vietnam",
+        "display": "فيتنام"
+      },
+      {
+        "code": "FJ",
+        "original": "Fiji",
+        "display": "فيجي"
+      },
+      {
+        "code": "CY",
+        "original": "Cyprus",
+        "display": "قبرص"
+      },
+      {
+        "code": "QA",
+        "original": "Qatar",
+        "display": "قطر"
+      },
+      {
+        "code": "KG",
+        "original": "Kyrgyzstan",
+        "display": "قيرغيزستان"
+      },
+      {
+        "code": "KZ",
+        "original": "Kazakhstan",
+        "display": "كازاخستان"
+      },
+      {
+        "code": "NC",
+        "original": "New Caledonia",
+        "display": "كاليدونيا الجديدة"
+      },
+      {
+        "code": "HR",
+        "original": "Croatia",
+        "display": "كرواتيا"
+      },
+      {
+        "code": "KH",
+        "original": "Cambodia",
+        "display": "كمبوديا"
+      },
+      {
+        "code": "CA",
+        "original": "Canada",
+        "display": "كندا"
+      },
+      {
+        "code": "CU",
+        "original": "Cuba",
+        "display": "كوبا"
+      },
+      {
+        "code": "CW",
+        "original": "Curacao",
+        "display": "كوراساو"
+      },
+      {
+        "code": "KR",
+        "original": "South Korea",
+        "display": "كوريا الجنوبية"
+      },
+      {
+        "code": "KP",
+        "original": "North Korea",
+        "display": "كوريا الشمالية"
+      },
+      {
+        "code": "CR",
+        "original": "Costa Rica",
+        "display": "كوستاريكا"
+      },
+      {
+        "code": "XK",
+        "original": "Kosovo",
+        "display": "كوسوفو"
+      },
+      {
+        "code": "CO",
+        "original": "Colombia",
+        "display": "كولومبيا"
+      },
+      {
+        "code": "KI",
+        "original": "Kiribati",
+        "display": "كيريباتي"
+      },
+      {
+        "code": "KE",
+        "original": "Kenya",
+        "display": "كينيا"
+      },
+      {
+        "code": "LV",
+        "original": "Latvia",
+        "display": "لاتفيا"
+      },
+      {
+        "code": "LA",
+        "original": "Laos",
+        "display": "لاوس"
+      },
+      {
+        "code": "LB",
+        "original": "Lebanon",
+        "display": "لبنان"
+      },
+      {
+        "code": "LU",
+        "original": "Luxembourg",
+        "display": "لوكسمبورغ"
+      },
+      {
+        "code": "LY",
+        "original": "Libya",
+        "display": "ليبيا"
+      },
+      {
+        "code": "LR",
+        "original": "Liberia",
+        "display": "ليبيريا"
+      },
+      {
+        "code": "LT",
+        "original": "Lithuania",
+        "display": "ليتوانيا"
+      },
+      {
+        "code": "LI",
+        "original": "Liechtenstein",
+        "display": "ليختنشتاين"
+      },
+      {
+        "code": "LS",
+        "original": "Lesotho",
+        "display": "ليسوتو"
+      },
+      {
+        "code": "MT",
+        "original": "Malta",
+        "display": "مالطا"
+      },
+      {
+        "code": "ML",
+        "original": "Mali",
+        "display": "مالي"
+      },
+      {
+        "code": "MY",
+        "original": "Malaysia",
+        "display": "ماليزيا"
+      },
+      {
+        "code": "YT",
+        "original": "Mayotte",
+        "display": "مايوت"
+      },
+      {
+        "code": "MG",
+        "original": "Madagascar",
+        "display": "مدغشقر"
+      },
+      {
+        "code": "EG",
+        "original": "Egypt",
+        "display": "مصر"
+      },
+      {
+        "code": "MK",
+        "original": "North Macedonia",
+        "display": "مقدونيا الشمالية"
+      },
+      {
+        "code": "MW",
+        "original": "Malawi",
+        "display": "ملاوي"
+      },
+      {
+        "code": "MO",
+        "original": "Macao",
+        "display": "منطقة ماكاو الإدارية الخاصة"
+      },
+      {
+        "code": "MN",
+        "original": "Mongolia",
+        "display": "منغوليا"
+      },
+      {
+        "code": "MR",
+        "original": "Mauritania",
+        "display": "موريتانيا"
+      },
+      {
+        "code": "MU",
+        "original": "Mauritius",
+        "display": "موريشيوس"
+      },
+      {
+        "code": "MZ",
+        "original": "Mozambique",
+        "display": "موزمبيق"
+      },
+      {
+        "code": "MD",
+        "original": "Moldova",
+        "display": "مولدوفا"
+      },
+      {
+        "code": "MC",
+        "original": "Monaco",
+        "display": "موناكو"
+      },
+      {
+        "code": "MS",
+        "original": "Montserrat",
+        "display": "مونتسرات"
+      },
+      {
+        "code": "MM",
+        "original": "Myanmar",
+        "display": "ميانمار (بورما)"
+      },
+      {
+        "code": "FM",
+        "original": "Micronesia",
+        "display": "ميكرونيزيا"
+      },
+      {
+        "code": "NA",
+        "original": "Namibia",
+        "display": "ناميبيا"
+      },
+      {
+        "code": "NR",
+        "original": "Nauru",
+        "display": "ناورو"
+      },
+      {
+        "code": "NP",
+        "original": "Nepal",
+        "display": "نيبال"
+      },
+      {
+        "code": "NG",
+        "original": "Nigeria",
+        "display": "نيجيريا"
+      },
+      {
+        "code": "NI",
+        "original": "Nicaragua",
+        "display": "نيكاراغوا"
+      },
+      {
+        "code": "NZ",
+        "original": "New Zealand",
+        "display": "نيوزيلندا"
+      },
+      {
+        "code": "NU",
+        "original": "Niue",
+        "display": "نيوي"
+      },
+      {
+        "code": "HT",
+        "original": "Haiti",
+        "display": "هايتي"
+      },
+      {
+        "code": "HN",
+        "original": "Honduras",
+        "display": "هندوراس"
+      },
+      {
+        "code": "HU",
+        "original": "Hungary",
+        "display": "هنغاريا"
+      },
+      {
+        "code": "NL",
+        "original": "The Netherlands",
+        "display": "هولندا"
+      },
+      {
+        "code": "BQ",
+        "original": "Bonaire, Saint Eustatius and Saba ",
+        "display": "هولندا الكاريبية"
+      },
+      {
+        "code": "HK",
+        "original": "Hong Kong",
+        "display": "هونغ كونغ الصينية (منطقة إدارية خاصة)"
+      }
+    ],
+    "aruba": {
+      "code": "AW",
+      "original": "Aruba",
+      "display": "أروبا"
+    },
+    "performance": [
+      {
+        "country": "SA",
+        "fillMs": 174.288,
+        "count": 186,
+        "openMs": 99.158,
+        "firstCharacterEventMs": 130.638,
+        "resultRefreshMs": 130.648
+      },
+      {
+        "country": "AE",
+        "fillMs": 103.802,
+        "count": 107
+      },
+      {
+        "country": "EG",
+        "fillMs": 164.628,
+        "count": 260
+      },
+      {
+        "country": "MA",
+        "fillMs": 247.987,
+        "count": 480
+      },
+      {
+        "country": "BH",
+        "fillMs": 40.093,
+        "count": 12
+      },
+      {
+        "country": "DJ",
+        "fillMs": 71.032,
+        "count": 32
+      },
+      {
+        "country": "DZ",
+        "fillMs": 218.219,
+        "count": 353
+      },
+      {
+        "country": "IQ",
+        "fillMs": 138.039,
+        "count": 173
+      },
+      {
+        "country": "JO",
+        "fillMs": 121.062,
+        "count": 148
+      },
+      {
+        "country": "KM",
+        "fillMs": 114.526,
+        "count": 119
+      },
+      {
+        "country": "KW",
+        "fillMs": 72.605,
+        "count": 28
+      },
+      {
+        "country": "LB",
+        "fillMs": 88.505,
+        "count": 52
+      },
+      {
+        "country": "LY",
+        "fillMs": 134.561,
+        "count": 119
+      },
+      {
+        "country": "MR",
+        "fillMs": 102.886,
+        "count": 88
+      },
+      {
+        "country": "OM",
+        "fillMs": 85.686,
+        "count": 39
+      },
+      {
+        "country": "PS",
+        "fillMs": 273.456,
+        "count": 448
+      },
+      {
+        "country": "QA",
+        "fillMs": 78.845,
+        "count": 43
+      },
+      {
+        "country": "SD",
+        "fillMs": 109.914,
+        "count": 112
+      },
+      {
+        "country": "SO",
+        "fillMs": 94.203,
+        "count": 76
+      },
+      {
+        "country": "SY",
+        "fillMs": 188.466,
+        "count": 310
+      },
+      {
+        "country": "TN",
+        "fillMs": 178.139,
+        "count": 286
+      },
+      {
+        "country": "YE",
+        "fillMs": 196.449,
+        "count": 316
+      }
+    ],
+    "uae_examples": [
+      {
+        "id": "13118432",
+        "name": "الخليج التجاري",
+        "admin": [
+          "دبي",
+          "القطاع 3"
+        ]
+      },
+      {
+        "id": "13118438",
+        "name": "الصجعة",
+        "admin": [
+          "إِمَارَة ٱلشَّارِقَة"
+        ]
+      },
+      {
+        "id": "13118433",
+        "name": "القصيص 1",
+        "admin": [
+          "دبي",
+          "القطاع 2"
+        ]
+      },
+      {
+        "id": "8476509",
+        "name": "المجاز",
+        "admin": [
+          "إِمَارَة ٱلشَّارِقَة"
+        ]
+      },
+      {
+        "id": "8469668",
+        "name": "المدينة العالمية",
+        "admin": [
+          "دبي"
+        ]
+      },
+      {
+        "id": "13118421",
+        "name": "المطينة",
+        "admin": [
+          "دبي",
+          "القطاع 1"
+        ]
+      },
+      {
+        "id": "8469658",
+        "name": "الورقاء",
+        "admin": [
+          "دبي"
+        ]
+      },
+      {
+        "id": "11048853",
+        "name": "مجمع دبي للاستثمار",
+        "admin": [
+          "دبي"
+        ]
+      },
+      {
+        "id": "13118447",
+        "name": "مدينة محمد بن زايد",
+        "admin": [
+          "أبو ظبي",
+          "أبوظبي"
+        ]
+      },
+      {
+        "id": "13118424",
+        "name": "واحة دبي للسيليكون",
+        "admin": [
+          "دبي",
+          "القطاع 6"
+        ]
+      }
+    ],
+    "complete": true
+  },
+  "english": {
+    "checks": [
+      {
+        "name": "installed-version",
+        "pass": true,
+        "detail": "0.4.2.14"
+      },
+      {
+        "name": "NVDA-version",
+        "pass": true,
+        "detail": "2026.2"
+      },
+      {
+        "name": "minutes-fajr-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "fajr-prayer.preMinutes",
+          "name": "Alert before the event, minutes",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "numeric-value-fajr-prayer.preMinutes",
+        "pass": true,
+        "detail": "10"
+      },
+      {
+        "name": "minutes-sunrise-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "sunrise-prayer.preMinutes",
+          "name": "Alert before the event, minutes",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "numeric-value-sunrise-prayer.preMinutes",
+        "pass": true,
+        "detail": "10"
+      },
+      {
+        "name": "minutes-sunrise-prayer.postMinutes",
+        "pass": true,
+        "detail": {
+          "label": "sunrise-prayer.postMinutes",
+          "name": "Alert after the event, minutes",
+          "role": "8",
+          "value": "20",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "numeric-value-sunrise-prayer.postMinutes",
+        "pass": true,
+        "detail": "20"
+      },
+      {
+        "name": "minutes-dhuhr-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "dhuhr-prayer.preMinutes",
+          "name": "Alert before the event, minutes",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "numeric-value-dhuhr-prayer.preMinutes",
+        "pass": true,
+        "detail": "10"
+      },
+      {
+        "name": "minutes-asr-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "asr-prayer.preMinutes",
+          "name": "Alert before the event, minutes",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "numeric-value-asr-prayer.preMinutes",
+        "pass": true,
+        "detail": "10"
+      },
+      {
+        "name": "minutes-maghrib-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "maghrib-prayer.preMinutes",
+          "name": "Alert before the event, minutes",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "numeric-value-maghrib-prayer.preMinutes",
+        "pass": true,
+        "detail": "10"
+      },
+      {
+        "name": "minutes-isha-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "isha-prayer.preMinutes",
+          "name": "Alert before the event, minutes",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "numeric-value-isha-prayer.preMinutes",
+        "pass": true,
+        "detail": "10"
+      },
+      {
+        "name": "minutes-midnight-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "midnight-prayer.preMinutes",
+          "name": "Alert before the event, minutes",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "numeric-value-midnight-prayer.preMinutes",
+        "pass": true,
+        "detail": "10"
+      },
+      {
+        "name": "minutes-midnight-prayer.postMinutes",
+        "pass": true,
+        "detail": {
+          "label": "midnight-prayer.postMinutes",
+          "name": "Alert after the event, minutes",
+          "role": "8",
+          "value": "0",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "numeric-value-midnight-prayer.postMinutes",
+        "pass": true,
+        "detail": "0"
+      },
+      {
+        "name": "minutes-lastThird-prayer.preMinutes",
+        "pass": true,
+        "detail": {
+          "label": "lastThird-prayer.preMinutes",
+          "name": "Alert before the event, minutes",
+          "role": "8",
+          "value": "10",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "numeric-value-lastThird-prayer.preMinutes",
+        "pass": true,
+        "detail": "10"
+      },
+      {
+        "name": "minutes-lastThird-prayer.postMinutes",
+        "pass": true,
+        "detail": {
+          "label": "lastThird-prayer.postMinutes",
+          "name": "Alert after the event, minutes",
+          "role": "8",
+          "value": "0",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "numeric-value-lastThird-prayer.postMinutes",
+        "pass": true,
+        "detail": "0"
+      },
+      {
+        "name": "morning-afterFajr-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "morning-afterFajr-tab-name",
+        "pass": true,
+        "detail": {
+          "label": "morning-afterFajr",
+          "name": "Alert after Fajr, minutes",
+          "role": "8",
+          "value": "15",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "morning-beforeSunrise-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "morning-beforeSunrise-tab-name",
+        "pass": true,
+        "detail": {
+          "label": "morning-beforeSunrise",
+          "name": "Alert before sunrise, minutes",
+          "role": "8",
+          "value": "15",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "morning-afterSunrise-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "morning-afterSunrise-tab-name",
+        "pass": true,
+        "detail": {
+          "label": "morning-afterSunrise",
+          "name": "Alert after sunrise, minutes",
+          "role": "8",
+          "value": "15",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "evening-afterAsr-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "evening-afterAsr-tab-name",
+        "pass": true,
+        "detail": {
+          "label": "evening-afterAsr",
+          "name": "Alert after Asr, minutes",
+          "role": "8",
+          "value": "15",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "evening-beforeMaghrib-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "evening-beforeMaghrib-tab-name",
+        "pass": true,
+        "detail": {
+          "label": "evening-beforeMaghrib",
+          "name": "Alert before Maghrib, minutes",
+          "role": "8",
+          "value": "15",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "evening-afterMaghrib-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "evening-afterMaghrib-tab-name",
+        "pass": true,
+        "detail": {
+          "label": "evening-afterMaghrib",
+          "name": "Alert after Maghrib, minutes",
+          "role": "8",
+          "value": "15",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "friday-afterAsr-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "friday-afterAsr-tab-name",
+        "pass": true,
+        "detail": {
+          "label": "friday-afterAsr",
+          "name": "Alert after Asr, minutes",
+          "role": "8",
+          "value": "60",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "friday-beforeMaghrib-dynamic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "friday-beforeMaghrib-tab-name",
+        "pass": true,
+        "detail": {
+          "label": "friday-beforeMaghrib",
+          "name": "Alert before Maghrib, minutes",
+          "role": "8",
+          "value": "60",
+          "wx": "SpinCtrl",
+          "wx_label": ""
+        }
+      },
+      {
+        "name": "all-countries-linguistic-order",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-macroregions",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "country-native-arrow-1",
+        "pass": true,
+        "detail": {
+          "index": 1,
+          "expected": 1,
+          "display": "Aland Islands",
+          "focus": {
+            "label": "country-1",
+            "name": "",
+            "role": "8",
+            "value": "Aland Islands",
+            "wx": "ComboBox",
+            "wx_label": ""
+          }
+        }
+      },
+      {
+        "name": "country-native-arrow-40",
+        "pass": true,
+        "detail": {
+          "index": 40,
+          "expected": 40,
+          "display": "Cayman Islands",
+          "focus": {
+            "label": "country-40",
+            "name": "",
+            "role": "8",
+            "value": "Cayman Islands",
+            "wx": "ComboBox",
+            "wx_label": ""
+          }
+        }
+      },
+      {
+        "name": "country-native-arrow-80",
+        "pass": true,
+        "detail": {
+          "index": 80,
+          "expected": 80,
+          "display": "Germany",
+          "focus": {
+            "label": "country-80",
+            "name": "",
+            "role": "8",
+            "value": "Germany",
+            "wx": "ComboBox",
+            "wx_label": ""
+          }
+        }
+      },
+      {
+        "name": "country-native-arrow-120",
+        "pass": true,
+        "detail": {
+          "index": 120,
+          "expected": 120,
+          "display": "Lesotho",
+          "focus": {
+            "label": "country-120",
+            "name": "",
+            "role": "8",
+            "value": "Lesotho",
+            "wx": "ComboBox",
+            "wx_label": ""
+          }
+        }
+      },
+      {
+        "name": "country-native-arrow-160",
+        "pass": true,
+        "detail": {
+          "index": 160,
+          "expected": 160,
+          "display": "Northern Mariana Islands",
+          "focus": {
+            "label": "country-160",
+            "name": "",
+            "role": "8",
+            "value": "Northern Mariana Islands",
+            "wx": "ComboBox",
+            "wx_label": ""
+          }
+        }
+      },
+      {
+        "name": "country-native-arrow-200",
+        "pass": true,
+        "detail": {
+          "index": 200,
+          "expected": 200,
+          "display": "Solomon Islands",
+          "focus": {
+            "label": "country-200",
+            "name": "",
+            "role": "8",
+            "value": "Solomon Islands",
+            "wx": "ComboBox",
+            "wx_label": ""
+          }
+        }
+      },
+      {
+        "name": "country-native-arrow-245",
+        "pass": true,
+        "detail": {
+          "index": 245,
+          "expected": 245,
+          "display": "Zimbabwe",
+          "focus": {
+            "label": "country-245",
+            "name": "",
+            "role": "8",
+            "value": "Zimbabwe",
+            "wx": "ComboBox",
+            "wx_label": ""
+          }
+        }
+      },
+      {
+        "name": "complete-SA",
+        "pass": true,
+        "detail": 186
+      },
+      {
+        "name": "sorted-SA",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-SA",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "sa-native-arrow-1",
+        "pass": true,
+        "detail": {
+          "index": -1,
+          "count": 186,
+          "name": "‘Irqah — Riyadh Region — Asia / Riyadh",
+          "id": "105586",
+          "focus": {
+            "label": "sa-1",
+            "name": "",
+            "role": "8",
+            "value": "‘Irqah — Riyadh Region — Asia / Riyadh",
+            "wx": "ComboBox",
+            "wx_label": ""
+          }
+        }
+      },
+      {
+        "name": "sa-native-arrow-93",
+        "pass": true,
+        "detail": {
+          "index": -1,
+          "count": 186,
+          "name": "Badr al-Janūb — Najran Region — Asia / Riyadh",
+          "id": "107746",
+          "focus": {
+            "label": "sa-93",
+            "name": "",
+            "role": "8",
+            "value": "Badr al-Janūb — Najran Region — Asia / Riyadh",
+            "wx": "ComboBox",
+            "wx_label": ""
+          }
+        }
+      },
+      {
+        "name": "sa-native-arrow-185",
+        "pass": true,
+        "detail": {
+          "index": -1,
+          "count": 186,
+          "name": "Yanbu — Medina Region — Asia / Riyadh",
+          "id": "100425",
+          "focus": {
+            "label": "sa-185",
+            "name": "",
+            "role": "8",
+            "value": "Yanbu — Medina Region — Asia / Riyadh",
+            "wx": "ComboBox",
+            "wx_label": ""
+          }
+        }
+      },
+      {
+        "name": "native-arrow-enter-selects-id",
+        "pass": true,
+        "detail": "100425"
+      },
+      {
+        "name": "native-edit-keeps-handle-focus",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "sa-search-identity-الرياض",
+        "pass": true,
+        "detail": "Riyadh — Riyadh Region — Asia / Riyadh"
+      },
+      {
+        "name": "sa-search-identity-Riyadh",
+        "pass": true,
+        "detail": "Riyadh — Riyadh Region — Asia / Riyadh"
+      },
+      {
+        "name": "latest-generation-wins",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-AE",
+        "pass": true,
+        "detail": 107
+      },
+      {
+        "name": "sorted-AE",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-AE",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "uae-eight-major-cities",
+        "pass": true,
+        "detail": {
+          "292968": "Abu Dhabi",
+          "292932": "Ajman",
+          "292913": "Al Ain",
+          "292223": "Dubai",
+          "292878": "Fujairah",
+          "291074": "Ras al-Khaimah",
+          "292672": "Sharjah city",
+          "290594": "Umm Al Quwain City"
+        }
+      },
+      {
+        "name": "ae-search-الخليج التجاري",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "ae-search-Business Bay",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-EG",
+        "pass": true,
+        "detail": 260
+      },
+      {
+        "name": "sorted-EG",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-EG",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-MA",
+        "pass": true,
+        "detail": 480
+      },
+      {
+        "name": "sorted-MA",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-MA",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-BH",
+        "pass": true,
+        "detail": 12
+      },
+      {
+        "name": "sorted-BH",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-BH",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-DJ",
+        "pass": true,
+        "detail": 32
+      },
+      {
+        "name": "sorted-DJ",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-DJ",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-DZ",
+        "pass": true,
+        "detail": 353
+      },
+      {
+        "name": "sorted-DZ",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-DZ",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-IQ",
+        "pass": true,
+        "detail": 173
+      },
+      {
+        "name": "sorted-IQ",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-IQ",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-JO",
+        "pass": true,
+        "detail": 148
+      },
+      {
+        "name": "sorted-JO",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-JO",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-KM",
+        "pass": true,
+        "detail": 119
+      },
+      {
+        "name": "sorted-KM",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-KM",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-KW",
+        "pass": true,
+        "detail": 28
+      },
+      {
+        "name": "sorted-KW",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-KW",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-LB",
+        "pass": true,
+        "detail": 52
+      },
+      {
+        "name": "sorted-LB",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-LB",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-LY",
+        "pass": true,
+        "detail": 119
+      },
+      {
+        "name": "sorted-LY",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-LY",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-MR",
+        "pass": true,
+        "detail": 88
+      },
+      {
+        "name": "sorted-MR",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-MR",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-OM",
+        "pass": true,
+        "detail": 39
+      },
+      {
+        "name": "sorted-OM",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-OM",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-PS",
+        "pass": true,
+        "detail": 448
+      },
+      {
+        "name": "sorted-PS",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-PS",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-QA",
+        "pass": true,
+        "detail": 43
+      },
+      {
+        "name": "sorted-QA",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-QA",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-SD",
+        "pass": true,
+        "detail": 112
+      },
+      {
+        "name": "sorted-SD",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-SD",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-SO",
+        "pass": true,
+        "detail": 76
+      },
+      {
+        "name": "sorted-SO",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-SO",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-SY",
+        "pass": true,
+        "detail": 310
+      },
+      {
+        "name": "sorted-SY",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-SY",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-TN",
+        "pass": true,
+        "detail": 286
+      },
+      {
+        "name": "sorted-TN",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-TN",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "complete-YE",
+        "pass": true,
+        "detail": 316
+      },
+      {
+        "name": "sorted-YE",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "no-raw-admin-YE",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "draft-not-applied",
+        "pass": true,
+        "detail": "Dialog is cancelled; no Apply/OK or automatic location calls."
+      }
+    ],
+    "version": "0.4.2.14",
+    "nvda": "2026.2",
+    "language": "en",
+    "focus": [
+      {
+        "label": "fajr-prayer.preMinutes",
+        "name": "Alert before the event, minutes",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "sunrise-prayer.preMinutes",
+        "name": "Alert before the event, minutes",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "sunrise-prayer.postMinutes",
+        "name": "Alert after the event, minutes",
+        "role": "8",
+        "value": "20",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "dhuhr-prayer.preMinutes",
+        "name": "Alert before the event, minutes",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "asr-prayer.preMinutes",
+        "name": "Alert before the event, minutes",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "maghrib-prayer.preMinutes",
+        "name": "Alert before the event, minutes",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "isha-prayer.preMinutes",
+        "name": "Alert before the event, minutes",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "midnight-prayer.preMinutes",
+        "name": "Alert before the event, minutes",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "midnight-prayer.postMinutes",
+        "name": "Alert after the event, minutes",
+        "role": "8",
+        "value": "0",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "lastThird-prayer.preMinutes",
+        "name": "Alert before the event, minutes",
+        "role": "8",
+        "value": "10",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "lastThird-prayer.postMinutes",
+        "name": "Alert after the event, minutes",
+        "role": "8",
+        "value": "0",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "morning-afterFajr",
+        "name": "Alert after Fajr, minutes",
+        "role": "8",
+        "value": "15",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "morning-beforeSunrise",
+        "name": "Alert before sunrise, minutes",
+        "role": "8",
+        "value": "15",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "morning-afterSunrise",
+        "name": "Alert after sunrise, minutes",
+        "role": "8",
+        "value": "15",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "evening-afterAsr",
+        "name": "Alert after Asr, minutes",
+        "role": "8",
+        "value": "15",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "evening-beforeMaghrib",
+        "name": "Alert before Maghrib, minutes",
+        "role": "8",
+        "value": "15",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "evening-afterMaghrib",
+        "name": "Alert after Maghrib, minutes",
+        "role": "8",
+        "value": "15",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "friday-afterAsr",
+        "name": "Alert after Asr, minutes",
+        "role": "8",
+        "value": "60",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "friday-beforeMaghrib",
+        "name": "Alert before Maghrib, minutes",
+        "role": "8",
+        "value": "60",
+        "wx": "SpinCtrl",
+        "wx_label": ""
+      },
+      {
+        "label": "country-1",
+        "name": "",
+        "role": "8",
+        "value": "Aland Islands",
+        "wx": "ComboBox",
+        "wx_label": ""
+      },
+      {
+        "label": "country-40",
+        "name": "",
+        "role": "8",
+        "value": "Cayman Islands",
+        "wx": "ComboBox",
+        "wx_label": ""
+      },
+      {
+        "label": "country-80",
+        "name": "",
+        "role": "8",
+        "value": "Germany",
+        "wx": "ComboBox",
+        "wx_label": ""
+      },
+      {
+        "label": "country-120",
+        "name": "",
+        "role": "8",
+        "value": "Lesotho",
+        "wx": "ComboBox",
+        "wx_label": ""
+      },
+      {
+        "label": "country-160",
+        "name": "",
+        "role": "8",
+        "value": "Northern Mariana Islands",
+        "wx": "ComboBox",
+        "wx_label": ""
+      },
+      {
+        "label": "country-200",
+        "name": "",
+        "role": "8",
+        "value": "Solomon Islands",
+        "wx": "ComboBox",
+        "wx_label": ""
+      },
+      {
+        "label": "country-245",
+        "name": "",
+        "role": "8",
+        "value": "Zimbabwe",
+        "wx": "ComboBox",
+        "wx_label": ""
+      },
+      {
+        "label": "sa-1",
+        "name": "",
+        "role": "8",
+        "value": "‘Irqah — Riyadh Region — Asia / Riyadh",
+        "wx": "ComboBox",
+        "wx_label": ""
+      },
+      {
+        "label": "sa-93",
+        "name": "",
+        "role": "8",
+        "value": "Badr al-Janūb — Najran Region — Asia / Riyadh",
+        "wx": "ComboBox",
+        "wx_label": ""
+      },
+      {
+        "label": "sa-185",
+        "name": "",
+        "role": "8",
+        "value": "Yanbu — Medina Region — Asia / Riyadh",
+        "wx": "ComboBox",
+        "wx_label": ""
+      }
+    ],
+    "countries": [
+      {
+        "code": "AF",
+        "original": "Afghanistan",
+        "display": "Afghanistan"
+      },
+      {
+        "code": "AX",
+        "original": "Aland Islands",
+        "display": "Aland Islands"
+      },
+      {
+        "code": "AL",
+        "original": "Albania",
+        "display": "Albania"
+      },
+      {
+        "code": "DZ",
+        "original": "Algeria",
+        "display": "Algeria"
+      },
+      {
+        "code": "AS",
+        "original": "American Samoa",
+        "display": "American Samoa"
+      },
+      {
+        "code": "AD",
+        "original": "Andorra",
+        "display": "Andorra"
+      },
+      {
+        "code": "AO",
+        "original": "Angola",
+        "display": "Angola"
+      },
+      {
+        "code": "AI",
+        "original": "Anguilla",
+        "display": "Anguilla"
+      },
+      {
+        "code": "AG",
+        "original": "Antigua and Barbuda",
+        "display": "Antigua and Barbuda"
+      },
+      {
+        "code": "AR",
+        "original": "Argentina",
+        "display": "Argentina"
+      },
+      {
+        "code": "AM",
+        "original": "Armenia",
+        "display": "Armenia"
+      },
+      {
+        "code": "AW",
+        "original": "Aruba",
+        "display": "Aruba"
+      },
+      {
+        "code": "AU",
+        "original": "Australia",
+        "display": "Australia"
+      },
+      {
+        "code": "AT",
+        "original": "Austria",
+        "display": "Austria"
+      },
+      {
+        "code": "AZ",
+        "original": "Azerbaijan",
+        "display": "Azerbaijan"
+      },
+      {
+        "code": "BS",
+        "original": "Bahamas",
+        "display": "Bahamas"
+      },
+      {
+        "code": "BH",
+        "original": "Bahrain",
+        "display": "Bahrain"
+      },
+      {
+        "code": "BD",
+        "original": "Bangladesh",
+        "display": "Bangladesh"
+      },
+      {
+        "code": "BB",
+        "original": "Barbados",
+        "display": "Barbados"
+      },
+      {
+        "code": "BY",
+        "original": "Belarus",
+        "display": "Belarus"
+      },
+      {
+        "code": "BE",
+        "original": "Belgium",
+        "display": "Belgium"
+      },
+      {
+        "code": "BZ",
+        "original": "Belize",
+        "display": "Belize"
+      },
+      {
+        "code": "BJ",
+        "original": "Benin",
+        "display": "Benin"
+      },
+      {
+        "code": "BM",
+        "original": "Bermuda",
+        "display": "Bermuda"
+      },
+      {
+        "code": "BT",
+        "original": "Bhutan",
+        "display": "Bhutan"
+      },
+      {
+        "code": "BO",
+        "original": "Bolivia",
+        "display": "Bolivia"
+      },
+      {
+        "code": "BQ",
+        "original": "Bonaire, Saint Eustatius and Saba ",
+        "display": "Bonaire, Saint Eustatius and Saba "
+      },
+      {
+        "code": "BA",
+        "original": "Bosnia and Herzegovina",
+        "display": "Bosnia and Herzegovina"
+      },
+      {
+        "code": "BW",
+        "original": "Botswana",
+        "display": "Botswana"
+      },
+      {
+        "code": "BR",
+        "original": "Brazil",
+        "display": "Brazil"
+      },
+      {
+        "code": "IO",
+        "original": "British Indian Ocean Territory",
+        "display": "British Indian Ocean Territory"
+      },
+      {
+        "code": "VG",
+        "original": "British Virgin Islands",
+        "display": "British Virgin Islands"
+      },
+      {
+        "code": "BN",
+        "original": "Brunei",
+        "display": "Brunei"
+      },
+      {
+        "code": "BG",
+        "original": "Bulgaria",
+        "display": "Bulgaria"
+      },
+      {
+        "code": "BF",
+        "original": "Burkina Faso",
+        "display": "Burkina Faso"
+      },
+      {
+        "code": "BI",
+        "original": "Burundi",
+        "display": "Burundi"
+      },
+      {
+        "code": "CV",
+        "original": "Cabo Verde",
+        "display": "Cabo Verde"
+      },
+      {
+        "code": "KH",
+        "original": "Cambodia",
+        "display": "Cambodia"
+      },
+      {
+        "code": "CM",
+        "original": "Cameroon",
+        "display": "Cameroon"
+      },
+      {
+        "code": "CA",
+        "original": "Canada",
+        "display": "Canada"
+      },
+      {
+        "code": "KY",
+        "original": "Cayman Islands",
+        "display": "Cayman Islands"
+      },
+      {
+        "code": "CF",
+        "original": "Central African Republic",
+        "display": "Central African Republic"
+      },
+      {
+        "code": "TD",
+        "original": "Chad",
+        "display": "Chad"
+      },
+      {
+        "code": "CL",
+        "original": "Chile",
+        "display": "Chile"
+      },
+      {
+        "code": "CN",
+        "original": "China",
+        "display": "China"
+      },
+      {
+        "code": "CX",
+        "original": "Christmas Island",
+        "display": "Christmas Island"
+      },
+      {
+        "code": "CC",
+        "original": "Cocos Islands",
+        "display": "Cocos Islands"
+      },
+      {
+        "code": "CO",
+        "original": "Colombia",
+        "display": "Colombia"
+      },
+      {
+        "code": "KM",
+        "original": "Comoros",
+        "display": "Comoros"
+      },
+      {
+        "code": "CK",
+        "original": "Cook Islands",
+        "display": "Cook Islands"
+      },
+      {
+        "code": "CR",
+        "original": "Costa Rica",
+        "display": "Costa Rica"
+      },
+      {
+        "code": "HR",
+        "original": "Croatia",
+        "display": "Croatia"
+      },
+      {
+        "code": "CU",
+        "original": "Cuba",
+        "display": "Cuba"
+      },
+      {
+        "code": "CW",
+        "original": "Curacao",
+        "display": "Curacao"
+      },
+      {
+        "code": "CY",
+        "original": "Cyprus",
+        "display": "Cyprus"
+      },
+      {
+        "code": "CZ",
+        "original": "Czechia",
+        "display": "Czechia"
+      },
+      {
+        "code": "CD",
+        "original": "Democratic Republic of the Congo",
+        "display": "Democratic Republic of the Congo"
+      },
+      {
+        "code": "DK",
+        "original": "Denmark",
+        "display": "Denmark"
+      },
+      {
+        "code": "DJ",
+        "original": "Djibouti",
+        "display": "Djibouti"
+      },
+      {
+        "code": "DM",
+        "original": "Dominica",
+        "display": "Dominica"
+      },
+      {
+        "code": "DO",
+        "original": "Dominican Republic",
+        "display": "Dominican Republic"
+      },
+      {
+        "code": "EC",
+        "original": "Ecuador",
+        "display": "Ecuador"
+      },
+      {
+        "code": "EG",
+        "original": "Egypt",
+        "display": "Egypt"
+      },
+      {
+        "code": "SV",
+        "original": "El Salvador",
+        "display": "El Salvador"
+      },
+      {
+        "code": "GQ",
+        "original": "Equatorial Guinea",
+        "display": "Equatorial Guinea"
+      },
+      {
+        "code": "ER",
+        "original": "Eritrea",
+        "display": "Eritrea"
+      },
+      {
+        "code": "EE",
+        "original": "Estonia",
+        "display": "Estonia"
+      },
+      {
+        "code": "SZ",
+        "original": "Eswatini",
+        "display": "Eswatini"
+      },
+      {
+        "code": "ET",
+        "original": "Ethiopia",
+        "display": "Ethiopia"
+      },
+      {
+        "code": "FK",
+        "original": "Falkland Islands",
+        "display": "Falkland Islands"
+      },
+      {
+        "code": "FO",
+        "original": "Faroe Islands",
+        "display": "Faroe Islands"
+      },
+      {
+        "code": "FJ",
+        "original": "Fiji",
+        "display": "Fiji"
+      },
+      {
+        "code": "FI",
+        "original": "Finland",
+        "display": "Finland"
+      },
+      {
+        "code": "FR",
+        "original": "France",
+        "display": "France"
+      },
+      {
+        "code": "GF",
+        "original": "French Guiana",
+        "display": "French Guiana"
+      },
+      {
+        "code": "PF",
+        "original": "French Polynesia",
+        "display": "French Polynesia"
+      },
+      {
+        "code": "TF",
+        "original": "French Southern Territories",
+        "display": "French Southern Territories"
+      },
+      {
+        "code": "GA",
+        "original": "Gabon",
+        "display": "Gabon"
+      },
+      {
+        "code": "GM",
+        "original": "Gambia",
+        "display": "Gambia"
+      },
+      {
+        "code": "GE",
+        "original": "Georgia",
+        "display": "Georgia"
+      },
+      {
+        "code": "DE",
+        "original": "Germany",
+        "display": "Germany"
+      },
+      {
+        "code": "GH",
+        "original": "Ghana",
+        "display": "Ghana"
+      },
+      {
+        "code": "GI",
+        "original": "Gibraltar",
+        "display": "Gibraltar"
+      },
+      {
+        "code": "GR",
+        "original": "Greece",
+        "display": "Greece"
+      },
+      {
+        "code": "GL",
+        "original": "Greenland",
+        "display": "Greenland"
+      },
+      {
+        "code": "GD",
+        "original": "Grenada",
+        "display": "Grenada"
+      },
+      {
+        "code": "GP",
+        "original": "Guadeloupe",
+        "display": "Guadeloupe"
+      },
+      {
+        "code": "GU",
+        "original": "Guam",
+        "display": "Guam"
+      },
+      {
+        "code": "GT",
+        "original": "Guatemala",
+        "display": "Guatemala"
+      },
+      {
+        "code": "GG",
+        "original": "Guernsey",
+        "display": "Guernsey"
+      },
+      {
+        "code": "GN",
+        "original": "Guinea",
+        "display": "Guinea"
+      },
+      {
+        "code": "GW",
+        "original": "Guinea-Bissau",
+        "display": "Guinea-Bissau"
+      },
+      {
+        "code": "GY",
+        "original": "Guyana",
+        "display": "Guyana"
+      },
+      {
+        "code": "HT",
+        "original": "Haiti",
+        "display": "Haiti"
+      },
+      {
+        "code": "HN",
+        "original": "Honduras",
+        "display": "Honduras"
+      },
+      {
+        "code": "HK",
+        "original": "Hong Kong",
+        "display": "Hong Kong"
+      },
+      {
+        "code": "HU",
+        "original": "Hungary",
+        "display": "Hungary"
+      },
+      {
+        "code": "IS",
+        "original": "Iceland",
+        "display": "Iceland"
+      },
+      {
+        "code": "IN",
+        "original": "India",
+        "display": "India"
+      },
+      {
+        "code": "ID",
+        "original": "Indonesia",
+        "display": "Indonesia"
+      },
+      {
+        "code": "IR",
+        "original": "Iran",
+        "display": "Iran"
+      },
+      {
+        "code": "IQ",
+        "original": "Iraq",
+        "display": "Iraq"
+      },
+      {
+        "code": "IE",
+        "original": "Ireland",
+        "display": "Ireland"
+      },
+      {
+        "code": "IM",
+        "original": "Isle of Man",
+        "display": "Isle of Man"
+      },
+      {
+        "code": "IL",
+        "original": "Israel",
+        "display": "Israel"
+      },
+      {
+        "code": "IT",
+        "original": "Italy",
+        "display": "Italy"
+      },
+      {
+        "code": "CI",
+        "original": "Ivory Coast",
+        "display": "Ivory Coast"
+      },
+      {
+        "code": "JM",
+        "original": "Jamaica",
+        "display": "Jamaica"
+      },
+      {
+        "code": "JP",
+        "original": "Japan",
+        "display": "Japan"
+      },
+      {
+        "code": "JE",
+        "original": "Jersey",
+        "display": "Jersey"
+      },
+      {
+        "code": "JO",
+        "original": "Jordan",
+        "display": "Jordan"
+      },
+      {
+        "code": "KZ",
+        "original": "Kazakhstan",
+        "display": "Kazakhstan"
+      },
+      {
+        "code": "KE",
+        "original": "Kenya",
+        "display": "Kenya"
+      },
+      {
+        "code": "KI",
+        "original": "Kiribati",
+        "display": "Kiribati"
+      },
+      {
+        "code": "XK",
+        "original": "Kosovo",
+        "display": "Kosovo"
+      },
+      {
+        "code": "KW",
+        "original": "Kuwait",
+        "display": "Kuwait"
+      },
+      {
+        "code": "KG",
+        "original": "Kyrgyzstan",
+        "display": "Kyrgyzstan"
+      },
+      {
+        "code": "LA",
+        "original": "Laos",
+        "display": "Laos"
+      },
+      {
+        "code": "LV",
+        "original": "Latvia",
+        "display": "Latvia"
+      },
+      {
+        "code": "LB",
+        "original": "Lebanon",
+        "display": "Lebanon"
+      },
+      {
+        "code": "LS",
+        "original": "Lesotho",
+        "display": "Lesotho"
+      },
+      {
+        "code": "LR",
+        "original": "Liberia",
+        "display": "Liberia"
+      },
+      {
+        "code": "LY",
+        "original": "Libya",
+        "display": "Libya"
+      },
+      {
+        "code": "LI",
+        "original": "Liechtenstein",
+        "display": "Liechtenstein"
+      },
+      {
+        "code": "LT",
+        "original": "Lithuania",
+        "display": "Lithuania"
+      },
+      {
+        "code": "LU",
+        "original": "Luxembourg",
+        "display": "Luxembourg"
+      },
+      {
+        "code": "MO",
+        "original": "Macao",
+        "display": "Macao"
+      },
+      {
+        "code": "MG",
+        "original": "Madagascar",
+        "display": "Madagascar"
+      },
+      {
+        "code": "MW",
+        "original": "Malawi",
+        "display": "Malawi"
+      },
+      {
+        "code": "MY",
+        "original": "Malaysia",
+        "display": "Malaysia"
+      },
+      {
+        "code": "MV",
+        "original": "Maldives",
+        "display": "Maldives"
+      },
+      {
+        "code": "ML",
+        "original": "Mali",
+        "display": "Mali"
+      },
+      {
+        "code": "MT",
+        "original": "Malta",
+        "display": "Malta"
+      },
+      {
+        "code": "MH",
+        "original": "Marshall Islands",
+        "display": "Marshall Islands"
+      },
+      {
+        "code": "MQ",
+        "original": "Martinique",
+        "display": "Martinique"
+      },
+      {
+        "code": "MR",
+        "original": "Mauritania",
+        "display": "Mauritania"
+      },
+      {
+        "code": "MU",
+        "original": "Mauritius",
+        "display": "Mauritius"
+      },
+      {
+        "code": "YT",
+        "original": "Mayotte",
+        "display": "Mayotte"
+      },
+      {
+        "code": "MX",
+        "original": "Mexico",
+        "display": "Mexico"
+      },
+      {
+        "code": "FM",
+        "original": "Micronesia",
+        "display": "Micronesia"
+      },
+      {
+        "code": "MD",
+        "original": "Moldova",
+        "display": "Moldova"
+      },
+      {
+        "code": "MC",
+        "original": "Monaco",
+        "display": "Monaco"
+      },
+      {
+        "code": "MN",
+        "original": "Mongolia",
+        "display": "Mongolia"
+      },
+      {
+        "code": "ME",
+        "original": "Montenegro",
+        "display": "Montenegro"
+      },
+      {
+        "code": "MS",
+        "original": "Montserrat",
+        "display": "Montserrat"
+      },
+      {
+        "code": "MA",
+        "original": "Morocco",
+        "display": "Morocco"
+      },
+      {
+        "code": "MZ",
+        "original": "Mozambique",
+        "display": "Mozambique"
+      },
+      {
+        "code": "MM",
+        "original": "Myanmar",
+        "display": "Myanmar"
+      },
+      {
+        "code": "NA",
+        "original": "Namibia",
+        "display": "Namibia"
+      },
+      {
+        "code": "NR",
+        "original": "Nauru",
+        "display": "Nauru"
+      },
+      {
+        "code": "NP",
+        "original": "Nepal",
+        "display": "Nepal"
+      },
+      {
+        "code": "NC",
+        "original": "New Caledonia",
+        "display": "New Caledonia"
+      },
+      {
+        "code": "NZ",
+        "original": "New Zealand",
+        "display": "New Zealand"
+      },
+      {
+        "code": "NI",
+        "original": "Nicaragua",
+        "display": "Nicaragua"
+      },
+      {
+        "code": "NE",
+        "original": "Niger",
+        "display": "Niger"
+      },
+      {
+        "code": "NG",
+        "original": "Nigeria",
+        "display": "Nigeria"
+      },
+      {
+        "code": "NU",
+        "original": "Niue",
+        "display": "Niue"
+      },
+      {
+        "code": "NF",
+        "original": "Norfolk Island",
+        "display": "Norfolk Island"
+      },
+      {
+        "code": "KP",
+        "original": "North Korea",
+        "display": "North Korea"
+      },
+      {
+        "code": "MK",
+        "original": "North Macedonia",
+        "display": "North Macedonia"
+      },
+      {
+        "code": "MP",
+        "original": "Northern Mariana Islands",
+        "display": "Northern Mariana Islands"
+      },
+      {
+        "code": "NO",
+        "original": "Norway",
+        "display": "Norway"
+      },
+      {
+        "code": "OM",
+        "original": "Oman",
+        "display": "Oman"
+      },
+      {
+        "code": "PK",
+        "original": "Pakistan",
+        "display": "Pakistan"
+      },
+      {
+        "code": "PW",
+        "original": "Palau",
+        "display": "Palau"
+      },
+      {
+        "code": "PS",
+        "original": "Palestinian Territory",
+        "display": "Palestinian Territory"
+      },
+      {
+        "code": "PA",
+        "original": "Panama",
+        "display": "Panama"
+      },
+      {
+        "code": "PG",
+        "original": "Papua New Guinea",
+        "display": "Papua New Guinea"
+      },
+      {
+        "code": "PY",
+        "original": "Paraguay",
+        "display": "Paraguay"
+      },
+      {
+        "code": "PE",
+        "original": "Peru",
+        "display": "Peru"
+      },
+      {
+        "code": "PH",
+        "original": "Philippines",
+        "display": "Philippines"
+      },
+      {
+        "code": "PN",
+        "original": "Pitcairn",
+        "display": "Pitcairn"
+      },
+      {
+        "code": "PL",
+        "original": "Poland",
+        "display": "Poland"
+      },
+      {
+        "code": "PT",
+        "original": "Portugal",
+        "display": "Portugal"
+      },
+      {
+        "code": "PR",
+        "original": "Puerto Rico",
+        "display": "Puerto Rico"
+      },
+      {
+        "code": "QA",
+        "original": "Qatar",
+        "display": "Qatar"
+      },
+      {
+        "code": "CG",
+        "original": "Republic of the Congo",
+        "display": "Republic of the Congo"
+      },
+      {
+        "code": "RE",
+        "original": "Reunion",
+        "display": "Reunion"
+      },
+      {
+        "code": "RO",
+        "original": "Romania",
+        "display": "Romania"
+      },
+      {
+        "code": "RU",
+        "original": "Russia",
+        "display": "Russia"
+      },
+      {
+        "code": "RW",
+        "original": "Rwanda",
+        "display": "Rwanda"
+      },
+      {
+        "code": "BL",
+        "original": "Saint Barthelemy",
+        "display": "Saint Barthelemy"
+      },
+      {
+        "code": "SH",
+        "original": "Saint Helena",
+        "display": "Saint Helena"
+      },
+      {
+        "code": "KN",
+        "original": "Saint Kitts and Nevis",
+        "display": "Saint Kitts and Nevis"
+      },
+      {
+        "code": "LC",
+        "original": "Saint Lucia",
+        "display": "Saint Lucia"
+      },
+      {
+        "code": "MF",
+        "original": "Saint Martin",
+        "display": "Saint Martin"
+      },
+      {
+        "code": "PM",
+        "original": "Saint Pierre and Miquelon",
+        "display": "Saint Pierre and Miquelon"
+      },
+      {
+        "code": "VC",
+        "original": "Saint Vincent and the Grenadines",
+        "display": "Saint Vincent and the Grenadines"
+      },
+      {
+        "code": "WS",
+        "original": "Samoa",
+        "display": "Samoa"
+      },
+      {
+        "code": "SM",
+        "original": "San Marino",
+        "display": "San Marino"
+      },
+      {
+        "code": "ST",
+        "original": "Sao Tome and Principe",
+        "display": "Sao Tome and Principe"
+      },
+      {
+        "code": "SA",
+        "original": "Saudi Arabia",
+        "display": "Saudi Arabia"
+      },
+      {
+        "code": "SN",
+        "original": "Senegal",
+        "display": "Senegal"
+      },
+      {
+        "code": "RS",
+        "original": "Serbia",
+        "display": "Serbia"
+      },
+      {
+        "code": "SC",
+        "original": "Seychelles",
+        "display": "Seychelles"
+      },
+      {
+        "code": "SL",
+        "original": "Sierra Leone",
+        "display": "Sierra Leone"
+      },
+      {
+        "code": "SG",
+        "original": "Singapore",
+        "display": "Singapore"
+      },
+      {
+        "code": "SX",
+        "original": "Sint Maarten",
+        "display": "Sint Maarten"
+      },
+      {
+        "code": "SK",
+        "original": "Slovakia",
+        "display": "Slovakia"
+      },
+      {
+        "code": "SI",
+        "original": "Slovenia",
+        "display": "Slovenia"
+      },
+      {
+        "code": "SB",
+        "original": "Solomon Islands",
+        "display": "Solomon Islands"
+      },
+      {
+        "code": "SO",
+        "original": "Somalia",
+        "display": "Somalia"
+      },
+      {
+        "code": "ZA",
+        "original": "South Africa",
+        "display": "South Africa"
+      },
+      {
+        "code": "GS",
+        "original": "South Georgia and the South Sandwich Islands",
+        "display": "South Georgia and the South Sandwich Islands"
+      },
+      {
+        "code": "KR",
+        "original": "South Korea",
+        "display": "South Korea"
+      },
+      {
+        "code": "SS",
+        "original": "South Sudan",
+        "display": "South Sudan"
+      },
+      {
+        "code": "ES",
+        "original": "Spain",
+        "display": "Spain"
+      },
+      {
+        "code": "LK",
+        "original": "Sri Lanka",
+        "display": "Sri Lanka"
+      },
+      {
+        "code": "SD",
+        "original": "Sudan",
+        "display": "Sudan"
+      },
+      {
+        "code": "SR",
+        "original": "Suriname",
+        "display": "Suriname"
+      },
+      {
+        "code": "SJ",
+        "original": "Svalbard and Jan Mayen",
+        "display": "Svalbard and Jan Mayen"
+      },
+      {
+        "code": "SE",
+        "original": "Sweden",
+        "display": "Sweden"
+      },
+      {
+        "code": "CH",
+        "original": "Switzerland",
+        "display": "Switzerland"
+      },
+      {
+        "code": "SY",
+        "original": "Syria",
+        "display": "Syria"
+      },
+      {
+        "code": "TW",
+        "original": "Taiwan",
+        "display": "Taiwan"
+      },
+      {
+        "code": "TJ",
+        "original": "Tajikistan",
+        "display": "Tajikistan"
+      },
+      {
+        "code": "TZ",
+        "original": "Tanzania",
+        "display": "Tanzania"
+      },
+      {
+        "code": "TH",
+        "original": "Thailand",
+        "display": "Thailand"
+      },
+      {
+        "code": "NL",
+        "original": "The Netherlands",
+        "display": "The Netherlands"
+      },
+      {
+        "code": "TL",
+        "original": "Timor Leste",
+        "display": "Timor Leste"
+      },
+      {
+        "code": "TG",
+        "original": "Togo",
+        "display": "Togo"
+      },
+      {
+        "code": "TK",
+        "original": "Tokelau",
+        "display": "Tokelau"
+      },
+      {
+        "code": "TO",
+        "original": "Tonga",
+        "display": "Tonga"
+      },
+      {
+        "code": "TT",
+        "original": "Trinidad and Tobago",
+        "display": "Trinidad and Tobago"
+      },
+      {
+        "code": "TN",
+        "original": "Tunisia",
+        "display": "Tunisia"
+      },
+      {
+        "code": "TR",
+        "original": "Turkey",
+        "display": "Turkey"
+      },
+      {
+        "code": "TM",
+        "original": "Turkmenistan",
+        "display": "Turkmenistan"
+      },
+      {
+        "code": "TC",
+        "original": "Turks and Caicos Islands",
+        "display": "Turks and Caicos Islands"
+      },
+      {
+        "code": "TV",
+        "original": "Tuvalu",
+        "display": "Tuvalu"
+      },
+      {
+        "code": "VI",
+        "original": "U.S. Virgin Islands",
+        "display": "U.S. Virgin Islands"
+      },
+      {
+        "code": "UG",
+        "original": "Uganda",
+        "display": "Uganda"
+      },
+      {
+        "code": "UA",
+        "original": "Ukraine",
+        "display": "Ukraine"
+      },
+      {
+        "code": "AE",
+        "original": "United Arab Emirates",
+        "display": "United Arab Emirates"
+      },
+      {
+        "code": "GB",
+        "original": "United Kingdom",
+        "display": "United Kingdom"
+      },
+      {
+        "code": "US",
+        "original": "United States",
+        "display": "United States"
+      },
+      {
+        "code": "UY",
+        "original": "Uruguay",
+        "display": "Uruguay"
+      },
+      {
+        "code": "UZ",
+        "original": "Uzbekistan",
+        "display": "Uzbekistan"
+      },
+      {
+        "code": "VU",
+        "original": "Vanuatu",
+        "display": "Vanuatu"
+      },
+      {
+        "code": "VA",
+        "original": "Vatican",
+        "display": "Vatican"
+      },
+      {
+        "code": "VE",
+        "original": "Venezuela",
+        "display": "Venezuela"
+      },
+      {
+        "code": "VN",
+        "original": "Vietnam",
+        "display": "Vietnam"
+      },
+      {
+        "code": "WF",
+        "original": "Wallis and Futuna",
+        "display": "Wallis and Futuna"
+      },
+      {
+        "code": "EH",
+        "original": "Western Sahara",
+        "display": "Western Sahara"
+      },
+      {
+        "code": "YE",
+        "original": "Yemen",
+        "display": "Yemen"
+      },
+      {
+        "code": "ZM",
+        "original": "Zambia",
+        "display": "Zambia"
+      },
+      {
+        "code": "ZW",
+        "original": "Zimbabwe",
+        "display": "Zimbabwe"
+      }
+    ],
+    "aruba": {
+      "code": "AW",
+      "original": "Aruba",
+      "display": "Aruba"
+    },
+    "performance": [
+      {
+        "country": "SA",
+        "fillMs": 158.572,
+        "count": 186,
+        "openMs": 86.072,
+        "firstCharacterEventMs": 120.736,
+        "resultRefreshMs": 120.747
+      },
+      {
+        "country": "AE",
+        "fillMs": 98.124,
+        "count": 107
+      },
+      {
+        "country": "EG",
+        "fillMs": 152.101,
+        "count": 260
+      },
+      {
+        "country": "MA",
+        "fillMs": 249.124,
+        "count": 480
+      },
+      {
+        "country": "BH",
+        "fillMs": 38.486,
+        "count": 12
+      },
+      {
+        "country": "DJ",
+        "fillMs": 68.364,
+        "count": 32
+      },
+      {
+        "country": "DZ",
+        "fillMs": 189.904,
+        "count": 353
+      },
+      {
+        "country": "IQ",
+        "fillMs": 125.195,
+        "count": 173
+      },
+      {
+        "country": "JO",
+        "fillMs": 119.793,
+        "count": 148
+      },
+      {
+        "country": "KM",
+        "fillMs": 103.125,
+        "count": 119
+      },
+      {
+        "country": "KW",
+        "fillMs": 63.406,
+        "count": 28
+      },
+      {
+        "country": "LB",
+        "fillMs": 77.549,
+        "count": 52
+      },
+      {
+        "country": "LY",
+        "fillMs": 104.58,
+        "count": 119
+      },
+      {
+        "country": "MR",
+        "fillMs": 101.004,
+        "count": 88
+      },
+      {
+        "country": "OM",
+        "fillMs": 73.603,
+        "count": 39
+      },
+      {
+        "country": "PS",
+        "fillMs": 215.389,
+        "count": 448
+      },
+      {
+        "country": "QA",
+        "fillMs": 76.551,
+        "count": 43
+      },
+      {
+        "country": "SD",
+        "fillMs": 105.106,
+        "count": 112
+      },
+      {
+        "country": "SO",
+        "fillMs": 83.575,
+        "count": 76
+      },
+      {
+        "country": "SY",
+        "fillMs": 175.729,
+        "count": 310
+      },
+      {
+        "country": "TN",
+        "fillMs": 168.85,
+        "count": 286
+      },
+      {
+        "country": "YE",
+        "fillMs": 175.501,
+        "count": 316
+      }
+    ],
+    "uae_examples": [
+      {
+        "id": "8476509",
+        "name": "Al Majaz",
+        "admin": [
+          "Sharjah"
+        ]
+      },
+      {
+        "id": "13118433",
+        "name": "Al Qusais First",
+        "admin": [
+          "Dubai",
+          "Sector 2"
+        ]
+      },
+      {
+        "id": "13118438",
+        "name": "Al Sajaah",
+        "admin": [
+          "Sharjah"
+        ]
+      },
+      {
+        "id": "8469658",
+        "name": "Al Warqaa",
+        "admin": [
+          "Dubai"
+        ]
+      },
+      {
+        "id": "13118432",
+        "name": "Business Bay",
+        "admin": [
+          "Dubai",
+          "Sector 3"
+        ]
+      },
+      {
+        "id": "8469668",
+        "name": "Dubai International City",
+        "admin": [
+          "Dubai"
+        ]
+      },
+      {
+        "id": "11048853",
+        "name": "Dubai Investments Park",
+        "admin": [
+          "Dubai"
+        ]
+      },
+      {
+        "id": "13118447",
+        "name": "Mohammed Bin Zayed City",
+        "admin": [
+          "Abu Dhabi",
+          "Abu Dhabi Municipality"
+        ]
+      },
+      {
+        "id": "13118421",
+        "name": "Muteena",
+        "admin": [
+          "Dubai",
+          "Sector 1"
+        ]
+      },
+      {
+        "id": "13118424",
+        "name": "Silicon Oasis",
+        "admin": [
+          "Dubai",
+          "Sector 6"
+        ]
+      }
+    ],
+    "complete": true
+  },
+  "restoration": {
+    "byteExact": true,
+    "sha256": "ff557555582b795e1100efe308501c86f77770b3eebdcf7355f7917f48030497",
+    "probeRemoved": true,
+    "probeCacheRemoved": true
+  },
+  "automatedChecks": {
+    "total": 571,
+    "new": 41,
+    "passed": 571,
+    "targeted": {
+      "tests": 105,
+      "failures": 0,
+      "errors": 0,
+      "success": true
+    }
+  },
+  "scope": {
+    "automaticLocationReopened": false,
+    "task43Started": false,
+    "task44Started": false,
+    "task51Started": false,
+    "push": false
+  }
+}

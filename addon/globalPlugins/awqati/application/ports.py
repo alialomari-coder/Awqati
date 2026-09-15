@@ -80,6 +80,7 @@ class LocationMatch:
 	english_names: tuple[str, ...] = ()
 	arabic_admin1_names: tuple[str, ...] = ()
 	arabic_admin2_names: tuple[str, ...] = ()
+	match_strength: int = 0
 
 	@property
 	def subdivisions(self) -> tuple[str, ...]:

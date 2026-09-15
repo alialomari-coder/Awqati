@@ -115,14 +115,16 @@ class LocationSearchRaceTests(unittest.TestCase):
 			CommandEvent=object, NOT_FOUND=-1, CallAfter=lambda fn,*args:fn(*args)),
 			"LocationSetupService":object, "StoredLocation":StoredLocation,
 			"LocationSelectionResult":object, "LocationKind":LocationKind,
-			"_":lambda text:text, "_location_summary":lambda stored:repr(stored), "TIMEZONE_LABELS":{}}
+			"_":lambda text:text, "_location_summary":lambda stored:repr(stored), "TIMEZONE_LABELS":{},
+			"location_choices":__import__("awqati.nvda_adapter.location_labels",fromlist=["location_choices"]).location_choices}
 		exec(compile(ast.Module(body=[node],type_ignores=[]), "location-controller", "exec"), namespace)
 		cls.controller = namespace["LocationControls"]
 
 	def controller_instance(self):
 		c = self.controller.__new__(self.controller)
 		c._search_lock=threading.Lock();c._search_generation=2;c.parent=True
-		c.matches=("current",);c._replace_items=Mock();c.service=Mock()
+		c.matches=("current",);c._replace_items=Mock();c.service=Mock();c.language="ar"
+		c.service.countries.return_value=(SimpleNamespace(code="SA",city_count=183),)
 		return c
 
 	def test_stale_completion_and_closed_window_cannot_replace_results(self):
@@ -135,8 +137,21 @@ class LocationSearchRaceTests(unittest.TestCase):
 		c=self.controller_instance();c._search_worker("SA", "old", 1)
 		c.service.search.assert_not_called();c.service.browse.assert_not_called()
 		c.service.browse.return_value=();c.city=object();c._search_worker("SA", "", 2)
-		c.service.browse.assert_called_once_with("SA",40)
+		c.service.browse.assert_called_once_with("SA",c.service.countries()[0].city_count)
 		self.assertEqual(c.matches,())
+
+	def test_native_arrow_text_does_not_become_full_label_search(self):
+		c=self.controller_instance();c._updating=False;c.city=Mock();c._search=Mock()
+		c.city.GetSelection.return_value=-1;c.city.GetValue.return_value="بريدة — القصيم — آسيا / الرياض"
+		c.city.GetStrings.return_value=["بريدة — القصيم — آسيا / الرياض"]
+		c._on_search(Mock());c._search.assert_not_called()
+		c.city.GetValue.return_value="بري";c._on_search(Mock());c._search.assert_called_once()
+
+	def test_native_country_arrow_text_does_not_filter_the_list(self):
+		c=self.controller_instance();c._updating=False;c.country=Mock();c._clear_city=Mock()
+		c.country.GetSelection.return_value=-1;c.country.GetValue.return_value="السعودية"
+		c.country.GetStrings.return_value=["السعودية","سوريا"]
+		c._on_country_text(Mock());c._replace_items.assert_not_called();c._clear_city.assert_not_called()
 
 	def test_country_change_clears_previous_pending_and_invalidates_results(self):
 		c=self.controller_instance();c.pending=object();c.city=Mock();c.summary=Mock()

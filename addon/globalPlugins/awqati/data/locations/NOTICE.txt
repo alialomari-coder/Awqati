@@ -13,3 +13,23 @@ https://creativecommons.org/licenses/by/4.0/
 The generated metadata.json records the exact official source URLs and SHA-256
 digests. Raw GeoNames source files are build inputs only and are not distributed
 inside the NVDA add-on.
+
+Arabic priority-country names supplement (build-time only)
+
+Wikidata contributors: Arabic labels linked by GeoNames ID (P1566), retrieved
+2026-09-15 from https://query.wikidata.org/sparql in complete bounded queries.
+Wikidata structured data is available under CC0 1.0 (public domain dedication):
+https://www.wikidata.org/wiki/Wikidata:Licensing
+https://creativecommons.org/publicdomain/zero/1.0/
+The versioned extraction and query/response hashes are in the source repository
+(data_sources/wikidata_arabic_names.v1.json); no network dependency is added.
+
+Reviewed Saudi and UAE place names are geographic name facts, not reproduced
+articles or maps. Source URLs, review dates and GeoNames identities are recorded
+in data_sources/sa_locations_supplement.v1.json and
+ data_sources/arabic_reviewed_names.v1.json. Saudi official authority:
+https://ncar.gov.sa/regions-coding. UAE source authorities include DEWA, KHDA,
+RTA, Dubai Statistics, Abu Dhabi municipality and Sharjah Government Media Bureau.
+Generic GeoNames administrative labels Sector N are displayed in Arabic as
+القطاع N through the versioned build policy. Unknown administrative codes are
+omitted from human labels. GeoNames coordinates retain their CC BY 4.0 license.

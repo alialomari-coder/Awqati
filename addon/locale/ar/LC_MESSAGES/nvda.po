@@ -3733,52 +3733,52 @@ msgid "Zulu"
 msgstr "توقيت منطقة غير معروفة (UTC)"
 
 msgid "Alert after Asr, minutes"
-msgstr "التنبيه بعد العصر بـ، بالدقائق"
+msgstr "التنبيه بعد العصر بالدقائق"
 
 msgid "Alert after Asr:"
-msgstr "التنبيه بعد العصر بـ:"
+msgstr "التنبيه بعد العصر بالدقائق:"
 
 msgid "Alert after Fajr, minutes"
-msgstr "التنبيه بعد الفجر بـ، بالدقائق"
+msgstr "التنبيه بعد الفجر بالدقائق"
 
 msgid "Alert after Fajr:"
-msgstr "التنبيه بعد الفجر بـ:"
+msgstr "التنبيه بعد الفجر بالدقائق:"
 
 msgid "Alert after Maghrib, minutes"
-msgstr "التنبيه بعد المغرب بـ، بالدقائق"
+msgstr "التنبيه بعد المغرب بالدقائق"
 
 msgid "Alert after Maghrib:"
-msgstr "التنبيه بعد المغرب بـ:"
+msgstr "التنبيه بعد المغرب بالدقائق:"
 
 msgid "Alert after sunrise, minutes"
-msgstr "التنبيه بعد الشروق بـ، بالدقائق"
+msgstr "التنبيه بعد الشروق بالدقائق"
 
 msgid "Alert after sunrise:"
-msgstr "التنبيه بعد الشروق بـ:"
+msgstr "التنبيه بعد الشروق بالدقائق:"
 
 msgid "Alert after the event, minutes"
-msgstr "التنبيه بعد دخول الوقت بـ، بالدقائق"
+msgstr "التنبيه بعد دخول الوقت بالدقائق"
 
 msgid "Alert after the event:"
-msgstr "التنبيه بعد دخول الوقت بـ:"
+msgstr "التنبيه بعد دخول الوقت بالدقائق:"
 
 msgid "Alert before Maghrib, minutes"
-msgstr "التنبيه قبل المغرب بـ، بالدقائق"
+msgstr "التنبيه قبل المغرب بالدقائق"
 
 msgid "Alert before Maghrib:"
-msgstr "التنبيه قبل المغرب بـ:"
+msgstr "التنبيه قبل المغرب بالدقائق:"
 
 msgid "Alert before sunrise, minutes"
-msgstr "التنبيه قبل الشروق بـ، بالدقائق"
+msgstr "التنبيه قبل الشروق بالدقائق"
 
 msgid "Alert before sunrise:"
-msgstr "التنبيه قبل الشروق بـ:"
+msgstr "التنبيه قبل الشروق بالدقائق:"
 
 msgid "Alert before the event, minutes"
-msgstr "التنبيه قبل دخول الوقت بـ، بالدقائق"
+msgstr "التنبيه قبل دخول الوقت بالدقائق"
 
 msgid "Alert before the event:"
-msgstr "التنبيه قبل دخول الوقت بـ:"
+msgstr "التنبيه قبل دخول الوقت بالدقائق:"
 
 msgid "The Windows location provider could not obtain a current location. Your previous location was not changed."
 msgstr "تعذر على مزود الموقع في Windows تحديد موقع حالي. لم يتغير موقعك السابق."
