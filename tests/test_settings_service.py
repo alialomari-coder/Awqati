@@ -115,8 +115,8 @@ class SettingsDraftTests(unittest.TestCase):
 		repository.failure = SettingsWriteError("disk")
 		with self.assertRaises(SettingsWriteError):
 			service.apply(draft)
-		self.assertEqual(service.runtime_settings.adhkar.daily_wird.text, "لا تنس وردك اليومي.")
-		self.assertEqual(draft.base.adhkar.daily_wird.text, "لا تنس وردك اليومي.")
+		self.assertEqual(service.runtime_settings.adhkar.daily_wird.text, "Do not forget your daily Wird.")
+		self.assertEqual(draft.base.adhkar.daily_wird.text, "Do not forget your daily Wird.")
 		self.assertEqual(events, [])
 
 	def test_location_change_reuses_one_existing_event_and_unchanged_location_does_not_repeat(self) -> None:

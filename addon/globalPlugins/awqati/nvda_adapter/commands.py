@@ -11,6 +11,7 @@ from ..application import (
 	EnglishArabianCalendarFormatter, EnglishDailyInfoFormatter,
 	DailyInfoService, EnglishDateFormatter, EnglishQiblaFormatter, QiblaService,
 	EventPreAlertSettings, IqamaRule, IqamaSettings, PrayerStatePriority, PrayerStateService,
+	source_message,
 )
 from ..application.calendar_formatters import ArabicDateFormatter
 from ..application.settings_preview import SettingsPreviewService
@@ -96,11 +97,9 @@ class CommandContent:
 		today = self.prayers.calculate(self._request(day))
 		tomorrow = self.prayers.calculate(self._request(day + timedelta(days=1)))
 		complete = complete_prayer_times(today, tomorrow.fajr)
-		labels = {
-			"fajr": "Fajr", "sunrise": "Sunrise", "dhuhr": "Dhuhr", "asr": "Asr",
-			"maghrib": "Maghrib", "isha": "Isha", "midnight": "Midnight",
-			"last_third_start": "Start of the last third",
-		}
+		labels = {identity: source_message(identity) for identity in (
+			"fajr", "sunrise", "dhuhr", "asr", "maghrib", "isha", "midnight",
+			"last_third_start")}
 		lines = [translate(N_("Today's prayer times:"))]
 		for key in labels:
 			value = getattr(complete, key)
@@ -132,12 +131,8 @@ class CommandContent:
 
 	@staticmethod
 	def _event_name(event, translate):
-		return translate({
-			PrayerEventName.FAJR: "Fajr", PrayerEventName.SUNRISE: "Sunrise",
-			PrayerEventName.DHUHR: "Dhuhr", PrayerEventName.ASR: "Asr",
-			PrayerEventName.MAGHRIB: "Maghrib", PrayerEventName.ISHA: "Isha",
-			PrayerEventName.MIDNIGHT: "Midnight", PrayerEventName.LAST_THIRD: "Start of the last third",
-		}[event.name])
+		identity = "last_third_start" if event.name is PrayerEventName.LAST_THIRD else event.name.value
+		return translate(source_message(identity))
 
 	def current_details(self, translate) -> str:
 		state = self._state()

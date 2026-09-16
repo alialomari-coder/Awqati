@@ -35,6 +35,7 @@ from . import compat
 from .commands import CommandContent
 from .runtime import AwqatiRuntime
 from .settings_panel import AwqatiSettingsPanel
+from .settings_sections import supported_language
 from .text_dialog import SelectableTextDialog
 from .ui import FirstRunLocationDialog, NvdaUiContext, configure
 
@@ -94,7 +95,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	@staticmethod
 	def _language() -> str:
-		return "ar" if languageHandler.getLanguage().lower().startswith("ar") else "en"
+		return supported_language(languageHandler.getLanguage())
 
 	def _say(self, producer) -> None:
 		try:

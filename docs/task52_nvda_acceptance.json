@@ -1,0 +1,91 @@
+{
+  "task": "5.2 bilingual Arabic and English localization",
+  "date": "2026-09-16",
+  "package": {
+    "version": "0.5.2.2",
+    "file": "dist/awqati-0.5.2.2.nvda-addon",
+    "sizeBytes": 12370470,
+    "sha256": "825677033c40c4f71a7bf79e16d2023234dafbeb4e3ffb5a41d1e4696c898ca2"
+  },
+  "environment": {
+    "nvda": "2026.2 AMD64",
+    "windows": "Windows 11 25H2 build 26200.9457",
+    "python": "3.13.13",
+    "wxPython": "4.2.4",
+    "wxWidgets": "3.2.8",
+    "brailleHardwareTested": false,
+    "computerUse": "Unavailable: the trusted Node helper exited twice before any input; the authorized in-process NVDA Scratchpad harness and wx.UIActionSimulator were used."
+  },
+  "localization": {
+    "gettextMessages": 1145,
+    "sourceLanguage": "en",
+    "translatedLocales": ["ar"],
+    "unsupportedLocaleFallback": "en",
+    "domainArabicLogicalLiterals": 0,
+    "centralIslamicGlossary": true,
+    "arabicCatalogMissing": 0,
+    "arabicCatalogFuzzy": 0
+  },
+  "automatedTests": {
+    "targetedPassedAfterFinalFix": 59,
+    "fullGatePassed": 747,
+    "fullGateFailed": 0,
+    "fullGateErrors": 0,
+    "fullGateSkipped": 0,
+    "runChecksPassed": true
+  },
+  "realNvda": {
+    "profiles": "Two temporary isolated configurations with the final package contents",
+    "arabic": {
+      "language": "ar",
+      "passed": true,
+      "layout": "RTL",
+      "settingsLayoutDirection": 2,
+      "focusableControls": 27,
+      "tabForward": true,
+      "shiftTabBack": true,
+      "allDialogDirections": true,
+      "visibleCommandCount": 21,
+      "commandDescriptionsPresent": true,
+      "allCoreOutputs": true,
+      "defaultWirdTranslated": true,
+      "glossaryGettext": true,
+      "lastThirdDomainIdentity": true,
+      "awqatiTracebacks": 0
+    },
+    "english": {
+      "language": "en",
+      "passed": true,
+      "layout": "LTR",
+      "settingsLayoutDirection": 1,
+      "focusableControls": 27,
+      "tabForward": true,
+      "shiftTabBack": true,
+      "allDialogDirections": true,
+      "visibleCommandCount": 21,
+      "commandDescriptionsPresent": true,
+      "allCoreOutputs": true,
+      "defaultWirdIsSourceText": true,
+      "glossaryGettext": true,
+      "lastThirdDomainIdentity": true,
+      "awqatiTracebacks": 0
+    },
+    "settingsRestored": {
+      "nvdaIniSha256Before": "352fd980344762c38c70b6b8d8ea9693fdd5bc213b923d59a6687265067e8458",
+      "nvdaIniSha256After": "352fd980344762c38c70b6b8d8ea9693fdd5bc213b923d59a6687265067e8458",
+      "awqatiSettingsSha256Before": "95c58cc80bded5eb27ee4070c87c506bb75c3fe5338ec52ae165c7596310e6b0",
+      "awqatiSettingsSha256After": "95c58cc80bded5eb27ee4070c87c506bb75c3fe5338ec52ae165c7596310e6b0",
+      "normalNvdaRestarted": true
+    }
+  },
+  "defectsFoundAndFixed": [
+    "The temporary acceptance harness assumed the wrong NVDA package name and read the version from the localized manifest.",
+    "A textual JSON value null leaked into the spoken Arabian-calendar report; it was corrected to JSON null and its runtime integrity metadata was updated.",
+    "The Domain identity lastThird was not accepted by the new central glossary; a narrow compatibility alias and regression coverage were added."
+  ],
+  "limitations": [
+    "Owner-authored Arabian-calendar heritage material remains Arabic reference data in the English report; only its surrounding presentation labels are localized, as required by the data-preservation contract.",
+    "No physical braille display was connected, so no physical braille test is claimed.",
+    "Task 5.3 network verification, data updates, and diagnostics were not implemented."
+  ]
+}

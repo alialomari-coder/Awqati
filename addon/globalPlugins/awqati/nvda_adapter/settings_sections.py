@@ -60,7 +60,13 @@ def hijri_adjustment_visible(calendar_id: CalendarId, date_format: DateFormat) -
 
 def is_rtl_language(language: str) -> bool:
 	"""Return the explicit page direction for the supported UI language."""
-	return language.split("_", 1)[0].split("-", 1)[0].casefold() == "ar"
+	return supported_language(language) == "ar"
+
+
+def supported_language(language: str) -> str:
+	"""Normalize NVDA's locale to Arabic or the official English fallback."""
+	base = language.split("_", 1)[0].split("-", 1)[0].casefold()
+	return "ar" if base == "ar" else "en"
 
 
 @dataclass(frozen=True, slots=True)

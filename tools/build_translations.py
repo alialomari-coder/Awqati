@@ -1,4 +1,4 @@
-"""Extract and validate the current UI catalog; compile NVDA's gettext resource."""
+"""Extract and validate Awqati's complete user-facing catalog and NVDA resources."""
 from pathlib import Path
 import json
 import sys
@@ -14,7 +14,7 @@ import buildVars
 
 
 def extract_catalog():
-	catalog = Catalog(project="Awqati settings", version="4.2", charset="utf-8")
+	catalog = Catalog(project="Awqati", version=buildVars.addon_info["addon_version"], charset="utf-8")
 	paths = sorted({path for pattern in buildVars.i18nSources for path in ROOT.glob(pattern)})
 	for path in paths:
 		with path.open("rb") as source:

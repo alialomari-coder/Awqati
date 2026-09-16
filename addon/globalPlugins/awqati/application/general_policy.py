@@ -8,8 +8,11 @@ from enum import Enum
 
 from ..domain import AwqatiSettings, ClockTime, Location, QuietHoursSettings
 
+N_ = lambda message: message
 
-LOCATION_REQUIRED_MESSAGE = "لم يتم تعيين الموقع. فضلًا عيّنه من إعدادات أوقاتي ثم حاول مرة أخرى"
+# English is the stable gettext source.  The NVDA adapter translates this
+# message only when it is presented; application policy stays locale-neutral.
+LOCATION_REQUIRED_MESSAGE = N_("No location has been assigned. Set it in Awqati settings, then try again.")
 
 
 class AutomaticAlertKind(Enum):

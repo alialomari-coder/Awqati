@@ -26,6 +26,7 @@ from .adhkar_alert_producer import AdhkarAlertProducer
 from .daily_wird_producer import DailyWirdProducer
 from .recurring_dhikr_producer import RecurringDhikrProducer
 from .alert_formatters import format_prayer_alert, format_clock_alert, format_adhkar_alert
+from .islamic_terms import GLOSSARY_IDENTITIES, TermKind, normalize_language, source_message, term_kind, term_text
 from .alert_presenter import AlertPresenter, AudioOutput, OutputResult, SpeechOutput, format_alert_message
 from .events import EventDispatcher
 from .alert_scheduler import AlertCoordinator, AlertScheduler, GRACE_PERIODS, PresentationLease, priority_for, resolve_civil_time
@@ -84,6 +85,12 @@ __all__ = [
 	"format_prayer_alert",
 	"format_clock_alert",
 	"format_adhkar_alert",
+	"GLOSSARY_IDENTITIES",
+	"TermKind",
+	"normalize_language",
+	"source_message",
+	"term_kind",
+	"term_text",
 	"AlertPresenter",
 	"AudioOutput",
 	"OutputResult",

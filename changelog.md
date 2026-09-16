@@ -1,4 +1,11 @@
 # Awqati changes
+## 0.5.2.2 — Arabic and English localization
+
+- Completed Arabic and English product documentation and language-direction coverage.
+- Removed Arabic logical defaults from Domain while preserving user-authored Wird text.
+- Centralized reviewed prayer names, astronomical terms, devotional transliterations, feature names, and reminders.
+- Added task 5.2 translation, glossary, documentation, fallback, and architecture regression checks.
+
 ## 0.5.1.4 — prayer-state duration formatting
 
 - Formatted prayer-state durations of 60 minutes or more as localized hours and minutes.

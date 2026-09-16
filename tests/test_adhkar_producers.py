@@ -53,7 +53,7 @@ class DefaultsTests(Fixture):
         self.assertIs(a.evening.reference, EveningReference.BEFORE_MAGHRIB)
         self.assertIs(a.friday_hour.reference, FridayReference.BEFORE_MAGHRIB)
         self.assertEqual((a.daily_wird.hour, a.daily_wird.minute, a.daily_wird.period), (10, 0, DayPeriod.PM))
-        self.assertEqual(a.daily_wird.text, 'لا تنس وردك اليومي.')
+        self.assertEqual(a.daily_wird.text, 'Do not forget your daily Wird.')
         self.assertEqual(a.recurring.interval_minutes, 60)
         self.assertEqual(tuple(d.value for d in D), ORDER)
         for item in a.recurring.items.values():
@@ -232,7 +232,7 @@ class WirdTests(Fixture):
             self.assertEqual(event.event_id, original.event_id)
             for language in ('ar', 'en'):
                 self.assertEqual(format_adhkar_alert(event, language), text)
-        self.assertEqual(original.metadata['text'], 'لا تنس وردك اليومي.')
+        self.assertEqual(original.metadata['text'], 'Do not forget your daily Wird.')
 
 
 class RecurringTests(Fixture):

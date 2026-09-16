@@ -5,8 +5,8 @@
   "sourceManifestSha256": "6d4c500964d38c7fa4902e64c6b946b58f33a5ded5959680400fe98771b0621b",
   "files": {
     "arabian_calendar.json": {
-      "sizeBytes": 71049,
-      "sha256": "de783557d1dc1fa7f094a957f4a33fb1d602b5f7c7e9b226233f4a4b67baf7dd"
+      "sizeBytes": 71046,
+      "sha256": "6002c719de13aa425cdd080279f9316f2168d4858e868d28b1ff1249502e5ff3"
     },
     "arabian_calendar_days_common.json": {
       "sizeBytes": 184775,

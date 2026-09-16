@@ -1,8 +1,52 @@
 <!doctype html>
 <html lang="en" dir="ltr">
-<head><meta charset="utf-8"><title>Awqati</title></head>
+<head>
+<meta charset="utf-8">
+<title>Awqati 0.5.2 user guide</title>
+</head>
 <body>
-<h1>Awqati</h1>
-<p>This is an initial scaffold used only to verify that the add-on loads. It has no features, gestures, or settings page at this stage.</p>
+<h1>Awqati 0.5.2 user guide</h1>
+<p>Awqati is a keyboard-accessible NVDA add-on for local prayer times, Zawali and Ghurubi clocks, five calendars, Qibla direction, daily astronomical information, the Arabian calendar, alerts, adhkar, and a daily Wird. Version 0.5.2 provides a complete Arabic and English interface, speech output, and documentation.</p>
+
+<h2>Location and offline operation</h2>
+<p>On first run, choose a country and city, explicitly ask Windows to detect your location, or enter a custom name, latitude, longitude, and IANA time zone. Core calculations use bundled data and work without an Internet connection. Online prayer-time verification and data updates are not implemented yet.</p>
+
+<h2>Features</h2>
+<ul>
+<li>Prayer times for Fajr, Sunrise, Dhuhr, Asr, Maghrib, Isha, Midnight, and the start of the last third, including current, previous, and next time information.</li>
+<li>Zawali and Ghurubi clocks with numeric or word output, 12-hour or 24-hour time, optional seconds and zero minutes, and full, moderate, short, or double announcements.</li>
+<li>Gregorian, lunar Hijri using Umm al-Qura, Saudi Solar Hijri, Afghan Solar Hijri, and Persian Solar Hijri dates.</li>
+<li>Qibla direction with a practical direction, lean, and precise bearing.</li>
+<li>Scientific daily information and a separate owner-authored Arabian calendar. Heritage source text is preserved as supplied.</li>
+<li>Prayer, clock, morning and evening adhkar, Friday-hour, daily Wird, and recurring-dhikr alerts using speech, a sound file, or both where supported.</li>
+</ul>
+
+<h2>Settings</h2>
+<p>Open NVDA Settings and choose Awqati, or press NVDA+Alt+A. The four sections are Prayer times, Clock, Date, and Dhikr alerts. Every control is keyboard accessible. Disabled child options leave the Tab order, and return with their saved values when re-enabled. Arabic uses right-to-left layout; English and unsupported NVDA languages use left-to-right English fallback.</p>
+
+<h2>Default gestures</h2>
+<ul>
+<li>NVDA+Alt+A: open Awqati settings.</li>
+<li>NVDA+F11: current or next time; press twice for the previous time; press three times for today's prayer times.</li>
+<li>NVDA+F12: time; press twice for the primary date; press three times for combined daily information.</li>
+<li>NVDA+G: Ghurubi time; press twice for Qibla; press three times for the assigned location.</li>
+<li>NVDA+H: lunar Hijri date; press twice for Saudi Solar Hijri; press three times for the Arabian-calendar summary.</li>
+<li>NVDA+Shift+H: Afghan Solar Hijri; press twice for Persian Solar Hijri.</li>
+<li>NVDA+Ctrl+H: scientific daily information; press twice for Arabian-calendar information; press three times to open the selectable Daily information window.</li>
+<li>NVDA+Shift+P: announces that online verification awaits a later task; press twice to open the selectable Today's prayer times window.</li>
+<li>NVDA+Ctrl+Shift+F11: toggle all automatic alerts.</li>
+<li>NVDA+Shift+F11: toggle recurring dhikr.</li>
+<li>NVDA+Shift+F12: repeat the last presented alert.</li>
+<li>NVDA+Alt+F12: announce alert status.</li>
+</ul>
+
+<h2>Commands without a default gesture</h2>
+<p>The following commands are available in NVDA's Input Gestures dialog: Gregorian date, toggle the primary calendar, Zawali time, toggle prayer alerts, toggle clock alerts, toggle dhikr alerts, toggle quiet hours, copy diagnostics, and check for data updates. Diagnostics and data updating remain placeholders for a later task.</p>
+
+<h2>Language and Islamic terms</h2>
+<p>Awqati follows NVDA's language. English devotional formulae use consistent Islamic transliteration, while reminders are translated naturally. User-entered daily-Wird text is preserved exactly and is never treated as a translation key.</p>
+
+<h2>Sound and speech</h2>
+<p>Sound playback is non-blocking. When an alert is configured for sound and speech, sound completes before speech starts. A missing or invalid custom sound falls back according to the configured alert policy. The selectable report windows support reading, selection, copying, Escape, and keyboard focus return.</p>
 </body>
 </html>

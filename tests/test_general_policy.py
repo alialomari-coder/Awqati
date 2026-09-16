@@ -27,7 +27,10 @@ class GeneralPolicyTests(unittest.TestCase):
 		settings = default_settings()
 		self.assertTrue(first_run_location_required(settings))
 		self.assertEqual(location_requirement_message(None), LOCATION_REQUIRED_MESSAGE)
-		self.assertEqual(LOCATION_REQUIRED_MESSAGE, "لم يتم تعيين الموقع. فضلًا عيّنه من إعدادات أوقاتي ثم حاول مرة أخرى")
+		self.assertEqual(
+			LOCATION_REQUIRED_MESSAGE,
+			"No location has been assigned. Set it in Awqati settings, then try again.",
+		)
 		location = Location("1", "Riyadh", 24.7, 46.6, "Asia/Riyadh")
 		settings.location = __import__("awqati.domain", fromlist=["StoredLocation"]).StoredLocation(
 			__import__("awqati.domain", fromlist=["LocationKind"]).LocationKind.SELECTED, location, "SA")

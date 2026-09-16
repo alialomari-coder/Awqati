@@ -90,7 +90,7 @@ class SettingsDefaultsTests(unittest.TestCase):
 		self.assertFalse(adhkar.friday_hour.enabled)
 		self.assertEqual(adhkar.friday_hour.minutes, 60)
 		self.assertFalse(adhkar.daily_wird.enabled)
-		self.assertEqual(adhkar.daily_wird.text, "لا تنس وردك اليومي.")
+		self.assertEqual(adhkar.daily_wird.text, "Do not forget your daily Wird.")
 		self.assertEqual((adhkar.daily_wird.hour, adhkar.daily_wird.minute, adhkar.daily_wird.period),
 			(10, 0, DayPeriod.PM))
 

@@ -6,9 +6,9 @@ Values marked as development placeholders must be reviewed before a release.
 addon_info = {
 	"addon_name": "awqati",
 	"addon_summary": "Awqati",
-	"addon_description": "Awqati development build with NVDA commands, windows and automatic alert lifecycle integration.",
-	"addon_version": "0.5.1.4",
-	"addon_changelog": "Correct task 5.1 localization, native repeat handling, gesture help, 12-hour periods, daily information, owner-edited Arabian calendar data and localized hour-minute prayer-state durations.",
+	"addon_description": "Accessible local prayer times, clocks, calendars, Qibla, daily information, alerts and adhkar in Arabic and English.",
+	"addon_version": "0.5.2.2",
+	"addon_changelog": "Complete task 5.2 Arabic and English localization, Islamic terminology, language direction, documentation and regression coverage.",
 	"addon_author": "Awqati project (development placeholder)",
 	"addon_url": None,
 	"addon_sourceURL": None,

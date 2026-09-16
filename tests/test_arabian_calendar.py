@@ -50,6 +50,10 @@ class ArabianCalendarDataTests(unittest.TestCase):
 		self.assertEqual(entry["sizeBytes"], 71049)
 		self.assertEqual(entry["sha256"], "de783557d1dc1fa7f094a957f4a33fb1d602b5f7c7e9b226233f4a4b67baf7dd")
 
+	def test_runtime_data_never_exposes_a_textual_null(self) -> None:
+		text = (RUNTIME / "arabian_calendar.json").read_text(encoding="utf-8")
+		self.assertNotIn("\" null.\"", text)
+
 	def test_complete_common_and_leap_cycles_have_no_gaps(self) -> None:
 		for anchor, length, cycle_type in (
 			(date(2023, 8, 24), 366, SuhailCycleType.LEAP),

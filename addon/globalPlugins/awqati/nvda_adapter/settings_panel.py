@@ -25,6 +25,7 @@ from ..domain import (
 	HighLatitudeRule, HourSystem, MorningReference, PrayerEventName, SoundReference,
 	SettingsValidationError, TimeRepresentation,
 )
+from ..domain.settings import DEFAULT_DAILY_WIRD_TEXT
 from ..infrastructure import BundledCalculationMethodRepository, SoundFileService
 from .settings_sections import (
 	CALENDAR_EDIT_ORDER, PRIMARY_CALENDAR_ORDER, PRAYER_ACTIONS, PRAYER_EVENT_ORDER,
@@ -657,7 +658,8 @@ class AwqatiSettingsPanel(SettingsPanel):
 			"adhkar", self._layout, self._sound_staging, self._audio, event_type, self._register, key, _(reference_label).rstrip(":"))
 
 	def _build_wird(self,panel,grid,value)->None:
-		grid.Add(wx.StaticText(panel,label=_("Daily Wird reminder text:")),flag=wx.ALIGN_CENTER_VERTICAL);text=wx.TextCtrl(panel,value=value.text,name=_("Daily Wird reminder text"));grid.Add(text,flag=wx.EXPAND);text.Bind(wx.EVT_TEXT,lambda e:(setattr(value,"text",text.GetValue()),e.Skip()))
+		display_text = _("Do not forget your daily Wird.") if value.text == DEFAULT_DAILY_WIRD_TEXT else value.text
+		grid.Add(wx.StaticText(panel,label=_("Daily Wird reminder text:")),flag=wx.ALIGN_CENTER_VERTICAL);text=wx.TextCtrl(panel,value=display_text,name=_("Daily Wird reminder text"));grid.Add(text,flag=wx.EXPAND);text.Bind(wx.EVT_TEXT,lambda e:(setattr(value,"text",text.GetValue()),e.Skip()))
 		hour=_spin(panel,grid,N_("Daily Wird hour (1 to 12):"),value.hour,1,12);minute=_spin(panel,grid,N_("Daily Wird minute (0 to 59):"),value.minute,0,59)
 		self._register("wird.text", text)
 		self._register("wird.hour", hour)

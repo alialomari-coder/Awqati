@@ -19,7 +19,7 @@ PACKAGE = ROOT / "dist" / f"awqati-{BUILD_INFO['addon_version']}.nvda-addon"
 
 
 class SettingsArchitectureTests(unittest.TestCase):
-	def test_schema_is_language_neutral_except_the_user_editable_wird_default(self) -> None:
+	def test_schema_contains_no_hard_coded_arabic_logical_text(self) -> None:
 		source = (CORE / "domain" / "settings.py").read_text(encoding="utf-8")
 		tree = ast.parse(source)
 		arabic_strings = [
@@ -27,7 +27,7 @@ class SettingsArchitectureTests(unittest.TestCase):
 			if isinstance(node, ast.Constant) and isinstance(node.value, str)
 			and any("\u0600" <= character <= "\u06ff" for character in node.value)
 		]
-		self.assertEqual(arabic_strings, ["لا تنس وردك اليومي."])
+		self.assertEqual(arabic_strings, [])
 		for forbidden in ("config", "wx", "globalPluginHandler", "pathlib", "os"):
 			self.assertNotIn(forbidden, {alias.name for node in ast.walk(tree)
 				if isinstance(node, ast.Import) for alias in node.names})

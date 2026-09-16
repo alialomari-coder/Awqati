@@ -29,7 +29,9 @@ DEFAULT_IQAMA_DELAYS_MINUTES = MappingProxyType({
 MIN_USER_CORRECTION_MINUTES = -30
 MAX_USER_CORRECTION_MINUTES = 30
 MAX_DURATION_MINUTES = 180
-DEFAULT_DAILY_WIRD_TEXT = "لا تنس وردك اليومي."
+# English source msgid. Presentation layers translate this exact untouched
+# default; any user-edited value remains user data and is never translated.
+DEFAULT_DAILY_WIRD_TEXT = "Do not forget your daily Wird."
 
 
 class SettingsValidationError(ValueError):

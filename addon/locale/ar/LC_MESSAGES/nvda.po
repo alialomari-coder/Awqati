@@ -4091,3 +4091,93 @@ msgstr "ساعتين"
 
 msgid "2 minutes after a preposition"
 msgstr "دقيقتين"
+
+msgid "Subhan Allah."
+msgstr "سبحان الله."
+
+msgid "Alhamdulillah."
+msgstr "الحمد لله."
+
+msgid "La ilaha illa Allah."
+msgstr "لا إله إلا الله."
+
+msgid "Allahu Akbar."
+msgstr "الله أكبر."
+
+msgid "La hawla wa la quwwata illa billah."
+msgstr "لا حول ولا قوة إلا بالله."
+
+msgid "Astaghfirullah."
+msgstr "أستغفر الله."
+
+msgid "Blessings upon the Prophet."
+msgstr "الصلاة على النبي."
+
+msgid "Remember Allah, and He will remember you."
+msgstr "اذكر الله يذكرك."
+
+msgid "Do not forget to remember Allah."
+msgstr "لا تنس ذكر الله."
+
+msgid "Do not forget your daily Wird."
+msgstr "لا تنس وردك اليومي."
+
+msgid "No location has been assigned. Set it in Awqati settings, then try again."
+msgstr "لم يتم تعيين الموقع. فضلًا عيّنه من إعدادات أوقاتي ثم حاول مرة أخرى."
+
+msgid "Accessible local prayer times, clocks, calendars, Qibla, daily information, alerts and adhkar in Arabic and English."
+msgstr "مواقيت صلاة وساعات وتقاويم وقبلة ومعلومات يومية وتنبيهات وأذكار محلية قابلة للوصول بالعربية والإنجليزية."
+
+#, python-brace-format
+msgid "The time for {prayer} prayer is approaching, with {duration} remaining."
+msgstr "اقترب دخول وقت صلاة {prayer}، وقد بقي عليه {duration}."
+
+#, python-brace-format
+msgid "Sunrise is approaching, with {duration} remaining."
+msgstr "اقترب وقت شروق الشمس، وقد بقي عليه {duration}."
+
+#, python-brace-format
+msgid "The middle of the night is approaching, with {duration} remaining."
+msgstr "اقترب وقت انتصاف الليل، وقد بقي عليه {duration}."
+
+#, python-brace-format
+msgid "The last third of the night is approaching, with {duration} remaining."
+msgstr "اقترب دخول وقت الثلث الأخير من الليل، وقد بقي عليه {duration}."
+
+#, python-brace-format
+msgid "It is now time for {prayer} prayer."
+msgstr "حان الآن وقت صلاة {prayer}."
+
+msgid "The sun has risen."
+msgstr "أشرقت الشمس."
+
+msgid "It is the middle of the night."
+msgstr "انتصف الليل."
+
+msgid "The last third of the night has begun."
+msgstr "دخل وقت الثلث الأخير من الليل."
+
+#, python-brace-format
+msgid "There are {duration} until the estimated Iqama for {prayer} prayer."
+msgstr "بقي على إقامة صلاة {prayer} {duration}."
+
+#, python-brace-format
+msgid "It has been {duration} since sunrise."
+msgstr "مضى على شروق الشمس {duration}."
+
+#, python-brace-format
+msgid "It has been {duration} since the middle of the night."
+msgstr "مضى على انتصاف الليل {duration}."
+
+#, python-brace-format
+msgid "It has been {duration} since the last third of the night began."
+msgstr "مضى على حلول الثلث الأخير من الليل {duration}."
+
+msgid "It is time for morning adhkar."
+msgstr "حان وقت أذكار الصباح."
+
+msgid "It is time for evening adhkar."
+msgstr "حان وقت أذكار المساء."
+
+msgid "Remember the Friday hour."
+msgstr "لا تنسَ ساعة الجمعة."

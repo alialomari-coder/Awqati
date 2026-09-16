@@ -4,6 +4,9 @@ from __future__ import annotations
 
 from typing import Callable
 import addonHandler
+import languageHandler
+
+from .settings_sections import is_rtl_language
 
 addonHandler.initTranslation()
 _: Callable[[str], str]
@@ -20,6 +23,8 @@ class SelectableTextDialog:
 			cls._instance.text.SetFocus()
 			return
 		dialog = cls._instance = wx.Dialog(parent, title=title, style=wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
+		dialog.SetLayoutDirection(wx.Layout_RightToLeft
+			if is_rtl_language(languageHandler.getLanguage()) else wx.Layout_LeftToRight)
 		dialog.text = wx.TextCtrl(dialog, value=content, style=wx.TE_MULTILINE | wx.TE_READONLY,
 			name=title)
 		close = wx.Button(dialog, wx.ID_CLOSE, label=_("Close"))
