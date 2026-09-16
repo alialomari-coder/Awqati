@@ -32,7 +32,7 @@ class ArabianCalendarDataTests(unittest.TestCase):
 		cls.leap = json.loads((RUNTIME / "arabian_calendar_days_leap.json").read_text(encoding="utf-8"))
 
 	def test_version_counts_and_source_manifest_provenance(self) -> None:
-		self.assertEqual(ARABIAN_CALENDAR_DATA_VERSION, "2026.09.13-r1")
+		self.assertEqual(ARABIAN_CALENDAR_DATA_VERSION, "2026.09.16-r2")
 		self.assertEqual(self.repository.arabian_calendar_data_version, ARABIAN_CALENDAR_DATA_VERSION)
 		self.assertEqual(self.rich["schemaVersion"], 1)
 		self.assertEqual(self.rich["arabianCalendarDataVersion"], ARABIAN_CALENDAR_DATA_VERSION)
@@ -47,8 +47,8 @@ class ArabianCalendarDataTests(unittest.TestCase):
 			self.assertEqual(len(payload), file_entry["sizeBytes"])
 			self.assertEqual(hashlib.sha256(payload).hexdigest(), file_entry["sha256"])
 		entry = next(item for item in manifest["files"] if item["name"] == "arabian_calendar.json")
-		self.assertEqual(entry["sizeBytes"], 71633)
-		self.assertEqual(entry["sha256"], "d43e4c1cc618ee070b31d8557f37ee9a420d31bf80edff0196a4dfda5f06e04a")
+		self.assertEqual(entry["sizeBytes"], 71049)
+		self.assertEqual(entry["sha256"], "de783557d1dc1fa7f094a957f4a33fb1d602b5f7c7e9b226233f4a4b67baf7dd")
 
 	def test_complete_common_and_leap_cycles_have_no_gaps(self) -> None:
 		for anchor, length, cycle_type in (

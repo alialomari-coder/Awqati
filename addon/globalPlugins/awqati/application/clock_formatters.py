@@ -155,7 +155,7 @@ class _ArabicNumericClockFormatter(NumericClockFormatter, _ArabicTemplates):
 
 	def _format_zawali(self, value: datetime, options: ClockFormatOptions) -> str:
 		hour = value.hour
-		period = "صباحًا" if hour < 12 else "مساءً"
+		period = _civil_period(hour, "ar")
 		if options.hour_system is HourSystem.TWELVE:
 			hour = hour % 12 or 12
 			suffix = f" {period}"
@@ -184,7 +184,7 @@ class _EnglishNumericClockFormatter(NumericClockFormatter, _EnglishTemplates):
 		hour = value.hour
 		suffix = ""
 		if options.hour_system is HourSystem.TWELVE:
-			suffix = " AM" if hour < 12 else " PM"
+			suffix = " " + _civil_period(hour, "en")
 			hour = hour % 12 or 12
 		return _numeric_civil(hour, value.minute, value.second, options, suffix, arabic=False)
 
@@ -208,7 +208,7 @@ class ArabicWordClockFormatter(_ArabicTemplates):
 	def _format_zawali(self, value: datetime, options: ClockFormatOptions) -> str:
 		if options.hour_system is HourSystem.TWELVE:
 			hour = value.hour % 12 or 12
-			result = f"{_arabic_hour_word(hour)} {'صباحًا' if value.hour < 12 else 'مساءً'}"
+			result = f"{_arabic_hour_word(hour)} {_civil_period(value.hour, 'ar')}"
 		else:
 			result = _arabic_hour_word(value.hour)
 		return _append_arabic_units(result, value.minute, value.second, options)
@@ -229,7 +229,7 @@ class EnglishWordClockFormatter(_EnglishTemplates):
 
 	def _format_zawali(self, value: datetime, options: ClockFormatOptions) -> str:
 		hour = value.hour
-		period = "AM" if hour < 12 else "PM"
+		period = _civil_period(hour, "en")
 		if options.hour_system is HourSystem.TWELVE:
 			hour = hour % 12 or 12
 			result = f"{_english_number(hour)} {period}"
@@ -248,6 +248,15 @@ class EnglishWordClockFormatter(_EnglishTemplates):
 		return _append_english_units(result, minute, second, options)
 
 
+def _civil_period(original_hour: int, language: str) -> str:
+	"""Derive AM/PM from the original 24-hour value before display conversion."""
+	if not 0 <= original_hour <= 23:
+		raise ValueError("civil hour must be from 0 through 23")
+	periods = {"ar": ("صباحًا", "مساءً"), "en": ("AM", "PM")}
+	try:
+		return periods[language][original_hour >= 12]
+	except KeyError as error:
+		raise ValueError("unsupported clock language") from error
 def _elapsed_parts(value: timedelta) -> tuple[int, int, int]:
 	total_seconds = int(value.total_seconds())
 	hour, remainder = divmod(total_seconds, 3600)

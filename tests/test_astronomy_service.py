@@ -18,7 +18,9 @@ from awqati.domain import (  # noqa: E402
 	AstronomyRangeError,
 	Instant,
 	Location,
+	Season,
 	SeasonEvent,
+	seasonal_event_utc,
 	SolarDayState,
 )
 from awqati.infrastructure import BundledTimezoneProvider  # noqa: E402
@@ -49,6 +51,50 @@ class AstronomyServiceTests(unittest.TestCase):
 		self.assertEqual(reading.next_seasonal_event_local.utcoffset(), timedelta(hours=1))
 		self.assertEqual(reading.next_seasonal_event_local.hour, 9)
 
+	def test_local_event_date_is_day_one_for_all_four_seasons(self) -> None:
+		location = Location("riyadh", "Riyadh", 24.7136, 46.6753, "Asia/Riyadh")
+		zone = self.timezones.get_timezone(location.timezone_id)
+		expected = {
+			SeasonEvent.MARCH_EQUINOX: Season.SPRING,
+			SeasonEvent.JUNE_SOLSTICE: Season.SUMMER,
+			SeasonEvent.SEPTEMBER_EQUINOX: Season.AUTUMN,
+			SeasonEvent.DECEMBER_SOLSTICE: Season.WINTER,
+		}
+		for event, season in expected.items():
+			local_date = seasonal_event_utc(2026, event).astimezone(zone).date()
+			local_early = datetime.combine(local_date, datetime.min.time(), tzinfo=zone) + timedelta(minutes=5)
+			reading = AstronomyService(
+				EventClock(Instant(local_early.astimezone(timezone.utc))), self.timezones,
+			).read(location)
+			with self.subTest(event=event):
+				self.assertEqual(season, reading.current_season)
+				self.assertEqual(1, reading.season_day)
+
+	def test_last_local_day_of_each_season_precedes_next_boundary(self) -> None:
+		location = Location("riyadh", "Riyadh", 24.7136, 46.6753, "Asia/Riyadh")
+		zone = self.timezones.get_timezone(location.timezone_id)
+		events = list(SeasonEvent)
+		for index, event in enumerate(events):
+			start = seasonal_event_utc(2026, event).astimezone(zone).date()
+			next_year = 2027 if event is SeasonEvent.DECEMBER_SOLSTICE else 2026
+			next_event = events[(index + 1) % len(events)]
+			last = seasonal_event_utc(next_year, next_event).astimezone(zone).date() - timedelta(days=1)
+			reading = self._read_local_noon(location, last)
+			with self.subTest(event=event):
+				self.assertEqual((last - start).days + 1, reading.season_day)
+				next_reading = self._read_local_noon(location, last + timedelta(days=1))
+				self.assertEqual(1, next_reading.season_day)
+
+	def test_season_day_uses_each_locations_local_boundary_date(self) -> None:
+		for location in (
+			Location("london", "London", 51.5074, -0.1278, "Europe/London"),
+			Location("kiritimati", "Kiritimati", 1.8721, -157.4278, "Pacific/Kiritimati"),
+		):
+			zone = self.timezones.get_timezone(location.timezone_id)
+			for event in SeasonEvent:
+				local_date = seasonal_event_utc(2026, event).astimezone(zone).date()
+				with self.subTest(location=location.location_id, event=event):
+					self.assertEqual(1, self._read_local_noon(location, local_date).season_day)
 	def test_runtime_path_uses_no_network_provider(self) -> None:
 		class NoNetworkClock:
 			def now(self):

@@ -7,6 +7,8 @@ from datetime import date, datetime, time, timedelta, timezone, tzinfo
 from ..domain.astronomy import (
 	ASTRONOMY_MIN_YEAR,
 	AstronomyReading,
+	Season,
+	SeasonEvent,
 	SolarDay,
 	lunar_facts,
 	next_seasonal_event,
@@ -32,6 +34,13 @@ class AstronomyService:
 		season, started = season_at(local_now, location.latitude)
 		next_event = next_seasonal_event(local_now)
 		local_date = local_now.date()
+		# A season's local civil date is day one even when the event instant is
+		# later on that date.  Advance the classification without waiting for 24
+		# elapsed hours or asking a formatter to infer it from prose.
+		if next_event.at_utc.astimezone(zone).date() == local_date:
+			started = next_event
+			season = _season_started_by(next_event.event, location.latitude)
+			next_event = next_seasonal_event(next_event.at_utc + timedelta(microseconds=1))
 		solar = _solar_day_for_local_date(local_date, location, zone)
 		previous_date = local_date - timedelta(days=1)
 		daylight_change = None
@@ -44,6 +53,7 @@ class AstronomyService:
 			observed_at_local=local_now,
 			current_season=season,
 			current_season_started=started,
+			season_day=(local_date - started.at_utc.astimezone(zone).date()).days + 1,
 			next_seasonal_event=next_event,
 			next_seasonal_event_local=next_event.at_utc.astimezone(zone),
 			solar_day=solar,
@@ -66,3 +76,19 @@ def _solar_day_for_local_date(day: date, location: Location, zone: tzinfo) -> So
 		location.longitude,
 		utc_anchor_day=utc_anchor_day,
 	)
+
+
+def _season_started_by(event: SeasonEvent, latitude: float) -> Season:
+	north = {
+		SeasonEvent.MARCH_EQUINOX: Season.SPRING,
+		SeasonEvent.JUNE_SOLSTICE: Season.SUMMER,
+		SeasonEvent.SEPTEMBER_EQUINOX: Season.AUTUMN,
+		SeasonEvent.DECEMBER_SOLSTICE: Season.WINTER,
+	}
+	south = {
+		SeasonEvent.MARCH_EQUINOX: Season.AUTUMN,
+		SeasonEvent.JUNE_SOLSTICE: Season.WINTER,
+		SeasonEvent.SEPTEMBER_EQUINOX: Season.SPRING,
+		SeasonEvent.DECEMBER_SOLSTICE: Season.SUMMER,
+	}
+	return (north if latitude >= 0 else south)[event]

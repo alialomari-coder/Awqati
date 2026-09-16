@@ -16,6 +16,7 @@ for path in (PACKAGES, ROOT / "tests"):
 from awqati.application import (  # noqa: E402
 	ArabianCalendarService,
 	ArabicDailyInfoFormatter,
+	EnglishDailyInfoFormatter,
 	AstronomyService,
 	DailyInfoFormatter,
 )
@@ -41,7 +42,11 @@ class RecordingHeritageFormatter:
 
 	def format_detailed(self, reading) -> str:
 		self.detailed_calls.append(reading)
-		return "HERITAGE-MARKER"
+		return "STANDALONE-HERITAGE-MARKER"
+
+	def format_combined(self, reading) -> str:
+		self.detailed_calls.append(reading)
+		return "COMBINED-HERITAGE-MARKER"
 
 
 class DailyInfoFormatterTests(unittest.TestCase):
@@ -70,10 +75,9 @@ class DailyInfoFormatterTests(unittest.TestCase):
 	def test_complete_scientific_text_is_natural_and_contains_every_required_fact(self) -> None:
 		text = self.formatter.format_scientific(self.scientific)
 		for phrase in (
-			"المعلومات الفلكية لهذا اليوم:",
-			"الفصل الفلكي الحالي هو الصيف",
-			"وقد بقي على انتهائه 9 أيام و23 ساعة",
-			"ويبدأ الخريف مع الاعتدال الخريفي يوم 23 سبتمبر",
+			"اليوم هو اليوم الخامس والثمانون من فصل الصيف",
+			"والذي بقي على انتهائه 9 أيام و23 ساعة",
+			"إذ سيدخل فصل الخريف مع الاعتدال الخريفي يوم 23 سبتمبر",
 			"بالتوقيت المحلي",
 			"طول النهار اليوم",
 			"وطول الليل",
@@ -163,7 +167,7 @@ class DailyInfoFormatterTests(unittest.TestCase):
 		reading = self._read(datetime(1900, 12, 31, 21, tzinfo=timezone.utc), RIYADH)
 		self.assertIsNone(reading.daylight_change_from_previous_day)
 		text = self.formatter.format_scientific(reading)
-		self.assertIn("المعلومات الفلكية لهذا اليوم:", text)
+		self.assertIn("اليوم هو اليوم", text)
 		self.assertNotIn("عن أمس", text)
 
 	def test_daily_reading_without_heritage_has_no_empty_heritage_section(self) -> None:
@@ -175,10 +179,29 @@ class DailyInfoFormatterTests(unittest.TestCase):
 		heritage_formatter = RecordingHeritageFormatter()
 		formatter = ArabicDailyInfoFormatter(heritage_formatter)
 		text = formatter.format(DailyInfoReading(self.scientific, self.heritage))
-		self.assertLess(text.index("المعلومات الفلكية لهذا اليوم:"), text.index("معلومات التقويم العربي:"))
-		self.assertIn("\n\nمعلومات التقويم العربي:\nHERITAGE-MARKER", text)
+		self.assertTrue(text.startswith("اليوم هو اليوم"))
+		self.assertIn("\n\nCOMBINED-HERITAGE-MARKER", text)
+		self.assertNotIn("المعلومات الفلكية لهذا اليوم", text)
+		self.assertNotIn("معلومات التقويم العربي:", text)
 		self.assertEqual(heritage_formatter.detailed_calls, [self.heritage])
 
+	def test_standalone_scientific_and_combined_contexts_are_separate(self) -> None:
+		scientific = self.formatter.format_scientific(self.scientific)
+		combined = self.formatter.format(DailyInfoReading(self.scientific, self.heritage))
+		self.assertNotIn("التقويم العربي", scientific)
+		self.assertIn("وفي التقويم العربي: اليوم هو", combined)
+		self.assertNotIn("معلومات التقويم العربي:", combined)
+		self.assertNotIn("وهذه السنة", combined)
+		self.assertNotIn("عدد أيامها", combined)
+		self.assertNotIn("وقد بقي منها", combined)
+
+	def test_english_formatter_is_ltr_and_has_no_arabic_scientific_template(self) -> None:
+		text = EnglishDailyInfoFormatter().format_scientific(self.scientific)
+		self.assertTrue(text.startswith("Today is the 85th day of summer"))
+		self.assertIn("September equinox", text)
+		self.assertIn("AM", text)
+		self.assertIn("PM", text)
+		self.assertNotIn("المعلومات الفلكية", text)
 	def test_formatting_does_not_change_astronomy_reading(self) -> None:
 		before = self.scientific.solar_day.daylight
 		self.formatter.format_scientific(self.scientific)

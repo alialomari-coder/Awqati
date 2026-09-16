@@ -1,0 +1,228 @@
+{
+  "task": "corrective follow-up after 5.1",
+  "date": "2026-09-16",
+  "package": {
+    "version": "0.5.1.4",
+    "file": "dist/awqati-0.5.1.4.nvda-addon",
+    "sizeBytes": 12363911,
+    "sha256": "149f3d36cc2c2f8ff3cee5f2236e9b82e6ac70ccaab6d1553841fffcde761854",
+    "installedVersion": "0.5.1.4",
+    "installedSourceFilesCompared": 941,
+    "installedSourceMismatches": 0
+  },
+  "environment": {
+    "nvda": "2026.2 AMD64",
+    "windows": "Windows 11 25H2",
+    "brailleHardwareTested": false,
+    "computerUse": "Unavailable: helper exited twice with Windows ACL error before any input; authorized in-process NVDA harness used."
+  },
+  "automatedTests": {
+    "targetedPassed": 85,
+    "fullGatePassed": 736,
+    "fullGateFailed": 0,
+    "fullGateSkipped": 0,
+    "item7BoundaryAndIntegrationTestsPassed": 6
+  },
+  "realNvda": {
+    "languages": [
+      "ar",
+      "en"
+    ],
+    "arabicChecks": {
+      "visibleCommandCount21": true,
+      "unassignedCount9": true,
+      "descriptionsLocalized": true,
+      "noRedundantProductPhrase": true,
+      "keyDescriptionsExact": true,
+      "firstPressImmediate": true,
+      "allMultiPressOutputs": true,
+      "ctrlHThirdOnlyWindow": true,
+      "shiftPSecondOnlyWindow": true,
+      "settingsCommandReachedPanel": true,
+      "alertStatusNoProductName": true,
+      "scienceAndHeritageSeparated": true,
+      "togglesRestoredSettings": true,
+      "allChecks": true
+    },
+    "englishChecks": {
+      "visibleCommandCount21": true,
+      "unassignedCount9": true,
+      "descriptionsLocalized": true,
+      "noRedundantProductPhrase": true,
+      "keyDescriptionsExact": true,
+      "firstPressImmediate": true,
+      "allMultiPressOutputs": true,
+      "ctrlHThirdOnlyWindow": true,
+      "shiftPSecondOnlyWindow": true,
+      "settingsCommandReachedPanel": true,
+      "alertStatusNoProductName": true,
+      "scienceAndHeritageSeparated": true,
+      "togglesRestoredSettings": true,
+      "allChecks": true
+    },
+    "visibleCommands": {
+      "script_alertStatus": {
+        "description": "الإعلان عن حالة التنبيهات.",
+        "gestures": [
+          "kb:NVDA+alt+f12"
+        ]
+      },
+      "script_dailyInformation": {
+        "description": "بالضغط عليه مرة واحدة يعلن عن معلومات اليوم الفلكية، وبالضغط عليه مرتين يعلن عن معلومات اليوم في التقويم العربي، وبالضغط عليه ثلاث مرات يفتح نافذة معلومات اليوم.",
+        "gestures": [
+          "kb:NVDA+control+h"
+        ]
+      },
+      "script_dataUpdates": {
+        "description": "فحص تحديثات البيانات.",
+        "gestures": []
+      },
+      "script_diagnostics": {
+        "description": "نسخ معلومات التشخيص.",
+        "gestures": []
+      },
+      "script_ghurubiQibla": {
+        "description": "بالضغط عليه مرة واحدة يعلن عن التوقيت الغروبي، وبالضغط عليه مرتين يعلن عن اتجاه القبلة، وبالضغط عليه ثلاث مرات يعلن عن الموقع المعتمد.",
+        "gestures": [
+          "kb:NVDA+g"
+        ]
+      },
+      "script_gregorianDate": {
+        "description": "الإعلان عن التاريخ الميلادي.",
+        "gestures": []
+      },
+      "script_hijriCalendars": {
+        "description": "بالضغط عليه مرة واحدة يعلن عن التاريخ الهجري القمري، وبالضغط عليه مرتين يعلن عن التاريخ الهجري الشمسي السعودي، وبالضغط عليه ثلاث مرات يعلن عن ملخص اليوم في التقويم العربي.",
+        "gestures": [
+          "kb:NVDA+h"
+        ]
+      },
+      "script_openSettings": {
+        "description": "فتح إعدادات أوقاتي.",
+        "gestures": [
+          "kb:NVDA+alt+a"
+        ]
+      },
+      "script_otherSolarCalendars": {
+        "description": "بالضغط عليه مرة واحدة يعلن عن التاريخ الهجري الشمسي الأفغاني، وبالضغط عليه مرتين يعلن عن التاريخ الهجري الشمسي الفارسي.",
+        "gestures": [
+          "kb:NVDA+shift+h"
+        ]
+      },
+      "script_prayerInfo": {
+        "description": "بالضغط عليه مرة واحدة يعلن عن تفاصيل الوقت الحالي، وبالضغط عليه مرتين يعلن عن الوقت السابق، وبالضغط عليه ثلاث مرات يعلن عن مواقيت اليوم.",
+        "gestures": [
+          "kb:NVDA+f11"
+        ]
+      },
+      "script_prayerVerification": {
+        "description": "بالضغط عليه مرة واحدة يتحقق من مواقيت اليوم عبر الإنترنت، وبالضغط عليه مرتين يفتح نافذة مواقيت اليوم.",
+        "gestures": [
+          "kb:NVDA+shift+p"
+        ]
+      },
+      "script_repeatLastAlert": {
+        "description": "إعادة آخر تنبيه تم نطقه.",
+        "gestures": [
+          "kb:NVDA+shift+f12"
+        ]
+      },
+      "script_timeDateInfo": {
+        "description": "بالضغط عليه مرة واحدة يعلن عن الوقت، وبالضغط عليه مرتين يعلن عن التاريخ، وبالضغط عليه ثلاث مرات يعلن عن معلومات اليوم.",
+        "gestures": [
+          "kb:NVDA+f12"
+        ]
+      },
+      "script_toggleAllAlerts": {
+        "description": "التبديل بين تفعيل وتعطيل جميع التنبيهات التلقائية.",
+        "gestures": [
+          "kb:NVDA+control+shift+f11"
+        ]
+      },
+      "script_toggleClockAlert": {
+        "description": "التبديل بين تفعيل وتعطيل التنبيه التلقائي للساعة.",
+        "gestures": []
+      },
+      "script_toggleDhikrAlerts": {
+        "description": "التبديل بين تفعيل وتعطيل تنبيهات الأذكار.",
+        "gestures": []
+      },
+      "script_togglePrayerAlerts": {
+        "description": "التبديل بين تفعيل وتعطيل تنبيهات المواقيت.",
+        "gestures": []
+      },
+      "script_togglePrimaryCalendar": {
+        "description": "التبديل بين الهجري القمري والميلادي كتقويم أساسي.",
+        "gestures": []
+      },
+      "script_toggleQuietHours": {
+        "description": "التبديل بين تفعيل وتعطيل ساعات الهدوء.",
+        "gestures": []
+      },
+      "script_toggleRecurringDhikr": {
+        "description": "التبديل بين تفعيل وتعطيل الأذكار الدورية.",
+        "gestures": [
+          "kb:NVDA+shift+f11"
+        ]
+      },
+      "script_zawaliTime": {
+        "description": "الإعلان عن التوقيت الزوالي.",
+        "gestures": []
+      }
+    },
+    "unassignedCommands": [
+      "script_dataUpdates",
+      "script_diagnostics",
+      "script_gregorianDate",
+      "script_toggleClockAlert",
+      "script_toggleDhikrAlerts",
+      "script_togglePrayerAlerts",
+      "script_togglePrimaryCalendar",
+      "script_toggleQuietHours",
+      "script_zawaliTime"
+    ],
+    "arabicSamples": {
+      "f11Current": "الوقت القادم هو منتصف الليل عند 22:54؛ بقي عليه ساعة و26 دقيقة.",
+      "f11Previous": "الصلاة السابقة كانت العشاء عند 19:13؛ قبل ساعتين و16 دقيقة.",
+      "f11Daily": "مواقيت اليوم:\nالفجر، الساعة 04:06\nالشروق، الساعة 05:26\nالظهر، الساعة 11:34\nالعصر، الساعة 15:03\nالمغرب، الساعة 17:43\nالعشاء، الساعة 19:13\nمنتصف الليل، الساعة 22:54\nبداية الثلث الأخير، الساعة 00:38",
+      "alertStatus": "حالة التنبيهات: جميع التنبيهات التلقائية: قيد التشغيل؛ تنبيهات المواقيت: قيد التشغيل؛ تنبيه الساعة: قيد التعطيل؛ تنبيهات الأذكار: قيد التشغيل؛ الأذكار الدورية: قيد التعطيل؛ ساعات الهدوء: قيد التعطيل."
+    },
+    "englishSamples": {
+      "f11Current": "The next time is Midnight at 22:54; in 1 hour 26 minutes.",
+      "f11Previous": "The previous prayer was Isha at 19:13; 2 hours 16 minutes ago.",
+      "f11Daily": "Today's prayer times:\nFajr: 04:06\nSunrise: 05:26\nDhuhr: 11:34\nAsr: 15:03\nMaghrib: 17:43\nIsha: 19:13\nMidnight: 22:54\nStart of the last third: 00:38",
+      "clock": "Time: 9:23:14 PM.",
+      "alertStatus": "Alert status: all automatic alerts enabled; prayer alerts enabled; clock alert disabled; dhikr alerts enabled; recurring dhikr disabled; quiet hours disabled."
+    },
+    "firstPressMaxSeconds": 0.01556469999923138,
+    "settingsSha256Before": "3f784f011e1ed99cd5b9d2a6223ced68ab893a4ee3d211c3a2355d2523168d5d",
+    "settingsSha256After": "3f784f011e1ed99cd5b9d2a6223ced68ab893a4ee3d211c3a2355d2523168d5d",
+    "nvdaIniSha256Before": "352fd980344762c38c70b6b8d8ea9693fdd5bc213b923d59a6687265067e8458",
+    "nvdaIniSha256After": "352fd980344762c38c70b6b8d8ea9693fdd5bc213b923d59a6687265067e8458",
+    "scratchpadRemoved": true,
+    "harnessCacheRemoved": true,
+    "normalNvdaRestarted": true,
+    "durationFormattingAcceptance": {
+      "profile": "isolated temporary NVDA configuration using the installed 0.5.1.4 build",
+      "arabic": {
+        "lessThanHour": "الصلاة القادمة هي الظهر عند 10:26؛ بقي عليها 26 دقيقة.",
+        "betweenOneAndTwoHours": "الوقت القادم هو منتصف الليل عند 22:54؛ بقي عليه ساعة و26 دقيقة.",
+        "overTwoHours": "الصلاة السابقة كانت العشاء عند 19:13؛ قبل ساعتين و16 دقيقة.",
+        "allChecks": true
+      },
+      "english": {
+        "lessThanHour": "The next prayer is Dhuhr at 10:26; in 26 minutes.",
+        "betweenOneAndTwoHours": "The next time is Midnight at 22:54; in 1 hour 26 minutes.",
+        "overTwoHours": "The previous prayer was Isha at 19:13; 2 hours 16 minutes ago.",
+        "allChecks": true
+      },
+      "calculationsChanged": false
+    }
+  },
+  "limitations": [
+    "Shift+P first press remains an honest task 5.3 placeholder; no online verification or network request was implemented or claimed.",
+    "The Arabian calendar source is Arabic-only; English structural labels are English while owner-authored heritage content remains Arabic.",
+    "No physical braille display was connected, so no physical braille test is claimed.",
+    "DOCX structural validation passed; visual rendering was unavailable because LibreOffice soffice.exe is not installed."
+  ]
+}

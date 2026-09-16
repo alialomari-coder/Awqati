@@ -33,7 +33,6 @@ from ..infrastructure import (
 )
 from . import compat
 from .commands import CommandContent
-from .multipress import MultiPressDispatcher
 from .runtime import AwqatiRuntime
 from .settings_panel import AwqatiSettingsPanel
 from .text_dialog import SelectableTextDialog
@@ -52,7 +51,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		super().__init__()
 		self._context = self._runtime = self._content = self._monitor = None
 		self._terminated = False
-		self._multi = MultiPressDispatcher(compat.schedule)
 		try:
 			self._compose()
 		except (SettingsRepositoryError, SettingsValidationError) as error:
@@ -105,8 +103,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			logHandler.log.error("Awqati command failed: %s", error)
 			ui.message(_("This Awqati command is unavailable until a valid location is assigned."))
 
-	def _press(self, name, handlers) -> None:
-		self._multi.press(name, tuple(handlers))
+	def _press(self, handlers) -> None:
+		"""Dispatch immediately using NVDA's native zero-based repeat count."""
+		compat.dispatch_repeated_script(handlers)
 
 	def _show_first_run(self) -> None:
 		if self._terminated or self._context is None or not first_run_location_required(self._context.settings.runtime_settings):
@@ -123,120 +122,119 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		if self._runtime: self._runtime.system_time_changed()
 		if event is not None: event.Skip()
 
-	@scriptHandler.script(description=_("Open Awqati settings"), category=CATEGORY, gesture="kb:NVDA+alt+a")
+	@scriptHandler.script(description=_("Open Awqati settings."), category=CATEGORY, gesture="kb:NVDA+alt+a")
 	def script_openSettings(self, gesture):
 		compat.open_awqati_settings(AwqatiSettingsPanel)
 
-	@scriptHandler.script(description=_("Announce current, previous, or today's prayer times"), category=CATEGORY, gesture="kb:NVDA+f11")
+	@scriptHandler.script(description=_("Press once to announce current time details, twice to announce the previous time, or three times to announce today's prayer times."), category=CATEGORY, gesture="kb:NVDA+f11")
 	def script_prayerInfo(self, gesture):
-		self._press("f11", (
+		self._press((
 			lambda: self._say(lambda: self._content.current_details(_)),
 			lambda: self._say(lambda: self._content.previous_details(_)),
 			lambda: self._say(lambda: self._content.daily_prayer_times(_)),
 		))
 
-	@scriptHandler.script(description=_("Toggle all automatic Awqati alerts"), category=CATEGORY, gesture="kb:NVDA+control+shift+f11")
+	@scriptHandler.script(description=_("Toggle all automatic alerts."), category=CATEGORY, gesture="kb:NVDA+control+shift+f11")
 	def script_toggleAllAlerts(self, gesture):
 		enabled = self._content.toggle("general.all_automatic_alerts_enabled")
 		ui.message(_("All automatic Awqati alerts have been enabled.") if enabled else _("All automatic Awqati alerts have been disabled."))
 
-	@scriptHandler.script(description=_("Announce time, primary date, or detailed daily information"), category=CATEGORY, gesture="kb:NVDA+f12")
+	@scriptHandler.script(description=_("Press once to announce the time, twice to announce the date, or three times to announce daily information."), category=CATEGORY, gesture="kb:NVDA+f12")
 	def script_timeDateInfo(self, gesture):
-		self._press("f12", (
+		self._press((
 			lambda: self._say(lambda: self._content.clock_text(ClockType.ZAWALI, self._language())),
 			lambda: self._say(lambda: self._content.primary_date(self._language())),
-			lambda: self._say(self._content.daily_info_text),
+			lambda: self._say(lambda: self._content.daily_info_text(self._language())),
 		))
 
-	@scriptHandler.script(description=_("Repeat the last Awqati alert"), category=CATEGORY, gesture="kb:NVDA+shift+f12")
+	@scriptHandler.script(description=_("Repeat the last spoken alert."), category=CATEGORY, gesture="kb:NVDA+shift+f12")
 	def script_repeatLastAlert(self, gesture):
 		if not self._runtime.presenter.replay_last(): ui.message(_("No Awqati alert has been presented yet."))
 
-	@scriptHandler.script(description=_("Announce Awqati alert status"), category=CATEGORY, gesture="kb:NVDA+alt+f12")
+	@scriptHandler.script(description=_("Announce alert status."), category=CATEGORY, gesture="kb:NVDA+alt+f12")
 	def script_alertStatus(self, gesture):
 		self._say(lambda: self._content.alert_status(_))
 
-	@scriptHandler.script(description=_("Announce Ghurubi time or Qibla direction"), category=CATEGORY, gesture="kb:NVDA+g")
+	@scriptHandler.script(description=_("Press once to announce Ghurubi time, twice to announce the Qibla direction, or three times to announce the assigned location."), category=CATEGORY, gesture="kb:NVDA+g")
 	def script_ghurubiQibla(self, gesture):
-		self._press("g", (lambda: self._say(lambda: self._content.clock_text(ClockType.GHURUBI, self._language())),
-			lambda: self._say(lambda: self._content.qibla_text(self._language()))))
+		self._press((lambda: self._say(lambda: self._content.clock_text(ClockType.GHURUBI, self._language())),
+			lambda: self._say(lambda: self._content.qibla_text(self._language())),
+			lambda: self._say(lambda: self._content.location_text(_))))
 
-	@scriptHandler.script(description=_("Announce Lunar Hijri, Saudi Solar Hijri, or Arabian calendar summary"), category=CATEGORY, gesture="kb:NVDA+h")
+	@scriptHandler.script(description=_("Press once to announce the Lunar Hijri date, twice to announce the Saudi Solar Hijri date, or three times to announce the Arabian calendar summary."), category=CATEGORY, gesture="kb:NVDA+h")
 	def script_hijriCalendars(self, gesture):
-		self._press("h", (lambda: self._say(lambda: self._content.date_text(CalendarId.HIJRI_UMM_AL_QURA, self._language())),
+		self._press((lambda: self._say(lambda: self._content.date_text(CalendarId.HIJRI_UMM_AL_QURA, self._language())),
 			lambda: self._say(lambda: self._content.date_text(CalendarId.SAUDI_SOLAR_HIJRI, self._language())),
-			lambda: self._say(self._content.arabian_short)))
+			lambda: self._say(lambda: self._content.arabian_short(self._language()))))
 
-	@scriptHandler.script(description=_("Announce Afghan or Persian Solar Hijri date"), category=CATEGORY, gesture="kb:NVDA+shift+h")
+	@scriptHandler.script(description=_("Press once to announce the Afghan Solar Hijri date or twice to announce the Persian Solar Hijri date."), category=CATEGORY, gesture="kb:NVDA+shift+h")
 	def script_otherSolarCalendars(self, gesture):
-		self._press("shiftH", (lambda: self._say(lambda: self._content.date_text(CalendarId.AFGHAN_SOLAR_HIJRI, self._language())),
+		self._press((lambda: self._say(lambda: self._content.date_text(CalendarId.AFGHAN_SOLAR_HIJRI, self._language())),
 			lambda: self._say(lambda: self._content.date_text(CalendarId.PERSIAN_SOLAR_HIJRI, self._language()))))
 
-	@scriptHandler.script(description=_("Announce the Gregorian date"), category=CATEGORY)
+	@scriptHandler.script(description=_("Press once to announce astronomical daily information, twice to announce Arabian calendar daily information, or three times to open the daily information window."), category=CATEGORY, gesture="kb:NVDA+control+h")
+	def script_dailyInformation(self, gesture):
+		self._press((
+			lambda: self._say(lambda: self._content.scientific_info_text(self._language())),
+			lambda: self._say(lambda: self._content.arabian_detailed(self._language())),
+			self._showDailyInfo,
+		))
+
+	@scriptHandler.script(description=_("Press once to verify today's prayer times online or twice to open today's prayer times window."), category=CATEGORY, gesture="kb:NVDA+shift+p")
+	def script_prayerVerification(self, gesture):
+		self._press((self._deferred, self._showPrayerTimes))
+
+	@scriptHandler.script(description=_("Announce the Gregorian date."), category=CATEGORY)
 	def script_gregorianDate(self, gesture): self._say(lambda: self._content.date_text(CalendarId.GREGORIAN, self._language()))
 
-	@scriptHandler.script(description=_("Toggle the primary calendar between Lunar Hijri and Gregorian"), category=CATEGORY)
+	@scriptHandler.script(description=_("Toggle the primary calendar between Lunar Hijri and Gregorian."), category=CATEGORY)
 	def script_togglePrimaryCalendar(self, gesture):
 		value = self._content.toggle_primary_calendar()
 		ui.message(_("The primary calendar is now {calendar}.").format(calendar=_("Gregorian") if value is CalendarId.GREGORIAN else _("Lunar Hijri")))
 
-	@scriptHandler.script(description=_("Announce Zawali time"), category=CATEGORY)
+	@scriptHandler.script(description=_("Announce Zawali time."), category=CATEGORY)
 	def script_zawaliTime(self, gesture): self._say(lambda: self._content.clock_text(ClockType.ZAWALI, self._language()))
 
 	def _toggle(self, path, enabled_text, disabled_text):
 		ui.message(enabled_text if self._content.toggle(path) else disabled_text)
 
-	@scriptHandler.script(description=_("Toggle recurring dhikr"), category=CATEGORY, gesture="kb:NVDA+shift+f11")
+	@scriptHandler.script(description=_("Toggle recurring dhikr."), category=CATEGORY, gesture="kb:NVDA+shift+f11")
 	def script_toggleRecurringDhikr(self, gesture): self._toggle("adhkar.recurring.enabled", _("Recurring dhikr has been enabled."), _("Recurring dhikr has been disabled."))
 
-	@scriptHandler.script(description=_("Toggle dhikr alerts"), category=CATEGORY)
+	@scriptHandler.script(description=_("Toggle dhikr alerts."), category=CATEGORY)
 	def script_toggleDhikrAlerts(self, gesture): self._toggle("adhkar.alerts_enabled", _("Dhikr alerts have been enabled."), _("Dhikr alerts have been disabled."))
 
-	@scriptHandler.script(description=_("Toggle prayer-time alerts"), category=CATEGORY)
+	@scriptHandler.script(description=_("Toggle prayer-time alerts."), category=CATEGORY)
 	def script_togglePrayerAlerts(self, gesture): self._toggle("prayer.alerts_enabled", _("Prayer-time alerts have been enabled."), _("Prayer-time alerts have been disabled."))
 
-	@scriptHandler.script(description=_("Toggle the automatic clock alert"), category=CATEGORY)
+	@scriptHandler.script(description=_("Toggle the automatic clock alert."), category=CATEGORY)
 	def script_toggleClockAlert(self, gesture): self._toggle("clock.automatic_alert_enabled", _("The automatic clock alert has been enabled."), _("The automatic clock alert has been disabled."))
 
-	@scriptHandler.script(description=_("Toggle quiet hours"), category=CATEGORY)
+	@scriptHandler.script(description=_("Toggle quiet hours."), category=CATEGORY)
 	def script_toggleQuietHours(self, gesture): self._toggle("general.quiet_hours.enabled", _("Quiet hours have been enabled."), _("Quiet hours have been disabled."))
 
-	@scriptHandler.script(description=_("Show detailed daily information"), category=CATEGORY)
-	def script_showDailyInfo(self, gesture):
-		self._show_text(_("Daily information"), self._content.daily_info_text())
+	def _showDailyInfo(self):
+		self._show_text(_("Daily information"), self._content.daily_info_text(self._language()))
 
-	@scriptHandler.script(description=_("Show today's prayer times"), category=CATEGORY)
-	def script_showPrayerTimes(self, gesture):
+	def _showPrayerTimes(self):
 		self._show_text(_("Today's prayer times"), self._content.daily_prayer_times(_))
 
 	def _show_text(self, title, content):
 		SelectableTextDialog.show(gui.mainFrame, title, content)
 
-	@scriptHandler.script(description=_("Announce the assigned location"), category=CATEGORY)
-	def script_location(self, gesture): self._say(lambda: self._content.location_text(_))
-
-	@scriptHandler.script(description=_("Announce detailed scientific daily information"), category=CATEGORY)
-	def script_scientificInfo(self, gesture): self._say(self._content.scientific_info_text)
-
-	@scriptHandler.script(description=_("Announce detailed Arabian calendar information"), category=CATEGORY)
-	def script_arabianInfo(self, gesture): self._say(self._content.arabian_detailed)
-
 	def _deferred(self): ui.message(_("This command will be available in Awqati task 5.3."))
 
-	@scriptHandler.script(description=_("Copy Awqati diagnostic information"), category=CATEGORY)
+	@scriptHandler.script(description=_("Copy diagnostic information."), category=CATEGORY)
 	def script_diagnostics(self, gesture): self._deferred()
 
-	@scriptHandler.script(description=_("Check for Awqati data updates"), category=CATEGORY)
+	@scriptHandler.script(description=_("Check for data updates."), category=CATEGORY)
 	def script_dataUpdates(self, gesture): self._deferred()
 
-	@scriptHandler.script(description=_("Verify today's prayer times online"), category=CATEGORY)
-	def script_onlineVerification(self, gesture): self._deferred()
 
 	def terminate(self) -> None:
 		if self._terminated:
 			return
 		self._terminated = True
-		self._multi.close()
 		if self._monitor: self._monitor.close()
 		if self._runtime: self._runtime.close()
 		while AwqatiSettingsPanel in NVDASettingsDialog.categoryClasses:

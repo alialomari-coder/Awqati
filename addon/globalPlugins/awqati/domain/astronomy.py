@@ -89,6 +89,7 @@ class AstronomyReading:
 	observed_at_local: datetime
 	current_season: Season
 	current_season_started: SeasonalEvent
+	season_day: int
 	next_seasonal_event: SeasonalEvent
 	next_seasonal_event_local: datetime
 	solar_day: SolarDay

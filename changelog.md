@@ -1,4 +1,17 @@
 # Awqati changes
+## 0.5.1.4 — prayer-state duration formatting
+
+- Formatted prayer-state durations of 60 minutes or more as localized hours and minutes.
+- Preserved minute-only output below one hour and omitted zero-minute remainders.
+- Added Arabic singular, dual and plural forms plus natural English counterparts.
+
+## 0.5.1.3 — corrective follow-up after task 5.1
+
+- Localized F11, daily prayer times and alert status completely through gettext.
+- Replaced the private multi-press delay with NVDA's native repeat count.
+- Adopted the final 21-command map, including Ctrl+H and Shift+P.
+- Corrected 12-hour Zawali periods, daily-information contexts and local season-day numbering.
+- Adopted the owner-edited Arabian calendar data as version 2026.09.16-r2.
 
 ## Development scaffold
 

@@ -6,10 +6,11 @@ from .astronomy_service import AstronomyService
 from .arabian_calendar_formatters import (
 	ArabianCalendarFormatter,
 	ArabicArabianCalendarFormatter,
+	EnglishArabianCalendarFormatter,
 )
 from .arabian_calendar_service import ArabianCalendarService
 from .daily_info_service import DailyInfoService
-from .daily_info_formatters import ArabicDailyInfoFormatter, DailyInfoFormatter
+from .daily_info_formatters import ArabicDailyInfoFormatter, DailyInfoFormatter, EnglishDailyInfoFormatter
 
 from .clock_formatters import (
 	ArabicWordClockFormatter,
@@ -92,6 +93,7 @@ __all__ = [
 	"ArabianCalendarRepository",
 	"ArabianCalendarService",
 	"ArabicArabianCalendarFormatter",
+	"EnglishArabianCalendarFormatter",
 	"ArabicDateFormatter",
 	"ArabicQiblaFormatter",
 	"AstronomyService",
@@ -108,6 +110,7 @@ __all__ = [
 	"DailyInfoService",
 	"DailyInfoFormatter",
 	"ArabicDailyInfoFormatter",
+	"EnglishDailyInfoFormatter",
 	"EnglishDateFormatter",
 	"EnglishQiblaFormatter",
 	"EnglishWordClockFormatter",

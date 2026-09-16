@@ -1,4 +1,4 @@
-"""Feature-detected NVDA/wx compatibility used by task 5.1 only."""
+"""Feature-detected NVDA/wx compatibility used by the NVDA adapter."""
 
 from __future__ import annotations
 
@@ -25,6 +25,26 @@ def schedule(delay_ms: int, callback: Callable[[], None]):
 def call_after(callback, *args) -> None:
 	import wx
 	wx.CallAfter(callback, *args)
+
+
+def script_repeat_count() -> int:
+	"""Return NVDA's official zero-based repeat count for the running script."""
+	import scriptHandler
+	getter = getattr(scriptHandler, "getLastScriptRepeatCount", None)
+	if getter is None:
+		return 0
+	try:
+		return max(0, int(getter()))
+	except (TypeError, ValueError):
+		return 0
+
+
+def dispatch_repeated_script(handlers) -> None:
+	"""Run the selected handler synchronously; the first press never waits."""
+	handlers = tuple(handlers)
+	if not handlers:
+		raise ValueError("at least one repeated-script handler is required")
+	handlers[min(script_repeat_count(), len(handlers) - 1)]()
 
 
 def open_awqati_settings(panel_class) -> None:

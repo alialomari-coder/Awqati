@@ -218,12 +218,39 @@ class ArabicClockFormatterTests(unittest.TestCase):
 				ClockFormatOptions(style=AnnouncementStyle.DOUBLE, **base),
 				ghurubi_formatter=self.numeric, ghurubi_options=options())
 
+	def test_numeric_and_words_use_original_hour_for_twelve_hour_period(self) -> None:
+		setting = options(hour_system=HourSystem.TWELVE, show_seconds=False, speak_zero_minute=True)
+		for hour, minute, expected in (
+			(0, 0, "صباحًا"), (0, 30, "صباحًا"), (6, 0, "صباحًا"),
+			(11, 59, "صباحًا"), (12, 0, "مساءً"), (12, 30, "مساءً"),
+			(18, 0, "مساءً"), (23, 59, "مساءً"),
+		):
+			with self.subTest(hour=hour, minute=minute):
+				value = reading(hour=hour, minute=minute)
+				numeric = self.numeric.format_time(value, ClockType.ZAWALI, setting)
+				words = self.words.format_time(value, ClockType.ZAWALI, setting)
+				self.assertIn(expected, numeric)
+				self.assertIn(expected, words)
+				self.assertEqual("صباحًا" in numeric, "صباحًا" in words)
 
 class EnglishClockFormatterTests(unittest.TestCase):
 	def setUp(self) -> None:
 		self.words = EnglishWordClockFormatter()
 		self.numeric = NumericClockFormatter("en")
 
+	def test_numeric_and_words_use_original_hour_for_twelve_hour_period(self) -> None:
+		setting = options(hour_system=HourSystem.TWELVE, show_seconds=False, speak_zero_minute=True)
+		for hour, minute, expected in (
+			(0, 0, "AM"), (0, 30, "AM"), (6, 0, "AM"), (11, 59, "AM"),
+			(12, 0, "PM"), (12, 30, "PM"), (18, 0, "PM"), (23, 59, "PM"),
+		):
+			with self.subTest(hour=hour, minute=minute):
+				value = reading(hour=hour, minute=minute)
+				numeric = self.numeric.format_time(value, ClockType.ZAWALI, setting)
+				words = self.words.format_time(value, ClockType.ZAWALI, setting)
+				self.assertIn(expected, numeric)
+				self.assertIn(expected, words)
+				self.assertEqual("AM" in numeric, "AM" in words)
 	def test_english_words_and_numeric_are_real_exact_outputs(self) -> None:
 		value = reading(hour=15, minute=51, second=44)
 		self.assertEqual(self.words.format_announcement(value, ClockType.ZAWALI, options()),

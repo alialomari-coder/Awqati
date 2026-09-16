@@ -3924,3 +3924,170 @@ msgstr "إغلاق"
 
 msgid "Awqati development build with NVDA commands, windows and automatic alert lifecycle integration."
 msgstr "نسخة تطويرية من أوقاتي مع أوامر NVDA والنوافذ وربط دورة حياة التنبيهات التلقائية."
+
+msgid "Today's prayer times:"
+msgstr "مواقيت اليوم:"
+
+#, python-brace-format
+msgid "{name}: {time}"
+msgstr "{name}، الساعة {time}"
+
+#, python-brace-format
+msgid "Waiting for {name}; {minutes} minutes remain."
+msgstr "وقت انتظار {name}؛ بقي {minutes} دقيقة."
+
+#, python-brace-format
+msgid "The current prayer is {name}; it began {minutes} minutes ago."
+msgstr "الصلاة الحالية هي {name}؛ بدأت قبل {minutes} دقيقة."
+
+#, python-brace-format
+msgid "The next prayer is {name} at {time}; in {minutes} minutes."
+msgstr "الصلاة القادمة هي {name} عند {time}؛ بقي عليها {minutes} دقيقة."
+
+#, python-brace-format
+msgid "The next time is {name} at {time}; in {minutes} minutes."
+msgstr "الوقت القادم هو {name} عند {time}؛ بقي عليه {minutes} دقيقة."
+
+#, python-brace-format
+msgid "The previous prayer was {name} at {time}; {minutes} minutes ago."
+msgstr "الصلاة السابقة كانت {name} عند {time}؛ قبل {minutes} دقيقة."
+
+#, python-brace-format
+msgid "The previous time was {name} at {time}; {minutes} minutes ago."
+msgstr "الوقت السابق كان {name} عند {time}؛ قبل {minutes} دقيقة."
+
+msgid "enabled"
+msgstr "قيد التشغيل"
+
+msgid "disabled"
+msgstr "قيد التعطيل"
+
+#, python-brace-format
+msgid "Alert status: all automatic alerts {all}; prayer alerts {prayer}; clock alert {clock}; dhikr alerts {dhikr}; recurring dhikr {recurring}; quiet hours {quiet}."
+msgstr "حالة التنبيهات: جميع التنبيهات التلقائية: {all}؛ تنبيهات المواقيت: {prayer}؛ تنبيه الساعة: {clock}؛ تنبيهات الأذكار: {dhikr}؛ الأذكار الدورية: {recurring}؛ ساعات الهدوء: {quiet}."
+
+msgid "Open Awqati settings."
+msgstr "فتح إعدادات أوقاتي."
+
+msgid "Press once to announce current time details, twice to announce the previous time, or three times to announce today's prayer times."
+msgstr "بالضغط عليه مرة واحدة يعلن عن تفاصيل الوقت الحالي، وبالضغط عليه مرتين يعلن عن الوقت السابق، وبالضغط عليه ثلاث مرات يعلن عن مواقيت اليوم."
+
+msgid "Toggle all automatic alerts."
+msgstr "التبديل بين تفعيل وتعطيل جميع التنبيهات التلقائية."
+
+msgid "Press once to announce the time, twice to announce the date, or three times to announce daily information."
+msgstr "بالضغط عليه مرة واحدة يعلن عن الوقت، وبالضغط عليه مرتين يعلن عن التاريخ، وبالضغط عليه ثلاث مرات يعلن عن معلومات اليوم."
+
+msgid "Repeat the last spoken alert."
+msgstr "إعادة آخر تنبيه تم نطقه."
+
+msgid "Announce alert status."
+msgstr "الإعلان عن حالة التنبيهات."
+
+msgid "Press once to announce Ghurubi time, twice to announce the Qibla direction, or three times to announce the assigned location."
+msgstr "بالضغط عليه مرة واحدة يعلن عن التوقيت الغروبي، وبالضغط عليه مرتين يعلن عن اتجاه القبلة، وبالضغط عليه ثلاث مرات يعلن عن الموقع المعتمد."
+
+msgid "Press once to announce the Lunar Hijri date, twice to announce the Saudi Solar Hijri date, or three times to announce the Arabian calendar summary."
+msgstr "بالضغط عليه مرة واحدة يعلن عن التاريخ الهجري القمري، وبالضغط عليه مرتين يعلن عن التاريخ الهجري الشمسي السعودي، وبالضغط عليه ثلاث مرات يعلن عن ملخص اليوم في التقويم العربي."
+
+msgid "Press once to announce the Afghan Solar Hijri date or twice to announce the Persian Solar Hijri date."
+msgstr "بالضغط عليه مرة واحدة يعلن عن التاريخ الهجري الشمسي الأفغاني، وبالضغط عليه مرتين يعلن عن التاريخ الهجري الشمسي الفارسي."
+
+msgid "Press once to announce astronomical daily information, twice to announce Arabian calendar daily information, or three times to open the daily information window."
+msgstr "بالضغط عليه مرة واحدة يعلن عن معلومات اليوم الفلكية، وبالضغط عليه مرتين يعلن عن معلومات اليوم في التقويم العربي، وبالضغط عليه ثلاث مرات يفتح نافذة معلومات اليوم."
+
+msgid "Press once to verify today's prayer times online or twice to open today's prayer times window."
+msgstr "بالضغط عليه مرة واحدة يتحقق من مواقيت اليوم عبر الإنترنت، وبالضغط عليه مرتين يفتح نافذة مواقيت اليوم."
+
+msgid "Announce the Gregorian date."
+msgstr "الإعلان عن التاريخ الميلادي."
+
+msgid "Toggle the primary calendar between Lunar Hijri and Gregorian."
+msgstr "التبديل بين الهجري القمري والميلادي كتقويم أساسي."
+
+msgid "Announce Zawali time."
+msgstr "الإعلان عن التوقيت الزوالي."
+
+msgid "Toggle recurring dhikr."
+msgstr "التبديل بين تفعيل وتعطيل الأذكار الدورية."
+
+msgid "Toggle dhikr alerts."
+msgstr "التبديل بين تفعيل وتعطيل تنبيهات الأذكار."
+
+msgid "Toggle prayer-time alerts."
+msgstr "التبديل بين تفعيل وتعطيل تنبيهات المواقيت."
+
+msgid "Toggle the automatic clock alert."
+msgstr "التبديل بين تفعيل وتعطيل التنبيه التلقائي للساعة."
+
+msgid "Toggle quiet hours."
+msgstr "التبديل بين تفعيل وتعطيل ساعات الهدوء."
+
+msgid "Copy diagnostic information."
+msgstr "نسخ معلومات التشخيص."
+
+msgid "Check for data updates."
+msgstr "فحص تحديثات البيانات."
+msgid "1 hour"
+msgstr "ساعة"
+
+msgid "2 hours"
+msgstr "ساعتان"
+
+#, python-brace-format
+msgid "{count} hours"
+msgstr "{count} ساعات"
+
+#, python-brace-format
+msgid "{count} hour"
+msgstr "{count} ساعة"
+
+msgid "1 minute"
+msgstr "دقيقة"
+
+msgid "2 minutes"
+msgstr "دقيقتان"
+
+#, python-brace-format
+msgid "{count} minutes"
+msgstr "{count} دقائق"
+
+#, python-brace-format
+msgid "{count} minute"
+msgstr "{count} دقيقة"
+
+#, python-brace-format
+msgid "{hours} {minutes}"
+msgstr "{hours} و{minutes}"
+
+#, python-brace-format
+msgid "Waiting for {name}; {duration} remain."
+msgstr "في انتظار {name}؛ بقي {duration}."
+
+#, python-brace-format
+msgid "The current prayer is {name}; it began {duration} ago."
+msgstr "الصلاة الحالية هي {name}؛ بدأت قبل {duration}."
+
+#, python-brace-format
+msgid "The next prayer is {name} at {time}; in {duration}."
+msgstr "الصلاة القادمة هي {name} عند {time}؛ بقي عليها {duration}."
+
+#, python-brace-format
+msgid "The next time is {name} at {time}; in {duration}."
+msgstr "الوقت القادم هو {name} عند {time}؛ بقي عليه {duration}."
+
+#, python-brace-format
+msgid "The previous prayer was {name} at {time}; {duration} ago."
+msgstr "الصلاة السابقة كانت {name} عند {time}؛ قبل {duration}."
+
+#, python-brace-format
+msgid "The previous time was {name} at {time}; {duration} ago."
+msgstr "الوقت السابق كان {name} عند {time}؛ قبل {duration}."
+msgid "Duration formatting language: English"
+msgstr "لغة تنسيق المدة: العربية"
+
+msgid "2 hours after a preposition"
+msgstr "ساعتين"
+
+msgid "2 minutes after a preposition"
+msgstr "دقيقتين"
