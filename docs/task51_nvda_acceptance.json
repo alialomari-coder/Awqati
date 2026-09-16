@@ -1,0 +1,63 @@
+{
+  "task": "5.1",
+  "package": {
+    "version": "0.5.1.2",
+    "file": "dist/awqati-0.5.1.2.nvda-addon",
+    "sizeBytes": 12359133,
+    "sha256": "933a935b5e0c3e695ef1056d5420d30fbe56c33378815a1a973b88261216f30b"
+  },
+  "environment": {
+    "nvda": "2026.2 AMD64",
+    "windows": "Windows 11 25H2 build 10.0.26200.9457",
+    "python": "3.13.13",
+    "wxPython": "4.2.4 / wxWidgets 3.2.8",
+    "braille": "noBraille (0 cells)"
+  },
+  "automatedTests": {
+    "taskSpecific": {"passed": 10, "failed": 0},
+    "fullGate": {"passed": 714, "failed": 0, "skipped": 0}
+  },
+  "realNvda": {
+    "languages": ["ar", "en"],
+    "runtimeInstances": {"scheduler": 1, "coordinator": 1, "presenter": 1},
+    "settingsWindowOpened": true,
+    "resolvedDefaultBindings": {
+      "NVDA+F11": "script_prayerInfo",
+      "NVDA+Ctrl+Shift+F11": "script_toggleAllAlerts",
+      "NVDA+Shift+F11": "script_toggleRecurringDhikr",
+      "NVDA+F12": "script_timeDateInfo",
+      "NVDA+Shift+F12": "script_repeatLastAlert",
+      "NVDA+Alt+F12": "script_alertStatus"
+    },
+    "multiPress": ["F11:1/2/3", "F12:1/2/3", "G:1/2", "H:1/2/3", "Shift+H:1/2"],
+    "recurringDhikrToggle": {
+      "defaultGesture": "NVDA+Shift+F11",
+      "arabicDisabled": "تم تعطيل الأذكار الدورية.",
+      "arabicEnabled": "تم تفعيل الأذكار الدورية.",
+      "restoredOriginalValue": true
+    },
+    "windows": {
+      "prayerTimes": {"openedByIndependentCommand": true, "readOnly": true, "multiline": true},
+      "dailyInformation": {"openedByIndependentCommand": true, "readOnly": true, "multiline": true},
+      "triplePressOpenedWindow": false
+    },
+    "lifecycle": ["startup", "resume", "systemTimeChanged", "shutdown"],
+    "automaticPresentation": {
+      "firstStartedWithSecondWaiting": true,
+      "finalPresentedEvent": "task51-final-2",
+      "currentAfterCompletion": null,
+      "waitingAfterCompletion": 0,
+      "replayAccepted": true
+    },
+    "globalToggleRestoredOriginalValue": true,
+    "terminateCalledTwiceWithoutError": true,
+    "awqatiErrorsInFinalRuns": 0
+  },
+  "notes": [
+    "The first installed 0.5.1.1 build exposed an invalid runtime settings provider; it was fixed and the package build was advanced.",
+    "A second review fixed local-day renewal to compare against the stored scheduled boundary.",
+    "Unrelated errors from other installed add-ons were excluded from Awqati acceptance.",
+    "Synthetic construction of Latin-letter gestures A/G/H was unavailable under the active Arabic Windows keyboard layout; those scripts were exercised directly in both language runs, while the default map is covered by the contract test.",
+    "The visual DOCX renderer was unavailable because the bundled LibreOffice executable was absent; paragraph-level document updates were applied and structurally checked."
+  ]
+}

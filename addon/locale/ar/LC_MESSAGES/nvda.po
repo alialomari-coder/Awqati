@@ -3788,3 +3788,139 @@ msgstr "لا يوجد مزود موقع متاح في Windows. يمكنك اخت
 
 msgid "Awqati development build with serialized alert audio and speech presentation."
 msgstr "نسخة تطويرية من أوقاتي مع عرض متسلسل لتنبيهات الصوت والنطق."
+
+msgid "This Awqati command is unavailable until a valid location is assigned."
+msgstr "لا يتاح أمر أوقاتي هذا حتى تعيين موقع صالح."
+
+msgid "Open Awqati settings"
+msgstr "فتح إعدادات أوقاتي"
+
+msgid "Announce current, previous, or today's prayer times"
+msgstr "الإعلان عن الوقت الحالي أو السابق أو مواقيت اليوم"
+
+msgid "Toggle all automatic Awqati alerts"
+msgstr "التبديل بين تفعيل وتعطيل جميع التنبيهات التلقائية في أوقاتي"
+
+msgid "All automatic Awqati alerts have been enabled."
+msgstr "تم تفعيل جميع التنبيهات التلقائية في أوقاتي."
+
+msgid "All automatic Awqati alerts have been disabled."
+msgstr "تم تعطيل جميع التنبيهات التلقائية في أوقاتي."
+
+msgid "Announce time, primary date, or detailed daily information"
+msgstr "الإعلان عن الوقت أو التاريخ الأساسي أو معلومات اليوم التفصيلية"
+
+msgid "Repeat the last Awqati alert"
+msgstr "إعادة آخر تنبيه صادر من أوقاتي"
+
+msgid "No Awqati alert has been presented yet."
+msgstr "لم يُعرض أي تنبيه من أوقاتي بعد."
+
+msgid "Announce Awqati alert status"
+msgstr "الإعلان عن حالة تنبيهات أوقاتي"
+
+msgid "Announce Ghurubi time or Qibla direction"
+msgstr "الإعلان عن التوقيت الغروبي أو اتجاه القبلة"
+
+msgid "Announce Lunar Hijri, Saudi Solar Hijri, or Arabian calendar summary"
+msgstr "الإعلان عن الهجري القمري أو الهجري الشمسي السعودي أو ملخص التقويم العربي"
+
+msgid "Announce Afghan or Persian Solar Hijri date"
+msgstr "الإعلان عن التاريخ الهجري الشمسي الأفغاني أو الفارسي"
+
+msgid "Announce the Gregorian date"
+msgstr "الإعلان عن التاريخ الميلادي"
+
+msgid "Toggle the primary calendar between Lunar Hijri and Gregorian"
+msgstr "التبديل بين الهجري القمري والميلادي كتقويم أساسي"
+
+#, python-brace-format
+msgid "The primary calendar is now {calendar}."
+msgstr "التقويم الأساسي الآن هو {calendar}."
+
+msgid "Announce Zawali time"
+msgstr "الإعلان عن التوقيت الزوالي"
+
+msgid "Toggle recurring dhikr"
+msgstr "التبديل بين تفعيل وتعطيل الأذكار الدورية"
+
+msgid "Recurring dhikr has been enabled."
+msgstr "تم تفعيل الأذكار الدورية."
+
+msgid "Recurring dhikr has been disabled."
+msgstr "تم تعطيل الأذكار الدورية."
+
+msgid "Toggle dhikr alerts"
+msgstr "التبديل بين تفعيل وتعطيل تنبيهات الأذكار"
+
+msgid "Dhikr alerts have been enabled."
+msgstr "تم تفعيل تنبيهات الأذكار."
+
+msgid "Dhikr alerts have been disabled."
+msgstr "تم تعطيل تنبيهات الأذكار."
+
+msgid "Toggle prayer-time alerts"
+msgstr "التبديل بين تفعيل وتعطيل تنبيهات المواقيت"
+
+msgid "Prayer-time alerts have been enabled."
+msgstr "تم تفعيل تنبيهات المواقيت."
+
+msgid "Prayer-time alerts have been disabled."
+msgstr "تم تعطيل تنبيهات المواقيت."
+
+msgid "Toggle the automatic clock alert"
+msgstr "التبديل بين تفعيل وتعطيل التنبيه التلقائي للساعة"
+
+msgid "The automatic clock alert has been enabled."
+msgstr "تم تفعيل التنبيه التلقائي للساعة."
+
+msgid "The automatic clock alert has been disabled."
+msgstr "تم تعطيل التنبيه التلقائي للساعة."
+
+msgid "Toggle quiet hours"
+msgstr "التبديل بين تفعيل وتعطيل ساعات الهدوء"
+
+msgid "Quiet hours have been enabled."
+msgstr "تم تفعيل ساعات الهدوء."
+
+msgid "Quiet hours have been disabled."
+msgstr "تم تعطيل ساعات الهدوء."
+
+msgid "Show detailed daily information"
+msgstr "عرض معلومات اليوم"
+
+msgid "Daily information"
+msgstr "معلومات اليوم"
+
+msgid "Show today's prayer times"
+msgstr "عرض مواقيت اليوم"
+
+msgid "Today's prayer times"
+msgstr "مواقيت اليوم"
+
+msgid "Announce the assigned location"
+msgstr "الإعلان عن الموقع المعتمد"
+
+msgid "Announce detailed scientific daily information"
+msgstr "الإعلان عن معلومات اليوم الفلكية العلمية التفصيلية"
+
+msgid "Announce detailed Arabian calendar information"
+msgstr "الإعلان عن معلومات اليوم التفصيلية في التقويم العربي الفلكي"
+
+msgid "This command will be available in Awqati task 5.3."
+msgstr "ستتوفر وظيفة هذا الأمر في المهمة 5.3 من أوقاتي."
+
+msgid "Copy Awqati diagnostic information"
+msgstr "نسخ معلومات تشخيص أوقاتي"
+
+msgid "Check for Awqati data updates"
+msgstr "فحص تحديثات بيانات أوقاتي"
+
+msgid "Verify today's prayer times online"
+msgstr "التحقق من مواقيت اليوم عبر الإنترنت"
+
+msgid "Close"
+msgstr "إغلاق"
+
+msgid "Awqati development build with NVDA commands, windows and automatic alert lifecycle integration."
+msgstr "نسخة تطويرية من أوقاتي مع أوامر NVDA والنوافذ وربط دورة حياة التنبيهات التلقائية."

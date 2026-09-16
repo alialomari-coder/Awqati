@@ -71,6 +71,8 @@ class AlertPresenter:
 		self._message = ""
 		self._phase = 0
 		self._presented = False
+		self._last_event: AlertEvent | None = None
+		self._last_message = ""
 		self._closed = False
 
 	@property
@@ -170,6 +172,33 @@ class AlertPresenter:
 			event_id = self._event.event_id
 			if self._scheduler.mark_presented(event_id):
 				self._presented = True
+				self._last_event = self._event
+				self._last_message = self._message
+
+	@property
+	def last_presented(self) -> AlertEvent | None:
+		with self._lock:
+			return self._last_event
+
+	def replay_last(self) -> bool:
+		"""Repeat Awqati's last actually-started alert as a manual request."""
+		with self._lock:
+			if self._closed or self._event is not None or self._last_event is None:
+				return False
+			event, message = self._last_event, self._last_message
+		def finished(_result):
+			return None
+		if event.action in (AlertAction.SOUND, AlertAction.SOUND_AND_SPEECH):
+			try:
+				accepted = self._audio.play(event, lambda: None,
+					lambda result: self._speech.speak(message, lambda: None, finished)
+					if event.action is AlertAction.SOUND_AND_SPEECH and result.completed else None)
+			except Exception as error:
+				self._report(error)
+				accepted = False
+			if accepted:
+				return True
+		return self._speech.speak(message, lambda: None, finished)
 
 	def _finish(self, token: int) -> None:
 		with self._lock:
@@ -206,6 +235,8 @@ class AlertPresenter:
 		self.cancel_current()
 		self._audio.cancel()
 		self._speech.cancel()
+		self._last_event = None
+		self._last_message = ""
 
 	def _active(self, token: int) -> bool:
 		return not self._closed and self._event is not None and token == self._phase

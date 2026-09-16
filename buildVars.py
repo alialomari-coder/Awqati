@@ -6,9 +6,9 @@ Values marked as development placeholders must be reviewed before a release.
 addon_info = {
 	"addon_name": "awqati",
 	"addon_summary": "Awqati",
-	"addon_description": "Awqati development build with serialized alert audio and speech presentation.",
-	"addon_version": "0.4.4.2",
-	"addon_changelog": "Add validated WAV storage, non-blocking playback, speech completion and serialized alert presentation.",
+	"addon_description": "Awqati development build with NVDA commands, windows and automatic alert lifecycle integration.",
+	"addon_version": "0.5.1.2",
+	"addon_changelog": "Complete task 5.1 NVDA commands, multi-press dispatch, accessible windows and alert lifecycle integration.",
 	"addon_author": "Awqati project (development placeholder)",
 	"addon_url": None,
 	"addon_sourceURL": None,
