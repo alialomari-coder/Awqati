@@ -28,10 +28,13 @@ from ..domain import (
 	SaudiSolarHijriProvider, SettingsValidationError,
 )
 from ..infrastructure import (
+	ArabianCalendarDataError,
 	BundledArabianCalendarRepository, BundledCalculationMethodRepository,
 	BundledLocationRepository, BundledTimezoneProvider, JsonSettingsRepository,
 	AlAdhanPrayerProvider, AtomicDataPackageInstaller, HttpsTransport,
-	SettingsRepositoryError, SystemNowProvider, UmmAlQuraProvider, WindowsLocationAdapter,
+	CalculationMethodDataError, LocationDataError, SettingsRepositoryError,
+	SystemNowProvider, TimezoneDataError, UmmAlQuraDataError, UmmAlQuraProvider,
+	WindowsLocationAdapter,
 	active_data_path,
 )
 from . import compat
@@ -66,6 +69,18 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			wx.CallAfter(wx.MessageBox,
 				_("Awqati settings could not be loaded. The existing file was not replaced."),
 				_("Awqati settings error"), wx.OK | wx.ICON_ERROR, gui.mainFrame)
+		except (
+			ArabianCalendarDataError,
+			CalculationMethodDataError,
+			LocationDataError,
+			TimezoneDataError,
+			UmmAlQuraDataError,
+		) as error:
+			logHandler.log.error("Awqati local data could not be loaded: %s", error)
+			wx.CallAfter(wx.MessageBox,
+				_("Awqati could not start because its local data is unavailable or invalid. "
+				  "Reinstall the add-on or restore the data, then restart NVDA."),
+				_("Awqati data error"), wx.OK | wx.ICON_ERROR, gui.mainFrame)
 
 	def _compose(self) -> None:
 		root = Path(globalVars.appArgs.configPath) / "awqati"

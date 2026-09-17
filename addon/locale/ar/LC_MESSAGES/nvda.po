@@ -1340,6 +1340,16 @@ msgstr "تعذر تحميل الإعدادات . لم يُستبدل الملف 
 msgid "Awqati settings error"
 msgstr "خطأ في إعدادات أوقاتي"
 
+msgid ""
+"Awqati could not start because its local data is unavailable or invalid. "
+"Reinstall the add-on or restore the data, then restart NVDA."
+msgstr ""
+"تعذر بدء أوقاتي لأن بياناتها المحلية غير متاحة أو غير صالحة. أعد تثبيت "
+"الإضافة أو استعد البيانات، ثم أعد تشغيل NVDA."
+
+msgid "Awqati data error"
+msgstr "خطأ في بيانات أوقاتي"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Azerbaijan"
 msgstr "أذربيجان"

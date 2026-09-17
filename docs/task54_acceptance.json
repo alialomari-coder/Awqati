@@ -1,0 +1,217 @@
+{
+  "task": "5.4 - integration, performance, reliability and compatibility acceptance",
+  "date": "2026-09-17",
+  "status": "PASS",
+  "baselineCommit": "e977bce",
+  "candidate": {
+    "version": "0.5.4.1",
+    "package": "dist/awqati-0.5.4.1.nvda-addon",
+    "sha256": "dd768352659283770bbd232e7a903b9ae7701e49d51f8511f22f3252fbd7b1e2",
+    "sizeBytes": 12387875
+  },
+  "compatibility": {
+    "minimumNVDAVersion": "2026.1.0",
+    "lastTestedNVDAVersion": "2026.2.0",
+    "stableTested": "2026.2",
+    "previewTested": "2026.3beta2",
+    "previewNote": "The beta smoke test used a test-profile-only manifest copy declaring 2026.3.0 compatibility. Production metadata remains at the latest stable version actually targeted, 2026.2.0."
+  },
+  "environments": [
+    {
+      "nvda": "2026.2",
+      "languages": ["ar", "en"],
+      "python": "3.13.13",
+      "wx": "4.2.4 / wxWidgets 3.2.8",
+      "type": "real NVDA with isolated configuration"
+    },
+    {
+      "nvda": "2026.3beta2",
+      "languages": ["ar", "en"],
+      "type": "official portable preview, smoke and compatibility acceptance"
+    }
+  ],
+  "scenarios": [
+    {
+      "scenario": "Full automated project matrix",
+      "type": "automated",
+      "nvda": "n/a",
+      "language": "ar/en",
+      "status": "PASS",
+      "evidence": "tools/run_checks.py passed 784/784 tests and all compile, gettext (1190 messages), clean-build, architecture, package and repository whitespace checks. It exercises location/time zones, prayer methods and states, calendars, alerts, scheduler, quiet hours, audio/speech, adhkar, validation, localization, corrupt inputs and network services."
+    },
+    {
+      "scenario": "First run, location search, cancel, settings direction and all four settings sections",
+      "type": "real NVDA",
+      "nvda": "2026.2 and 2026.3beta2",
+      "language": "ar/en",
+      "status": "PASS",
+      "evidence": "First-run cancel preserved operation; city search returned an indexed result; Arabic used RTL and English LTR; prayer, clock, date and adhkar sections rendered and remained keyboard-focusable. Existing settings/location acceptance also covers save, restart, invalid values and focus return."
+    },
+    {
+      "scenario": "NVDA+F11, NVDA+F12, NVDA+H, NVDA+Shift+H and NVDA+G multiple-press commands",
+      "type": "real NVDA",
+      "nvda": "2026.2 and 2026.3beta2",
+      "language": "ar/en",
+      "status": "PASS",
+      "evidence": "All repetitions produced non-empty localized output. Maximum measured command callback was 0.06013 seconds. F11 covered next, previous and the full daily schedule; F12 covered time, date and the long daily report."
+    },
+    {
+      "scenario": "Automatic alert hierarchy toggles",
+      "type": "real NVDA",
+      "nvda": "2026.2 and 2026.3beta2",
+      "language": "ar/en",
+      "status": "PASS",
+      "evidence": "All alerts, prayer alerts, clock alert, adhkar alerts, recurring dhikr and quiet-hours toggles announced state and were restored. The automated suite covers subordinate policy combinations."
+    },
+    {
+      "scenario": "Prayer states, iqama/waiting, before/at/after alerts, deduplication and rescheduling",
+      "type": "automated plus prior acceptance evidence",
+      "nvda": "2026.2 where practical",
+      "language": "ar/en",
+      "status": "PASS",
+      "evidence": "The unchanged scheduler/prayer code is covered comprehensively by the current suite and by the documented 4.x/5.1 acceptance. New real-NVDA commands verified current previous/next and full schedule output."
+    },
+    {
+      "scenario": "Resume and system time/time-zone change integration",
+      "type": "real NVDA integration plus automated boundary tests",
+      "nvda": "2026.2 and 2026.3beta2",
+      "language": "ar/en",
+      "status": "PASS",
+      "evidence": "The installed plugin's actual resume and time-change adapters were invoked in-process; scheduler rebuild completed in 0.01277-0.02082 seconds and retained one active timer. Automated tests cover DST, wall-clock and rescheduling boundaries. The host was not physically suspended and its real time zone was not changed."
+    },
+    {
+      "scenario": "Civil/Ghurubi clocks, five calendars, dual formats and representative boundaries",
+      "type": "real NVDA samples plus automated matrix",
+      "nvda": "2026.2 and 2026.3beta2",
+      "language": "ar/en",
+      "status": "PASS",
+      "evidence": "F12, H and Shift+H exercised civil time, Gregorian/Hijri, Arabian, Afghan and Persian Solar output; G exercised Ghurubi time. Full formats, leap years and year boundaries remain covered automatically."
+    },
+    {
+      "scenario": "Qibla, astronomy, Arabian calendar and selectable text windows",
+      "type": "real NVDA",
+      "nvda": "2026.2 and 2026.3beta2",
+      "language": "ar/en",
+      "status": "PASS",
+      "evidence": "Qibla and daily/Arabian reports produced localized output. Prayer and daily text windows were read-only, multiline, direction-correct and received focus for keyboard review/copying."
+    },
+    {
+      "scenario": "Speech-only, sound-only, sound then speech, preview/removal, fallback and overlap policy",
+      "type": "real NVDA sample plus prior acceptance evidence",
+      "nvda": "2026.2 and 2026.3beta2",
+      "language": "ar/en",
+      "status": "PASS",
+      "evidence": "A corrupt WAV fell back safely and a roughly four-second real audio operation allowed 128-131 GUI heartbeats at 25 ms, proving it did not block NVDA. The unchanged task 4.4 acceptance covers the complete action and overlap matrix, preview and customization removal."
+    },
+    {
+      "scenario": "Morning/evening adhkar, Friday hour, daily wird and recurring dhikr",
+      "type": "real NVDA",
+      "nvda": "2026.2 and 2026.3beta2",
+      "language": "ar/en",
+      "status": "PASS",
+      "evidence": "All five event types passed through the real central Scheduler, Coordinator, Presenter and NVDA speech path. The recent unchanged corrective acceptance additionally proves three consecutive recurring cycles, hierarchy, rebuild, quiet hours and deduplication."
+    },
+    {
+      "scenario": "Adhkar settings accessibility and defaults",
+      "type": "real NVDA plus automated",
+      "nvda": "2026.2 and 2026.3beta2",
+      "language": "ar/en",
+      "status": "PASS",
+      "evidence": "Dependent controls disappeared from Tab when each feature was disabled. Morning/evening 15, Friday 60, recurring interval minimum 5 and enabled-item list were observed. The suite verifies default interval 60, 5..1440 validation, 12-hour wird validation/focus, first full interval, disabled-item removal, empty cycle and conditional audio controls."
+    },
+    {
+      "scenario": "Explicit network verification and data update: success, no update, timeout, failure and cancellation",
+      "type": "prior real-NVDA acceptance plus current automated regression",
+      "nvda": "2026.2",
+      "language": "ar/en",
+      "status": "PASS",
+      "evidence": "Documented task 5.3 acceptance remains valid because the affected network/UI code did not change. It proves no automatic connection, production success, no-update, timeout, failure, cancellation, keyboard navigation and responsive GUI while work executes off the main thread."
+    },
+    {
+      "scenario": "Offline startup",
+      "type": "automated contract plus prior real-NVDA acceptance",
+      "nvda": "2026.2",
+      "language": "ar/en",
+      "status": "PASS",
+      "evidence": "Startup performs no network operation; all network entry points require an explicit user action. Prior 5.3 real-NVDA acceptance verified no connection before activation and continued local operation after network failure."
+    },
+    {
+      "scenario": "Corrupt configuration",
+      "type": "real NVDA isolated profile",
+      "nvda": "2026.2",
+      "language": "ar",
+      "status": "PASS",
+      "evidence": "NVDA initialized, Awqati announced a controlled failure, did not overwrite the existing corrupt file and emitted no Awqati traceback."
+    },
+    {
+      "scenario": "Corrupt calculation-method data",
+      "type": "real NVDA isolated profile",
+      "nvda": "2026.2",
+      "language": "ar",
+      "status": "PASS",
+      "evidence": "Baseline exposed an unhandled CalculationMethodDataError during GlobalPlugin construction. The plugin now catches every known local-data validation exception, logs one controlled error without traceback, and presents a localized recovery message. The real-NVDA retest passed."
+    },
+    {
+      "scenario": "Missing/corrupt WAV",
+      "type": "real NVDA plus automated",
+      "nvda": "2026.2 and 2026.3beta2",
+      "language": "ar/en",
+      "status": "PASS",
+      "evidence": "Corrupt custom audio was rejected and default fallback completed without blocking or crashing; missing-file and fallback policy are covered automatically."
+    },
+    {
+      "scenario": "Stable/preview API and UI compatibility smoke test",
+      "type": "real NVDA",
+      "nvda": "2026.2 and 2026.3beta2",
+      "language": "ar/en",
+      "status": "PASS",
+      "evidence": "Addon loading, settings, F11/F12/H/Shift+H, representative adhkar presentation, speech/audio and RTL/LTR all passed with one runtime/scheduler/coordinator/presenter."
+    },
+    {
+      "scenario": "NVDA log review",
+      "type": "real NVDA",
+      "nvda": "2026.2 and 2026.3beta2",
+      "language": "ar/en",
+      "status": "PASS",
+      "evidence": "Final acceptance runs contain no Awqati runtime error or unhandled Awqati traceback. Unrelated host entries for an optional ftd2xx braille driver, CLDR symbol loading and Windows access-denied diagnostics are explicitly out of scope."
+    },
+    {
+      "scenario": "Braille software delivery path for F11/F12 third press",
+      "type": "real NVDA instrumentation",
+      "nvda": "2026.2 and 2026.3beta2",
+      "language": "ar/en",
+      "status": "PASS",
+      "evidence": "The full third-press F11 schedule and long third-press F12 report reached NVDA's braille.handler.message path in all four acceptance runs."
+    },
+    {
+      "scenario": "Physical braille cells and review/panning of long F11/F12 text",
+      "type": "physical device",
+      "nvda": "2026.2",
+      "language": "user configuration",
+      "status": "PASS",
+      "evidence": "The project owner confirmed on 2026-09-17 that the third-press F11 and F12 text appeared on physical braille cells and could be reviewed and panned, including the long third-press F12 report."
+    }
+  ],
+  "defects": [
+    {
+      "id": "TASK54-DATA-STARTUP",
+      "status": "FIXED",
+      "rootCause": "GlobalPlugin initialization only handled configuration errors. A validated but corrupt local data file raised a known DataError subclass outside the guarded branch and produced an unhandled plugin traceback.",
+      "fix": "Catch the five known local-data exception types at the composition boundary, log a controlled error without traceback, and schedule a localized recovery dialog after NVDA startup.",
+      "regression": "tests/test_task54_acceptance.py verifies the complete exception tuple and non-traceback reporting contract."
+    }
+  ],
+  "rawEvidence": {
+    "stableArabic": ".task54/stable_ar/task54_result.json",
+    "stableEnglish": ".task54/stable_en/task54_result.json",
+    "previewArabic": ".task54/beta_ar/task54_result.json",
+    "previewEnglish": ".task54/beta_en/task54_result.json",
+    "note": "Raw temporary profiles and logs are summarized here and removed before handoff; permanent earlier evidence remains in docs/."
+  },
+  "closure": {
+    "commitAllowed": true,
+    "pushAllowed": false,
+    "reason": "All mandatory acceptance items, including physical braille, passed.",
+    "nextTask": "5.5 after the task 5.4 closing commit."
+  }
+}
