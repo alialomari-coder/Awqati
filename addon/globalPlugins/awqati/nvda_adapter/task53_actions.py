@@ -90,6 +90,50 @@ class _OperationDialog(wx.Dialog):
 			event.Veto()
 
 
+class _PrivacyDialog(wx.Dialog):
+	"""Non-modal confirmation used only by the global verification command."""
+
+	def __init__(self, parent: wx.Window, title: str, message: str,
+			on_answer: Callable[[int], None]) -> None:
+		super().__init__(parent, title=title, style=wx.DEFAULT_DIALOG_STYLE)
+		self._on_answer = on_answer
+		self._answered = False
+		self.SetLayoutDirection(
+			wx.Layout_RightToLeft if is_rtl_language(languageHandler.getLanguage())
+			else wx.Layout_LeftToRight)
+		panel = wx.Panel(self)
+		sizer = wx.BoxSizer(wx.VERTICAL)
+		message_label = wx.StaticText(panel, label=message, name=message)
+		message_label.Wrap(520)
+		buttons = wx.StdDialogButtonSizer()
+		self.yes_button = wx.Button(panel, wx.ID_YES)
+		self.no_button = wx.Button(panel, wx.ID_NO)
+		buttons.AddButton(self.yes_button)
+		buttons.AddButton(self.no_button)
+		buttons.Realize()
+		sizer.Add(message_label, flag=wx.ALL | wx.EXPAND, border=12)
+		sizer.Add(buttons, flag=wx.LEFT | wx.RIGHT | wx.BOTTOM | wx.ALIGN_RIGHT, border=12)
+		panel.SetSizer(sizer)
+		outer = wx.BoxSizer(wx.VERTICAL)
+		outer.Add(panel, proportion=1, flag=wx.EXPAND)
+		self.SetSizerAndFit(outer)
+		self.SetAffirmativeId(wx.ID_NO)
+		self.SetEscapeId(wx.ID_NO)
+		self.no_button.SetDefault()
+		self.yes_button.Bind(wx.EVT_BUTTON, lambda event: self._finish(wx.YES))
+		self.no_button.Bind(wx.EVT_BUTTON, lambda event: self._finish(wx.NO))
+		self.Bind(wx.EVT_CLOSE, lambda event: self._finish(wx.NO))
+		self.CentreOnParent()
+
+	def _finish(self, answer: int) -> None:
+		if self._answered:
+			return
+		self._answered = True
+		self.Hide()
+		self.Destroy()
+		wx.CallAfter(self._on_answer, answer)
+
+
 def _interaction_parent() -> wx.Window:
 	"""Use the invoking NVDA dialog when one has focus, otherwise the main frame."""
 	focus = wx.Window.FindFocus()
@@ -113,6 +157,7 @@ class Task53Actions:
 		self.data_updates, self.online_verifier = data_updates, online_verifier
 		self.awqati_version, self.show_text = awqati_version, show_text
 		self._privacy_approved = False
+		self._privacy_dialog: _PrivacyDialog | None = None
 		self._closed = False
 		self._tokens: set[CancellationToken] = set()
 
@@ -147,30 +192,60 @@ class Task53Actions:
 		if settings.location is None:
 			ui.message(_("This Awqati command is unavailable until a valid location is assigned."))
 			return
-		parent = _interaction_parent()
 		if not self._privacy_approved:
-			# A global command starts while another application owns foreground
-			# focus. Prepare NVDA's popup lifecycle and announce after the native
-			# dialog has settled; the settings button stays on its existing path.
 			privacy_message = _("Online verification sends the coordinates required for calculation and the selected calculation method to the AlAdhan Prayer Times API. Approval applies only to this NVDA session. Do you want to continue?")
 			if from_global_command:
-				gui.mainFrame.prePopup()
-				wx.CallLater(100, ui.message, privacy_message)
-			try:
-				answer = wx.MessageBox(
-					privacy_message,
-					_("Awqati online prayer-time verification"),
-					wx.YES_NO | wx.NO_DEFAULT | wx.ICON_QUESTION,
-					parent,
-				)
-			finally:
-				if from_global_command:
-					gui.mainFrame.postPopup()
+				self._show_global_privacy_prompt(settings.location, privacy_message)
+				return
+			answer = wx.MessageBox(
+				privacy_message,
+				_("Awqati online prayer-time verification"),
+				wx.YES_NO | wx.NO_DEFAULT | wx.ICON_QUESTION,
+				_interaction_parent(),
+			)
 			if answer != wx.YES:
 				ui.message(_("Online prayer-time verification was cancelled. No data was sent."))
 				return
 			self._privacy_approved = True
-		stored = settings.location
+		self._start_online_verification(settings.location)
+
+	def _show_global_privacy_prompt(self, stored, privacy_message: str) -> None:
+		if self._privacy_dialog is not None and not self._privacy_dialog.IsBeingDeleted():
+			self._privacy_dialog.Raise()
+			self._privacy_dialog.no_button.SetFocus()
+			return
+		gui.mainFrame.prePopup()
+
+		def answered(answer: int) -> None:
+			self._privacy_dialog = None
+			gui.mainFrame.postPopup()
+			if self._closed:
+				return
+			if answer != wx.YES:
+				ui.message(_("Online prayer-time verification was cancelled. No data was sent."))
+				return
+			self._privacy_approved = True
+			self._start_online_verification(stored)
+
+		try:
+			dialog = _PrivacyDialog(
+				gui.mainFrame,
+				_("Awqati online prayer-time verification"),
+				privacy_message,
+				answered,
+			)
+			self._privacy_dialog = dialog
+			dialog.Show()
+			dialog.Raise()
+			dialog.no_button.SetFocus()
+			wx.CallLater(100, ui.message, privacy_message)
+		except Exception:
+			self._privacy_dialog = None
+			gui.mainFrame.postPopup()
+			raise
+
+	def _start_online_verification(self, stored) -> None:
+		parent = _interaction_parent()
 
 		def verify(token: CancellationToken):
 			# Time-zone lookup and prayer calculation may lazily read bundled or

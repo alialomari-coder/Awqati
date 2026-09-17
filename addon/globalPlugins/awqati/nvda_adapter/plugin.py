@@ -221,7 +221,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	@scriptHandler.script(description=_("Press once to verify today's prayer times online or twice to open today's prayer times window."), category=CATEGORY, gesture="kb:NVDA+shift+p")
 	def script_prayerVerification(self, gesture):
-		self._press((lambda: self._actions.verify_online(from_global_command=True), self._showPrayerTimes))
+		self._press((lambda: wx.CallAfter(self._actions.verify_online, from_global_command=True), self._showPrayerTimes))
 
 	@scriptHandler.script(description=_("Announce the Gregorian date."), category=CATEGORY)
 	def script_gregorianDate(self, gesture): self._say(lambda: self._content.date_text(CalendarId.GREGORIAN, self._language()))

@@ -1,0 +1,50 @@
+{
+  "scope": "First-session online prayer verification privacy prompt from NVDA+Shift+P only",
+  "rootCause": "Build 0.5.3.5 called synchronous wx.MessageBox directly from the global gesture callback. prePopup/postPopup made the prompt audible, but the callback remained blocked inside the modal call and NVDA could not dispatch the user's keyboard input normally.",
+  "fix": "The one-press command now schedules the existing action with wx.CallAfter. Only its first-session privacy branch uses a non-modal keyboard-accessible wx.Dialog; the settings button retains its existing wx.MessageBox path. The dialog brackets its lifetime with prePopup/postPopup, defaults to No, maps Escape to No, and continues through the existing verification worker after Yes.",
+  "package": {
+    "version": "0.5.3.6",
+    "file": "dist/awqati-0.5.3.6.nvda-addon",
+    "sizeBytes": 12387047,
+    "sha256": "0ad5fff9518c6e74ab6c07839a788a80e8bc88948fca69a222ff62c74174816f"
+  },
+  "realNvda": {
+    "version": "2026.2 AMD64",
+    "language": "Arabic RTL",
+    "externalApplication": "Windows Notepad",
+    "freshRejectSession": {
+      "initialFocus": "No",
+      "tabFocus": "Yes",
+      "shiftTabFocus": "No",
+      "escapeRejected": true,
+      "privacyAndCancellationSpoken": true,
+      "focusReturnedToNotepad": true
+    },
+    "freshApproveSession": {
+      "initialFocus": "No",
+      "tabAndShiftTabWorked": true,
+      "enterOnYesApproved": true,
+      "startMessageSpoken": true,
+      "productionAlAdhanSuccessSpoken": true,
+      "focusReturnedToNotepad": true
+    },
+    "sameSessionLaterUse": {
+      "privacyPromptRepeated": false,
+      "startAndSuccessfulResultSpoken": true,
+      "focusReturnedToNotepad": true
+    },
+    "awqatiErrorOrTraceback": false,
+    "computerUse": "Unavailable because the trusted Windows helper failed with an ACL error; the real NVDA process used an isolated add-on profile and wx.UIActionSimulator to send the actual global shortcut and keyboard navigation."
+  },
+  "checks": {
+    "targeted": "37/37 passed",
+    "full": "778/778 passed",
+    "runChecks": "ALL REQUIRED CHECKS PASSED",
+    "gitDiffCheck": "passed"
+  },
+  "installed": {
+    "version": "0.5.3.6",
+    "settingsSha256BeforeAndAfter": "762788239437a45844307e8747b0062e08c15b22feb3cbc6734608a6386ef8f4"
+  },
+  "unchanged": ["privacy text", "settings button", "AlAdhan logic", "clock", "adhkar", "task 5.4"]
+}

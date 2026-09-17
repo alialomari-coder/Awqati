@@ -12,7 +12,7 @@ class Task53ContractTests(unittest.TestCase):
 		self.assertIn("verify_prayer_times=self._actions.verify_online", plugin)
 		self.assertIn("self._actions.copy_diagnostics()", plugin)
 		self.assertIn("check_data_updates=self._actions.check_data_updates", plugin)
-		self.assertIn("self._actions.verify_online(from_global_command=True)", plugin)
+		self.assertIn("wx.CallAfter(self._actions.verify_online, from_global_command=True)", plugin)
 		self.assertIn("self._context.check_data_updates()", plugin)
 		self.assertIn('label=_(\"Copy diagnostic information\")', panel)
 		self.assertIn('label=_(\"Check for data updates\")', panel)
@@ -22,18 +22,26 @@ class Task53ContractTests(unittest.TestCase):
 		self.assertIn("context.verify_prayer_times()", panel)
 		verification_script = plugin[plugin.index("def script_prayerVerification"):plugin.index("def script_gregorianDate")]
 		update_script = plugin[plugin.index("def script_dataUpdates"):plugin.index("def terminate")]
-		self.assertIn("self._actions.verify_online(from_global_command=True)", verification_script)
+		self.assertIn("wx.CallAfter(self._actions.verify_online, from_global_command=True)", verification_script)
 		self.assertNotIn("self._actions.check_data_updates", update_script)
 
-	def test_global_command_privacy_prompt_uses_nvda_popup_lifecycle(self):
+	def test_global_command_privacy_prompt_is_scheduled_and_non_modal(self):
 		source = (ROOT / "addon/globalPlugins/awqati/nvda_adapter/task53_actions.py").read_text(encoding="utf-8")
-		method = source[source.index("def verify_online"):source.index("def _run_async")]
+		method = source[source.index("def verify_online"):source.index("def _start_online_verification")]
+		dialog = source[source.index("class _PrivacyDialog"):source.index("def _interaction_parent")]
 		self.assertIn("from_global_command: bool = False", method)
 		self.assertIn("wx.CallLater(100, ui.message, privacy_message)", method)
 		self.assertEqual(method.count("wx.MessageBox("), 1)
-		self.assertLess(method.index("gui.mainFrame.prePopup()"), method.index("wx.MessageBox("))
-		self.assertLess(method.index("wx.MessageBox("), method.index("gui.mainFrame.postPopup()"))
-		self.assertIn("finally:", method)
+		self.assertIn("self._show_global_privacy_prompt(settings.location, privacy_message)", method)
+		self.assertIn("dialog.Show()", method)
+		self.assertNotIn("ShowModal", method)
+		self.assertNotIn("ShowModal", dialog)
+		self.assertIn("wx.CallAfter(self._on_answer, answer)", dialog)
+		self.assertIn("self.SetEscapeId(wx.ID_NO)", dialog)
+		self.assertIn("self.no_button.SetDefault()", dialog)
+		self.assertIn("self.yes_button.Bind(wx.EVT_BUTTON", dialog)
+		self.assertIn("self.no_button.Bind(wx.EVT_BUTTON", dialog)
+		self.assertLess(method.index("gui.mainFrame.prePopup()"), method.index("dialog.Show()"))
 
 	def test_opening_settings_and_composition_do_not_start_network(self):
 		plugin = (ROOT / "addon/globalPlugins/awqati/nvda_adapter/plugin.py").read_text(encoding="utf-8")

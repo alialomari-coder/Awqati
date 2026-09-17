@@ -1,4 +1,10 @@
 # Awqati changes
+## 0.5.3.6 — keyboard-responsive shortcut privacy prompt
+
+- Opened the first-session privacy confirmation non-modally after the global gesture handler returns.
+- Preserved its text, session-only approval, focus restoration, and the existing settings-button behavior.
+- Added regression coverage preventing a blocking modal dialog from returning to the shortcut path.
+
 ## 0.5.3.2 — manual data updates and diagnostics
 
 - Added the public HTTPS data channel for the five approved versioned data packages.
