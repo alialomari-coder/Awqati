@@ -12,7 +12,7 @@ class Task53ContractTests(unittest.TestCase):
 		self.assertIn("verify_prayer_times=self._actions.verify_online", plugin)
 		self.assertIn("self._actions.copy_diagnostics()", plugin)
 		self.assertIn("check_data_updates=self._actions.check_data_updates", plugin)
-		self.assertIn("self._context.verify_prayer_times", plugin)
+		self.assertIn("self._actions.verify_online(from_global_command=True)", plugin)
 		self.assertIn("self._context.check_data_updates()", plugin)
 		self.assertIn('label=_(\"Copy diagnostic information\")', panel)
 		self.assertIn('label=_(\"Check for data updates\")', panel)
@@ -22,8 +22,18 @@ class Task53ContractTests(unittest.TestCase):
 		self.assertIn("context.verify_prayer_times()", panel)
 		verification_script = plugin[plugin.index("def script_prayerVerification"):plugin.index("def script_gregorianDate")]
 		update_script = plugin[plugin.index("def script_dataUpdates"):plugin.index("def terminate")]
-		self.assertNotIn("self._actions.verify_online", verification_script)
+		self.assertIn("self._actions.verify_online(from_global_command=True)", verification_script)
 		self.assertNotIn("self._actions.check_data_updates", update_script)
+
+	def test_global_command_privacy_prompt_uses_nvda_popup_lifecycle(self):
+		source = (ROOT / "addon/globalPlugins/awqati/nvda_adapter/task53_actions.py").read_text(encoding="utf-8")
+		method = source[source.index("def verify_online"):source.index("def _run_async")]
+		self.assertIn("from_global_command: bool = False", method)
+		self.assertIn("wx.CallLater(100, ui.message, privacy_message)", method)
+		self.assertEqual(method.count("wx.MessageBox("), 1)
+		self.assertLess(method.index("gui.mainFrame.prePopup()"), method.index("wx.MessageBox("))
+		self.assertLess(method.index("wx.MessageBox("), method.index("gui.mainFrame.postPopup()"))
+		self.assertIn("finally:", method)
 
 	def test_opening_settings_and_composition_do_not_start_network(self):
 		plugin = (ROOT / "addon/globalPlugins/awqati/nvda_adapter/plugin.py").read_text(encoding="utf-8")

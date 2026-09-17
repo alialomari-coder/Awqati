@@ -142,19 +142,30 @@ class Task53Actions:
 			self._update_success,
 		)
 
-	def verify_online(self) -> None:
+	def verify_online(self, *, from_global_command: bool = False) -> None:
 		settings = self.settings.runtime_settings
 		if settings.location is None:
 			ui.message(_("This Awqati command is unavailable until a valid location is assigned."))
 			return
 		parent = _interaction_parent()
 		if not self._privacy_approved:
-			answer = wx.MessageBox(
-				_("Online verification sends the coordinates required for calculation and the selected calculation method to the AlAdhan Prayer Times API. Approval applies only to this NVDA session. Do you want to continue?"),
-				_("Awqati online prayer-time verification"),
-				wx.YES_NO | wx.NO_DEFAULT | wx.ICON_QUESTION,
-				parent,
-			)
+			# A global command starts while another application owns foreground
+			# focus. Prepare NVDA's popup lifecycle and announce after the native
+			# dialog has settled; the settings button stays on its existing path.
+			privacy_message = _("Online verification sends the coordinates required for calculation and the selected calculation method to the AlAdhan Prayer Times API. Approval applies only to this NVDA session. Do you want to continue?")
+			if from_global_command:
+				gui.mainFrame.prePopup()
+				wx.CallLater(100, ui.message, privacy_message)
+			try:
+				answer = wx.MessageBox(
+					privacy_message,
+					_("Awqati online prayer-time verification"),
+					wx.YES_NO | wx.NO_DEFAULT | wx.ICON_QUESTION,
+					parent,
+				)
+			finally:
+				if from_global_command:
+					gui.mainFrame.postPopup()
 			if answer != wx.YES:
 				ui.message(_("Online prayer-time verification was cancelled. No data was sent."))
 				return

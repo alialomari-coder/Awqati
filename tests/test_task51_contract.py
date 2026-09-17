@@ -51,7 +51,7 @@ class Task51ContractTests(unittest.TestCase):
 
 	def test_shift_p_first_press_verifies_and_second_opens_prayer_window(self):
 		block = self.source[self.source.index("def script_prayerVerification"):self.source.index("def script_gregorianDate")]
-		self.assertIn("self._press((self._context.verify_prayer_times, self._showPrayerTimes))", block)
+		self.assertIn("self._actions.verify_online(from_global_command=True)", block)
 		self.assertEqual(1, block.count("self._showPrayerTimes"))
 
 	def test_f12_triple_press_announces_and_does_not_open_window(self):

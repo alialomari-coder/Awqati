@@ -1,0 +1,28 @@
+{
+  "scope": "First-session online prayer verification privacy prompt from NVDA+Shift+P only",
+  "rootCause": "The global command opened the native wx privacy message box while another application owned foreground focus. Unlike the settings button, it did not run NVDA's popup focus lifecycle, and no post-focus announcement was scheduled, so the visible prompt produced no speech.",
+  "fix": "The script passes from_global_command=True into the existing shared verification method. Only while first-session privacy approval is needed, that path brackets the unchanged native message box with gui.mainFrame.prePopup/postPopup and schedules ui.message with the unchanged privacy text 100 ms after the dialog opens.",
+  "package": {
+    "version": "0.5.3.5",
+    "file": "dist/awqati-0.5.3.5.nvda-addon",
+    "sizeBytes": 12386717,
+    "sha256": "13051693b52d9e25ba38729de8909aa0d775783cdb2a0c5f36e27d1d153cbfbe"
+  },
+  "realNvda": {
+    "version": "2026.2 AMD64",
+    "freshSessionDirectShortcut": true,
+    "rejection": "The prompt was spoken in English and Arabic; No was keyboard-accessible, cancellation was spoken, privacy remained unapproved, and focus returned to the prior application.",
+    "approval": "The prompt was spoken, Yes continued to the existing AlAdhan worker, and NVDA spoke the start message and the successful six-times-within-two-minutes result.",
+    "sameSessionLaterUse": "A second NVDA+Shift+P invocation did not prompt again and spoke the same start and successful result messages.",
+    "focusAndResponsiveness": "The native dialog was foreground with Yes and No buttons exposed; focus returned to the prior application after either response. No network work moved back to NVDA's main thread.",
+    "logs": "No Awqati traceback or unhandled error occurred in the final acceptance runs."
+  },
+  "checks": {
+    "targetedTask53": "30/30 passed",
+    "targetedTask51Contract": "7/7 passed",
+    "full": "778/778 passed",
+    "runChecks": "ALL REQUIRED CHECKS PASSED",
+    "gitDiffCheck": "passed"
+  },
+  "unchanged": ["privacy text", "AlAdhan logic", "settings button", "data updates", "clock", "adhkar", "task 5.4"]
+}
