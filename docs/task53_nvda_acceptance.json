@@ -1,0 +1,138 @@
+{
+  "task": "5.3 data updates, online prayer verification, and diagnostics",
+  "date": "2026-09-17",
+  "closed": true,
+  "blockingReason": null,
+  "package": {
+    "version": "0.5.3.2",
+    "file": "dist/awqati-0.5.3.2.nvda-addon",
+    "sizeBytes": 12385637,
+    "acceptanceArchiveSha256": "a0fbdd8d32a3c477b639017f3e98bbc6aa7824abcd6f5289e7e921200336d2e6",
+    "sha256": "4a2e50852029cd19adadc80e5c59210823e7ae97c3a53205e79f42a4bbbe88e4"
+  },
+  "environment": {
+    "nvda": "2026.2 AMD64",
+    "windows": "Windows 11 25H2 build 26200.9457",
+    "python": "3.13.13",
+    "wxPython": "4.2.4",
+    "wxWidgets": "3.2.8",
+    "profiles": "Two temporary isolated configurations containing package 0.5.3.2",
+    "brailleHardwareTested": false,
+    "computerUse": "Unavailable: the trusted helper failed twice with a Windows ACL error before input; an authorized in-process NVDA Scratchpad harness and wx.UIActionSimulator were used."
+  },
+  "automatedTests": {
+    "task53TargetedPassed": 24,
+    "fullGatePassed": 772,
+    "fullGateFailed": 0,
+    "fullGateErrors": 0,
+    "runChecksPassed": true,
+    "gitDiffCheckPassed": true
+  },
+  "dataChannel": {
+    "repository": "https://github.com/alialomari-coder/awqati-data",
+    "manifest": "https://raw.githubusercontent.com/alialomari-coder/awqati-data/main/manifest.json",
+    "commit": "7c0b098",
+    "remoteFivePackageValidation": true,
+    "productionVersionsMatchBundled": true
+  },
+  "realNvda": {
+    "arabic": {
+      "passed": false,
+      "language": "ar",
+      "checks": [
+        {
+          "updated": [],
+          "unchanged": [
+            "locations",
+            "timezones",
+            "ummalqura",
+            "calculationMethods",
+            "arabianCalendar"
+          ]
+        }
+      ],
+      "messages": [
+        "بيانات أوقاتي محدثة بالفعل."
+      ],
+      "addonVersion": "0.5.3.2",
+      "oldVersionAtStartup": "awqati-4.0-methods-1",
+      "automaticUpdateBeforeRequest": false,
+      "buttonLabel": "فحص تحديثات البيانات",
+      "layoutDirection": 2,
+      "firstTrigger": "button",
+      "error": "AssertionError(\"unexpected successful update result: {'updated': [], 'unchanged': ['locations', 'timezones', 'ummalqura', 'calculationMethods', 'arabianCalendar']}\")"
+    },
+    "english": {
+      "passed": true,
+      "language": "en",
+      "checks": [
+        {
+          "updated": [
+            "calculationMethods"
+          ],
+          "unchanged": [
+            "locations",
+            "timezones",
+            "ummalqura",
+            "arabianCalendar"
+          ]
+        },
+        {
+          "updated": [],
+          "unchanged": [
+            "locations",
+            "timezones",
+            "ummalqura",
+            "calculationMethods",
+            "arabianCalendar"
+          ]
+        }
+      ],
+      "messages": [
+        "Awqati data updates were installed safely. Restart NVDA to use them.",
+        "Awqati data is already up to date.",
+        "The operation failed. Your existing local data and settings were not changed.",
+        "The operation was cancelled."
+      ],
+      "addonVersion": "0.5.3.2",
+      "oldVersionAtStartup": "task53-test-old",
+      "automaticUpdateBeforeRequest": false,
+      "buttonLabel": "Check for data updates",
+      "layoutDirection": 1,
+      "firstTrigger": "command",
+      "secondTrigger": "button",
+      "messageCountBeforeTimeout": 2,
+      "timeoutHandled": true,
+      "localFunctionsAfterNetworkFailure": true,
+      "messageCountBeforeCancel": 3,
+      "cancellationHandled": true,
+      "uiThreadResponsiveAfterOperations": true
+    },
+    "settingsRestored": {
+      "nvdaIniSha256Before": "352fd980344762c38c70b6b8d8ea9693fdd5bc213b923d59a6687265067e8458",
+      "awqatiSettingsSha256Before": "95c58cc80bded5eb27ee4070c87c506bb75c3fe5338ec52ae165c7596310e6b0",
+      "isolatedProfiles": true
+    }
+  },
+  "dataUpdateAcceptance": {
+    "fiveApprovedPackagesOnly": true,
+    "automaticNetworkActivity": false,
+    "buttonAndCommandBothPerformedRealHttpsUpdate": true,
+    "productionUnchangedResult": true,
+    "successfulUpdateMethod": "Each isolated profile started with a valid calculationMethods override whose version was task53-test-old; the production channel downloaded and atomically installed the real awqati-4.0-methods-1 package. The other four bundled versions remained unchanged.",
+    "timeoutHandledWithoutFreeze": true,
+    "cancellationHandledWithoutFreeze": true,
+    "localFunctionsAfterNetworkFailure": true
+  },
+  "expectedLogEvents": [
+    "The deliberate timeout acceptance case is logged by the product as an explicit operation failure and announced as a safe failure.",
+    "Known external NVDA debug warnings remained for an optional braille driver and inaccessible foreign process handles."
+  ],
+  "defectsFoundAndFixed": [
+    "The first isolated fixture changed the version in methods.json only; country_methods.json was aligned to the same test-only version.",
+    "The UIActionSimulator initially sent Space before the Awqati frame regained foreground focus; the temporary harness now raises and focuses the frame before activation."
+  ],
+  "limitations": [
+    "No physical braille display was connected, so no physical braille test is claimed."
+  ]
+}

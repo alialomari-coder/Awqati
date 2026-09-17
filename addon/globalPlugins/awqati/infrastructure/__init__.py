@@ -39,6 +39,10 @@ __all__ = [
 	"safe_reference_path",
 	"validate_wav",
 	"normalize_location_text",
+	"AlAdhanPrayerProvider",
+	"AtomicDataPackageInstaller",
+	"HttpsTransport",
+	"active_data_path",
 ]
 
 
@@ -72,6 +76,10 @@ _EXPORT_MODULES = {
 	"WaveInfo": ".audio_files",
 	"safe_reference_path": ".audio_files",
 	"validate_wav": ".audio_files",
+	"AlAdhanPrayerProvider": ".network_services",
+	"AtomicDataPackageInstaller": ".network_services",
+	"HttpsTransport": ".network_services",
+	"active_data_path": ".network_services",
 }
 
 

@@ -2,14 +2,14 @@
 <html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
-<title>Awqati 0.5.2 user guide</title>
+<title>Awqati 0.5.3 user guide</title>
 </head>
 <body>
-<h1>Awqati 0.5.2 user guide</h1>
+<h1>Awqati 0.5.3 user guide</h1>
 <p>Awqati is a keyboard-accessible NVDA add-on for local prayer times, Zawali and Ghurubi clocks, five calendars, Qibla direction, daily astronomical information, the Arabian calendar, alerts, adhkar, and a daily Wird. Version 0.5.2 provides a complete Arabic and English interface, speech output, and documentation.</p>
 
 <h2>Location and offline operation</h2>
-<p>On first run, choose a country and city, explicitly ask Windows to detect your location, or enter a custom name, latitude, longitude, and IANA time zone. Core calculations use bundled data and work without an Internet connection. Online prayer-time verification and data updates are not implemented yet.</p>
+<p>On first run, choose a country and city, explicitly ask Windows to detect your location, or enter a custom name, latitude, longitude, and IANA time zone. Core calculations use bundled data and work without an Internet connection. Online prayer-time verification is optional and runs only after an explicit request and session privacy approval.</p>
 
 <h2>Features</h2>
 <ul>
@@ -33,7 +33,7 @@
 <li>NVDA+H: lunar Hijri date; press twice for Saudi Solar Hijri; press three times for the Arabian-calendar summary.</li>
 <li>NVDA+Shift+H: Afghan Solar Hijri; press twice for Persian Solar Hijri.</li>
 <li>NVDA+Ctrl+H: scientific daily information; press twice for Arabian-calendar information; press three times to open the selectable Daily information window.</li>
-<li>NVDA+Shift+P: announces that online verification awaits a later task; press twice to open the selectable Today's prayer times window.</li>
+<li>NVDA+Shift+P: press once to verify today's six prayer times through AlAdhan after the session privacy notice; press twice to open the selectable Today's prayer times window.</li>
 <li>NVDA+Ctrl+Shift+F11: toggle all automatic alerts.</li>
 <li>NVDA+Shift+F11: toggle recurring dhikr.</li>
 <li>NVDA+Shift+F12: repeat the last presented alert.</li>
@@ -41,7 +41,7 @@
 </ul>
 
 <h2>Commands without a default gesture</h2>
-<p>The following commands are available in NVDA's Input Gestures dialog: Gregorian date, toggle the primary calendar, Zawali time, toggle prayer alerts, toggle clock alerts, toggle dhikr alerts, toggle quiet hours, copy diagnostics, and check for data updates. Diagnostics and data updating remain placeholders for a later task.</p>
+<p>The following commands are available in NVDA's Input Gestures dialog: Gregorian date, toggle the primary calendar, Zawali time, toggle prayer alerts, toggle clock alerts, toggle dhikr alerts, toggle quiet hours, copy diagnostics, and check for data updates. Diagnostics copies a privacy-preserving support report. Data updating is manual and uses the public Awqati data channel only when you activate the command or button. If the published versions match the bundled data, Awqati reports that the data is already up to date.</p>
 
 <h2>Language and Islamic terms</h2>
 <p>Awqati follows NVDA's language. English devotional formulae use consistent Islamic transliteration, while reminders are translated naturally. User-entered daily-Wird text is preserved exactly and is never treated as a translation key.</p>

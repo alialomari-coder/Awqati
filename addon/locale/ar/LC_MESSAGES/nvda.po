@@ -4181,3 +4181,133 @@ msgstr "حان وقت أذكار المساء."
 
 msgid "Remember the Friday hour."
 msgstr "لا تنسَ ساعة الجمعة."
+msgid "Copy diagnostic information"
+msgstr "نسخ معلومات التشخيص"
+
+msgid "Check for data updates"
+msgstr "فحص تحديثات البيانات"
+
+msgid "Verify today's prayer times online..."
+msgstr "التحقق من مواقيت اليوم عبر الإنترنت..."
+
+msgid "Awqati diagnostic information has been copied to the clipboard."
+msgstr "تم نسخ معلومات تشخيص أوقاتي إلى الحافظة."
+
+msgid "Could not copy Awqati diagnostic information to the clipboard."
+msgstr "تعذر نسخ معلومات تشخيص أوقاتي إلى الحافظة."
+
+msgid "The project data update channel has not been configured. Your current local data remains available."
+msgstr "لم تُهيأ قناة تحديث بيانات المشروع. ستبقى بياناتك المحلية الحالية متاحة."
+
+msgid "Checking for Awqati data updates"
+msgstr "فحص تحديثات بيانات أوقاتي"
+
+msgid "Checking the signed data manifest and packages..."
+msgstr "جارٍ التحقق من بيان البيانات والحزم..."
+
+msgid "Online verification sends the coordinates required for calculation and the selected calculation method to the AlAdhan Prayer Times API. Approval applies only to this NVDA session. Do you want to continue?"
+msgstr "يرسل التحقق عبر الإنترنت الإحداثيات اللازمة للحساب وطريقة الحساب المحددة إلى خدمة AlAdhan Prayer Times API. تسري الموافقة على جلسة NVDA الحالية فقط. هل تريد المتابعة؟"
+
+msgid "Awqati online prayer-time verification"
+msgstr "تحقق أوقاتي من المواقيت عبر الإنترنت"
+
+msgid "Online prayer-time verification was cancelled. No data was sent."
+msgstr "أُلغي التحقق من المواقيت عبر الإنترنت. لم تُرسل أي بيانات."
+
+msgid "Verifying today's prayer times online"
+msgstr "التحقق من مواقيت اليوم عبر الإنترنت"
+
+msgid "Contacting AlAdhan for a diagnostic comparison..."
+msgstr "جارٍ الاتصال بخدمة AlAdhan لإجراء مقارنة تشخيصية..."
+
+msgid "The operation was cancelled."
+msgstr "أُلغيت العملية."
+
+msgid "The operation failed. Your existing local data and settings were not changed."
+msgstr "فشلت العملية. لم تتغير بياناتك المحلية الحالية ولا إعداداتك."
+
+msgid "Cancelling..."
+msgstr "جارٍ الإلغاء..."
+
+msgid "All six online prayer times are within two minutes of Awqati's internal times."
+msgstr "المواقيت الستة عبر الإنترنت متقاربة مع مواقيت أوقاتي الداخلية بفارق لا يتجاوز دقيقتين."
+
+msgid "The following prayer times differ by more than two minutes:"
+msgstr "تختلف المواقيت التالية بأكثر من دقيقتين:"
+
+msgid "{prayer}: internal {internal}; online {online}; difference {difference} minutes."
+msgstr "{prayer}: الداخلي {internal}؛ عبر الإنترنت {online}؛ الفرق {difference} دقيقة."
+
+msgid "Online prayer-time comparison"
+msgstr "مقارنة مواقيت الصلاة عبر الإنترنت"
+
+msgid "Awqati data updates were installed safely. Restart NVDA to use them."
+msgstr "ثُبتت تحديثات بيانات أوقاتي بأمان. أعد تشغيل NVDA لاستخدامها."
+
+msgid "Awqati data is already up to date."
+msgstr "بيانات أوقاتي محدثة بالفعل."
+
+msgid "active; current={current}; waiting={waiting}"
+msgstr "نشط؛ الجاري={current}؛ المنتظر={waiting}"
+
+msgid "all={all}; prayer={prayer}; clock={clock}; dhikr={dhikr}"
+msgstr "الكل={all}؛ المواقيت={prayer}؛ الساعة={clock}؛ الأذكار={dhikr}"
+msgid "Awqati diagnostics"
+msgstr "معلومات تشخيص أوقاتي"
+
+msgid "Awqati version"
+msgstr "إصدار أوقاتي"
+
+msgid "NVDA version"
+msgstr "إصدار NVDA"
+
+msgid "Python version"
+msgstr "إصدار Python"
+
+msgid "Windows version"
+msgstr "إصدار Windows"
+
+msgid "Settings schemaVersion"
+msgstr "إصدار مخطط الإعدادات"
+
+msgid "locationDataVersion"
+msgstr "إصدار بيانات المواقع"
+
+msgid "tzDataVersion"
+msgstr "إصدار بيانات المناطق الزمنية"
+
+msgid "hijriDataVersion"
+msgstr "إصدار بيانات أم القرى"
+
+msgid "calculationMethodDataVersion"
+msgstr "إصدار بيانات طرق الحساب"
+
+msgid "arabianCalendarDataVersion"
+msgstr "إصدار بيانات التقويم العربي"
+
+msgid "Location ID"
+msgstr "معرّف الموقع"
+
+msgid "Calculation method"
+msgstr "طريقة الحساب"
+
+msgid "High-latitude rule"
+msgstr "قاعدة خطوط العرض العالية"
+
+msgid "Scheduler"
+msgstr "المجدول"
+
+msgid "Alerts"
+msgstr "التنبيهات"
+
+msgid "not assigned"
+msgstr "غير معيّن"
+
+msgid "Checking the data manifest and packages..."
+msgstr "جارٍ التحقق من بيان البيانات والحزم..."
+
+msgid "yes"
+msgstr "نعم"
+
+msgid "no"
+msgstr "لا"

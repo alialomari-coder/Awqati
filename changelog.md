@@ -1,4 +1,10 @@
 # Awqati changes
+## 0.5.3.2 — manual data updates and diagnostics
+
+- Added the public HTTPS data channel for the five approved versioned data packages.
+- Added atomic package validation, SHA-256 verification, rollback, timeout, and cancellation handling.
+- Added optional AlAdhan prayer-time verification and privacy-preserving diagnostic information.
+- Added accessible Arabic and English settings actions and NVDA commands for explicit checks only.
 ## 0.5.2.3 — numeric spoken clock correction
 
 - Replaced colon-separated numeric clock speech with numeric values and explicit minute and second units.

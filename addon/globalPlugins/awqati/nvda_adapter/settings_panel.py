@@ -340,6 +340,19 @@ class AwqatiSettingsPanel(SettingsPanel):
 		self.quiet_enabled.Bind(wx.EVT_CHECKBOX, self._on_quiet_toggle)
 		self.quiet_panel.Show(quiet.enabled)
 
+		actions = wx.BoxSizer(wx.HORIZONTAL)
+		self.copy_diagnostics = wx.Button(self, label=_("Copy diagnostic information"))
+		self.check_data_updates = wx.Button(self, label=_("Check for data updates"))
+		actions.Add(self.copy_diagnostics, flag=wx.RIGHT, border=8)
+		actions.Add(self.check_data_updates)
+		settingsSizer.Add(actions, flag=wx.LEFT | wx.RIGHT | wx.BOTTOM, border=8)
+		self._register("copyDiagnostics", self.copy_diagnostics)
+		self._register("checkDataUpdates", self.check_data_updates)
+		self.copy_diagnostics.Bind(wx.EVT_BUTTON, lambda event: (
+			context.copy_diagnostics() if context.copy_diagnostics else None, event.Skip()))
+		self.check_data_updates.Bind(wx.EVT_BUTTON, lambda event: (
+			context.check_data_updates() if context.check_data_updates else None, event.Skip()))
+
 		settingsSizer.Add(wx.StaticText(self, label=_("Choose settings section:")), flag=wx.LEFT | wx.RIGHT, border=8)
 		self.section_choice = wx.Choice(self, choices=_translated(SECTION_ORDER, SECTION_LABELS),
 			name=_("Choose settings section"))
@@ -401,6 +414,12 @@ class AwqatiSettingsPanel(SettingsPanel):
 		self._register("prayer.openDailyPrayerTimesWindow", open_daily)
 		open_daily.Bind(wx.EVT_CHECKBOX, lambda e: (
 			setattr(settings, "open_daily_prayer_times_window", open_daily.GetValue()), e.Skip()))
+		verify = wx.Button(panel, label=_("Verify today's prayer times online..."))
+		outer.Add(verify, flag=wx.TOP | wx.BOTTOM, border=8)
+		self._register("prayer.verifyOnline", verify)
+		context = _context_or_raise()
+		verify.Bind(wx.EVT_BUTTON, lambda event: (
+			context.verify_prayer_times() if context.verify_prayer_times else None, event.Skip()))
 		grid = wx.FlexGridSizer(cols=2, hgap=8, vgap=8); grid.AddGrowableCol(1, 1); outer.Add(grid, flag=wx.EXPAND)
 		method_values = tuple(CalculationMethod)
 		method_labels = {CalculationMethod.AUTO: N_("Automatic by country")}

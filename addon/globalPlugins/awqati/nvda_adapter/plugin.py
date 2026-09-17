@@ -19,7 +19,8 @@ import wx
 
 from ..application import (
 	ArabianCalendarService, AstronomyService, CalendarService, ClockService, DailyInfoService,
-	LocationSetupService, PrayerService, SettingsService, first_run_location_required,
+	DataUpdateService, LocationSetupService, OnlinePrayerVerifier, PrayerService, SettingsService,
+	first_run_location_required,
 )
 from ..domain import (
 	AfghanSolarHijriProvider, CalendarId, ClockType, GregorianProvider, PersianSolarHijriProvider,
@@ -29,7 +30,9 @@ from ..domain import (
 from ..infrastructure import (
 	BundledArabianCalendarRepository, BundledCalculationMethodRepository,
 	BundledLocationRepository, BundledTimezoneProvider, JsonSettingsRepository,
+	AlAdhanPrayerProvider, AtomicDataPackageInstaller, HttpsTransport,
 	SettingsRepositoryError, SystemNowProvider, UmmAlQuraProvider, WindowsLocationAdapter,
+	active_data_path,
 )
 from . import compat
 from .commands import CommandContent
@@ -37,12 +40,16 @@ from .runtime import AwqatiRuntime
 from .settings_panel import AwqatiSettingsPanel
 from .settings_sections import supported_language
 from .text_dialog import SelectableTextDialog
+from .task53_actions import Task53Actions
 from .ui import FirstRunLocationDialog, NvdaUiContext, configure
 
 addonHandler.initTranslation()
 _: Callable[[str], str]
 
 CATEGORY = _("Awqati")
+DATA_UPDATE_MANIFEST_URL = (
+	"https://raw.githubusercontent.com/alialomari-coder/awqati-data/main/manifest.json"
+)
 
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
@@ -50,7 +57,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def __init__(self) -> None:
 		super().__init__()
-		self._context = self._runtime = self._content = self._monitor = None
+		self._context = self._runtime = self._content = self._monitor = self._actions = None
 		self._terminated = False
 		try:
 			self._compose()
@@ -61,18 +68,21 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				_("Awqati settings error"), wx.OK | wx.ICON_ERROR, gui.mainFrame)
 
 	def _compose(self) -> None:
-		locations, zones, now = BundledLocationRepository(), BundledTimezoneProvider(), SystemNowProvider()
-		settings_path = Path(globalVars.appArgs.configPath) / "awqati" / "settings.json"
+		root = Path(globalVars.appArgs.configPath) / "awqati"
+		addon_root = Path(__file__).resolve().parents[1]
+		data_root = addon_root / "data"
+		locations = BundledLocationRepository(active_data_path(data_root, root, "locations"))
+		zones = BundledTimezoneProvider(active_data_path(data_root, root, "timezones"))
+		lunar = UmmAlQuraProvider(active_data_path(data_root, root, "ummalqura"))
+		methods = BundledCalculationMethodRepository(active_data_path(data_root, root, "calculationMethods"))
+		arabian_repository = BundledArabianCalendarRepository(active_data_path(data_root, root, "arabianCalendar"))
+		now = SystemNowProvider()
+		settings_path = root / "settings.json"
 		settings = SettingsService(JsonSettingsRepository(settings_path), now,
 			valid_timezone_ids=frozenset(zones.timezone_ids()))
 		location_setup = LocationSetupService(locations, zones,
 			WindowsLocationAdapter(parent_window_handle=gui.mainFrame.GetHandle()))
-		self._context = NvdaUiContext(settings, location_setup)
-		configure(self._context)
-		if AwqatiSettingsPanel not in NVDASettingsDialog.categoryClasses:
-			NVDASettingsDialog.categoryClasses.append(AwqatiSettingsPanel)
-		lunar = UmmAlQuraProvider()
-		prayers = PrayerService(BundledCalculationMethodRepository(), zones, lunar_calendar=lunar)
+		prayers = PrayerService(methods, zones, lunar_calendar=lunar)
 		def request(day: date, location):
 			s = settings.runtime_settings
 			return PrayerCalculationRequest(day, location.latitude, location.longitude, location.timezone_id,
@@ -82,13 +92,41 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		clock = ClockService(now, zones, prayers, request)
 		calendars = CalendarService(now, zones, (GregorianProvider(), lunar, SaudiSolarHijriProvider(),
 			AfghanSolarHijriProvider(), PersianSolarHijriProvider()))
-		arabian = ArabianCalendarService(BundledArabianCalendarRepository(), now, zones)
+		arabian = ArabianCalendarService(arabian_repository, now, zones)
 		daily = DailyInfoService(AstronomyService(now, zones), arabian)
 		self._content = CommandContent(settings, now, zones, prayers, clock, calendars, daily, arabian)
-		root = Path(globalVars.appArgs.configPath) / "awqati"
 		self._runtime = AwqatiRuntime(settings, now, zones, prayers, user_data_root=root,
-			addon_root=Path(__file__).resolve().parents[1], language_provider=self._language,
+			addon_root=addon_root, language_provider=self._language,
 			on_error=lambda error: logHandler.log.error("Awqati runtime error: %s", error))
+		updates = DataUpdateService(
+			DATA_UPDATE_MANIFEST_URL,
+			HttpsTransport(),
+			AtomicDataPackageInstaller(root),
+			{
+				"locations": locations.location_data_version,
+				"timezones": zones.tz_data_version,
+				"ummalqura": lunar.hijri_data_version,
+				"calculationMethods": methods.calculation_method_data_version,
+				"arabianCalendar": arabian_repository.arabian_calendar_data_version,
+			},
+		)
+		self._actions = Task53Actions(
+			settings=settings, now=now, zones=zones, prayers=prayers, request_factory=request,
+			runtime=self._runtime, locations=locations, lunar=lunar, methods=methods,
+			arabian=arabian_repository, data_updates=updates,
+			online_verifier=OnlinePrayerVerifier(AlAdhanPrayerProvider()),
+			awqati_version=addonHandler.getCodeAddon().manifest["version"],
+			show_text=self._show_text,
+		)
+		self._context = NvdaUiContext(
+			settings, location_setup,
+			copy_diagnostics=self._actions.copy_diagnostics,
+			check_data_updates=self._actions.check_data_updates,
+			verify_prayer_times=self._actions.verify_online,
+		)
+		configure(self._context)
+		if AwqatiSettingsPanel not in NVDASettingsDialog.categoryClasses:
+			NVDASettingsDialog.categoryClasses.append(AwqatiSettingsPanel)
 		self._monitor = compat.SystemEventMonitor(gui.mainFrame, self._on_resume, self._on_time_changed)
 		if first_run_location_required(settings.runtime_settings):
 			wx.CallAfter(self._show_first_run)
@@ -183,7 +221,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	@scriptHandler.script(description=_("Press once to verify today's prayer times online or twice to open today's prayer times window."), category=CATEGORY, gesture="kb:NVDA+shift+p")
 	def script_prayerVerification(self, gesture):
-		self._press((self._deferred, self._showPrayerTimes))
+		self._press((self._actions.verify_online, self._showPrayerTimes))
 
 	@scriptHandler.script(description=_("Announce the Gregorian date."), category=CATEGORY)
 	def script_gregorianDate(self, gesture): self._say(lambda: self._content.date_text(CalendarId.GREGORIAN, self._language()))
@@ -223,23 +261,22 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def _show_text(self, title, content):
 		SelectableTextDialog.show(gui.mainFrame, title, content)
 
-	def _deferred(self): ui.message(_("This command will be available in Awqati task 5.3."))
-
 	@scriptHandler.script(description=_("Copy diagnostic information."), category=CATEGORY)
-	def script_diagnostics(self, gesture): self._deferred()
+	def script_diagnostics(self, gesture): self._actions.copy_diagnostics()
 
 	@scriptHandler.script(description=_("Check for data updates."), category=CATEGORY)
-	def script_dataUpdates(self, gesture): self._deferred()
+	def script_dataUpdates(self, gesture): self._actions.check_data_updates()
 
 
 	def terminate(self) -> None:
 		if self._terminated:
 			return
 		self._terminated = True
+		if self._actions: self._actions.close()
 		if self._monitor: self._monitor.close()
 		if self._runtime: self._runtime.close()
 		while AwqatiSettingsPanel in NVDASettingsDialog.categoryClasses:
 			NVDASettingsDialog.categoryClasses.remove(AwqatiSettingsPanel)
 		configure(None)
-		self._context = self._runtime = self._content = self._monitor = None
+		self._context = self._runtime = self._content = self._monitor = self._actions = None
 		super().terminate()

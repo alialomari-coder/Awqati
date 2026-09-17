@@ -123,6 +123,13 @@ git status --short --branch
 المصدر الوحيد للرقم هو addon_info.addon_version في buildVars.py، ويجب أن تتطابق معه تسمية الحزمة وmanifest والنسخة المثبتة بعد إعادة تشغيل NVDA. اختبارات الحزمة تستخرج المسار من buildVars بدل تثبيت اسم 0.0.0. يسجل كل تسليم رقم البناء وSHA-256 في STATUS.md. تبقى ملفات dist مستبعدة من Git.
 
 
+## قناة تحديث البيانات اليدوية
+
+قناة الإنتاج هي المستودع العام https://github.com/alialomari-coder/awqati-data، وmanifest المعتمد هو https://raw.githubusercontent.com/alialomari-coder/awqati-data/main/manifest.json. الاتصال صريح فقط عند تشغيل زر أو أمر فحص تحديثات البيانات؛ لا يوجد فحص تلقائي أو إعداد مستخدم لتغيير القناة.
+
+تُبنى الحزم الخمس من البيانات المضمنة الحالية بواسطة tools/build_data_channel.py. تحفظ الملفات بأسماء versioned، وتتحقق الأداة من SHA-256 وبنية ZIP والإصدار باستخدام AtomicDataPackageInstaller الحقيقي، وترفض استبدال ملف تاريخي موجود ببايتات مختلفة. يجب رفع مستودع البيانات والتحقق من روابط raw المنشورة قبل تغيير manifest داخل حزمة أوقاتي.
+
+
 ## ترجمة واجهة الإعدادات الحالية
 
 لغة واجهة أوقاتي هي لغة NVDA الفعلية عبر `addonHandler.initTranslation()`، ولا يوجد إعداد لغة موازٍ ولا قراءة للغة Windows لاختيار الترجمة. يستدعي كل ملف Adapter يحتوي استدعاءات `_()` التهيئة قبل إنشاء الفئات والعناصر. العربية من `addon/locale/ar/LC_MESSAGES/nvda.po`، والإنجليزية هي نص المصدر وfallback الرسمي للغات غير المدعومة. يحدد `languageHandler.getLanguage()` اتجاه الصفحة وحواري أول تشغيل والموقع المخصص: العربية RTL وما عداها LTR.

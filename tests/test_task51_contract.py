@@ -49,10 +49,10 @@ class Task51ContractTests(unittest.TestCase):
 		self.assertLess(block.index("scientific_info_text"), block.index("arabian_detailed"))
 		self.assertLess(block.index("arabian_detailed"), block.index("self._showDailyInfo"))
 
-	def test_shift_p_second_press_opens_prayer_window_and_first_stays_deferred(self):
+	def test_shift_p_first_press_verifies_and_second_opens_prayer_window(self):
 		block = self.source[self.source.index("def script_prayerVerification"):self.source.index("def script_gregorianDate")]
-		self.assertIn("self._press((self._deferred, self._showPrayerTimes))", block)
-		self.assertNotIn("OnlinePrayerVerifier", self.source)
+		self.assertIn("self._press((self._actions.verify_online, self._showPrayerTimes))", block)
+		self.assertEqual(1, block.count("self._showPrayerTimes"))
 
 	def test_f12_triple_press_announces_and_does_not_open_window(self):
 		block = self.source[self.source.index("def script_timeDateInfo"):self.source.index("def script_repeatLastAlert")]

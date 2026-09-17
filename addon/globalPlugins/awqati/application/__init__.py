@@ -43,6 +43,16 @@ from .general_policy import (
 from .location_service import LocationNotFoundError, LocationService
 from .location_setup import CustomLocationValidationError, LocationSelectionResult, LocationSetupService
 from .settings_service import ClosedSettingsDraftError, SettingsDraft, SettingsService
+from .operation import CancellationToken, OperationCancelled
+from .data_update_service import (
+	DataPackageManifest, DataUpdateError, DataUpdateResult, DataUpdateService,
+	SUPPORTED_DATA_PACKAGES, UpdateChannelUnavailable,
+)
+from .online_prayer_verifier import (
+	OnlinePrayerRequest, OnlinePrayerVerificationError, OnlinePrayerVerifier,
+	PrayerTimeDifference, PrayerVerificationResult,
+)
+from .diagnostics_service import DiagnosticsService, DiagnosticsSnapshot
 from .qibla_formatters import ArabicQiblaFormatter, EnglishQiblaFormatter, QiblaFormatter
 from .qibla_service import QiblaService
 from .prayer_service import PrayerService
@@ -160,6 +170,21 @@ __all__ = [
 	"SettingsDraft",
 	"SettingsRepository",
 	"SettingsService",
+	"CancellationToken",
+	"OperationCancelled",
+	"DataPackageManifest",
+	"DataUpdateError",
+	"DataUpdateResult",
+	"DataUpdateService",
+	"SUPPORTED_DATA_PACKAGES",
+	"UpdateChannelUnavailable",
+	"OnlinePrayerRequest",
+	"OnlinePrayerVerificationError",
+	"OnlinePrayerVerifier",
+	"PrayerTimeDifference",
+	"PrayerVerificationResult",
+	"DiagnosticsService",
+	"DiagnosticsSnapshot",
 	"TimezoneProvider",
 	"WaitingWindow",
 	"automatic_alert_policy",
