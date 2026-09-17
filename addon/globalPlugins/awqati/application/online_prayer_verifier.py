@@ -7,7 +7,7 @@ from datetime import date, datetime
 from typing import Mapping, Protocol
 
 from ..domain import AsrMethod, CalculationMethod, HighLatitudeRule, PrayerName, PrayerTimes
-from .operation import CancellationToken
+from .operation import CancellationToken, OperationCancelled
 
 
 class OnlinePrayerVerificationError(RuntimeError):
@@ -60,6 +60,8 @@ class OnlinePrayerVerifier:
 		token.raise_if_cancelled()
 		try:
 			online = self._provider.fetch(request, timeout=timeout, cancellation=token)
+		except OperationCancelled:
+			raise
 		except OnlinePrayerVerificationError:
 			raise
 		except Exception as error:

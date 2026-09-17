@@ -4229,6 +4229,9 @@ msgstr "فشلت العملية. لم تتغير بياناتك المحلية �
 msgid "Cancelling..."
 msgstr "جارٍ الإلغاء..."
 
+msgid "Cancel"
+msgstr "إلغاء"
+
 msgid "All six online prayer times are within two minutes of Awqati's internal times."
 msgstr "المواقيت الستة عبر الإنترنت متقاربة مع مواقيت أوقاتي الداخلية بفارق لا يتجاوز دقيقتين."
 

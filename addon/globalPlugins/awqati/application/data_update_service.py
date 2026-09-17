@@ -76,6 +76,8 @@ class DataUpdateService:
 		try:
 			document = self._transport.read_json(self._manifest_url, timeout=timeout, cancellation=token)
 			packages = self._parse_manifest(document)
+		except OperationCancelled:
+			raise
 		except DataUpdateError:
 			raise
 		except Exception as error:

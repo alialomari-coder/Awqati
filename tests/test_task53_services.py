@@ -108,6 +108,12 @@ class DataUpdateServiceTests(unittest.TestCase):
 			DataUpdateService("https://example.invalid/m", transport, Installer(), {}).check(cancellation=token)
 		self.assertEqual(transport.calls, [])
 
+	def test_cancellation_during_manifest_io_is_not_misreported_as_failure(self):
+		with self.assertRaises(OperationCancelled):
+			DataUpdateService("https://example.invalid/m",
+				Transport(manifest(), error=OperationCancelled("cancelled during read")),
+				Installer(), {}).check()
+
 	def test_only_five_packages_are_accepted(self):
 		approved = {
 			"locations": 2, "timezones": 1, "ummalqura": 1,
@@ -172,6 +178,11 @@ class OnlinePrayerVerifierTests(unittest.TestCase):
 		with self.assertRaises(OperationCancelled):
 			OnlinePrayerVerifier(provider).verify(self.request, internal_times(), cancellation=token)
 		self.assertEqual(provider.calls, 0)
+
+	def test_cancellation_from_provider_is_not_misreported_as_online_failure(self):
+		with self.assertRaises(OperationCancelled):
+			OnlinePrayerVerifier(Provider(error=OperationCancelled("cancelled during read"))).verify(
+				self.request, internal_times())
 
 	def test_internal_objects_are_not_mutated(self):
 		internal, provider = internal_times(), Provider(online_values(9))

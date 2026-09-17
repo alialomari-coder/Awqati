@@ -49,6 +49,31 @@ class Task53ContractTests(unittest.TestCase):
 		self.assertIn("self._privacy_approved = True", method)
 		self.assertNotIn("save", method.lower())
 
+	def test_explicit_network_operations_never_use_an_app_modal_progress_dialog(self):
+		source = (ROOT / "addon/globalPlugins/awqati/nvda_adapter/task53_actions.py").read_text(encoding="utf-8")
+		self.assertNotIn("wx.ProgressDialog", source)
+		self.assertNotIn("wx.PD_APP_MODAL", source)
+		self.assertNotIn("ShowModal", source[source.index("class _OperationDialog"):])
+		async_method = source[source.index("def _run_async"):source.index("def _verification_success")]
+		self.assertIn("ui.message(message)", async_method)
+		self.assertLess(async_method.index("ui.message(message)"), async_method.index("threading.Thread("))
+		self.assertIn("target=run", async_method)
+		self.assertIn('name="Awqati explicit network operation"', async_method)
+		self.assertIn("(DataUpdateError, OnlinePrayerVerificationError, OSError)", async_method)
+		self.assertIn("logHandler.log.warning", async_method)
+
+	def test_aladhan_preparation_and_request_run_inside_the_background_worker(self):
+		source = (ROOT / "addon/globalPlugins/awqati/nvda_adapter/task53_actions.py").read_text(encoding="utf-8")
+		start = source.index("def verify_online")
+		end = source.index("def _run_async")
+		method = source[start:end]
+		worker_start = method.index("def verify(token: CancellationToken)")
+		run_start = method.index("self._run_async")
+		self.assertGreater(method.index("self.zones.get_timezone"), worker_start)
+		self.assertGreater(method.index("self.prayers.calculate"), worker_start)
+		self.assertLess(method.index("self.online_verifier.verify"), run_start)
+		self.assertIn("token.raise_if_cancelled()", method)
+
 	def test_domain_has_no_network_or_platform_dependencies(self):
 		for path in (ROOT / "addon/globalPlugins/awqati/domain").glob("*.py"):
 			source = path.read_text(encoding="utf-8")

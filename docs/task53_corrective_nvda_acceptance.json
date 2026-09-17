@@ -1,0 +1,49 @@
+{
+  "task": "limited corrective follow-up after 5.3",
+  "date": "2026-09-17",
+  "nvda": "2026.2 AMD64",
+  "packageVersion": "0.5.3.3",
+  "packageSizeBytes": 12386191,
+  "packageSha256": "845a07392166fe0f79e4ed9584f34ce4944ab90f9a28da9f25b6e36ddac491b0",
+  "reproduction": {
+    "packageVersion": "0.5.3.2",
+    "dataUpdateHttpsRanOnWorker": true,
+    "alAdhanHttpsRanOnWorker": true,
+    "onlinePreparationOriginallyRanOnMainThread": true,
+    "progressDialogWasApplicationModal": true,
+    "focusAvailableDuringBothOperations": false
+  },
+  "fixedBuild": {
+    "usesApplicationModalProgressDialog": false,
+    "announcesStartImmediately": true,
+    "allPotentiallyBlockingPreparationAndIoRunOnWorker": true,
+    "networkCallsBeforeFirstPress": 0,
+    "realProductionDataChannelSuccess": true,
+    "realAlAdhanSuccess": true,
+    "timeoutHandled": true,
+    "networkFailureHandled": true,
+    "cancellationHandled": true,
+    "cancellationMessagePreserved": true,
+    "awqatiErrorOrTracebackInNvdaLog": false
+  },
+  "languages": {
+    "en": {
+      "layoutDirection": "LTR",
+      "allFiveCasesResponsive": true,
+      "maximumMeasuredUiHeartbeatGapSeconds": 0.254
+    },
+    "ar": {
+      "layoutDirection": "RTL",
+      "allFiveCasesResponsive": true,
+      "maximumMeasuredUiHeartbeatGapSeconds": 0.266
+    }
+  },
+  "casesPerLanguage": [
+    "successful production data-channel request",
+    "successful production AlAdhan request",
+    "timeout",
+    "network failure",
+    "user cancellation"
+  ],
+  "method": "The two real settings-panel buttons were activated with wx.UIActionSimulator inside isolated real NVDA processes. During every wait, Tab navigation and a 50 ms main-loop heartbeat were exercised."
+}

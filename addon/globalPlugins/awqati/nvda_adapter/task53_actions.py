@@ -9,6 +9,7 @@ from typing import Callable
 import addonHandler
 import api
 import gui
+import languageHandler
 import logHandler
 import ui
 import versionInfo
@@ -20,7 +21,7 @@ from ..application import (
 	OnlinePrayerVerifier, OperationCancelled, UpdateChannelUnavailable,
 )
 from ..domain import PrayerName
-from .settings_sections import N_
+from .settings_sections import N_, is_rtl_language
 
 addonHandler.initTranslation()
 _: Callable[[str], str]
@@ -49,6 +50,44 @@ DIAGNOSTIC_LABELS = {
 	"alerts_status": N_("Alerts"),
 	"notAssigned": N_("not assigned"),
 }
+
+
+class _OperationDialog(wx.Dialog):
+	"""Non-modal, keyboard-accessible progress UI for an explicit operation."""
+
+	def __init__(self, title: str, message: str, cancel: Callable[[], None]) -> None:
+		super().__init__(gui.mainFrame, title=title, style=wx.DEFAULT_DIALOG_STYLE)
+		self._cancel = cancel
+		self._cancel_requested = False
+		self.SetLayoutDirection(
+			wx.Layout_RightToLeft if is_rtl_language(languageHandler.getLanguage())
+			else wx.Layout_LeftToRight)
+		panel = wx.Panel(self)
+		sizer = wx.BoxSizer(wx.VERTICAL)
+		self.status = wx.StaticText(panel, label=message, name=message)
+		self.cancel_button = wx.Button(panel, wx.ID_CANCEL, label=_("Cancel"))
+		sizer.Add(self.status, flag=wx.ALL | wx.EXPAND, border=12)
+		sizer.Add(self.cancel_button, flag=wx.LEFT | wx.RIGHT | wx.BOTTOM | wx.ALIGN_RIGHT, border=12)
+		panel.SetSizer(sizer)
+		outer = wx.BoxSizer(wx.VERTICAL)
+		outer.Add(panel, proportion=1, flag=wx.EXPAND)
+		self.SetSizerAndFit(outer)
+		self.SetEscapeId(wx.ID_CANCEL)
+		self.cancel_button.Bind(wx.EVT_BUTTON, self._on_cancel)
+		self.Bind(wx.EVT_CLOSE, self._on_cancel)
+		self.CentreOnParent()
+
+	def _on_cancel(self, event) -> None:
+		if not self._cancel_requested:
+			self._cancel_requested = True
+			self._cancel()
+			message = _("Cancelling...")
+			self.status.SetLabel(message)
+			self.status.SetName(message)
+			self.cancel_button.Disable()
+			ui.message(message)
+		if isinstance(event, wx.CloseEvent) and event.CanVeto():
+			event.Veto()
 
 
 class Task53Actions:
@@ -110,36 +149,42 @@ class Task53Actions:
 				return
 			self._privacy_approved = True
 		stored = settings.location
-		location = stored.location
-		zone = self.zones.get_timezone(location.timezone_id)
-		local_date = self.now.now().value.astimezone(zone).date()
-		request = self.request_factory(local_date, location)
-		internal = self.prayers.calculate(request)
-		online_request = OnlinePrayerRequest(
-			local_date, location.latitude, location.longitude,
-			internal.metadata.effective_method, request.asr_method, request.high_latitude_rule,
-		)
+
+		def verify(token: CancellationToken):
+			# Time-zone lookup and prayer calculation may lazily read bundled or
+			# activated data. Keep them on the same worker as HTTPS and DNS.
+			token.raise_if_cancelled()
+			location = stored.location
+			zone = self.zones.get_timezone(location.timezone_id)
+			local_date = self.now.now().value.astimezone(zone).date()
+			request = self.request_factory(local_date, location)
+			internal = self.prayers.calculate(request)
+			token.raise_if_cancelled()
+			online_request = OnlinePrayerRequest(
+				local_date, location.latitude, location.longitude,
+				internal.metadata.effective_method, request.asr_method, request.high_latitude_rule,
+			)
+			return self.online_verifier.verify(online_request, internal, cancellation=token)
+
 		self._run_async(
 			_("Verifying today's prayer times online"),
 			_("Contacting AlAdhan for a diagnostic comparison..."),
-			lambda token: self.online_verifier.verify(online_request, internal, cancellation=token),
+			verify,
 			self._verification_success,
 		)
 
 	def _run_async(self, title: str, message: str, worker, on_success) -> None:
 		token = CancellationToken()
 		self._tokens.add(token)
-		dialog = wx.ProgressDialog(
-			title, message, maximum=100, parent=gui.mainFrame,
-			style=wx.PD_APP_MODAL | wx.PD_CAN_ABORT | wx.PD_ELAPSED_TIME,
-		)
 		state: dict[str, object] = {}
-		timer = wx.Timer(dialog)
+		ui.message(message)
+		dialog = _OperationDialog(title, message, token.cancel)
+		dialog.Show()
+		dialog.cancel_button.SetFocus()
 
 		def finish() -> None:
-			timer.Stop()
 			self._tokens.discard(token)
-			if dialog:
+			if not dialog.IsBeingDeleted():
 				dialog.Destroy()
 			if self._closed:
 				return
@@ -148,17 +193,13 @@ class Task53Actions:
 				if isinstance(error, OperationCancelled):
 					ui.message(_("The operation was cancelled."))
 				else:
-					logHandler.log.error("Awqati explicit operation failed: %s", error)
+					log = (logHandler.log.warning
+						if isinstance(error, (DataUpdateError, OnlinePrayerVerificationError, OSError))
+						else logHandler.log.error)
+					log("Awqati explicit operation failed: %s", error)
 					ui.message(_("The operation failed. Your existing local data and settings were not changed."))
 			else:
 				on_success(state.get("result"))
-
-		def poll(event) -> None:
-			value = dialog.Pulse()
-			continued = value[0] if isinstance(value, tuple) else bool(value)
-			if not continued:
-				token.cancel()
-				dialog.Update(0, _("Cancelling..."))
 
 		def run() -> None:
 			try:
@@ -167,8 +208,6 @@ class Task53Actions:
 				state["error"] = error
 			wx.CallAfter(finish)
 
-		dialog.Bind(wx.EVT_TIMER, poll, timer)
-		timer.Start(250)
 		threading.Thread(target=run, name="Awqati explicit network operation", daemon=True).start()
 
 	def _verification_success(self, result) -> None:

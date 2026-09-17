@@ -10,7 +10,9 @@ import unittest
 from unittest.mock import patch
 import zipfile
 
-from addon.globalPlugins.awqati.application import CancellationToken, DataPackageManifest, DataUpdateError, OnlinePrayerRequest
+from addon.globalPlugins.awqati.application import (
+	CancellationToken, DataPackageManifest, DataUpdateError, OnlinePrayerRequest, OperationCancelled,
+)
 from addon.globalPlugins.awqati.domain import AsrMethod, CalculationMethod, HighLatitudeRule, PrayerName
 from addon.globalPlugins.awqati.infrastructure import AlAdhanPrayerProvider, AtomicDataPackageInstaller
 from addon.globalPlugins.awqati.infrastructure.network_services import HttpsTransport
@@ -115,3 +117,9 @@ class AlAdhanProviderTests(unittest.TestCase):
 				with self.assertRaises(Exception):
 					AlAdhanPrayerProvider().fetch(
 						self.request(), timeout=2, cancellation=CancellationToken())
+
+	def test_cancellation_from_https_is_preserved(self):
+		with patch.object(HttpsTransport, "read_bytes", side_effect=OperationCancelled("cancelled")):
+			with self.assertRaises(OperationCancelled):
+				AlAdhanPrayerProvider().fetch(
+					self.request(), timeout=2, cancellation=CancellationToken())

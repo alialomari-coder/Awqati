@@ -119,7 +119,7 @@ class AlAdhanPrayerProvider:
 					raise ValueError(f"invalid {key} time")
 				result[prayer] = hour * 60 + minute
 			return result
-		except OnlinePrayerVerificationError:
+		except (OnlinePrayerVerificationError, OperationCancelled):
 			raise
 		except Exception as error:
 			raise OnlinePrayerVerificationError(f"AlAdhan response failed validation: {error}") from error
