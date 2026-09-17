@@ -9,15 +9,21 @@ class Task53ContractTests(unittest.TestCase):
 	def test_commands_and_buttons_share_context_actions(self):
 		plugin = (ROOT / "addon/globalPlugins/awqati/nvda_adapter/plugin.py").read_text(encoding="utf-8")
 		panel = (ROOT / "addon/globalPlugins/awqati/nvda_adapter/settings_panel.py").read_text(encoding="utf-8")
-		self.assertIn("self._actions.verify_online", plugin)
+		self.assertIn("verify_prayer_times=self._actions.verify_online", plugin)
 		self.assertIn("self._actions.copy_diagnostics()", plugin)
-		self.assertIn("self._actions.check_data_updates()", plugin)
+		self.assertIn("check_data_updates=self._actions.check_data_updates", plugin)
+		self.assertIn("self._context.verify_prayer_times", plugin)
+		self.assertIn("self._context.check_data_updates()", plugin)
 		self.assertIn('label=_(\"Copy diagnostic information\")', panel)
 		self.assertIn('label=_(\"Check for data updates\")', panel)
 		self.assertIn("Verify today's prayer times online...", panel)
 		self.assertIn("context.copy_diagnostics()", panel)
 		self.assertIn("context.check_data_updates()", panel)
 		self.assertIn("context.verify_prayer_times()", panel)
+		verification_script = plugin[plugin.index("def script_prayerVerification"):plugin.index("def script_gregorianDate")]
+		update_script = plugin[plugin.index("def script_dataUpdates"):plugin.index("def terminate")]
+		self.assertNotIn("self._actions.verify_online", verification_script)
+		self.assertNotIn("self._actions.check_data_updates", update_script)
 
 	def test_opening_settings_and_composition_do_not_start_network(self):
 		plugin = (ROOT / "addon/globalPlugins/awqati/nvda_adapter/plugin.py").read_text(encoding="utf-8")
@@ -55,8 +61,13 @@ class Task53ContractTests(unittest.TestCase):
 		self.assertNotIn("wx.PD_APP_MODAL", source)
 		self.assertNotIn("ShowModal", source[source.index("class _OperationDialog"):])
 		async_method = source[source.index("def _run_async"):source.index("def _verification_success")]
-		self.assertIn("ui.message(message)", async_method)
-		self.assertLess(async_method.index("ui.message(message)"), async_method.index("threading.Thread("))
+		self.assertIn("wx.CallLater(100, ui.message, message)", async_method)
+		self.assertIn("wx.CallLater(100, complete)", async_method)
+		self.assertLess(async_method.index("dialog.cancel_button.SetFocus()"),
+			async_method.index("wx.CallLater(100, ui.message, message)"))
+		self.assertLess(async_method.index("dialog.Destroy()"),
+			async_method.index("wx.CallLater(100, complete)"))
+		self.assertIn("parent or _interaction_parent()", async_method)
 		self.assertIn("target=run", async_method)
 		self.assertIn('name="Awqati explicit network operation"', async_method)
 		self.assertIn("(DataUpdateError, OnlinePrayerVerificationError, OSError)", async_method)

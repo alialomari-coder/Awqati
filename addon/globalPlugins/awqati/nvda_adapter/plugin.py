@@ -221,7 +221,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	@scriptHandler.script(description=_("Press once to verify today's prayer times online or twice to open today's prayer times window."), category=CATEGORY, gesture="kb:NVDA+shift+p")
 	def script_prayerVerification(self, gesture):
-		self._press((self._actions.verify_online, self._showPrayerTimes))
+		self._press((self._context.verify_prayer_times, self._showPrayerTimes))
 
 	@scriptHandler.script(description=_("Announce the Gregorian date."), category=CATEGORY)
 	def script_gregorianDate(self, gesture): self._say(lambda: self._content.date_text(CalendarId.GREGORIAN, self._language()))
@@ -265,7 +265,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_diagnostics(self, gesture): self._actions.copy_diagnostics()
 
 	@scriptHandler.script(description=_("Check for data updates."), category=CATEGORY)
-	def script_dataUpdates(self, gesture): self._actions.check_data_updates()
+	def script_dataUpdates(self, gesture): self._context.check_data_updates()
 
 
 	def terminate(self) -> None:

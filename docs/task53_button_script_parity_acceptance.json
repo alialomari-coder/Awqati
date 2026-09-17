@@ -1,0 +1,49 @@
+{
+  "scope": "Task 5.3 corrective button/script announcement parity only",
+  "package": {
+    "version": "0.5.3.4",
+    "file": "dist/awqati-0.5.3.4.nvda-addon",
+    "sizeBytes": 12386527,
+    "sha256": "cf21f55a61329a14b9e05cec25c8c6414f238fd66aedea54c70583f4c6b78a61"
+  },
+  "environment": {
+    "nvda": "2026.2 AMD64",
+    "python": "3.13.13",
+    "wxPython": "4.2.4 / wxWidgets 3.2.8",
+    "windows": "Windows 11 25H2 build 26200.9457"
+  },
+  "rootCause": "The shared callbacks completed correctly, but opening the operation dialog interrupted the start announcement and restoring settings focus immediately after destroying it interrupted the final announcement. The shortcut did not have the same settings-dialog focus speech, so it appeared to work.",
+  "fix": {
+    "sharedCallbacks": "Both scripts and settings buttons call the same NvdaUiContext callbacks.",
+    "backgroundWork": "Bundled-data preparation, prayer calculation, manifest/package I/O, DNS and HTTPS remain on the worker thread.",
+    "speechOrdering": "Start is announced after operation-dialog focus settles; completion is announced after the dialog is destroyed and invoking focus is restored.",
+    "preserved": ["session privacy approval", "timeouts", "cooperative cancellation", "existing success and failure text", "Arabic RTL", "English LTR", "manual network access only"]
+  },
+  "realNvdaAcceptance": {
+    "productionNetwork": {
+      "onlinePrayerVerification": "button and script both contacted AlAdhan successfully and announced the same start and six-times-within-two-minutes result",
+      "dataUpdates": "button and script both read the production GitHub data manifest and announced the same start and already-up-to-date result",
+      "privacy": "the real first-run prompt was approved; a later run in the same session did not prompt again"
+    },
+    "controlledScenariosInsideNvda": {
+      "languages": ["English LTR", "Arabic RTL"],
+      "onlinePrayerVerification": ["network failure", "timeout", "cancellation"],
+      "dataUpdates": ["safe successful-update result", "network failure", "timeout", "cancellation"],
+      "parity": "For every state and language, captured ui.message and speech.speakMessage sequences were identical between button and script.",
+      "responsiveness": "The wx main loop delivered repeated 40 ms callbacks during every delayed worker case; Tab was processed and focus remained on the accessible Cancel button."
+    },
+    "logs": "No Awqati ERROR, CRITICAL or traceback occurred. Expected controlled failure and timeout cases were logged as warnings only."
+  },
+  "automatedChecks": {
+    "targeted": "29/29 passed",
+    "full": "777/777 passed",
+    "runChecks": "ALL REQUIRED CHECKS PASSED",
+    "gitDiffCheck": "passed (only the repository's normal CRLF notice for buildVars.py)"
+  },
+  "installation": {
+    "installedVersion": "0.5.3.4",
+    "settingsSha256BeforeAndAfter": "762788239437a45844307e8747b0062e08c15b22feb3cbc6734608a6386ef8f4",
+    "normalNvdaRestarted": true
+  },
+  "outOfScope": ["clock", "adhkar", "task 5.4"]
+}

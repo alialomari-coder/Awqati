@@ -55,8 +55,8 @@ DIAGNOSTIC_LABELS = {
 class _OperationDialog(wx.Dialog):
 	"""Non-modal, keyboard-accessible progress UI for an explicit operation."""
 
-	def __init__(self, title: str, message: str, cancel: Callable[[], None]) -> None:
-		super().__init__(gui.mainFrame, title=title, style=wx.DEFAULT_DIALOG_STYLE)
+	def __init__(self, parent: wx.Window, title: str, message: str, cancel: Callable[[], None]) -> None:
+		super().__init__(parent, title=title, style=wx.DEFAULT_DIALOG_STYLE)
 		self._cancel = cancel
 		self._cancel_requested = False
 		self.SetLayoutDirection(
@@ -88,6 +88,16 @@ class _OperationDialog(wx.Dialog):
 			ui.message(message)
 		if isinstance(event, wx.CloseEvent) and event.CanVeto():
 			event.Veto()
+
+
+def _interaction_parent() -> wx.Window:
+	"""Use the invoking NVDA dialog when one has focus, otherwise the main frame."""
+	focus = wx.Window.FindFocus()
+	if focus is not None:
+		parent = focus.GetTopLevelParent()
+		if parent is not None and parent.IsShown():
+			return parent
+	return gui.mainFrame
 
 
 class Task53Actions:
@@ -137,12 +147,13 @@ class Task53Actions:
 		if settings.location is None:
 			ui.message(_("This Awqati command is unavailable until a valid location is assigned."))
 			return
+		parent = _interaction_parent()
 		if not self._privacy_approved:
 			answer = wx.MessageBox(
 				_("Online verification sends the coordinates required for calculation and the selected calculation method to the AlAdhan Prayer Times API. Approval applies only to this NVDA session. Do you want to continue?"),
 				_("Awqati online prayer-time verification"),
 				wx.YES_NO | wx.NO_DEFAULT | wx.ICON_QUESTION,
-				gui.mainFrame,
+				parent,
 			)
 			if answer != wx.YES:
 				ui.message(_("Online prayer-time verification was cancelled. No data was sent."))
@@ -171,21 +182,32 @@ class Task53Actions:
 			_("Contacting AlAdhan for a diagnostic comparison..."),
 			verify,
 			self._verification_success,
+			parent=parent,
 		)
 
-	def _run_async(self, title: str, message: str, worker, on_success) -> None:
+	def _run_async(self, title: str, message: str, worker, on_success,
+			parent: wx.Window | None = None) -> None:
 		token = CancellationToken()
 		self._tokens.add(token)
 		state: dict[str, object] = {}
-		ui.message(message)
-		dialog = _OperationDialog(title, message, token.cancel)
+		dialog = _OperationDialog(parent or _interaction_parent(), title, message, token.cancel)
 		dialog.Show()
 		dialog.cancel_button.SetFocus()
+		# Opening and focusing the dialog produces accessibility speech. Announce
+		# after that focus settles so the explicit start message is not cut off.
+		wx.CallLater(100, ui.message, message)
 
 		def finish() -> None:
 			self._tokens.discard(token)
 			if not dialog.IsBeingDeleted():
 				dialog.Destroy()
+			if self._closed:
+				return
+			# Destruction restores focus to the invoking dialog. Deliver the result
+			# after restoration so button and script invocations are equally audible.
+			wx.CallLater(100, complete)
+
+		def complete() -> None:
 			if self._closed:
 				return
 			if "error" in state:
