@@ -13,6 +13,19 @@ from .general_policy import automatic_alert_policy, AutomaticAlertKind, alert_sc
 from ..domain.alerts import GRACE_PERIODS, priority_for, utc
 
 
+# wx timers are not real-time and normally return a little after their target.
+# This is an adapter wake-up tolerance, not event grace or catch-up policy.
+TIMER_WAKE_JITTER = timedelta(seconds=5)
+
+
+def timer_delivery_instant(actual: Instant, deadline: Instant) -> Instant:
+	"""Evaluate an on-time timer at its deadline while rejecting stale wakes."""
+	lateness = utc(actual) - utc(deadline)
+	if timedelta(0) <= lateness <= TIMER_WAKE_JITTER:
+		return deadline
+	return actual
+
+
 def resolve_civil_time(local: datetime, tz: timezone | object) -> datetime:
 	"""Resolve a civil wall time: skip a missing DST hour, choose first fold."""
 	if local.tzinfo is not None:

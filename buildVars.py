@@ -7,7 +7,7 @@ addon_info = {
 	"addon_name": "awqati",
 	"addon_summary": "Awqati",
 	"addon_description": "Accessible local prayer times, clocks, calendars, Qibla, daily information, alerts and adhkar in Arabic and English.",
-	"addon_version": "0.5.3.6",
+	"addon_version": "0.5.3.7",
 	"addon_changelog": "Keep the first global-command privacy prompt keyboard-responsive by opening it non-modally after gesture dispatch.",
 	"addon_author": "Awqati project (development placeholder)",
 	"addon_url": None,

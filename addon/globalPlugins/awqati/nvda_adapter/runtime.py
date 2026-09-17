@@ -6,7 +6,10 @@ from datetime import timezone
 from pathlib import Path
 from threading import RLock
 
-from ..application import AlertCoordinator, AlertPresenter, AlertScheduler, PrayerClockRebuildSource
+from ..application import (
+	AlertCoordinator, AlertPresenter, AlertScheduler, PrayerClockRebuildSource,
+	timer_delivery_instant,
+)
 from ..domain import LocationChanged, SettingsApplied, SystemTimeChanged
 from ..domain.alerts import utc
 from ..infrastructure import SoundFileService
@@ -60,14 +63,17 @@ class AwqatiRuntime:
 				self._timer = None
 			now = self.now.now()
 			self._day_boundary = self.source.next_rebuild_at(now)
-			deadlines = [value for value in (self.scheduler.wakeup_at, self._day_boundary) if value]
+			alert_deadline = self.scheduler.wakeup_at
+			deadlines = [value for value in (alert_deadline, self._day_boundary) if value]
 			if not deadlines:
 				return
 			deadline = min(deadlines, key=utc)
 			delay = max(1, int((utc(deadline) - utc(now)).total_seconds() * 1000))
-			self._timer = compat.schedule(delay, lambda: self._wake(generation))
+			is_alert_wakeup = alert_deadline is not None and utc(deadline) == utc(alert_deadline)
+			self._timer = compat.schedule(
+				delay, lambda: self._wake(generation, deadline, is_alert_wakeup))
 
-	def _wake(self, generation: int) -> None:
+	def _wake(self, generation: int, deadline, is_alert_wakeup: bool) -> None:
 		with self._lock:
 			if self._closed or generation != self._generation:
 				return
@@ -76,7 +82,8 @@ class AwqatiRuntime:
 		boundary = self._day_boundary
 		if boundary is not None and utc(now) >= utc(boundary):
 			self.coordinator.renew_day(now)
-		self.presenter.present_next(now)
+		delivery_now = timer_delivery_instant(now, deadline) if is_alert_wakeup else now
+		self.presenter.present_next(delivery_now)
 		self._reschedule()
 
 	def resume(self) -> None:

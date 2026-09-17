@@ -15,7 +15,8 @@ from awqati.domain import (AlertEvent, AlertEventType as T, AlertPriority as P, 
 from awqati.domain.alerts import GRACE_PERIODS
 from awqati.infrastructure import BundledTimezoneProvider
 from awqati.application import (AlertScheduler, AlertCoordinator, EventDispatcher,
-    SettingsService, priority_for, resolve_civil_time, manual_commands_allowed)
+    SettingsService, priority_for, resolve_civil_time, manual_commands_allowed,
+    timer_delivery_instant)
 
 
 class Repository:
@@ -43,6 +44,21 @@ class AlertFixture:
 
 
 class AlertSchedulerTests(AlertFixture, unittest.TestCase):
+    def test_timer_jitter_delivers_exact_recurring_event_without_catch_up(self):
+        event = self.ev('recurring', T.RECURRING_DHIKR, self.at(60), scope='adhkar.recurring')
+        self.scheduler.schedule(event)
+        actual = self.at(60.250)
+        delivery = timer_delivery_instant(actual, event.scheduled_at)
+        self.assertEqual(delivery, event.scheduled_at)
+        self.assertIs(self.scheduler.claim_for_presentation(delivery), event)
+
+    def test_timer_jitter_does_not_revive_stale_recurring_event(self):
+        event = self.ev('recurring', T.RECURRING_DHIKR, self.at(60), scope='adhkar.recurring')
+        self.scheduler.schedule(event)
+        actual = self.at(65.000001)
+        self.assertEqual(timer_delivery_instant(actual, event.scheduled_at), actual)
+        self.assertIsNone(self.scheduler.claim_for_presentation(actual))
+
     def test_aware_and_naive_times(self):
         self.assertEqual(self.ev('x').scheduled_at, self.now)
         for field in ('scheduled_at', 'expires_at', 'reference_at'):

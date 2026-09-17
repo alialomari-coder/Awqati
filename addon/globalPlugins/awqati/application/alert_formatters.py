@@ -10,11 +10,11 @@ from .islamic_terms import N_, normalize_language, term_text
 
 
 _ARABIC = {
-	"alert.prayer.before": "اقترب دخول وقت صلاة {prayer}، وقد بقي عليه {duration}.",
-	"alert.sunrise.before": "اقترب وقت شروق الشمس، وقد بقي عليه {duration}.",
-	"alert.midnight.before": "اقترب وقت انتصاف الليل، وقد بقي عليه {duration}.",
-	"alert.lastThird.before": "اقترب دخول وقت الثلث الأخير من الليل، وقد بقي عليه {duration}.",
-	"alert.prayer.at": "حان الآن وقت صلاة {prayer}.",
+	"alert.prayer.before": "اقترب دخول وقت صلاة {prayer}، فقد بقي عليه {duration}.",
+	"alert.sunrise.before": "اقترب وقت الشروق، فقد بقي عليه {duration}.",
+	"alert.midnight.before": "اقترب وقت انتصاف الليل، فقد بقي عليه {duration}.",
+	"alert.lastThird.before": "اقترب دخول وقت الثلث الأخير من الليل، فقد بقي عليه {duration}.",
+	"alert.prayer.at": "حان الآن وقت دخول صلاة {prayer}.",
 	"alert.sunrise.at": "أشرقت الشمس.",
 	"alert.midnight.at": "انتصف الليل.",
 	"alert.lastThird.at": "دخل وقت الثلث الأخير من الليل.",

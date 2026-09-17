@@ -64,6 +64,11 @@ class Task51ContractTests(unittest.TestCase):
 			text = path.read_text(encoding="utf-8")
 			self.assertNotRegex(text, r"(^|\n)\s*(import|from)\s+(wx|globalPluginHandler|gui|ui)(\.|\s|$)")
 
+	def test_runtime_passes_scheduled_deadline_for_timer_jitter_only(self):
+		runtime = (ROOT / "addon/globalPlugins/awqati/nvda_adapter/runtime.py").read_text(encoding="utf-8")
+		self.assertIn("timer_delivery_instant(now, deadline) if is_alert_wakeup else now", runtime)
+		self.assertIn("self._wake(generation, deadline, is_alert_wakeup)", runtime)
+
 
 if __name__ == "__main__":
 	unittest.main()

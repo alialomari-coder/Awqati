@@ -1317,13 +1317,13 @@ msgstr "أوقاتي"
 
 #: addon/globalPlugins/awqati/nvda_adapter/ui.py:276
 msgid "Awqati could not save the location. Your previous settings were preserved."
-msgstr "تعذر حفظ الموقع في أوقاتي. حُفظت الإعدادات السابقة دون تغيير."
+msgstr "تعذر حفظ الموقع. حُفظت الإعدادات السابقة دون تغيير."
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:691
 msgid ""
 "Awqati could not save the settings. Your previous applied settings were "
 "preserved."
-msgstr "تعذر حفظ إعدادات أوقاتي. حُفظت الإعدادات السابقة المعتمدة دون تغيير."
+msgstr "تعذر حفظ الإعدادات. حُفظت الإعدادات السابقة المعتمدة دون تغيير."
 
 msgid ""
 "Awqati development build: prayer, clock and date settings, before "
@@ -1334,7 +1334,7 @@ msgstr ""
 
 #: addon/globalPlugins/awqati/nvda_adapter/plugin.py:53
 msgid "Awqati settings could not be loaded. The existing file was not replaced."
-msgstr "تعذر تحميل إعدادات أوقاتي. لم يُستبدل الملف الموجود."
+msgstr "تعذر تحميل الإعدادات . لم يُستبدل الملف الموجود."
 
 #: addon/globalPlugins/awqati/nvda_adapter/plugin.py:54
 msgid "Awqati settings error"
@@ -1565,7 +1565,7 @@ msgstr ""
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:638
 msgid "Choose a valid Awqati sound file."
-msgstr "اختر ملفًا صوتيًا صالحًا لأوقاتي."
+msgstr "اختر ملفًا صوتيًا صالحًا."
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:636
 msgid "Choose a valid IANA time zone."
@@ -1573,7 +1573,7 @@ msgstr "اختر منطقة زمنية صحيحة من مناطق IANA."
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:634
 msgid "Choose an allowed option."
-msgstr "اختر أحد الخيارات المسموحة."
+msgstr "اختر أحد الخيارات المسموح بها."
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:487
 msgid "Choose calendar to configure"
@@ -3790,7 +3790,7 @@ msgid "Awqati development build with serialized alert audio and speech presentat
 msgstr "نسخة تطويرية من أوقاتي مع عرض متسلسل لتنبيهات الصوت والنطق."
 
 msgid "This Awqati command is unavailable until a valid location is assigned."
-msgstr "لا يتاح أمر أوقاتي هذا حتى تعيين موقع صالح."
+msgstr "هذا الأمر غير متاح حتى يتم تعيين موقع صالح."
 
 msgid "Open Awqati settings"
 msgstr "فتح إعدادات أوقاتي"
@@ -3802,10 +3802,10 @@ msgid "Toggle all automatic Awqati alerts"
 msgstr "التبديل بين تفعيل وتعطيل جميع التنبيهات التلقائية في أوقاتي"
 
 msgid "All automatic Awqati alerts have been enabled."
-msgstr "تم تفعيل جميع التنبيهات التلقائية في أوقاتي."
+msgstr "تم تفعيل جميع التنبيهات التلقائية."
 
 msgid "All automatic Awqati alerts have been disabled."
-msgstr "تم تعطيل جميع التنبيهات التلقائية في أوقاتي."
+msgstr "تم تعطيل جميع التنبيهات التلقائية."
 
 msgid "Announce time, primary date, or detailed daily information"
 msgstr "الإعلان عن الوقت أو التاريخ الأساسي أو معلومات اليوم التفصيلية"
@@ -3814,7 +3814,7 @@ msgid "Repeat the last Awqati alert"
 msgstr "إعادة آخر تنبيه صادر من أوقاتي"
 
 msgid "No Awqati alert has been presented yet."
-msgstr "لم يُعرض أي تنبيه من أوقاتي بعد."
+msgstr "لم يتم عرض أي تنبيه حتى الآن."
 
 msgid "Announce Awqati alert status"
 msgstr "الإعلان عن حالة تنبيهات أوقاتي"
@@ -4066,23 +4066,23 @@ msgstr "في انتظار {name}؛ بقي {duration}."
 
 #, python-brace-format
 msgid "The current prayer is {name}; it began {duration} ago."
-msgstr "الصلاة الحالية هي {name}؛ بدأت قبل {duration}."
+msgstr "الصلاة الحالية هي {name}؛ وقد دخلَ وقتُها قبل {duration}."
 
 #, python-brace-format
 msgid "The next prayer is {name} at {time}; in {duration}."
-msgstr "الصلاة القادمة هي {name} عند {time}؛ بقي عليها {duration}."
+msgstr "الصلاة القادمة هي {name} عند {time}؛ أي بعد {duration}."
 
 #, python-brace-format
 msgid "The next time is {name} at {time}; in {duration}."
-msgstr "الوقت القادم هو {name} عند {time}؛ بقي عليه {duration}."
+msgstr "الوقت القادم هو {name} عند {time}؛ أي بعد {duration}."
 
 #, python-brace-format
 msgid "The previous prayer was {name} at {time}; {duration} ago."
-msgstr "الصلاة السابقة كانت {name} عند {time}؛ قبل {duration}."
+msgstr "الصلاة السابقة كانت {name} عند {time}؛ أي قبل {duration}."
 
 #, python-brace-format
 msgid "The previous time was {name} at {time}; {duration} ago."
-msgstr "الوقت السابق كان {name} عند {time}؛ قبل {duration}."
+msgstr "الوقت السابق كان {name} عند {time}؛ أي قبل {duration}."
 msgid "Duration formatting language: English"
 msgstr "لغة تنسيق المدة: العربية"
 
@@ -4130,23 +4130,23 @@ msgstr "مواقيت صلاة وساعات وتقاويم وقبلة ومعلو�
 
 #, python-brace-format
 msgid "The time for {prayer} prayer is approaching, with {duration} remaining."
-msgstr "اقترب دخول وقت صلاة {prayer}، وقد بقي عليه {duration}."
+msgstr "اقترب دخول وقت صلاة {prayer}، فقد بقي عليه {duration}."
 
 #, python-brace-format
 msgid "Sunrise is approaching, with {duration} remaining."
-msgstr "اقترب وقت شروق الشمس، وقد بقي عليه {duration}."
+msgstr "اقترب وقت الشروق، فقد بقي عليه {duration}."
 
 #, python-brace-format
 msgid "The middle of the night is approaching, with {duration} remaining."
-msgstr "اقترب وقت انتصاف الليل، وقد بقي عليه {duration}."
+msgstr "اقترب وقت انتصاف الليل، فقد بقي عليه {duration}."
 
 #, python-brace-format
 msgid "The last third of the night is approaching, with {duration} remaining."
-msgstr "اقترب دخول وقت الثلث الأخير من الليل، وقد بقي عليه {duration}."
+msgstr "اقترب دخول وقت الثلث الأخير من الليل، فقد بقي عليه {duration}."
 
 #, python-brace-format
 msgid "It is now time for {prayer} prayer."
-msgstr "حان الآن وقت صلاة {prayer}."
+msgstr "حان الآن وقت دخول صلاة {prayer}."
 
 msgid "The sun has risen."
 msgstr "أشرقت الشمس."
@@ -4191,10 +4191,10 @@ msgid "Verify today's prayer times online..."
 msgstr "التحقق من مواقيت اليوم عبر الإنترنت..."
 
 msgid "Awqati diagnostic information has been copied to the clipboard."
-msgstr "تم نسخ معلومات تشخيص أوقاتي إلى الحافظة."
+msgstr "تم نسخ معلومات التشخيص إلى الحافظة."
 
 msgid "Could not copy Awqati diagnostic information to the clipboard."
-msgstr "تعذر نسخ معلومات تشخيص أوقاتي إلى الحافظة."
+msgstr "تعذر نسخ معلومات التشخيص إلى الحافظة."
 
 msgid "The project data update channel has not been configured. Your current local data remains available."
 msgstr "لم تُهيأ قناة تحديث بيانات المشروع. ستبقى بياناتك المحلية الحالية متاحة."
@@ -4245,10 +4245,10 @@ msgid "Online prayer-time comparison"
 msgstr "مقارنة مواقيت الصلاة عبر الإنترنت"
 
 msgid "Awqati data updates were installed safely. Restart NVDA to use them."
-msgstr "ثُبتت تحديثات بيانات أوقاتي بأمان. أعد تشغيل NVDA لاستخدامها."
+msgstr "ثُبتت تحديثات البيانات بأمان. أعد تشغيل NVDA لاستخدامها."
 
 msgid "Awqati data is already up to date."
-msgstr "بيانات أوقاتي محدثة بالفعل."
+msgstr "البيانات محدثة بالفعل."
 
 msgid "active; current={current}; waiting={waiting}"
 msgstr "نشط؛ الجاري={current}؛ المنتظر={waiting}"

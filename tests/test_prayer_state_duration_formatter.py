@@ -78,8 +78,8 @@ class PrayerStateDurationIntegrationTests(unittest.TestCase):
 
 	def test_next_and_previous_use_hours_and_minutes_without_changing_difference(self) -> None:
 		content = self.content(self.base_state())
-		self.assertEqual("الصلاة القادمة هي الظهر عند 11:26؛ بقي عليها ساعة و26 دقيقة.", content.current_details(Translator("ar")))
-		self.assertEqual("الوقت السابق كان الشروق عند 07:44؛ قبل ساعتين و16 دقيقة.", content.previous_details(Translator("ar")))
+		self.assertEqual("الصلاة القادمة هي الظهر عند 11:26؛ أي بعد ساعة و26 دقيقة.", content.current_details(Translator("ar")))
+		self.assertEqual("الوقت السابق كان الشروق عند 07:44؛ أي قبل ساعتين و16 دقيقة.", content.previous_details(Translator("ar")))
 		self.assertEqual("The next prayer is Dhuhr at 11:26; in 1 hour 26 minutes.", content.current_details(Translator("en")))
 		self.assertEqual("The previous time was Sunrise at 07:44; 2 hours 16 minutes ago.", content.previous_details(Translator("en")))
 
@@ -94,7 +94,7 @@ class PrayerStateDurationIntegrationTests(unittest.TestCase):
 		current.current_prayer = SimpleNamespace(event=current_event)
 		self.assertEqual("في انتظار الظهر؛ بقي 26 دقيقة.", self.content(waiting).current_details(Translator("ar")))
 		self.assertEqual("Waiting for Dhuhr; 26 minutes remain.", self.content(waiting).current_details(Translator("en")))
-		self.assertEqual("الصلاة الحالية هي الفجر؛ بدأت قبل ساعة ودقيقتين.", self.content(current).current_details(Translator("ar")))
+		self.assertEqual("الصلاة الحالية هي الفجر؛ وقد دخلَ وقتُها قبل ساعة ودقيقتين.", self.content(current).current_details(Translator("ar")))
 		self.assertEqual("The current prayer is Fajr; it began 1 hour 2 minutes ago.", self.content(current).current_details(Translator("en")))
 
 	def test_exact_acceptance_examples_for_next_time_and_previous_prayer(self) -> None:
@@ -105,11 +105,11 @@ class PrayerStateDurationIntegrationTests(unittest.TestCase):
 		previous_prayer.as_of = Instant(datetime(2026, 9, 16, 21, 29, tzinfo=timezone.utc))
 		previous_prayer.previous_event = self.event(PrayerEventName.ISHA, 19, 13)
 		self.assertEqual(
-			"الوقت القادم هو منتصف الليل عند 22:54؛ بقي عليه ساعة و26 دقيقة.",
+			"الوقت القادم هو منتصف الليل عند 22:54؛ أي بعد ساعة و26 دقيقة.",
 			self.content(next_time).current_details(Translator("ar")),
 		)
 		self.assertEqual(
-			"الصلاة السابقة كانت العشاء عند 19:13؛ قبل ساعتين و16 دقيقة.",
+			"الصلاة السابقة كانت العشاء عند 19:13؛ أي قبل ساعتين و16 دقيقة.",
 			self.content(previous_prayer).previous_details(Translator("ar")),
 		)
 		self.assertEqual(

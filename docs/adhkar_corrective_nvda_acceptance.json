@@ -1,0 +1,69 @@
+{
+  "task": "adhkar alert corrective follow-up before 5.4",
+  "date": "2026-09-17",
+  "environment": {
+    "nvda": "2026.2 AMD64",
+    "language": "ar",
+    "profiles": "isolated baseline 0.5.3.6 and fixed 0.5.3.7",
+    "normalUserSettingsModified": false
+  },
+  "rootCause": "Recurring dhikr has an intentional zero Domain grace period. The NVDA adapter passed the actual wx timer callback time to the central Scheduler, so an ordinary sub-second late callback made the occurrence invalid before AlertPresenter could claim it.",
+  "baselineReproduction": {
+    "version": "0.5.3.6",
+    "callbackLatenessMs": [243.018, 263.517, 249.561, 269.747, 266.582, 247.363, 262.654],
+    "morningPresented": true,
+    "eveningPresented": true,
+    "fridayPresented": true,
+    "dailyWirdPresented": true,
+    "recurringPresentedCycles": 0,
+    "recurringDroppedCycles": 3
+  },
+  "fixedAcceptance": {
+    "version": "0.5.3.7",
+    "callbackLatenessMs": [265.306, 272.529, 269.241, 253.654, 250.712, 250.238, 255.698],
+    "messages": [
+      "حان وقت أذكار الصباح.",
+      "حان وقت أذكار المساء.",
+      "لا تنسَ ساعة الجمعة.",
+      "لا تنس وردك اليومي.",
+      "سبحان الله.",
+      "الحمد لله.",
+      "لا إله إلا الله."
+    ],
+    "morningPresented": true,
+    "eveningPresented": true,
+    "fridayPresented": true,
+    "dailyWirdPresented": true,
+    "recurringPresentedCycles": 3,
+    "settingsRebuildDisableEnable": true,
+    "parentHierarchyDisableEnable": true,
+    "quietHoursPolicyApplied": true,
+    "duplicateRejected": true,
+    "parallelSchedulerAdded": false,
+    "awqatiErrorOrTraceback": false
+  },
+  "timerPolicy": {
+    "domainGraceChanged": false,
+    "sameDeadlineWakeNormalizedUpToSeconds": 5,
+    "longerDelayRemainsStale": true,
+    "catchUpAdded": false
+  },
+  "automatedTests": {
+    "adhkarTargetedPassed": 101,
+    "schedulerPresenterTranslationTargetedPassed": 143,
+    "fullGatePassed": 782,
+    "fullGateFailed": 0,
+    "runChecksPassed": true,
+    "gitDiffCheckPassed": true
+  },
+  "package": {
+    "version": "0.5.3.7",
+    "file": "dist/awqati-0.5.3.7.nvda-addon",
+    "sizeBytes": 12387446,
+    "sha256": "95e89de1858b978626322c3e6b9abd1135f63c77e1f775bca6aa3c69ee4d062c"
+  },
+  "notes": [
+    "The real-NVDA harness used the shipped producers, central Scheduler, AlertCoordinator, AlertPresenter, SpeechService, and NVDA speech output.",
+    "Known external NVDA startup diagnostics concerned an optional braille driver, inaccessible foreign processes, and missing isolated-profile symbol data; none originated from Awqati."
+  ]
+}

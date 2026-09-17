@@ -418,9 +418,9 @@ class MessageAndArchitectureTests(Fixture, unittest.TestCase):
 			self.assertTrue(format_prayer_alert(event).endswith("."))
 			self.assertTrue(format_prayer_alert(event, "en").endswith("."))
 		fajr = next(e for e in events if e.event_type is T.PRAYER_TIME)
-		self.assertEqual(format_prayer_alert(fajr), "حان الآن وقت صلاة الفجر.")
+		self.assertEqual(format_prayer_alert(fajr), "حان الآن وقت دخول صلاة الفجر.")
 		pre = self.of_type(T.PRAYER_PRE_ALERT)[0]
-		self.assertEqual(format_prayer_alert(pre), "اقترب دخول وقت صلاة الفجر، وقد بقي عليه 10 دقائق.")
+		self.assertEqual(format_prayer_alert(pre), "اقترب دخول وقت صلاة الفجر، فقد بقي عليه 10 دقائق.")
 
 	def test_arabic_duration_singular_dual_plural_hours(self):
 		for minutes, text in ((1, "دقيقة واحدة"), (2, "دقيقتان"), (5, "5 دقائق"), (61, "ساعة واحدة ودقيقة واحدة")):

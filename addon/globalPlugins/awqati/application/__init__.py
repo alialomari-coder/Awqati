@@ -29,7 +29,10 @@ from .alert_formatters import format_prayer_alert, format_clock_alert, format_ad
 from .islamic_terms import GLOSSARY_IDENTITIES, TermKind, normalize_language, source_message, term_kind, term_text
 from .alert_presenter import AlertPresenter, AudioOutput, OutputResult, SpeechOutput, format_alert_message
 from .events import EventDispatcher
-from .alert_scheduler import AlertCoordinator, AlertScheduler, GRACE_PERIODS, PresentationLease, priority_for, resolve_civil_time
+from .alert_scheduler import (
+	AlertCoordinator, AlertScheduler, GRACE_PERIODS, PresentationLease,
+	priority_for, resolve_civil_time, timer_delivery_instant,
+)
 from .general_policy import (
 	AlertPolicyDecision,
 	AutomaticAlertKind,
@@ -146,6 +149,7 @@ __all__ = [
 	"PresentationLease",
 	"priority_for",
 	"resolve_civil_time",
+	"timer_delivery_instant",
 	"EventPreAlertSettings",
 	"IqamaRule",
 	"IqamaSettings",

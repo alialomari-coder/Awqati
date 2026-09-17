@@ -34,6 +34,38 @@ class Translator:
 
 
 class CorrectiveCommandLocalizationTests(unittest.TestCase):
+	def test_requested_arabic_messages_are_exact_and_english_sources_unchanged(self) -> None:
+		arabic = Translator("ar")
+		expected = {
+			"The current prayer is {name}; it began {duration} ago.": "الصلاة الحالية هي {name}؛ وقد دخلَ وقتُها قبل {duration}.",
+			"The next prayer is {name} at {time}; in {duration}.": "الصلاة القادمة هي {name} عند {time}؛ أي بعد {duration}.",
+			"The next time is {name} at {time}; in {duration}.": "الوقت القادم هو {name} عند {time}؛ أي بعد {duration}.",
+			"The previous prayer was {name} at {time}; {duration} ago.": "الصلاة السابقة كانت {name} عند {time}؛ أي قبل {duration}.",
+			"The previous time was {name} at {time}; {duration} ago.": "الوقت السابق كان {name} عند {time}؛ أي قبل {duration}.",
+			"The time for {prayer} prayer is approaching, with {duration} remaining.": "اقترب دخول وقت صلاة {prayer}، فقد بقي عليه {duration}.",
+			"Sunrise is approaching, with {duration} remaining.": "اقترب وقت الشروق، فقد بقي عليه {duration}.",
+			"The middle of the night is approaching, with {duration} remaining.": "اقترب وقت انتصاف الليل، فقد بقي عليه {duration}.",
+			"The last third of the night is approaching, with {duration} remaining.": "اقترب دخول وقت الثلث الأخير من الليل، فقد بقي عليه {duration}.",
+			"It is now time for {prayer} prayer.": "حان الآن وقت دخول صلاة {prayer}.",
+			"All automatic Awqati alerts have been enabled.": "تم تفعيل جميع التنبيهات التلقائية.",
+			"All automatic Awqati alerts have been disabled.": "تم تعطيل جميع التنبيهات التلقائية.",
+			"No Awqati alert has been presented yet.": "لم يتم عرض أي تنبيه حتى الآن.",
+			"This Awqati command is unavailable until a valid location is assigned.": "هذا الأمر غير متاح حتى يتم تعيين موقع صالح.",
+			"Awqati settings could not be loaded. The existing file was not replaced.": "تعذر تحميل الإعدادات . لم يُستبدل الملف الموجود.",
+			"Awqati could not save the location. Your previous settings were preserved.": "تعذر حفظ الموقع. حُفظت الإعدادات السابقة دون تغيير.",
+			"Choose an allowed option.": "اختر أحد الخيارات المسموح بها.",
+			"Choose a valid Awqati sound file.": "اختر ملفًا صوتيًا صالحًا.",
+			"Awqati could not save the settings. Your previous applied settings were preserved.": "تعذر حفظ الإعدادات. حُفظت الإعدادات السابقة المعتمدة دون تغيير.",
+			"Awqati diagnostic information has been copied to the clipboard.": "تم نسخ معلومات التشخيص إلى الحافظة.",
+			"Could not copy Awqati diagnostic information to the clipboard.": "تعذر نسخ معلومات التشخيص إلى الحافظة.",
+			"Awqati data updates were installed safely. Restart NVDA to use them.": "ثُبتت تحديثات البيانات بأمان. أعد تشغيل NVDA لاستخدامها.",
+			"Awqati data is already up to date.": "البيانات محدثة بالفعل.",
+		}
+		for english, translated in expected.items():
+			with self.subTest(english=english):
+				self.assertEqual(english, Translator("en")(english))
+				self.assertEqual(translated, arabic(english))
+
 	@staticmethod
 	def event(name, hour):
 		return SimpleNamespace(
