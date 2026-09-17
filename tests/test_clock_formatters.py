@@ -177,7 +177,7 @@ class ArabicClockFormatterTests(unittest.TestCase):
 			"الثالثة والعشرون وإحدى وخمسون دقيقة وأربع وأربعون ثانية")
 		self.assertEqual(self.numeric.format_time(
 			reading(elapsed=timedelta(hours=25, minutes=3, seconds=4)), ClockType.GHURUBI,
-			options(hour_system=HourSystem.TWENTY_FOUR)), "25:03:04")
+			options(hour_system=HourSystem.TWENTY_FOUR)), "25 و3 دقائق و4 ثوانٍ")
 
 	def test_all_arabic_announcement_styles_and_double_order(self) -> None:
 		value = reading(hour=16, minute=42, second=43,
@@ -185,18 +185,19 @@ class ArabicClockFormatterTests(unittest.TestCase):
 		base = dict(hour_system=HourSystem.TWELVE, show_seconds=True, speak_zero_minute=False)
 		self.assertEqual(self.numeric.format_announcement(value, ClockType.ZAWALI,
 			ClockFormatOptions(style=AnnouncementStyle.FULL, **base)),
-			"الساعة الآن هي: 4:42:43 مساءً حسب التوقيت الزوالي.")
+			"الساعة الآن هي: 4 و42 دقيقة و43 ثانية مساءً حسب التوقيت الزوالي.")
 		self.assertEqual(self.numeric.format_announcement(value, ClockType.ZAWALI,
 			ClockFormatOptions(style=AnnouncementStyle.MODERATE, **base)),
-			"الساعة: 4:42:43 مساءً.")
+			"الساعة: 4 و42 دقيقة و43 ثانية مساءً.")
 		self.assertEqual(self.numeric.format_announcement(value, ClockType.ZAWALI,
-			ClockFormatOptions(style=AnnouncementStyle.SHORT, **base)), "4:42:43 مساءً.")
+			ClockFormatOptions(style=AnnouncementStyle.SHORT, **base)),
+			"4 و42 دقيقة و43 ثانية مساءً.")
 		double = self.numeric.format_announcement(value, ClockType.ZAWALI,
 			ClockFormatOptions(style=AnnouncementStyle.DOUBLE, **base),
 			ghurubi_formatter=self.numeric,
 			ghurubi_options=ClockFormatOptions(style=AnnouncementStyle.FULL, **base))
 		self.assertEqual(double,
-			"الساعة الآن هي: 4:42:43 مساءً حسب التوقيت الزوالي، "
+			"الساعة الآن هي: 4 و42 دقيقة و43 ثانية مساءً حسب التوقيت الزوالي، "
 			"11 و12 دقيقة و14 ثانية، ليلية حسب التوقيت الغروبي.")
 		self.assertLess(double.index("الزوالي"), double.index("الغروبي"))
 		self.assertNotIn("الساعة الغروبية:", double)
@@ -256,7 +257,7 @@ class EnglishClockFormatterTests(unittest.TestCase):
 		self.assertEqual(self.words.format_announcement(value, ClockType.ZAWALI, options()),
 			"three PM and fifty-one minutes and forty-four seconds.")
 		self.assertEqual(self.numeric.format_announcement(value, ClockType.ZAWALI, options()),
-			"3:51:44 PM.")
+			"3 and 51 minutes and 44 seconds PM.")
 		self.assertEqual(self.words.format_time(value, ClockType.ZAWALI,
 			options(hour_system=HourSystem.TWENTY_FOUR)),
 			"fifteen hours and fifty-one minutes and forty-four seconds")
@@ -318,9 +319,39 @@ class EnglishClockFormatterTests(unittest.TestCase):
 		value = reading(elapsed=timedelta(hours=25, seconds=5))
 		setting = options(hour_system=HourSystem.TWENTY_FOUR, show_seconds=True,
 			speak_zero_minute=False)
-		self.assertEqual(self.numeric.format_time(value, ClockType.GHURUBI, setting), "25 and 5 seconds")
+		self.assertEqual(self.numeric.format_time(value, ClockType.GHURUBI, setting),
+			"25 hours and 5 seconds")
 		arabic = NumericClockFormatter("ar")
 		self.assertEqual(arabic.format_time(value, ClockType.GHURUBI, setting), "25 و5 ثوانٍ")
+
+	def test_numeric_spoken_outputs_never_use_colons_between_digits(self) -> None:
+		"""Template punctuation such as ``Time:`` is allowed; HH:MM separators are not."""
+		value = reading(hour=16, minute=0, second=5,
+			elapsed=timedelta(hours=13, minutes=2, seconds=5))
+		for language in ("ar", "en"):
+			formatter = NumericClockFormatter(language)
+			for hour_system in HourSystem:
+				for show_seconds in (False, True):
+					for speak_zero_minute in (False, True):
+						base = dict(hour_system=hour_system, show_seconds=show_seconds,
+							speak_zero_minute=speak_zero_minute)
+						for clock_type in ClockType:
+							for style in (AnnouncementStyle.FULL, AnnouncementStyle.MODERATE,
+									AnnouncementStyle.SHORT):
+								output = formatter.format_announcement(value, clock_type,
+									ClockFormatOptions(style=style, **base))
+								with self.subTest(language=language, hour_system=hour_system,
+										seconds=show_seconds, zero=speak_zero_minute,
+										clock_type=clock_type, style=style):
+									self.assertNotRegex(output, r"\d:\d")
+						double = formatter.format_announcement(value, ClockType.ZAWALI,
+							ClockFormatOptions(style=AnnouncementStyle.DOUBLE, **base),
+							ghurubi_formatter=formatter,
+							ghurubi_options=ClockFormatOptions(style=AnnouncementStyle.SHORT, **base))
+						with self.subTest(language=language, hour_system=hour_system,
+								seconds=show_seconds, zero=speak_zero_minute,
+								style=AnnouncementStyle.DOUBLE):
+							self.assertNotRegex(double, r"\d:\d")
 
 	def test_cross_language_double_is_rejected(self) -> None:
 		with self.assertRaisesRegex(ValueError, "same language"):

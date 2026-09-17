@@ -1,4 +1,10 @@
 # Awqati changes
+## 0.5.2.3 — numeric spoken clock correction
+
+- Replaced colon-separated numeric clock speech with numeric values and explicit minute and second units.
+- Applied the correction to Arabic and English Zawali and Ghurubi output while preserving word formatting and zero-minute settings.
+- Added a regression matrix for both hour systems, seconds, zero minutes, styles, languages, and clock types.
+
 ## 0.5.2.2 — Arabic and English localization
 
 - Completed Arabic and English product documentation and language-direction coverage.

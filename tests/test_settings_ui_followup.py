@@ -67,7 +67,7 @@ class SettingsPreviewTests(unittest.TestCase):
 		clock.read.side_effect = AssertionError("Civil time must not calculate Maghrib")
 		self.settings.clock.presentations[ClockType.ZAWALI].style = AnnouncementStyle.FULL
 		service = SettingsPreviewService(clock,None,None)
-		self.assertIn("12:30",service.clock_text(self.settings,ClockType.ZAWALI,"en"))
+		self.assertIn("12 and 30 minutes",service.clock_text(self.settings,ClockType.ZAWALI,"en"))
 		clock.read_civil.assert_called_once_with(self.settings.location.location)
 		clock.read.assert_not_called()
 

@@ -266,27 +266,26 @@ def _elapsed_parts(value: timedelta) -> tuple[int, int, int]:
 
 def _numeric_elapsed(hour: int, minute: int, second: int, options: ClockFormatOptions,
 		*, arabic: bool) -> str:
-	if minute == 0 and not options.speak_zero_minute:
-		if not options.show_seconds:
-			return str(hour)
-		unit = (_arabic_unit_phrase(second, "second", words=False) if arabic else
+	parts = [str(hour) if arabic else _english_unit_phrase(hour, "hour", words=False)]
+	if minute or options.speak_zero_minute:
+		parts.append(_arabic_unit_phrase(minute, "minute", words=False) if arabic else
+			_english_unit_phrase(minute, "minute", words=False))
+	if options.show_seconds:
+		parts.append(_arabic_unit_phrase(second, "second", words=False) if arabic else
 			_english_unit_phrase(second, "second", words=False))
-		return f"{hour} و{unit}" if arabic else f"{hour} and {unit}"
-	return f"{hour}:{minute:02d}:{second:02d}" if options.show_seconds else f"{hour}:{minute:02d}"
+	return (" و" if arabic else " and ").join(parts)
 
 
 def _numeric_civil(hour: int, minute: int, second: int, options: ClockFormatOptions,
 		suffix: str, *, arabic: bool) -> str:
-	if minute == 0 and not options.speak_zero_minute:
-		if not options.show_seconds:
-			return f"{hour}{suffix}"
-		unit = (_arabic_unit_phrase(second, "second", words=False) if arabic else
-			_english_unit_phrase(second, "second", words=False))
-		return f"{hour} و{unit}{suffix}" if arabic else f"{hour} and {unit}{suffix}"
-	value = f"{hour}:{minute:02d}"
+	parts = [str(hour)]
+	if minute or options.speak_zero_minute:
+		parts.append(_arabic_unit_phrase(minute, "minute", words=False) if arabic else
+			_english_unit_phrase(minute, "minute", words=False))
 	if options.show_seconds:
-		value += f":{second:02d}"
-	return value + suffix
+		parts.append(_arabic_unit_phrase(second, "second", words=False) if arabic else
+			_english_unit_phrase(second, "second", words=False))
+	return (" و" if arabic else " and ").join(parts) + suffix
 
 
 _ARABIC_HOURS = {
