@@ -1825,6 +1825,10 @@ msgstr "تفعيل تذكير ساعة الجمعة"
 msgid "Enable all automatic alerts"
 msgstr "تفعيل جميع التنبيهات التلقائية"
 
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py
+msgid "Show Qibla direction"
+msgstr "عرض اتجاه القبلة"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:450
 msgid "Enable automatic clock alerts"
 msgstr "تفعيل تنبيهات الساعة التلقائية"

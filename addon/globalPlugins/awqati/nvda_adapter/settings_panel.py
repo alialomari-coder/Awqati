@@ -312,6 +312,11 @@ class AwqatiSettingsPanel(SettingsPanel):
 		current = self._draft.settings
 		self.location_controls = LocationControls(self, settingsSizer, context.location_setup, current.location)
 		self._register("location", self.location_controls.custom_button)
+		self.show_qibla = wx.Button(self, label=_("Show Qibla direction"))
+		settingsSizer.Add(self.show_qibla, flag=wx.LEFT | wx.RIGHT | wx.BOTTOM, border=8)
+		self._register("showQibla", self.show_qibla)
+		self.show_qibla.Bind(wx.EVT_BUTTON, lambda event: (
+			context.show_qibla() if context.show_qibla else None, event.Skip()))
 		self.all_alerts = wx.CheckBox(self, label=_("Enable all automatic alerts"))
 		self.all_alerts.SetValue(current.general.all_automatic_alerts_enabled)
 		settingsSizer.Add(self.all_alerts, flag=wx.ALL, border=8)

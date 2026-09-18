@@ -135,6 +135,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		)
 		self._context = NvdaUiContext(
 			settings, location_setup,
+			show_qibla=self._announce_qibla,
 			copy_diagnostics=self._actions.copy_diagnostics,
 			check_data_updates=self._actions.check_data_updates,
 			verify_prayer_times=self._actions.verify_online,
@@ -156,6 +157,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		except Exception as error:
 			logHandler.log.error("Awqati command failed: %s", error)
 			ui.message(_("This Awqati command is unavailable until a valid location is assigned."))
+
+	def _announce_qibla(self) -> None:
+		"""Use the shared command path for both the gesture and settings button."""
+		self._say(lambda: self._content.qibla_text(self._language()))
 
 	def _press(self, handlers) -> None:
 		"""Dispatch immediately using NVDA's native zero-based repeat count."""
@@ -212,7 +217,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	@scriptHandler.script(description=_("Press once to announce Ghurubi time, twice to announce the Qibla direction, or three times to announce the assigned location."), category=CATEGORY, gesture="kb:NVDA+g")
 	def script_ghurubiQibla(self, gesture):
 		self._press((lambda: self._say(lambda: self._content.clock_text(ClockType.GHURUBI, self._language())),
-			lambda: self._say(lambda: self._content.qibla_text(self._language())),
+			self._announce_qibla,
 			lambda: self._say(lambda: self._content.location_text(_))))
 
 	@scriptHandler.script(description=_("Press once to announce the Lunar Hijri date, twice to announce the Saudi Solar Hijri date, or three times to announce the Arabian calendar summary."), category=CATEGORY, gesture="kb:NVDA+h")

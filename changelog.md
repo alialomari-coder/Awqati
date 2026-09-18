@@ -1,4 +1,10 @@
 # Awqati changes
+## 0.5.4.2 — Qibla button in settings
+
+- Added an accessible Arabic and English button after the assigned-location controls.
+- Reused the existing Qibla command path, formatting, missing-location policy, and shortcut unchanged.
+- Preserved native keyboard focus order in Arabic RTL and English LTR settings.
+
 ## 0.5.3.6 — keyboard-responsive shortcut privacy prompt
 
 - Opened the first-session privacy confirmation non-modally after the global gesture handler returns.
