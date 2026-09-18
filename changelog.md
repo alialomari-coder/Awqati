@@ -1,4 +1,15 @@
 # Awqati changes
+
+## 4.0.0 — owner-acceptance candidate
+
+- Completely rebuilt the add-on formerly known as Prayer Times and renamed it Awqati to reflect its wider scope.
+- Added a global location database, custom and explicitly detected locations, bundled IANA time-zone data, and offline core operation.
+- Rebuilt prayer calculations, Iqama and current/waiting states; Zawali and Ghurubi clocks; five calendars; Qibla; astronomy; and the traditional Arabian calendar.
+- Rebuilt alerts, adhkar, the daily Wird, quiet hours, scheduling, sound and speech, fallback, and overlap handling.
+- Added optional manual online prayer verification, manual data updates, and privacy-preserving diagnostics, with no automatic connection.
+- Completed Arabic and English interfaces, documentation, right-to-left and left-to-right layouts, and keyboard accessibility.
+- The 0.5.x entries below are internal development history; the user guides list published-version history.
+
 ## 0.5.4.2 — Qibla button in settings
 
 - Added an accessible Arabic and English button after the assigned-location controls.

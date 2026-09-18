@@ -1,23 +1,20 @@
-"""Build metadata for the Awqati NVDA add-on scaffold.
-
-Values marked as development placeholders must be reviewed before a release.
-"""
+"""Release metadata for the Awqati NVDA add-on."""
 
 addon_info = {
 	"addon_name": "awqati",
 	"addon_summary": "Awqati",
-	"addon_description": "Accessible local prayer times, clocks, calendars, Qibla, daily information, alerts and adhkar in Arabic and English.",
-	"addon_version": "0.5.4.2",
-	"addon_changelog": "Add an accessible settings button for the existing Qibla command.",
-	"addon_author": "Awqati project (development placeholder)",
-	"addon_url": None,
-	"addon_sourceURL": None,
+	"addon_description": "Provides prayer times, Zawali and Ghurubi clocks, five calendars, adhkar and daily-Wird alerts, and Qibla direction in Arabic and English.",
+	"addon_version": "4.0.0",
+	"addon_changelog": "Complete rebuild of the add-on formerly known as Prayer Times, with offline prayer times, two clocks, five calendars, Qibla, astronomy, the Arabian calendar, alerts, adhkar, diagnostics, and optional manual network services.",
+	"addon_author": "ali alomari <alialomary@gmail.com>",
+	"addon_url": "https://github.com/alialomari-coder/Awqati",
+	"addon_sourceURL": "https://github.com/alialomari-coder/Awqati",
 	"addon_docFileName": "readme.html",
 	"addon_minimumNVDAVersion": "2026.1.0",
 	"addon_lastTestedNVDAVersion": "2026.2.0",
-	"addon_updateChannel": "dev",
-	"addon_license": "Undecided (development placeholder)",
-	"addon_licenseURL": None,
+	"addon_updateChannel": None,
+	"addon_license": "GPL-2.0-or-later",
+	"addon_licenseURL": "https://www.gnu.org/licenses/old-licenses/gpl-2.0.html",
 }
 
 pythonSources = ["addon/globalPlugins/awqati/**/*.py"]

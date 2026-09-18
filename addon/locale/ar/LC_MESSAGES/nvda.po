@@ -4328,3 +4328,7 @@ msgstr "نعم"
 
 msgid "no"
 msgstr "لا"
+
+#: buildVars.py:1
+msgid "Provides prayer times, Zawali and Ghurubi clocks, five calendars, adhkar and daily-Wird alerts, and Qibla direction in Arabic and English."
+msgstr "توفر مواقيت الصلاة، وساعة بتوقيتين زوالي وغروبي، وخمسة تقاويم، وتنبيهات للأذكار والورد اليومي، واتجاه القبلة بالعربية والإنجليزية."

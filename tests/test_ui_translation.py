@@ -43,8 +43,8 @@ class UiTranslationTests(unittest.TestCase):
 	def test_shipped_arabic_has_source_compiled_and_manifest_resources(self):
 		for name in ("locale/ar/LC_MESSAGES/nvda.po", "locale/ar/LC_MESSAGES/nvda.mo", "locale/ar/manifest.ini"):
 			self.assertIn(name, self.names)
-		self.assertIn("summary = أوقاتي", self.manifest_ar)
-		self.assertIn("summary = Awqati", self.manifest)
+		self.assertIn('summary = "أوقاتي"', self.manifest_ar)
+		self.assertIn('summary = "Awqati"', self.manifest)
 		self.assertFalse(any(name.startswith("babel/") for name in self.names))
 
 

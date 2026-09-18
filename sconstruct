@@ -16,6 +16,7 @@ ROOT = Path.cwd().resolve()
 ADDON_SOURCE = ROOT / "addon"
 BUILD_ROOT = ROOT / "build"
 DIST_ROOT = ROOT / "dist"
+RELEASE_FILES = (ROOT / "COPYING.txt", ROOT / "DATA_SOURCES.md")
 
 
 def _manifest_value(value: object) -> str:
@@ -28,6 +29,8 @@ def _build_package(target, source, env) -> int:
 	if staging.exists():
 		shutil.rmtree(staging)
 	shutil.copytree(ADDON_SOURCE, staging)
+	for release_file in RELEASE_FILES:
+		shutil.copy2(release_file, staging / release_file.name)
 	build_translations(staging)
 
 	manifest_template = (ROOT / "manifest.ini.tpl").read_text(encoding="utf-8")
@@ -52,7 +55,7 @@ def _build_package(target, source, env) -> int:
 info = buildVars.addon_info
 package = Command(
 	DIST_ROOT / f"{info['addon_name']}-{info['addon_version']}.nvda-addon",
-	["manifest.ini.tpl", "buildVars.py", *ADDON_SOURCE.rglob("*")],
+	["manifest.ini.tpl", "buildVars.py", *RELEASE_FILES, *ADDON_SOURCE.rglob("*")],
 	Action(_build_package, "Building $TARGET"),
 )
 AlwaysBuild(package)
