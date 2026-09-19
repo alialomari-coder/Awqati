@@ -1,14 +1,23 @@
 from __future__ import annotations
 
 import ast
-import configparser
 from pathlib import Path
+import re
+import runpy
 import unittest
 import zipfile
 
 
 ROOT = Path(__file__).resolve().parents[1]
-import runpy
+
+
+def _manifest_scalar(text: str, key: str) -> str:
+	match = re.search(rf'(?m)^{re.escape(key)}\s*=\s*(.*?)\s*$', text)
+	if not match:
+		raise AssertionError(f"Missing manifest field: {key}")
+	return match.group(1).strip('"')
+
+
 BUILD_INFO = runpy.run_path(str(ROOT / "buildVars.py"))["addon_info"]
 PACKAGE = ROOT / "dist" / f"awqati-{BUILD_INFO['addon_version']}.nvda-addon"
 
@@ -83,13 +92,10 @@ class ScaffoldTests(unittest.TestCase):
 	def test_built_manifest_matches_scaffold_metadata(self) -> None:
 		with zipfile.ZipFile(PACKAGE) as archive:
 			manifest_text = archive.read("manifest.ini").decode("utf-8-sig")
-		parser = configparser.ConfigParser()
-		parser.read_string("[manifest]\n" + manifest_text)
-		manifest = parser["manifest"]
-		self.assertEqual(manifest["name"], "awqati")
-		self.assertEqual(manifest["version"], _load_addon_info()["addon_version"])
-		self.assertEqual(manifest["minimumNVDAVersion"], "2026.1.0")
-		self.assertEqual(manifest["lastTestedNVDAVersion"], "2026.2.0")
+		self.assertEqual(_manifest_scalar(manifest_text, "name"), "awqati")
+		self.assertEqual(_manifest_scalar(manifest_text, "version"), _load_addon_info()["addon_version"])
+		self.assertEqual(_manifest_scalar(manifest_text, "minimumNVDAVersion"), "2026.1.0")
+		self.assertEqual(_manifest_scalar(manifest_text, "lastTestedNVDAVersion"), "2026.2.0")
 
 
 if __name__ == "__main__":

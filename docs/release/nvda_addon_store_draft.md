@@ -19,7 +19,8 @@ This file contains only local, verified fields that can be prepared before publi
 - Documentation file: `readme.html`
 
 - Final local package: `awqati-4.0.0.nvda-addon`
-- Package size: `12,417,691` bytes
-- Package SHA-256: `425faa4d7ee9d866530d83f220875d390b8a05c05e2666420a125d6099b7a3d2`
+- Package size: `12,419,047` bytes
+- Package SHA-256: `80b4d47aa3f528972552efd3842374aa04d9c0dd15ac889acb78e39818226407`
+- Fingerprint change reason: manifest description expansion in Arabic and English only; version and all other release metadata remain unchanged.
 
 The download URL, review URL, GitHub Release URL, and store-submission identifiers are deliberately omitted. They are deferred until the owner accepts the package and explicitly requests publication.

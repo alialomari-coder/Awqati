@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import ast
-import configparser
 from html.parser import HTMLParser
 from pathlib import Path, PurePosixPath
 import re
@@ -10,6 +9,37 @@ import zipfile
 
 
 ROOT = Path(__file__).resolve().parents[1]
+
+EXPECTED_ENGLISH_DESCRIPTION = (
+	"This add-on provides prayer times, as well as sunrise, midnight, and the last third of the night. "
+	"It also provides a clock with Zawali and Ghurubi time, and five calendars: the Gregorian calendar, "
+	"the lunar Hijri calendar, and three solar Hijri calendars. In addition, it provides daily astronomical "
+	"information and other information derived from the Arabian calendar about the Talaa periods, seasons, "
+	"and the Suhail year.\n\n"
+	"It also provides alerts for daily Wird and adhkar, and guides the user toward the Qibla direction.\n\n"
+	"The add-on also supports quiet hours and lets the user enable or disable prayer-time alerts and alerts "
+	"before and after those times.\n\n"
+	"The add-on currently supports Arabic and English."
+)
+EXPECTED_ARABIC_DESCRIPTION = (
+	"توفر هذه الإضافة مواقيت الصلاة فضلا عن الشروق ومنتصف الليل والثلث الأخير، كما توفر ساعة بتوقيتين "
+	"زوالي وغروبي، وخمسة تقاويم: تقويم ميلادي، وتقويم هجري قمري، وثلاثة تقاويم هجرية شمسية، بالإضافة "
+	"إلى معلومات فلكية يومية، ومعلومات أخرى مستمدة من التقويم العربي حول الطوالع والمواسم وسنة سهيل.\n\n"
+	"كما توفر تنبيهات خاصة بالأوراد والأذكار، وترشد المستخدم إلى اتجاه القبلة.\n\n"
+	"وتدعم الإضافة كذلك نظام ساعات الهدوء، والتحكم في تنبيهات المواقيت والتنبيهات القبلية والبعدية "
+	"تفعيلا وإيقافا.\n\n"
+	"تدعم الإضافة حاليا اللغتين العربية والإنجليزية."
+)
+
+
+def _manifest_value(text: str, key: str) -> str:
+	multiline = re.search(rf'(?ms)^{re.escape(key)}\s*=\s*"""(.*?)"""\s*$', text)
+	if multiline:
+		return multiline.group(1).replace("\r\n", "\n")
+	line = re.search(rf'(?m)^{re.escape(key)}\s*=\s*(.*?)\s*$', text)
+	if not line:
+		raise AssertionError(f"Missing manifest field: {key}")
+	return line.group(1).strip('"')
 
 
 def _addon_info() -> dict[str, object]:
@@ -113,17 +143,28 @@ class ReleaseMetadataTests(unittest.TestCase):
 		self.assertTrue(package.is_file(), "Build the package before running this test")
 		with zipfile.ZipFile(package) as archive:
 			manifest_text = archive.read("manifest.ini").decode("utf-8-sig")
-			parser = configparser.ConfigParser()
-			parser.read_string("[manifest]\n" + manifest_text)
-			manifest = parser["manifest"]
-			self.assertEqual(manifest["name"], info["addon_name"])
-			self.assertEqual(manifest["version"], info["addon_version"])
-			self.assertEqual(manifest["author"].strip('"'), info["addon_author"])
-			self.assertEqual(manifest["url"], info["addon_url"])
-			self.assertEqual(manifest["docfilename"], "readme.html")
-			self.assertEqual(manifest["minimumnvdaversion"], "2026.1.0")
-			self.assertEqual(manifest["lasttestednvdaversion"], "2026.2.0")
-			self.assertEqual(manifest["updatechannel"], "")
+		self.assertEqual(_manifest_value(manifest_text, "name"), info["addon_name"])
+		self.assertEqual(_manifest_value(manifest_text, "version"), info["addon_version"])
+		self.assertEqual(_manifest_value(manifest_text, "author"), info["addon_author"])
+		self.assertEqual(_manifest_value(manifest_text, "url"), info["addon_url"])
+		self.assertEqual(_manifest_value(manifest_text, "docFileName"), "readme.html")
+		self.assertEqual(_manifest_value(manifest_text, "minimumNVDAVersion"), "2026.1.0")
+		self.assertEqual(_manifest_value(manifest_text, "lastTestedNVDAVersion"), "2026.2.0")
+		self.assertEqual(_manifest_value(manifest_text, "updateChannel"), "")
+
+	def test_packaged_manifest_descriptions_preserve_approved_paragraphs(self) -> None:
+		info = _addon_info()
+		package = ROOT / "dist" / f"awqati-{info['addon_version']}.nvda-addon"
+		with zipfile.ZipFile(package) as archive:
+			english_manifest = archive.read("manifest.ini").decode("utf-8-sig")
+			arabic_manifest = archive.read("locale/ar/manifest.ini").decode("utf-8-sig")
+		self.assertEqual(_manifest_value(english_manifest, "summary"), "Awqati")
+		self.assertEqual(_manifest_value(arabic_manifest, "summary"), "أوقاتي")
+		self.assertEqual(_manifest_value(english_manifest, "description"), EXPECTED_ENGLISH_DESCRIPTION)
+		self.assertEqual(_manifest_value(arabic_manifest, "description"), EXPECTED_ARABIC_DESCRIPTION)
+		for description in (EXPECTED_ENGLISH_DESCRIPTION, EXPECTED_ARABIC_DESCRIPTION):
+			self.assertEqual(description.count("\n\n"), 3)
+			self.assertFalse(any(line.lstrip().startswith(("-", "*", "•")) for line in description.splitlines()))
 
 	def test_package_is_release_clean(self) -> None:
 		info = _addon_info()

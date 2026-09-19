@@ -50,8 +50,7 @@ class UiTranslationTests(unittest.TestCase):
 
 	def test_manifest_description_with_commas_is_quoted(self):
 		for manifest in (self.manifest, self.manifest_ar):
-			line = next(line for line in manifest.splitlines() if line.startswith("description = "))
-			self.assertTrue(line.startswith('description = "') and line.endswith('"'))
+			self.assertRegex(manifest, r'(?ms)^description = """.+"""\s*$')
 
 	def test_format_fields_survive_translation(self):
 		from string import Formatter
