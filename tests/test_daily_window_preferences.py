@@ -152,21 +152,27 @@ class DailyWindowUiContractTests(unittest.TestCase):
 			if isinstance(item, ast.FunctionDef) and item.name == name)
 		return ast.get_source_segment(cls.source, node) or ""
 
-	def test_prayer_checkbox_is_translated_bound_and_before_event_configuration(self) -> None:
+	def test_prayer_button_is_translated_bound_and_before_event_configuration(self) -> None:
 		method = self.method_source("_build_prayer")
 		self.assertIn('_("Open daily prayer times window")', method)
-		self.assertIn('"open_daily_prayer_times_window"', method)
+		self.assertIn('wx.Button(', method)
+		self.assertIn('context.show_prayer_times()', method)
+		self.assertIn('wx.EVT_BUTTON', method)
+		self.assertNotIn('"open_daily_prayer_times_window"', method)
 		self.assertIn('"prayer.openDailyPrayerTimesWindow"', method)
 		self.assertLess(method.index('_("Open daily prayer times window")'),
 			method.index('_("Time to configure:")'))
 
-	def test_daily_info_checkbox_is_translated_bound_and_follows_content_option(self) -> None:
+	def test_daily_info_button_is_translated_bound_and_follows_content_option(self) -> None:
 		method = self.method_source("_build_date")
 		include = '_("Include Arabian calendar information in astronomical daily information")'
 		open_window = '_("Open daily information window")'
 		self.assertIn(include, method)
 		self.assertIn(open_window, method)
-		self.assertIn('"open_daily_info_window"', method)
+		self.assertIn('wx.Button(', method)
+		self.assertIn('context.show_daily_info()', method)
+		self.assertIn('wx.EVT_BUTTON', method)
+		self.assertNotIn('"open_daily_info_window"', method)
 		self.assertIn('"calendar.openDailyInfoWindow"', method)
 		self.assertLess(method.index(include), method.index(open_window))
 

@@ -54,6 +54,16 @@ class Task51ContractTests(unittest.TestCase):
 		self.assertIn("wx.CallAfter(self._actions.verify_online, from_global_command=True)", block)
 		self.assertEqual(1, block.count("self._showPrayerTimes"))
 
+	def test_settings_buttons_delegate_to_the_same_window_helpers(self):
+		ui_source = (ROOT / "addon/globalPlugins/awqati/nvda_adapter/ui.py").read_text(encoding="utf-8")
+		panel_source = (ROOT / "addon/globalPlugins/awqati/nvda_adapter/settings_panel.py").read_text(encoding="utf-8")
+		self.assertIn("show_prayer_times: Callable[[], None] | None = None", ui_source)
+		self.assertIn("show_daily_info: Callable[[], None] | None = None", ui_source)
+		self.assertIn("show_prayer_times=self._showPrayerTimes", self.source)
+		self.assertIn("show_daily_info=self._showDailyInfo", self.source)
+		self.assertIn("context.show_prayer_times()", panel_source)
+		self.assertIn("context.show_daily_info()", panel_source)
+
 	def test_f12_triple_press_announces_and_does_not_open_window(self):
 		block = self.source[self.source.index("def script_timeDateInfo"):self.source.index("def script_repeatLastAlert")]
 		self.assertNotIn("_show_text", block)

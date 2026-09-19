@@ -32,6 +32,8 @@ class NvdaUiContext:
 	settings: SettingsService
 	location_setup: LocationSetupService
 	show_qibla: Callable[[], None] | None = None
+	show_prayer_times: Callable[[], None] | None = None
+	show_daily_info: Callable[[], None] | None = None
 	copy_diagnostics: Callable[[], None] | None = None
 	check_data_updates: Callable[[], None] | None = None
 	verify_prayer_times: Callable[[], None] | None = None

@@ -136,6 +136,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		self._context = NvdaUiContext(
 			settings, location_setup,
 			show_qibla=self._announce_qibla,
+			show_prayer_times=self._showPrayerTimes,
+			show_daily_info=self._showDailyInfo,
 			copy_diagnostics=self._actions.copy_diagnostics,
 			check_data_updates=self._actions.check_data_updates,
 			verify_prayer_times=self._actions.verify_online,
@@ -279,7 +281,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		self._show_text(_("Today's prayer times"), self._content.daily_prayer_times(_))
 
 	def _show_text(self, title, content):
-		SelectableTextDialog.show(gui.mainFrame, title, content)
+		focus = wx.Window.FindFocus()
+		parent = focus.GetTopLevelParent() if focus is not None else None
+		if parent is None or not parent.IsShown():
+			parent = gui.mainFrame
+		SelectableTextDialog.show(parent, title, content)
 
 	@scriptHandler.script(description=_("Copy diagnostic information."), category=CATEGORY)
 	def script_diagnostics(self, gesture): self._actions.copy_diagnostics()
