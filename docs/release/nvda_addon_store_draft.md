@@ -1,6 +1,6 @@
-# Awqati 4.0.0 store metadata draft
+# Awqati 4.0.0 publication and store-submission record
 
-This file contains only local, verified fields that can be prepared before publication.
+This file records the verified release and the current external store-submission state.
 
 - Internal name: `awqati`
 - English name: `Awqati`
@@ -19,8 +19,17 @@ This file contains only local, verified fields that can be prepared before publi
 - Documentation file: `readme.html`
 
 - Final local package: `awqati-4.0.0.nvda-addon`
-- Package size: `12,419,047` bytes
-- Package SHA-256: `80b4d47aa3f528972552efd3842374aa04d9c0dd15ac889acb78e39818226407`
-- Fingerprint change reason: manifest description expansion in Arabic and English only; version and all other release metadata remain unchanged.
+- Package size: `12,419,137` bytes
+- Package SHA-256: `938c99ea08346c94d944325eaa5646144041e6abcfcea4d3cf85a8122abb1baa`
+- Source commit for the artifact: `7c555bff59b8a8dbb7ce5fc33c7f46d183549e45`
+- Tag: `v4.0.0`, pointing to the source commit above.
+- GitHub Release: `https://github.com/alialomari-coder/Awqati/releases/tag/v4.0.0`
+- Direct download URL: `https://github.com/alialomari-coder/Awqati/releases/download/v4.0.0/awqati-4.0.0.nvda-addon`
+- Download verification: `12,419,137` bytes and the SHA-256 above; byte identity with the approved local artifact confirmed.
 
-The download URL, review URL, GitHub Release URL, and store-submission identifiers are deliberately omitted. They are deferred until the owner accepts the package and explicitly requests publication.
+## NVDA Add-on Store submission
+
+- Registration issue: `https://github.com/nvaccess/addon-datastore/issues/11667`
+- Submitted values: publisher `ali alomari`, channel `stable`, license `GPL v2 or later`, license URL `https://www.gnu.org/licenses/old-licenses/gpl-2.0.html`, and the source/download URLs above.
+- Current state: **Submitted — pending external workflow trigger/review/first-publisher approval**.
+- No automated PR or validation result exists yet. GitHub CLI could not apply the repository-owned `autoSubmissionFromIssue` label with read-only permission, so an NV Access maintainer was asked on the same issue to apply it. No duplicate submission was created.

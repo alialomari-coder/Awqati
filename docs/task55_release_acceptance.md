@@ -1,5 +1,36 @@
 # قبول الإصدار المحلي للمهمة 5.5
 
+## سجل النشر والتقديم النهائي
+
+- المستودع: `https://github.com/alialomari-coder/Awqati`
+- الفرع المنشور: `master`
+- آخر commit وظيفي ومصدر الحزمة: `7c555bff59b8a8dbb7ce5fc33c7f46d183549e45`
+- commit تسجيل قبول صاحب المشروع: `01fb8d9d8c86f96fe3c6ba17aaf3b873c470056d`
+- tag: `v4.0.0`؛ يشير بعد فك tag الموثق إلى `7c555bff59b8a8dbb7ce5fc33c7f46d183549e45`.
+- GitHub Release: `https://github.com/alialomari-coder/Awqati/releases/tag/v4.0.0`
+- التنزيل المباشر: `https://github.com/alialomari-coder/Awqati/releases/download/v4.0.0/awqati-4.0.0.nvda-addon`
+- حجم asset المنشور والمعاد تنزيله: `12,419,137` بايت.
+- SHA-256 للـasset المنشور والمعاد تنزيله: `938c99ea08346c94d944325eaa5646144041e6abcfcea4d3cf85a8122abb1baa`.
+- المطابقة مع artifact المحلي المعتمد: **مطابقة حرفية** بالحجم والبصمة.
+
+بيانات تقديم متجر NVDA النهائية:
+
+- Add-on ID: `awqati`
+- Display name: `Awqati`
+- Version: `4.0.0`
+- Publisher: `ali alomari`
+- Channel: `stable`
+- Minimum NVDA: `2026.1.0`
+- Last tested NVDA: `2026.2.0`
+- Source/Homepage: `https://github.com/alialomari-coder/Awqati`
+- License: `GPL v2 or later`
+- License URL: `https://www.gnu.org/licenses/old-licenses/gpl-2.0.html`
+- Issue: `https://github.com/nvaccess/addon-datastore/issues/11667`
+- PR/validation: لم يُنشأ PR ولم تبدأ الفحوص بعد، لأن الحساب الخارجي لا يستطيع تطبيق وسم المستودع `autoSubmissionFromIssue` عبر GitHub CLI. طُلب من مشرفي NV Access إضافة الوسم إلى الـIssue نفسها؛ لم تُنشأ Issue ثانية.
+- الحالة: **Submitted — pending external workflow trigger/review/first-publisher approval**. التسجيل الأول يحتاج موافقة ناشر يدوية وفق دليل NV Access الحالي.
+
+المهمة 5.5 مكتملة ومغلقة من جانب المشروع. المتبقي خارجي لدى NV Access: إضافة وسم التشغيل، إنشاء PR الآلي، الفحوص، الموافقة الأولى، ثم الدمج وظهور الإضافة في المتجر. لا يُدّعى أنها منشورة في متجر NVDA حتى يحدث ذلك.
+
 ## اعتماد صاحب المشروع النهائي
 
 اختبر صاحب المشروع بنفسه الحزمة `dist/awqati-4.0.0.nvda-addon` بعد الإصلاح الأخير، ولم يجد مشكلة، ووافق صراحة على نشرها. artifact المعتمد ثابت ولا يجوز إعادة بنائه أو استبداله:

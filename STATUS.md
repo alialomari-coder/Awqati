@@ -1,5 +1,16 @@
 # حالة تنفيذ مشروع Awqati
 
+## المهمة 5.5 — مكتملة من جانب المشروع؛ تقديم المتجر بانتظار NV Access
+
+- دُفع فرع `master` إلى `https://github.com/alialomari-coder/Awqati` دون force. يحتوي البعيد آخر إصلاح وظيفي `7c555bff59b8a8dbb7ce5fc33c7f46d183549e45` وcommit قبول صاحب المشروع `01fb8d9d8c86f96fe3c6ba17aaf3b873c470056d`.
+- أُنشئ tag موثق `v4.0.0` ودُفع؛ يشير tag بعد فك الإحالة إلى commit المصدر الوظيفي `7c555bff59b8a8dbb7ce5fc33c7f46d183549e45`، وليس إلى commit التوثيق اللاحق.
+- نُشر GitHub Release النهائي: `https://github.com/alialomari-coder/Awqati/releases/tag/v4.0.0`. رابط الحزمة المباشر: `https://github.com/alialomari-coder/Awqati/releases/download/v4.0.0/awqati-4.0.0.nvda-addon`.
+- أُعيد تنزيل asset المنشور إلى ملف مؤقت مستقل؛ طابق الملف المحلي حرفيًا: الحجم `12,419,137` بايت، وSHA-256 `938c99ea08346c94d944325eaa5646144041e6abcfcea4d3cf85a8122abb1baa`.
+- أُرسل تسجيل Awqati الأول إلى متجر NVDA مرة واحدة في `https://github.com/nvaccess/addon-datastore/issues/11667`. يحتوي الحقول الحالية الصحيحة، لكن GitHub CLI لم يستطع تطبيق وسم المستودع `autoSubmissionFromIssue` لأن صلاحية الناشر على datastore هي قراءة فقط؛ لذلك لم يبدأ PR أو validation بعد. طُلب من مشرفي NV Access إضافة الوسم على الـIssue نفسها، دون إنشاء submission ثانية.
+- حالة المتجر الفعلية: **Submitted — pending external workflow trigger/review/first-publisher approval**. لا تدّعي الحالة أن الإضافة متاحة في المتجر الآن.
+- مستودع `awqati-data` العام متطابق مع المحلي عند `7c0b098df92ae770107cfbb2e1e469c411383503`؛ نُزّلت موارده الخمسة العامة عبر HTTPS وطابقت بصماتها manifest. لم تُعد الحزمة ولم يتغير أي ملف يدخل فيها.
+- لا توجد خطوة نشر داخلية متبقية؛ المهمة 5.5 مغلقة من جانب المشروع، والخطوة الخارجية الوحيدة بيد NV Access هي إضافة وسم الأتمتة ثم المراجعة/الموافقة الأولى والفحوص والدمج.
+
 ## اعتماد صاحب المشروع للحزمة النهائية 4.0.0 — موافق على النشر
 
 - اختبر صاحب المشروع بنفسه الحزمة `dist/awqati-4.0.0.nvda-addon` بعد الإصلاح الأخير، ولم يجد مشكلة، ووافق صراحة على نشرها.
