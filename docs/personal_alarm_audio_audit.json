@@ -1,0 +1,17 @@
+{
+  "channels": 2,
+  "sampleWidth": 2,
+  "sampleRate": 44100,
+  "frames": 529200,
+  "duration": 12.0,
+  "peak": 9253,
+  "peakDbFS": -10.983347455845092,
+  "fullScaleSamples": 0,
+  "leadingBelowMinus60dB": 0.014965986394557823,
+  "trailingBelowMinus60dB": 0.037936507936507935,
+  "sourceSha256": "0b395a8f5b9aa2d30f6dd7629af13ae865515b1acc5f3b945030151736a379a8",
+  "processing": "Owner approved: discard first 1.000 seconds (44100 stereo frames), retaining original samples for the eleven full-volume beats; no normalization, fade, resampling or crossfade.",
+  "derivedDuration": 11.0,
+  "derivedSha256": "6aad549639847a80ed4dce0b14309c1c3ca2fb0e19d30ae696730cbafe5f1753",
+  "listeningAcceptance": "Owner approved derived version on 2026-11-01 after noting clear playback without gap but reduced first-beat loudness in original."
+}

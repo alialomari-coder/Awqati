@@ -17,7 +17,7 @@ class DailyInfoService:
 		self._arabian_calendar = arabian_calendar
 
 	def read(self, location: Location, *, include_arabian_calendar: bool = False) -> DailyInfoReading:
-		scientific = self._astronomy.read(location)
+		scientific = self._astronomy.read(location, include_daily_details=True)
 		heritage = None
 		if include_arabian_calendar:
 			if self._arabian_calendar is None:

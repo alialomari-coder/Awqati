@@ -9,7 +9,9 @@ import os
 from pathlib import Path
 import re
 import tempfile
+from copy import deepcopy
 from typing import Any, Callable
+from ..domain.weather import WeatherSettings
 
 from ..domain import (
 	AdhkarSettings,
@@ -128,12 +130,25 @@ class SettingsMigrationRegistry:
 		return result
 
 
+def _weather_migration(data):
+	# Reject incomplete schema 1 before adding defaults; never repair corruption
+	# by discarding user values. Complete validation follows in _decode_settings.
+	if set(data) != {"schemaVersion", "location", "general", "prayer", "clock", "calendar", "adhkar"}:
+		raise InvalidSettingsDataError("invalid schema 1 settings")
+	result = deepcopy(data)
+	result["schemaVersion"] = 2
+	result["weather"] = _encode(WeatherSettings())
+	return result
+
+
 class JsonSettingsRepository:
 	"""Read and atomically replace one injectable JSON settings file."""
 
 	def __init__(self, path: Path, migrations: SettingsMigrationRegistry | None = None) -> None:
 		self._path = Path(path)
-		self._migrations = migrations or SettingsMigrationRegistry()
+		self._migrations = migrations if migrations is not None else SettingsMigrationRegistry()
+		if migrations is None:
+			self._migrations.register(1, _weather_migration)
 
 	def load(self) -> AwqatiSettings:
 		if not self._path.exists():
@@ -160,6 +175,25 @@ class JsonSettingsRepository:
 		temporary: Path | None = None
 		try:
 			self._path.parent.mkdir(parents=True, exist_ok=True)
+			# Preserve the exact schema-1 bytes before the first schema-2 write,
+			# even if save() was called without load(). Fail closed on any error.
+			if self._path.exists():
+				original = self._path.read_bytes()
+				old = json.loads(original)
+				_decode_settings(self._migrations.migrate(old))
+				if old.get("schemaVersion") == 1:
+					backup = self._path.with_name(self._path.name + ".schema1.bak")
+					if backup.exists() and backup.read_bytes() != original:
+						raise OSError("a different schema-1 backup already exists")
+					if not backup.exists():
+						try:
+							with backup.open("xb") as stream:
+								stream.write(original)
+								stream.flush()
+								os.fsync(stream.fileno())
+						except OSError:
+							backup.unlink(missing_ok=True)
+							raise
 			with tempfile.NamedTemporaryFile(
 				mode="w",
 				encoding="utf-8",
@@ -246,7 +280,7 @@ def _location(value: Any) -> StoredLocation | None:
 
 
 def _decode_settings(value: dict[str, Any]) -> AwqatiSettings:
-	root = _object(value, {"schemaVersion", "location", "general", "prayer", "clock", "calendar", "adhkar"},
+	root = _object(value, {"schemaVersion", "location", "general", "prayer", "clock", "calendar", "adhkar", "weather"},
 		"settings")
 	general_data = _object(root["general"], {"allAutomaticAlertsEnabled", "quietHours"}, "general")
 	quiet_data = _object(general_data["quietHours"],
@@ -326,9 +360,14 @@ def _decode_settings(value: dict[str, Any]) -> AwqatiSettings:
 		_output(clock_data["alert"], "clock.alert"),
 	)
 
-	calendar_data = _object(root["calendar"],
+	# Additive schema-1 preference: older files have an explicit false default.
+	# Unknown keys are still rejected and loading never rewrites the file.
+	calendar_raw = root["calendar"]
+	if isinstance(calendar_raw, dict):
+		calendar_raw = {"onThisDayWebPage": False, **calendar_raw}
+	calendar_data = _object(calendar_raw,
 		{"primaryCalendar", "formats", "hijriAdjustmentDays", "includeArabianCalendarInDailyInfo",
-			"openDailyInfoWindow"}, "calendar")
+			"openDailyInfoWindow", "onThisDayWebPage"}, "calendar")
 	formats_data = _object(calendar_data["formats"], {identity.value for identity in CalendarId}, "calendar.formats")
 	calendar = CalendarSettings(
 		_enum(CalendarId, calendar_data["primaryCalendar"], "calendar.primaryCalendar"),
@@ -337,6 +376,7 @@ def _decode_settings(value: dict[str, Any]) -> AwqatiSettings:
 		calendar_data["hijriAdjustmentDays"],
 		calendar_data["includeArabianCalendarInDailyInfo"],
 		calendar_data["openDailyInfoWindow"],
+		calendar_data["onThisDayWebPage"],
 	)
 
 	adhkar_data = _object(root["adhkar"],
@@ -367,6 +407,13 @@ def _decode_settings(value: dict[str, Any]) -> AwqatiSettings:
 		),
 		RecurringDhikrSettings(recurring_data["enabled"], recurring_data["intervalMinutes"], items),
 	)
-	settings = AwqatiSettings(root["schemaVersion"], _location(root["location"]), general, prayer, clock, calendar, adhkar)
+	weather_data = _object(root["weather"], {_camel(f.name) for f in fields(WeatherSettings)}, "weather")
+	# 8.0.0 schema-2 files lack only this new optional choice. Do not rewrite on read.
+	weather_data = dict(weather_data)
+	if isinstance(weather_data.get("current"), dict):
+		weather_data["current"] = dict(weather_data["current"])
+		weather_data["current"].setdefault("apparent_temperature", True)
+	weather = WeatherSettings(**{f.name: weather_data[_camel(f.name)] for f in fields(WeatherSettings)})
+	settings = AwqatiSettings(root["schemaVersion"], _location(root["location"]), general, prayer, clock, calendar, adhkar, weather)
 	validate_settings(settings)
 	return settings

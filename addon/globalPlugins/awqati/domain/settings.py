@@ -13,9 +13,10 @@ from .clock import AnnouncementStyle, ClockType, HourSystem, TimeRepresentation
 from .models import Location
 from .prayer import AsrMethod, CalculationMethod, HighLatitudeRule
 from .prayer_timeline import PRAYER_EVENT_NAMES, PrayerEventName
+from .weather import WeatherSettings
 
 
-SETTINGS_SCHEMA_VERSION = 1
+SETTINGS_SCHEMA_VERSION = 2
 DEFAULT_EVENT_PRE_ALERT_MINUTES = 10
 DEFAULT_IQAMA_ALERT_BEFORE_MINUTES = 5
 DEFAULT_CURRENT_PRAYER_DURATION_MINUTES = 20
@@ -216,6 +217,7 @@ class CalendarSettings:
 	hijri_adjustment_days: int = 0
 	include_arabian_calendar_in_daily_info: bool = False
 	open_daily_info_window: bool = False
+	on_this_day_web_page: bool = False
 
 
 @dataclass(slots=True)
@@ -275,6 +277,7 @@ class AwqatiSettings:
 	clock: ClockSettings = field(default_factory=ClockSettings)
 	calendar: CalendarSettings = field(default_factory=CalendarSettings)
 	adhkar: AdhkarSettings = field(default_factory=AdhkarSettings)
+	weather: WeatherSettings = field(default_factory=WeatherSettings)
 
 
 def default_settings() -> AwqatiSettings:
@@ -353,6 +356,11 @@ def _validate_location(location: Location, path: str) -> None:
 def validate_settings(settings: AwqatiSettings) -> None:
 	"""Validate the whole graph before repository writes or runtime publication."""
 	_require_type(settings, AwqatiSettings, "settings")
+	_require_type(settings.weather, WeatherSettings, "weather")
+	try:
+		settings.weather.validate()
+	except (TypeError, ValueError) as error:
+		_fail(str(error), "weather", "invalidValue")
 	if settings.schema_version != SETTINGS_SCHEMA_VERSION:
 		_fail(f"schemaVersion must equal {SETTINGS_SCHEMA_VERSION}", "schemaVersion", "unsupportedSchema")
 	if settings.location is not None:
@@ -457,6 +465,7 @@ def validate_settings(settings: AwqatiSettings) -> None:
 	_require_bool(calendar.include_arabian_calendar_in_daily_info,
 		"calendar.includeArabianCalendarInDailyInfo")
 	_require_bool(calendar.open_daily_info_window, "calendar.openDailyInfoWindow")
+	_require_bool(calendar.on_this_day_web_page, "calendar.onThisDayWebPage")
 
 	adhkar = settings.adhkar
 	_require_type(adhkar, AdhkarSettings, "adhkar")

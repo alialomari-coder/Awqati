@@ -31,6 +31,7 @@ class CommandContent:
 		self.clock, self.calendars = clock, calendars
 		self.daily_info, self.arabian_calendar = daily_info, arabian_calendar
 		self.preview = SettingsPreviewService(clock, calendars, now)
+		self.weather_summary = None
 
 	def _settings(self):
 		return self.settings.runtime_settings
@@ -76,7 +77,14 @@ class CommandContent:
 		settings = self._settings()
 		reading = self.daily_info.read(self._location(),
 			include_arabian_calendar=settings.calendar.include_arabian_calendar_in_daily_info)
-		return self._daily_formatter(language).format(reading)
+		text = self._daily_formatter(language).format(reading)
+		if self.weather_summary:
+			try:
+				summary = self.weather_summary(language)
+				if summary: text += "\n" + summary
+			except Exception:
+				pass  # Weather must never prevent the established daily synopsis.
+		return text
 
 	def scientific_info_text(self, language: str) -> str:
 		return self._daily_formatter(language).format_scientific(

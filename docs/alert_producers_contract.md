@@ -68,8 +68,8 @@ SHA-256 للحزمة النهائية: `a4de3d581d7cfdd64f277b3f1b3839fc87a1f974
 الاختبارات الجديدة: tests/test_alert_producers.py وtests/test_alert_producer_services.py وtests/test_alert_daily_renewal.py. حُدث فحص نطاق tests/test_alert_scheduler.py، واختبارات الحزمة الستة لتقرأ الإصدار من buildVars.py بدل تثبيت 0.0.0. وثقت السياسة في DEVELOPMENT_GUIDE.md والعقود وSTATUS.md. لا حذف لملف مصدر، ولا تغيير للطلب السابق غير المتعقب.
 
 ```powershell
-Set-Location -LiteralPath 'C:\Users\alial\Awqati'
-& 'C:\Users\alial\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' tools/run_checks.py
+# Run from the repository root.
+python tools/run_checks.py
 ```
 
 الحزمة في dist/awqati-0.4.2.2.nvda-addon مخرج تطوير مستبعد من Git. لم تثبت في الإعداد الشخصي؛ بيئة الاختبار وحدها رُقيت. تفاصيل المزامنة والالتزام تسجل في STATUS.md والتقرير النهائي، ولا ينفذ push.

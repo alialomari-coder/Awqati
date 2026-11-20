@@ -90,7 +90,7 @@ class SettingsDraftTests(unittest.TestCase):
 		self.assertTrue(draft.base.adhkar.recurring.enabled)
 		self.assertEqual(len(repository.saved), 1)
 		self.assertEqual(len(events), 1)
-		self.assertEqual(events[0].schema_version, 1)
+		self.assertEqual(events[0].schema_version, 2)
 
 	def test_validation_failure_writes_and_publishes_nothing(self) -> None:
 		repository = MemoryRepository()

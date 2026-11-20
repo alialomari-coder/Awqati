@@ -5,6 +5,7 @@ from __future__ import annotations
 from copy import deepcopy
 from pathlib import Path
 import threading
+import weakref
 from typing import Callable, Sequence
 
 import addonHandler
@@ -36,7 +37,7 @@ from .settings_sections import (
 from .sound_staging import (
 	SoundPreparationCancelled, SoundStagingSession, collect_sound_reference_values,
 )
-from .ui import LocationControls, _context_or_raise, _parse_clock
+from .ui import LocationControls, _context_or_raise, _parse_clock, choose_custom_calculation_method
 
 
 addonHandler.initTranslation()
@@ -45,8 +46,9 @@ _: Callable[[str], str]
 SECTION_LABELS = {
 	SettingsSection.PRAYER: N_("Prayer times"),
 	SettingsSection.CLOCK: N_("Clock"),
-	SettingsSection.DATE: N_("Date"),
+	SettingsSection.DATE: N_("Calendar"),
 	SettingsSection.ADHKAR: N_("Dhikr alerts"),
+	SettingsSection.WEATHER: N_("Weather"),
 }
 PRAYER_LABELS = {
 	PrayerEventName.FAJR: N_("Fajr"), PrayerEventName.SUNRISE: N_("Sunrise"),
@@ -365,16 +367,32 @@ class AwqatiSettingsPanel(SettingsPanel):
 		settingsSizer.Add(self.section_choice, flag=wx.ALL | wx.EXPAND, border=8)
 		self._register("section", self.section_choice)
 		self._settings_sizer = settingsSizer
+		self._section_panels = {}
 		self._section_panel: wx.Panel | None = None
 		self._section = SECTION_ORDER[0]
 		self.section_choice.Bind(wx.EVT_CHOICE, self._on_section)
 		self._render_section()
+		if context.time_tools is not None:
+			context.time_tools.panel = weakref.ref(self)
+			self._time_tools_state = context.time_tools
+			self.Bind(wx.EVT_WINDOW_DESTROY, self._on_destroy)
+
+	def _on_destroy(self, event):
+		if event.GetEventObject() is self:
+			state = self._time_tools_state
+			if state is not None and state.panel is not None and state.panel() is self:
+				state.panel = None
+		event.Skip()
 
 	def _register(self, key: str, control: wx.Window) -> None:
 		self._controls[key] = control
 
 	def postInit(self) -> None:
-		self.location_controls.country.SetFocus()
+		state = _context_or_raise().time_tools
+		if state is not None and state.requested is not None:
+			state.request(state.requested)
+		else:
+			self.location_controls.country.SetFocus()
 
 	def _layout(self) -> None:
 		self.Layout()
@@ -394,17 +412,32 @@ class AwqatiSettingsPanel(SettingsPanel):
 
 	def _render_section(self) -> None:
 		if self._section_panel is not None:
-			self._settings_sizer.Detach(self._section_panel)
-			self._section_panel.Destroy()
-		builder = {
-			SettingsSection.PRAYER: self._build_prayer,
-			SettingsSection.CLOCK: self._build_clock,
-			SettingsSection.DATE: self._build_date,
-			SettingsSection.ADHKAR: self._build_adhkar,
-		}[self._section]
-		self._section_panel = builder()
-		self._settings_sizer.Add(self._section_panel, flag=wx.LEFT | wx.RIGHT | wx.BOTTOM | wx.EXPAND, border=8)
+			self._section_panel.Hide()
+		if self._section not in self._section_panels:
+			builder = {
+				SettingsSection.PRAYER: self._build_prayer,
+				SettingsSection.CLOCK: self._build_clock,
+				SettingsSection.DATE: self._build_date,
+				SettingsSection.ADHKAR: self._build_adhkar,
+				SettingsSection.WEATHER: self._build_weather,
+			}[self._section]
+			panel = self._section_panels[self._section] = builder()
+			self._settings_sizer.Add(panel, flag=wx.LEFT | wx.RIGHT | wx.BOTTOM | wx.EXPAND, border=8)
+		self._section_panel = self._section_panels[self._section]
+		self._section_panel.Show()
+		self._section_panel.MoveAfterInTabOrder(self.section_choice)
 		self._layout()
+
+	def show_time_tool(self, identity):
+		self._section = SettingsSection.CLOCK
+		self.section_choice.SetSelection(SECTION_ORDER.index(self._section))
+		self._render_section()
+		self._time_tools.select(identity)
+
+	def _build_weather(self) -> wx.Panel:
+		from .weather_settings import WeatherSettingsPanel
+		return WeatherSettingsPanel(self, self._draft.settings.weather,
+			lambda: self.location_controls.pending, _context_or_raise().weather)
 
 	def _build_prayer(self) -> wx.Panel:
 		panel = wx.Panel(self); outer = wx.BoxSizer(wx.VERTICAL); panel.SetSizer(outer)
@@ -520,6 +553,8 @@ class AwqatiSettingsPanel(SettingsPanel):
 		alert_panel, grid = _panel(panel); outer.Add(alert_panel, flag=wx.TOP | wx.EXPAND, border=8)
 		AlertOutputEditor(alert_panel, grid, N_("Clock alert action:"), settings.alert, STANDARD_ALERT_ACTIONS,
 			"clock", self._layout, self._sound_staging, self._audio, AlertEventType.CLOCK, self._register, "clock.alert")
+		from .time_tools import TimeToolsHost
+		self._time_tools = TimeToolsHost(panel, outer, _context_or_raise().time_tools, self._layout)
 		return panel
 
 	def _on_clock_type(self, event: wx.CommandEvent) -> None:
@@ -555,10 +590,22 @@ class AwqatiSettingsPanel(SettingsPanel):
 		include=wx.CheckBox(panel,label=_("Include Arabian calendar information in astronomical daily information"));include.SetValue(settings.include_arabian_calendar_in_daily_info);outer.Add(include,flag=wx.TOP,border=8)
 		self._register("calendar.includeArabian", include)
 		include.Bind(wx.EVT_CHECKBOX,lambda e:(setattr(settings,"include_arabian_calendar_in_daily_info",include.GetValue()),e.Skip()))
+		on_this_day=wx.CheckBox(panel,label=_("Show On This Day information in a web page instead of speaking it"))
+		on_this_day.SetValue(settings.on_this_day_web_page)
+		outer.Add(on_this_day,flag=wx.TOP,border=8)
+		self._register("calendar.onThisDayWebPage", on_this_day)
+		on_this_day.Bind(wx.EVT_CHECKBOX,lambda e:(setattr(settings,"on_this_day_web_page",on_this_day.GetValue()),e.Skip()))
 		open_daily=wx.Button(panel,label=_("Open daily information window"));outer.Add(open_daily,flag=wx.TOP,border=8)
 		self._register("calendar.openDailyInfoWindow", open_daily)
 		context=_context_or_raise()
 		open_daily.Bind(wx.EVT_BUTTON,lambda event:(context.show_daily_info() if context.show_daily_info else None,event.Skip()))
+		for advanced, label, key in ((False, N_("Open date converter"), "calendar.converter"),
+				(True, N_("Advanced conversion..."), "calendar.advancedConverter")):
+			button = wx.Button(panel, label=_(label))
+			outer.Add(button, flag=wx.TOP, border=8)
+			self._register(key, button)
+			button.Bind(wx.EVT_BUTTON, lambda event, mode=advanced:
+				context.show_converter(mode, self) if context.show_converter else None)
 		outer.Add(wx.StaticText(panel,label=_("Choose calendar to configure:")))
 		self._calendar_choice=wx.Choice(panel,choices=_translated(CALENDAR_EDIT_ORDER,CALENDAR_LABELS),name=_("Choose calendar to configure"));self._calendar_choice.SetSelection(0);outer.Add(self._calendar_choice,flag=wx.EXPAND)
 		self._register("calendar.selector", self._calendar_choice)
@@ -745,12 +792,19 @@ class AwqatiSettingsPanel(SettingsPanel):
 			return False
 		try:
 			candidate = self._candidate_from_controls()
+			if not choose_custom_calculation_method(self, candidate):
+				self._validated_candidate = None
+				return False
 			self._settings.validate(candidate)
 		except SettingsValidationError as error:
 			self._show_validation_error(error)
 			self._validated_candidate = None
 			return False
 		self._validated_candidate = candidate
+		self._draft.settings.prayer.calculation_method = candidate.prayer.calculation_method
+		if hasattr(self, "_prayer_method_choice"):
+			self._prayer_method_choice.SetSelection(tuple(CalculationMethod).index(candidate.prayer.calculation_method))
+			self._update_effective_method(BundledCalculationMethodRepository())
 		return True
 
 	def _show_validation_error(self, error: SettingsValidationError) -> None:
@@ -802,10 +856,13 @@ class AwqatiSettingsPanel(SettingsPanel):
 		candidate = self._validated_candidate
 		if candidate is None:
 			candidate = self._candidate_from_controls()
+			if not choose_custom_calculation_method(self, candidate):
+				raise ValueError("Calculation method selection cancelled")
 			self._settings.validate(candidate)
 		draft_settings = self._draft.settings
 		draft_settings.location = candidate.location
 		draft_settings.general = deepcopy(candidate.general)
+		draft_settings.prayer.calculation_method = candidate.prayer.calculation_method
 		commit = None
 		try:
 			commit = self._sound_staging.begin_commit(collect_sound_reference_values(candidate))

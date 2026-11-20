@@ -13,12 +13,14 @@ class SettingsSection(Enum):
 	CLOCK = "clock"
 	DATE = "date"
 	ADHKAR = "adhkar"
+	WEATHER = "weather"
 
 
 SECTION_ORDER = (
 	SettingsSection.PRAYER,
 	SettingsSection.CLOCK,
 	SettingsSection.DATE,
+	SettingsSection.WEATHER,
 	SettingsSection.ADHKAR,
 )
 
@@ -147,6 +149,7 @@ def focus_target_for_path(path: str) -> SettingsFocusTarget:
 			"hijriAdjustmentDays": "calendar.adjustment",
 			"includeArabianCalendarInDailyInfo": "calendar.includeArabian",
 			"openDailyInfoWindow": "calendar.openDailyInfoWindow",
+			"onThisDayWebPage": "calendar.onThisDayWebPage",
 		}.get(parts[1] if len(parts) > 1 else "", "section"), SettingsSection.DATE,
 			calendar_id=(CalendarId.HIJRI_UMM_AL_QURA
 				if len(parts) > 1 and parts[1] == "hijriAdjustmentDays" else None))

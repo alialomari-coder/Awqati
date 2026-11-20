@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "version": "2026-11-03.1",
+  "geographicRepresentatives": {
+    "3658931": "Pacific/Galapagos",
+    "4019977": "Pacific/Marquesas",
+    "4030655": "Pacific/Gambier",
+    "4033014": "Pacific/Chatham",
+    "2160122": "Australia/Lindeman",
+    "3399638": "America/Noronha",
+    "4030944": "Pacific/Kiritimati",
+    "4030946": "Pacific/Kanton",
+    "8582421": "America/Bahia_Banderas"
+  },
+  "nameFromCldr": {
+    "3658931": "Pacific/Galapagos",
+    "4019977": "Pacific/Marquesas",
+    "4030655": "Pacific/Gambier",
+    "4033014": "Pacific/Chatham",
+    "2160122": "Australia/Lindeman",
+    "3399638": "America/Noronha",
+    "4030944": "Pacific/Kiritimati",
+    "8582421": "America/Bahia_Banderas",
+    "5970458": "America/Goose_Bay"
+  },
+  "geographicValidationPoints": {
+    "3658931": {
+      "lat": -0.90172,
+      "lon": -89.61021,
+      "referenceGeoNamesId": "3652758",
+      "reason": "Galapagos archipelago centroid lies at sea. Validate its inhabited administrative capital Puerto Baquerizo Moreno, the IANA representative location, against the independent Galapagos polygon. CLDR provides the island-group name."
+    },
+    "4019977": {
+      "lat": -9.80342,
+      "lon": -139.04202,
+      "referenceGeoNamesId": "4020109",
+      "reason": "The Marquesas archipelago centroid is at sea. Validate the inhabited Atuona settlement within the same archipelago against the independent polygon; do not relocate or rename the archived archipelago record. IANA Pacific/Marquesas and CLDR name this entire island group."
+    }
+  },
+  "uninhabitedZoneExclusions": {
+    "Antarctica/Casey": "Research station, not an independent civilian town; exclude Antarctic research stations consistently rather than filling the city list with station clocks.",
+    "Antarctica/Davis": "Research station without an independent civilian town.",
+    "Antarctica/Mawson": "Research station without an independent civilian town.",
+    "Antarctica/Vostok": "Research station without an independent civilian town.",
+    "Antarctica/Palmer": "Antarctic research station; no permanent civilian settlement. Research stations are not the civil population target of this release.",
+    "Antarctica/Rothera": "Antarctic research station; no permanent civilian settlement.",
+    "Antarctica/Troll": "Antarctic research station; no permanent civilian settlement.",
+    "Antarctica/Macquarie": "Subantarctic research station; no permanent civilian settlement.",
+    "America/Danmarkshavn": "Remote weather/research station; no permanent civilian town. Other inhabited Greenland civil zones are represented."
+  },
+  "names": {
+    "9072762": {
+      "ar": "فيلا لاس إستريلاس",
+      "en": "Villa Las Estrellas",
+      "reference": "https://www.geonames.org/9072762",
+      "reason": "Keep the recorded civilian settlement and its native proper name, not the literal English alternate The Stars Village. Arabic name is the already retrieved Wikidata exact-P1566 label; this record does not create a new transliteration. Other Antarctic research stations are excluded from the city catalog."
+    },
+    "4030946": {
+      "ar": "كانتون",
+      "reference": "https://agrovoc.fao.org/browse/agrovoc/en/page/c_1265",
+      "reason": "FAO AGROVOC's Arabic geographical term جزر كانتون وأندربري explicitly attests the component name كانتون paired with English Canton. UNT Digital Library verified place p19298 and Wikidata Q30895 independently identify Canton/Kanton Island as GeoNames 4030946. Only the attested proper-name component is used; no generated transliteration."
+    },
+    "7304591": {
+      "ar": "ويست آيلند",
+      "reference": "https://www.wikidata.org/wiki/Q48675",
+      "reason": "Capital settlement on the island of the same name; Wikidata Arabic label and GeoNames/native English name agree; island coordinate is within 4 km. The island has a different GeoNames ID, so this is a documented geographical-name relationship, not an automatic P1566 join."
+    },
+    "11695315": {
+      "ar": "واك",
+      "reference": "https://github.com/unicode-org/cldr/blob/release-49/common/main/ar.xml",
+      "cldrZone": "Pacific/Wake",
+      "reason": "Wake settlement on Wake Island; CLDR exemplarCity for Pacific/Wake names the same island. No generated transliteration."
+    }
+  },
+  "overlaps": {
+    "1529102": {
+      "zone": "Asia/Urumqi",
+      "noteAr": "توقيت شينجيانغ المحلي",
+      "noteEn": "Xinjiang local time",
+      "reference": "https://data.iana.org/time-zones/tzdb/asia",
+      "reason": "IANA documents both Beijing and Xinjiang time. The independent boundary source deliberately overlaps Shanghai and Urumqi here. Retain the corroborated GeoNames local-time choice and explicitly label it; Beijing is separately available for national time."
+    }
+  },
+  "exclusions": {
+    "5888001": {
+      "reference": "https://data.iana.org/time-zones/tzdb/backward",
+      "reason": "Atikokan has no verified Arabic name in the inspected inputs. America/Atikokan is a link to America/Panama in the actual 2026f compiled database; those identical TZif rules are already represented. Canada remains covered and no distinct current civil rules are lost."
+    }
+  },
+  "conflictVerification": {
+    "2022773": {"zone": "Asia/Khandyga", "references": ["https://data.iana.org/time-zones/tzdb/asia", "https://github.com/evansiroky/timezone-boundary-builder/releases/tag/2026f"], "reason": "IANA representative and independent OSM polygons locate the city in the Tomponsky/Yakutsk area; correct GeoNames Vladivostok association."},
+    "2120048": {"zone": "Asia/Ust-Nera", "references": ["https://data.iana.org/time-zones/tzdb/asia", "https://github.com/evansiroky/timezone-boundary-builder/releases/tag/2026f"], "reason": "IANA representative and independent OSM polygons identify Ust-Nera/Oymyakonsky; correct GeoNames Magadan association."},
+    "4266307": {"zone": "America/Indiana/Vincennes", "references": ["https://www.transportation.gov/regulations/recent-time-zone-proceedings", "https://data.iana.org/time-zones/tzdb/northamerica"], "reason": "US DOT records Knox County return from Central to Eastern in 2007; IANA models the transition. GeoNames Chicago association is outdated."}
+  }
+}

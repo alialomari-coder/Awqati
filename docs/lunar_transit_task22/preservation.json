@@ -1,0 +1,19 @@
+{
+  "addon/globalPlugins/awqati/application/daily_info_formatters.py": "ca28d42b17fdeba4ba7860518f77c71270eda24632394911abe803052690adb6",
+  "addon/globalPlugins/awqati/application/daily_info_service.py": "50854f76473561c620b462bc25cdc7b1fd8c7c83c0382f322ac471ac14e34ac2",
+  "addon/globalPlugins/awqati/application/online_prayer_verifier.py": "3290ec3bf1836856f743565b2a4ea7b89bb9543bf3d7ea5cf9c44c1c721abad2",
+  "addon/globalPlugins/awqati/application/prayer_alert_producer.py": "301b274780a05b331311a81cef69f81ca4c284aa9b735c2935675665cd1a02fd",
+  "addon/globalPlugins/awqati/application/prayer_clock_rebuild_source.py": "6249aa8984e7a6771ee167a1fab60272d69763e2ba91c079841fe7e262de3da2",
+  "addon/globalPlugins/awqati/application/prayer_service.py": "89ef59d9454693ba12c91e2431d89d2ffe7bff45be84e067239dc73ea7cb4871",
+  "addon/globalPlugins/awqati/application/prayer_state.py": "4d215061817e5384d1ecc9b8e40d9e54e7ea0d094e5f183811879a6601d437b7",
+  "addon/globalPlugins/awqati/application/settings_preview.py": "e0279e5b770dc08f8d14d5d062572fcfaeba3635ccc29c542d3640323a1b412e",
+  "addon/globalPlugins/awqati/application/settings_service.py": "cbd60da878a5632166bbf1891974aae2bf68e757a7b655722f92a3b68a6af86a",
+  "addon/globalPlugins/awqati/application/sun_distance_presentation.py": "917518ede7c4b8fc51d56bd0b8e8d46bafe2c46f23107ddc5db729574e94f569",
+  "addon/globalPlugins/awqati/domain/astronomy.py": "2e59aeade7dc5fbf535f236ffa3235169a9e9e6aeccdf6eab06156805d34a171",
+  "addon/globalPlugins/awqati/domain/prayer.py": "bcf354ffede574a1371fb63dcc8d393552f333c023d23dafadf941f89bc528f5",
+  "addon/globalPlugins/awqati/domain/prayer_timeline.py": "3d6af98bde148079cc67e9f51522ddab208b8c1564dc92223ac4a33b5594348c",
+  "addon/globalPlugins/awqati/domain/settings.py": "b660bde613479d511651b796338eb320ad5e0dd4b591d6ae19da3e94224b1006",
+  "addon/globalPlugins/awqati/infrastructure/settings_repository.py": "0af81946fe3cbd2b8cb01f35803564868451be2bec0fe571347c14d1d17076b7",
+  "addon/globalPlugins/awqati/nvda_adapter/settings_panel.py": "b65e833dfb9e2fd011b7efa3f120fcad7389231f93c932a301e3d8ab6ac79253",
+  "addon/globalPlugins/awqati/nvda_adapter/settings_sections.py": "c1fa804a28897b5cf29cb91e40aca1dca3821158c2f4d45ed848b690672d175f"
+}

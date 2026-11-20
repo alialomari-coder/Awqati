@@ -92,7 +92,7 @@ class SoundFileServiceTests(unittest.TestCase):
 
 	def test_creates_exact_final_directories(self):
 		root = self.files.ensure_sound_directories()
-		self.assertEqual({p.name for p in root.iterdir()}, {"alerts", "clock", "adhkar"})
+		self.assertEqual({p.name for p in root.iterdir()}, {"alerts", "clock", "adhkar", "alarms", "timers"})
 
 	def test_safe_reference_blocks_absolute_traversal_and_escape(self):
 		for value in ("C:/bad.wav", "/sounds/clock/a.wav", "sounds/../a.wav",

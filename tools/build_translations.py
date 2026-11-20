@@ -1,5 +1,6 @@
 """Extract and validate Awqati's complete user-facing catalog and NVDA resources."""
 from pathlib import Path
+import ast
 import json
 import sys
 
@@ -13,13 +14,39 @@ from babel.messages.mofile import write_mo
 import buildVars
 
 
-def extract_catalog():
+CONVERTER_MODULES = {
+	"advanced_converter_dialog.py", "advanced_converter_model.py",
+	"calendar_converter_dialog.py", "calendar_converter_model.py",
+	"calendar_converter_text.py", "conversion_result_dialog.py", "converter_dialog_base.py",
+}
+
+
+def extract_catalog(domain="nvda"):
+	if domain not in ("nvda", "calendar_converter"):
+		raise ValueError(domain)
 	catalog = Catalog(project="Awqati", version=buildVars.addon_info["addon_version"], charset="utf-8")
 	paths = sorted({path for pattern in buildVars.i18nSources for path in ROOT.glob(pattern)})
 	for path in paths:
+		converter = path.name in CONVERTER_MODULES
+		if converter != (domain == "calendar_converter"):
+			continue
+		if converter:
+			# Babel concatenates conditional-expression branches into nonexistent
+			# msgids. These modules use ConverterText.gettext, a separate domain.
+			for node in ast.walk(ast.parse(path.read_text(encoding="utf-8"))):
+				if not isinstance(node, ast.Call) or not node.args:
+					continue
+				name = node.func.id if isinstance(node.func, ast.Name) else getattr(node.func, "attr", None)
+				if name in ("_", "gettext"):
+					for value in ast.walk(node.args[0]):
+						if isinstance(value, ast.Constant) and isinstance(value.value, str):
+							catalog.add(value.value, locations=[(path.relative_to(ROOT).as_posix(), value.lineno)])
+			continue
 		with path.open("rb") as source:
 			for line, message, comments, context in extract("python", source, keywords={"_": None, "N_": None}):
 				catalog.add(message, locations=[(path.relative_to(ROOT).as_posix(), line)], auto_comments=comments)
+	if domain == "calendar_converter":
+		return catalog
 	# These names are data labels, translated only at the UI boundary.
 	data = ROOT / "addon/globalPlugins/awqati/data"
 	for relative, key in (("locations/metadata.json", "countries"), ("calculation_methods/methods.json", "methods")):
@@ -47,6 +74,17 @@ def build_translations(staging: Path):
 	destination.parent.mkdir(parents=True, exist_ok=True)
 	with destination.open("wb") as stream:
 		write_mo(stream, arabic)
+	# Compile the independent converter domain from its PO at every build;
+	# never trust a possibly stale checked-in binary resource.
+	with (ROOT / "addon/locale/ar/LC_MESSAGES/calendar_converter.po").open("rb") as stream:
+		converter = read_po(stream, locale="ar")
+	invalid = [m.id for m in converter if m.id and (not m.string or m.fuzzy)]
+	invalid += [m.id for m in extract_catalog("calendar_converter") if m.id and m.id not in converter]
+	converter_errors = list(converter.check())
+	if invalid or converter_errors:
+		raise ValueError(f"Incomplete converter catalog: {invalid!r}; errors: {converter_errors!r}")
+	with destination.with_name("calendar_converter.mo").open("wb") as stream:
+		write_mo(stream, converter)
 	import gettext
 	with destination.open("rb") as stream:
 		translate = gettext.GNUTranslations(stream).gettext

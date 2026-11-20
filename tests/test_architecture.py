@@ -28,8 +28,17 @@ def _project_sources() -> dict[str, tuple[Path, bool]]:
 	return {_module_name(path)[0]: (path, _module_name(path)[1]) for path in CORE_ROOT.rglob("*.py")}
 
 
-def _imports(module: str, path: Path, is_package: bool) -> set[str]:
+def _imports(module: str, path: Path, is_package: bool, *, runtime_only: bool = False) -> set[str]:
 	tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+	if runtime_only:
+		class RuntimeImports(ast.NodeTransformer):
+			def visit_If(self, node):
+				if (isinstance(node.test, ast.Name) and node.test.id == 'TYPE_CHECKING'
+					or isinstance(node.test, ast.Attribute) and node.test.attr == 'TYPE_CHECKING'
+					and isinstance(node.test.value, ast.Name) and node.test.value.id == 'typing'):
+					return [self.visit(child) for child in node.orelse]
+				return self.generic_visit(node)
+		tree = RuntimeImports().visit(tree)
 	result: set[str] = set()
 	package = module if is_package else module.rpartition(".")[0]
 	for node in ast.walk(tree):
@@ -56,6 +65,16 @@ def _layer(module: str) -> str | None:
 
 
 class ArchitectureTests(unittest.TestCase):
+	def test_type_checking_edges_are_checked_but_not_runtime_cycles(self) -> None:
+		with tempfile.TemporaryDirectory() as directory:
+			path = Path(directory) / 'sample.py'
+			path.write_text('from typing import TYPE_CHECKING\nif TYPE_CHECKING:\n    from .types import Item\nelse:\n    from .runtime import fallback\n', encoding='utf-8')
+			all_imports = _imports('awqati.domain.sample', path, False)
+			runtime = _imports('awqati.domain.sample', path, False, runtime_only=True)
+			self.assertIn('awqati.domain.types', all_imports)
+			self.assertNotIn('awqati.domain.types', runtime)
+			self.assertIn('awqati.domain.runtime', runtime)
+
 	def test_domain_has_no_platform_io_or_outer_layer_imports(self) -> None:
 		for module, (path, is_package) in _project_sources().items():
 			if _layer(module) != "domain":
@@ -91,11 +110,14 @@ class ArchitectureTests(unittest.TestCase):
 		graph: dict[str, set[str]] = {module: set() for module in sources}
 		for module, (path, is_package) in sources.items():
 			origin_layer = _layer(module)
+			runtime_imports = _imports(module, path, is_package, runtime_only=True)
 			for imported in _imports(module, path, is_package):
 				target_layer = _layer(imported)
 				if origin_layer and target_layer:
 					with self.subTest(module=module, imported=imported):
 						self.assertIn(target_layer, allowed[origin_layer])
+				if imported not in runtime_imports:
+					continue
 				if imported in sources:
 					graph[module].add(imported)
 				else:

@@ -1,0 +1,50 @@
+[
+  {
+    "file": "ar_0.json",
+    "url": "https://ar.wikipedia.org/w/api.php?action=parse&page=11+%D9%86%D9%88%D9%81%D9%85%D8%A8%D8%B1&prop=tocdata%7Ctext%7Crevid&format=json&formatversion=2&redirects=1&disableeditsection=1&maxlag=5",
+    "title": "11 نوفمبر",
+    "revid": 76824402,
+    "fetched_at": "2026-11-11T13:09:39.282714+00:00",
+    "sha256": "de53ff4d3dfa14bfcfc10c77b790f5de737361e3e9cfd27d12527fa1c8437e2d"
+  },
+  {
+    "file": "ar_1.json",
+    "url": "https://ar.wikipedia.org/w/api.php?action=parse&page=15+%D9%85%D8%A7%D8%B1%D8%B3&prop=tocdata%7Ctext%7Crevid&format=json&formatversion=2&redirects=1&disableeditsection=1&maxlag=5",
+    "title": "15 مارس",
+    "revid": 77147368,
+    "fetched_at": "2026-11-11T13:09:39.941816+00:00",
+    "sha256": "02f876f3be197f31f18f41e4be20c2d042b8141b1bc63d2c9c749ac0a1490cf9"
+  },
+  {
+    "file": "ar_2.json",
+    "url": "https://ar.wikipedia.org/w/api.php?action=parse&page=1+%D9%8A%D9%86%D8%A7%D9%8A%D8%B1&prop=tocdata%7Ctext%7Crevid&format=json&formatversion=2&redirects=1&disableeditsection=1&maxlag=5",
+    "title": "1 يناير",
+    "revid": 76949815,
+    "fetched_at": "2026-11-11T13:09:40.969247+00:00",
+    "sha256": "62860a4e8be73267452cfe40d232667ae36c345b17a823e65d0cb4b507a7ffca"
+  },
+  {
+    "file": "en_3.json",
+    "url": "https://en.wikipedia.org/w/api.php?action=parse&page=November+11&prop=tocdata%7Ctext%7Crevid&format=json&formatversion=2&redirects=1&disableeditsection=1&maxlag=5",
+    "title": "November 11",
+    "revid": 1384999258,
+    "fetched_at": "2026-11-11T13:09:42.119954+00:00",
+    "sha256": "49aba07f7bb21eff2ab484f62df34fe1a6327dd58661cd6ddabd6538022fb2d8"
+  },
+  {
+    "file": "ar_4.json",
+    "url": "https://ar.wikipedia.org/w/api.php?action=parse&page=29+%D9%81%D8%A8%D8%B1%D8%A7%D9%8A%D8%B1&prop=tocdata%7Ctext%7Crevid&format=json&formatversion=2&redirects=1&disableeditsection=1&maxlag=5",
+    "title": "29 فبراير",
+    "revid": 77148069,
+    "fetched_at": "2026-11-11T13:09:42.947844+00:00",
+    "sha256": "eff8eae1fbe7bbb742f60c27f36cd10aecc1d17f5817eb3695f1dc6de22453e7"
+  },
+  {
+    "file": "en_5.json",
+    "url": "https://en.wikipedia.org/w/api.php?action=parse&page=February+29&prop=tocdata%7Ctext%7Crevid&format=json&formatversion=2&redirects=1&disableeditsection=1&maxlag=5",
+    "title": "February 29",
+    "revid": 1382000164,
+    "fetched_at": "2026-11-11T13:09:44.130090+00:00",
+    "sha256": "bbfd725a5d941f8dbf295212ea125485eb7bc012a0ac4039d4d56e5829e58954"
+  }
+]

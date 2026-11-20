@@ -59,5 +59,7 @@ package = Command(
 	Action(_build_package, "Building $TARGET"),
 )
 AlwaysBuild(package)
-Clean(package, [Dir("build"), Dir("dist")])
+# The target package is removed by SCons itself. Historical releases in dist
+# are independent archives and must survive a current-release clean.
+Clean(package, [Dir("build")])
 Default(package)

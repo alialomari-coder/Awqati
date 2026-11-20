@@ -3,3 +3,9 @@
 *.md text eol=lf
 *.ini text eol=lf
 *.tpl text eol=lf
+
+# Runtime manifests hash the exact bytes of every world-clock resource.
+# Preserve those bytes across Windows and Unix checkouts.
+addon/globalPlugins/awqati/data/world_clock/** -text
+data_sources/world_clock_reviews.v1.json text eol=lf
+docs/world_clock*.json text eol=lf

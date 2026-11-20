@@ -220,20 +220,18 @@ class LunarAstronomyTests(unittest.TestCase):
 		self.assertGreater(facts.next_new_moon_utc, event)
 		self.assertWithin(facts.next_new_moon_utc, datetime(2026, 10, 10, 15, 50, tzinfo=UTC), timedelta(minutes=2))
 
-	def test_all_eight_phase_sector_boundaries_are_deterministic(self) -> None:
-		phases = (
-			MoonPhase.NEW_MOON, MoonPhase.WAXING_CRESCENT,
-			MoonPhase.FIRST_QUARTER, MoonPhase.WAXING_GIBBOUS,
-			MoonPhase.FULL_MOON, MoonPhase.WANING_GIBBOUS,
-			MoonPhase.LAST_QUARTER, MoonPhase.WANING_CRESCENT,
-		)
-		for index, expected in enumerate(phases):
-			center = index * 45
-			with self.subTest(center=center):
-				self.assertEqual(classify_moon_phase(center), expected)
-				self.assertEqual(classify_moon_phase(center + 22.499999), expected)
-				self.assertEqual(classify_moon_phase(center - 22.5), expected)
-		self.assertEqual(classify_moon_phase(337.5), MoonPhase.NEW_MOON)
+	def test_primary_angles_and_intermediate_intervals_are_deterministic(self) -> None:
+		for angle, primary, before, after in (
+			(0, MoonPhase.NEW_MOON, MoonPhase.WANING_CRESCENT, MoonPhase.WAXING_CRESCENT),
+			(90, MoonPhase.FIRST_QUARTER, MoonPhase.WAXING_CRESCENT, MoonPhase.WAXING_GIBBOUS),
+			(180, MoonPhase.FULL_MOON, MoonPhase.WAXING_GIBBOUS, MoonPhase.WANING_GIBBOUS),
+			(270, MoonPhase.LAST_QUARTER, MoonPhase.WANING_GIBBOUS, MoonPhase.WANING_CRESCENT),
+		):
+			with self.subTest(angle=angle):
+				self.assertEqual(classify_moon_phase(angle), primary)
+				self.assertEqual(classify_moon_phase(angle - .000001), before)
+				self.assertEqual(classify_moon_phase(angle + .000001), after)
+		self.assertEqual(classify_moon_phase(337.5), MoonPhase.WANING_CRESCENT)
 
 
 if __name__ == "__main__":

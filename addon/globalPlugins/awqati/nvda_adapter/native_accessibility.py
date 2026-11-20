@@ -29,3 +29,22 @@ def set_spin_name(control, name):
         control.Bind(wx.EVT_WINDOW_DESTROY, clear)
     for hwnd in control._awqati_name_handles:
         services.SetHwndPropStr(hwnd, 0xFFFFFFFC, 0, oleacc.PROPID_ACC_NAME, name)
+
+
+def set_list_name(control, name):
+    """Name CHILDID_SELF only; keep native list roles, rows and navigation."""
+    control.SetName(name)
+    services = IAccessibleHandler.accPropServices
+    if services is None:
+        class ListName(wx.Accessible):
+            def GetName(self, childId):
+                return (wx.ACC_OK, name) if childId == 0 else (wx.ACC_NOT_IMPLEMENTED, "")
+        control.SetAccessible(ListName(control))
+        return
+    hwnd = control.GetHandle()
+    services.SetHwndPropStr(hwnd, 0xFFFFFFFC, 0, oleacc.PROPID_ACC_NAME, name)
+    def clear(event):
+        if event.GetEventObject() is control:
+            services.ClearHwndProps(hwnd, 0xFFFFFFFC, 0, byref(oleacc.PROPID_ACC_NAME), 1)
+        event.Skip()
+    control.Bind(wx.EVT_WINDOW_DESTROY, clear)

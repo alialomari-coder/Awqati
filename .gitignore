@@ -5,3 +5,29 @@
 /__pycache__/
 /**/__pycache__/
 /**/*.py[cod]
+
+/development_baseline/
+/delivery-local/
+
+/data_sources/personal_alarm/alarm.loop-candidate.wav
+/data_sources/personal_alarm/alarm.loop-preview.wav
+
+# Generated duplicate evidence and local administrative receipts stay on disk.
+/docs/**/cloud_readbacks/
+/docs/**/retained_profile_evidence/
+/docs/release_6_retained_test_evidence/
+/docs/on_this_day_previews/
+/docs/release_7_closure_local/
+/backups/**/*.nvda-addon
+/.task-4.1-request.txt
+
+# Local environments, credentials, backups, and administrative evidence.
+/.venv/
+/venv/
+/backups/
+.env
+.env.*
+!.env.example
+*.log
+/docs/**/cloud_readbacks/
+/docs/**/retained_profile_evidence/

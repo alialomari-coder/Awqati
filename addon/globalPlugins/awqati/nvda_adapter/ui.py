@@ -21,7 +21,8 @@ from .settings_sections import is_rtl_language
 from .timezone_labels import TIMEZONE_LABELS
 from .location_labels import city_name, subdivisions, country_choices, location_choices, normalized_name
 
-from ..domain import ClockTime, LocationDetectionFailure, LocationKind, StoredLocation
+from ..domain import CalculationMethod, ClockTime, LocationDetectionFailure, LocationKind, StoredLocation
+from ..infrastructure import BundledCalculationMethodRepository
 
 addonHandler.initTranslation()
 _: Callable[[str], str]
@@ -37,9 +38,43 @@ class NvdaUiContext:
 	copy_diagnostics: Callable[[], None] | None = None
 	check_data_updates: Callable[[], None] | None = None
 	verify_prayer_times: Callable[[], None] | None = None
+	show_personal_alarms: Callable[[], None] | None = None
+	show_stopwatch: Callable[[], None] | None = None
+	show_countdowns: Callable[[], None] | None = None
+	show_converter: Callable[..., None] | None = None
+	time_tools: object | None = None
+	weather: object | None = None
 
 
 _context: NvdaUiContext | None = None
+
+
+def custom_calculation_method_required(settings) -> bool:
+	return (settings.location is not None
+		and settings.location.kind is LocationKind.CUSTOM
+		and settings.prayer.calculation_method is CalculationMethod.AUTO)
+
+
+def choose_custom_calculation_method(parent, settings) -> bool:
+	"""Ask explicitly; never infer a country or persist a guessed method."""
+	if not custom_calculation_method_required(settings):
+		return True
+	provider = BundledCalculationMethodRepository()
+	methods = tuple(method for method in CalculationMethod if method is not CalculationMethod.AUTO)
+	dialog = wx.SingleChoiceDialog(parent,
+		_("A custom location has no assigned country. Choose a prayer calculation method to use prayer times and Ghurubi time."),
+		_("Prayer calculation method"), [_("Choose a calculation method")] + [_(provider.get_method(method).name) for method in methods])
+	try:
+		dialog.SetSelection(0)
+		if dialog.ShowModal() != wx.ID_OK:
+			return False
+		index = dialog.GetSelection() - 1
+		if not 0 <= index < len(methods):
+			return False
+		settings.prayer.calculation_method = methods[index]
+		return True
+	finally:
+		dialog.Destroy()
 
 
 def configure(context: NvdaUiContext | None) -> None:
@@ -364,6 +399,8 @@ class FirstRunLocationDialog(wx.Dialog):
 				_("Location is required"), wx.OK | wx.ICON_WARNING, self)
 			return
 		self._draft.settings.location = self.location_controls.pending
+		if not choose_custom_calculation_method(self, self._draft.settings):
+			return
 		try:
 			self._settings.apply(self._draft)
 		except Exception as error:

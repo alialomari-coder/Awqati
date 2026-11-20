@@ -1,43 +1,61 @@
-# Awqati
+# Awqati — أوقاتي
 
-Awqati is an accessible add-on for the NVDA screen reader. It provides offline prayer times, Zawali and Ghurubi clocks, five calendars, Qibla direction, daily astronomical and Arabian-calendar information, and configurable alerts for prayer times, the clock, adhkar, and the daily Wird.
+Awqati is an NVDA add-on for prayer times, timekeeping, calendars, astronomy, and weather. It brings daily information and time management tools together in interfaces designed for keyboard and screen-reader use.
 
-The supported user-interface and documentation languages for version 4.0.0 are Arabic and English. The interface is designed for full keyboard use with NVDA, including right-to-left Arabic and left-to-right English layouts.
+**Stable release: 8.2.1.** [Release notes](https://github.com/alialomari-coder/Awqati/releases/tag/v8.2.1) · [Download Awqati 8.2.1](https://github.com/alialomari-coder/Awqati/releases/download/v8.2.1/awqati-8.2.1.nvda-addon) · [Latest release](https://github.com/alialomari-coder/Awqati/releases/latest)
 
-## Requirements
+## Features
 
-- NVDA 2026.1.0 or later.
-- Latest stable version tested: NVDA 2026.2.0.
-- Windows supported by the corresponding NVDA release.
+- Prayer times and related times, including sunrise, midnight, and the last third of the night, with configurable calculation methods and alerts before, at, and after the selected times.
+- Zawali and Ghurubi clocks, with configurable announcements and clock alerts.
+- Five calendars: Gregorian, Lunar Hijri, and the Saudi, Persian, and Afghan Solar Hijri calendars. Basic and advanced date converters also support historical Hijri, Gregorian, and Julian dates.
+- Daily astronomical information about the Sun, Moon, seasons, daylight, meridian transits, distances, and upcoming principal lunar phases.
+- A separate traditional Arabian calendar covering Talaa periods, seasons, and the Suhail year.
+- Optional current weather and daily and hourly forecasts, configurable detail and units, and accessible text reports.
+- Qibla direction information based on the selected location.
+- Daily Wird and adhkar reminders, configurable alerts, and quiet hours.
+- Personal alarms, countdown timers, a stopwatch, and a world clock.
+- On This Day events, births, deaths, holidays, and observances from Wikipedia, with direct reading and accessible web pages.
 
-Core calculations and bundled data work without an Internet connection. Online prayer-time verification and data-update checks are optional and run only after an explicit user action.
+## Requirements and languages
 
-## Documentation
+- Windows with **NVDA 2026.1 or later**; the release manifest declares testing through **NVDA 2026.3.1**.
+- **Arabic and English** interface and user documentation.
+- Python is not required to install or use the add-on.
 
-- Arabic user guide: `addon/doc/ar/readme.md`
-- English user guide: `addon/doc/en/readme.md`
-- Data sources and attribution: `DATA_SOURCES.md`
-- Developer guide: `DEVELOPMENT_GUIDE.md`
+Core prayer-time, clock, calendar, Qibla, and astronomy functions work offline. Weather and Wikipedia information require Internet access when requested. Weather is disabled by default. Optional online verification and data updates also use network services. See the guides for service behavior and privacy details.
 
-## Building and testing
+## Download, install, and upgrade
 
-Use Python 3.10 or later. Install the pinned build-only dependencies into `.build-deps`, then run the unified project gate:
+1. Download [awqati-8.2.1.nvda-addon](https://github.com/alialomari-coder/Awqati/releases/download/v8.2.1/awqati-8.2.1.nvda-addon) from the official release.
+2. With NVDA running, open the downloaded file and follow NVDA's installation prompts. Alternatively, use the Add-on Store's **Install from external source** action and select the file.
+3. Restart NVDA when requested. On first use, choose a location when prompted, or configure it later in Awqati settings.
 
-```powershell
-python -m pip install --requirement requirements-build.txt --target .build-deps
-python tools/build_release_docs.py
-python tools/run_checks.py
+To upgrade, install this package over the existing Awqati add-on and restart NVDA. Existing settings are retained by the add-on's migration support. Use Awqati's actions in the installed add-ons list to disable or remove it.
+
+The approved package has SHA-256:
+
+```text
+ad925257005d160315bf30069fd5f51da44b103d36b5ef86f430838075db2851
 ```
 
-The package is written to `dist/`. Build dependencies and generated `build/` and `dist/` files are not bundled as source.
+To check a downloaded file in PowerShell, run `Get-FileHash -Algorithm SHA256 -LiteralPath 'C:\path\to\awqati-8.2.1.nvda-addon'`, replacing the example path with the actual file path.
 
-## Project links
+## User guides
 
-- Source and project home: https://github.com/alialomari-coder/Awqati
-- Manual data-update repository: https://github.com/alialomari-coder/awqati-data
+- [Complete English guide](addon/doc/en/readme.md)
+- [الدليل العربي الكامل](addon/doc/ar/readme.md)
 
-The data repository is used only for optional manual data updates; it is not the add-on's source repository or homepage.
+The same guides are included in the add-on and available through NVDA's add-on help. They document settings, keyboard shortcuts, alerts, weather, calendars, and time tools. See [the change history](changelog.md) for the development and release record. Version 4.0.0 remains available in [the release archive](https://github.com/alialomari-coder/Awqati/releases/tag/v4.0.0); intermediate versions were not published retroactively.
 
-## License
+## Support and contributions
 
-Awqati is licensed under GNU GPL-2.0-or-later. See `COPYING.txt` for the complete GNU GPL version 2 text and `DATA_SOURCES.md` for third-party data notices.
+Report problems or propose improvements through [GitHub Issues](https://github.com/alialomari-coder/Awqati/issues). Include the Awqati and NVDA versions, language, steps to reproduce, and expected and actual behavior. Review diagnostic information for personal data before sharing it.
+
+Code and documentation contributions are welcome: read [CONTRIBUTING.md](CONTRIBUTING.md) and [DEVELOPMENT_GUIDE.md](DEVELOPMENT_GUIDE.md). Volunteer translators can start with [TRANSLATING.md](TRANSLATING.md), which explains the existing catalogs and the preparation needed for future language support and community translation integration.
+
+## License and attribution
+
+Awqati is maintained by **ali alomari** and released under the **GNU General Public License, version 2 or later**. See [COPYING.txt](COPYING.txt).
+
+Bundled data and resources retain their own applicable licenses and notices. See [DATA_SOURCES.md](DATA_SOURCES.md), [detailed provenance](docs/data_sources.md), and the notices beside the bundled resources for attribution, including GeoNames, Unicode, IANA time-zone data, and the world-clock datasets. Optional weather reports credit Open-Meteo and the applicable data providers; Wikipedia content links to its original articles and licensing information.

@@ -9,7 +9,8 @@ N_ = lambda message: message
 _LANGUAGE_MARKER = N_("Duration formatting language: English")
 
 
-def format_minutes(total_minutes: int, translate: Callable[[str], str], *, oblique: bool = False) -> str:
+def format_minutes(total_minutes: int, translate: Callable[[str], str], *, oblique: bool = False,
+		spell_out: bool = False) -> str:
 	"""Format a non-negative whole-minute duration in natural hours and minutes."""
 	if isinstance(total_minutes, bool) or not isinstance(total_minutes, int) or total_minutes < 0:
 		raise ValueError("total_minutes must be a non-negative integer")
@@ -23,16 +24,25 @@ def format_minutes(total_minutes: int, translate: Callable[[str], str], *, obliq
 		return " ".join(parts)
 	parts = []
 	if hours:
-		parts.append(_format_arabic_unit(hours, translate, "hour", oblique))
+		parts.append(_format_arabic_unit(hours, translate, "hour", oblique, spell_out))
 	if minutes or not parts:
-		parts.append(_format_arabic_unit(minutes, translate, "minute", oblique))
+		parts.append(_format_arabic_unit(minutes, translate, "minute", oblique, spell_out))
 	if len(parts) == 2:
 		return translate(N_("{hours} {minutes}")).format(hours=parts[0], minutes=parts[1])
 	return parts[0]
 
 
 def _format_arabic_unit(value: int, translate: Callable[[str], str], unit: str,
-		oblique: bool) -> str:
+		oblique: bool, spell_out: bool = False) -> str:
+	if spell_out and unit == "minute":
+		# Reuse the shared formatter; prayer-state formatting keeps its defaults.
+		words = {
+			1: N_("One minute"), 5: N_("Five minutes"), 10: N_("Ten minutes"),
+			15: N_("Fifteen minutes"),
+			30: N_("Thirty minutes after a preposition") if oblique else N_("Thirty minutes"),
+		}
+		if value in words:
+			return translate(words[value])
 	if unit == "hour":
 		one, two, two_oblique = N_("1 hour"), N_("2 hours"), N_("2 hours after a preposition")
 		plural, general = N_("{count} hours"), N_("{count} hour")

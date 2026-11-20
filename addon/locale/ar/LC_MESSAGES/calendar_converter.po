@@ -1,0 +1,141 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Awqati 7.0.0\n"
+"Language: ar\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+msgid "Date converter"
+msgstr "محوّل التاريخ"
+
+msgid "Convert from"
+msgstr "التحويل من"
+
+msgid "Convert to"
+msgstr "التحويل إلى"
+
+msgid "Hijri"
+msgstr "هجري"
+
+msgid "Gregorian"
+msgstr "غريغوري"
+
+msgid "Day"
+msgstr "اليوم"
+
+msgid "Month"
+msgstr "الشهر"
+
+msgid "Year"
+msgstr "السنة"
+
+msgid "Today"
+msgstr "تاريخ اليوم"
+
+msgid "Convert"
+msgstr "تحويل"
+
+msgid "Advanced..."
+msgstr "متقدم..."
+
+msgid "Close"
+msgstr "إغلاق"
+
+msgid "Hijri reference: Umm al-Qura. Gregorian reference: Gregorian."
+msgstr "المرجع الهجري: أم القرى. المرجع الميلادي: الغريغوري"
+
+msgid "Original date: {date}"
+msgstr "التاريخ الأصلي: {date}"
+
+msgid "Converted date: {date}"
+msgstr "التاريخ المحوّل: {date}"
+
+msgid "Reference: Umm al-Qura."
+msgstr "المرجع المستخدم: أم القرى."
+
+msgid "Enter a whole positive number using English, Arabic or Persian digits, without spaces or separators."
+msgstr "أدخل عددًا صحيحًا موجبًا بالأرقام العربية أو الإنجليزية أو الفارسية، دون مسافات أو فواصل."
+
+msgid "The day is not valid for the selected month and year."
+msgstr "اليوم غير صالح للشهر والسنة المحددين."
+
+msgid "Enter a month from 1 to 12."
+msgstr "أدخل شهرًا من 1 إلى 12."
+
+msgid "Enter a year greater than zero."
+msgstr "أدخل سنة أكبر من صفر."
+
+msgid "This date is outside the Umm al-Qura range. You can use advanced conversion for historical dates."
+msgstr "هذا التاريخ خارج نطاق تقويم أم القرى. يمكنك استخدام التحويل المتقدم للتحويل التاريخي."
+
+msgid "The year or date is outside the supported range."
+msgstr "السنة أو التاريخ خارج النطاق المدعوم."
+
+msgid "Enter a valid month and year before changing the day with navigation keys."
+msgstr "أدخل شهرًا وسنة صالحين قبل تغيير اليوم بمفاتيح التنقل."
+
+msgid "Umm al-Qura data is unavailable. Close the converter and check the active data."
+msgstr "بيانات أم القرى غير متاحة. أغلق المحوّل وتحقق من البيانات النشطة."
+
+msgid "The calendar reference is unavailable or invalid. No alternative reference was used."
+msgstr "مرجع التقويم غير متاح أو غير صالح. لم يُستخدم مرجع بديل."
+
+msgid "The date could not be converted. Check the input and the calendar data."
+msgstr "تعذر تحويل التاريخ. تحقق من المدخلات وبيانات التقويم."
+
+msgid "The date fields have been reset to today."
+msgstr "أُعيدت حقول التاريخ إلى تاريخ اليوم."
+
+msgid "Convert to: {calendar}. The date fields have been reset to today."
+msgstr "التحويل إلى: {calendar}. أُعيدت حقول التاريخ إلى تاريخ اليوم."
+
+msgid "The target must differ from the source: {calendar}."
+msgstr "يجب أن تختلف الوجهة عن المصدر: {calendar}."
+
+msgid "Conversion result"
+msgstr "نتيجة التحويل"
+
+msgid "Check the date"
+msgstr "تحقق من التاريخ"
+
+msgid "OK"
+msgstr "موافق"
+
+msgid "Advanced conversion"
+msgstr "التحويل المتقدم"
+
+msgid "Julian"
+msgstr "يولياني"
+
+msgid "Hijri calculation method"
+msgstr "طريقة الحساب الهجري"
+
+msgid "Historical calculation IIc"
+msgstr "الحساب التاريخي IIc"
+
+msgid "Umm al-Qura"
+msgstr "أم القرى"
+
+msgid "Select the calendars and method, then convert."
+msgstr "اختر التقويمين وطريقة الحساب، ثم اضغط تحويل."
+
+msgid "Copy result"
+msgstr "نسخ النتيجة"
+
+msgid "Reverse conversion"
+msgstr "عكس التحويل"
+
+msgid "Result copied."
+msgstr "نُسخ التاريخ المحوّل."
+
+msgid "The result could not be copied. Try again."
+msgstr "تعذر نسخ النتيجة. حاول مرة أخرى."
+
+msgid "Reference: historical calculation IIc."
+msgstr "المرجع المستخدم: الحساب التاريخي IIc."
+
+msgid "Reference: Gregorian–Julian conversion."
+msgstr "المرجع المستخدم: التحويل بين الغريغوري واليولياني."
+
+msgid "Cancel"
+msgstr "إلغاء"

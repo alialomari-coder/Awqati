@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import ast
+import hashlib
 from html.parser import HTMLParser
 from pathlib import Path, PurePosixPath
 import re
@@ -10,26 +11,8 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 
-EXPECTED_ENGLISH_DESCRIPTION = (
-	"This add-on provides prayer times, as well as sunrise, midnight, and the last third of the night. "
-	"It also provides a clock with Zawali and Ghurubi time, and five calendars: the Gregorian calendar, "
-	"the lunar Hijri calendar, and three solar Hijri calendars. In addition, it provides daily astronomical "
-	"information and other information derived from the Arabian calendar about the Talaa periods, seasons, "
-	"and the Suhail year.\n\n"
-	"It also provides alerts for daily Wird and adhkar, and guides the user toward the Qibla direction.\n\n"
-	"The add-on also supports quiet hours and lets the user enable or disable prayer-time alerts and alerts "
-	"before and after those times.\n\n"
-	"The add-on currently supports Arabic and English."
-)
-EXPECTED_ARABIC_DESCRIPTION = (
-	"توفر هذه الإضافة مواقيت الصلاة فضلا عن الشروق ومنتصف الليل والثلث الأخير، كما توفر ساعة بتوقيتين "
-	"زوالي وغروبي، وخمسة تقاويم: تقويم ميلادي، وتقويم هجري قمري، وثلاثة تقاويم هجرية شمسية، بالإضافة "
-	"إلى معلومات فلكية يومية، ومعلومات أخرى مستمدة من التقويم العربي حول الطوالع والمواسم وسنة سهيل.\n\n"
-	"كما توفر تنبيهات خاصة بالأوراد والأذكار، وترشد المستخدم إلى اتجاه القبلة.\n\n"
-	"وتدعم الإضافة كذلك نظام ساعات الهدوء، والتحكم في تنبيهات المواقيت والتنبيهات القبلية والبعدية "
-	"تفعيلا وإيقافا.\n\n"
-	"تدعم الإضافة حاليا اللغتين العربية والإنجليزية."
-)
+EXPECTED_ENGLISH_DESCRIPTION = 'Awqati provides prayer times, along with sunrise, midnight and the start of the last third of the night; a clock with Zawali and Ghurubi time; and five calendars: Gregorian, Lunar Hijri and three Solar Hijri calendars. It also provides daily astronomical information and information from the traditional Arabian calendar, including Talaa periods, seasons and the Suhail year.\n\nThe add-on offers reminders for daily Wird and adhkar, information about the Qibla direction, quiet hours, and control over prayer-time alerts and alerts before and after those times.\n\nIt includes four time management tools: alarms, a stopwatch, countdown timers and a world clock, with dedicated keyboard shortcuts for controlling them and checking their status.\n\nIt includes On This Day information from Wikipedia, in Arabic and English, with direct narration and accessible web pages. The add-on supports Arabic and English.'
+EXPECTED_ARABIC_DESCRIPTION = 'توفر إضافة أوقاتي مواقيت الصلاة، إلى جانب أوقات الشروق ومنتصف الليل والثلث الأخير من الليل، وساعة تعمل بالتوقيتين الزوالي والغروبي، وخمسة تقاويم: التقويم الميلادي، والتقويم الهجري القمري، وثلاثة تقاويم هجرية شمسية. كما تقدم معلومات فلكية يومية، ومعلومات من التقويم العربي التقليدي تشمل الطوالع والمواسم وسنة سهيل.\n\nوتوفر الإضافة تنبيهات للأوراد والأذكار، ومعلومات عن اتجاه القبلة، فضلًا عن نظام ساعات الهدوء، وإمكانية التحكم في تنبيهات المواقيت والتنبيهات القبلية والبعدية.\n\nوتضم الإضافة أربع أدوات لإدارة الوقت: المنبهات، وساعة الإيقاف، والمؤقتات، والساعة العالمية، مع اختصارات لوحة مفاتيح مخصصة للتحكم فيها والاستعلام عن حالتها.\n\nوتقدم خدمة حدث في مثل هذا اليوم من ويكيبيديا بالعربية والإنجليزية، بسرد مباشر وصفحات ويب قابلة للتصفح. تدعم الإضافة اللغتين العربية والإنجليزية'
 
 
 def _manifest_value(text: str, key: str) -> str:
@@ -78,6 +61,16 @@ class _GuideHtmlParser(HTMLParser):
 
 
 class ReleaseMetadataTests(unittest.TestCase):
+	def test_current_source_resources_are_preserved(self):
+		package = ROOT / "dist" / f"awqati-{_addon_info()['addon_version']}.nvda-addon"
+		with zipfile.ZipFile(package) as archive:
+			self.assertEqual(len(archive.namelist()), len(set(archive.namelist())))
+			for path in (ROOT / "addon").rglob("*"):
+				if path.is_file() and "__pycache__" not in path.parts and path.suffix not in (".pyc", ".pyo", ".mo"):
+					name = path.relative_to(ROOT / "addon").as_posix()
+					with self.subTest(resource=name):
+						self.assertEqual(archive.read(name), path.read_bytes())
+
 	def test_release_metadata_has_no_placeholders(self) -> None:
 		info = _addon_info()
 		expected = {
@@ -88,15 +81,15 @@ class ReleaseMetadataTests(unittest.TestCase):
 			"addon_sourceURL": "https://github.com/alialomari-coder/Awqati",
 			"addon_docFileName": "readme.html",
 			"addon_minimumNVDAVersion": "2026.1.0",
-			"addon_lastTestedNVDAVersion": "2026.2.0",
-			"addon_updateChannel": None,
+			"addon_lastTestedNVDAVersion": "2026.3.1",
+			"addon_updateChannel": "stable",
 			"addon_license": "GPL-2.0-or-later",
 			"addon_licenseURL": "https://www.gnu.org/licenses/old-licenses/gpl-2.0.html",
 		}
 		for key, value in expected.items():
 			with self.subTest(key=key):
 				self.assertEqual(info[key], value)
-		self.assertEqual(info["addon_version"], "4.0.0")
+		self.assertRegex(info["addon_version"], r"^8\.0\.1$")
 		serialized = repr(info).lower()
 		self.assertNotIn("placeholder", serialized)
 		self.assertNotIn("undecided", serialized)
@@ -149,8 +142,8 @@ class ReleaseMetadataTests(unittest.TestCase):
 		self.assertEqual(_manifest_value(manifest_text, "url"), info["addon_url"])
 		self.assertEqual(_manifest_value(manifest_text, "docFileName"), "readme.html")
 		self.assertEqual(_manifest_value(manifest_text, "minimumNVDAVersion"), "2026.1.0")
-		self.assertEqual(_manifest_value(manifest_text, "lastTestedNVDAVersion"), "2026.2.0")
-		self.assertEqual(_manifest_value(manifest_text, "updateChannel"), "")
+		self.assertEqual(_manifest_value(manifest_text, "lastTestedNVDAVersion"), "2026.3.1")
+		self.assertEqual(_manifest_value(manifest_text, "updateChannel"), "stable")
 
 	def test_packaged_manifest_descriptions_preserve_approved_paragraphs(self) -> None:
 		info = _addon_info()
@@ -187,7 +180,11 @@ class ReleaseMetadataTests(unittest.TestCase):
 				self.assertFalse(parts & {".git", "tests", "build", "dist", "__pycache__", "logs", "harness", "scratchpad"}, name)
 				self.assertFalse(name.lower().endswith((".pyc", ".pyo", ".log", ".ini.bak")), name)
 			sounds = [name for name in names if name.lower().endswith((".wav", ".mp3", ".ogg"))]
-			self.assertEqual(sounds, ["globalPlugins/awqati/sounds/clock/clock.wav"])
+			self.assertEqual(sounds, ["globalPlugins/awqati/sounds/alarms/alarm.wav", "globalPlugins/awqati/sounds/clock/clock.wav"] + [
+				"globalPlugins/awqati/sounds/stopwatch/" + name + ".wav"
+                for name in ("lap", "pause", "reset", "resume", "start")] + [
+                    "globalPlugins/awqati/sounds/timers/" + name + ".wav"
+                    for name in ("cancel", "finished", "pause", "restart", "resume", "start", "tick", "tock")])
 
 	def test_full_official_license_is_present(self) -> None:
 		license_text = (ROOT / "COPYING.txt").read_text(encoding="utf-8")

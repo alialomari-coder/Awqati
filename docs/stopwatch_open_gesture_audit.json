@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-02",
+  "target": "NVDA+control+j",
+  "normalization": "case/order independent; ctrl aliases control; exact three-key set; keyboard layouts accepted",
+  "scope": "All .py string constants and non-comment .ini lines in upstream source/, including global commands, app modules and locale gesture maps. No user or third-party add-on bindings are inspected.",
+  "nvda": [
+    {
+      "version": "2026.1",
+      "commit": "ae21324abe670192364c6e025e21e3b20eb529bb",
+      "url": "https://codeload.github.com/nvaccess/nvda/tar.gz/ae21324abe670192364c6e025e21e3b20eb529bb",
+      "archiveSha256": "02cce56d889df93976c336a44a5fcfaecb92e21930bbf4b26208d01a77953b01",
+      "sourcePyAndIniFiles": 565,
+      "pythonStringConstants": 31078,
+      "targetFindings": [],
+      "ref": "release-2026.1"
+    },
+    {
+      "version": "2026.2",
+      "commit": "f62c980589d1ac30babf68ad48177e9ad29a2e84",
+      "url": "https://codeload.github.com/nvaccess/nvda/tar.gz/f62c980589d1ac30babf68ad48177e9ad29a2e84",
+      "archiveSha256": "847186d1e3e62aa3c93173c6bf848f67f5376d668fe05fc31f4d2dad1af3e9be",
+      "sourcePyAndIniFiles": 598,
+      "pythonStringConstants": 32186,
+      "targetFindings": [],
+      "ref": "release-2026.2"
+    },
+    {
+      "version": "2026.3",
+      "commit": "7eb1738dd1556775145453fdd8b6b7ca6b397693",
+      "url": "https://codeload.github.com/nvaccess/nvda/tar.gz/7eb1738dd1556775145453fdd8b6b7ca6b397693",
+      "archiveSha256": "4214ecab70728bba3d62d09ddf70f251ddbe6d92b8ebfcf61a6e5971540555f8",
+      "sourcePyAndIniFiles": 637,
+      "pythonStringConstants": 33397,
+      "targetFindings": [],
+      "ref": "release-2026.3"
+    }
+  ],
+  "awqatiExistingConflictsBeforeChange": [],
+  "safeForRequestedDefault": true
+}

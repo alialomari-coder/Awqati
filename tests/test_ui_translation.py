@@ -29,9 +29,30 @@ class UiTranslationTests(unittest.TestCase):
 		with zipfile.ZipFile(package) as archive:
 			cls.names = archive.namelist()
 			cls.ar = gettext.GNUTranslations(io.BytesIO(archive.read("locale/ar/LC_MESSAGES/nvda.mo")))
+			cls.converter = gettext.GNUTranslations(io.BytesIO(archive.read("locale/ar/LC_MESSAGES/calendar_converter.mo")))
+			cls.converter_po = archive.read("locale/ar/LC_MESSAGES/calendar_converter.po")
 			cls.manifest_ar = archive.read("locale/ar/manifest.ini").decode("utf-8")
 			cls.manifest = archive.read("manifest.ini").decode("utf-8")
 		cls.en = gettext.NullTranslations()
+
+	def test_shipped_converter_domain_covers_every_source_message_and_format_field(self):
+		from babel.messages.pofile import read_po
+		from string import Formatter
+		catalog = extract_catalog("calendar_converter")
+		self.assertGreater(len(catalog), 30)
+		po = read_po(io.BytesIO(self.converter_po), locale="ar")
+		fields = lambda text: {f for _, f, _, _ in Formatter().parse(text) if f is not None}
+		for message in catalog:
+			if not message.id:
+				continue
+			with self.subTest(message=message.id):
+				self.assertIn(message.id, po)
+				self.assertFalse(po[message.id].fuzzy)
+				translated = self.converter.gettext(message.id)
+				self.assertEqual(translated, po[message.id].string)
+				self.assertNotEqual(translated, message.id)
+				self.assertTrue(any("\u0600" <= c <= "\u06ff" for c in translated))
+				self.assertEqual(fields(message.id), fields(translated))
 
 	def test_recursive_extraction_includes_every_adapter_message_module(self):
 		paths = {path for message in self.catalog for path, line in message.locations}
@@ -92,7 +113,7 @@ class UiTranslationTests(unittest.TestCase):
 			if isinstance(node, ast.Assign) and isinstance(node.targets[0], ast.Name) and node.targets[0].id.endswith("_LABELS"):
 				maps[node.targets[0].id] = eval(compile(ast.Expression(node.value), "labels", "eval"), namespace)
 		self.assertEqual(len(maps), 8)
-		self.assertEqual([self.ar.gettext(value) for value in maps["SECTION_LABELS"].values()], ["مواقيت الصلاة", "الساعة", "التاريخ", "تنبيهات الأذكار"])
+		self.assertEqual([self.ar.gettext(value) for value in maps["SECTION_LABELS"].values()], ["مواقيت الصلاة", "الساعة", "التقويم", "تنبيهات الأذكار"])
 		for labels in maps.values():
 			keys_before = tuple(labels)
 			for translate in (self.ar.gettext, self.en.gettext):

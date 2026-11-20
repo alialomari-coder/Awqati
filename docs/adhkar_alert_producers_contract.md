@@ -47,7 +47,7 @@
 من جذر المشروع:
 
 ```powershell
-& 'C:\Users\alial\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' tools/run_checks.py
+python tools/run_checks.py
 ```
 
 الحزمة حزمة تطوير للمهمة 4.3، ولا تضيف تشغيلًا تلقائيًا داخل NVDA في هذه المرحلة. ملف الطلب السابق غير المتعقب .task-4.1-request.txt باقٍ دون تعديل.

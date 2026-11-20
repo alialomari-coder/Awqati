@@ -1,0 +1,852 @@
+{
+  "tolerance_seconds": 90,
+  "count": 96,
+  "max_absolute_seconds": 14.871159351049291,
+  "max_interpolation_check_seconds": 0.017394364560137793,
+  "by_phase": {
+    "newMoon": {
+      "count": 24,
+      "min_signed_seconds": -9.027978466571529,
+      "max_signed_seconds": 11.021670248134999,
+      "max_absolute_seconds": 11.021670248134999
+    },
+    "firstQuarter": {
+      "count": 24,
+      "min_signed_seconds": -6.631745674032859,
+      "max_signed_seconds": 9.104998735694842,
+      "max_absolute_seconds": 9.104998735694842
+    },
+    "fullMoon": {
+      "count": 24,
+      "min_signed_seconds": -10.407925268323696,
+      "max_signed_seconds": 7.337533515884322,
+      "max_absolute_seconds": 10.407925268323696
+    },
+    "lastQuarter": {
+      "count": 24,
+      "min_signed_seconds": -12.425585462020393,
+      "max_signed_seconds": 14.871159351049291,
+      "max_absolute_seconds": 14.871159351049291
+    }
+  },
+  "requests": [
+    {
+      "file": "jpl_1901_301.json",
+      "sha256": "fead81b0b905364d0a6c526698f121835f17e95f2bd7935223a496aea6afecee"
+    },
+    {
+      "file": "jpl_1901_10.json",
+      "sha256": "b4d72c34799638ce523e0126f4888e850353748a31d8d2b8c5f8329c02e3652b"
+    },
+    {
+      "file": "jpl_1950_301.json",
+      "sha256": "a38f528ad662117d9cb313718400215496b9face71dd0896e9477d6fccdecb90"
+    },
+    {
+      "file": "jpl_1950_10.json",
+      "sha256": "c4bfbded31e9622e39ab1465f801287b90e759cbbfffbb5b00c8969697a357db"
+    },
+    {
+      "file": "jpl_2000_301.json",
+      "sha256": "e47d6d4af5b31eabfa797f6dbca4a295ac11e73e280aeb35e3c91608b048b7fb"
+    },
+    {
+      "file": "jpl_2000_10.json",
+      "sha256": "941f63839c512fe6520f0b27cf148826b6c127f9d04c366e52728ce903e50ebe"
+    },
+    {
+      "file": "jpl_2026_301.json",
+      "sha256": "20710f11cd89710248400f082aec2b2bb7bf42e8cf09f57270e547f9d13146bb"
+    },
+    {
+      "file": "jpl_2026_10.json",
+      "sha256": "7ae5dd921132b40e6364f36f522bced69cd37e99dc3402ca3321719d52725555"
+    },
+    {
+      "file": "jpl_2050_301.json",
+      "sha256": "f477230de7e9021393a5c6c5557ead7853f241c6303b69b966f40aecc5bae84a"
+    },
+    {
+      "file": "jpl_2050_10.json",
+      "sha256": "07938ce31aa9ef347804bf9d3283ee544f2ff784518377aa6fd86054640e2f22"
+    },
+    {
+      "file": "jpl_2099_301.json",
+      "sha256": "82e943244d667ab716eba1b1911af8656bf4569f0546c9689488a79225414f8b"
+    },
+    {
+      "file": "jpl_2099_10.json",
+      "sha256": "b83778a9a7298a7ff8e8294a4e9226c56f4604ad30dc7971fa392b25072681e0"
+    }
+  ],
+  "results": [
+    {
+      "phase": "fullMoon",
+      "utc": "1901-01-05T00:13:21.636245+00:00",
+      "meeus_jde_tt": 2415389.5092632454,
+      "jpl_jde_tt": 2415389.509271486,
+      "meeus_minus_jpl_seconds": -0.7119873648829221,
+      "linear_vs_quadratic_seconds": 0.010023066139986825
+    },
+    {
+      "phase": "lastQuarter",
+      "utc": "1901-01-12T20:37:55.166065+00:00",
+      "meeus_jde_tt": 2415397.359651322,
+      "jpl_jde_tt": 2415397.359747086,
+      "meeus_minus_jpl_seconds": -8.274041329790021,
+      "linear_vs_quadratic_seconds": -0.00039963942033516275
+    },
+    {
+      "phase": "newMoon",
+      "utc": "1901-01-20T14:35:44.125496+00:00",
+      "meeus_jde_tt": 2415405.1081346488,
+      "jpl_jde_tt": 2415405.108179917,
+      "meeus_minus_jpl_seconds": -3.9112007146615975,
+      "linear_vs_quadratic_seconds": -0.012419734258494408
+    },
+    {
+      "phase": "firstQuarter",
+      "utc": "1901-01-27T09:52:19.457682+00:00",
+      "meeus_jde_tt": 2415411.911321364,
+      "jpl_jde_tt": 2415411.911225715,
+      "meeus_minus_jpl_seconds": 8.264035975470986,
+      "linear_vs_quadratic_seconds": 0.005968034089416818
+    },
+    {
+      "phase": "fullMoon",
+      "utc": "1901-02-03T15:29:42.630600+00:00",
+      "meeus_jde_tt": 2415419.1456186827,
+      "jpl_jde_tt": 2415419.1455942476,
+      "meeus_minus_jpl_seconds": 2.1111785136858776,
+      "linear_vs_quadratic_seconds": 0.009529155073528806
+    },
+    {
+      "phase": "lastQuarter",
+      "utc": "1901-02-11T18:11:42.857740+00:00",
+      "meeus_jde_tt": 2415427.2581213117,
+      "jpl_jde_tt": 2415427.2582651265,
+      "meeus_minus_jpl_seconds": -12.425585462020393,
+      "linear_vs_quadratic_seconds": -0.009443689368225705
+    },
+    {
+      "phase": "newMoon",
+      "utc": "1901-02-19T02:45:05.946385+00:00",
+      "meeus_jde_tt": 2415434.6146385414,
+      "jpl_jde_tt": 2415434.6146832863,
+      "meeus_minus_jpl_seconds": -3.8659426739620772,
+      "linear_vs_quadratic_seconds": -0.009810411846781886
+    },
+    {
+      "phase": "firstQuarter",
+      "utc": "1901-02-25T18:38:05.031697+00:00",
+      "meeus_jde_tt": 2415441.2764335102,
+      "jpl_jde_tt": 2415441.27639759,
+      "meeus_minus_jpl_seconds": 3.103486676358494,
+      "linear_vs_quadratic_seconds": 0.012190485905983373
+    },
+    {
+      "phase": "lastQuarter",
+      "utc": "1901-11-03T07:24:36.045559+00:00",
+      "meeus_jde_tt": 2415691.8087486676,
+      "jpl_jde_tt": 2415691.8085765475,
+      "meeus_minus_jpl_seconds": 14.871159351049291,
+      "linear_vs_quadratic_seconds": 0.016905594409072577
+    },
+    {
+      "phase": "newMoon",
+      "utc": "1901-11-11T07:34:16.084698+00:00",
+      "meeus_jde_tt": 2415699.8154620836,
+      "jpl_jde_tt": 2415699.815334518,
+      "meeus_minus_jpl_seconds": 11.021670248134999,
+      "linear_vs_quadratic_seconds": 0.0008006690433468577
+    },
+    {
+      "phase": "firstQuarter",
+      "utc": "1901-11-19T08:23:20.617590+00:00",
+      "meeus_jde_tt": 2415707.8495423254,
+      "jpl_jde_tt": 2415707.8495612084,
+      "meeus_minus_jpl_seconds": -1.631479387129884,
+      "linear_vs_quadratic_seconds": -0.01599442750362612
+    },
+    {
+      "phase": "fullMoon",
+      "utc": "1901-11-26T01:17:34.574862+00:00",
+      "meeus_jde_tt": 2415714.5538705345,
+      "jpl_jde_tt": 2415714.553834945,
+      "meeus_minus_jpl_seconds": 3.074956822266476,
+      "linear_vs_quadratic_seconds": 0.0018225453876579145
+    },
+    {
+      "phase": "lastQuarter",
+      "utc": "1901-12-02T21:49:39.186439+00:00",
+      "meeus_jde_tt": 2415721.409480745,
+      "jpl_jde_tt": 2415721.409387861,
+      "meeus_minus_jpl_seconds": 8.025171248054548,
+      "linear_vs_quadratic_seconds": 0.017016988266377098
+    },
+    {
+      "phase": "newMoon",
+      "utc": "1901-12-11T02:53:05.525104+00:00",
+      "meeus_jde_tt": 2415729.6202022573,
+      "jpl_jde_tt": 2415729.620187979,
+      "meeus_minus_jpl_seconds": 1.2336276993720923,
+      "linear_vs_quadratic_seconds": -0.005919418120257758
+    },
+    {
+      "phase": "firstQuarter",
+      "utc": "1901-12-18T20:35:10.652720+00:00",
+      "meeus_jde_tt": 2415737.3577616047,
+      "jpl_jde_tt": 2415737.357754883,
+      "meeus_minus_jpl_seconds": 0.5807740937732525,
+      "linear_vs_quadratic_seconds": -0.013043340035826412
+    },
+    {
+      "phase": "fullMoon",
+      "utc": "1901-12-25T12:15:47.647468+00:00",
+      "meeus_jde_tt": 2415744.0109675624,
+      "jpl_jde_tt": 2415744.0109899063,
+      "meeus_minus_jpl_seconds": -1.9304869988703666,
+      "linear_vs_quadratic_seconds": 0.006211090437103106
+    },
+    {
+      "phase": "fullMoon",
+      "utc": "1950-01-04T07:47:45.273196+00:00",
+      "meeus_jde_tt": 2433285.8251662054,
+      "jpl_jde_tt": 2433285.825173877,
+      "meeus_minus_jpl_seconds": -0.6628573343252369,
+      "linear_vs_quadratic_seconds": -0.011119306524461914
+    },
+    {
+      "phase": "lastQuarter",
+      "utc": "1950-01-11T10:30:59.492371+00:00",
+      "meeus_jde_tt": 2433292.9385252236,
+      "jpl_jde_tt": 2433292.938581169,
+      "meeus_minus_jpl_seconds": -4.833671141046852,
+      "linear_vs_quadratic_seconds": -0.0036423590461138744
+    },
+    {
+      "phase": "newMoon",
+      "utc": "1950-01-18T07:59:31.911971+00:00",
+      "meeus_jde_tt": 2433299.833344895,
+      "jpl_jde_tt": 2433299.8333292906,
+      "meeus_minus_jpl_seconds": 1.3482095804321648,
+      "linear_vs_quadratic_seconds": 0.011657733157089734
+    },
+    {
+      "phase": "firstQuarter",
+      "utc": "1950-01-26T04:39:30.827035+00:00",
+      "meeus_jde_tt": 2433307.694443449,
+      "jpl_jde_tt": 2433307.694413615,
+      "meeus_minus_jpl_seconds": 2.5776548664865713,
+      "linear_vs_quadratic_seconds": -0.0020023806831064306
+    },
+    {
+      "phase": "fullMoon",
+      "utc": "1950-02-02T22:16:03.057823+00:00",
+      "meeus_jde_tt": 2433315.4281502157,
+      "jpl_jde_tt": 2433315.4281896376,
+      "meeus_minus_jpl_seconds": -3.406065350136382,
+      "linear_vs_quadratic_seconds": -0.010454986688055001
+    },
+    {
+      "phase": "lastQuarter",
+      "utc": "1950-02-09T18:32:03.856568+00:00",
+      "meeus_jde_tt": 2433322.272603905,
+      "jpl_jde_tt": 2433322.2726450684,
+      "meeus_minus_jpl_seconds": -3.5565443774936703,
+      "linear_vs_quadratic_seconds": 0.003305488244374377
+    },
+    {
+      "phase": "newMoon",
+      "utc": "1950-02-16T22:52:56.869070+00:00",
+      "meeus_jde_tt": 2433329.453773031,
+      "jpl_jde_tt": 2433329.4537184946,
+      "meeus_minus_jpl_seconds": 4.711944872867461,
+      "linear_vs_quadratic_seconds": 0.012092090850414294
+    },
+    {
+      "phase": "firstQuarter",
+      "utc": "1950-02-25T01:52:13.613139+00:00",
+      "meeus_jde_tt": 2433337.5782723837,
+      "jpl_jde_tt": 2433337.578238486,
+      "meeus_minus_jpl_seconds": 2.928789632081392,
+      "linear_vs_quadratic_seconds": -0.009021661537386816
+    },
+    {
+      "phase": "lastQuarter",
+      "utc": "1950-11-03T01:00:21.352027+00:00",
+      "meeus_jde_tt": 2433588.5422543418,
+      "jpl_jde_tt": 2433588.5422635344,
+      "meeus_minus_jpl_seconds": -0.7942284121563846,
+      "linear_vs_quadratic_seconds": -0.013461405598163112
+    },
+    {
+      "phase": "newMoon",
+      "utc": "1950-11-09T23:25:20.558365+00:00",
+      "meeus_jde_tt": 2433595.4762729337,
+      "jpl_jde_tt": 2433595.4763222802,
+      "meeus_minus_jpl_seconds": -4.263545766881072,
+      "linear_vs_quadratic_seconds": -0.004549614567287641
+    },
+    {
+      "phase": "firstQuarter",
+      "utc": "1950-11-16T15:05:50.303223+00:00",
+      "meeus_jde_tt": 2433602.1293949806,
+      "jpl_jde_tt": 2433602.1293874783,
+      "meeus_minus_jpl_seconds": 0.6481928908382665,
+      "linear_vs_quadratic_seconds": 0.017001703351730568
+    },
+    {
+      "phase": "fullMoon",
+      "utc": "1950-11-24T15:14:11.157517+00:00",
+      "meeus_jde_tt": 2433610.1351919053,
+      "jpl_jde_tt": 2433610.1351069803,
+      "meeus_minus_jpl_seconds": 7.337533515884322,
+      "linear_vs_quadratic_seconds": 0.000795438131025783
+    },
+    {
+      "phase": "lastQuarter",
+      "utc": "1950-12-02T16:21:45.807752+00:00",
+      "meeus_jde_tt": 2433618.1821211134,
+      "jpl_jde_tt": 2433618.1821192163,
+      "meeus_minus_jpl_seconds": 0.16390280862499507,
+      "linear_vs_quadratic_seconds": -0.016174613919405112
+    },
+    {
+      "phase": "newMoon",
+      "utc": "1950-12-09T09:28:29.232775+00:00",
+      "meeus_jde_tt": 2433624.895123718,
+      "jpl_jde_tt": 2433624.8951528487,
+      "meeus_minus_jpl_seconds": -2.5169060687056577,
+      "linear_vs_quadratic_seconds": 0.0018079950516147747
+    },
+    {
+      "phase": "firstQuarter",
+      "utc": "1950-12-16T05:56:34.441954+00:00",
+      "meeus_jde_tt": 2433631.747961787,
+      "jpl_jde_tt": 2433631.7478889106,
+      "meeus_minus_jpl_seconds": 6.2965131550992295,
+      "linear_vs_quadratic_seconds": 0.016357049909596633
+    },
+    {
+      "phase": "fullMoon",
+      "utc": "1950-12-24T10:23:01.971049+00:00",
+      "meeus_jde_tt": 2433639.933002633,
+      "jpl_jde_tt": 2433639.932921331,
+      "meeus_minus_jpl_seconds": 7.024509239147642,
+      "linear_vs_quadratic_seconds": -0.004323063639366964
+    },
+    {
+      "phase": "newMoon",
+      "utc": "2000-01-06T18:13:41.225118+00:00",
+      "meeus_jde_tt": 2451550.2602477907,
+      "jpl_jde_tt": 2451550.260211784,
+      "meeus_minus_jpl_seconds": 3.1109768056717675,
+      "linear_vs_quadratic_seconds": -0.003572713079919687
+    },
+    {
+      "phase": "firstQuarter",
+      "utc": "2000-01-14T13:34:04.815370+00:00",
+      "meeus_jde_tt": 2451558.0660763816,
+      "jpl_jde_tt": 2451558.0661463793,
+      "meeus_minus_jpl_seconds": -6.047805194502153,
+      "linear_vs_quadratic_seconds": -0.015775259507186945
+    },
+    {
+      "phase": "fullMoon",
+      "utc": "2000-01-21T04:40:23.241038+00:00",
+      "meeus_jde_tt": 2451564.6954563083,
+      "jpl_jde_tt": 2451564.695491923,
+      "meeus_minus_jpl_seconds": -3.077105468639266,
+      "linear_vs_quadratic_seconds": 0.006835910284118452
+    },
+    {
+      "phase": "lastQuarter",
+      "utc": "2000-01-28T07:56:46.041823+00:00",
+      "meeus_jde_tt": 2451571.8318313174,
+      "jpl_jde_tt": 2451571.8317664233,
+      "meeus_minus_jpl_seconds": 5.606862955316914,
+      "linear_vs_quadratic_seconds": 0.012269604564679959
+    },
+    {
+      "phase": "newMoon",
+      "utc": "2000-02-05T13:03:17.691895+00:00",
+      "meeus_jde_tt": 2451580.0446976377,
+      "jpl_jde_tt": 2451580.044676017,
+      "meeus_minus_jpl_seconds": 1.8680186794703177,
+      "linear_vs_quadratic_seconds": -0.00878943476566696
+    },
+    {
+      "phase": "firstQuarter",
+      "utc": "2000-02-12T23:21:25.385479+00:00",
+      "meeus_jde_tt": 2451587.4739533504,
+      "jpl_jde_tt": 2451587.4739410235,
+      "meeus_minus_jpl_seconds": 1.0650628537331,
+      "linear_vs_quadratic_seconds": -0.008658937620889429
+    },
+    {
+      "phase": "fullMoon",
+      "utc": "2000-02-19T16:26:39.842970+00:00",
+      "meeus_jde_tt": 2451594.185926238,
+      "jpl_jde_tt": 2451594.185928299,
+      "meeus_minus_jpl_seconds": -0.17808069631807516,
+      "linear_vs_quadratic_seconds": 0.00877404522670272
+    },
+    {
+      "phase": "lastQuarter",
+      "utc": "2000-02-27T03:53:35.575076+00:00",
+      "meeus_jde_tt": 2451601.6629601745,
+      "jpl_jde_tt": 2451601.662889136,
+      "meeus_minus_jpl_seconds": 6.1377223622930055,
+      "linear_vs_quadratic_seconds": 0.007110934732225793
+    },
+    {
+      "phase": "firstQuarter",
+      "utc": "2000-11-04T07:26:57.972745+00:00",
+      "meeus_jde_tt": 2451852.8111360734,
+      "jpl_jde_tt": 2451852.8110472634,
+      "meeus_minus_jpl_seconds": 7.6731652557993275,
+      "linear_vs_quadratic_seconds": -0.0047781549271430634
+    },
+    {
+      "phase": "fullMoon",
+      "utc": "2000-11-11T21:14:34.568100+00:00",
+      "meeus_jde_tt": 2451860.3858651863,
+      "jpl_jde_tt": 2451860.385892167,
+      "meeus_minus_jpl_seconds": -2.3311579537100378,
+      "linear_vs_quadratic_seconds": -0.009854922619415785
+    },
+    {
+      "phase": "lastQuarter",
+      "utc": "2000-11-18T15:24:29.123314+00:00",
+      "meeus_jde_tt": 2451867.1427466124,
+      "jpl_jde_tt": 2451867.142727304,
+      "meeus_minus_jpl_seconds": 1.6682776809922575,
+      "linear_vs_quadratic_seconds": 0.0066516199872626025
+    },
+    {
+      "phase": "newMoon",
+      "utc": "2000-11-25T23:11:21.172703+00:00",
+      "meeus_jde_tt": 2451874.466960147,
+      "jpl_jde_tt": 2451874.466922656,
+      "meeus_minus_jpl_seconds": 3.2392288663491957,
+      "linear_vs_quadratic_seconds": 0.01050844354050362
+    },
+    {
+      "phase": "firstQuarter",
+      "utc": "2000-12-04T03:55:22.402700+00:00",
+      "meeus_jde_tt": 2451882.6641966053,
+      "jpl_jde_tt": 2451882.6641903,
+      "meeus_minus_jpl_seconds": 0.5447991610217839,
+      "linear_vs_quadratic_seconds": -0.012029001040333887
+    },
+    {
+      "phase": "fullMoon",
+      "utc": "2000-12-11T09:02:48.806730+00:00",
+      "meeus_jde_tt": 2451889.877696652,
+      "jpl_jde_tt": 2451889.877687883,
+      "meeus_minus_jpl_seconds": 0.7576280701425022,
+      "linear_vs_quadratic_seconds": -0.0075260584471406045
+    },
+    {
+      "phase": "lastQuarter",
+      "utc": "2000-12-18T00:41:22.903251+00:00",
+      "meeus_jde_tt": 2451896.5294801765,
+      "jpl_jde_tt": 2451896.5294187963,
+      "meeus_minus_jpl_seconds": 5.303250629391525,
+      "linear_vs_quadratic_seconds": 0.012585595856930532
+    },
+    {
+      "phase": "newMoon",
+      "utc": "2000-12-25T17:21:44.094812+00:00",
+      "meeus_jde_tt": 2451904.2241698937,
+      "jpl_jde_tt": 2451904.224086565,
+      "meeus_minus_jpl_seconds": 7.199592888991777,
+      "linear_vs_quadratic_seconds": 0.006300744400551395
+    },
+    {
+      "phase": "fullMoon",
+      "utc": "2026-01-03T10:02:54.727196+00:00",
+      "meeus_jde_tt": 2461043.919489713,
+      "jpl_jde_tt": 2461043.919487282,
+      "meeus_minus_jpl_seconds": 0.21002358468661853,
+      "linear_vs_quadratic_seconds": 0.008413403675896935
+    },
+    {
+      "phase": "lastQuarter",
+      "utc": "2026-01-10T15:48:28.197437+00:00",
+      "meeus_jde_tt": 2461051.1594604333,
+      "jpl_jde_tt": 2461051.1594066885,
+      "meeus_minus_jpl_seconds": 4.643550518159351,
+      "linear_vs_quadratic_seconds": 0.010895921195391622
+    },
+    {
+      "phase": "newMoon",
+      "utc": "2026-01-18T19:52:05.632172+00:00",
+      "meeus_jde_tt": 2461059.3286437057,
+      "jpl_jde_tt": 2461059.3285659803,
+      "meeus_minus_jpl_seconds": 6.715475606273832,
+      "linear_vs_quadratic_seconds": -0.00789748096994014
+    },
+    {
+      "phase": "firstQuarter",
+      "utc": "2026-01-26T04:47:32.587224+00:00",
+      "meeus_jde_tt": 2461066.7004834632,
+      "jpl_jde_tt": 2461066.7003780813,
+      "meeus_minus_jpl_seconds": 9.104998735694842,
+      "linear_vs_quadratic_seconds": -0.00928495551993791
+    },
+    {
+      "phase": "fullMoon",
+      "utc": "2026-02-01T22:09:16.996577+00:00",
+      "meeus_jde_tt": 2461073.423914127,
+      "jpl_jde_tt": 2461073.423887474,
+      "meeus_minus_jpl_seconds": 2.3028206168302194,
+      "linear_vs_quadratic_seconds": 0.01219573019295872
+    },
+    {
+      "phase": "lastQuarter",
+      "utc": "2026-02-09T12:43:14.283629+00:00",
+      "meeus_jde_tt": 2461081.0308271716,
+      "jpl_jde_tt": 2461081.0307363356,
+      "meeus_minus_jpl_seconds": 7.848242359147554,
+      "linear_vs_quadratic_seconds": 0.003171079906628016
+    },
+    {
+      "phase": "newMoon",
+      "utc": "2026-02-17T12:01:13.430032+00:00",
+      "meeus_jde_tt": 2461089.0016506254,
+      "jpl_jde_tt": 2461089.0016000876,
+      "meeus_minus_jpl_seconds": 4.366442210142236,
+      "linear_vs_quadratic_seconds": -0.01101146984614143
+    },
+    {
+      "phase": "firstQuarter",
+      "utc": "2026-02-24T12:27:42.627890+00:00",
+      "meeus_jde_tt": 2461096.020044119,
+      "jpl_jde_tt": 2461096.019975581,
+      "meeus_minus_jpl_seconds": 5.9216731194227155,
+      "linear_vs_quadratic_seconds": -0.0006544352643427231
+    },
+    {
+      "phase": "newMoon",
+      "utc": "2026-11-09T07:02:01.838286+00:00",
+      "meeus_jde_tt": 2461353.7938775728,
+      "jpl_jde_tt": 2461353.793936265,
+      "meeus_minus_jpl_seconds": -5.071020749523952,
+      "linear_vs_quadratic_seconds": 0.008714506471833694
+    },
+    {
+      "phase": "firstQuarter",
+      "utc": "2026-11-17T11:47:49.649037+00:00",
+      "meeus_jde_tt": 2461361.9923476046,
+      "jpl_jde_tt": 2461361.992347542,
+      "meeus_minus_jpl_seconds": 0.005411067300713183,
+      "linear_vs_quadratic_seconds": -0.012754658246819747
+    },
+    {
+      "phase": "fullMoon",
+      "utc": "2026-11-24T14:53:31.121496+00:00",
+      "meeus_jde_tt": 2461369.121299832,
+      "jpl_jde_tt": 2461369.1213297984,
+      "meeus_minus_jpl_seconds": -2.5890766883537837,
+      "linear_vs_quadratic_seconds": -0.006467591001707351
+    },
+    {
+      "phase": "lastQuarter",
+      "utc": "2026-12-01T06:08:41.848360+00:00",
+      "meeus_jde_tt": 2461375.7568406523,
+      "jpl_jde_tt": 2461375.7568177436,
+      "meeus_minus_jpl_seconds": 1.9793078546063883,
+      "linear_vs_quadratic_seconds": 0.014512454534637786
+    },
+    {
+      "phase": "newMoon",
+      "utc": "2026-12-09T00:51:51.007883+00:00",
+      "meeus_jde_tt": 2461383.5368077764,
+      "jpl_jde_tt": 2461383.5368088717,
+      "meeus_minus_jpl_seconds": -0.09463262197594312,
+      "linear_vs_quadratic_seconds": 0.005125933421670573
+    },
+    {
+      "phase": "firstQuarter",
+      "utc": "2026-12-17T05:42:40.268217+00:00",
+      "meeus_jde_tt": 2461391.738766808,
+      "jpl_jde_tt": 2461391.738764495,
+      "meeus_minus_jpl_seconds": 0.19985024332309306,
+      "linear_vs_quadratic_seconds": -0.017394364560137793
+    },
+    {
+      "phase": "fullMoon",
+      "utc": "2026-12-24T01:28:13.273697+00:00",
+      "meeus_jde_tt": 2461398.5620654826,
+      "jpl_jde_tt": 2461398.5620751516,
+      "meeus_minus_jpl_seconds": -0.8353828566720812,
+      "linear_vs_quadratic_seconds": -0.0009060481731330006
+    },
+    {
+      "phase": "lastQuarter",
+      "utc": "2026-12-30T18:59:33.998693+00:00",
+      "meeus_jde_tt": 2461405.2921664664,
+      "jpl_jde_tt": 2461405.292115803,
+      "meeus_minus_jpl_seconds": 4.3773415024844295,
+      "linear_vs_quadratic_seconds": 0.016153099325125986
+    },
+    {
+      "phase": "fullMoon",
+      "utc": "2050-01-08T01:38:47.610456+00:00",
+      "meeus_jde_tt": 2469814.5696839727,
+      "jpl_jde_tt": 2469814.569632402,
+      "meeus_minus_jpl_seconds": 4.455682665956386,
+      "linear_vs_quadratic_seconds": 0.005085275040938697
+    },
+    {
+      "phase": "lastQuarter",
+      "utc": "2050-01-16T06:17:24.832193+00:00",
+      "meeus_jde_tt": 2469822.7631703354,
+      "jpl_jde_tt": 2469822.763087749,
+      "meeus_minus_jpl_seconds": 7.135473166139181,
+      "linear_vs_quadratic_seconds": -0.014274877535425112
+    },
+    {
+      "phase": "newMoon",
+      "utc": "2050-01-23T04:56:36.965871+00:00",
+      "meeus_jde_tt": 2469829.7070607715,
+      "jpl_jde_tt": 2469829.70708716,
+      "meeus_minus_jpl_seconds": -2.279951768626839,
+      "linear_vs_quadratic_seconds": -0.004240962359213896
+    },
+    {
+      "phase": "firstQuarter",
+      "utc": "2050-01-29T20:47:39.525401+00:00",
+      "meeus_jde_tt": 2469836.3675070624,
+      "jpl_jde_tt": 2469836.367455074,
+      "meeus_minus_jpl_seconds": 4.491775095996144,
+      "linear_vs_quadratic_seconds": 0.01703469664378776
+    },
+    {
+      "phase": "fullMoon",
+      "utc": "2050-02-06T20:47:15.455055+00:00",
+      "meeus_jde_tt": 2469844.3672304335,
+      "jpl_jde_tt": 2469844.3671714733,
+      "meeus_minus_jpl_seconds": 5.094172238224568,
+      "linear_vs_quadratic_seconds": 0.0003974330840987861
+    },
+    {
+      "phase": "lastQuarter",
+      "utc": "2050-02-14T22:10:28.240164+00:00",
+      "meeus_jde_tt": 2469852.425017298,
+      "jpl_jde_tt": 2469852.4249878973,
+      "meeus_minus_jpl_seconds": 2.540222555991404,
+      "linear_vs_quadratic_seconds": -0.016540459443790567
+    },
+    {
+      "phase": "newMoon",
+      "utc": "2050-02-21T15:03:06.915555+00:00",
+      "meeus_jde_tt": 2469859.128242708,
+      "jpl_jde_tt": 2469859.1282975394,
+      "meeus_minus_jpl_seconds": -4.737440296114189,
+      "linear_vs_quadratic_seconds": 0.0021079482973487274
+    },
+    {
+      "phase": "firstQuarter",
+      "utc": "2050-02-28T11:29:19.948517+00:00",
+      "meeus_jde_tt": 2469865.979782441,
+      "jpl_jde_tt": 2469865.9798161625,
+      "meeus_minus_jpl_seconds": -2.91353375822569,
+      "linear_vs_quadratic_seconds": 0.015204118785284049
+    },
+    {
+      "phase": "lastQuarter",
+      "utc": "2050-11-06T09:56:46.392678+00:00",
+      "meeus_jde_tt": 2470116.9155228655,
+      "jpl_jde_tt": 2470116.915485658,
+      "meeus_minus_jpl_seconds": 3.2147062742424066,
+      "linear_vs_quadratic_seconds": 0.009319173251288948
+    },
+    {
+      "phase": "newMoon",
+      "utc": "2050-11-14T13:41:06.758332+00:00",
+      "meeus_jde_tt": 2470125.0713141346,
+      "jpl_jde_tt": 2470125.071275575,
+      "meeus_minus_jpl_seconds": 3.331545166114882,
+      "linear_vs_quadratic_seconds": -0.010087549472824975
+    },
+    {
+      "phase": "firstQuarter",
+      "utc": "2050-11-21T20:25:07.996551+00:00",
+      "meeus_jde_tt": 2470132.3518840214,
+      "jpl_jde_tt": 2470132.3518104595,
+      "meeus_minus_jpl_seconds": 6.3557305519163085,
+      "linear_vs_quadratic_seconds": -0.005942202785463202
+    },
+    {
+      "phase": "fullMoon",
+      "utc": "2050-11-28T15:09:26.454632+00:00",
+      "meeus_jde_tt": 2470139.132653212,
+      "jpl_jde_tt": 2470139.1326338034,
+      "meeus_minus_jpl_seconds": 1.676900386048183,
+      "linear_vs_quadratic_seconds": 0.00999313647472766
+    },
+    {
+      "phase": "lastQuarter",
+      "utc": "2050-12-06T06:27:20.891099+00:00",
+      "meeus_jde_tt": 2470146.7700907877,
+      "jpl_jde_tt": 2470146.769970128,
+      "meeus_minus_jpl_seconds": 10.425009921148083,
+      "linear_vs_quadratic_seconds": 0.003975725781154793
+    },
+    {
+      "phase": "newMoon",
+      "utc": "2050-12-14T05:17:47.155902+00:00",
+      "meeus_jde_tt": 2470154.7217836673,
+      "jpl_jde_tt": 2470154.7217540517,
+      "meeus_minus_jpl_seconds": 2.558778221206341,
+      "linear_vs_quadratic_seconds": -0.01295755151222755
+    },
+    {
+      "phase": "firstQuarter",
+      "utc": "2050-12-21T04:14:58.226636+00:00",
+      "meeus_jde_tt": 2470161.678161801,
+      "jpl_jde_tt": 2470161.678063333,
+      "meeus_minus_jpl_seconds": 8.507606732452155,
+      "linear_vs_quadratic_seconds": 0.0019763096734326524
+    },
+    {
+      "phase": "fullMoon",
+      "utc": "2050-12-28T05:15:17.756632+00:00",
+      "meeus_jde_tt": 2470168.720054509,
+      "jpl_jde_tt": 2470168.7199984323,
+      "meeus_minus_jpl_seconds": 4.845048187501568,
+      "linear_vs_quadratic_seconds": 0.009896820782337556
+    },
+    {
+      "phase": "fullMoon",
+      "utc": "2099-01-07T01:50:11.859533+00:00",
+      "meeus_jde_tt": 2487710.578846595,
+      "jpl_jde_tt": 2487710.578915209,
+      "meeus_minus_jpl_seconds": -5.92827517246949,
+      "linear_vs_quadratic_seconds": -0.008447783380724161
+    },
+    {
+      "phase": "lastQuarter",
+      "utc": "2099-01-13T17:25:35.323292+00:00",
+      "meeus_jde_tt": 2487717.2284237216,
+      "jpl_jde_tt": 2487717.228516884,
+      "meeus_minus_jpl_seconds": -8.049223391869667,
+      "linear_vs_quadratic_seconds": 0.0126222126310509
+    },
+    {
+      "phase": "newMoon",
+      "utc": "2099-01-21T09:07:06.501250+00:00",
+      "meeus_jde_tt": 2487724.8822568,
+      "jpl_jde_tt": 2487724.8823529035,
+      "meeus_minus_jpl_seconds": -8.30336250627246,
+      "linear_vs_quadratic_seconds": 0.006620151110698913
+    },
+    {
+      "phase": "firstQuarter",
+      "utc": "2099-01-29T14:38:20.833202+00:00",
+      "meeus_jde_tt": 2487733.11228379,
+      "jpl_jde_tt": 2487733.112320965,
+      "meeus_minus_jpl_seconds": -3.2119146466543427,
+      "linear_vs_quadratic_seconds": -0.016178137091110045
+    },
+    {
+      "phase": "fullMoon",
+      "utc": "2099-02-05T12:48:18.360736+00:00",
+      "meeus_jde_tt": 2487740.03586855,
+      "jpl_jde_tt": 2487740.035989012,
+      "meeus_minus_jpl_seconds": -10.407925268323696,
+      "linear_vs_quadratic_seconds": -0.0030340907741095435
+    },
+    {
+      "phase": "lastQuarter",
+      "utc": "2099-02-12T05:07:45.547713+00:00",
+      "meeus_jde_tt": 2487746.7160443254,
+      "jpl_jde_tt": 2487746.716126892,
+      "meeus_minus_jpl_seconds": -7.133742069357714,
+      "linear_vs_quadratic_seconds": 0.014810930847824366
+    },
+    {
+      "phase": "newMoon",
+      "utc": "2099-02-20T04:05:25.407107+00:00",
+      "meeus_jde_tt": 2487754.672755661,
+      "jpl_jde_tt": 2487754.6728601516,
+      "meeus_minus_jpl_seconds": -9.027978466571529,
+      "linear_vs_quadratic_seconds": 0.001996238023377117
+    },
+    {
+      "phase": "firstQuarter",
+      "utc": "2099-02-28T06:12:35.573807+00:00",
+      "meeus_jde_tt": 2487762.7610677755,
+      "jpl_jde_tt": 2487762.7610844146,
+      "meeus_minus_jpl_seconds": -1.4375906922988748,
+      "linear_vs_quadratic_seconds": -0.017173416324772095
+    },
+    {
+      "phase": "lastQuarter",
+      "utc": "2099-11-05T19:42:02.151860+00:00",
+      "meeus_jde_tt": 2488013.3232013606,
+      "jpl_jde_tt": 2488013.3231748645,
+      "meeus_minus_jpl_seconds": 2.2892692766696316,
+      "linear_vs_quadratic_seconds": -0.012588882583952188
+    },
+    {
+      "phase": "newMoon",
+      "utc": "2099-11-12T11:29:13.389893+00:00",
+      "meeus_jde_tt": 2488019.9809703194,
+      "jpl_jde_tt": 2488019.9810124575,
+      "meeus_minus_jpl_seconds": -3.640727581209559,
+      "linear_vs_quadratic_seconds": 0.0075236451706230945
+    },
+    {
+      "phase": "firstQuarter",
+      "utc": "2099-11-19T17:16:34.302560+00:00",
+      "meeus_jde_tt": 2488027.2221845863,
+      "jpl_jde_tt": 2488027.2222613427,
+      "meeus_minus_jpl_seconds": -6.631745674032859,
+      "linear_vs_quadratic_seconds": 0.011700104757605523
+    },
+    {
+      "phase": "fullMoon",
+      "utc": "2099-11-27T21:22:01.918552+00:00",
+      "meeus_jde_tt": 2488035.392643105,
+      "jpl_jde_tt": 2488035.392651985,
+      "meeus_minus_jpl_seconds": -0.7672405247420796,
+      "linear_vs_quadratic_seconds": -0.009674163192984309
+    },
+    {
+      "phase": "lastQuarter",
+      "utc": "2099-12-05T04:45:25.471244+00:00",
+      "meeus_jde_tt": 2488042.700556865,
+      "jpl_jde_tt": 2488042.7005372033,
+      "meeus_minus_jpl_seconds": 1.698779775803429,
+      "linear_vs_quadratic_seconds": -0.0070029890072631495
+    },
+    {
+      "phase": "newMoon",
+      "utc": "2099-12-11T23:08:46.339043+00:00",
+      "meeus_jde_tt": 2488049.4667706126,
+      "jpl_jde_tt": 2488049.4668553993,
+      "meeus_minus_jpl_seconds": -7.325586545225725,
+      "linear_vs_quadratic_seconds": 0.011201566035673238
+    },
+    {
+      "phase": "firstQuarter",
+      "utc": "2099-12-19T14:21:36.287109+00:00",
+      "meeus_jde_tt": 2488057.1006820486,
+      "jpl_jde_tt": 2488057.1006992473,
+      "meeus_minus_jpl_seconds": -1.4859844529533435,
+      "linear_vs_quadratic_seconds": 0.0032007496799932866
+    },
+    {
+      "phase": "fullMoon",
+      "utc": "2099-12-27T12:58:15.499106+00:00",
+      "meeus_jde_tt": 2488065.042802558,
+      "jpl_jde_tt": 2488065.042838412,
+      "meeus_minus_jpl_seconds": -3.0977872744859947,
+      "linear_vs_quadratic_seconds": -0.010506981488446865
+    }
+  ]
+}

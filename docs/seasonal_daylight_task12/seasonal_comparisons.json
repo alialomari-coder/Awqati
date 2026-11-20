@@ -1,0 +1,254 @@
+[
+  {
+    "site": "riyadh",
+    "date": "2026-01-01",
+    "reference_date": "2025-12-21",
+    "actual_change_seconds": 118.323675,
+    "reference_change_seconds": 117.64146099999925,
+    "difference_seconds": 0.6822140000007408,
+    "passed": true
+  },
+  {
+    "site": "riyadh",
+    "date": "2026-03-15",
+    "reference_date": "2025-12-21",
+    "actual_change_seconds": 5018.881488,
+    "reference_change_seconds": 4996.718495000001,
+    "difference_seconds": 22.162992999999005,
+    "passed": true
+  },
+  {
+    "site": "riyadh",
+    "date": "2026-09-15",
+    "reference_date": "2026-06-21",
+    "actual_change_seconds": -4919.425841,
+    "reference_change_seconds": -4937.855739999999,
+    "difference_seconds": 18.42989899999884,
+    "passed": true
+  },
+  {
+    "site": "riyadh",
+    "date": "2026-12-31",
+    "reference_date": "2026-12-21",
+    "actual_change_seconds": 92.515324,
+    "reference_change_seconds": 91.92310700000235,
+    "difference_seconds": 0.5922169999976603,
+    "passed": true
+  },
+  {
+    "site": "london",
+    "date": "2026-01-01",
+    "reference_date": "2025-12-21",
+    "actual_change_seconds": 382.259026,
+    "reference_change_seconds": 381.96855600000345,
+    "difference_seconds": 0.2904699999965601,
+    "passed": true
+  },
+  {
+    "site": "london",
+    "date": "2026-03-15",
+    "reference_date": "2025-12-21",
+    "actual_change_seconds": 14454.58989,
+    "reference_change_seconds": 14435.199085,
+    "difference_seconds": 19.39080499999909,
+    "passed": true
+  },
+  {
+    "site": "london",
+    "date": "2026-03-28",
+    "reference_date": "2025-12-21",
+    "actual_change_seconds": 17553.183823,
+    "reference_change_seconds": 17533.085871000003,
+    "difference_seconds": 20.09795199999644,
+    "passed": true
+  },
+  {
+    "site": "london",
+    "date": "2026-03-29",
+    "reference_date": "2025-12-21",
+    "actual_change_seconds": 17790.594517,
+    "reference_change_seconds": 17770.376339000002,
+    "difference_seconds": 20.21817799999917,
+    "passed": true
+  },
+  {
+    "site": "london",
+    "date": "2026-09-15",
+    "reference_date": "2026-06-21",
+    "actual_change_seconds": -14296.711373,
+    "reference_change_seconds": -14316.648706,
+    "difference_seconds": 19.937332999999853,
+    "passed": true
+  },
+  {
+    "site": "london",
+    "date": "2026-10-24",
+    "reference_date": "2026-06-21",
+    "actual_change_seconds": -23365.837817,
+    "reference_change_seconds": -23377.315842999997,
+    "difference_seconds": 11.478025999997044,
+    "passed": true
+  },
+  {
+    "site": "london",
+    "date": "2026-10-25",
+    "reference_date": "2026-06-21",
+    "actual_change_seconds": -23589.540222,
+    "reference_change_seconds": -23600.585107,
+    "difference_seconds": 11.04488499999934,
+    "passed": true
+  },
+  {
+    "site": "london",
+    "date": "2026-12-31",
+    "reference_date": "2026-12-21",
+    "actual_change_seconds": 300.321034,
+    "reference_change_seconds": 299.5954520000014,
+    "difference_seconds": 0.7255819999986102,
+    "passed": true
+  },
+  {
+    "site": "sydney",
+    "date": "2026-01-01",
+    "reference_date": "2025-12-22",
+    "actual_change_seconds": -172.799275,
+    "reference_change_seconds": -173.90717600000062,
+    "difference_seconds": 1.1079010000006235,
+    "passed": true
+  },
+  {
+    "site": "sydney",
+    "date": "2026-03-15",
+    "reference_date": "2025-12-22",
+    "actual_change_seconds": -7483.853589,
+    "reference_change_seconds": -7508.994633000002,
+    "difference_seconds": 25.141044000001784,
+    "passed": true
+  },
+  {
+    "site": "sydney",
+    "date": "2026-04-04",
+    "reference_date": "2025-12-22",
+    "actual_change_seconds": -10011.748465,
+    "reference_change_seconds": -10036.747437999999,
+    "difference_seconds": 24.99897299999793,
+    "passed": true
+  },
+  {
+    "site": "sydney",
+    "date": "2026-04-05",
+    "reference_date": "2025-12-22",
+    "actual_change_seconds": -10135.530766,
+    "reference_change_seconds": -10160.370353999999,
+    "difference_seconds": 24.839587999998912,
+    "passed": true
+  },
+  {
+    "site": "sydney",
+    "date": "2026-09-15",
+    "reference_date": "2026-06-21",
+    "actual_change_seconds": 7064.517588,
+    "reference_change_seconds": 7049.024387000005,
+    "difference_seconds": 15.49320099999477,
+    "passed": true
+  },
+  {
+    "site": "sydney",
+    "date": "2026-10-03",
+    "reference_date": "2026-06-21",
+    "actual_change_seconds": 9319.009825,
+    "reference_change_seconds": 9303.765253000005,
+    "difference_seconds": 15.24457199999415,
+    "passed": true
+  },
+  {
+    "site": "sydney",
+    "date": "2026-10-04",
+    "reference_date": "2026-06-21",
+    "actual_change_seconds": 9444.52219,
+    "reference_change_seconds": 9429.442060000001,
+    "difference_seconds": 15.080129999998462,
+    "passed": true
+  },
+  {
+    "site": "sydney",
+    "date": "2026-12-31",
+    "reference_date": "2026-12-22",
+    "actual_change_seconds": -134.625956,
+    "reference_change_seconds": -135.03310200000124,
+    "difference_seconds": 0.4071460000012337,
+    "passed": true
+  },
+  {
+    "site": "kiritimati",
+    "date": "2026-01-01",
+    "reference_date": "2025-12-22",
+    "actual_change_seconds": 6.365608,
+    "reference_change_seconds": 5.5640089999942575,
+    "difference_seconds": 0.8015990000057425,
+    "passed": true
+  },
+  {
+    "site": "kiritimati",
+    "date": "2026-03-15",
+    "reference_date": "2025-12-22",
+    "actual_change_seconds": 318.889574,
+    "reference_change_seconds": 295.57149399999616,
+    "difference_seconds": 23.318080000003818,
+    "passed": true
+  },
+  {
+    "site": "kiritimati",
+    "date": "2026-09-15",
+    "reference_date": "2026-06-21",
+    "actual_change_seconds": -376.082888,
+    "reference_change_seconds": -393.4731280000051,
+    "difference_seconds": 17.390240000005065,
+    "passed": true
+  },
+  {
+    "site": "kiritimati",
+    "date": "2026-12-31",
+    "reference_date": "2026-12-22",
+    "actual_change_seconds": 4.935023,
+    "reference_change_seconds": 4.440772000001743,
+    "difference_seconds": 0.4942509999982567,
+    "passed": true
+  },
+  {
+    "site": "equator",
+    "date": "2026-01-01",
+    "reference_date": "2025-12-21",
+    "actual_change_seconds": -1.505162,
+    "reference_change_seconds": -2.407065000006696,
+    "difference_seconds": 0.9019030000066961,
+    "passed": true
+  },
+  {
+    "site": "equator",
+    "date": "2026-03-15",
+    "reference_date": "2025-12-21",
+    "actual_change_seconds": -35.712953,
+    "reference_change_seconds": -59.17402700000093,
+    "difference_seconds": 23.461074000000934,
+    "passed": true
+  },
+  {
+    "site": "equator",
+    "date": "2026-09-15",
+    "reference_date": "2026-06-21",
+    "actual_change_seconds": -35.443932,
+    "reference_change_seconds": -52.75230800000281,
+    "difference_seconds": 17.308376000002816,
+    "passed": true
+  },
+  {
+    "site": "equator",
+    "date": "2026-12-31",
+    "reference_date": "2026-12-21",
+    "actual_change_seconds": -1.183846,
+    "reference_change_seconds": -1.7401620000018738,
+    "difference_seconds": 0.5563160000018739,
+    "passed": true
+  }
+]

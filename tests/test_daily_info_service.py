@@ -25,7 +25,7 @@ class FakeAstronomy:
 		self.error = error
 		self.calls = 0
 
-	def read(self, location):
+	def read(self, location, *, include_daily_details=False):
 		self.calls += 1
 		if self.error:
 			raise self.error

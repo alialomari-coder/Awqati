@@ -17,12 +17,16 @@ class AlertPriority(IntEnum):
 	PRAYER_TIME = 1
 	SUNRISE_NIGHT = 2
 	PRAYER_PRE_IQAMA_POST = 3
-	CLOCK = 4
-	TIMED_ADHKAR_WIRD = 5
-	RECURRING_DHIKR = 6
+	PERSONAL_ALARM = 4
+	COUNTDOWN = 5
+	CLOCK = 6
+	TIMED_ADHKAR_WIRD = 7
+	RECURRING_DHIKR = 8
 
 
 class AlertEventType(Enum):
+	PERSONAL_ALARM = "personalAlarm"
+	COUNTDOWN = "countdown"
 	PRAYER_TIME = "prayerTime"
 	SUNRISE = "sunrise"
 	MIDNIGHT = "midnight"
@@ -40,6 +44,10 @@ class AlertEventType(Enum):
 
 
 def priority_for(event_type: AlertEventType) -> AlertPriority:
+	if event_type is AlertEventType.COUNTDOWN:
+		return AlertPriority.COUNTDOWN
+	if event_type is AlertEventType.PERSONAL_ALARM:
+		return AlertPriority.PERSONAL_ALARM
 	if event_type is AlertEventType.PRAYER_TIME:
 		return AlertPriority.PRAYER_TIME
 	if event_type in {AlertEventType.SUNRISE, AlertEventType.MIDNIGHT, AlertEventType.LAST_THIRD}:

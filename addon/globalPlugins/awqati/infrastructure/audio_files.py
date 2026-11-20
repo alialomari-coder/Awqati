@@ -11,7 +11,7 @@ import wave
 from ..domain import AlertEvent, AlertEventType, SoundReference
 
 
-SOUND_CATEGORIES = frozenset({"alerts", "clock", "adhkar"})
+SOUND_CATEGORIES = frozenset({"alerts", "clock", "adhkar", "alarms", "timers"})
 LEGACY_SOUND_CATEGORIES = frozenset({"adhan"})
 COPY_CHUNK_SIZE = 1024 * 1024
 
@@ -123,9 +123,14 @@ class SoundFileService:
 		return path
 
 	def default_path(self, event_type: AlertEventType) -> Path | None:
-		if event_type is not AlertEventType.CLOCK:
+		if event_type is AlertEventType.COUNTDOWN:
+			path = self.addon_root / "sounds" / "timers" / "finished.wav"
+		elif event_type is AlertEventType.PERSONAL_ALARM:
+			path = self.addon_root / "sounds" / "alarms" / "alarm.wav"
+		elif event_type is AlertEventType.CLOCK:
+			path = self.addon_root / "sounds" / "clock" / "clock.wav"
+		else:
 			return None
-		path = self.addon_root / "sounds" / "clock" / "clock.wav"
 		try:
 			validate_wav(path)
 		except (OSError, ValueError):
@@ -148,7 +153,8 @@ class SoundFileService:
 				used.add(safe_reference_path(self.user_data_root, reference))
 			except ValueError:
 				continue
-		for category in SOUND_CATEGORIES:
+		for category in SOUND_CATEGORIES - {"alarms", "timers"}:
+			# Alarms are owned by an independent store, not the settings draft.
 			directory = self.sound_root / category
 			if not directory.is_dir():
 				continue

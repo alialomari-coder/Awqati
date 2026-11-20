@@ -4,6 +4,9 @@ from __future__ import annotations
 
 from datetime import datetime, timedelta, timezone
 from typing import Protocol, runtime_checkable
+from .daily_astronomy_presentation import (
+	additional_solar, additional_lunar, daylight_context, lunar_distance_summary, phase_schedule,
+)
 
 from ..domain import AstronomyReading, DailyInfoReading, MoonPhase, Season, SeasonEvent, SolarDayState
 from .arabian_calendar_formatters import (
@@ -78,13 +81,14 @@ class ArabicDailyInfoFormatter:
 
 	def format_scientific(self, reading: AstronomyReading) -> str:
 		remaining = _remaining(reading)
+		clock, date = _reading_formats(reading, "ar")
 		season_text = (
 			f"اليوم هو اليوم {arabic_ordinal(reading.season_day)} من فصل {_SEASONS[reading.current_season]}، "
-			f"والذي بقي على انتهائه {_format_remaining(remaining)}. إذ سيدخل فصل "
+			f"وقد بقي على انتهائه {_format_remaining(remaining)}. وسيبدأ فصل "
 			f"{_SEASONS[_NEXT_SEASON[reading.current_season]]} مع "
 			f"{_SEASON_EVENTS[reading.next_seasonal_event.event]} يوم "
-			f"{_format_day_month(reading.next_seasonal_event_local)}، "
-			f"{_format_clock(reading.next_seasonal_event_local)} بالتوقيت المحلي."
+			f"{date(reading.next_seasonal_event_local)}، عند "
+			f"{clock(reading.next_seasonal_event_local)} بالتوقيت المحلي."
 		)
 		moon_text = (
 			f"القمر في طور {_MOON_PHASES[reading.lunar.phase]}، وعمره التقريبي "
@@ -95,6 +99,15 @@ class ArabicDailyInfoFormatter:
 			f"المحاق القادم يوم {_format_day_month(reading.next_new_moon_local)}، "
 			f"والبدر القادم يوم {_format_day_month(reading.next_full_moon_local)}."
 		)
+		if reading.daily_details is not None:
+			clock, date = _synopsis_formats("ar")
+			moon_text = "أما القمر، فهو " + moon_text.removeprefix("القمر ")
+			moon_text += " " + additional_lunar(reading, "ar", clock, date)
+			moon_text += " " + lunar_distance_summary(reading, "ar")
+			return "\n".join((season_text, _format_solar_summary(reading,
+				daylight_context(reading, "ar", _format_duration)),
+				additional_solar(reading, "ar", clock, _format_duration), moon_text,
+				phase_schedule(reading, "ar", clock, date)))
 		return "\n".join((season_text, _format_solar_summary(reading), moon_text, moon_events))
 
 	def format(self, reading: DailyInfoReading) -> str:
@@ -112,13 +125,14 @@ class EnglishDailyInfoFormatter:
 
 	def format_scientific(self, reading: AstronomyReading) -> str:
 		remaining = _remaining(reading)
+		clock, date = _reading_formats(reading, "en")
 		season_text = (
 			f"Today is the {english_ordinal(reading.season_day)} day of {_ENGLISH_SEASONS[reading.current_season]}, "
 			f"with {_format_remaining_en(remaining)} remaining. "
-			f"{_ENGLISH_SEASONS[_NEXT_SEASON[reading.current_season]].capitalize()} begins at "
+			f"{_ENGLISH_SEASONS[_NEXT_SEASON[reading.current_season]].capitalize()} will begin at "
 			f"{_ENGLISH_SEASON_EVENTS[reading.next_seasonal_event.event]} on "
-			f"{_format_day_month_en(reading.next_seasonal_event_local)} at "
-			f"{_format_clock_en(reading.next_seasonal_event_local)} local time."
+			f"{date(reading.next_seasonal_event_local)} at "
+			f"{clock(reading.next_seasonal_event_local)} local time."
 		)
 		moon_text = (
 			f"The Moon is in its {_ENGLISH_MOON_PHASES[reading.lunar.phase]} phase, approximately "
@@ -128,6 +142,14 @@ class EnglishDailyInfoFormatter:
 			f"The next new moon is on {_format_day_month_en(reading.next_new_moon_local)}, "
 			f"and the next full moon is on {_format_day_month_en(reading.next_full_moon_local)}."
 		)
+		if reading.daily_details is not None:
+			clock, date = _synopsis_formats("en")
+			moon_text += " " + additional_lunar(reading, "en", clock, date)
+			moon_text += " " + lunar_distance_summary(reading, "en")
+			return "\n".join((season_text, _format_solar_summary_en(reading,
+				daylight_context(reading, "en", _format_duration_en)),
+				additional_solar(reading, "en", clock, _format_duration_en), moon_text,
+				phase_schedule(reading, "en", clock, date)))
 		return "\n".join((season_text, _format_solar_summary_en(reading), moon_text, moon_events))
 
 	def format(self, reading: DailyInfoReading) -> str:
@@ -141,33 +163,53 @@ def _remaining(reading: AstronomyReading) -> timedelta:
 	return reading.next_seasonal_event_local.astimezone(timezone.utc) - reading.observed_at_local.astimezone(timezone.utc)
 
 
-def _format_solar_summary(reading: AstronomyReading) -> str:
+def _format_solar_summary(reading: AstronomyReading, context: str = "") -> str:
 	change = _format_daylight_change(reading.daylight_change_from_previous_day)
+	clock, _ = _reading_formats(reading, "ar")
 	if reading.solar_day.state is SolarDayState.POLAR_DAY:
-		return "تسود حالة اليوم القطبي؛ يستمر ضوء النهار طوال 24 ساعة، ولا يوجد شروق أو غروب شمسي اعتيادي اليوم." + change
+		return "تسود حالة اليوم القطبي؛ يستمر ضوء النهار طوال 24 ساعة، ولا يوجد شروق أو غروب شمسي اعتيادي اليوم." + change + (" " + context if context else "")
 	if reading.solar_day.state is SolarDayState.POLAR_NIGHT:
-		return "تسود حالة الليل القطبي؛ يستمر الليل طوال 24 ساعة، ولا يوجد شروق أو غروب شمسي اعتيادي اليوم." + change
+		return "تسود حالة الليل القطبي؛ يستمر الليل طوال 24 ساعة، ولا يوجد شروق أو غروب شمسي اعتيادي اليوم." + change + (" " + context if context else "")
+	if reading.daily_details is not None:
+		if reading.sunrise_local is None or reading.sunset_local is None:
+			return "لا تتوفر بيانات طول النهار والليل اليوم. " + context
+		base = (f"طول النهار اليوم {_format_duration(reading.solar_day.daylight)}، وطول الليل "
+			f"{_format_duration(reading.solar_day.night)}.")
+		if change and context.startswith("بلغ مجموع"):
+			return base + change.rstrip(".") + "، و" + context
+		return base + change + (" " + context if context else "")
 	if reading.sunrise_local is None or reading.sunset_local is None:
-		raise ValueError("normal solar day requires local sunrise and sunset")
+		return "لا تتوفر أوقات شروق الشمس وغروبها اليوم. " + context
 	return (
 		f"طول النهار اليوم {_format_duration(reading.solar_day.daylight)}، وطول الليل "
-		f"{_format_duration(reading.solar_day.night)}،{change} حيث كان شروق الشمس عند "
-		f"{_format_clock(reading.sunrise_local)}، وغروبها عند {_format_clock(reading.sunset_local)}."
+		f"{_format_duration(reading.solar_day.night)}.{change} "
+		f"{context + ' ' if context else ''}شروق الشمس عند "
+		f"{clock(reading.sunrise_local)}، وغروبها عند {clock(reading.sunset_local)}."
 	)
 
 
-def _format_solar_summary_en(reading: AstronomyReading) -> str:
+def _format_solar_summary_en(reading: AstronomyReading, context: str = "") -> str:
 	change = _format_daylight_change_en(reading.daylight_change_from_previous_day)
+	clock, _ = _reading_formats(reading, "en")
 	if reading.solar_day.state is SolarDayState.POLAR_DAY:
-		return "This is a polar day with 24 hours of daylight and no ordinary sunrise or sunset today." + change
+		return "This is a polar day with 24 hours of daylight and no ordinary sunrise or sunset today." + change + " " + context
 	if reading.solar_day.state is SolarDayState.POLAR_NIGHT:
-		return "This is a polar night with 24 hours of night and no ordinary sunrise or sunset today." + change
+		return "This is a polar night with 24 hours of night and no ordinary sunrise or sunset today." + change + " " + context
+	if reading.daily_details is not None:
+		if reading.sunrise_local is None or reading.sunset_local is None:
+			return "Daylight and night duration data are unavailable today. " + context
+		base = (f"Daylight lasts {_format_duration_en(reading.solar_day.daylight)}, and night lasts "
+			f"{_format_duration_en(reading.solar_day.night)}.")
+		if context.startswith("has "):
+			return base + (change.rstrip(".") + " and " if change else " Daylight ") + context
+		return base + change + (" " + context if context else "")
 	if reading.sunrise_local is None or reading.sunset_local is None:
-		raise ValueError("normal solar day requires local sunrise and sunset")
+		return "Sunrise and sunset times are unavailable today. " + context
 	return (
 		f"Daylight lasts {_format_duration_en(reading.solar_day.daylight)}, and night lasts "
-		f"{_format_duration_en(reading.solar_day.night)}.{change} Sunrise was at "
-		f"{_format_clock_en(reading.sunrise_local)}, and sunset was at {_format_clock_en(reading.sunset_local)}."
+		f"{_format_duration_en(reading.solar_day.night)}.{change} "
+		f"{context + ' ' if context else ''}Sunrise is at "
+		f"{clock(reading.sunrise_local)}, and sunset is at {clock(reading.sunset_local)}."
 	)
 
 
@@ -176,9 +218,9 @@ def _format_daylight_change(value: timedelta | None) -> str:
 		return ""
 	minutes = round(abs(value.total_seconds()) / 60)
 	if minutes == 0:
-		return " ولم يتغير طول النهار عن أمس تغيرًا ملحوظًا؛"
+		return " ولم يتغير طول النهار عن أمس تغيرًا ملحوظًا."
 	direction = "طال" if value > timedelta(0) else "قصر"
-	return f" وقد {direction} النهار عن أمس بنحو {_format_approximate_minutes(minutes)}؛"
+	return f" وقد {direction} النهار عن أمس بنحو {_format_approximate_minutes(minutes)}."
 
 
 def _format_daylight_change_en(value: timedelta | None) -> str:
@@ -289,3 +331,39 @@ def _format_clock_en(value: datetime) -> str:
 	hour = value.hour % 12 or 12
 	period = "AM" if value.hour < 12 else "PM"
 	return f"{hour}:{value.minute:02d} {period}"
+
+
+def _synopsis_formats(language):
+    """Round date and time together; expose midnight rollover and DST folds."""
+    ar = language == "ar"
+    def rounded(value):
+        # Round on the UTC timeline so a DST transition cannot invent a time.
+        return (value.astimezone(timezone.utc) + timedelta(seconds=30)).replace(
+            second=0, microsecond=0).astimezone(value.tzinfo)
+    def date(value, *, reference_year=None):
+        value = rounded(value)
+        text = _format_day_month(value) if ar else _format_day_month_en(value)
+        if reference_year is None or value.year != reference_year:
+            text += f" {value.year}" if ar else f", {value.year}"
+        return text
+    def clock(value, include_date=True):
+        result = rounded(value)
+        text = _format_clock(result).removeprefix("الساعة ") if ar else _format_clock_en(result)
+        # Disambiguate both sides of repeated wall times, not just repeated
+        # rise/set events of the same type.
+        other = result.replace(fold=1-result.fold)
+        if other.utcoffset() != result.utcoffset():
+            text += f" (UTC{result:%z})"
+        if include_date and result.date() != value.date():
+            text += (" يوم " if ar else " on ") + date(result)
+        return text
+    return clock, date
+
+
+def _reading_formats(reading, language):
+    if reading.daily_details is None:
+        return (_format_clock, _format_day_month) if language == "ar" else (_format_clock_en, _format_day_month_en)
+    clock, date = _synopsis_formats(language)
+    if language == "ar":
+        return lambda value: "الساعة " + clock(value), date
+    return clock, date

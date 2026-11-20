@@ -80,7 +80,7 @@ class AlertSchedulerTests(AlertFixture, unittest.TestCase):
         self.assertEqual((event.dedup_key, event.scope), ('clock:day:hour', 'clock.hour'))
 
     def test_all_six_priorities(self):
-        kinds = [T.PRAYER_TIME, T.SUNRISE, T.PRAYER_POST_ALERT, T.CLOCK, T.DAILY_WIRD, T.RECURRING_DHIKR]
+        kinds = [T.PRAYER_TIME, T.SUNRISE, T.PRAYER_POST_ALERT, T.PERSONAL_ALARM, T.COUNTDOWN, T.CLOCK, T.DAILY_WIRD, T.RECURRING_DHIKR]
         self.scheduler.schedule_many(self.ev(str(i), kind) for i, kind in reversed(list(enumerate(kinds))))
         self.assertEqual([e.priority for e in self.scheduler.due()], list(P))
 

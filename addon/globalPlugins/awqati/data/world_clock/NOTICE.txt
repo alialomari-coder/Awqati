@@ -1,0 +1,24 @@
+Awqati World Clock data, build 2026-11-03.2.
+City catalog is an adapted database distributed under ODbL 1.0.
+Geographical records and current alternate names: GeoNames, CC BY 4.0,
+https://www.geonames.org/ ; downloaded 2026-11-03, filtered and corrected.
+Arabic/English geographical exemplars, countries and Windows zone mapping:
+Unicode CLDR 49, Unicode License V3, https://cldr.unicode.org/ .
+Additional Arabic labels: Wikidata, CC0, https://www.wikidata.org/ .
+Kanton proper-name component attested in FAO AGROVOC concept c_1265:
+https://agrovoc.fao.org/browse/agrovoc/en/page/c_1265 . Attribution: FAO.
+Name component selected from a longer geographical term, not machine-transliterated.
+FAO's current maintenance page declares CC BY 4.0 for its Arabic content:
+https://www.fao.org/agrovoc/index.php/maintenance ; CC-BY-4.0 text is included.
+Independent coordinate/timezone validation: timezone-boundary-builder 2026f,
+ODbL 1.0, https://github.com/evansiroky/timezone-boundary-builder ;
+copyright OpenStreetMap contributors, https://www.openstreetmap.org/copyright .
+Changes include city selection, bilingual labels, geographical representatives,
+verified timezone corrections, normalized search aliases and combined fields.
+The full adapted catalog is provided as machine-readable catalog.json.
+Timezone rules are a separate, unmodified data aggregate: Python tzdata 2026.6
+(Apache-2.0) / IANA 2026f (public domain); license under timezones/LICENSE.txt.
+No raw geographic boundary polygons, external executable code or private
+signing key are distributed. Detailed provenance and correction ledger:
+https://github.com/alialomari-coder/Awqati (tools/build_world_clock*.py,
+data_sources/world_clock_reviews.v1.json, docs/world_clock_data_review.json).

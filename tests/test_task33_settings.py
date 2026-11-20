@@ -30,7 +30,8 @@ class Task33SettingsContractTests(unittest.TestCase):
 	def test_sections_are_ordered_and_prayer_is_always_first(self) -> None:
 		self.assertEqual(SECTION_ORDER, (
 			SettingsSection.PRAYER, SettingsSection.CLOCK,
-			SettingsSection.DATE, SettingsSection.ADHKAR,
+			SettingsSection.DATE, SettingsSection.WEATHER,
+			SettingsSection.ADHKAR,
 		))
 		self.assertFalse(hasattr(self.settings, "selected_section"))
 
@@ -134,9 +135,11 @@ class Task33SettingsContractTests(unittest.TestCase):
 
 
 class Task33ArchitectureTests(unittest.TestCase):
-	def test_dynamic_panels_are_destroyed_and_selector_focus_is_restored(self) -> None:
+	def test_sections_are_retained_and_selector_focus_is_restored(self) -> None:
 		source = (PACKAGES / "awqati" / "nvda_adapter" / "settings_panel.py").read_text(encoding="utf-8-sig")
-		self.assertIn("self._section_panel.Destroy()", source)
+		self.assertIn("self._section_panel.Hide()", source)
+		self.assertIn("self._section_panels[self._section]", source)
+		self.assertNotIn("self._section_panel.Destroy()", source)
 		self.assertIn("self.section_choice.SetFocus()", source)
 		self.assertIn("self._prayer_event_panel.Destroy()", source)
 		self.assertIn("old.Destroy()", source)

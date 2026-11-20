@@ -63,13 +63,16 @@ class AlertScheduler:
 
 	def __init__(self, now_provider: Callable[[], Instant] | object | None = None,
 			settings: AwqatiSettings | Callable[[], AwqatiSettings] | None = None, *, rebuild_source: RebuildSource | None = None,
-			local_time_provider: Callable[[Instant], datetime] | None = None) -> None:
+			local_time_provider: Callable[[Instant], datetime] | None = None,
+			personal_local_time_provider=None, on_discard=None) -> None:
 		self._now_provider = now_provider
 		self._settings = settings
 		self._rebuild_source = rebuild_source
 		# The adapter supplies conversion to the effective location timezone.
 		# Without it, instants must carry that local timezone for quiet hours.
 		self._local_time = local_time_provider or (lambda instant: instant.value)
+		self._personal_local_time = personal_local_time_provider or (lambda instant: instant.value.astimezone())
+		self._on_discard = on_discard or (lambda event, reason: None)
 		self._events: dict[str, AlertEvent] = {}
 		self._dedup: dict[str, Instant] = {}
 		self._suppressed: dict[str, Instant] = {}
@@ -116,7 +119,23 @@ class AlertScheduler:
 		return True
 
 	def schedule_many(self, events: Iterable[AlertEvent]) -> int:
-		return sum(self.schedule(event) for event in events)
+		self._ensure_open()
+		self._expire(self._now())
+		identities = set(self._events)
+		keys = {event.dedup_key for event in self._events.values()} | set(self._dedup) | set(self._suppressed)
+		if self.current:
+			identities.add(self.current.event_id)
+			keys.add(self.current.dedup_key)
+		count = 0
+		for event in events:
+			if event.event_id in identities or event.dedup_key in keys or not self._is_enabled(event):
+				continue
+			self._events[event.event_id] = event
+			identities.add(event.event_id)
+			keys.add(event.dedup_key)
+			count += 1
+		self._recompute_wakeup()
+		return count
 
 	def _was_handled(self, event: AlertEvent) -> bool:
 		return event.dedup_key in self._dedup or event.dedup_key in self._suppressed
@@ -131,6 +150,7 @@ class AlertScheduler:
 				self.cancel(event.event_id)
 			elif utc(event.scheduled_at) <= utc(now):
 				if self._quiet(event, now) or self._quiet(event, event.scheduled_at):
+					self._on_discard(event, "quietHours")
 					self._suppressed[event.dedup_key] = now
 					self.cancel(event.event_id)
 				else:
@@ -193,12 +213,17 @@ class AlertScheduler:
 		self._recompute_wakeup()
 		return removed
 
-	def cancel_scope(self, scope: str | None) -> int:
+	def cancel_scope(self, scope: str | None, *, include_current=True) -> int:
 		self._ensure_open()
 		ids = [event.event_id for event in self._events.values() if in_scope(event.scope, scope)]
-		if self.current and in_scope(self.current.scope, scope):
+		if include_current and self.current and in_scope(self.current.scope, scope):
 			ids.append(self.current.event_id)
 		return sum(self.cancel(event_id) for event_id in ids)
+
+	def has_pending(self, scope: str) -> bool:
+		"""Include waiting, future and actively presented events in this scope."""
+		return any(in_scope(event.scope, scope) for event in self._events.values()) or bool(
+			self.current and in_scope(self.current.scope, scope))
 
 	def rebuild(self, events: Iterable[AlertEvent], from_now: Instant | None = None,
 			*, scope: str | None = None, preserve_current: bool = False, strictly_future: bool = False) -> int:
@@ -206,14 +231,15 @@ class AlertScheduler:
 		now = from_now or self._now()
 		# Materialize before mutation: a source failure must not erase the old queue.
 		events = tuple(events)
+		self._expire(now)
 		lease = self._current if preserve_current else None
 		self.cancel_scope(scope)
 		if lease:
 			self._current = lease
 		self._cleanup_dedup(now)
 		return self.schedule_many(event for event in events
-			if in_scope(event.scope, scope) and (utc(event.scheduled_at) > utc(now)
-			if strictly_future else utc(event.scheduled_at) >= utc(now)))
+			if in_scope(event.scope, scope) and ((event.event_type is AlertEventType.PERSONAL_ALARM and event.is_valid_at(now)) or (utc(event.scheduled_at) > utc(now)
+			if strictly_future else utc(event.scheduled_at) >= utc(now))))
 
 	def resume(self, now: Instant | None = None, *, rebuild_source: RebuildSource | None = None) -> AlertEvent | None:
 		self._ensure_open()
@@ -245,6 +271,7 @@ class AlertScheduler:
 	def _expire(self, now: Instant) -> None:
 		for event_id, event in tuple(self._events.items()):
 			if utc(event.scheduled_at) <= utc(now) and not event.is_valid_at(now):
+				self._on_discard(event, "expiredInQueue")
 				self.cancel(event_id)
 		self._cleanup_dedup(now)
 
@@ -258,6 +285,11 @@ class AlertScheduler:
 		self._wakeup_at = min(future, key=utc) if future else None
 
 	def _quiet(self, event: AlertEvent, now: Instant) -> bool:
+		if event.event_type in (AlertEventType.PERSONAL_ALARM, AlertEventType.COUNTDOWN):
+			if not event.metadata.get("obey_quiet_hours", False):
+				return False
+			from .general_policy import is_quiet_time
+			return self.settings is not None and is_quiet_time(self._personal_local_time(now).time(), self.settings.general.quiet_hours)
 		settings = self.settings
 		if settings is None:
 			return False
@@ -369,7 +401,7 @@ class AlertCoordinator:
 				if a.items[identity] != b.items[identity]:
 					scopes.append("adhkar.recurring." + identity.value)
 		if old.general.quiet_hours != new.general.quiet_hours:
-			scopes.extend(["clock", "adhkar"])
+			scopes.extend(["clock", "adhkar", "personal"])
 			if old.general.quiet_hours.apply_to_prayer_alerts or new.general.quiet_hours.apply_to_prayer_alerts:
 				scopes.append("prayer")
 		return [scope for scope in dict.fromkeys(scopes) if not any(other != scope and in_scope(scope, other) for other in scopes)]

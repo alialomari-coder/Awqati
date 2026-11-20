@@ -167,12 +167,15 @@ class InputGestureDescriptionTests(unittest.TestCase):
 
 	def test_all_twenty_one_visible_commands_have_direct_english_and_arabic_descriptions(self) -> None:
 		descriptions = self.descriptions()
-		self.assertEqual(21, len(descriptions))
-		self.assertEqual(21, len({english for english, _arabic in descriptions.values()}))
+		legacy = {name: value for name, value in descriptions.items() if not name.startswith(("script_stopwatch", "script_countdown", "script_worldClock"))}
+		self.assertEqual(28, len(legacy))
+		self.assertEqual(50, len(descriptions))
+		self.assertEqual(50, len({english for english, _arabic in descriptions.values()}))
+		self.assertIn("script_worldClock", descriptions)
 		for method, (english, arabic) in descriptions.items():
 			with self.subTest(method=method):
-				self.assertTrue(english.endswith("."))
-				self.assertTrue(arabic.endswith("."))
+				self.assertEqual(english, "Open date converter") if method == "script_openDateConverter" else self.assertTrue(english.endswith("."))
+				self.assertEqual(arabic, "فتح محوّل التاريخ") if method == "script_openDateConverter" else self.assertTrue(arabic.endswith("."))
 				self.assertNotEqual(english, arabic)
 				self.assertNotIn("في أوقاتي", arabic)
 				self.assertNotIn("غير معين", arabic)
@@ -183,7 +186,7 @@ class InputGestureDescriptionTests(unittest.TestCase):
 			"script_openSettings": "فتح إعدادات أوقاتي.",
 			"script_prayerInfo": "بالضغط عليه مرة واحدة يعلن عن تفاصيل الوقت الحالي، وبالضغط عليه مرتين يعلن عن الوقت السابق، وبالضغط عليه ثلاث مرات يعلن عن مواقيت اليوم.",
 			"script_dailyInformation": "بالضغط عليه مرة واحدة يعلن عن معلومات اليوم الفلكية، وبالضغط عليه مرتين يعلن عن معلومات اليوم في التقويم العربي، وبالضغط عليه ثلاث مرات يفتح نافذة معلومات اليوم.",
-			"script_prayerVerification": "بالضغط عليه مرة واحدة يتحقق من مواقيت اليوم عبر الإنترنت، وبالضغط عليه مرتين يفتح نافذة مواقيت اليوم.",
+			"script_prayerVerification": "يتحقق من مواقيت اليوم عبر الإنترنت.",
 		}
 		for method, value in expected.items():
 			self.assertEqual(value, descriptions[method][1])

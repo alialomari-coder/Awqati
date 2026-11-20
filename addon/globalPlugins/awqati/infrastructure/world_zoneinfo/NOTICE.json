@@ -1,0 +1,18 @@
+{
+  "source": "Python Software Foundation / CPython 3.13",
+  "commit": "42155a0feaca9ba6991942c323cbe9fb7278be3c",
+  "sourceUrl": "https://github.com/python/cpython/tree/42155a0feaca9ba6991942c323cbe9fb7278be3c/Lib/zoneinfo",
+  "retrievedAt": "2026-11-03",
+  "license": "Python Software Foundation License Version 2; full notices in LICENSE.txt",
+  "unmodifiedFiles": {
+    "_zoneinfo.py": {
+      "sha256": "0279b3226e70f7ec2a8b0127f4bcab524587486ae1f80b26eb46ee87ba95bfe4",
+      "gitBlob": "48154775568b6dc050ec255f4ce811617356ba39"
+    },
+    "_common.py": {
+      "sha256": "0da0f341817363ada0437a53d41611aeb85ac3a9f58229f3b34d4acc49576465",
+      "gitBlob": "98668c15d8bf94b67c0649a58d3f071071296efd"
+    }
+  },
+  "localChanges": "Original _zoneinfo.py and _common.py are unchanged. Awqati supplies a minimal _tzpath.py which forbids host-path lookups; the world clock uses from_file with checksum-verified bundled TZif only."
+}

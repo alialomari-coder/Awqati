@@ -15,12 +15,15 @@ class Task51ContractTests(unittest.TestCase):
 
 	def test_exact_default_gestures_are_unique(self):
 		gestures = re.findall(r'gesture="kb:([^"]+)"', self.source)
-		self.assertEqual(12, len(gestures))
-		self.assertEqual(12, len(set(value.lower() for value in gestures)))
+		self.assertEqual(31, len(gestures))
+		self.assertEqual(31, len(set(value.lower() for value in gestures)))
 		self.assertEqual({
-			"nvda+alt+a", "nvda+f11", "nvda+control+shift+f11", "nvda+f12",
+			"nvda+windows+f12", "nvda+alt+a", "nvda+f11", "nvda+control+shift+f11", "nvda+f12",
 			"nvda+shift+f11", "nvda+shift+f12", "nvda+alt+f12", "nvda+g", "nvda+h",
-			"nvda+shift+h", "nvda+control+h", "nvda+shift+p",
+			"nvda+shift+h", "nvda+control+h", "nvda+shift+p", "nvda+f8", "nvda+alt+f8",
+			"nvda+j", "nvda+shift+j", "nvda+control+j",
+			"nvda+control+f12", "nvda+shift+f8", "nvda+alt+p", "nvda+control+shift+j", "nvda+windows+j", "nvda+windows+shift+j",
+			"nvda+y", "nvda+shift+y", "nvda+alt+y", "nvda+control+y", "nvda+control+shift+y", "nvda+windows+y", "nvda+windows+shift+y",
 		}, {value.lower() for value in gestures})
 
 	def test_nine_commands_are_visible_without_default_gestures(self):
@@ -34,11 +37,16 @@ class Task51ContractTests(unittest.TestCase):
 			"script_gregorianDate", "script_togglePrimaryCalendar", "script_zawaliTime",
 			"script_toggleDhikrAlerts", "script_togglePrayerAlerts", "script_toggleClockAlert",
 			"script_toggleQuietHours", "script_diagnostics", "script_dataUpdates",
+			"script_stopPersonalAlarm",
+			"script_stopwatchCopy",  "script_stopwatchStatus", "script_stopwatchCount",
+			"script_stopwatchLap", "script_stopwatchToggle",  "script_stopwatchLastLap",
+
+			"script_countdownCount", "script_countdownNearest", "script_openDateConverter",
 		}, set(methods))
 
 	def test_native_repeat_dispatch_is_single_and_has_no_private_wait_timer(self):
 		self.assertEqual(1, self.source.count("def _press("))
-		self.assertIn("compat.dispatch_repeated_script(handlers)", self.source)
+		self.assertIn("compat.dispatch_repeated_script(handlers, repeat_last=repeat_last)", self.source)
 		self.assertNotIn("MultiPressDispatcher", self.source)
 		self.assertNotIn("timeout_ms", self.source)
 		self.assertFalse((ROOT / "addon/globalPlugins/awqati/nvda_adapter/multipress.py").exists())
@@ -49,10 +57,12 @@ class Task51ContractTests(unittest.TestCase):
 		self.assertLess(block.index("scientific_info_text"), block.index("arabian_detailed"))
 		self.assertLess(block.index("arabian_detailed"), block.index("self._showDailyInfo"))
 
-	def test_shift_p_first_press_verifies_and_second_opens_prayer_window(self):
+	def test_shift_p_verifies_and_alt_p_opens_prayer_window(self):
 		block = self.source[self.source.index("def script_prayerVerification"):self.source.index("def script_gregorianDate")]
 		self.assertIn("wx.CallAfter(self._actions.verify_online, from_global_command=True)", block)
 		self.assertEqual(1, block.count("self._showPrayerTimes"))
+		self.assertIn("def script_prayerTimesWindow", block)
+		self.assertIn("repeat_last=False", block)
 
 	def test_settings_buttons_delegate_to_the_same_window_helpers(self):
 		ui_source = (ROOT / "addon/globalPlugins/awqati/nvda_adapter/ui.py").read_text(encoding="utf-8")

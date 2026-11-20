@@ -7,7 +7,7 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Awqati settings 4.2\n"
+"Project-Id-Version: Awqati 7.0.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2026-09-14 20:55+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -21,13 +21,65 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
+msgid "1 hour"
+msgstr "ساعة"
+
+msgid "1 minute"
+msgstr "دقيقة"
+
+msgid "10 seconds"
+msgstr "10 ثوانٍ"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:472
 msgid "12-hour"
 msgstr "12 ساعة"
 
+msgid "15 seconds"
+msgstr "15 ثانية"
+
+msgid "2 hours"
+msgstr "ساعتان"
+
+msgid "2 hours after a preposition"
+msgstr "ساعتين"
+
+msgid "2 minutes"
+msgstr "دقيقتان"
+
+msgid "2 minutes after a preposition"
+msgstr "دقيقتين"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:472
 msgid "24-hour"
 msgstr "24 ساعة"
+
+msgid "30 seconds"
+msgstr "30 ثانية"
+
+msgid "5 minutes"
+msgstr "خمس دقائق"
+
+msgid "5 seconds"
+msgstr "5 ثوانٍ"
+
+msgid ""
+"A custom location has no assigned country. Choose a prayer calculation "
+"method to use prayer times and Ghurubi time."
+msgstr ""
+"لا توجد دولة محددة للموقع المخصص. اختر طريقة حساب لاستخدام مواقيت الصلاة "
+"والتوقيت الغروبي."
+
+msgid ""
+"A lap can only be recorded while the stopwatch is running. The safety "
+"limit is 100000 laps."
+msgstr "لا يمكن تسجيل جولة إلا أثناء تشغيل ساعة الإيقاف. حد الحماية مئة ألف جولة."
+
+#, python-brace-format
+msgid "A new lap has been created. Lap {number} completed in {duration}."
+msgstr "تم إنشاء جولة جديدة. مدة الجولة {number} المنتهية: {duration}."
+
+msgid "A personal alarm sound is unavailable. The default sound will be used."
+msgstr "تعذر تشغيل الصوت المخصص لأحد المنبهات الشخصية. سيُستخدم الصوت الافتراضي."
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:400
 msgid "A selected country is required"
@@ -36,6 +88,36 @@ msgstr "يلزم اختيار دولة"
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:566
 msgid "AM"
 msgstr "صباحًا"
+
+msgid ""
+"Accessible local prayer times, clocks, calendars, Qibla, daily "
+"information, alerts and adhkar in Arabic and English."
+msgstr ""
+"مواقيت صلاة وساعات وتقاويم وقبلة ومعلومات يومية وتنبيهات وأذكار محلية "
+"قابلة للوصول بالعربية والإنجليزية."
+
+#, python-brace-format
+msgid "Active countdown timers: {count}."
+msgstr "عدد المؤقتات قيد التشغيل: {count}."
+
+msgid "Add"
+msgstr "إضافة"
+
+msgid "Add alarm"
+msgstr "إضافة منبه"
+
+msgid "Add city"
+msgstr "أضف مدينة"
+
+msgid "Add personal alarm"
+msgstr "إضافة منبه شخصي"
+
+#, python-brace-format
+msgid "Added {city}."
+msgstr "تمت إضافة {city}"
+
+msgid "Advanced conversion..."
+msgstr "التحويل المتقدم..."
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:62
 msgid "Afghan Solar Hijri"
@@ -232,6 +314,15 @@ msgstr "بعد دخول وقت {time}"
 msgid "Aland Islands"
 msgstr "جزر آلاند"
 
+msgid "Alarm name"
+msgstr "اسم المنبه"
+
+msgid "Alarms"
+msgstr "المنبهات"
+
+msgid "Alarms and Timers"
+msgstr "المنبهات والمؤقتات"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Albania"
 msgstr "ألبانيا"
@@ -253,6 +344,36 @@ msgstr "إجراء التنبيه قبل دخول الوقت:"
 msgid "Alert action:"
 msgstr "إجراء التنبيه:"
 
+msgid "Alert after Asr, minutes"
+msgstr "التنبيه بعد العصر بالدقائق"
+
+msgid "Alert after Asr:"
+msgstr "التنبيه بعد العصر بالدقائق:"
+
+msgid "Alert after Fajr, minutes"
+msgstr "التنبيه بعد الفجر بالدقائق"
+
+msgid "Alert after Fajr:"
+msgstr "التنبيه بعد الفجر بالدقائق:"
+
+msgid "Alert after Maghrib, minutes"
+msgstr "التنبيه بعد المغرب بالدقائق"
+
+msgid "Alert after Maghrib:"
+msgstr "التنبيه بعد المغرب بالدقائق:"
+
+msgid "Alert after sunrise, minutes"
+msgstr "التنبيه بعد الشروق بالدقائق"
+
+msgid "Alert after sunrise:"
+msgstr "التنبيه بعد الشروق بالدقائق:"
+
+msgid "Alert after the event, minutes"
+msgstr "التنبيه بعد دخول الوقت بالدقائق"
+
+msgid "Alert after the event:"
+msgstr "التنبيه بعد دخول الوقت بالدقائق:"
+
 msgid "Alert at half past the hour"
 msgstr "التنبيه عند نصف الساعة"
 
@@ -266,8 +387,49 @@ msgstr "التنبيه عند ثلاثة أرباع الساعة"
 msgid "Alert before Iqama, minutes:"
 msgstr "التنبيه قبل الإقامة، بالدقائق:"
 
+msgid "Alert before Maghrib, minutes"
+msgstr "التنبيه قبل المغرب بالدقائق"
+
+msgid "Alert before Maghrib:"
+msgstr "التنبيه قبل المغرب بالدقائق:"
+
+msgid "Alert before sunrise, minutes"
+msgstr "التنبيه قبل الشروق بالدقائق"
+
+msgid "Alert before sunrise:"
+msgstr "التنبيه قبل الشروق بالدقائق:"
+
+msgid "Alert before the event, minutes"
+msgstr "التنبيه قبل دخول الوقت بالدقائق"
+
+msgid "Alert before the event:"
+msgstr "التنبيه قبل دخول الوقت بالدقائق:"
+
+#, python-brace-format
+msgid "Alert for timer {name} stopped."
+msgstr "تم إيقاف تنبيه مؤقت {name}."
+
+msgid "Alert method"
+msgstr "طريقة التنبيه"
+
 msgid "Alert on the hour"
 msgstr "التنبيه عند رأس الساعة"
+
+msgid "Alert pattern"
+msgstr "نمط التنبيه"
+
+#, python-brace-format
+msgid ""
+"Alert status: all automatic alerts {all}; prayer alerts {prayer}; clock "
+"alert {clock}; dhikr alerts {dhikr}; recurring dhikr {recurring}; quiet "
+"hours {quiet}."
+msgstr ""
+"حالة التنبيهات: جميع التنبيهات التلقائية: {all}؛ تنبيهات المواقيت: "
+"{prayer}؛ تنبيه الساعة: {clock}؛ تنبيهات الأذكار: {dhikr}؛ الأذكار "
+"الدورية: {recurring}؛ ساعات الهدوء: {quiet}."
+
+msgid "Alerts"
+msgstr "التنبيهات"
 
 #: addon/globalPlugins/awqati/data/calculation_methods/methods.json:1
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
@@ -278,9 +440,31 @@ msgstr "الجزائر"
 msgid "Alhamdu lillah"
 msgstr "الحمد لله"
 
+msgid "Alhamdulillah."
+msgstr "الحمد لله."
+
+msgid "All automatic Awqati alerts have been disabled."
+msgstr "تم تعطيل جميع التنبيهات التلقائية."
+
+msgid "All automatic Awqati alerts have been enabled."
+msgstr "تم تفعيل جميع التنبيهات التلقائية."
+
+msgid ""
+"All six online prayer times are within two minutes of Awqati's internal "
+"times."
+msgstr ""
+"المواقيت الستة عبر الإنترنت متقاربة مع مواقيت أوقاتي الداخلية بفارق لا "
+"يتجاوز دقيقتين."
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:67
 msgid "Allahu Akbar"
 msgstr "الله أكبر"
+
+msgid "Allahu Akbar."
+msgstr "الله أكبر."
+
+msgid "Allowed snooze count"
+msgstr "عدد الغفوات المسموح بها"
 
 msgid "America / Adak"
 msgstr "توقيت الولايات المتحدة (أداك)"
@@ -809,6 +993,75 @@ msgstr "أنغولا"
 msgid "Anguilla"
 msgstr "أنغويلا"
 
+msgid "Announce Afghan or Persian Solar Hijri date"
+msgstr "الإعلان عن التاريخ الهجري الشمسي الأفغاني أو الفارسي"
+
+msgid "Announce Awqati alert status"
+msgstr "الإعلان عن حالة تنبيهات أوقاتي"
+
+msgid "Announce Ghurubi time or Qibla direction"
+msgstr "الإعلان عن التوقيت الغروبي أو اتجاه القبلة"
+
+msgid "Announce Lunar Hijri, Saudi Solar Hijri, or Arabian calendar summary"
+msgstr "الإعلان عن الهجري القمري أو الهجري الشمسي السعودي أو ملخص التقويم العربي"
+
+msgid "Announce Zawali time"
+msgstr "الإعلان عن التوقيت الزوالي"
+
+msgid "Announce Zawali time."
+msgstr "الإعلان عن التوقيت الزوالي."
+
+msgid "Announce alert status."
+msgstr "الإعلان عن حالة التنبيهات."
+
+msgid "Announce countdown timer nearest to completion."
+msgstr "الإعلان عن أقرب مؤقت للانتهاء."
+
+msgid "Announce current stopwatch lap."
+msgstr "الإعلان عن مدة الجولة الجارية لساعة الإيقاف."
+
+msgid "Announce current, previous, or today's prayer times"
+msgstr "الإعلان عن الوقت الحالي أو السابق أو مواقيت اليوم"
+
+msgid "Announce detailed Arabian calendar information"
+msgstr "الإعلان عن معلومات اليوم التفصيلية في التقويم العربي الفلكي"
+
+msgid "Announce detailed scientific daily information"
+msgstr "الإعلان عن معلومات اليوم الفلكية العلمية التفصيلية"
+
+msgid "Announce last stopwatch lap."
+msgstr "الإعلان عن آخر جولة لساعة الإيقاف."
+
+msgid "Announce number of active countdown timers."
+msgstr "الإعلان عن عدد المؤقتات النشطة."
+
+msgid "Announce selected countdown timer and remaining time."
+msgstr "الإعلان عن المؤقت المحدد والمدة المتبقية."
+
+msgid "Announce selected timer"
+msgstr "الإعلان عن المؤقت المحدد"
+
+msgid "Announce stopwatch elapsed time."
+msgstr "الإعلان عن الزمن المنقضي لساعة الإيقاف."
+
+msgid "Announce stopwatch lap count."
+msgstr "الإعلان عن عدد جولات ساعة الإيقاف."
+
+msgid "Announce stopwatch status."
+msgstr "الإعلان عن حالة ساعة الإيقاف."
+
+msgid "Announce the Gregorian date"
+msgstr "الإعلان عن التاريخ الميلادي"
+
+msgid "Announce the Gregorian date."
+msgstr "الإعلان عن التاريخ الميلادي."
+
+msgid "Announce the assigned location"
+msgstr "الإعلان عن الموقع المعتمد"
+
+msgid "Announce time, primary date, or detailed daily information"
+msgstr "الإعلان عن الوقت أو التاريخ الأساسي أو معلومات اليوم التفصيلية"
+
 msgid "Antarctica / Casey"
 msgstr "توقيت أنتاركتيكا (كاساي)"
 
@@ -1182,6 +1435,9 @@ msgstr "الموقع المعتمد: {name}؛ المنطقة الزمنية: {ti
 msgid "Astaghfiru Allah"
 msgstr "أستغفر الله"
 
+msgid "Astaghfirullah."
+msgstr "أستغفر الله."
+
 #, python-brace-format
 msgid "At {time}"
 msgstr "عند دخول وقت {time}"
@@ -1311,6 +1567,9 @@ msgstr "تلقائي"
 msgid "Automatic by country"
 msgstr "تلقائي حسب الدولة"
 
+msgid "Available cities"
+msgstr "المدن المتاحة"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:259
 msgid "Awqati"
 msgstr "أوقاتي"
@@ -1326,11 +1585,86 @@ msgid ""
 msgstr "تعذر حفظ الإعدادات. حُفظت الإعدادات السابقة المعتمدة دون تغيير."
 
 msgid ""
+"Awqati could not start because its local data is unavailable or invalid. "
+"Reinstall the add-on or restore the data, then restart NVDA."
+msgstr ""
+"تعذر بدء أوقاتي لأن بياناتها المحلية غير متاحة أو غير صالحة. أعد تثبيت "
+"الإضافة أو استعد البيانات، ثم أعد تشغيل NVDA."
+
+msgid "Awqati data error"
+msgstr "خطأ في بيانات أوقاتي"
+
+msgid "Awqati data is already up to date."
+msgstr "البيانات محدثة بالفعل."
+
+msgid "Awqati data updates were installed safely. Restart NVDA to use them."
+msgstr "ثُبتت تحديثات البيانات بأمان. أعد تشغيل NVDA لاستخدامها."
+
+msgid ""
+"Awqati development build with NVDA commands, windows and automatic alert "
+"lifecycle integration."
+msgstr ""
+"نسخة تطويرية من أوقاتي مع أوامر NVDA والنوافذ وربط دورة حياة التنبيهات "
+"التلقائية."
+
+msgid ""
+"Awqati development build with serialized alert audio and speech "
+"presentation."
+msgstr "نسخة تطويرية من أوقاتي مع عرض متسلسل لتنبيهات الصوت والنطق."
+
+msgid ""
 "Awqati development build: prayer, clock and date settings, before "
 "automatic presentation integration."
 msgstr ""
 "نسخة تطوير من أوقاتي: إعدادات المواقيت والساعة والتاريخ، قبل ربط العرض "
 "التلقائي."
+
+msgid "Awqati diagnostic information has been copied to the clipboard."
+msgstr "تم نسخ معلومات التشخيص إلى الحافظة."
+
+msgid "Awqati diagnostics"
+msgstr "معلومات تشخيص أوقاتي"
+
+msgid "Awqati online prayer-time verification"
+msgstr "تحقق أوقاتي من المواقيت عبر الإنترنت"
+
+#: buildVars.py:1
+msgid ""
+"Awqati provides prayer times, along with sunrise, midnight and the start "
+"of the last third of the night; a clock with Zawali and Ghurubi time; and"
+" five calendars: Gregorian, Lunar Hijri and three Solar Hijri calendars. "
+"It also provides daily astronomical information and information from the "
+"traditional Arabian calendar, including Talaa periods, seasons and the "
+"Suhail year.\n"
+"\n"
+"The add-on offers reminders for daily Wird and adhkar, information about "
+"the Qibla direction, quiet hours, and control over prayer-time alerts and"
+" alerts before and after those times.\n"
+"\n"
+"It includes four time management tools: alarms, a stopwatch, countdown "
+"timers and a world clock, with dedicated keyboard shortcuts for "
+"controlling them and checking their status.\n"
+"\n"
+"It includes On This Day information from Wikipedia, in Arabic and "
+"English, with direct narration and accessible web pages. The add-on "
+"supports Arabic and English."
+msgstr ""
+"توفر إضافة أوقاتي مواقيت الصلاة، إلى جانب أوقات الشروق ومنتصف الليل "
+"والثلث الأخير من الليل، وساعة تعمل بالتوقيتين الزوالي والغروبي، وخمسة "
+"تقاويم: التقويم الميلادي، والتقويم الهجري القمري، وثلاثة تقاويم هجرية "
+"شمسية. كما تقدم معلومات فلكية يومية، ومعلومات من التقويم العربي التقليدي "
+"تشمل الطوالع والمواسم وسنة سهيل.\n"
+"\n"
+"وتوفر الإضافة تنبيهات للأوراد والأذكار، ومعلومات عن اتجاه القبلة، فضلًا "
+"عن نظام ساعات الهدوء، وإمكانية التحكم في تنبيهات المواقيت والتنبيهات "
+"القبلية والبعدية.\n"
+"\n"
+"وتضم الإضافة أربع أدوات لإدارة الوقت: المنبهات، وساعة الإيقاف، والمؤقتات،"
+" والساعة العالمية، مع اختصارات لوحة مفاتيح مخصصة للتحكم فيها والاستعلام "
+"عن حالتها.\n"
+"\n"
+"وتقدم خدمة حدث في مثل هذا اليوم من ويكيبيديا بالعربية والإنجليزية، بسرد "
+"مباشر وصفحات ويب قابلة للتصفح. تدعم الإضافة اللغتين العربية والإنجليزية"
 
 #: addon/globalPlugins/awqati/nvda_adapter/plugin.py:53
 msgid "Awqati settings could not be loaded. The existing file was not replaced."
@@ -1340,15 +1674,8 @@ msgstr "تعذر تحميل الإعدادات . لم يُستبدل الملف 
 msgid "Awqati settings error"
 msgstr "خطأ في إعدادات أوقاتي"
 
-msgid ""
-"Awqati could not start because its local data is unavailable or invalid. "
-"Reinstall the add-on or restore the data, then restart NVDA."
-msgstr ""
-"تعذر بدء أوقاتي لأن بياناتها المحلية غير متاحة أو غير صالحة. أعد تثبيت "
-"الإضافة أو استعد البيانات، ثم أعد تشغيل NVDA."
-
-msgid "Awqati data error"
-msgstr "خطأ في بيانات أوقاتي"
+msgid "Awqati version"
+msgstr "إصدار أوقاتي"
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Azerbaijan"
@@ -1411,9 +1738,15 @@ msgstr "برمودا"
 msgid "Bhutan"
 msgstr "بوتان"
 
+msgid "Births"
+msgstr "المواليد"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:69
 msgid "Blessings upon the Prophet"
 msgstr "الصلاة على النبي"
+
+msgid "Blessings upon the Prophet."
+msgstr "الصلاة على النبي."
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Bolivia"
@@ -1481,6 +1814,12 @@ msgstr "توقيت الولايات المتحدة (شيكاغو)"
 msgid "Cabo Verde"
 msgstr "الرأس الأخضر"
 
+msgid "Calculation method"
+msgstr "طريقة الحساب"
+
+msgid "Calendar"
+msgstr "التقويم"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Cambodia"
 msgstr "كمبوديا"
@@ -1517,6 +1856,18 @@ msgstr "توقيت كندا (ريجينا)"
 msgid "Canada / Yukon"
 msgstr "توقيت كندا (وايت هورس)"
 
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgid "Cancel timer"
+msgstr "إلغاء المؤقت"
+
+msgid "Cancelled"
+msgstr "ملغى"
+
+msgid "Cancelling..."
+msgstr "جارٍ الإلغاء..."
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Cayman Islands"
 msgstr "جزر كايمان"
@@ -1529,6 +1880,15 @@ msgstr "جمهورية أفريقيا الوسطى"
 msgid "Chad"
 msgstr "تشاد"
 
+msgid "Check for Awqati data updates"
+msgstr "فحص تحديثات بيانات أوقاتي"
+
+msgid "Check for data updates"
+msgstr "فحص تحديثات البيانات"
+
+msgid "Check for data updates."
+msgstr "فحص تحديثات البيانات."
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:637
 msgid "Check the location details."
 msgstr "تحقق من بيانات الموقع."
@@ -1540,6 +1900,18 @@ msgstr "تحقق من هذا الحقل في الموقع وحاول مجددً�
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:639
 msgid "Check this setting and try again."
 msgstr "تحقق من هذا الإعداد وحاول مجددًا."
+
+msgid "Checking for Awqati data updates"
+msgstr "فحص تحديثات بيانات أوقاتي"
+
+msgid "Checking the data manifest and packages..."
+msgstr "جارٍ التحقق من بيان البيانات والحزم..."
+
+msgid "Checking the signed data manifest and packages..."
+msgstr "جارٍ التحقق من بيان البيانات والحزم..."
+
+msgid "Checking world clock data updates."
+msgstr "جارٍ التحقق من تحديثات بيانات الساعة العالمية."
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Chile"
@@ -1555,9 +1927,15 @@ msgstr "توقيت تشيلي (استر)"
 msgid "China"
 msgstr "الصين"
 
+msgid "Choose WAV file"
+msgstr "اختيار ملف WAV"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:178
 msgid "Choose a WAV sound file"
 msgstr "اختيار ملف صوتي بصيغة WAV"
+
+msgid "Choose a calculation method"
+msgstr "اختر طريقة حساب"
 
 #: addon/globalPlugins/awqati/nvda_adapter/ui.py:269
 msgid ""
@@ -1581,6 +1959,12 @@ msgstr "اختر ملفًا صوتيًا صالحًا."
 msgid "Choose a valid IANA time zone."
 msgstr "اختر منطقة زمنية صحيحة من مناطق IANA."
 
+msgid "Choose a valid readable PCM WAV file of at most 30 seconds."
+msgstr "اختر ملف WAV صالحًا وقابلًا للقراءة بتنسيق PCM لا تتجاوز مدته 30 ثانية."
+
+msgid "Choose a valid readable PCM WAV file."
+msgstr "اختر ملف WAV صالحًا وقابلًا للقراءة بتنسيق PCM."
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:634
 msgid "Choose an allowed option."
 msgstr "اختر أحد الخيارات المسموح بها."
@@ -1600,6 +1984,9 @@ msgstr "اختر إعدادات الساعة"
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:444
 msgid "Choose clock settings:"
 msgstr "اختر إعدادات الساعة:"
+
+msgid "Choose custom sound"
+msgstr "اختيار ملف صوتي مخصص"
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:305
 msgid "Choose settings section"
@@ -1625,6 +2012,9 @@ msgstr "جزيرة كريسماس"
 msgid "City"
 msgstr "المدينة"
 
+msgid "City name:"
+msgstr "اسم المدينة:"
+
 #: addon/globalPlugins/awqati/nvda_adapter/ui.py:139
 msgid "City results:"
 msgstr "نتائج المدن:"
@@ -1632,6 +2022,9 @@ msgstr "نتائج المدن:"
 #: addon/globalPlugins/awqati/nvda_adapter/ui.py:140
 msgid "City search results"
 msgstr "نتائج البحث عن المدن"
+
+msgid "City time and local time difference"
+msgstr "وقت المدينة وفرق التوقيت المحلي"
 
 msgid "City:"
 msgstr "المدينة:"
@@ -1643,6 +2036,9 @@ msgstr "الساعة"
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:458
 msgid "Clock alert action:"
 msgstr "إجراء تنبيه الساعة:"
+
+msgid "Close"
+msgstr "إغلاق"
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Cocos Islands"
@@ -1656,21 +2052,66 @@ msgstr "كولومبيا"
 msgid "Comoros"
 msgstr "جزر القمر"
 
+msgid "Confirmation sounds"
+msgstr "أصوات التأكيد"
+
+msgid "Contacting AlAdhan for a diagnostic comparison..."
+msgstr "جارٍ الاتصال بخدمة AlAdhan لإجراء مقارنة تشخيصية..."
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Cook Islands"
 msgstr "جزر كوك"
+
+msgid "Copy Awqati diagnostic information"
+msgstr "نسخ معلومات تشخيص أوقاتي"
+
+msgid "Copy diagnostic information"
+msgstr "نسخ معلومات التشخيص"
+
+msgid "Copy diagnostic information."
+msgstr "نسخ معلومات التشخيص."
+
+msgid "Copy results"
+msgstr "نسخ النتائج"
+
+msgid "Copy stopwatch results."
+msgstr "نسخ نتائج ساعة الإيقاف."
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Costa Rica"
 msgstr "كوستاريكا"
 
+msgid "Could not connect to Wikipedia. Check your connection and try again."
+msgstr "تعذر الاتصال بويكيبيديا. تحقق من اتصالك وحاول مجددًا."
+
+msgid "Could not connect to the update service. No data were changed."
+msgstr "تعذر الاتصال بخدمة التحديث. لم تتغير البيانات"
+
+msgid "Could not copy Awqati diagnostic information to the clipboard."
+msgstr "تعذر نسخ معلومات التشخيص إلى الحافظة."
+
+msgid "Could not create or open the local On This Day web page."
+msgstr "تعذر إنشاء صفحة حدث في مثل هذا اليوم المحلية أو فتحها."
+
 #: addon/globalPlugins/awqati/nvda_adapter/ui.py:277
 msgid "Could not save settings"
 msgstr "تعذر حفظ الإعدادات"
 
+msgid "Countdown Timers"
+msgstr "إدارة المؤقتات التنازلية"
+
+msgid "Countdown data could not be read. The existing file was preserved."
+msgstr "تعذرت قراءة بيانات المؤقتات. تم الاحتفاظ بالملف الموجود."
+
+msgid "Countdown timers"
+msgstr "المؤقتات التنازلية"
+
 #: addon/globalPlugins/awqati/nvda_adapter/ui.py:134
 msgid "Country"
 msgstr "الدولة"
+
+msgid "Country name:"
+msgstr "اسم الدولة:"
 
 #: addon/globalPlugins/awqati/nvda_adapter/ui.py:133
 msgid "Country:"
@@ -1695,6 +2136,17 @@ msgstr "الموقع المعتمد والمنطقة الزمنية"
 #: addon/globalPlugins/awqati/nvda_adapter/ui.py:149
 msgid "Current assigned location:"
 msgstr "الموقع المعتمد حاليًا:"
+
+#, python-brace-format
+msgid "Current lap: {duration}."
+msgstr "الجولة الجارية: {duration}."
+
+msgid "Custom WAV sound"
+msgstr "ملف WAV مخصص"
+
+#, python-brace-format
+msgid "Custom sound: {path}"
+msgstr "الصوت المخصص: {path}"
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Cyprus"
@@ -1723,6 +2175,9 @@ msgstr "نص تذكير الورد اليومي"
 msgid "Daily Wird reminder text:"
 msgstr "نص تذكير الورد اليومي:"
 
+msgid "Daily information"
+msgstr "معلومات اليوم"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:38
 msgid "Date"
 msgstr "التاريخ"
@@ -1730,6 +2185,35 @@ msgstr "التاريخ"
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:509
 msgid "Date format:"
 msgstr "صيغة التاريخ:"
+
+msgid "Deaths"
+msgstr "الوفيات"
+
+msgid "Default alarm sound"
+msgstr "صوت المنبه الافتراضي"
+
+msgid "Default timer sound"
+msgstr "صوت المؤقت الافتراضي"
+
+msgid "Delete"
+msgstr "حذف"
+
+msgid "Delete alarm"
+msgstr "حذف المنبه"
+
+#, python-brace-format
+msgid "Delete alarm {name}?"
+msgstr "هل تريد حذف المنبه {name}؟"
+
+msgid "Delete city"
+msgstr "حذف المدينة"
+
+msgid "Delete this countdown timer?"
+msgstr "هل تريد حذف هذا المؤقت؟"
+
+#, python-brace-format
+msgid "Delete {city} from the world clock?"
+msgstr "هل تريد حذف {city} من الساعة العالمية؟"
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Democratic Republic of the Congo"
@@ -1752,6 +2236,12 @@ msgstr "جارٍ كشف الموقع..."
 msgid "Dhikr alerts"
 msgstr "تنبيهات الأذكار"
 
+msgid "Dhikr alerts have been disabled."
+msgstr "تم تعطيل تنبيهات الأذكار."
+
+msgid "Dhikr alerts have been enabled."
+msgstr "تم تفعيل تنبيهات الأذكار."
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:574
 msgid "Dhikr to configure:"
 msgstr "الذكر المراد ضبطه:"
@@ -1760,6 +2250,12 @@ msgstr "الذكر المراد ضبطه:"
 msgid "Dhuhr"
 msgstr "الظهر"
 
+msgid "Disable all alarms"
+msgstr "تعطيل جميع المنبهات"
+
+msgid "Disabled"
+msgstr "معطل"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Djibouti"
 msgstr "جيبوتي"
@@ -1767,6 +2263,12 @@ msgstr "جيبوتي"
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:70
 msgid "Do not forget the remembrance of Allah"
 msgstr "لا تنس ذكر الله"
+
+msgid "Do not forget to remember Allah."
+msgstr "لا تنس ذكر الله."
+
+msgid "Do not forget your daily Wird."
+msgstr "لا تنس وردك اليومي."
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Dominica"
@@ -1781,6 +2283,9 @@ msgstr "جمهورية الدومينيكان"
 msgid "Double"
 msgstr "مزدوج"
 
+msgid "Duration formatting language: English"
+msgstr "لغة تنسيق المدة: العربية"
+
 msgid "EET"
 msgstr "توقيت اليونان"
 
@@ -1793,6 +2298,21 @@ msgstr "توقيت الولايات المتحدة (نيويورك)"
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Ecuador"
 msgstr "الإكوادور"
+
+msgid "Edit"
+msgstr "تعديل"
+
+msgid "Edit alarm"
+msgstr "تعديل المنبه"
+
+msgid "Edit countdown timer"
+msgstr "تعديل المؤقت التنازلي"
+
+msgid "Edit name"
+msgstr "تعديل الاسم"
+
+msgid "Edit personal alarm"
+msgstr "تعديل المنبه الشخصي"
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:367
 msgid "Effective automatic method:"
@@ -1813,6 +2333,9 @@ msgstr "توقيت أيرلندا"
 msgid "El Salvador"
 msgstr "السلفادور"
 
+msgid "Elapsed time"
+msgstr "الزمن المنقضي"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:524
 msgid "Enable Dhikr alerts"
 msgstr "تفعيل تنبيهات الأذكار"
@@ -1821,13 +2344,12 @@ msgstr "تفعيل تنبيهات الأذكار"
 msgid "Enable Friday hour reminder"
 msgstr "تفعيل تذكير ساعة الجمعة"
 
+msgid "Enable all alarms"
+msgstr "تفعيل جميع المنبهات"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:275
 msgid "Enable all automatic alerts"
 msgstr "تفعيل جميع التنبيهات التلقائية"
-
-#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py
-msgid "Show Qibla direction"
-msgstr "عرض اتجاه القبلة"
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:450
 msgid "Enable automatic clock alerts"
@@ -1845,6 +2367,9 @@ msgstr "تفعيل أذكار المساء"
 msgid "Enable morning Dhikr"
 msgstr "تفعيل أذكار الصباح"
 
+msgid "Enable or disable selected alarm"
+msgstr "تفعيل المنبه المحدد أو تعطيله"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:354
 msgid "Enable prayer-time alerts"
 msgstr "تفعيل تنبيهات المواقيت"
@@ -1861,10 +2386,39 @@ msgstr "تفعيل الأذكار الدورية"
 msgid "Enable selected Dhikr"
 msgstr "تفعيل الذكر المحدد"
 
+msgid "Enable snooze"
+msgstr "تفعيل الغفوة"
+
+msgid "Enabled"
+msgstr "مفعل"
+
+#, python-brace-format
+msgid "Enabled personal alarms: {count}."
+msgstr "عدد المنبهات الشخصية المفعلة: {count}."
+
+msgid ""
+"Enter a city name and a country name, each from 1 to 160 characters, "
+"without control characters."
+msgstr ""
+"أدخل اسم المدينة واسم الدولة، على أن يتكون كل اسم من حرف واحد إلى 160 "
+"حرفًا دون أحرف تحكم."
+
 #: addon/globalPlugins/awqati/nvda_adapter/ui.py:67
 #: addon/globalPlugins/awqati/nvda_adapter/ui.py:145
 msgid "Enter a custom location"
 msgstr "إدخال موقع مخصص"
+
+msgid "Enter a positive whole number of snoozes, or choose unlimited."
+msgstr "أدخل عددًا صحيحًا موجبًا للغفوات، أو اختر دون حد"
+
+msgid "Enter a snooze count between 1 and 1000000, or choose unlimited."
+msgstr "أدخل عددًا صحيحًا موجبًا للغفوات، أو اختر دون حد"
+
+msgid "Enter a timer name of at most 200 characters and a valid duration."
+msgstr "أدخل اسمًا لا يتجاوز 200 حرف ومدة صحيحة."
+
+msgid "Enter a valid alarm time: hour 0–23 and minute 0–59."
+msgstr "يجب إدخال وقت صحيح للمنبه: الساعة من 0 إلى 23، والدقيقة من 0 إلى 59."
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:635
 msgid "Enter a valid time in 24-hour HH:MM format."
@@ -2205,13 +2759,22 @@ msgstr "جزر فوكلاند"
 msgid "Faroe Islands"
 msgstr "جزر فارو"
 
+msgid "Fifteen minutes"
+msgstr "خمس عشرة دقيقة"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Fiji"
 msgstr "فيجي"
 
+msgid "Finished"
+msgstr "منتهٍ"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Finland"
 msgstr "فنلندا"
+
+msgid "Five minutes"
+msgstr "خمس دقائق"
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "France"
@@ -2228,6 +2791,9 @@ msgstr "بولينيزيا الفرنسية"
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "French Southern Territories"
 msgstr "الأقاليم الجنوبية الفرنسية"
+
+msgid "Friday"
+msgstr "الجمعة"
 
 msgid "Friday hour reference time:"
 msgstr "وقت تذكير ساعة الجمعة:"
@@ -2353,6 +2919,16 @@ msgstr "الحنفي"
 msgid "High-latitude handling:"
 msgstr "معالجة خطوط العرض العليا:"
 
+msgid "High-latitude rule"
+msgstr "قاعدة خطوط العرض العالية"
+
+# On This Day — dev22
+msgid "Historical events"
+msgstr "الأحداث التاريخية"
+
+msgid "Holidays and observances"
+msgstr "الأعياد والمناسبات"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Honduras"
 msgstr "هندوراس"
@@ -2364,6 +2940,9 @@ msgstr "هونغ كونغ الصينية (منطقة إدارية خاصة)"
 msgid "Hongkong"
 msgstr "توقيت هونغ كونغ الصينية (منطقة إدارية خاصة)"
 
+msgid "Hour (0–23)"
+msgstr "الساعة (0 إلى 23)"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:561
 msgid "Hour (1 to 12):"
 msgstr "الساعة (من 1 إلى 12):"
@@ -2371,6 +2950,9 @@ msgstr "الساعة (من 1 إلى 12):"
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:472
 msgid "Hour system:"
 msgstr "نظام الساعات:"
+
+msgid "Hours (0-999)"
+msgstr "الساعات (من 0 إلى 999)"
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Hungary"
@@ -2433,6 +3015,12 @@ msgstr "إندونيسيا"
 msgid "Indonesian Ministry of Religious Affairs"
 msgstr "وزارة الشؤون الدينية الإندونيسية"
 
+msgid "Information is unavailable in the selected language."
+msgstr "تعذر توفر معلومات باللغة المحددة"
+
+msgid "Interval between alerts"
+msgstr "الفاصل بين التنبيهات"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:572
 msgid "Interval in minutes:"
 msgstr "الفاصل، بالدقائق:"
@@ -2480,6 +3068,31 @@ msgstr "جزيرة مان"
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Israel"
 msgstr "إسرائيل"
+
+#, python-brace-format
+msgid "It has been {duration} since sunrise."
+msgstr "مضى على شروق الشمس {duration}."
+
+#, python-brace-format
+msgid "It has been {duration} since the last third of the night began."
+msgstr "مضى على حلول الثلث الأخير من الليل {duration}."
+
+#, python-brace-format
+msgid "It has been {duration} since the middle of the night."
+msgstr "مضى على انتصاف الليل {duration}."
+
+#, python-brace-format
+msgid "It is now time for {prayer} prayer."
+msgstr "حان الآن وقت دخول صلاة {prayer}."
+
+msgid "It is the middle of the night."
+msgstr "انتصف الليل."
+
+msgid "It is time for evening adhkar."
+msgstr "حان وقت أذكار المساء."
+
+msgid "It is time for morning adhkar."
+msgstr "حان وقت أذكار الصباح."
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Italy"
@@ -2545,13 +3158,45 @@ msgstr "قيرغيزستان"
 msgid "La hawla wa la quwwata illa billah"
 msgstr "لا حول ولا قوة إلا بالله"
 
+msgid "La hawla wa la quwwata illa billah."
+msgstr "لا حول ولا قوة إلا بالله."
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:67
 msgid "La ilaha illa Allah"
 msgstr "لا إله إلا الله"
 
+msgid "La ilaha illa Allah."
+msgstr "لا إله إلا الله."
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Laos"
 msgstr "لاوس"
+
+msgid "Lap duration"
+msgstr "مدة الجولة"
+
+msgid "Lap number"
+msgstr "رقم الجولة"
+
+#, python-brace-format
+msgid "Lap {number} recorded. Duration: {duration}."
+msgstr "تم تسجيل الجولة {number}. مدتها {duration}."
+
+#, python-brace-format
+msgid "Lap {number}: {duration}. Total: {total}."
+msgstr "الجولة {number}: {duration}. الزمن الإجمالي: {total}."
+
+msgid "Last cycle expired while waiting for another alert."
+msgstr "انتهت صلاحية الدورة السابقة أثناء انتظار تنبيه آخر."
+
+msgid "Last cycle interrupted by a higher-priority time alert."
+msgstr "توقف رنين المنبه السابق بسبب تنبيه وقت ذي أولوية أعلى."
+
+msgid "Last cycle interrupted by a prayer alert."
+msgstr "توقف رنين المنبه السابق بسبب تنبيه الصلاة"
+
+msgid "Last cycle suppressed by quiet hours."
+msgstr "كُتمت الدورة السابقة بسبب ساعات الهدوء."
 
 #: addon/globalPlugins/awqati/nvda_adapter/ui.py:75
 msgid "Latitude"
@@ -2588,6 +3233,9 @@ msgstr "ليختنشتاين"
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Lithuania"
 msgstr "ليتوانيا"
+
+msgid "Location ID"
+msgstr "معرّف الموقع"
 
 #: addon/globalPlugins/awqati/nvda_adapter/ui.py:241
 msgid "Location detected"
@@ -2688,6 +3336,12 @@ msgstr "مالي"
 msgid "Malta"
 msgstr "مالطا"
 
+msgid "Manage countdown timers"
+msgstr "إدارة المؤقتات التنازلية"
+
+msgid "Manage personal alarms"
+msgstr "إدارة المنبهات الشخصية"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:397
 msgid "Manual selection"
 msgstr "اختيار يدوي"
@@ -2741,6 +3395,12 @@ msgstr "منتصف الليل"
 msgid "Minute (0 to 59):"
 msgstr "الدقيقة (من 0 إلى 59):"
 
+msgid "Minute (0–59)"
+msgstr "الدقيقة (0 إلى 59)"
+
+msgid "Minutes (0-59)"
+msgstr "الدقائق (من 0 إلى 59)"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:425
 msgid "Minutes between Adhan and Iqama:"
 msgstr "المدة بين الأذان والإقامة، بالدقائق:"
@@ -2757,6 +3417,9 @@ msgstr "مولدوفا"
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Monaco"
 msgstr "موناكو"
+
+msgid "Monday"
+msgstr "الاثنين"
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Mongolia"
@@ -2778,6 +3441,12 @@ msgstr "وقت أذكار الصباح:"
 msgid "Morocco"
 msgstr "المغرب"
 
+msgid "Move down"
+msgstr "تحريك لأسفل"
+
+msgid "Move up"
+msgstr "تحريك لأعلى"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Mozambique"
 msgstr "موزمبيق"
@@ -2789,6 +3458,9 @@ msgstr "رابطة العالم الإسلامي"
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Myanmar"
 msgstr "ميانمار (بورما)"
+
+msgid "NVDA version"
+msgstr "إصدار NVDA"
 
 msgid "NZ"
 msgstr "توقيت نيوزيلندا (أوكلاند)"
@@ -2823,6 +3495,18 @@ msgstr "كاليدونيا الجديدة"
 msgid "New Zealand"
 msgstr "نيوزيلندا"
 
+msgid "New countdown timer"
+msgstr "مؤقت جديد"
+
+msgid "Next alarm"
+msgstr "المنبه القادم"
+
+#, python-brace-format
+msgid ""
+"Next alarm: {name}; {when}; remaining: {hours} hours and {minutes} "
+"minutes."
+msgstr "المنبه القادم: {name}؛ {when}؛ المتبقي: {hours} ساعة و{minutes} دقيقة."
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Nicaragua"
 msgstr "نيكاراغوا"
@@ -2839,6 +3523,35 @@ msgstr "نيجيريا"
 msgid "Niue"
 msgstr "نيوي"
 
+msgid "No"
+msgstr "لا"
+
+msgid "No Awqati alert has been presented yet."
+msgstr "لم يتم عرض أي تنبيه حتى الآن."
+
+msgid ""
+"No active personal alarm can be snoozed; snooze may be disabled or "
+"exhausted."
+msgstr "لا يوجد منبه نشط يقبل الغفوة؛ قد تكون الغفوة معطلة أو استُنفد عددها."
+
+msgid "No city has been added yet."
+msgstr "لم تُضف أي مدينة بعد"
+
+msgid "No confirmation sounds"
+msgstr "دون أصوات تأكيد"
+
+msgid "No countdown action is available in the current state."
+msgstr "لا يمكن تنفيذ هذا الإجراء في الحالة الحالية للمؤقت."
+
+msgid "No countdown timers are running."
+msgstr "لا توجد مؤقتات قيد التشغيل."
+
+msgid "No enabled personal alarms."
+msgstr "لا توجد منبهات شخصية مفعلة."
+
+msgid "No laps have been recorded."
+msgstr "لا توجد جولات مسجلة."
+
 #: addon/globalPlugins/awqati/nvda_adapter/ui.py:49
 msgid "No location has been assigned"
 msgstr "لم يُحدد موقع"
@@ -2847,6 +3560,15 @@ msgid ""
 "No location has been assigned. Please set it in Awqati settings and try "
 "again."
 msgstr "لم يتم تعيين الموقع. فضلًا عيّنه من إعدادات أوقاتي ثم حاول مرة أخرى"
+
+msgid "No location has been assigned. Set it in Awqati settings, then try again."
+msgstr "لم يتم تعيين الموقع. فضلًا عيّنه من إعدادات أوقاتي ثم حاول مرة أخرى."
+
+msgid "No personal alarm is active."
+msgstr "لا يوجد منبه شخصي نشط."
+
+msgid "None"
+msgstr "لا يوجد"
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Norfolk Island"
@@ -2868,9 +3590,18 @@ msgstr "جزر ماريانا الشمالية"
 msgid "Norway"
 msgstr "النرويج"
 
+msgid "Not started"
+msgstr "لم تبدأ"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:475
 msgid "Numbers"
 msgstr "أرقام"
+
+msgid "Obey quiet hours"
+msgstr "الخضوع لساعات الهدوء"
+
+msgid "Obey quiet hours for this timer"
+msgstr "إخضاع هذا المؤقت لساعات الهدوء"
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:553
 msgid "Offset in minutes:"
@@ -2880,17 +3611,58 @@ msgstr "الإزاحة، بالدقائق:"
 msgid "Oman"
 msgstr "عُمان"
 
+#, python-brace-format
+msgid "On This Day — {date} — {section}"
+msgstr "حدث في مثل هذا اليوم، {date}، {section}"
+
+msgid ""
+"On This Day: press once for historical events, twice for births, three "
+"times for deaths, or four times for holidays and observances."
+msgstr ""
+"حدث في مثل هذا اليوم: اضغط مرة للأحداث التاريخية، ومرتين للمواليد، وثلاث "
+"مرات للوفيات، وأربع مرات للأعياد والمناسبات."
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:453
 msgid "On the hour"
 msgstr "رأس الساعة"
+
+msgid "Once"
+msgstr "مرة واحدة"
+
+msgid "One minute"
+msgstr "دقيقة واحدة"
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:374
 msgid "One seventh"
 msgstr "سُبع الليل"
 
+msgid "Online prayer-time comparison"
+msgstr "مقارنة مواقيت الصلاة عبر الإنترنت"
+
+msgid "Online prayer-time verification was cancelled. No data was sent."
+msgstr "أُلغي التحقق من المواقيت عبر الإنترنت. لم تُرسل أي بيانات."
+
+msgid ""
+"Online verification sends the coordinates required for calculation and "
+"the selected calculation method to the AlAdhan Prayer Times API. Approval"
+" applies only to this NVDA session. Do you want to continue?"
+msgstr ""
+"يرسل التحقق عبر الإنترنت الإحداثيات اللازمة للحساب وطريقة الحساب المحددة "
+"إلى خدمة AlAdhan Prayer Times API. تسري الموافقة على جلسة NVDA الحالية "
+"فقط. هل تريد المتابعة؟"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:186
 msgid "Only WAV sound files are supported."
 msgstr "تُدعم الملفات الصوتية بصيغة WAV فقط."
+
+msgid "Open Awqati settings"
+msgstr "فتح إعدادات أوقاتي"
+
+msgid "Open Awqati settings."
+msgstr "فتح إعدادات أوقاتي."
+
+msgid "Open countdown timers."
+msgstr "فتح نافذة المؤقتات التنازلية."
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:498
 msgid "Open daily information window"
@@ -2899,6 +3671,33 @@ msgstr "فتح نافذة معلومات اليوم"
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:381
 msgid "Open daily prayer times window"
 msgstr "فتح نافذة مواقيت اليوم"
+
+msgid "Open date converter"
+msgstr "فتح محوّل التاريخ"
+
+msgid "Open personal alarms."
+msgstr "فتح نافذة إدارة المنبهات الشخصية."
+
+msgid "Open stopwatch"
+msgstr "فتح ساعة الإيقاف"
+
+msgid "Open stopwatch."
+msgstr "فتح ساعة الإيقاف."
+
+msgid "Open weather information in a text window"
+msgstr "فتح معلومات الطقس في نافذة نصية"
+
+msgid "Open the stopwatch window."
+msgstr "فتح نافذة ساعة الإيقاف."
+
+msgid "Open today's prayer times window."
+msgstr "يفتح نافذة مواقيت اليوم."
+
+msgid "Original day page on Wikipedia"
+msgstr "صفحة اليوم الأصلية في ويكيبيديا"
+
+msgid "Original duration"
+msgstr "المدة الأصلية"
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:566
 msgid "PM"
@@ -3066,6 +3865,15 @@ msgstr "بابوا غينيا الجديدة"
 msgid "Paraguay"
 msgstr "باراغواي"
 
+msgid "Pause"
+msgstr "إيقاف مؤقت"
+
+msgid "Pause the stopwatch before resetting it."
+msgstr "أوقف ساعة الإيقاف مؤقتًا قبل تصفيرها."
+
+msgid "Paused"
+msgstr "متوقفة مؤقتًا"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:566
 msgid "Period:"
 msgstr "الفترة:"
@@ -3073,6 +3881,45 @@ msgstr "الفترة:"
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:63
 msgid "Persian Solar Hijri"
 msgstr "الهجري الشمسي الفارسي"
+
+msgid "Personal Alarms"
+msgstr "إدارة المنبهات الشخصية"
+
+msgid "Personal alarm"
+msgstr "منبه شخصي"
+
+msgid ""
+"Personal alarm data could not be saved or restored safely. Personal "
+"alarms are paused; existing files are preserved. Other Awqati alerts "
+"remain available."
+msgstr ""
+"تعذر حفظ بيانات المنبهات الشخصية أو استعادتها بأمان. أُوقفت المنبهات "
+"الشخصية مؤقتًا مع الاحتفاظ بالملفات السابقة. تظل تنبيهات أوقاتي الأخرى "
+"متاحة."
+
+msgid ""
+"Personal alarm data could not be saved safely. Automatic personal alarms "
+"are paused; existing files are preserved. Other Awqati alerts remain "
+"available."
+msgstr ""
+"تعذر حفظ بيانات المنبهات الشخصية بأمان. أُوقفت المنبهات الشخصية مؤقتًا مع"
+" الاحتفاظ بالملفات السابقة. تظل تنبيهات أوقاتي الأخرى متاحة."
+
+msgid "Personal alarm error"
+msgstr "خطأ في المنبه الشخصي"
+
+msgid "Personal alarm snoozed."
+msgstr "أُجّل المنبه الشخصي للغفوة."
+
+#, python-brace-format
+msgid "Personal alarm snoozed. The alarm will ring again in {duration}."
+msgstr "تم تفعيل وضع الغفوة. سيعود المنبه بعد {duration}"
+
+msgid "Personal alarm stopped."
+msgstr "تم إيقاف المنبه الجاري"
+
+msgid "Personal alarm storage needs recovery. Existing data has been preserved."
+msgstr "تحتاج بيانات المنبهات الشخصية إلى الاسترداد. احتُفظ بالبيانات السابقة."
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Peru"
@@ -3085,6 +3932,18 @@ msgstr "الفلبين"
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Pitcairn"
 msgstr "جزر بيتكيرن"
+
+msgid "Play clock ticking"
+msgstr "تشغيل تكتكة الساعة"
+
+msgid "Play preview"
+msgstr "تشغيل المعاينة"
+
+msgid "Playback duration"
+msgstr "مدة التشغيل"
+
+msgid "Please wait."
+msgstr "يُرْجَى الانتظار"
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Poland"
@@ -3102,6 +3961,9 @@ msgstr "إجراء التنبيه البعدي:"
 msgid "Post-alert minutes:"
 msgstr "مدة التنبيه البعدي، بالدقائق:"
 
+msgid "Prayer calculation method"
+msgstr "طريقة حساب مواقيت الصلاة"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:363
 msgid "Prayer calculation method:"
 msgstr "طريقة حساب مواقيت الصلاة:"
@@ -3110,6 +3972,12 @@ msgstr "طريقة حساب مواقيت الصلاة:"
 msgid "Prayer times"
 msgstr "مواقيت الصلاة"
 
+msgid "Prayer-time alerts have been disabled."
+msgstr "تم تعطيل تنبيهات المواقيت."
+
+msgid "Prayer-time alerts have been enabled."
+msgstr "تم تفعيل تنبيهات المواقيت."
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:420
 msgid "Pre-alert action:"
 msgstr "إجراء التنبيه القبلي:"
@@ -3117,6 +3985,107 @@ msgstr "إجراء التنبيه القبلي:"
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:417
 msgid "Pre-alert minutes:"
 msgstr "مدة التنبيه القبلي، بالدقائق:"
+
+msgid ""
+"Press once to announce Ghurubi time, twice to announce the Qibla "
+"direction, or three times to announce the assigned location."
+msgstr ""
+"بالضغط عليه مرة واحدة يعلن عن التوقيت الغروبي، وبالضغط عليه مرتين يعلن عن"
+" اتجاه القبلة، وبالضغط عليه ثلاث مرات يعلن عن الموقع المعتمد."
+
+msgid ""
+"Press once to announce astronomical daily information, twice to announce "
+"Arabian calendar daily information, or three times to open the daily "
+"information window."
+msgstr ""
+"بالضغط عليه مرة واحدة يعلن عن معلومات اليوم الفلكية، وبالضغط عليه مرتين "
+"يعلن عن معلومات اليوم في التقويم العربي، وبالضغط عليه ثلاث مرات يفتح "
+"نافذة معلومات اليوم."
+
+msgid ""
+"Press once to announce current time details, twice to announce the "
+"previous time, or three times to announce today's prayer times."
+msgstr ""
+"بالضغط عليه مرة واحدة يعلن عن تفاصيل الوقت الحالي، وبالضغط عليه مرتين "
+"يعلن عن الوقت السابق، وبالضغط عليه ثلاث مرات يعلن عن مواقيت اليوم."
+
+msgid ""
+"Press once to announce stopwatch elapsed time, or twice to announce its "
+"status and lap count."
+msgstr ""
+"بالضغط عليه مرة واحدة يعلن عن الزمن المنقضي في ساعة الإيقاف، وبالضغط عليه"
+" مرتين يعلن عن حالة الساعة وعدد الجولات المسجلة."
+
+msgid ""
+"Press once to announce the Afghan Solar Hijri date or twice to announce "
+"the Persian Solar Hijri date."
+msgstr ""
+"بالضغط عليه مرة واحدة يعلن عن التاريخ الهجري الشمسي الأفغاني، وبالضغط "
+"عليه مرتين يعلن عن التاريخ الهجري الشمسي الفارسي."
+
+msgid ""
+"Press once to announce the Lunar Hijri date, twice to announce the Saudi "
+"Solar Hijri date, or three times to announce the Arabian calendar "
+"summary."
+msgstr ""
+"بالضغط عليه مرة واحدة يعلن عن التاريخ الهجري القمري، وبالضغط عليه مرتين "
+"يعلن عن التاريخ الهجري الشمسي السعودي، وبالضغط عليه ثلاث مرات يعلن عن "
+"ملخص اليوم في التقويم العربي."
+
+msgid ""
+"Press once to announce the current lap duration, or twice to announce the"
+" last recorded lap."
+msgstr ""
+"بالضغط عليه مرة واحدة يعلن عن مدة الجولة الجارية، وبالضغط عليه مرتين يعلن"
+" عن مدة آخر جولة مسجلة."
+
+msgid ""
+"Press once to announce the current weather, twice to announce today's "
+"weather forecast, or three times to announce the weather forecast for the"
+" coming days."
+msgstr ""
+"بالضغط عليه مرة واحدة يعلن عن حالة الطقس الحالية، وبالضغط عليه مرتين يعلن"
+" عن توقعات الطقس لليوم، وبالضغط عليه ثلاث مرات يعلن عن توقعات الطقس "
+"للأيام القادمة."
+
+msgid ""
+"Press once to announce the first city's time, twice for the second city's"
+" time, and three times for the third city's time."
+msgstr ""
+"بالضغط عليه مرة واحدة يعلن عن وقت المدينة الأولى، وبالضغط عليه مرتين يعلن"
+" عن وقت المدينة الثانية، وبالضغط عليه ثلاث مرات يعلن عن وقت المدينة "
+"الثالثة."
+
+msgid ""
+"Press once to announce the next personal alarm or twice to announce the "
+"enabled alarm count."
+msgstr ""
+"اضغط مرة للإعلان عن المنبه الشخصي القادم، أو مرتين للإعلان عن عدد "
+"المنبهات المفعلة."
+
+msgid ""
+"Press once to announce the next personal alarm, twice for the enabled "
+"alarm count, or three times to stop the current alarm."
+msgstr ""
+"بالضغط عليه مرة واحدة يعلن عن المنبه القادم، وبالضغط عليه مرتين يعلن عن "
+"عدد المنبهات المفعلة، وبالضغط عليه ثلاث مرات يوقف رنين المنبه الجاري."
+
+msgid ""
+"Press once to announce the selected timer's name and remaining time, "
+"twice to announce its state and the number of timers."
+msgstr ""
+"بالضغط عليه مرة يعلن عن اسم المؤقت المحدد والوقت المتبقي، وبالضغط عليه "
+"مرتين يعلن عن حالة المؤقت المحدد وعدد المؤقتات."
+
+msgid ""
+"Press once to announce the time, twice to announce the date, or three "
+"times to announce daily information."
+msgstr ""
+"بالضغط عليه مرة واحدة يعلن عن الوقت، وبالضغط عليه مرتين يعلن عن التاريخ، "
+"وبالضغط عليه ثلاث مرات يعلن عن معلومات اليوم."
+
+msgid "Preview selected sound"
+msgstr "تجربة الصوت المحدد"
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:145
 msgid "Preview sound"
@@ -3129,6 +4098,9 @@ msgstr "تجربة الصوت — {context}"
 msgid "Preview speech"
 msgstr "تجربة النطق"
 
+msgid "Preview tone"
+msgstr "النغمة المراد تجربتها"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:490
 msgid "Primary calendar:"
 msgstr "التقويم الأساسي:"
@@ -3136,6 +4108,9 @@ msgstr "التقويم الأساسي:"
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Puerto Rico"
 msgstr "بورتوريكو"
+
+msgid "Python version"
+msgstr "إصدار Python"
 
 #: addon/globalPlugins/awqati/data/calculation_methods/methods.json:1
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
@@ -3154,6 +4129,12 @@ msgstr "نهاية ساعات الهدوء"
 msgid "Quiet hours end, HH:MM:"
 msgstr "نهاية ساعات الهدوء، ساعة:دقيقة:"
 
+msgid "Quiet hours have been disabled."
+msgstr "تم تعطيل ساعات الهدوء."
+
+msgid "Quiet hours have been enabled."
+msgstr "تم تفعيل ساعات الهدوء."
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:287
 msgid "Quiet hours start"
 msgstr "بداية ساعات الهدوء"
@@ -3168,16 +4149,50 @@ msgstr "توقيت تايوان"
 msgid "ROK"
 msgstr "توقيت كوريا الجنوبية"
 
+msgid "Ready"
+msgstr "جاهز"
+
+msgid "Record a new stopwatch lap."
+msgstr "يسجل جولة جديدة في ساعة الإيقاف."
+
+msgid "Record lap"
+msgstr "تسجيل جولة"
+
+msgid "Record stopwatch lap."
+msgstr "تسجيل جولة في ساعة الإيقاف."
+
+msgid "Recorded laps"
+msgstr "الجولات المسجلة"
+
+#, python-brace-format
+msgid "Recorded laps: {count}."
+msgstr "عدد الجولات المسجلة: {count}."
+
 msgid "Recurring Dhikr interval, minutes:"
 msgstr "الفاصل بين الأذكار الدورية، بالدقائق:"
+
+msgid "Recurring dhikr has been disabled."
+msgstr "تم تعطيل الأذكار الدورية."
+
+msgid "Recurring dhikr has been enabled."
+msgstr "تم تفعيل الأذكار الدورية."
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:552
 msgid "Reference time:"
 msgstr "الوقت المرجعي:"
 
+msgid "Remaining"
+msgstr "المتبقي"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:69
 msgid "Remember Allah and He will remember you"
 msgstr "اذكر الله يذكرك"
+
+msgid "Remember Allah, and He will remember you."
+msgstr "اذكر الله يذكرك."
+
+msgid "Remember the Friday hour."
+msgstr "لا تنسَ ساعة الجمعة."
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:560
 msgid "Reminder text:"
@@ -3191,17 +4206,59 @@ msgstr "إزالة الصوت المخصص"
 msgid "Remove custom sound — {context}"
 msgstr "إزالة الصوت المخصص — {context}"
 
+msgid "Repeat every"
+msgstr "التكرار كل"
+
+msgid "Repeat the last Awqati alert"
+msgstr "إعادة آخر تنبيه صادر من أوقاتي"
+
+msgid "Repeat the last spoken alert."
+msgstr "إعادة آخر تنبيه تم نطقه."
+
+msgid "Repeated"
+msgstr "متكرر"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Republic of the Congo"
 msgstr "الكونغو - برازافيل"
+
+msgid "Reset stopwatch"
+msgstr "تصفير ساعة الإيقاف"
+
+msgid "Reset stopwatch with confirmation."
+msgstr "تصفير ساعة الإيقاف مع التأكيد."
+
+msgid "Reset the stopwatch and delete all recorded laps?"
+msgstr "هل تريد تصفير ساعة الإيقاف وحذف جميع الجولات المسجلة؟"
+
+msgid "Restart"
+msgstr "إعادة التشغيل"
+
+msgid "Restart selected countdown timer with confirmation."
+msgstr "إعادة تشغيل المؤقت المحدد مع التأكيد."
+
+msgid "Restart this timer from its original duration?"
+msgstr "هل تريد إعادة تشغيل هذا المؤقت من مدته الأصلية؟"
+
+msgid "Restore original names"
+msgstr "استعادة الأسماء الأصلية"
+
+msgid "Resume"
+msgstr "استئناف"
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Reunion"
 msgstr "روينيون"
 
+msgid "Reusable"
+msgstr "محفوظ لإعادة الاستخدام"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Romania"
 msgstr "رومانيا"
+
+msgid "Running"
+msgstr "قيد التشغيل"
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Russia"
@@ -3251,6 +4308,9 @@ msgstr "سان مارينو"
 msgid "Sao Tome and Principe"
 msgstr "ساو تومي وبرينسيبي"
 
+msgid "Saturday"
+msgstr "السبت"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Saudi Arabia"
 msgstr "المملكة العربية السعودية"
@@ -3259,8 +4319,26 @@ msgstr "المملكة العربية السعودية"
 msgid "Saudi Solar Hijri"
 msgstr "الهجري الشمسي السعودي"
 
+msgid "Save"
+msgstr "حفظ"
+
+msgid "Save as a reusable timer"
+msgstr "حفظ المؤقت لإعادة الاستخدام"
+
+msgid "Save timer"
+msgstr "حفظ المؤقت"
+
+msgid "Saved personal alarms"
+msgstr "المنبهات الشخصية المحفوظة"
+
 msgid "Say “zero minutes” when there are no minutes"
 msgstr "نطق عبارة «صفر دقيقة» عند عدم وجود دقائق"
+
+msgid "Scheduler"
+msgstr "المجدول"
+
+msgid "Search for a city"
+msgstr "ابحث عن مدينة"
 
 #: addon/globalPlugins/awqati/nvda_adapter/ui.py:137
 msgid "Search for a city in the selected country"
@@ -3270,9 +4348,32 @@ msgstr "البحث عن مدينة في الدولة المختارة"
 msgid "Search for a city:"
 msgstr "البحث عن مدينة:"
 
+msgid "Seconds (0-59)"
+msgstr "الثواني (من 0 إلى 59)"
+
+msgid "Select a countdown timer first."
+msgstr "حدد مؤقتًا أولًا."
+
+msgid "Select a personal alarm first."
+msgstr "حدد منبهًا شخصيًا أولًا."
+
+msgid "Select at least one day from the Repeat every list."
+msgstr "يجب تحديد يوم واحد على الأقل من قائمة التكرار كل."
+
+msgid "Select the next countdown timer and announce its name and remaining time."
+msgstr "الانتقال إلى المؤقت التالي وإعلان اسمه والوقت المتبقي."
+
+msgid ""
+"Select the previous countdown timer and announce its name and remaining "
+"time."
+msgstr "الانتقال إلى المؤقت السابق وإعلان اسمه والوقت المتبقي."
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:586
 msgid "Selected Dhikr action:"
 msgstr "إجراء الذكر المحدد:"
+
+msgid "Selected cities"
+msgstr "المدن المختارة"
 
 #, python-brace-format
 msgid "Selecting sound file — {context}…"
@@ -3300,6 +4401,9 @@ msgstr "إعداد موقع أوقاتي"
 msgid "Settings not applied"
 msgstr "لم تُطبق الإعدادات"
 
+msgid "Settings schemaVersion"
+msgstr "إصدار مخطط الإعدادات"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Seychelles"
 msgstr "سيشل"
@@ -3309,9 +4413,25 @@ msgstr "سيشل"
 msgid "Short"
 msgstr "مختصر"
 
+msgid "Show On This Day information in a web page instead of speaking it"
+msgstr "عرض معلومات حدث في مثل هذا اليوم في صفحة ويب بدلًا من سردها"
+
+#: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py
+msgid "Show Qibla direction"
+msgstr "عرض اتجاه القبلة"
+
+msgid "Show detailed daily information"
+msgstr "عرض معلومات اليوم"
+
+msgid "Show today's prayer times"
+msgstr "عرض مواقيت اليوم"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Sierra Leone"
 msgstr "سيراليون"
+
+msgid "Silence one currently ringing countdown timer and announce its name."
+msgstr "إسكات رنين مؤقت واحد جارٍ وإعلان اسمه."
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:48
 msgid "Silent"
@@ -3333,6 +4453,15 @@ msgstr "سلوفاكيا"
 msgid "Slovenia"
 msgstr "سلوفينيا"
 
+msgid "Snooze duration"
+msgstr "مدة الغفوة"
+
+msgid "Snooze is unavailable. It may be disabled or exhausted."
+msgstr "الغفوة غير متاحة. قد تكون معطلة أو استُنفد عددها"
+
+msgid "Snooze the current personal alarm."
+msgstr "تأجيل المنبه الجاري (غفوة)."
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Solomon Islands"
 msgstr "جزر سليمان"
@@ -3340,6 +4469,16 @@ msgstr "جزر سليمان"
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Somalia"
 msgstr "الصومال"
+
+msgid ""
+"Some personal alarm data could not be read. Existing data has been "
+"preserved unchanged."
+msgstr ""
+"تعذر قراءة بعض بيانات المنبهات الشخصية. تم الاحتفاظ بالبيانات السابقة دون"
+" تغيير"
+
+msgid "Sound and speech"
+msgstr "صوت ونطق"
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:49
 msgid "Sound file and speech"
@@ -3355,9 +4494,15 @@ msgstr "خطأ في الملف الصوتي"
 msgid "Sound file only"
 msgstr "ملف صوتي فقط"
 
+msgid "Sound only"
+msgstr "صوت فقط"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:246
 msgid "Sound preview"
 msgstr "تجربة الصوت"
+
+msgid "Sound preview is unavailable during an Awqati alert."
+msgstr "لا تتاح تجربة الصوت أثناء تنبيه أوقاتي."
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "South Africa"
@@ -3387,6 +4532,9 @@ msgstr "نطق الثواني"
 msgid "Speak zero minutes"
 msgstr "نطق الدقائق الصفرية"
 
+msgid "Specify an alarm time and at least one day of the week."
+msgstr "يجب تحديد وقت المنبه واختيار يوم واحد على الأقل من أيام الأسبوع"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:469
 msgid "Speech format:"
 msgstr "صيغة النطق:"
@@ -3414,21 +4562,103 @@ msgstr "سريلانكا"
 msgid "Standard (Shafi, Maliki, Hanbali)"
 msgstr "الجمهور (الشافعي والمالكي والحنبلي)"
 
+msgid "Start"
+msgstr "بدء"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:45
 msgid "Start of the last third"
 msgstr "بداية الثلث الأخير"
+
+msgid "Start or resume"
+msgstr "بدء أو استئناف"
+
+msgid "Start timer now"
+msgstr "بدء المؤقت الآن"
+
+msgid "Start, pause or resume selected countdown timer."
+msgstr "بدء المؤقت المحدد أو إيقافه مؤقتًا أو استئنافه."
+
+msgid "Start, pause or resume stopwatch."
+msgstr "بدء ساعة الإيقاف أو إيقافها مؤقتًا أو استئنافها."
+
+msgid "Start, pause or resume the stopwatch according to its current state."
+msgstr "يبدأ ساعة الإيقاف أو يوقفها مؤقتًا أو يستأنفها بحسب حالتها."
+
+msgid "State"
+msgstr "الحالة"
+
+msgid "Stop preview"
+msgstr "إيقاف المعاينة"
+
+msgid "Stop selected countdown timer alert."
+msgstr "إيقاف صوت تنبيه المؤقت المحدد."
+
+msgid "Stop the current personal alarm."
+msgstr "إيقاف المنبه الجاري."
+
+msgid "Stop timer alert"
+msgstr "إيقاف تنبيه المؤقت"
+
+msgid "Stopwatch"
+msgstr "ساعة الإيقاف"
+
+msgid ""
+"Stopwatch data could not be read. The existing file was preserved; other "
+"Awqati features remain available."
+msgstr ""
+"تعذرت قراءة بيانات ساعة الإيقاف. تم الاحتفاظ بالملف الموجود دون تغيير، "
+"وتبقى وظائف أوقاتي الأخرى متاحة."
+
+msgid "Stopwatch paused."
+msgstr "تم إيقاف الساعة مؤقتا."
+
+msgid "Stopwatch preferences could not be read. The existing file was preserved."
+msgstr "تعذرت قراءة تفضيلات ساعة الإيقاف. تم الاحتفاظ بالملف الموجود دون تغيير."
+
+msgid ""
+"Stopwatch preferences could not be saved. The previous preference was "
+"preserved."
+msgstr "تعذر حفظ تفضيلات ساعة الإيقاف. تم الاحتفاظ بالتفضيل السابق."
+
+msgid "Stopwatch reset."
+msgstr "تم تصفير ساعة الإيقاف."
+
+msgid "Stopwatch results copied."
+msgstr "تم نسخ نتائج ساعة الإيقاف."
+
+msgid "Stopwatch results could not be copied."
+msgstr "تعذر نسخ نتائج ساعة الإيقاف."
+
+msgid "Stopwatch resumed."
+msgstr "تم الاستئناف."
+
+msgid "Stopwatch started."
+msgstr "بدأت ساعة الإيقاف."
+
+msgid "Stopwatch tones are unavailable during an Awqati alert."
+msgstr "نغمات ساعة الإيقاف غير متاحة أثناء تنبيه من أوقاتي."
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:67
 msgid "Subhan Allah"
 msgstr "سبحان الله"
 
+msgid "Subhan Allah."
+msgstr "سبحان الله."
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Sudan"
 msgstr "السودان"
 
+msgid "Sunday"
+msgstr "الأحد"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:42
 msgid "Sunrise"
 msgstr "الشروق"
+
+#, python-brace-format
+msgid "Sunrise is approaching, with {duration} remaining."
+msgstr "اقترب وقت الشروق، فقد بقي عليه {duration}."
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Suriname"
@@ -3462,6 +4692,12 @@ msgstr "طاجيكستان"
 msgid "Tanzania"
 msgstr "تنزانيا"
 
+msgid "Ten minutes"
+msgstr "عشر دقائق"
+
+msgid "Test sound"
+msgstr "تجربة الصوت"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Thailand"
 msgstr "تايلاند"
@@ -3474,18 +4710,145 @@ msgstr "يجب أن يسبق تنبيه الإقامة موعد الإقامة."
 msgid "The Netherlands"
 msgstr "هولندا"
 
+msgid ""
+"The Wikipedia section could not be read completely. No partial "
+"information will be presented."
+msgstr "تعذرت قراءة قسم ويكيبيديا كاملًا. لن تُعرض معلومات ناقصة."
+
+msgid ""
+"The Windows location provider could not obtain a current location. Your "
+"previous location was not changed."
+msgstr "تعذر على مزود الموقع في Windows تحديد موقع حالي. لم يتغير موقعك السابق."
+
+msgid "The alarm could not be saved. Existing data has been preserved."
+msgstr "تعذر حفظ المنبه. تم الاحتفاظ بالبيانات السابقة"
+
+msgid "The automatic clock alert has been disabled."
+msgstr "تم تعطيل التنبيه التلقائي للساعة."
+
+msgid "The automatic clock alert has been enabled."
+msgstr "تم تفعيل التنبيه التلقائي للساعة."
+
+msgid ""
+"The calculation method could not be saved. Your previous settings were "
+"preserved."
+msgstr "تعذر حفظ طريقة الحساب. احتُفظ بإعداداتك السابقة."
+
+msgid ""
+"The changes were saved, but the alarm schedule could not be updated. "
+"Restart NVDA before relying on the changed alarms."
+msgstr ""
+"تم حفظ التغييرات، لكن تعذر تحديث جدول المنبهات. أعد تشغيل NVDA قبل "
+"الاعتماد على المنبهات المعدلة."
+
+msgid "The city list could not be saved. The previous list was preserved."
+msgstr "تعذر حفظ قائمة المدن. تم الاحتفاظ بالقائمة السابقة."
+
+msgid "The city time is unavailable. Existing data were preserved."
+msgstr "تعذر حساب وقت المدينة. تم الاحتفاظ بالبيانات السابقة."
+
+msgid ""
+"The countdown change could not be saved or is not valid for its current "
+"state."
+msgstr "تعذر حفظ التغيير أو تنفيذه في الحالة الحالية للمؤقت."
+
+#, python-brace-format
+msgid "The current prayer is {name}; it began {duration} ago."
+msgstr "الصلاة الحالية هي {name}؛ وقد دخلَ وقتُها قبل {duration}."
+
+#, python-brace-format
+msgid "The current prayer is {name}; it began {minutes} minutes ago."
+msgstr "الصلاة الحالية هي {name}؛ بدأت قبل {minutes} دقيقة."
+
 #: addon/globalPlugins/awqati/nvda_adapter/ui.py:240
 msgid "The detected location is ready. Choose OK or Apply to save it."
 msgstr "الموقع المكتشف جاهز. اختر موافق أو تطبيق لحفظه."
+
+msgid "The following prayer times differ by more than two minutes:"
+msgstr "تختلف المواقيت التالية بأكثر من دقيقتين:"
+
+msgid "The last third of the night has begun."
+msgstr "دخل وقت الثلث الأخير من الليل."
+
+#, python-brace-format
+msgid "The last third of the night is approaching, with {duration} remaining."
+msgstr "اقترب دخول وقت الثلث الأخير من الليل، فقد بقي عليه {duration}."
+
+#, python-brace-format
+msgid "The middle of the night is approaching, with {duration} remaining."
+msgstr "اقترب وقت انتصاف الليل، فقد بقي عليه {duration}."
+
+#, python-brace-format
+msgid "The next prayer is {name} at {time}; in {duration}."
+msgstr "الصلاة القادمة هي {name} عند {time}؛ أي بعد {duration}."
+
+#, python-brace-format
+msgid "The next prayer is {name} at {time}; in {minutes} minutes."
+msgstr "الصلاة القادمة هي {name} عند {time}؛ بقي عليها {minutes} دقيقة."
+
+#, python-brace-format
+msgid "The next time is {name} at {time}; in {duration}."
+msgstr "الوقت القادم هو {name} عند {time}؛ أي بعد {duration}."
+
+#, python-brace-format
+msgid "The next time is {name} at {time}; in {minutes} minutes."
+msgstr "الوقت القادم هو {name} عند {time}؛ بقي عليه {minutes} دقيقة."
+
+msgid ""
+"The operation failed. Your existing local data and settings were not "
+"changed."
+msgstr "فشلت العملية. لم تتغير بياناتك المحلية الحالية ولا إعداداتك."
+
+msgid "The operation was cancelled."
+msgstr "أُلغيت العملية."
+
+msgid ""
+"The pending snooze could not be cancelled. No successful stop was "
+"recorded."
+msgstr "تعذر إلغاء الغفوة المعلقة. لم يُسجل نجاح الإيقاف."
 
 msgid ""
 "The preview could not be prepared. Check the selected settings and try "
 "again."
 msgstr "تعذر إعداد تجربة النطق. تحقق من الإعدادات المختارة ثم حاول مرة أخرى."
 
+#, python-brace-format
+msgid "The previous prayer was {name} at {time}; {duration} ago."
+msgstr "الصلاة السابقة كانت {name} عند {time}؛ أي قبل {duration}."
+
+#, python-brace-format
+msgid "The previous prayer was {name} at {time}; {minutes} minutes ago."
+msgstr "الصلاة السابقة كانت {name} عند {time}؛ قبل {minutes} دقيقة."
+
+msgid "The previous snooze expired."
+msgstr "انتهت صلاحية الغفوة السابقة."
+
+#, python-brace-format
+msgid "The previous time was {name} at {time}; {duration} ago."
+msgstr "الوقت السابق كان {name} عند {time}؛ أي قبل {duration}."
+
+#, python-brace-format
+msgid "The previous time was {name} at {time}; {minutes} minutes ago."
+msgstr "الوقت السابق كان {name} عند {time}؛ قبل {minutes} دقيقة."
+
+#, python-brace-format
+msgid "The primary calendar is now {calendar}."
+msgstr "التقويم الأساسي الآن هو {calendar}."
+
+msgid ""
+"The project data update channel has not been configured. Your current "
+"local data remains available."
+msgstr "لم تُهيأ قناة تحديث بيانات المشروع. ستبقى بياناتك المحلية الحالية متاحة."
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:246
 msgid "The selected sound could not be played."
 msgstr "تعذر تشغيل الصوت المحدد."
+
+msgid "The snooze could not be saved. The alarm has not been postponed."
+msgstr "تعذر حفظ الغفوة. لن يتم تأجيل المنبه"
+
+msgid "The sound file could not be loaded. Choose a valid PCM WAV file."
+msgstr "تعذر تحميل الملف الصوتي. اختر ملف WAV صالحًا بترميز PCM."
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:205
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:232
@@ -3494,6 +4857,75 @@ msgid ""
 "file."
 msgstr "تعذر اختيار الملف الصوتي. تحقق من إمكانية الوصول إليه ومن أنه بصيغة WAV."
 
+msgid "The stopwatch change could not be saved. The previous state was preserved."
+msgstr "تعذر حفظ التغيير في ساعة الإيقاف. تم الاحتفاظ بالحالة السابقة."
+
+msgid "The stopwatch has not started yet."
+msgstr "ساعة الإيقاف لم تبدأ بعد."
+
+msgid "The stopwatch has not started."
+msgstr "لم تبدأ ساعة الإيقاف."
+
+msgid ""
+"The stopwatch was restored paused at its last saved value. Time while "
+"NVDA was closed was not added."
+msgstr ""
+"استُعيدت ساعة الإيقاف متوقفة مؤقتًا عند آخر قيمة محفوظة. لم تُضف مدة "
+"إغلاق NVDA."
+
+msgid "The sun has risen."
+msgstr "أشرقت الشمس."
+
+#, python-brace-format
+msgid "The time for {prayer} prayer is approaching, with {duration} remaining."
+msgstr "اقترب دخول وقت صلاة {prayer}، فقد بقي عليه {duration}."
+
+msgid "The timer duration must be greater than zero."
+msgstr "يجب أن تكون مدة المؤقت أكبر من صفر."
+
+msgid "The update could not be verified. The previous data were retained."
+msgstr "تعذر التحقق من سلامة التحديث. تم الاحتفاظ بالبيانات السابقة"
+
+msgid "There are no countdown timers."
+msgstr "لا توجد مؤقتات."
+
+#, python-brace-format
+msgid "There are {duration} until the estimated Iqama for {prayer} prayer."
+msgstr "بقي على إقامة صلاة {prayer} {duration}."
+
+msgid "There is no current personal alarm to snooze."
+msgstr "لا يوجد منبه جارٍ لتأجيله"
+
+msgid "There is no pending alert for this timer."
+msgstr "لا يوجد تنبيه جارٍ أو معلق لهذا المؤقت."
+
+msgid "There is no ringing timer currently."
+msgstr "لا يوجد رنين حاليًا"
+
+msgid "There is no second city."
+msgstr "لا توجد مدينة ثانية"
+
+msgid "There is no third city."
+msgstr "لا توجد مدينة ثالثة"
+
+msgid "Thirty minutes"
+msgstr "ثلاثون دقيقة"
+
+msgid "Thirty minutes after a preposition"
+msgstr "ثلاثين دقيقة"
+
+msgid "This Awqati command is unavailable until a valid location is assigned."
+msgstr "هذا الأمر غير متاح حتى يتم تعيين موقع صالح."
+
+msgid "This alarm needs state recovery before automatic playback."
+msgstr "تحتاج حالة هذا المنبه إلى الاسترداد قبل تشغيله تلقائيًا."
+
+msgid "This command will be available in Awqati task 5.3."
+msgstr "ستتوفر وظيفة هذا الأمر في المهمة 5.3 من أوقاتي."
+
+msgid "This data update requires a newer version of Awqati. No data were changed."
+msgstr "يتطلب تحديث البيانات هذا إصدارًا أحدث من أوقاتي. لم تتغير البيانات."
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:633
 msgid "This value is outside the allowed range."
 msgstr "هذه القيمة خارج النطاق المسموح."
@@ -3501,6 +4933,9 @@ msgstr "هذه القيمة خارج النطاق المسموح."
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:453
 msgid "Three quarters past"
 msgstr "الربع الثالث"
+
+msgid "Thursday"
+msgstr "الخميس"
 
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:414
 msgid "Time correction, minutes:"
@@ -3514,6 +4949,12 @@ msgstr "الوقت المراد ضبطه"
 msgid "Time to configure:"
 msgstr "الوقت المراد ضبطه:"
 
+msgid "Time tools"
+msgstr "أدوات الوقت"
+
+msgid "Time tools:"
+msgstr "أدوات الوقت:"
+
 msgid "Time zone"
 msgstr "المنطقة الزمنية"
 
@@ -3521,9 +4962,94 @@ msgstr "المنطقة الزمنية"
 msgid "Time zone:"
 msgstr "المنطقة الزمنية:"
 
+msgid "Timer name"
+msgstr "اسم المؤقت"
+
+#, python-brace-format
+msgid "Timer {name} cancelled."
+msgstr "تم إلغاء مؤقت {name}."
+
+#, python-brace-format
+msgid "Timer {name} finished {time} ago."
+msgstr "انتهى مؤقت {name} منذ {time}."
+
+#, python-brace-format
+msgid "Timer {name} paused."
+msgstr "تم إيقاف مؤقت {name} مؤقتًا."
+
+#, python-brace-format
+msgid "Timer {name} restarted."
+msgstr "تمت إعادة تشغيل مؤقت {name}."
+
+#, python-brace-format
+msgid "Timer {name} resumed."
+msgstr "تم استئناف مؤقت {name}."
+
+#, python-brace-format
+msgid "Timer {name} started."
+msgstr "بدأ مؤقت {name}."
+
+#, python-brace-format
+msgid "Timer {number}"
+msgstr "مؤقت {number}"
+
+msgid "Timers"
+msgstr "المؤقتات"
+
+msgid "Timers list"
+msgstr "قائمة المؤقتات"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Timor Leste"
 msgstr "تيمور - ليشتي"
+
+msgid "Today's prayer times"
+msgstr "مواقيت اليوم"
+
+msgid "Today's prayer times:"
+msgstr "مواقيت اليوم:"
+
+msgid "Toggle all automatic Awqati alerts"
+msgstr "التبديل بين تفعيل وتعطيل جميع التنبيهات التلقائية في أوقاتي"
+
+msgid "Toggle all automatic alerts."
+msgstr "التبديل بين تفعيل وتعطيل جميع التنبيهات التلقائية."
+
+msgid "Toggle dhikr alerts"
+msgstr "التبديل بين تفعيل وتعطيل تنبيهات الأذكار"
+
+msgid "Toggle dhikr alerts."
+msgstr "التبديل بين تفعيل وتعطيل تنبيهات الأذكار."
+
+msgid "Toggle prayer-time alerts"
+msgstr "التبديل بين تفعيل وتعطيل تنبيهات المواقيت"
+
+msgid "Toggle prayer-time alerts."
+msgstr "التبديل بين تفعيل وتعطيل تنبيهات المواقيت."
+
+msgid "Toggle quiet hours"
+msgstr "التبديل بين تفعيل وتعطيل ساعات الهدوء"
+
+msgid "Toggle quiet hours."
+msgstr "التبديل بين تفعيل وتعطيل ساعات الهدوء."
+
+msgid "Toggle recurring dhikr"
+msgstr "التبديل بين تفعيل وتعطيل الأذكار الدورية"
+
+msgid "Toggle recurring dhikr."
+msgstr "التبديل بين تفعيل وتعطيل الأذكار الدورية."
+
+msgid "Toggle the automatic clock alert"
+msgstr "التبديل بين تفعيل وتعطيل التنبيه التلقائي للساعة"
+
+msgid "Toggle the automatic clock alert."
+msgstr "التبديل بين تفعيل وتعطيل التنبيه التلقائي للساعة."
+
+msgid "Toggle the primary calendar between Lunar Hijri and Gregorian"
+msgstr "التبديل بين الهجري القمري والميلادي كتقويم أساسي"
+
+msgid "Toggle the primary calendar between Lunar Hijri and Gregorian."
+msgstr "التبديل بين الهجري القمري والميلادي كتقويم أساسي."
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Togo"
@@ -3533,13 +5059,32 @@ msgstr "توغو"
 msgid "Tokelau"
 msgstr "توكيلاو"
 
+msgid "Tones and speech"
+msgstr "نغمات ونطق"
+
+msgid "Tones only"
+msgstr "نغمات فقط"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Tonga"
 msgstr "تونغا"
 
+msgid "Total alerts (1-100)"
+msgstr "العدد الإجمالي للتنبيهات (من 1 إلى 100)"
+
+msgid "Total elapsed"
+msgstr "الزمن الإجمالي"
+
+#, python-brace-format
+msgid "Total elapsed: {time}."
+msgstr "الزمن المنقضي: {time}."
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Trinidad and Tobago"
 msgstr "ترينيداد وتوباغو"
+
+msgid "Tuesday"
+msgstr "الثلاثاء"
 
 #: addon/globalPlugins/awqati/data/calculation_methods/methods.json:1
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
@@ -3565,6 +5110,9 @@ msgstr "جزر توركس وكايكوس"
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Tuvalu"
 msgstr "توفالو"
+
+msgid "Two minutes"
+msgstr "دقيقتان"
 
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "U.S. Virgin Islands"
@@ -3647,9 +5195,24 @@ msgstr "توقيت منطقة غير معروفة (UTC)"
 msgid "University of Islamic Sciences, Karachi"
 msgstr "جامعة العلوم الإسلامية بكراتشي"
 
+msgid "Unlimited snoozes"
+msgstr "دون حد"
+
+msgid "Update data"
+msgstr "تحديث البيانات"
+
+msgid "Update data automatically"
+msgstr "تحديث البيانات تلقائيًا"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Uruguay"
 msgstr "أورغواي"
+
+msgid "Use default sound"
+msgstr "العودة إلى الصوت الافتراضي"
+
+msgid "Use default timer sound"
+msgstr "استخدام صوت المؤقت الافتراضي"
 
 #: addon/globalPlugins/awqati/nvda_adapter/ui.py:289
 msgid "Use time in 24-hour HH:MM format"
@@ -3671,6 +5234,18 @@ msgstr "الفاتيكان"
 msgid "Venezuela"
 msgstr "فنزويلا"
 
+msgid "Verify today's prayer times online"
+msgstr "التحقق من مواقيت اليوم عبر الإنترنت"
+
+msgid "Verify today's prayer times online."
+msgstr "يتحقق من مواقيت اليوم عبر الإنترنت."
+
+msgid "Verify today's prayer times online..."
+msgstr "التحقق من مواقيت اليوم عبر الإنترنت..."
+
+msgid "Verifying today's prayer times online"
+msgstr "التحقق من مواقيت اليوم عبر الإنترنت"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Vietnam"
 msgstr "فيتنام"
@@ -3685,6 +5260,20 @@ msgstr "توقيت البرتغال (لشبونة)"
 msgid "Wait for the sound file selection to finish, then try again."
 msgstr "انتظر حتى يكتمل اختيار الملف الصوتي، ثم حاول مجددًا."
 
+msgid "Wait for the sound file to finish loading."
+msgstr "انتظر حتى يكتمل تحميل الملف الصوتي."
+
+msgid "Wait until the current alert finishes before previewing a sound."
+msgstr "انتظر انتهاء التنبيه الجاري قبل تجربة الصوت."
+
+#, python-brace-format
+msgid "Waiting for {name}; {duration} remain."
+msgstr "في انتظار {name}؛ بقي {duration}."
+
+#, python-brace-format
+msgid "Waiting for {name}; {minutes} minutes remain."
+msgstr "وقت انتظار {name}؛ بقي {minutes} دقيقة."
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Wallis and Futuna"
 msgstr "جزر والس وفوتونا"
@@ -3693,15 +5282,41 @@ msgstr "جزر والس وفوتونا"
 msgid "Wave audio files (*.wav)|*.wav"
 msgstr "ملفات الصوت WAV (*.wav)|*.wav"
 
+msgid "Weather"
+msgstr "الطقس"
+
+msgid "Wednesday"
+msgstr "الأربعاء"
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Western Sahara"
 msgstr "الصحراء الغربية"
+
+msgid "Wikipedia could not process the request. Try again later."
+msgstr "تعذرت معالجة الطلب في ويكيبيديا. حاول لاحقًا."
+
+msgid "Wikipedia denied access to the information."
+msgstr "رفضت ويكيبيديا الوصول إلى المعلومات."
+
+msgid "Wikipedia returned an invalid response. Try again later."
+msgstr "أعادت ويكيبيديا استجابة غير صالحة. حاول لاحقًا."
+
+msgid "Wikipedia's request limit was reached. Try again later."
+msgstr "تم تجاوز حد طلبات ويكيبيديا. حاول لاحقًا."
+
+msgid "Wikipedia's server could not provide the information. Try again later."
+msgstr "تعذر جلب المعلومات بسبب عطل في خادم ويكيبيديا. حاول لاحقًا."
 
 #: addon/globalPlugins/awqati/nvda_adapter/ui.py:59
 msgid ""
 "Windows Location is unavailable. You can still choose a city or enter a "
 "custom location."
 msgstr "خدمة الموقع في Windows غير متاحة. يمكنك اختيار مدينة أو إدخال موقع مخصص."
+
+msgid ""
+"Windows has no available location provider. You can still choose a city "
+"or enter a custom location."
+msgstr "لا يوجد مزود موقع متاح في Windows. يمكنك اختيار مدينة أو إدخال موقع مخصص."
 
 #: addon/globalPlugins/awqati/nvda_adapter/ui.py:58
 msgid ""
@@ -3715,13 +5330,38 @@ msgid ""
 "changed."
 msgstr "أعاد Windows إحداثيات غير صالحة. لم يتغير الموقع السابق."
 
+msgid "Windows version"
+msgstr "إصدار Windows"
+
 #: addon/globalPlugins/awqati/nvda_adapter/settings_panel.py:475
 msgid "Words"
 msgstr "كلمات"
 
+msgid "World clock"
+msgstr "الساعة العالمية"
+
+msgid "World clock data are up to date."
+msgstr "بيانات الساعة العالمية محدثة"
+
+msgid "World clock data could not be read. Existing files were preserved."
+msgstr "تعذرت قراءة بيانات الساعة العالمية. تم الاحتفاظ بالملفات السابقة."
+
+msgid "World clock data updated."
+msgstr "تم تحديث بيانات الساعة العالمية"
+
+#, python-brace-format
+msgid "World clock data: {cities}; IANA {iana}; CLDR {cldr}"
+msgstr "بيانات الساعة العالمية: {cities}؛ IANA {iana}؛ CLDR {cldr}"
+
+msgid "World clock update settings could not be saved."
+msgstr "تعذر حفظ إعدادات تحديث الساعة العالمية."
+
 #: addon/globalPlugins/awqati/data/locations/metadata.json:1
 msgid "Yemen"
 msgstr "اليمن"
+
+msgid "Yes"
+msgstr "نعم"
 
 #, python-brace-format
 msgid "Your location was detected: {city}, {country}. Use this location?"
@@ -3746,603 +5386,156 @@ msgstr "زيمبابوي"
 msgid "Zulu"
 msgstr "توقيت منطقة غير معروفة (UTC)"
 
-msgid "Alert after Asr, minutes"
-msgstr "التنبيه بعد العصر بالدقائق"
-
-msgid "Alert after Asr:"
-msgstr "التنبيه بعد العصر بالدقائق:"
-
-msgid "Alert after Fajr, minutes"
-msgstr "التنبيه بعد الفجر بالدقائق"
-
-msgid "Alert after Fajr:"
-msgstr "التنبيه بعد الفجر بالدقائق:"
-
-msgid "Alert after Maghrib, minutes"
-msgstr "التنبيه بعد المغرب بالدقائق"
-
-msgid "Alert after Maghrib:"
-msgstr "التنبيه بعد المغرب بالدقائق:"
-
-msgid "Alert after sunrise, minutes"
-msgstr "التنبيه بعد الشروق بالدقائق"
-
-msgid "Alert after sunrise:"
-msgstr "التنبيه بعد الشروق بالدقائق:"
-
-msgid "Alert after the event, minutes"
-msgstr "التنبيه بعد دخول الوقت بالدقائق"
-
-msgid "Alert after the event:"
-msgstr "التنبيه بعد دخول الوقت بالدقائق:"
-
-msgid "Alert before Maghrib, minutes"
-msgstr "التنبيه قبل المغرب بالدقائق"
-
-msgid "Alert before Maghrib:"
-msgstr "التنبيه قبل المغرب بالدقائق:"
-
-msgid "Alert before sunrise, minutes"
-msgstr "التنبيه قبل الشروق بالدقائق"
-
-msgid "Alert before sunrise:"
-msgstr "التنبيه قبل الشروق بالدقائق:"
-
-msgid "Alert before the event, minutes"
-msgstr "التنبيه قبل دخول الوقت بالدقائق"
-
-msgid "Alert before the event:"
-msgstr "التنبيه قبل دخول الوقت بالدقائق:"
-
-msgid "The Windows location provider could not obtain a current location. Your previous location was not changed."
-msgstr "تعذر على مزود الموقع في Windows تحديد موقع حالي. لم يتغير موقعك السابق."
-
-msgid "Windows has no available location provider. You can still choose a city or enter a custom location."
-msgstr "لا يوجد مزود موقع متاح في Windows. يمكنك اختيار مدينة أو إدخال موقع مخصص."
-
-msgid "Awqati development build with serialized alert audio and speech presentation."
-msgstr "نسخة تطويرية من أوقاتي مع عرض متسلسل لتنبيهات الصوت والنطق."
-
-msgid "This Awqati command is unavailable until a valid location is assigned."
-msgstr "هذا الأمر غير متاح حتى يتم تعيين موقع صالح."
-
-msgid "Open Awqati settings"
-msgstr "فتح إعدادات أوقاتي"
-
-msgid "Announce current, previous, or today's prayer times"
-msgstr "الإعلان عن الوقت الحالي أو السابق أو مواقيت اليوم"
-
-msgid "Toggle all automatic Awqati alerts"
-msgstr "التبديل بين تفعيل وتعطيل جميع التنبيهات التلقائية في أوقاتي"
-
-msgid "All automatic Awqati alerts have been enabled."
-msgstr "تم تفعيل جميع التنبيهات التلقائية."
-
-msgid "All automatic Awqati alerts have been disabled."
-msgstr "تم تعطيل جميع التنبيهات التلقائية."
-
-msgid "Announce time, primary date, or detailed daily information"
-msgstr "الإعلان عن الوقت أو التاريخ الأساسي أو معلومات اليوم التفصيلية"
-
-msgid "Repeat the last Awqati alert"
-msgstr "إعادة آخر تنبيه صادر من أوقاتي"
-
-msgid "No Awqati alert has been presented yet."
-msgstr "لم يتم عرض أي تنبيه حتى الآن."
-
-msgid "Announce Awqati alert status"
-msgstr "الإعلان عن حالة تنبيهات أوقاتي"
-
-msgid "Announce Ghurubi time or Qibla direction"
-msgstr "الإعلان عن التوقيت الغروبي أو اتجاه القبلة"
-
-msgid "Announce Lunar Hijri, Saudi Solar Hijri, or Arabian calendar summary"
-msgstr "الإعلان عن الهجري القمري أو الهجري الشمسي السعودي أو ملخص التقويم العربي"
-
-msgid "Announce Afghan or Persian Solar Hijri date"
-msgstr "الإعلان عن التاريخ الهجري الشمسي الأفغاني أو الفارسي"
-
-msgid "Announce the Gregorian date"
-msgstr "الإعلان عن التاريخ الميلادي"
-
-msgid "Toggle the primary calendar between Lunar Hijri and Gregorian"
-msgstr "التبديل بين الهجري القمري والميلادي كتقويم أساسي"
+#, python-brace-format
+msgid "active; current={current}; waiting={waiting}"
+msgstr "نشط؛ الجاري={current}؛ المنتظر={waiting}"
 
 #, python-brace-format
-msgid "The primary calendar is now {calendar}."
-msgstr "التقويم الأساسي الآن هو {calendar}."
+msgid "all={all}; prayer={prayer}; clock={clock}; dhikr={dhikr}"
+msgstr "الكل={all}؛ المواقيت={prayer}؛ الساعة={clock}؛ الأذكار={dhikr}"
 
-msgid "Announce Zawali time"
-msgstr "الإعلان عن التوقيت الزوالي"
+msgid "arabianCalendarDataVersion"
+msgstr "إصدار بيانات التقويم العربي"
 
-msgid "Toggle recurring dhikr"
-msgstr "التبديل بين تفعيل وتعطيل الأذكار الدورية"
-
-msgid "Recurring dhikr has been enabled."
-msgstr "تم تفعيل الأذكار الدورية."
-
-msgid "Recurring dhikr has been disabled."
-msgstr "تم تعطيل الأذكار الدورية."
-
-msgid "Toggle dhikr alerts"
-msgstr "التبديل بين تفعيل وتعطيل تنبيهات الأذكار"
-
-msgid "Dhikr alerts have been enabled."
-msgstr "تم تفعيل تنبيهات الأذكار."
-
-msgid "Dhikr alerts have been disabled."
-msgstr "تم تعطيل تنبيهات الأذكار."
-
-msgid "Toggle prayer-time alerts"
-msgstr "التبديل بين تفعيل وتعطيل تنبيهات المواقيت"
-
-msgid "Prayer-time alerts have been enabled."
-msgstr "تم تفعيل تنبيهات المواقيت."
-
-msgid "Prayer-time alerts have been disabled."
-msgstr "تم تعطيل تنبيهات المواقيت."
-
-msgid "Toggle the automatic clock alert"
-msgstr "التبديل بين تفعيل وتعطيل التنبيه التلقائي للساعة"
-
-msgid "The automatic clock alert has been enabled."
-msgstr "تم تفعيل التنبيه التلقائي للساعة."
-
-msgid "The automatic clock alert has been disabled."
-msgstr "تم تعطيل التنبيه التلقائي للساعة."
-
-msgid "Toggle quiet hours"
-msgstr "التبديل بين تفعيل وتعطيل ساعات الهدوء"
-
-msgid "Quiet hours have been enabled."
-msgstr "تم تفعيل ساعات الهدوء."
-
-msgid "Quiet hours have been disabled."
-msgstr "تم تعطيل ساعات الهدوء."
-
-msgid "Show detailed daily information"
-msgstr "عرض معلومات اليوم"
-
-msgid "Daily information"
-msgstr "معلومات اليوم"
-
-msgid "Show today's prayer times"
-msgstr "عرض مواقيت اليوم"
-
-msgid "Today's prayer times"
-msgstr "مواقيت اليوم"
-
-msgid "Announce the assigned location"
-msgstr "الإعلان عن الموقع المعتمد"
-
-msgid "Announce detailed scientific daily information"
-msgstr "الإعلان عن معلومات اليوم الفلكية العلمية التفصيلية"
-
-msgid "Announce detailed Arabian calendar information"
-msgstr "الإعلان عن معلومات اليوم التفصيلية في التقويم العربي الفلكي"
-
-msgid "This command will be available in Awqati task 5.3."
-msgstr "ستتوفر وظيفة هذا الأمر في المهمة 5.3 من أوقاتي."
-
-msgid "Copy Awqati diagnostic information"
-msgstr "نسخ معلومات تشخيص أوقاتي"
-
-msgid "Check for Awqati data updates"
-msgstr "فحص تحديثات بيانات أوقاتي"
-
-msgid "Verify today's prayer times online"
-msgstr "التحقق من مواقيت اليوم عبر الإنترنت"
-
-msgid "Close"
-msgstr "إغلاق"
-
-msgid "Awqati development build with NVDA commands, windows and automatic alert lifecycle integration."
-msgstr "نسخة تطويرية من أوقاتي مع أوامر NVDA والنوافذ وربط دورة حياة التنبيهات التلقائية."
-
-msgid "Today's prayer times:"
-msgstr "مواقيت اليوم:"
-
-#, python-brace-format
-msgid "{name}: {time}"
-msgstr "{name}، الساعة {time}"
-
-#, python-brace-format
-msgid "Waiting for {name}; {minutes} minutes remain."
-msgstr "وقت انتظار {name}؛ بقي {minutes} دقيقة."
-
-#, python-brace-format
-msgid "The current prayer is {name}; it began {minutes} minutes ago."
-msgstr "الصلاة الحالية هي {name}؛ بدأت قبل {minutes} دقيقة."
-
-#, python-brace-format
-msgid "The next prayer is {name} at {time}; in {minutes} minutes."
-msgstr "الصلاة القادمة هي {name} عند {time}؛ بقي عليها {minutes} دقيقة."
-
-#, python-brace-format
-msgid "The next time is {name} at {time}; in {minutes} minutes."
-msgstr "الوقت القادم هو {name} عند {time}؛ بقي عليه {minutes} دقيقة."
-
-#, python-brace-format
-msgid "The previous prayer was {name} at {time}; {minutes} minutes ago."
-msgstr "الصلاة السابقة كانت {name} عند {time}؛ قبل {minutes} دقيقة."
-
-#, python-brace-format
-msgid "The previous time was {name} at {time}; {minutes} minutes ago."
-msgstr "الوقت السابق كان {name} عند {time}؛ قبل {minutes} دقيقة."
-
-msgid "enabled"
-msgstr "قيد التشغيل"
+msgid "calculationMethodDataVersion"
+msgstr "إصدار بيانات طرق الحساب"
 
 msgid "disabled"
 msgstr "قيد التعطيل"
 
+msgid "eighth"
+msgstr "الثامنة"
+
+msgid "enabled"
+msgstr "قيد التشغيل"
+
+msgid "event"
+msgstr "حدث"
+
+msgid "events"
+msgstr "حدثًا"
+
+msgid "fifth"
+msgstr "الخامسة"
+
+msgid "first"
+msgstr "الأولى"
+
+msgid "fourth"
+msgstr "الرابعة"
+
+msgid "hijriDataVersion"
+msgstr "إصدار بيانات أم القرى"
+
+msgid "locationDataVersion"
+msgstr "إصدار بيانات المواقع"
+
+msgid "ninth"
+msgstr "التاسعة"
+
+msgid "no"
+msgstr "لا"
+
+msgid "not assigned"
+msgstr "غير معيّن"
+
+msgid "observance"
+msgstr "مناسبة"
+
+msgid "observances"
+msgstr "مناسبة"
+
+msgid "people"
+msgstr "شخصية"
+
+msgid "person"
+msgstr "شخصية"
+
+msgid "second"
+msgstr "الثانية"
+
+msgid "seventh"
+msgstr "السابعة"
+
+msgid "sixth"
+msgstr "السادسة"
+
+msgid "tenth"
+msgstr "العاشرة"
+
+msgid "third"
+msgstr "الثالثة"
+
+msgid "tzDataVersion"
+msgstr "إصدار بيانات المناطق الزمنية"
+
+msgid "yes"
+msgstr "نعم"
+
 #, python-brace-format
-msgid "Alert status: all automatic alerts {all}; prayer alerts {prayer}; clock alert {clock}; dhikr alerts {dhikr}; recurring dhikr {recurring}; quiet hours {quiet}."
-msgstr "حالة التنبيهات: جميع التنبيهات التلقائية: {all}؛ تنبيهات المواقيت: {prayer}؛ تنبيه الساعة: {clock}؛ تنبيهات الأذكار: {dhikr}؛ الأذكار الدورية: {recurring}؛ ساعات الهدوء: {quiet}."
+msgid "{city} is already in your list."
+msgstr "{city} موجودة بالفعل"
 
-msgid "Open Awqati settings."
-msgstr "فتح إعدادات أوقاتي."
+#, python-brace-format
+msgid "{city}, position {position}."
+msgstr "{city}، المرتبة {position}"
 
-msgid "Press once to announce current time details, twice to announce the previous time, or three times to announce today's prayer times."
-msgstr "بالضغط عليه مرة واحدة يعلن عن تفاصيل الوقت الحالي، وبالضغط عليه مرتين يعلن عن الوقت السابق، وبالضغط عليه ثلاث مرات يعلن عن مواقيت اليوم."
-
-msgid "Toggle all automatic alerts."
-msgstr "التبديل بين تفعيل وتعطيل جميع التنبيهات التلقائية."
-
-msgid "Press once to announce the time, twice to announce the date, or three times to announce daily information."
-msgstr "بالضغط عليه مرة واحدة يعلن عن الوقت، وبالضغط عليه مرتين يعلن عن التاريخ، وبالضغط عليه ثلاث مرات يعلن عن معلومات اليوم."
-
-msgid "Repeat the last spoken alert."
-msgstr "إعادة آخر تنبيه تم نطقه."
-
-msgid "Announce alert status."
-msgstr "الإعلان عن حالة التنبيهات."
-
-msgid "Press once to announce Ghurubi time, twice to announce the Qibla direction, or three times to announce the assigned location."
-msgstr "بالضغط عليه مرة واحدة يعلن عن التوقيت الغروبي، وبالضغط عليه مرتين يعلن عن اتجاه القبلة، وبالضغط عليه ثلاث مرات يعلن عن الموقع المعتمد."
-
-msgid "Press once to announce the Lunar Hijri date, twice to announce the Saudi Solar Hijri date, or three times to announce the Arabian calendar summary."
-msgstr "بالضغط عليه مرة واحدة يعلن عن التاريخ الهجري القمري، وبالضغط عليه مرتين يعلن عن التاريخ الهجري الشمسي السعودي، وبالضغط عليه ثلاث مرات يعلن عن ملخص اليوم في التقويم العربي."
-
-msgid "Press once to announce the Afghan Solar Hijri date or twice to announce the Persian Solar Hijri date."
-msgstr "بالضغط عليه مرة واحدة يعلن عن التاريخ الهجري الشمسي الأفغاني، وبالضغط عليه مرتين يعلن عن التاريخ الهجري الشمسي الفارسي."
-
-msgid "Press once to announce astronomical daily information, twice to announce Arabian calendar daily information, or three times to open the daily information window."
-msgstr "بالضغط عليه مرة واحدة يعلن عن معلومات اليوم الفلكية، وبالضغط عليه مرتين يعلن عن معلومات اليوم في التقويم العربي، وبالضغط عليه ثلاث مرات يفتح نافذة معلومات اليوم."
-
-msgid "Press once to verify today's prayer times online or twice to open today's prayer times window."
-msgstr "بالضغط عليه مرة واحدة يتحقق من مواقيت اليوم عبر الإنترنت، وبالضغط عليه مرتين يفتح نافذة مواقيت اليوم."
-
-msgid "Announce the Gregorian date."
-msgstr "الإعلان عن التاريخ الميلادي."
-
-msgid "Toggle the primary calendar between Lunar Hijri and Gregorian."
-msgstr "التبديل بين الهجري القمري والميلادي كتقويم أساسي."
-
-msgid "Announce Zawali time."
-msgstr "الإعلان عن التوقيت الزوالي."
-
-msgid "Toggle recurring dhikr."
-msgstr "التبديل بين تفعيل وتعطيل الأذكار الدورية."
-
-msgid "Toggle dhikr alerts."
-msgstr "التبديل بين تفعيل وتعطيل تنبيهات الأذكار."
-
-msgid "Toggle prayer-time alerts."
-msgstr "التبديل بين تفعيل وتعطيل تنبيهات المواقيت."
-
-msgid "Toggle the automatic clock alert."
-msgstr "التبديل بين تفعيل وتعطيل التنبيه التلقائي للساعة."
-
-msgid "Toggle quiet hours."
-msgstr "التبديل بين تفعيل وتعطيل ساعات الهدوء."
-
-msgid "Copy diagnostic information."
-msgstr "نسخ معلومات التشخيص."
-
-msgid "Check for data updates."
-msgstr "فحص تحديثات البيانات."
-msgid "1 hour"
-msgstr "ساعة"
-
-msgid "2 hours"
-msgstr "ساعتان"
+#, python-brace-format
+msgid "{count} hour"
+msgstr "{count} ساعة"
 
 #, python-brace-format
 msgid "{count} hours"
 msgstr "{count} ساعات"
 
 #, python-brace-format
-msgid "{count} hour"
-msgstr "{count} ساعة"
-
-msgid "1 minute"
-msgstr "دقيقة"
-
-msgid "2 minutes"
-msgstr "دقيقتان"
+msgid "{count} minute"
+msgstr "{count} دقيقة"
 
 #, python-brace-format
 msgid "{count} minutes"
 msgstr "{count} دقائق"
 
 #, python-brace-format
-msgid "{count} minute"
-msgstr "{count} دقيقة"
-
-#, python-brace-format
 msgid "{hours} {minutes}"
 msgstr "{hours} و{minutes}"
 
 #, python-brace-format
-msgid "Waiting for {name}; {duration} remain."
-msgstr "في انتظار {name}؛ بقي {duration}."
+msgid "{name}, {state}. Remaining: {time}. Original duration: {duration}."
+msgstr "{name}، {state}. المتبقي: {time}. المدة الأصلية: {duration}."
 
 #, python-brace-format
-msgid "The current prayer is {name}; it began {duration} ago."
-msgstr "الصلاة الحالية هي {name}؛ وقد دخلَ وقتُها قبل {duration}."
+msgid "{name}, {state}. Timers: {count}."
+msgstr "{name}، {state}. عدد المؤقتات: {count}."
 
 #, python-brace-format
-msgid "The next prayer is {name} at {time}; in {duration}."
-msgstr "الصلاة القادمة هي {name} عند {time}؛ أي بعد {duration}."
+msgid "{name}. Remaining: {time}."
+msgstr "{name}. المتبقي: {time}."
 
 #, python-brace-format
-msgid "The next time is {name} at {time}; in {duration}."
-msgstr "الوقت القادم هو {name} عند {time}؛ أي بعد {duration}."
+msgid "{name}: {time}"
+msgstr "{name}، الساعة {time}"
 
 #, python-brace-format
-msgid "The previous prayer was {name} at {time}; {duration} ago."
-msgstr "الصلاة السابقة كانت {name} عند {time}؛ أي قبل {duration}."
+msgid "{name}; {hour:02d}:{minute:02d}; {days}; {status}; next: {next}"
+msgstr "{name}؛ {hour:02d}:{minute:02d}؛ {days}؛ {status}؛ الموعد القادم: {next}"
 
 #, python-brace-format
-msgid "The previous time was {name} at {time}; {duration} ago."
-msgstr "الوقت السابق كان {name} عند {time}؛ أي قبل {duration}."
-msgid "Duration formatting language: English"
-msgstr "لغة تنسيق المدة: العربية"
-
-msgid "2 hours after a preposition"
-msgstr "ساعتين"
-
-msgid "2 minutes after a preposition"
-msgstr "دقيقتين"
-
-msgid "Subhan Allah."
-msgstr "سبحان الله."
-
-msgid "Alhamdulillah."
-msgstr "الحمد لله."
-
-msgid "La ilaha illa Allah."
-msgstr "لا إله إلا الله."
-
-msgid "Allahu Akbar."
-msgstr "الله أكبر."
-
-msgid "La hawla wa la quwwata illa billah."
-msgstr "لا حول ولا قوة إلا بالله."
-
-msgid "Astaghfirullah."
-msgstr "أستغفر الله."
-
-msgid "Blessings upon the Prophet."
-msgstr "الصلاة على النبي."
-
-msgid "Remember Allah, and He will remember you."
-msgstr "اذكر الله يذكرك."
-
-msgid "Do not forget to remember Allah."
-msgstr "لا تنس ذكر الله."
-
-msgid "Do not forget your daily Wird."
-msgstr "لا تنس وردك اليومي."
-
-msgid "No location has been assigned. Set it in Awqati settings, then try again."
-msgstr "لم يتم تعيين الموقع. فضلًا عيّنه من إعدادات أوقاتي ثم حاول مرة أخرى."
-
-msgid "Accessible local prayer times, clocks, calendars, Qibla, daily information, alerts and adhkar in Arabic and English."
-msgstr "مواقيت صلاة وساعات وتقاويم وقبلة ومعلومات يومية وتنبيهات وأذكار محلية قابلة للوصول بالعربية والإنجليزية."
-
-#, python-brace-format
-msgid "The time for {prayer} prayer is approaching, with {duration} remaining."
-msgstr "اقترب دخول وقت صلاة {prayer}، فقد بقي عليه {duration}."
-
-#, python-brace-format
-msgid "Sunrise is approaching, with {duration} remaining."
-msgstr "اقترب وقت الشروق، فقد بقي عليه {duration}."
-
-#, python-brace-format
-msgid "The middle of the night is approaching, with {duration} remaining."
-msgstr "اقترب وقت انتصاف الليل، فقد بقي عليه {duration}."
-
-#, python-brace-format
-msgid "The last third of the night is approaching, with {duration} remaining."
-msgstr "اقترب دخول وقت الثلث الأخير من الليل، فقد بقي عليه {duration}."
-
-#, python-brace-format
-msgid "It is now time for {prayer} prayer."
-msgstr "حان الآن وقت دخول صلاة {prayer}."
-
-msgid "The sun has risen."
-msgstr "أشرقت الشمس."
-
-msgid "It is the middle of the night."
-msgstr "انتصف الليل."
-
-msgid "The last third of the night has begun."
-msgstr "دخل وقت الثلث الأخير من الليل."
-
-#, python-brace-format
-msgid "There are {duration} until the estimated Iqama for {prayer} prayer."
-msgstr "بقي على إقامة صلاة {prayer} {duration}."
-
-#, python-brace-format
-msgid "It has been {duration} since sunrise."
-msgstr "مضى على شروق الشمس {duration}."
-
-#, python-brace-format
-msgid "It has been {duration} since the middle of the night."
-msgstr "مضى على انتصاف الليل {duration}."
-
-#, python-brace-format
-msgid "It has been {duration} since the last third of the night began."
-msgstr "مضى على حلول الثلث الأخير من الليل {duration}."
-
-msgid "It is time for morning adhkar."
-msgstr "حان وقت أذكار الصباح."
-
-msgid "It is time for evening adhkar."
-msgstr "حان وقت أذكار المساء."
-
-msgid "Remember the Friday hour."
-msgstr "لا تنسَ ساعة الجمعة."
-msgid "Copy diagnostic information"
-msgstr "نسخ معلومات التشخيص"
-
-msgid "Check for data updates"
-msgstr "فحص تحديثات البيانات"
-
-msgid "Verify today's prayer times online..."
-msgstr "التحقق من مواقيت اليوم عبر الإنترنت..."
-
-msgid "Awqati diagnostic information has been copied to the clipboard."
-msgstr "تم نسخ معلومات التشخيص إلى الحافظة."
-
-msgid "Could not copy Awqati diagnostic information to the clipboard."
-msgstr "تعذر نسخ معلومات التشخيص إلى الحافظة."
-
-msgid "The project data update channel has not been configured. Your current local data remains available."
-msgstr "لم تُهيأ قناة تحديث بيانات المشروع. ستبقى بياناتك المحلية الحالية متاحة."
-
-msgid "Checking for Awqati data updates"
-msgstr "فحص تحديثات بيانات أوقاتي"
-
-msgid "Checking the signed data manifest and packages..."
-msgstr "جارٍ التحقق من بيان البيانات والحزم..."
-
-msgid "Online verification sends the coordinates required for calculation and the selected calculation method to the AlAdhan Prayer Times API. Approval applies only to this NVDA session. Do you want to continue?"
-msgstr "يرسل التحقق عبر الإنترنت الإحداثيات اللازمة للحساب وطريقة الحساب المحددة إلى خدمة AlAdhan Prayer Times API. تسري الموافقة على جلسة NVDA الحالية فقط. هل تريد المتابعة؟"
-
-msgid "Awqati online prayer-time verification"
-msgstr "تحقق أوقاتي من المواقيت عبر الإنترنت"
-
-msgid "Online prayer-time verification was cancelled. No data was sent."
-msgstr "أُلغي التحقق من المواقيت عبر الإنترنت. لم تُرسل أي بيانات."
-
-msgid "Verifying today's prayer times online"
-msgstr "التحقق من مواقيت اليوم عبر الإنترنت"
-
-msgid "Contacting AlAdhan for a diagnostic comparison..."
-msgstr "جارٍ الاتصال بخدمة AlAdhan لإجراء مقارنة تشخيصية..."
-
-msgid "The operation was cancelled."
-msgstr "أُلغيت العملية."
-
-msgid "The operation failed. Your existing local data and settings were not changed."
-msgstr "فشلت العملية. لم تتغير بياناتك المحلية الحالية ولا إعداداتك."
-
-msgid "Cancelling..."
-msgstr "جارٍ الإلغاء..."
-
-msgid "Cancel"
-msgstr "إلغاء"
-
-msgid "All six online prayer times are within two minutes of Awqati's internal times."
-msgstr "المواقيت الستة عبر الإنترنت متقاربة مع مواقيت أوقاتي الداخلية بفارق لا يتجاوز دقيقتين."
-
-msgid "The following prayer times differ by more than two minutes:"
-msgstr "تختلف المواقيت التالية بأكثر من دقيقتين:"
-
-msgid "{prayer}: internal {internal}; online {online}; difference {difference} minutes."
-msgstr "{prayer}: الداخلي {internal}؛ عبر الإنترنت {online}؛ الفرق {difference} دقيقة."
-
-msgid "Online prayer-time comparison"
-msgstr "مقارنة مواقيت الصلاة عبر الإنترنت"
-
-msgid "Awqati data updates were installed safely. Restart NVDA to use them."
-msgstr "ثُبتت تحديثات البيانات بأمان. أعد تشغيل NVDA لاستخدامها."
-
-msgid "Awqati data is already up to date."
-msgstr "البيانات محدثة بالفعل."
-
-msgid "active; current={current}; waiting={waiting}"
-msgstr "نشط؛ الجاري={current}؛ المنتظر={waiting}"
-
-msgid "all={all}; prayer={prayer}; clock={clock}; dhikr={dhikr}"
-msgstr "الكل={all}؛ المواقيت={prayer}؛ الساعة={clock}؛ الأذكار={dhikr}"
-msgid "Awqati diagnostics"
-msgstr "معلومات تشخيص أوقاتي"
-
-msgid "Awqati version"
-msgstr "إصدار أوقاتي"
-
-msgid "NVDA version"
-msgstr "إصدار NVDA"
-
-msgid "Python version"
-msgstr "إصدار Python"
-
-msgid "Windows version"
-msgstr "إصدار Windows"
-
-msgid "Settings schemaVersion"
-msgstr "إصدار مخطط الإعدادات"
-
-msgid "locationDataVersion"
-msgstr "إصدار بيانات المواقع"
-
-msgid "tzDataVersion"
-msgstr "إصدار بيانات المناطق الزمنية"
-
-msgid "hijriDataVersion"
-msgstr "إصدار بيانات أم القرى"
-
-msgid "calculationMethodDataVersion"
-msgstr "إصدار بيانات طرق الحساب"
-
-msgid "arabianCalendarDataVersion"
-msgstr "إصدار بيانات التقويم العربي"
-
-msgid "Location ID"
-msgstr "معرّف الموقع"
-
-msgid "Calculation method"
-msgstr "طريقة الحساب"
-
-msgid "High-latitude rule"
-msgstr "قاعدة خطوط العرض العالية"
-
-msgid "Scheduler"
-msgstr "المجدول"
-
-msgid "Alerts"
-msgstr "التنبيهات"
-
-msgid "not assigned"
-msgstr "غير معيّن"
-
-msgid "Checking the data manifest and packages..."
-msgstr "جارٍ التحقق من بيان البيانات والحزم..."
-
-msgid "yes"
-msgstr "نعم"
-
-msgid "no"
-msgstr "لا"
-
-#: buildVars.py:1
 msgid ""
-"This add-on provides prayer times, as well as sunrise, midnight, and the last third of the night. It also provides a clock with Zawali and Ghurubi time, and five calendars: the Gregorian calendar, the lunar Hijri calendar, and three solar Hijri calendars. In addition, it provides daily astronomical information and other information derived from the Arabian calendar about the Talaa periods, seasons, and the Suhail year.\n"
-"\n"
-"It also provides alerts for daily Wird and adhkar, and guides the user toward the Qibla direction.\n"
-"\n"
-"The add-on also supports quiet hours and lets the user enable or disable prayer-time alerts and alerts before and after those times.\n"
-"\n"
-"The add-on currently supports Arabic and English."
+"{prayer}: internal {internal}; online {online}; difference {difference} "
+"minutes."
 msgstr ""
-"توفر هذه الإضافة مواقيت الصلاة فضلا عن الشروق ومنتصف الليل والثلث الأخير، كما توفر ساعة بتوقيتين زوالي وغروبي، وخمسة تقاويم: تقويم ميلادي، وتقويم هجري قمري، وثلاثة تقاويم هجرية شمسية، بالإضافة إلى معلومات فلكية يومية، ومعلومات أخرى مستمدة من التقويم العربي حول الطوالع والمواسم وسنة سهيل.\n"
-"\n"
-"كما توفر تنبيهات خاصة بالأوراد والأذكار، وترشد المستخدم إلى اتجاه القبلة.\n"
-"\n"
-"وتدعم الإضافة كذلك نظام ساعات الهدوء، والتحكم في تنبيهات المواقيت والتنبيهات القبلية والبعدية تفعيلا وإيقافا.\n"
-"\n"
-"تدعم الإضافة حاليا اللغتين العربية والإنجليزية."
+"{prayer}: الداخلي {internal}؛ عبر الإنترنت {online}؛ الفرق {difference} "
+"دقيقة."
+
+#, python-brace-format
+msgid "{section}: {count} {unit}"
+msgstr "{section}، {count} {unit}"
+
+#, python-brace-format
+msgid "{state}. Total elapsed: {time}. Recorded laps: {count}."
+msgstr "{state}. الزمن المنقضي: {time}. عدد الجولات المسجلة: {count}."
+
+
+msgid "Open Awqati weather settings."
+msgstr "فتح إعدادات الطقس في أوقاتي."

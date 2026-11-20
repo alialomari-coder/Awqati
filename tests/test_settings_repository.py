@@ -53,7 +53,7 @@ class JsonSettingsRepositoryTests(unittest.TestCase):
 	def test_missing_file_returns_complete_defaults_without_legacy_lookup(self) -> None:
 		self.assertIsInstance(self.repository, SettingsRepository)
 		settings = self.repository.load()
-		self.assertEqual(settings.schema_version, 1)
+		self.assertEqual(settings.schema_version, 2)
 		self.assertFalse(self.path.exists())
 
 	def test_complete_round_trip_preserves_enums_nested_values_and_each_sound(self) -> None:
@@ -77,14 +77,14 @@ class JsonSettingsRepositoryTests(unittest.TestCase):
 		settings.adhkar.daily_wird.alert.sound = SoundReference("sounds/adhkar/wird.wav")
 		self.repository.save(settings)
 		text = self.path.read_text(encoding="utf-8")
-		self.assertIn('"schemaVersion": 1', text)
+		self.assertIn('"schemaVersion": 2', text)
 		self.assertIn('"HIJRI_UMM_AL_QURA"', text)
 		self.assertIn('"soundAndSpeech"', text)
 		self.assertNotIn(str(Path.home()), text)
 
 	def test_newer_schema_is_rejected_explicitly(self) -> None:
 		self.path.parent.mkdir(parents=True)
-		self.path.write_text('{"schemaVersion": 2}', encoding="utf-8")
+		self.path.write_text('{"schemaVersion": 3}', encoding="utf-8")
 		with self.assertRaises(UnsupportedSettingsSchemaError):
 			self.repository.load()
 
@@ -137,8 +137,8 @@ class JsonSettingsRepositoryTests(unittest.TestCase):
 
 
 class SettingsMigrationRegistryTests(unittest.TestCase):
-	def test_runtime_schema_and_first_published_schema_remain_one(self) -> None:
-		self.assertEqual(SETTINGS_SCHEMA_VERSION, 1)
+	def test_runtime_schema_two_and_first_published_schema_one(self) -> None:
+		self.assertEqual(SETTINGS_SCHEMA_VERSION, 2)
 		self.assertEqual(FIRST_PUBLISHED_SETTINGS_SCHEMA_VERSION, 1)
 
 	def test_future_registry_can_upgrade_schema_one_to_two(self) -> None:

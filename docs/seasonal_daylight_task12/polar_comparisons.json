@@ -1,0 +1,46 @@
+[
+  {
+    "site": "arctic",
+    "latitude": 78.2232,
+    "longitude": 15.6469,
+    "date": "2026-06-22",
+    "hourly_min_elevation": 11.649846082,
+    "hourly_max_elevation": 35.208470797,
+    "actual_state": "polarDay",
+    "reference_state": "polarDay",
+    "passed": true
+  },
+  {
+    "site": "arctic",
+    "latitude": 78.2232,
+    "longitude": 15.6469,
+    "date": "2026-12-22",
+    "hourly_min_elevation": -35.209769572,
+    "hourly_max_elevation": -11.66338087,
+    "actual_state": "polarNight",
+    "reference_state": "polarNight",
+    "passed": true
+  },
+  {
+    "site": "antarctic",
+    "latitude": -78.2232,
+    "longitude": 15.6469,
+    "date": "2026-06-22",
+    "hourly_min_elevation": -35.207702028,
+    "hourly_max_elevation": -11.659246263,
+    "actual_state": "polarNight",
+    "reference_state": "polarNight",
+    "passed": true
+  },
+  {
+    "site": "antarctic",
+    "latitude": -78.2232,
+    "longitude": 15.6469,
+    "date": "2026-12-22",
+    "hourly_min_elevation": 11.655032628,
+    "hourly_max_elevation": 35.208781855,
+    "actual_state": "polarDay",
+    "reference_state": "polarDay",
+    "passed": true
+  }
+]

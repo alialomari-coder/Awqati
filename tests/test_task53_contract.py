@@ -30,7 +30,7 @@ class Task53ContractTests(unittest.TestCase):
 		method = source[source.index("def verify_online"):source.index("def _start_online_verification")]
 		dialog = source[source.index("class _PrivacyDialog"):source.index("def _interaction_parent")]
 		self.assertIn("from_global_command: bool = False", method)
-		self.assertIn("wx.CallLater(100, ui.message, privacy_message)", method)
+		self.assertIn("self._announce_later(privacy_message, dialog, self._feedback_generation)", method)
 		self.assertEqual(method.count("wx.MessageBox("), 1)
 		self.assertIn("self._show_global_privacy_prompt(settings.location, privacy_message)", method)
 		self.assertIn("dialog.Show()", method)
@@ -79,10 +79,10 @@ class Task53ContractTests(unittest.TestCase):
 		self.assertNotIn("wx.PD_APP_MODAL", source)
 		self.assertNotIn("ShowModal", source[source.index("class _OperationDialog"):])
 		async_method = source[source.index("def _run_async"):source.index("def _verification_success")]
-		self.assertIn("wx.CallLater(100, ui.message, message)", async_method)
+		self.assertIn("self._announce_later(message, dialog, generation)", async_method)
 		self.assertIn("wx.CallLater(100, complete)", async_method)
 		self.assertLess(async_method.index("dialog.cancel_button.SetFocus()"),
-			async_method.index("wx.CallLater(100, ui.message, message)"))
+			async_method.index("self._announce_later(message, dialog, generation)"))
 		self.assertLess(async_method.index("dialog.Destroy()"),
 			async_method.index("wx.CallLater(100, complete)"))
 		self.assertIn("parent or _interaction_parent()", async_method)

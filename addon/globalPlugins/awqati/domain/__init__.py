@@ -1,5 +1,17 @@
 """Core Awqati concepts with no platform dependencies."""
 
+from .lunar_phases import (
+    PrincipalPhase, LunarPhaseEvent, UpcomingLunarPhases,
+    lunar_phase_events, upcoming_lunar_phases,
+)
+
+from .lunar_distance import LunarDistance, lunar_distance
+from .lunar_horizon import LunarEventState, LunarHorizonEvents, lunar_horizon_events
+from .lunar_transit import (
+    LunarAltitudePoint, LunarMaximum, LunarTransitDay, LunarTransitState,
+    MaximumKind, lunar_transit_day,
+)
+
 from .calendar import (
 	AfghanSolarHijriProvider,
 	CalendarDate,
@@ -38,6 +50,8 @@ from .clock import (
 	TimeRepresentation,
 )
 from .astronomy import (
+	SunDistance,
+	sun_distance,
 	APPARENT_SUN_ZENITH_DEGREES,
 	ASTRONOMY_ALGORITHM_VERSION,
 	ASTRONOMY_MAX_YEAR,
@@ -52,6 +66,13 @@ from .astronomy import (
 	SeasonEvent,
 	SolarDay,
 	SolarDayState,
+	SolarTransitState,
+	DaylightSample,
+	DaylightExtreme,
+	AnnualDaylight,
+	SeasonalDaylight,
+	annual_daylight,
+	seasonal_daylight,
 	delta_t_seconds,
 	julian_day,
 	lunar_facts,
@@ -147,6 +168,27 @@ from .qibla import (
 )
 
 __all__ = [
+    "PrincipalPhase", "LunarPhaseEvent", "UpcomingLunarPhases",
+    "lunar_phase_events", "upcoming_lunar_phases",
+	"LunarDistance",
+	"lunar_distance",
+	"LunarEventState",
+	"LunarHorizonEvents",
+	"lunar_horizon_events",
+	"LunarAltitudePoint",
+	"LunarMaximum",
+	"LunarTransitDay",
+	"LunarTransitState",
+	"MaximumKind",
+	"lunar_transit_day",
+	"SunDistance",
+	"sun_distance",
+	"DaylightSample",
+	"DaylightExtreme",
+	"AnnualDaylight",
+	"SeasonalDaylight",
+	"annual_daylight",
+	"seasonal_daylight",
 	"AdhkarSettings",
 	"AlertAction",
 	"AlertEvent",
@@ -251,6 +293,7 @@ __all__ = [
 	"SeasonEvent",
 	"SolarDay",
 	"SolarDayState",
+	"SolarTransitState",
 	"SettingsApplied",
 	"SettingsValidationError",
 	"SoundReference",

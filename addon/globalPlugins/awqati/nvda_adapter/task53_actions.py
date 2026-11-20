@@ -159,18 +159,36 @@ class Task53Actions:
 		self._privacy_approved = False
 		self._privacy_dialog: _PrivacyDialog | None = None
 		self._closed = False
+		self._feedback_generation = 0
 		self._tokens: set[CancellationToken] = set()
+
+	def invalidate_feedback(self) -> None:
+		"""Suppress queued announcements without revoking consent or cancelling work."""
+		self._feedback_generation += 1
+
+	def _announce_later(self, message, dialog, generation) -> None:
+		def announce():
+			if (not self._closed and generation == self._feedback_generation
+					and bool(dialog) and not dialog.IsBeingDeleted() and dialog.IsShown() and dialog.IsActive()):
+				ui.message(message)
+		wx.CallLater(100, announce)
 
 	def close(self) -> None:
 		self._closed = True
+		self.invalidate_feedback()
 		for token in tuple(self._tokens):
 			token.cancel()
 
 	def copy_diagnostics(self) -> None:
+		self.invalidate_feedback()
 		report = DiagnosticsService().create_report(
 			self._diagnostics_snapshot(),
 			{key: _(value) for key, value in DIAGNOSTIC_LABELS.items()},
 		)
+		world = getattr(self.runtime, "world_clock", None)
+		if world is not None and world.service is not None:
+			report += "\n" + _("World clock data: {cities}; IANA {iana}; CLDR {cldr}").format(
+				cities=world.service.catalog.version, iana=world.metadata["ianaVersion"], cldr=world.metadata["cldrVersion"])
 		if api.copyToClip(report):
 			ui.message(_("Awqati diagnostic information has been copied to the clipboard."))
 		else:
@@ -188,6 +206,9 @@ class Task53Actions:
 		)
 
 	def verify_online(self, *, from_global_command: bool = False) -> None:
+		if self._closed:
+			return
+		self.invalidate_feedback()
 		settings = self.settings.runtime_settings
 		if settings.location is None:
 			ui.message(_("This Awqati command is unavailable until a valid location is assigned."))
@@ -210,13 +231,14 @@ class Task53Actions:
 		self._start_online_verification(settings.location)
 
 	def _show_global_privacy_prompt(self, stored, privacy_message: str) -> None:
-		if self._privacy_dialog is not None and not self._privacy_dialog.IsBeingDeleted():
+		if self._privacy_dialog and not self._privacy_dialog.IsBeingDeleted():
 			self._privacy_dialog.Raise()
 			self._privacy_dialog.no_button.SetFocus()
 			return
 		gui.mainFrame.prePopup()
 
 		def answered(answer: int) -> None:
+			self.invalidate_feedback()
 			self._privacy_dialog = None
 			gui.mainFrame.postPopup()
 			if self._closed:
@@ -238,7 +260,7 @@ class Task53Actions:
 			dialog.Show()
 			dialog.Raise()
 			dialog.no_button.SetFocus()
-			wx.CallLater(100, ui.message, privacy_message)
+			self._announce_later(privacy_message, dialog, self._feedback_generation)
 		except Exception:
 			self._privacy_dialog = None
 			gui.mainFrame.postPopup()
@@ -273,6 +295,8 @@ class Task53Actions:
 
 	def _run_async(self, title: str, message: str, worker, on_success,
 			parent: wx.Window | None = None) -> None:
+		self.invalidate_feedback()
+		generation = self._feedback_generation
 		token = CancellationToken()
 		self._tokens.add(token)
 		state: dict[str, object] = {}
@@ -281,20 +305,20 @@ class Task53Actions:
 		dialog.cancel_button.SetFocus()
 		# Opening and focusing the dialog produces accessibility speech. Announce
 		# after that focus settles so the explicit start message is not cut off.
-		wx.CallLater(100, ui.message, message)
+		self._announce_later(message, dialog, generation)
 
 		def finish() -> None:
 			self._tokens.discard(token)
-			if not dialog.IsBeingDeleted():
+			if dialog and not dialog.IsBeingDeleted():
 				dialog.Destroy()
-			if self._closed:
+			if self._closed or generation != self._feedback_generation:
 				return
 			# Destruction restores focus to the invoking dialog. Deliver the result
 			# after restoration so button and script invocations are equally audible.
 			wx.CallLater(100, complete)
 
 		def complete() -> None:
-			if self._closed:
+			if self._closed or generation != self._feedback_generation:
 				return
 			if "error" in state:
 				error = state["error"]

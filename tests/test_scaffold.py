@@ -95,7 +95,7 @@ class ScaffoldTests(unittest.TestCase):
 		self.assertEqual(_manifest_scalar(manifest_text, "name"), "awqati")
 		self.assertEqual(_manifest_scalar(manifest_text, "version"), _load_addon_info()["addon_version"])
 		self.assertEqual(_manifest_scalar(manifest_text, "minimumNVDAVersion"), "2026.1.0")
-		self.assertEqual(_manifest_scalar(manifest_text, "lastTestedNVDAVersion"), "2026.2.0")
+		self.assertEqual(_manifest_scalar(manifest_text, "lastTestedNVDAVersion"), "2026.3.1")
 
 
 if __name__ == "__main__":

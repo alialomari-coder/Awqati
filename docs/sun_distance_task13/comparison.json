@@ -1,0 +1,410 @@
+{
+  "definition": "Simultaneous geometric Earth (399) center to Sun (10) center; no light-time",
+  "tolerance_km": 25000,
+  "count": 50,
+  "max_absolute_error_km": 11003.401455640793,
+  "mean_absolute_error_km": 3823.2328734505177,
+  "passed": true,
+  "results": [
+    {
+      "utc": "1901-01-01T00:00:00+00:00",
+      "calculated_km": 147092888.46944916,
+      "jpl_km": 147084966.1241001,
+      "signed_error_km": 7922.34534907341,
+      "absolute_error_km": 7922.34534907341,
+      "passed": true
+    },
+    {
+      "utc": "1901-01-03T12:00:00+00:00",
+      "calculated_km": 147092786.913264,
+      "jpl_km": 147083552.3918589,
+      "signed_error_km": 9234.521405100822,
+      "absolute_error_km": 9234.521405100822,
+      "passed": true
+    },
+    {
+      "utc": "1901-03-20T12:00:00+00:00",
+      "calculated_km": 149035215.72264504,
+      "jpl_km": 149043237.1988694,
+      "signed_error_km": -8021.47622436285,
+      "absolute_error_km": 8021.47622436285,
+      "passed": true
+    },
+    {
+      "utc": "1901-06-21T12:00:00+00:00",
+      "calculated_km": 152048534.47929198,
+      "jpl_km": 152053819.4732495,
+      "signed_error_km": -5284.993957519531,
+      "absolute_error_km": 5284.993957519531,
+      "passed": true
+    },
+    {
+      "utc": "1901-07-06T12:00:00+00:00",
+      "calculated_km": 152101414.0627159,
+      "jpl_km": 152101314.1879947,
+      "signed_error_km": 99.87472119927406,
+      "absolute_error_km": 99.87472119927406,
+      "passed": true
+    },
+    {
+      "utc": "1901-09-23T12:00:00+00:00",
+      "calculated_km": 150056851.5754879,
+      "jpl_km": 150054663.4511829,
+      "signed_error_km": 2188.124305009842,
+      "absolute_error_km": 2188.124305009842,
+      "passed": true
+    },
+    {
+      "utc": "1901-12-21T12:00:00+00:00",
+      "calculated_km": 147147876.53582233,
+      "jpl_km": 147141498.7042632,
+      "signed_error_km": 6377.831559121609,
+      "absolute_error_km": 6377.831559121609,
+      "passed": true
+    },
+    {
+      "utc": "1950-01-03T12:00:00+00:00",
+      "calculated_km": 147095391.5455308,
+      "jpl_km": 147088759.4642554,
+      "signed_error_km": 6632.0812754035,
+      "absolute_error_km": 6632.0812754035,
+      "passed": true
+    },
+    {
+      "utc": "1950-03-20T12:00:00+00:00",
+      "calculated_km": 149005492.2224907,
+      "jpl_km": 149007371.0614254,
+      "signed_error_km": -1878.8389346897602,
+      "absolute_error_km": 1878.8389346897602,
+      "passed": true
+    },
+    {
+      "utc": "1950-06-21T12:00:00+00:00",
+      "calculated_km": 152038962.57158282,
+      "jpl_km": 152040042.9373575,
+      "signed_error_km": -1080.3657746613026,
+      "absolute_error_km": 1080.3657746613026,
+      "passed": true
+    },
+    {
+      "utc": "1950-07-06T12:00:00+00:00",
+      "calculated_km": 152099490.0292219,
+      "jpl_km": 152098345.9989578,
+      "signed_error_km": 1144.0302640795708,
+      "absolute_error_km": 1144.0302640795708,
+      "passed": true
+    },
+    {
+      "utc": "1950-09-23T12:00:00+00:00",
+      "calculated_km": 150086667.21332517,
+      "jpl_km": 150085363.3956775,
+      "signed_error_km": 1303.817647665739,
+      "absolute_error_km": 1303.817647665739,
+      "passed": true
+    },
+    {
+      "utc": "1950-12-21T12:00:00+00:00",
+      "calculated_km": 147157687.48027712,
+      "jpl_km": 147156682.297455,
+      "signed_error_km": 1005.1828221082687,
+      "absolute_error_km": 1005.1828221082687,
+      "passed": true
+    },
+    {
+      "utc": "2000-01-03T12:00:00+00:00",
+      "calculated_km": 147098543.0376676,
+      "jpl_km": 147102814.4026602,
+      "signed_error_km": -4271.3649925887585,
+      "absolute_error_km": 4271.3649925887585,
+      "passed": true
+    },
+    {
+      "utc": "2000-03-20T12:00:00+00:00",
+      "calculated_km": 149006951.0763004,
+      "jpl_km": 149001365.1103247,
+      "signed_error_km": 5585.965975701809,
+      "absolute_error_km": 5585.965975701809,
+      "passed": true
+    },
+    {
+      "utc": "2000-06-21T12:00:00+00:00",
+      "calculated_km": 152036068.07020923,
+      "jpl_km": 152033377.1660114,
+      "signed_error_km": 2690.9041978418827,
+      "absolute_error_km": 2690.9041978418827,
+      "passed": true
+    },
+    {
+      "utc": "2000-07-06T12:00:00+00:00",
+      "calculated_km": 152096327.53683457,
+      "jpl_km": 152099510.7429158,
+      "signed_error_km": -3183.2060812413692,
+      "absolute_error_km": 3183.2060812413692,
+      "passed": true
+    },
+    {
+      "utc": "2000-09-23T12:00:00+00:00",
+      "calculated_km": 150085236.90693408,
+      "jpl_km": 150088682.7414221,
+      "signed_error_km": -3445.834488004446,
+      "absolute_error_km": 3445.834488004446,
+      "passed": true
+    },
+    {
+      "utc": "2000-12-21T12:00:00+00:00",
+      "calculated_km": 147160569.80134472,
+      "jpl_km": 147162665.8283479,
+      "signed_error_km": -2096.0270031690598,
+      "absolute_error_km": 2096.0270031690598,
+      "passed": true
+    },
+    {
+      "utc": "2026-01-01T12:00:00+00:00",
+      "calculated_km": 147102028.5846762,
+      "jpl_km": 147102351.3148806,
+      "signed_error_km": -322.7302044034004,
+      "absolute_error_km": 322.7302044034004,
+      "passed": true
+    },
+    {
+      "utc": "2026-01-03T12:00:00+00:00",
+      "calculated_km": 147100106.4904915,
+      "jpl_km": 147099918.0165528,
+      "signed_error_km": 188.473938703537,
+      "absolute_error_km": 188.473938703537,
+      "passed": true
+    },
+    {
+      "utc": "2026-01-08T12:00:00+00:00",
+      "calculated_km": 147108673.65643284,
+      "jpl_km": 147110877.7505043,
+      "signed_error_km": -2204.0940714776516,
+      "absolute_error_km": 2204.0940714776516,
+      "passed": true
+    },
+    {
+      "utc": "2026-02-15T12:00:00+00:00",
+      "calculated_km": 147764524.6522442,
+      "jpl_km": 147772539.1342988,
+      "signed_error_km": -8014.482054591179,
+      "absolute_error_km": 8014.482054591179,
+      "passed": true
+    },
+    {
+      "utc": "2026-03-20T00:00:00+00:00",
+      "calculated_km": 148955026.94590175,
+      "jpl_km": 148961699.9073631,
+      "signed_error_km": -6672.961461335421,
+      "absolute_error_km": 6672.961461335421,
+      "passed": true
+    },
+    {
+      "utc": "2026-03-20T12:00:00+00:00",
+      "calculated_km": 148975899.50167498,
+      "jpl_km": 148982383.7106828,
+      "signed_error_km": -6484.209007829428,
+      "absolute_error_km": 6484.209007829428,
+      "passed": true
+    },
+    {
+      "utc": "2026-03-20T23:59:59+00:00",
+      "calculated_km": 148996815.0483746,
+      "jpl_km": 149003056.199171,
+      "signed_error_km": -6241.150796413422,
+      "absolute_error_km": 6241.150796413422,
+      "passed": true
+    },
+    {
+      "utc": "2026-04-15T12:00:00+00:00",
+      "calculated_km": 150083882.67426723,
+      "jpl_km": 150088070.0405236,
+      "signed_error_km": -4187.366256356239,
+      "absolute_error_km": 4187.366256356239,
+      "passed": true
+    },
+    {
+      "utc": "2026-05-15T12:00:00+00:00",
+      "calculated_km": 151222680.8532821,
+      "jpl_km": 151223926.9110544,
+      "signed_error_km": -1246.057772308588,
+      "absolute_error_km": 1246.057772308588,
+      "passed": true
+    },
+    {
+      "utc": "2026-06-21T12:00:00+00:00",
+      "calculated_km": 152027277.8744932,
+      "jpl_km": 152021768.4000232,
+      "signed_error_km": 5509.4744700193405,
+      "absolute_error_km": 5509.4744700193405,
+      "passed": true
+    },
+    {
+      "utc": "2026-07-01T12:00:00+00:00",
+      "calculated_km": 152090532.89202154,
+      "jpl_km": 152079529.4905659,
+      "signed_error_km": 11003.401455640793,
+      "absolute_error_km": 11003.401455640793,
+      "passed": true
+    },
+    {
+      "utc": "2026-07-06T12:00:00+00:00",
+      "calculated_km": 152095490.49923134,
+      "jpl_km": 152087756.9644571,
+      "signed_error_km": 7733.534774243832,
+      "absolute_error_km": 7733.534774243832,
+      "passed": true
+    },
+    {
+      "utc": "2026-07-11T12:00:00+00:00",
+      "calculated_km": 152082584.24266678,
+      "jpl_km": 152079402.5588813,
+      "signed_error_km": 3181.68378546834,
+      "absolute_error_km": 3181.68378546834,
+      "passed": true
+    },
+    {
+      "utc": "2026-08-15T12:00:00+00:00",
+      "calculated_km": 151514134.92270914,
+      "jpl_km": 151512769.6181624,
+      "signed_error_km": 1365.3045467436314,
+      "absolute_error_km": 1365.3045467436314,
+      "passed": true
+    },
+    {
+      "utc": "2026-09-23T12:00:00+00:00",
+      "calculated_km": 150116376.0043462,
+      "jpl_km": 150111947.6720318,
+      "signed_error_km": 4428.332314401865,
+      "absolute_error_km": 4428.332314401865,
+      "passed": true
+    },
+    {
+      "utc": "2026-10-15T12:00:00+00:00",
+      "calculated_km": 149177187.3205328,
+      "jpl_km": 149181811.5299205,
+      "signed_error_km": -4624.209387689829,
+      "absolute_error_km": 4624.209387689829,
+      "passed": true
+    },
+    {
+      "utc": "2026-11-15T12:00:00+00:00",
+      "calculated_km": 147976834.4886489,
+      "jpl_km": 147982023.1095959,
+      "signed_error_km": -5188.620947003365,
+      "absolute_error_km": 5188.620947003365,
+      "passed": true
+    },
+    {
+      "utc": "2026-12-21T12:00:00+00:00",
+      "calculated_km": 147169633.69201908,
+      "jpl_km": 147168050.9567447,
+      "signed_error_km": 1582.735274374485,
+      "absolute_error_km": 1582.735274374485,
+      "passed": true
+    },
+    {
+      "utc": "2050-01-03T12:00:00+00:00",
+      "calculated_km": 147101685.15043476,
+      "jpl_km": 147101281.4559343,
+      "signed_error_km": 403.6945004761219,
+      "absolute_error_km": 403.6945004761219,
+      "passed": true
+    },
+    {
+      "utc": "2050-03-20T12:00:00+00:00",
+      "calculated_km": 148966597.6861736,
+      "jpl_km": 148971000.8599817,
+      "signed_error_km": -4403.173808097839,
+      "absolute_error_km": 4403.173808097839,
+      "passed": true
+    },
+    {
+      "utc": "2050-06-21T12:00:00+00:00",
+      "calculated_km": 152023510.95482796,
+      "jpl_km": 152023558.6947575,
+      "signed_error_km": -47.739929527044296,
+      "absolute_error_km": 47.739929527044296,
+      "passed": true
+    },
+    {
+      "utc": "2050-07-06T12:00:00+00:00",
+      "calculated_km": 152094142.76725432,
+      "jpl_km": 152085411.1113804,
+      "signed_error_km": 8731.655873924494,
+      "absolute_error_km": 8731.655873924494,
+      "passed": true
+    },
+    {
+      "utc": "2050-09-23T12:00:00+00:00",
+      "calculated_km": 150125716.05550647,
+      "jpl_km": 150126737.4460772,
+      "signed_error_km": -1021.3905707299709,
+      "absolute_error_km": 1021.3905707299709,
+      "passed": true
+    },
+    {
+      "utc": "2050-12-21T12:00:00+00:00",
+      "calculated_km": 147173487.65353805,
+      "jpl_km": 147174232.7885204,
+      "signed_error_km": -745.1349823474884,
+      "absolute_error_km": 745.1349823474884,
+      "passed": true
+    },
+    {
+      "utc": "2099-01-03T12:00:00+00:00",
+      "calculated_km": 147105248.66407982,
+      "jpl_km": 147102276.3183289,
+      "signed_error_km": 2972.345750927925,
+      "absolute_error_km": 2972.345750927925,
+      "passed": true
+    },
+    {
+      "utc": "2099-03-20T12:00:00+00:00",
+      "calculated_km": 148937281.25216275,
+      "jpl_km": 148940604.0839832,
+      "signed_error_km": -3322.8318204581738,
+      "absolute_error_km": 3322.8318204581738,
+      "passed": true
+    },
+    {
+      "utc": "2099-06-21T12:00:00+00:00",
+      "calculated_km": 152013105.30117854,
+      "jpl_km": 152019347.2404693,
+      "signed_error_km": -6241.939290761948,
+      "absolute_error_km": 6241.939290761948,
+      "passed": true
+    },
+    {
+      "utc": "2099-07-06T12:00:00+00:00",
+      "calculated_km": 152091315.96946,
+      "jpl_km": 152090212.523219,
+      "signed_error_km": 1103.4462410211563,
+      "absolute_error_km": 1103.4462410211563,
+      "passed": true
+    },
+    {
+      "utc": "2099-09-23T12:00:00+00:00",
+      "calculated_km": 150155140.12512666,
+      "jpl_km": 150151343.5398724,
+      "signed_error_km": 3796.585254251957,
+      "absolute_error_km": 3796.585254251957,
+      "passed": true
+    },
+    {
+      "utc": "2099-12-21T12:00:00+00:00",
+      "calculated_km": 147184182.72571576,
+      "jpl_km": 147181986.8308796,
+      "signed_error_km": 2195.8948361575603,
+      "absolute_error_km": 2195.8948361575603,
+      "passed": true
+    },
+    {
+      "utc": "2099-12-31T23:59:59+00:00",
+      "calculated_km": 147110764.3409428,
+      "jpl_km": 147108214.1396265,
+      "signed_error_km": 2550.2013162970543,
+      "absolute_error_km": 2550.2013162970543,
+      "passed": true
+    }
+  ]
+}

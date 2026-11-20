@@ -10,8 +10,11 @@ from typing import Sequence
 
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+	sys.path.insert(0, str(ROOT))
+import buildVars
 BUILD_DEPENDENCIES = ROOT / ".build-deps"
-BUILD_OUTPUTS = (ROOT / "build", ROOT / "dist")
+BUILD_OUTPUTS = (ROOT / "build", ROOT / "dist" / f"awqati-{buildVars.addon_info['addon_version']}.nvda-addon")
 
 
 class CheckFailed(RuntimeError):

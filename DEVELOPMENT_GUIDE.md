@@ -1,161 +1,60 @@
-# دليل تطوير مشروع Awqati
+# Developing Awqati
 
-## المشروع والهدف
+The current stable version is **8.2.1**, on `master`. It requires NVDA 2026.1 and declares testing through NVDA 2026.3.1. English and Arabic are supported. Read [CONTRIBUTING.md](CONTRIBUTING.md) and [TRANSLATING.md](TRANSLATING.md) before submitting a change.
 
-Awqati هو مشروع جديد لإضافة NVDA باسم ظاهر للمستخدم هو «أوقاتي». الهدف هو تنفيذ الإصدار 4.0 وفق المواصفة، مهمة واحدة في كل مرة، مع جعل الوصول بلوحة المفاتيح وقارئ الشاشة شرط تصميم منذ البداية.
+## Repository layout
 
-## ترتيب المرجعية
+- `addon/globalPlugins/awqati/`: domain logic, application services, infrastructure, NVDA adapter, bundled data, and resources.
+- `addon/locale/ar/LC_MESSAGES/`: main and converter gettext catalogs.
+- `addon/doc/ar/` and `addon/doc/en/`: complete user guides and HTML copies.
+- `docs/دليل_أوقاتي_العربي_المعتمد.md`: approved Arabic documentation source.
+- `tests/`: automated tests, support code, and synthetic or public-data fixtures.
+- `tools/`: build tools, data preparation tools, and relevant test runners.
+- `data_sources/`: source data and approved audio needed for reproducibility.
+- `buildVars.py`, `manifest.ini.tpl`, `manifest-translated.ini.tpl`, and `sconstruct`: release metadata and package construction.
 
-1. `docs/specification/الخطة النظرية الشاملة لإضافة أوقاتي.docx` هي مصدر الحقيقة الوظيفي والمعماري.
-2. `docs/specification/الخطة التنفيذية الشاملة لإضافة أوقاتي.docx` تحدد ترتيب المراحل ونطاق المهام وبوابات القبول.
-3. هذا الدليل و`00_فهرس_المواصفات.md` و`STATUS.md` أدوات لإدارة التنفيذ، ولا تعلو على المرجعين.
+## Set up a development environment
 
-إذا ظهر تعارض حقيقي في المواصفة، يجب إيقاف الجزء المتعارض والإبلاغ عنه بدل اختيار سلوك بديل.
-
-## قواعد النطاق
-
-- تُنفذ مهمة واحدة فقط في كل مرة، ولا يبدأ جزء من مهمة لاحقة استباقيًا.
-- لا تستخدم أي إضافة سابقة أساسًا للمشروع أو مصدرًا للشفرة أو البنية أو الإعدادات أو الترحيل.
-- لا تُنشأ وحدات أو واجهات أو بيانات احتياطًا للمستقبل.
-- لا تُغلق المهمة إلا بعد تحقق شروط قبولها الفعلية.
-- لا ينفذ `git push` دون طلب صريح من صاحب المشروع.
-
-## المبادئ المعمارية
-
-- النواة تعرف مفاهيم المنتج، والطبقات الخارجية تعرف NVDA وWindows والملفات والشبكة.
-- يجب أن تبقى Domain وApplication قابلتين للاختبار خارج NVDA.
-- يمنع إدخال NVDA أو wxPython إلى Domain.
-- يمنع I/O البطيء أو الشبكة أو المعالجة الثقيلة على خيط NVDA الرئيسي.
-- المحرك الداخلي هو مصدر التشغيل الأساسي، والإنترنت طبقة مساعدة اختيارية فقط.
-- يظل GlobalPlugin صغيرًا ومخصصًا للربط، ولا يجمع منطق المنتج.
-
-## التدويل والوصول
-
-- العربية والإنجليزية هما لغتا الإصدار 4.0.
-- النصوص القابلة للعرض موارد قابلة للترجمة، ولا تستخدم نصوص الواجهة قيمًا منطقية داخلية.
-- يجب أن تعمل كل واجهة بلوحة المفاتيح، مع أسماء واضحة للعناصر وترتيب تركيز منطقي ورسائل نصية قابلة للقراءة بواسطة NVDA.
-- لا تعتمد أي وظيفة على اللون أو الشكل أو السحب والإفلات وحدها.
-
-## الاختبارات والحالة
-
-- تضيف كل مهمة اختبارات نطاقها وتشغل الانحدار المناسب.
-- لا يُدعى نجاح اختبار لم يُشغّل فعليًا.
-- تُفصل نتائج الاختبارات الآلية عن اختبارات القبول اليدوية داخل NVDA.
-- يُحدّث `STATUS.md` في نهاية كل مهمة بالأوامر والنتائج والعوائق والقيم المؤقتة.
-
-## مزامنة Google Drive
-
-مسار المراجعة المحلي المتزامن هو `G:\ملفاتي\إضافة أوقاتي`.
-
-بعد نجاح كل مهمة وقبل التقرير النهائي:
-
-- تحدد ملفات المصدر والاختبارات والوثائق التي تغيرت في المهمة.
-- تستبدل نسخها المناظرة في مجلد المراجعة مع الحفاظ على المسارات النسبية.
-- تنسخ الملفات الجديدة وتحذف النسخ المناظرة للملفات المحذوفة عمدًا.
-- يُحدّث `STATUS.md` دائمًا.
-- لا تنسخ مخلفات Git أو البناء أو cache مثل `.git` و`.build-deps` و`build` و`__pycache__` و`.sconsign.dblite`.
-- تبقى حزمة التثبيت في `dist/`، ويجوز تحديث نسختها في مجلد Google Drive لتسهيل وصول المستخدم إليها.
-- إذا فشلت المزامنة، يجب التصريح بذلك في التقرير.
-
-## اختبارات NVDA العملية
-
-كودكس مفوض بإجراء جميع اختبارات المشروع اللازمة داخل NVDA على جهاز الحاسب، سواء في البيئة المحلية المعتادة أو بيئة نظيفة أو اختبارية. يشمل ذلك التثبيت وإعادة التشغيل، واختبار الواجهة والاختصارات والتركيز والنطق والصوت، وقراءة سجل NVDA، واكتشاف الأعطال، وإجراء الإصلاحات الداخلة في نطاق المهمة، ثم إعادة الاختبارات والانحدار.
-
-لا يُحال اختبار إلى المستخدم إذا كان يمكن لكودكس تنفيذه بنفسه.
-
-يحظر فقط:
-
-- العبث ببيانات المستخدم غير اللازمة للاختبار.
-- تعديل إضافات أخرى.
-- توسيع نطاق المهمة.
-- `push` أو النشر دون طلب صريح.
-
-## بيئة البناء الحالية
-
-المتطلبات: Python 3.10 أو أحدث وSCons 4.10.1. SCons تبعية بناء فقط ولا تدخل حزمة الإضافة.
-
-إعداد تبعيات البناء في PowerShell:
+Use Python 3.13 for the development checks, with NVDA available separately for integration testing. These commands install the pinned build dependencies in a project-local folder:
 
 ```powershell
 python -m pip install --requirement requirements-build.txt --target .build-deps
 ```
 
-## الفحوص الأساسية المعتمدة
+Do this in a development checkout. Do not commit installed dependencies, virtual environments, local NVDA profiles, generated packages, logs, credentials, or personal backups.
 
-بعد إعداد تبعيات البناء، الأمر المعتاد والموحد لتشغيل جميع فحوص المشروع هو:
+## Build and check future changes
 
-```powershell
-python tools/run_checks.py
-```
+The published 8.2.1 package is owner-approved and must not be rebuilt or replaced as part of publication. The following commands are for a separate development checkout and future reviewed changes. Building creates or overwrites the package named by `buildVars.py` in `dist/`.
 
-تستخدم الأداة مفسر Python الذي بدأها لتشغيل جميع عمليات Python الفرعية. وهي تفحص قابلية ترجمة الشفرة، وتنظف مخرجات SCons السابقة وتتحقق من زوالها، وتبني حزمة جديدة، وتشغل مجموعة `unittest` كاملة بما فيها اختبارات الاستيراد والمعمارية والحزمة، ثم تشغل `git diff --check`. تتوقف فورًا وتعيد exit code غير صفري إذا فشلت أي مرحلة، ولا تثبت تبعيات من الشبكة.
-
-إذا كانت `.build-deps` غير موجودة، يعرض الأمر تعليمات إعدادها بوضوح. وقد لا يعمل alias باسم `python` على بعض الأجهزة؛ عندئذ يشغّل المطور الأمر نفسه بمسار مفسر Python 3.10 أو أحدث الصالح على جهازه، دون تغيير ملفات المشروع.
-
-## أوامر التشخيص الفردية
-
-يمكن تشغيل الخطوات منفردة عند تشخيص عطل. البناء النظيف اليدوي:
+To regenerate the guides after an approved documentation edit:
 
 ```powershell
-$env:PYTHONPATH = (Resolve-Path .build-deps).Path
-python -m SCons -c
-python -m SCons
+python -B tools/build_release_docs.py
 ```
 
-تُكتب حزم التثبيت في `dist/`، مثل `dist/awqati-0.4.2.14.nvda-addon`. هذا المجلد مخرج بناء مستبعد من Git، ولا تُترك حزم `.nvda-addon` في جذر المشروع.
-
-الفحوص الفردية:
+To build a development package:
 
 ```powershell
-python -m compileall -q addon tests buildVars.py tools/run_scons.py tools/run_checks.py
-python -m unittest discover -s tests -v
-git diff --check
-git status --short --branch
+python -B tools/run_scons.py
 ```
 
-لا تحل هذه الأوامر المنفردة محل `python tools/run_checks.py` عند التحقق من قبول مهمة أو إغلاق مرحلة.
+The custom SCons entry point copies the source and notices, generates the manifest, validates both Arabic gettext domains, compiles catalogs, and writes the `.nvda-addon` ZIP. Its default action always builds; it does not provide the AddonTemplate `scons pot` target. For extraction without packaging, use [TRANSLATING.md](TRANSLATING.md).
 
+For future code changes, run the relevant tests first. The complete existing check runner is:
 
-## ترقيم حزم التطوير
+```powershell
+python -B tools/run_checks.py
+```
 
-ابتداءً من إغلاق 4.2 لا تستخدم 0.0.0 لحزم اختبار مختلفة. الصيغة هي `0.<المرحلة>.<المهمة>.<البناء>`؛ حزمة 4.2 الأولى ذات الرقم المميز هي `0.4.2.1`، وقناة التحديث تبقى dev. يزيد رقم البناء الأخير لكل نسخة ذات محتوى مختلف توزع أو تثبت للمراجعة داخل المهمة، ولا يعاد استخدام رقم سابق لمحتوى مختلف. إعادة بناء المحتوى نفسه للفحص لا تحتاج زيادة الرقم. عند بدء مهمة لاحقة يتغير جزآ المرحلة والمهمة ويبدأ البناء من 1. لا يعني ذلك إصدار المنتج النهائي 4.0.
+That runner cleans generated outputs, rebuilds the package, and discovers the test suite. Use it only in a development checkout. Some historical integration and acceptance tools require an isolated NVDA installation, earlier packages, or retained local evidence. Those artifacts are intentionally not part of the public source distribution. Their absence is not an instruction to reconstruct the owner's profiles or publish local receipts. Test fixtures and scientific reference inputs needed by the ordinary source tests are retained.
 
-المصدر الوحيد للرقم هو addon_info.addon_version في buildVars.py، ويجب أن تتطابق معه تسمية الحزمة وmanifest والنسخة المثبتة بعد إعادة تشغيل NVDA. اختبارات الحزمة تستخرج المسار من buildVars بدل تثبيت اسم 0.0.0. يسجل كل تسليم رقم البناء وSHA-256 في STATUS.md. تبقى ملفات dist مستبعدة من Git.
+## Design requirements
 
+Keep domain and application code independent of NVDA and wxPython. Put operating-system, network, and NVDA integration at the appropriate boundaries. Avoid slow work on NVDA's main thread. Preserve stored settings, accessible names, keyboard operation, focus order and restoration, translated messages, and the distinction between scientific astronomy and the traditional Arabian calendar.
 
-## قناة تحديث البيانات اليدوية
+Published binaries must be tied to a reviewed source commit and release tag. Keep the previous release and Git history. Report actual checks and their limits; automated interface probes do not establish human listening acceptance.
 
-قناة الإنتاج هي المستودع العام https://github.com/alialomari-coder/awqati-data، وmanifest المعتمد هو https://raw.githubusercontent.com/alialomari-coder/awqati-data/main/manifest.json. الاتصال صريح فقط عند تشغيل زر أو أمر فحص تحديثات البيانات؛ لا يوجد فحص تلقائي أو إعداد مستخدم لتغيير القناة.
+## Historical record
 
-تُبنى الحزم الخمس من البيانات المضمنة الحالية بواسطة tools/build_data_channel.py. تحفظ الملفات بأسماء versioned، وتتحقق الأداة من SHA-256 وبنية ZIP والإصدار باستخدام AtomicDataPackageInstaller الحقيقي، وترفض استبدال ملف تاريخي موجود ببايتات مختلفة. يجب رفع مستودع البيانات والتحقق من روابط raw المنشورة قبل تغيير manifest داخل حزمة أوقاتي.
-
-
-## ترجمة واجهة الإعدادات الحالية
-
-لغة واجهة أوقاتي هي لغة NVDA الفعلية عبر `addonHandler.initTranslation()`، ولا يوجد إعداد لغة موازٍ ولا قراءة للغة Windows لاختيار الترجمة. يستدعي كل ملف Adapter يحتوي استدعاءات `_()` التهيئة قبل إنشاء الفئات والعناصر. العربية من `addon/locale/ar/LC_MESSAGES/nvda.po`، والإنجليزية هي نص المصدر وfallback الرسمي للغات غير المدعومة. يحدد `languageHandler.getLanguage()` اتجاه الصفحة وحواري أول تشغيل والموقع المخصص: العربية RTL وما عداها LTR.
-
-توسم النصوص المباشرة بـ`_()` والتسميات المؤجلة في قواميس العرض بـ`N_()`، ثم تترجم عند العرض. لا تترجم قيم Enums أو معرفات الإعدادات. أسماء الدول وطرق الحساب المستخرجة من البيانات تدخل الكتالوج وتترجم عند حدود الواجهة فقط؛ أسماء المواقع بيانات versioned منفصلة عن gettext: يختار العرض اسمًا عربيًا موثقًا بحسب لغة NVDA، مع أولوية الملحق السعودي المراجع ثم GeoNames ar المفضل ثم الاسم العربي الحالي الصالح. تبقى الهوية والإحداثيات والمنطقة الزمنية ثابتة، وتستخدم الأسماء الأصلية عند غياب اسم عربي موثق. تشمل السياسة admin1/admin2، ويبقى البحث ثنائي اللغة؛ لا تحفظ لغة العرض في الموقع. أسماء الملفات والنصوص التي يكتبها المستخدم تبقى بياناتها الأصلية. معرفات IANA تبقى ثابتة داخليًا، وأسماء عرضها في الواجهة قابلة للترجمة عبر timezone_labels.py مع ربطها بفهرس الهوية، لا باستنتاج الهوية من النص المترجم. مصدر أسماء الدول العربية CLDR عبر Babel؛ إشعارات الترخيص داخل `addon/locale`.
-
-تتضمن `i18nSources` ملفات Python داخل المجلدات الفرعية. يستدعي SCons `tools/build_translations.py` لاستخراج `build/messages.pot` وفحص اكتمال العربية وصحة التنسيق، ثم يجمع `build/awqati/locale/ar/LC_MESSAGES/nvda.mo` وينشئ manifest العربي. تدخل PO وMO وmanifest المترجم في الحزمة. يفشل البناء عند نقص رسالة أو وجود ترجمة fuzzy، ولا يكتفي بنسخ ملفات الموارد. Babel تبعية بناء مثبتة في `requirements-build.txt` ولا تدخل الحزمة. يجب اقتباس وصف manifest حتى لا تفسر فواصله كقائمة.
-
-الفحص الدائم: `python tools/run_checks.py`، ويشمل `tests/test_ui_translation.py` واختبارات الإعدادات السابقة. قبل تسليم إصلاح لغة، اختبر NVDA الحقيقي بالعربية والإنجليزية مع إعادة التشغيل، والأقسام الأربعة وقيم قوائمها والحوارات ورسالة تحقق والتنقل بـTab وShift+Tab. سجّل الإصدار الفعلي واتجاه العناصر والنتيجة، وأعد إعداد المستخدم الأصلي. لا تدخل أدوات الفحص المؤقتة إلى الحزمة أو Git. يتطلب تفعيل Scratchpad في الإعداد المعتاد تفويضًا صريحًا؛ تكون له استعادة محددة وإزالة للأداة بعد الاختبار.
-
-
-## عقد الأوامر بعد متابعة 5.1
-
-تعتمد الأوامر متعددة الضغطات `scriptHandler.getLastScriptRepeatCount()` بميزة مكتشفة؛ تنفذ الضغطة الأولى فورًا ولا ينشأ Timer انتظار أو dispatcher زمني خاص. الخريطة النهائية 12 gesture افتراضيًا، ويظهر 21 أمرًا في فئة أوقاتي منها 9 بلا gesture. `NVDA+Ctrl+H` يفصل العلمي والعربي ويفتح نافذة معلومات اليوم في الثالثة فقط، و`NVDA+Shift+P` يثبت الخريطة النهائية مع بقاء التحقق الشبكي الحقيقي إلى 5.3 وفتح نافذة المواقيت في الثانية.
-
-كل قالب أمر ووصف يمر عبر gettext، وتختبر العربية والإنجليزية داخل NVDA الحقيقي. تستمد فترة الساعة الزوالية 12 ساعة من الساعة المحلية الأصلية قبل التحويل. يفصل عرض معلومات اليوم بين العلمي المستقل والعربي المستقل والمجمع، ويحسب يوم الفصل من تاريخ حد الاعتدال أو الانقلاب المحلي.
-
-تستخدم رسائل حالة المواقيت منسق المدد المشترك duration_formatter.format_minutes: أقل من 60 دقيقة بالدقائق، و60 فأكثر بالساعات والدقائق، مع حذف باقي الصفر وصيغ عربية مفردة ومثناة وجمعية ومقابلات إنجليزية؛ لا يجوز إعادة هذا المنطق داخل قالبَي القادم والسابق.
-## عقد الوصول ومعاينات الإعدادات
-
-الدولة والمدينة عنصران أصليان من wx.ComboBox؛ تعرض المدينة جميع مواقع الدول العربية الـ22 عند النص الفارغ دون حد 40؛ يجوز تحديد القائمة الأولية لغيرها بـ40 مع بقاء البحث شاملًا. يرتب العرض حسب الاسم في لغة NVDA باستخدام CompareStringEx ومفتاح عربي بديل موثق. يحمل بلد واحد فقط عند الحاجة. يعمل تحميل بيانات المدن والبحث في الخلفية، وتحمي أجيال الطلبات الواجهة من النتائج القديمة. أسماء العرض منفصلة عن أكواد الدول ومعرفات المواقع والمناطق الزمنية.
-
-ينشأ StaticText قبل حقل التحرير الذي يسميه مباشرة في ترتيب أبناء wx، وتجمع كل وظيفة أذكار مربع تفعيلها وعناصرها التابعة في حاوية فعلية. لا يعتمد إثبات الوصول على wx.GetName أو ترتيب Sizer وحدهما؛ يلزم فحص الاسم الذي يقرأه NVDA وترتيب Tab وShift+Tab.
-
-تستخدم معاينة النطق نسخة مستقلة من المسودة وخدمات ClockService وCalendarService وformatters الحالية، في عامل خلفي، ثم تمرر النص إلى NVDA عند الطلب الصريح فقط. لا تحفظ المسودة ولا تنشئ أحداث Scheduler. تعتمد الساعة المزدوجة ترتيب الزوالي ثم الغروبي مع خيارات كل مكوّن، وتتطلب موقعًا صالحًا. تبقى معاينة الزوالي المفرد والتاريخ متاحتين دون موقع.
-
-أثناء الكشف يبقى زر الكشف قابلًا للتركيز، وتمنع حالة الانشغال الطلب المتكرر. لا يعتمد النجاح إلا بتأكيد نعم؛ الرفض والفشل يحفظان الموقع السابق. تظل الموافقة على الموقع داخل المسودة إلى Apply/OK.
-
-أسماء وصول عدادات التنبيهات ذات الوحدة المنفصلة تمر عبر `nvda_adapter/native_accessibility.py`: لا يكفي wx.SetName إذا استمد Windows الاسم من StaticText السابق. يجب اختبار MSAA الفعلي مع Tab وتحديث الاسم عند تغيير المرجع وتنظيف annotations عند تدمير العنصر.
+The [change history](changelog.md) preserves earlier development and release milestones. Earlier committed versions of this guide remain in Git history. Local administrative reports, build receipts, private profiles, and cloud synchronization tools are not required to build the add-on and are excluded from the publication snapshot.
