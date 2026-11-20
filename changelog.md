@@ -1,19 +1,36 @@
 # 8.2.1
 
+## تحسينات
+
 - تقسيم التقرير العربي المفصل للحالة الحالية إلى جمل أقصر مع حفظ المعلومات وترتيبها ووحداتها.
 - تحسين صياغة فترة عدم توقع الأمطار، بما يشمل الامتداد إلى صباح الغد أو مسائه.
 - توضيح أن أعلى احتمال لهطول الأمطار يخص إحدى ساعات اليوم المتاحة، ونطق النسبة الصفرية «صفر بالمئة».
 
 # 8.0.2
 
+## Improvements
+
 - Updated Arabic and English overviews; moved complete weather help into settings after Calendar.
-- Unified Open weather information in a text window; opening reviews the last successful report without fetching or changing open text.
 - Refined Arabic next-day time ordering and today’s forecast opening. Condensed all-zero hourly probabilities in speech only, preserving missing and positive values and full text details.
-- Existing gestures, weather transport and calculations are unchanged.
+
+## Bug fixes
+
+- Unified Open weather information in a text window; opening reviews the last successful report without fetching or changing open text.
+- Failed or cancelled requests no longer replace the saved successful report. Opening the window before a successful request announces that no previous weather information is available, without fetching data.
+
+Existing gestures, weather transport and calculations are unchanged.
 
 ## 8.0.1
 
+### تحسينات
+
 تحسين تقارير الطقس والتعريب ومستويات التفاصيل والتوقعات ونسخ التقرير؛ NVDA+Alt+W لإعدادات الطقس.
+
+- استخدام أسماء المدن العربية والإنجليزية من آلية أوقاتي القائمة، مع إبقاء أسماء المواقع المخصصة كما كتبها المستخدم.
+- توضيح الفرق بين التقرير الحالي المختصر والمفصل، واحترام اختيارات المعلومات والوحدات، مع وصف النهار والليل بحسب البيانات المتاحة.
+- بيان فترة قياس الهطول الحالي، وتوزيع العينات الساعية على أفق التوقعات مع تضمين آخر عينة متاحة وتوضيح الانتقال إلى الغد.
+- ربط ملخص الطقس في معلومات اليوم بمستوى التفاصيل والخيارات، باستخدام مخبأ صالح دون انتظار الشبكة.
+- تنظيم التقارير النصية وإضافة زر «نسخ التقرير»، مع إبقاء إسناد المصادر في النص المكتوب والدليلين دون تكراره في النطق المباشر.
 
 ## 8.0.0 — خدمة الطقس، 20 نوفمبر 2026
 

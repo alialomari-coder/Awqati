@@ -48,11 +48,17 @@ To check a downloaded file in PowerShell, run `Get-FileHash -Algorithm SHA256 -L
 
 The same guides are included in the add-on and available through NVDA's add-on help. They document settings, keyboard shortcuts, alerts, weather, calendars, and time tools. See [the change history](changelog.md) for the development and release record. Version 4.0.0 remains available in [the release archive](https://github.com/alialomari-coder/Awqati/releases/tag/v4.0.0); intermediate versions were not published retroactively.
 
+## Help Translate Awqati
+
+Awqati currently supports **Arabic and English**. We welcome volunteers who would like to help bring Awqati to other languages.
+
+Read [TRANSLATING.md](TRANSLATING.md) to find the translation files, extraction instructions, and how to coordinate and submit contributions through GitHub. Complete support for a new language also requires coordinated build and runtime changes; translated catalogs alone are not sufficient in 8.2.1. Community translation-platform integration remains a future step.
+
 ## Support and contributions
 
 Report problems or propose improvements through [GitHub Issues](https://github.com/alialomari-coder/Awqati/issues). Include the Awqati and NVDA versions, language, steps to reproduce, and expected and actual behavior. Review diagnostic information for personal data before sharing it.
 
-Code and documentation contributions are welcome: read [CONTRIBUTING.md](CONTRIBUTING.md) and [DEVELOPMENT_GUIDE.md](DEVELOPMENT_GUIDE.md). Volunteer translators can start with [TRANSLATING.md](TRANSLATING.md), which explains the existing catalogs and the preparation needed for future language support and community translation integration.
+Code and documentation contributions are welcome: read [CONTRIBUTING.md](CONTRIBUTING.md) and [DEVELOPMENT_GUIDE.md](DEVELOPMENT_GUIDE.md).
 
 ## License and attribution
 
