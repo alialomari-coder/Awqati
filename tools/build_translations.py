@@ -14,6 +14,9 @@ from babel.messages.mofile import write_mo
 import buildVars
 
 
+MANIFEST_TRANSLATION_KEYS = ("addon_summary", "addon_description", "addon_changelog")
+
+
 CONVERTER_MODULES = {
 	"advanced_converter_dialog.py", "advanced_converter_model.py",
 	"calendar_converter_dialog.py", "calendar_converter_model.py",
@@ -53,14 +56,14 @@ def extract_catalog(domain="nvda"):
 		path = data / relative
 		for item in json.loads(path.read_text(encoding="utf-8"))[key]:
 			catalog.add(item["name"], locations=[(path.relative_to(ROOT).as_posix(), 1)])
-	for key in ("addon_summary", "addon_description"):
+	for key in MANIFEST_TRANSLATION_KEYS:
 		catalog.add(buildVars.addon_info[key], locations=[("buildVars.py", 1)])
 	return catalog
 
 
-def build_translations(staging: Path):
+def build_translations(staging: Path, *, pot_path: Path | None = None):
 	catalog = extract_catalog()
-	output = ROOT / "build/messages.pot"
+	output = pot_path if pot_path is not None else ROOT / "build/messages.pot"
 	output.parent.mkdir(parents=True, exist_ok=True)
 	with output.open("wb") as stream:
 		write_po(stream, catalog, sort_output=True)
@@ -88,9 +91,20 @@ def build_translations(staging: Path):
 	import gettext
 	with destination.open("rb") as stream:
 		translate = gettext.GNUTranslations(stream).gettext
+	for key in MANIFEST_TRANSLATION_KEYS:
+		if translate(buildVars.addon_info[key]) == buildVars.addon_info[key]:
+			raise ValueError(f"Untranslated Arabic manifest field: {key}")
 	template = (ROOT / "manifest-translated.ini.tpl").read_text(encoding="utf-8")
 	(staging / "locale/ar/manifest.ini").write_text(template.format_map({key: translate(value) for key, value in buildVars.addon_info.items() if isinstance(value, str)}), encoding="utf-8")
 	print(f"Validated {len(catalog)} gettext messages; compiled Arabic NVDA catalog")
+
+
+def build_manifest_metadata(staging: Path, *, pot_path: Path | None = None):
+	"""Generate both manifests and catalogs without copying or packaging the add-on."""
+	build_translations(staging, pot_path=pot_path)
+	template = (ROOT / "manifest.ini.tpl").read_text(encoding="utf-8")
+	values = {key: "" if value is None else str(value) for key, value in buildVars.addon_info.items()}
+	(staging / "manifest.ini").write_text(template.format_map(values), encoding="utf-8", newline="\n")
 
 
 if __name__ == "__main__":

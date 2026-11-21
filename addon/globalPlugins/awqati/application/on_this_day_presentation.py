@@ -144,7 +144,7 @@ class OnThisDayPresentation:
             # Read NVDA's actual timeout, and wait beyond it after *each* press.
             self.timer = self.schedule(self.settle_ms(), settle)
         self.wait_timer = self.schedule(800, announce_wait)
-        self.service.request(received)
+        self.service.request(received, section=key)
 
     def close(self):
         self.closed = True

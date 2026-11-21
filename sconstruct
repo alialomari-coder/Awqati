@@ -9,7 +9,7 @@ import zipfile
 from SCons.Script import Action, AlwaysBuild, Clean, Command, Default, Dir
 
 import buildVars
-from tools.build_translations import build_translations
+from tools.build_translations import build_manifest_metadata
 
 
 ROOT = Path.cwd().resolve()
@@ -17,10 +17,6 @@ ADDON_SOURCE = ROOT / "addon"
 BUILD_ROOT = ROOT / "build"
 DIST_ROOT = ROOT / "dist"
 RELEASE_FILES = (ROOT / "COPYING.txt", ROOT / "DATA_SOURCES.md")
-
-
-def _manifest_value(value: object) -> str:
-	return "" if value is None else str(value)
 
 
 def _build_package(target, source, env) -> int:
@@ -31,11 +27,7 @@ def _build_package(target, source, env) -> int:
 	shutil.copytree(ADDON_SOURCE, staging)
 	for release_file in RELEASE_FILES:
 		shutil.copy2(release_file, staging / release_file.name)
-	build_translations(staging)
-
-	manifest_template = (ROOT / "manifest.ini.tpl").read_text(encoding="utf-8")
-	manifest = manifest_template.format_map({key: _manifest_value(value) for key, value in info.items()})
-	(staging / "manifest.ini").write_text(manifest, encoding="utf-8", newline="\n")
+	build_manifest_metadata(staging)
 
 	for cache_dir in staging.rglob("__pycache__"):
 		shutil.rmtree(cache_dir)

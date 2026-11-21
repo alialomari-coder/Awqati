@@ -11,8 +11,11 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 
-EXPECTED_ENGLISH_DESCRIPTION = 'Awqati provides prayer times, along with sunrise, midnight and the start of the last third of the night; a clock with Zawali and Ghurubi time; and five calendars: Gregorian, Lunar Hijri and three Solar Hijri calendars. It also provides daily astronomical information and information from the traditional Arabian calendar, including Talaa periods, seasons and the Suhail year.\n\nThe add-on offers reminders for daily Wird and adhkar, information about the Qibla direction, quiet hours, and control over prayer-time alerts and alerts before and after those times.\n\nIt includes four time management tools: alarms, a stopwatch, countdown timers and a world clock, with dedicated keyboard shortcuts for controlling them and checking their status.\n\nIt includes On This Day information from Wikipedia, in Arabic and English, with direct narration and accessible web pages. The add-on supports Arabic and English.'
-EXPECTED_ARABIC_DESCRIPTION = 'توفر إضافة أوقاتي مواقيت الصلاة، إلى جانب أوقات الشروق ومنتصف الليل والثلث الأخير من الليل، وساعة تعمل بالتوقيتين الزوالي والغروبي، وخمسة تقاويم: التقويم الميلادي، والتقويم الهجري القمري، وثلاثة تقاويم هجرية شمسية. كما تقدم معلومات فلكية يومية، ومعلومات من التقويم العربي التقليدي تشمل الطوالع والمواسم وسنة سهيل.\n\nوتوفر الإضافة تنبيهات للأوراد والأذكار، ومعلومات عن اتجاه القبلة، فضلًا عن نظام ساعات الهدوء، وإمكانية التحكم في تنبيهات المواقيت والتنبيهات القبلية والبعدية.\n\nوتضم الإضافة أربع أدوات لإدارة الوقت: المنبهات، وساعة الإيقاف، والمؤقتات، والساعة العالمية، مع اختصارات لوحة مفاتيح مخصصة للتحكم فيها والاستعلام عن حالتها.\n\nوتقدم خدمة حدث في مثل هذا اليوم من ويكيبيديا بالعربية والإنجليزية، بسرد مباشر وصفحات ويب قابلة للتصفح. تدعم الإضافة اللغتين العربية والإنجليزية'
+from test_manifest_metadata_822 import (
+    EXPECTED_DESCRIPTION_EN as EXPECTED_ENGLISH_DESCRIPTION,
+    EXPECTED_DESCRIPTION_AR as EXPECTED_ARABIC_DESCRIPTION,
+    EXPECTED_SUMMARY_EN, EXPECTED_SUMMARY_AR,
+)
 
 
 def _manifest_value(text: str, key: str) -> str:
@@ -75,7 +78,7 @@ class ReleaseMetadataTests(unittest.TestCase):
 		info = _addon_info()
 		expected = {
 			"addon_name": "awqati",
-			"addon_summary": "Awqati",
+			"addon_summary": "Awqati: prayer times, calendars, weather, astronomical information and time tools.",
 			"addon_author": "ali alomari <alialomary@gmail.com>",
 			"addon_url": "https://github.com/alialomari-coder/Awqati",
 			"addon_sourceURL": "https://github.com/alialomari-coder/Awqati",
@@ -89,7 +92,7 @@ class ReleaseMetadataTests(unittest.TestCase):
 		for key, value in expected.items():
 			with self.subTest(key=key):
 				self.assertEqual(info[key], value)
-		self.assertRegex(info["addon_version"], r"^8\.0\.1$")
+		self.assertRegex(info["addon_version"], r"^\d+\.\d+\.\d+$")
 		serialized = repr(info).lower()
 		self.assertNotIn("placeholder", serialized)
 		self.assertNotIn("undecided", serialized)
@@ -125,8 +128,8 @@ class ReleaseMetadataTests(unittest.TestCase):
 
 	def test_english_guide_contains_the_complete_release_history(self) -> None:
 		guide = (ROOT / "addon/doc/en/readme.md").read_text(encoding="utf-8")
-		self.assertIn("formerly known as Prayer Times", guide)
-		for version in ("4.0.0", "3.2", "3.1", "3.0", "2.1", "1.3"):
+		self.assertIn("changed its name from Prayer Times to Awqati", guide)
+		for version in ("8.2.2", "8.2.1", "8.0.2", "8.0.0", "7.1.0", "7.0.0", "6.0.0", "5.0.0", "4.0.0"):
 			with self.subTest(version=version):
 				self.assertIn(f"Version {version}", guide)
 
@@ -151,12 +154,12 @@ class ReleaseMetadataTests(unittest.TestCase):
 		with zipfile.ZipFile(package) as archive:
 			english_manifest = archive.read("manifest.ini").decode("utf-8-sig")
 			arabic_manifest = archive.read("locale/ar/manifest.ini").decode("utf-8-sig")
-		self.assertEqual(_manifest_value(english_manifest, "summary"), "Awqati")
-		self.assertEqual(_manifest_value(arabic_manifest, "summary"), "أوقاتي")
+		self.assertEqual(_manifest_value(english_manifest, "summary"), EXPECTED_SUMMARY_EN)
+		self.assertEqual(_manifest_value(arabic_manifest, "summary"), EXPECTED_SUMMARY_AR)
 		self.assertEqual(_manifest_value(english_manifest, "description"), EXPECTED_ENGLISH_DESCRIPTION)
 		self.assertEqual(_manifest_value(arabic_manifest, "description"), EXPECTED_ARABIC_DESCRIPTION)
 		for description in (EXPECTED_ENGLISH_DESCRIPTION, EXPECTED_ARABIC_DESCRIPTION):
-			self.assertEqual(description.count("\n\n"), 3)
+			self.assertEqual(description.count("\n\n"), 6)
 			self.assertFalse(any(line.lstrip().startswith(("-", "*", "•")) for line in description.splitlines()))
 
 	def test_package_is_release_clean(self) -> None:

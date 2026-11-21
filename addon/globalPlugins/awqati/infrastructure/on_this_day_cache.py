@@ -2,6 +2,7 @@
 from dataclasses import asdict
 from datetime import datetime
 import json
+import math
 import os
 from pathlib import Path
 import tempfile
@@ -16,8 +17,10 @@ MAX_CACHE_BYTES = 16 * 1024 * 1024
 class DayCache:
     def __init__(self, path):
         self.path = Path(path)
+        self.retry_at = None
 
     def load(self, local_date, language):
+        self.retry_at = None
         try:
             if not self.path.exists():
                 return None
@@ -83,13 +86,22 @@ class DayCache:
                 if bool(entries) == bool(failure):
                     raise ValueError("inconsistent section status")
                 sections.append(Section(section["key"], tuple(entries), failure, section["detail"]))
+            retry_at = raw.get("retry_at")
+            if retry_at is not None:
+                if type(retry_at) not in (int, float) or not math.isfinite(retry_at) or retry_at < 0:
+                    raise ValueError("invalid retry deadline")
+            self.retry_at = retry_at
             return Day(local_date, language, value["title"], value["revision"], value["source_url"],
                        value["fetched_at"], tuple(sections))
         except (OSError, UnicodeError, ValueError, TypeError, KeyError, RecursionError) as error:
             raise OnThisDayError(Failure.STORAGE, "invalid or unreadable OnThisDay cache") from error
 
-    def save(self, local_date, language, value):
+    def save(self, local_date, language, value, *, retry_at=None):
         raw = dict(schema=SCHEMA_VERSION, date=local_date.isoformat(), language=language)
+        if retry_at is not None:
+            if type(retry_at) not in (int, float) or not math.isfinite(retry_at) or retry_at < 0:
+                raise ValueError("invalid retry deadline")
+            raw["retry_at"] = retry_at
         if isinstance(value, OnThisDayError):
             if value.kind != Failure.UNAVAILABLE:
                 raise ValueError("only confirmed absence may be cached")

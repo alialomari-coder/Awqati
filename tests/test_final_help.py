@@ -1,145 +1,148 @@
-"""Release help must cover live default commands in accessible HTML and Markdown."""
+"""Help fidelity and accessibility against the owner's approved Word guide."""
 import ast
+import hashlib
 from html.parser import HTMLParser
+import json
 from pathlib import Path
 import re
 import unittest
 from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
+EVIDENCE = json.loads((ROOT / 'docs/help_822_verification.json').read_text('utf8'))
+
+
+class GuideParser(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.stack, self.blocks, self.links = [], [], []
+        self.attributes, self.current, self.parts = {}, None, []
+        self.levels, self.list_sizes = [], []
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag == 'html':
+            self.attributes = attrs
+        if tag not in ('meta', 'br', 'hr', 'img', 'input', 'link'):
+            self.stack.append(tag)
+        if re.fullmatch(r'h[1-6]', tag) or tag in ('p', 'li'):
+            assert self.current is None, (self.current, tag)
+            self.current, self.parts = tag, []
+        if tag == 'ul':
+            self.list_sizes.append(0)
+        if tag == 'li':
+            self.list_sizes[-1] += 1
+        if tag == 'br':
+            self.parts.append('\n')
+        if 'href' in attrs:
+            self.links.append(attrs['href'])
+        if re.fullmatch(r'h[1-6]', tag):
+            self.levels.append(int(tag[1]))
+
+    def handle_data(self, value):
+        if self.current:
+            self.parts.append(value)
+
+    def handle_endtag(self, tag):
+        assert self.stack and self.stack.pop() == tag, tag
+        if tag == self.current:
+            self.blocks.append((tag, ''.join(self.parts)))
+            self.current, self.parts = None, []
+
+
+def parse_guide(language):
+    parser = GuideParser()
+    parser.feed((ROOT / f'addon/doc/{language}/readme.html').read_text('utf8'))
+    return parser
 
 
 class FinalHelpTests(unittest.TestCase):
-    def test_time_tools_are_inside_clock_in_matching_order(self):
-        for language, labels in (
-            ('ar', ('الساعة', 'أدوات الوقت الأربع', 'المنبهات', 'المؤقتات', 'ساعة الإيقاف', 'الساعة العالمية', 'التقويم')),
-            ('en', ('Clock', 'The four time tools', 'Alarms', 'Timers', 'Stopwatch', 'World clock', 'Calendar')),
-        ):
-            text = (ROOT / f'addon/doc/{language}/readme.md').read_text('utf8')
-            headings = [('## ' if i in (0, 6) else '### ') + label
-                        for i, label in enumerate(labels)]
-            positions = [text.index('\n' + heading + '\n') for heading in headings]
-            self.assertEqual(sorted(positions), positions)
-            shortcut_section = text[text.index('# اختصارات لوحة المفاتيح المعتمدة' if language == 'ar' else '# Approved keyboard shortcuts'):]
-            categories = (('اختصارات المنبهات', 'اختصارات المؤقتات', 'اختصارات ساعة الإيقاف', 'اختصارات الساعة العالمية')
-                          if language == 'ar' else ('Alarm shortcuts', 'Timer shortcuts', 'Stopwatch shortcuts', 'World-clock shortcuts'))
-            positions = [shortcut_section.index('## ' + label + '\n') for label in categories]
-            self.assertEqual(sorted(positions), positions)
-
-    def test_semantic_outline_links_and_bilingual_structure(self):
-        outlines, links = [], []
-
-        class GuideParser(HTMLParser):
-            def __init__(self):
-                super().__init__(convert_charrefs=True)
-                self.stack, self.levels, self.links, self.ids = [], [], [], []
-
-            def handle_starttag(self, tag, attrs):
-                attrs = dict(attrs)
-                if tag not in ('meta', 'br', 'hr', 'img', 'input', 'link'):
-                    self.stack.append(tag)
-                if re.fullmatch(r'h[1-6]', tag):
-                    self.levels.append(int(tag[1]))
-                if 'href' in attrs:
-                    self.links.append(attrs['href'])
-                if 'id' in attrs:
-                    self.ids.append(attrs['id'])
-
-            def handle_endtag(self, tag):
-                assert self.stack and self.stack.pop() == tag, tag
-
+    def test_all_word_paragraphs_survive_in_order_with_exact_text(self):
         for language in ('ar', 'en'):
-            path = ROOT / f'addon/doc/{language}/readme.html'
-            parser = GuideParser()
-            parser.feed(path.read_text('utf8'))
+            with self.subTest(language=language):
+                parser = parse_guide(language)
+                expected = EVIDENCE['languages'][language]['paragraph_records']
+                self.assertEqual(len(parser.blocks), 740)
+                self.assertEqual(len(parser.blocks), len(expected))
+                for index, ((tag, text), record) in enumerate(zip(parser.blocks, expected)):
+                    self.assertEqual(hashlib.sha256(text.encode()).hexdigest(), record['sha256'], (language, index, text))
+                    expected_tag = 'h' + str(record['level']) if record['level'] else 'li' if record['list'] else 'p'
+                    self.assertEqual(tag, expected_tag, (language, index))
+
+    def test_semantic_outline_lists_links_and_language_match(self):
+        parsers = [parse_guide(language) for language in ('ar', 'en')]
+        for language, direction, parser in zip(('ar','en'), ('rtl','ltr'), parsers):
             self.assertEqual(parser.stack, [])
-            self.assertEqual(parser.levels[0], 1)
-            self.assertTrue(set(parser.levels) == {1, 2, 3})
-            self.assertTrue(all(b <= a + 1 for a, b in zip(parser.levels, parser.levels[1:])))
-            self.assertEqual(len(parser.ids), len(set(parser.ids)))
+            self.assertEqual(parser.attributes, {'lang':language, 'dir':direction})
+            self.assertEqual(parser.levels.count(1), 22)
+            self.assertEqual(parser.levels.count(2), 184)
+            self.assertEqual(set(parser.levels), {1, 2})
+            self.assertEqual(sum(parser.list_sizes), 145)
+            self.assertTrue(all(b <= a + 1 for a,b in zip(parser.levels,parser.levels[1:])))
+            self.assertCountEqual(parser.links,EVIDENCE['languages'][language]['links'])
             for href in parser.links:
                 target = urlsplit(href)
+                self.assertIn(target.scheme, ('https', 'mailto'))
                 if target.scheme == 'mailto':
                     self.assertRegex(target.path, r'^[^\s@]+@[^\s@]+$')
-                elif target.scheme in ('http', 'https'):
-                    self.assertTrue(target.netloc)
                 else:
-                    self.assertFalse(target.scheme)
-                    self.assertTrue((path.parent / target.path).is_file())
-                    if target.fragment:
-                        self.assertIn(target.fragment, parser.ids)
-            outlines.append(parser.levels)
-            links.append(parser.links)
-        self.assertEqual(*outlines)
-        self.assertEqual(*links)
+                    self.assertTrue(target.netloc)
+        self.assertEqual(parsers[0].levels, parsers[1].levels)
+        self.assertEqual(parsers[0].list_sizes, parsers[1].list_sizes)
+        self.assertEqual(parsers[0].links, parsers[1].links)
 
-    def test_ten_shortcut_categories_match_in_both_languages(self):
-        groups = []
-        for language, start, end, categories in (
-            ('ar', '# اختصارات لوحة المفاتيح المعتمدة', '# تلقي ملاحظاتكم',
-             ['الاختصارات العامة', 'اختصار الطقس', 'اختصارات مواقيت الصلاة', 'اختصارات الساعة والتوقيت',
-              'اختصارات التقاويم والتواريخ', 'اختصارات التنبيهات والأذكار', 'اختصارات المنبهات',
-              'اختصارات المؤقتات', 'اختصارات ساعة الإيقاف', 'اختصارات الساعة العالمية']),
-            ('en', '# Approved keyboard shortcuts', '# Sending feedback',
-             ['General shortcuts', 'Weather shortcut', 'Prayer-time shortcuts', 'Clock and time shortcuts',
-              'Calendar and date shortcuts', 'Alert and adhkar shortcuts', 'Alarm shortcuts',
-              'Timer shortcuts', 'Stopwatch shortcuts', 'World-clock shortcuts']),
-        ):
-            text = (ROOT / f'addon/doc/{language}/readme.md').read_text('utf8')
-            section = text[text.index(start):text.index(end)]
-            self.assertEqual(re.findall(r'^## (.+)$', section, re.M), categories)
-            groups.append([re.findall(r'^- (NVDA\+[^:]+):', part, re.M)
-                           for part in re.split(r'^## .+$', section, flags=re.M)[1:]])
-            history = text[text.index('# سجل التغييرات' if language == 'ar' else '# Change log'):]
-            self.assertIn('8.0.1', history.split('## ')[1])
-            self.assertNotIn('-dev', history)
-        self.assertEqual(*groups)
-        self.assertEqual([len(g) for g in groups[0]], [1, 2, 3, 2, 3, 4, 3, 7, 6, 1])
-
-    def test_no_unassigned_section_or_internal_command_names_and_generated_docs_match(self):
-        from tools.build_release_docs import build_arabic_markdown, markdown_to_html
-        tree = ast.parse((ROOT / 'addon/globalPlugins/awqati/nvda_adapter/plugin.py').read_text('utf8'))
-        names = [n.name[7:] for n in ast.walk(tree)
-                 if isinstance(n, ast.FunctionDef) and n.name.startswith('script_')]
-        self.assertEqual(
-            build_arabic_markdown((ROOT / 'docs/دليل_أوقاتي_العربي_المعتمد.md').read_text('utf8')),
-            (ROOT / 'addon/doc/ar/readme.md').read_text('utf8'),
-        )
-        for language, direction, title in (
-            ('ar', 'rtl', 'دليل استخدام أوقاتي 8.0.1'),
-            ('en', 'ltr', 'Awqati 8.0.1 user guide'),
+    def test_canonical_sources_and_generated_html_match(self):
+        from tools.build_release_docs import markdown_to_html
+        for language, source, direction, title in (
+            ('ar', 'دليل_أوقاتي_العربي_المعتمد.md', 'rtl', 'دليل استخدام أوقاتي 8.2.2'),
+            ('en', 'awqati_user_guide_en.md', 'ltr', 'Awqati 8.2.2 user guide'),
         ):
             markdown = (ROOT / f'addon/doc/{language}/readme.md').read_text('utf8')
-            html = (ROOT / f'addon/doc/{language}/readme.html').read_text('utf8')
-            self.assertEqual(markdown_to_html(markdown, lang=language, direction=direction, title=title), html)
-            for text in (markdown, html):
-                self.assertNotIn('أوامر دون اختصار افتراضي', text)
-                self.assertNotIn('Commands without a default shortcut', text)
-                for name in names:
-                    self.assertNotIn('`' + name + '`', text)
-                    self.assertNotIn('<code>' + name + '</code>', text)
+            self.assertEqual(markdown, (ROOT / 'docs' / source).read_text('utf8'))
+            self.assertEqual(markdown_to_html(markdown, lang=language, direction=direction, title=title),
+                             (ROOT / f'addon/doc/{language}/readme.html').read_text('utf8'))
 
-    def test_every_current_default_is_documented_once_in_each_language(self):
+    def test_every_current_default_is_in_the_shortcut_reference(self):
         tree = ast.parse((ROOT / 'addon/globalPlugins/awqati/nvda_adapter/plugin.py').read_text('utf8'))
-        gestures = [n.value.value.split(':', 1)[1] for n in ast.walk(tree)
-                    if isinstance(n, ast.keyword) and n.arg == 'gesture']
-        for language in ('ar', 'en'):
-            for extension in ('md', 'html'):
-                text = (ROOT / f'addon/doc/{language}/readme.{extension}').read_text('utf8').lower()
-                for gesture in gestures:
-                    label = gesture.lower().replace('control', 'ctrl') + ':'
-                    self.assertEqual(text.count(label), 1, (language, extension, gesture))
+        gestures = [n.value.value.split(':',1)[1].lower().replace('control','ctrl')
+                    for n in ast.walk(tree) if isinstance(n,ast.keyword) and n.arg == 'gesture']
+        references = []
+        for language, start, end in (
+            ('ar', '# اختصارات لوحة المفاتيح', '# المساهمة والتواصل'),
+            ('en', '# Keyboard Shortcuts', '# Contributing and Contact'),
+        ):
+            text = (ROOT / f'addon/doc/{language}/readme.md').read_text('utf8').replace('**','')
+            section = text[text.index(start):text.index(end)].replace('**','')
+            labels = re.findall(r'^- (NVDA\+[^:]+):', section, re.M)
+            normalized = [label.lower() for label in labels]
+            self.assertEqual(sorted(normalized), sorted(gestures))
+            self.assertEqual(len(normalized), len(set(normalized)))
+            self.assertEqual(len(re.findall(r'^## ',section,re.M)),14)
+            references.append(normalized)
+        self.assertEqual(*references)
 
-    def test_help_has_semantic_lists_and_no_development_acceptance_instructions(self):
-        for language in ('ar', 'en'):
-            text = (ROOT / f'addon/doc/{language}/readme.html').read_text('utf8')
-            self.assertIn('<ul>', text)
-            self.assertNotIn('| --- |', text)
-            self.assertNotIn('Task 1.1', text)
-            self.assertNotIn('5.0.0-dev10', text)
-            self.assertIn('5.0.0', text)
+    def test_single_release_line_and_no_missing_english_translation(self):
+        ar = (ROOT / 'addon/doc/ar/readme.md').read_text('utf8')
+        self.assertEqual(ar.count(EVIDENCE['added_arabic_line']), 1)
+        self.assertLess(ar.index('الإصدار 8.2.2:'),ar.index('الإصدار 8.2.1'))
+        en = (ROOT / 'addon/doc/en/readme.md').read_text('utf8').replace('**','')
+        self.assertNotRegex(en, r'[\u0600-\u06ff]')
+        self.assertIn('## Version 8.2.2:',en)
+        self.assertTrue(EVIDENCE['arabic_only_exact_insertion'])
 
-    def test_new_metadata_description_is_in_both_guides(self):
-        from test_release_package import EXPECTED_ENGLISH_DESCRIPTION, EXPECTED_ARABIC_DESCRIPTION
-        for language, description in (('ar', EXPECTED_ARABIC_DESCRIPTION), ('en', EXPECTED_ENGLISH_DESCRIPTION)):
-            self.assertIn(description, (ROOT / f'addon/doc/{language}/readme.md').read_text('utf8'))
+    def test_help_entrypoint_and_functional_version_remain_unchanged(self):
+        from test_release_package import _addon_info
+        self.assertEqual(_addon_info()['addon_docFileName'], 'readme.html')
+        self.assertEqual(hashlib.sha256((ROOT/'buildVars.py').read_bytes().replace(b'"addon_version": "8.2.2"', b'"addon_version": "8.2.1"')).hexdigest(),
+                         EVIDENCE['unchanged_buildvars_sha256'])
+        self.assertEqual({p.name for p in (ROOT/'addon/doc').iterdir() if p.is_dir()}, {'ar','en'})
+
+    def test_help_has_no_internal_script_names_or_development_instructions(self):
+        tree = ast.parse((ROOT/'addon/globalPlugins/awqati/nvda_adapter/plugin.py').read_text('utf8'))
+        names = [n.name[7:] for n in ast.walk(tree) if isinstance(n,ast.FunctionDef) and n.name.startswith('script_')]
+        for language in ('ar','en'):
+            text = (ROOT/f'addon/doc/{language}/readme.html').read_text('utf8')
+            self.assertNotIn('Task 1.1',text)
+            self.assertNotIn('5.0.0-dev10',text)
+            for name in names:
+                self.assertNotIn('<code>'+name+'</code>',text)

@@ -92,4 +92,3 @@ summarized and locally converted to selected units. Attribution and original
 links accompany reports: Open-Meteo; CAMS for air quality; [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 See [terms and privacy](https://open-meteo.com/en/terms) and [service limits](https://open-meteo.com/en/pricing).
 The free endpoint is for non-commercial use and has no availability guarantee.
-

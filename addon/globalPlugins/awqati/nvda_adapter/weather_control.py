@@ -12,6 +12,11 @@ from .text_dialog import SelectableTextDialog
 from .location_labels import city_name
 
 
+# Temporary 8.2.2 decision: menu execution interrupts speech, while gestures work.
+# Set to True in a later release to restore both retained Tools submenus.
+TOOLS_MENU_ENABLED = False
+
+
 class WeatherTextDialog(SelectableTextDialog):
     # Keep weather and other report windows completely independent.
     _instance = None
@@ -59,7 +64,9 @@ class WeatherControl:
         self.presses = WeatherPresses(wx.CallLater, timeout, self.select, self.cancel)
         self.unsubscribe = settings.events.subscribe(SettingsApplied, self._applied)
         self._applied()
-        self._install_menu()
+        self.menu_item = None
+        if TOOLS_MENU_ENABLED:
+            self._install_menu()
 
     def tr(self, ar, en): return ar if self.language().startswith("ar") else en
 
@@ -178,4 +185,6 @@ class WeatherControl:
         self.unsubscribe()
         self.service.close()
         if WeatherTextDialog._instance: WeatherTextDialog._instance.Close()
-        gui.mainFrame.sysTrayIcon.toolsMenu.DestroyItem(self.menu_item)
+        if self.menu_item is not None:
+            gui.mainFrame.sysTrayIcon.toolsMenu.DestroyItem(self.menu_item)
+            self.menu_item = None

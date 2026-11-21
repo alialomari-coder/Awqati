@@ -1,157 +1,197 @@
 # Overview
 
-Awqati is an NVDA add-on that brings together prayer times, timekeeping, calendars, and astronomical and weather information. Its tools and alerts help users organize their time and keep track of their day.
+Awqati is a free, open-source add-on for the NVDA screen reader. It provides prayer times and related alerts, Zawali and Ghurubi clocks, and five calendars: Gregorian, Lunar Hijri, and three Solar Hijri calendars, as well as date converters, daily astronomical information, and the traditional Arabian calendar.
 
-The add-on provides prayer times, sunrise, midnight and the start of the last third of the night, with customizable calculation methods and alerts. It also offers a clock with Zawali and Ghurubi time, and five calendars: Gregorian, Lunar Hijri and three Solar Hijri calendars.
+The add-on also provides current weather conditions and daily and hourly forecasts, Wikipedia's On This Day service, and Qibla direction information. It includes four time management tools: alarms, countdown timers, a stopwatch, and a world clock.
 
-Awqati presents daily information about the Sun, Moon and seasons, alongside information from the traditional Arabian calendar, including Talaa periods, seasons and the Suhail year. Its weather service provides current conditions and forecasts for today and the coming days, with two detail levels and options for customizing information and measurement units.
+Awqati provides alerts for prayer times, Dhikr, and Wird, with customizable sounds and alerts and configurable quiet hours. It supports Arabic and English and makes its features available through accessible interfaces and keyboard shortcuts.
 
-It provides alerts for prayer times, daily Wird and adhkar, as well as Qibla direction information, with customizable alerts and quiet hours.
+# System Requirements and Installation
 
-Awqati includes four time management tools: alarms, countdown timers, a stopwatch and a world clock, with dedicated keyboard shortcuts for controlling them and checking their status.
+## System requirements
 
-It also offers On This Day information from Wikipedia, which can be read directly or browsed in web pages.
+Awqati requires NVDA 2026.1 or later and has been tested up to version 2026.3.1.
 
-Awqati supports Arabic and English, with keyboard shortcuts and interfaces accessible to screen readers.
+The core features work offline, while weather, Wikipedia, prayer time verification, and data updates require an internet connection when retrieving information. Automatic location detection relies on the Windows location service.
 
-# How to use the add-on
+## Installing, updating, and removing the add-on
 
-The Awqati settings page contains a fixed section that is always displayed and another section whose options change according to the selected settings category.
+You can install and update Awqati from the NVDA Add-on Store or by using the .nvda-addon installation package available in the project's GitHub repository.
 
-The fixed section contains location settings, the master switch for enabling all automatic alerts, quiet-hours settings, and buttons for general functions such as copying diagnostic information and checking for data updates.
+You must restart NVDA to complete installation or an update. You do not need to remove the previous version before installing a newer one.
 
-The changing section contains five main categories: Prayer times, Clock, Calendar, Weather, and Dhikr alerts. When one of these categories is selected, its options appear and the options for the other categories leave the navigation order.
+To disable or remove the add-on, open the NVDA Add-on Store, go to the installed add-ons, select Awqati, and choose the required action.
 
-## Setting the location
+## Preserving settings when updating
 
-Some add-on functions, such as prayer times, the Ghurubi clock, Qibla direction, and astronomical information, depend on the assigned location.
+Awqati retains its settings and time tool data during updates, including the location, calendars, alerts, alarms, and timers.
 
-When the add-on runs for the first time, a window for setting the location appears. You may cancel it and choose the location later from the add-on settings.
+The add-on's data is stored in the awqati folder inside the NVDA configuration folder. It is advisable to back up this folder before major updates.
 
-You can set the location in one of the following ways:
+# Getting Started with Awqati
 
-1. Choose from the list: select the country and then the city. You can type and search in both the country and city lists.
-2. Detect the location automatically: when the user selects this function, the add-on asks Windows to detect the location, then presents the result so that the user can accept or reject it.
-3. Enter a custom location: type the location name, its coordinates, and its time zone. This lets the add-on be used in places that are not included in the city database.
+## First launch
 
-When saving a custom location with Automatic by country, Awqati asks you to choose an explicit calculation method from a list; it does not infer a country or choose a method for you. Cancelling preserves existing data. The same prompt appears on startup for older settings in this state. A saved manual method is retained.
+When you run Awqati for the first time, a dialog appears for selecting the location used to calculate prayer times and related information. You can cancel the dialog and set your location later in the add-on's settings.
 
-## Showing the Qibla direction
+Once you have set your location, the features that depend on it are ready to use, and you can customize the remaining settings as needed. The weather service is disabled by default until you enable it.
 
-The Qibla direction is shown using the location assigned in the add-on. It states the general direction, the amount of deviation, and the precise bearing calculated from true north.
+## Setting your location
 
-Because a computer cannot know the direction in which the user or device is facing, practical use of this information requires knowing which way north lies at the user's location. We therefore generally recommend confirming the direction of north and treating this service as guidance.
+The add-on offers three ways to set your location:
 
-## Enabling all automatic alerts
+- **Choose from the list:** Select a country and city from the built-in location database, with support for searching by typing.
+- **Automatic detection:** Use the Windows location service, then accept or reject the result displayed.
+- **Custom location:** Enter the location's name, coordinates, and time zone.
 
-This is the master switch that controls every automatic alert issued by the add-on, including prayer-time, clock, and dhikr alerts.
+Prayer times, astronomical information, Qibla direction, and Ghurubi time depend on the selected location, so you should make sure it is correct.
 
-When it is disabled, all automatic alerts stop without their settings being deleted. When it is enabled again, alerts enabled in their own sections resume working.
+When you use a custom location with the prayer time calculation method set to "Automatic by country", the add-on asks you to choose a specific calculation method. You can change your location later in the settings.
 
-## Enabling quiet hours
+## Opening the add-on's settings
 
-This option lets the user stop alerts during a specified period, such as sleeping or rest time, while preserving all settings. Alerts resume after the quiet period ends.
+Press NVDA+Alt+A to open Awqati's settings. You can open the Weather settings page directly with NVDA+Alt+W.
 
-Additional settings control how quiet hours apply to prayer-time alerts.
+The settings dialog lets you configure services, alerts, and general options, and either save or cancel your changes.
 
-## Copying diagnostic information
+## Understanding the settings pages
 
-This button copies a technical report about the add-on's status, settings, and environment to the clipboard for use when reporting a problem or requesting support. Sensitive information that does not need to be shared is excluded.
+Awqati's settings dialog has a fixed section and a section whose options change according to the selected page.
 
-## Checking for data updates
+The fixed section contains location settings, overall alert controls, quiet hours, Qibla direction, copying diagnostic information, and checking for data updates.
 
-This button checks whether newer versions of the add-on data are available, including location, time-zone, calculation-method, and Arabian-calendar data.
+The variable section contains five pages:
 
-This button checks general data only on request. World clock has a separate update channel with an optional weekly automatic check, described in its section.
+- **Prayer times:** Settings for calculation methods, time adjustments, alerts, and Iqama.
+- **Clock:** Settings for Zawali and Ghurubi time, speech formats, and clock alerts, as well as access to the time tools.
+- **Calendar:** Settings for calendars and date formats, date converters, and daily, astronomical, and traditional calendar information.
+- **Weather:** Settings for weather queries, detail levels, units of measurement, and report display options.
+- **Dhikr alerts:** Settings for morning and evening Dhikr, the Friday hour, daily Wird, and recurring Dhikr reminders.
 
-# Add-on settings sections
+The Prayer times page is selected by default when you open the settings. Selecting a page displays its options without the options from the other pages.
 
-In addition to the fixed section, the Awqati settings contain five main categories: Prayer times, Clock, Calendar, Weather, and Dhikr alerts.
+## Using keyboard shortcuts
 
-Prayer times is selected by default when the settings open. When another category is selected, the current category's options disappear and the selected category's options appear in their place.
+Awqati provides shortcuts for querying information and opening and controlling its tools without having to open the settings each time. You can review and customize these shortcuts in NVDA's Input Gestures dialog, under the Awqati category. The assigned shortcuts and their functions are listed in the Keyboard Shortcuts section of this guide.
 
-## Prayer times
+## Commands with multiple presses
 
-This section contains settings for prayer times and related times, as well as the alert settings for each time.
+Some Awqati shortcuts use consecutive presses for different functions, within the timeout specified in NVDA. The function of each press is listed in the Keyboard Shortcuts section.
 
-### Enabling prayer-time alerts
+## Saving settings and applying changes
 
-This option enables or disables alerts associated with prayer times and the other times, including alerts before the time begins, alerts when it begins, Iqama alerts, and after-time alerts.
+OK saves your changes and closes the settings, while Apply saves them without closing the dialog. Cancel discards unsaved changes. Changes to the time tools are saved immediately and independently.
 
-When it is disabled, these alerts stop while their settings are preserved. They resume when it is enabled again.
+# Location Settings
 
-### Opening the Today's prayer times window
+## Choosing a country and city
 
-This button opens a window that presents all of today's prayer times in a form that can be read, reviewed, and copied.
+Awqati includes a database of locations around the world. You can select a country and then a city, with support for searching by typing in both lists. The selected location is used to calculate prayer times and related information.
 
-### Verifying today's prayer times online
+If your location is not listed, you can enter it as a custom location.
 
-This button compares the prayer times calculated within the add-on with the times from an external online provider. It shows the differences without automatically changing the internal prayer times.
+## Automatic location detection
 
-### Prayer-time calculation method
+The add-on can determine your location using the Windows location service. When you request automatic detection, it displays the detected location for you to accept or reject, without automatically changing your saved location.
 
-This setting chooses the method used to calculate prayer times. The user may select the method that is appropriate or leave the setting on Automatically by country.
+The accuracy of the result depends on the information supplied by the Windows location service, so it is advisable to check it before accepting it.
 
-### Asr calculation
+## Entering a custom location
 
-This setting chooses the juristic method used to calculate the beginning of Asr. The Majority option follows the method known among the Shafi'i, Maliki, and Hanbali schools, while the Hanafi option follows the Hanafi method for calculating the beginning of Asr.
+You can add a location that is not in the database by entering its name, coordinates, and time zone.
 
-### High-latitude handling
+If the calculation method is set to "Automatic by country", the add-on asks you to select an explicit calculation method when you save a custom location. It does not choose a method for you, and canceling the operation leaves your previous settings unchanged.
 
-This setting controls how the add-on handles places where twilight lasts a long time or where Fajr and Isha are difficult to calculate in the usual way. The Automatic option lets the add-on apply the appropriate policy for the situation.
+## Coordinates and time zone
 
-### Duration for which the current prayer remains current after Iqama, in minutes
+The add-on uses latitude and longitude to identify the geographical location and the time zone to calculate and display times in local time.
 
-This setting determines how long a prayer remains classified as the current prayer after its calculated Iqama time. The default is 20 minutes.
+When entering a custom location, make sure the coordinates are correct and select the appropriate time zone, taking daylight saving time into account in regions that observe it.
 
-### Time to configure
+## Changing the selected location
 
-This option selects the time whose individual settings you want to change.
+You can change the location in the general section of Awqati's settings using any of the available location selection methods. Once you accept the new location, its data is used for location-dependent calculations. Other settings are retained unless changing the location requires an explicit adjustment, such as choosing a prayer time calculation method for a custom location.
 
-The list contains the following eight times: Fajr, Sunrise, Dhuhr, Asr, Maghrib, Isha, Midnight, and the Last Third of the night.
+## How location affects prayer times and astronomical information
 
-### Settings for the selected time
+Prayer times, Ghurubi time, Qibla direction, and daily astronomical information depend on the coordinates and time zone of the selected location. The prayer time calculation method is determined by the prayer time settings, and results may differ between methods even for the same location. You should therefore check both the location and calculation method if you notice differences in prayer times or astronomical information.
 
-When one of the times is selected from the Time to configure list, the settings for that time appear.
+# Prayer Times
 
-Some options differ according to the selected time. The five prayers have Iqama-related settings, while Sunrise, Midnight, and the Last Third have independent after-time alerts.
+## About the prayer time service
 
-### Time correction in minutes
+Awqati calculates prayer times for the selected location using the chosen calculation method. It provides customizable alerts for the five daily prayers, as well as sunrise, the midpoint of the night, and the start of the last third of the night.
 
-This setting lets the calculated time be moved earlier or later by a number of minutes when needed.
+Times are calculated locally without an internet connection, with the option to verify them against an external source on request.
 
-The default is zero, and changing it is not recommended unless necessary.
+## Querying prayer times
 
-### Alert before the time begins
+NVDA+F11 provides three functions through consecutive presses:
 
-This option sets how many minutes before the time begins the advance alert is issued.
+- One press: Details of the current time period.
+- Two presses: The previous time period.
+- Three presses: Today's prayer times.
 
-The default is ten minutes, and the user can change it as needed.
+The information provided depends on the location and settings selected in the add-on.
 
-### Action for the alert before the time begins
+## Displaying today's prayer times in a text window
 
-This setting chooses how the advance alert is presented. The available options are:
+NVDA+Alt+P opens a window containing today's full prayer times, which you can review and copy.
 
-- Mute.
-- Speech only.
-- Sound file only.
-- Sound file and speech.
+You can also open the window using the "Open daily prayer times window" button in the prayer time settings.
 
-When an action that includes a sound file is selected, options to choose, preview, and remove the file appear.
+## Previous, next, and current prayers
 
-### Action for the alert when the time begins
+The add-on identifies the previous and next prayers according to local time and takes the calculated Iqama times into account when determining the current prayer.
 
-This setting chooses how the alert is presented when the time begins. The available choices are mute, speech, a sound file, or a sound file with speech.
+A prayer remains classified as current for the specified period after Iqama, then moves to its next state according to the prayer time system.
 
-### Iqama settings for the five prayers
+## The midpoint and last third of the night
 
-When one of the five prayers is selected, additional Iqama settings appear.
+The add-on calculates the midpoint of the night and the start of its last third from the interval between sunset and Fajr the following day, rather than by dividing the hours of the civil day.
 
-### Time between Adhan and Iqama
+These times are included in the prayer time information, and you can customize their associated alerts.
 
-This value sets the period between the beginning of the prayer time and the calculated Iqama time.
+## Prayer time calculation method
 
-The defaults are:
+The "Prayer calculation method" option lets you choose an available calculation method or use "Automatic by country" to select the appropriate method for the chosen country.
+
+Results may differ between calculation methods, particularly for Fajr and Isha. You are advised to choose the method approved by the relevant authority in your country.
+
+When you use a custom location with the automatic option, the add-on asks you to select an explicit calculation method.
+
+## Calculating Asr time
+
+Two options are available for calculating the start of Asr:
+
+- **Standard:** The method used by the Shafi'i, Maliki, and Hanbali schools.
+- **Hanafi:** The method used by the Hanafi school.
+
+This choice affects the calculation of Asr only, without changing the other times.
+
+## High latitude adjustment
+
+This setting determines how Fajr and Isha are calculated in areas where twilight is prolonged or standard calculations are not possible.
+
+The Automatic option applies an appropriate adjustment for the circumstances. You can also choose another available method as needed.
+
+## Verifying prayer times online
+
+The "Verify today's prayer times online" button lets you compare the times calculated by the add-on with those from an external provider.
+
+The add-on displays the differences without automatically changing its calculated times or settings. This feature requires an internet connection.
+
+## Adjusting prayer times
+
+The "Time adjustment in minutes" option lets you move a calculated time earlier or later by a specified number of minutes.
+
+The default value is zero, and you can customize the adjustment for each time separately. It is best to change it only when you need to match locally approved times.
+
+## Iqama settings
+
+Iqama settings are available for the five daily prayers. Iqama times are calculated by adding the specified interval to the start of each prayer time.
+
+The default intervals between Adhan and Iqama are:
 
 - Fajr: 25 minutes.
 - Dhuhr: 20 minutes.
@@ -159,528 +199,1183 @@ The defaults are:
 - Maghrib: 10 minutes.
 - Isha: 20 minutes.
 
-These values can be changed to suit the mosque, country, or user's preferences.
+You can adjust the interval for each prayer independently. Setting it to zero disables the Iqama system for that prayer; the period during which it is considered current then begins at the start of its prayer time.
 
-### Alert before Iqama
+## Pre-Iqama alert
 
-This setting determines how many minutes before Iqama the alert is issued. The default is five minutes.
+This setting specifies how many minutes before the calculated Iqama time the alert occurs.
 
-### Action for the alert before Iqama
+The default value is five minutes. You can change it or disable the alert by choosing the appropriate action.
 
-This setting chooses how the alert before Iqama is presented. The available choices are mute, speech, a sound file, or a sound file with speech.
+## How long a prayer remains current
 
-### After-time alerts for the other times
+The "Keep prayer current after Iqama, minutes" option specifies how long a prayer remains classified as current after its calculated Iqama time.
 
-When Sunrise, Midnight, or the Last Third is selected, an independent after-time alert setting appears.
+The default value is 20 minutes, adjustable from zero to 180 minutes. If Iqama is disabled for a particular prayer, this duration is measured from the start of its prayer time.
 
-This setting chooses the delay after which the alert is issued and the action used to present it.
+## Enabling and disabling prayer time alerts
 
-## Clock
+The "Enable prayer time alerts" option controls all prayer time alerts, including alerts before the time, at its start, for Iqama, and after the time.
 
-This section contains settings for the Zawali and Ghurubi clocks, automatic clock alerts, and the four time tools described below.
+Disabling it stops these alerts without deleting their settings. They resume when you enable it again, provided that the master switch for automatic alerts is enabled.
 
-### Choose clock settings
+## Alerts before a time begins
 
-This option selects the type of clock whose settings you want to customize, either the Zawali clock or the Ghurubi clock. The settings for the selected type then appear.
+You can set an alert a specified number of minutes before each time begins. The default is ten minutes.
 
-The Zawali clock is ordinary civil time. The Ghurubi clock starts at sunset: nighttime hours begin at sunset and are followed by daytime hours until the next sunset. It is an Arabic time system that was used historically.
+The specified interval also serves as the waiting window before the time begins; there is no separate waiting window. Setting it to zero removes this window.
 
-### Announcement format
+## Alerts when a time begins
 
-This setting chooses the level of detail used when announcing the time. The user can select among the available formats according to the amount of information they prefer to hear.
+This setting specifies the action performed when the calculated time begins: speech, playing an audio file, or both.
 
-### Hour system
+You can set the action for each time independently, or choose Silent to prevent an alert when it begins.
 
-This setting chooses whether the time is displayed and announced using the 12-hour or 24-hour system.
+## Alerts after a time begins
 
-### Announcement representation
+Separate alerts after the time are available for sunrise, the midpoint of the night, and the start of the last third of the night.
 
-This setting chooses whether the time is read in words or digits.
+You can specify the interval between the calculated time and the alert and choose the action used for it.
 
-### Announce seconds
+## Customizing alert actions for each time
 
-This option includes seconds in the time announcement or limits it to hours and minutes.
+Alerts are configured through the "Time to configure" list, which includes Fajr, sunrise, Dhuhr, Asr, Maghrib, Isha, the midpoint of the night, and the last third of the night.
 
-### Announce “zero minutes”
+Selecting a time displays its specific settings, including adjustments and the alerts available for it.
 
-This setting chooses whether the add-on says “zero minutes” when the minute is zero or announces only the hour.
+The following alert actions are available:
 
-### Preview announcement
+- Silent.
+- Speech only.
+- Sound file only.
+- Sound file and speech.<br>When you choose an action that includes an audio file, options appear for selecting, previewing, and removing the file.
+- You can use a file containing the Adhan, the Iqama, or any other sound you prefer.
 
-This button lets the user hear the time according to the current clock settings before saving changes.
+Some settings depend on the selected time: the five daily prayers include Iqama settings, while sunrise, the midpoint of the night, and the last third have separate alerts after the time.
 
-### Enabling automatic clock alerts
+# Clocks and Timekeeping
 
-This option starts or stops alerts for parts of the hour while preserving their settings when disabled.
+## Querying the time
 
-Alerts can be selected for one or more of the following times:
+Awqati provides two clocks: Zawali, the conventional clock, and Ghurubi, which uses sunset as the starting point for counting the hours of the night and day.
+
+NVDA+F12 provides time, date, and day information according to the number of presses:
+
+- One press: The current time.
+- Two presses: The date in the primary calendar.
+- Three presses: Day information.
+
+The clock settings let you customize time announcements and automatic alerts for each clock.
+
+## Zawali time
+
+Zawali time is the conventional time system in which the day begins at midnight. It uses the computer's local clock.
+
+You can customize its speech format, hour system, and the details announced when you query it.
+
+## Ghurubi time
+
+Ghurubi time is a traditional system that counts hours from sunset. Nighttime hours begin at sunset and are followed by daytime hours until the next sunset.
+
+The add-on uses your saved location to calculate this time, so its hours vary by location and season.
+
+Press NVDA+G once to query Ghurubi time. Two presses provide the Qibla direction, and three presses announce the selected location.
+
+## Hour systems
+
+The "Hour system" option lets you choose between 12-hour and 24-hour time according to your preferred display and speech format.
+
+Zawali and Ghurubi clock settings are configured independently using "Choose clock settings" in the clock settings.
+
+## Time speech formats
+
+The add-on lets you choose a speech format and the level of detail announced for the time. The "Speech representation" option also lets you choose whether the time is read in words or numbers.
+
+These options apply to the selected clock without changing the other clock's settings.
+
+## Announcing seconds
+
+This option determines whether time announcements include seconds or only hours and minutes.
+
+## Announcing "zero minutes"
+
+This option determines whether the add-on says "zero minutes" on the hour or announces the hour without mentioning minutes.
+
+## Previewing speech
+
+The "Preview speech" button lets you hear the time using the selected settings so you can check the format, representation, and details before saving your changes.
+
+## Automatic clock alerts
+
+You can enable or disable automatic clock alerts and select one or more of the following points:
 
 - Quarter past the hour.
 - Half past the hour.
-- Three quarters past the hour.
+- Quarter to the hour.
 - On the hour.
 
-### Clock-alert action
+Disabling clock alerts stops them while retaining their settings. The master switch for automatic alerts in Awqati must be enabled for them to work.
 
-This setting chooses how the clock alert is presented. The available options are:
+## Customizing clock alert actions
+
+You can choose a clock alert action from the following options:
 
 - Speech only.
 - Sound file only.
 - Sound file and speech.
 
-The add-on includes a default sound file for clock alerts. The user can also choose, preview, or remove a custom sound file.
+The add-on includes a default audio file that you can replace with a custom file, with options to preview or remove it.
 
-### The four time tools
+The Clock page also provides other time management tools: alarms, countdown timers, a stopwatch, and a world clock. Instructions and settings for these tools appear in separate sections later in this guide.
 
-### Opening tools from Clock settings
+# Calendars and Dates
 
-Press NVDA+Alt+A to open Awqati settings. Select Clock in the settings sections list, then Tab to Time tools. Use the arrows to choose Alarms, Timers, Stopwatch or World clock, in that list order. Focus stays on the selector; Tab enters the selected tool and Shift+Tab returns. Hidden tools leave the Tab order. Selections and input are retained while switching tools, and the last tool is remembered for the NVDA session.
+## Supported calendars
 
-The alarm, timer and stopwatch opening shortcuts select the same embedded tools in Clock settings. Time tool changes are saved immediately, independently of Apply and Cancel in Awqati settings. Closing settings does not stop alarms, measurement or countdowns.
+Awqati supports five calendars, with independently customizable date display and speech formats for each:
 
-### Alarms
-
-Add an alarm, enter its name, hour (0–23) and minute (0–59), and select at least one repeat day. Midnight, 00:00, is valid. In the weekday list, use arrows to move and Space to select or clear a day. All seven days means daily recurrence. There is no once-only mode.
-
-Each alarm has its own speech/sound action, optional custom WAV, ringing duration, snooze interval and count, and quiet-hours option. Alarms bypass quiet hours by default, but obey the global automatic-alert switch. Stop ends the current ringing cycle; Snooze postpones it for the saved interval. Stopping never creates a snooze. Disabling, editing or deleting an alarm cancels its pending snooze.
-
-Alarms follow Windows local time and time zone, independently of the prayer location. During daylight-saving transitions, missing times move to the first valid minute and repeated times run once. Late events have a ten-minute grace period; a previously started ringing cycle is not replayed after restarting NVDA. Prayer alerts interrupt ringing, and simultaneous alarms wait in the central queue. Alerts cannot run while the computer or NVDA is off.
-
-### Timers
-
-Create a timer, enter an optional name and hours, minutes and seconds, then start it. Run several timers and save reusable definitions. The maximum is 999 hours, 59 minutes and 59 seconds; zero is rejected. Select a timer to start, pause, resume, restart, cancel, edit or delete it. Cancel an active cycle before editing. Restarting from the original duration always requires confirmation, defaulting to No; deletion also requires confirmation.
-
-Choose speech, sound or both, an optional custom WAV, and one alert or repetitions at a chosen interval. Preview the sound when needed. Play clock ticking is off by default; only the selected running timer ticks. Higher-priority alerts and previews silence ticking while other timers keep running. Silencing a ringing timer stops one timer's sound and pending repetitions, regardless of selection, and leaves its state Finished.
-
-Next and Previous wrap in list order without starting or stopping timers. Closing settings retains selection and ticking for the session. The double-press query counts all timers, including saved and finished timers. Counting includes sleep and ignores Windows clock changes during the session. Running timers are restored after restarting NVDA using UTC; changing the clock while NVDA is off can affect restoration. Late alerts have a ten-minute grace period without a catch-up burst. The global switch suppresses expiry output without stopping counting. Timers bypass quiet hours by default, with a separate option per timer.
-
-### Stopwatch
-
-Start, pause or resume according to the current state. Record laps during measurement, review the native list of lap numbers, durations and cumulative totals, or copy results as text. The current-lap query reports time since the last lap, or total elapsed time before the first lap. Queries do not change measurement or results. A running stopwatch cannot be reset: pause it, then confirm resetting. No is selected by default.
-
-Choose Tones only, Speech only, Tones and speech, or No confirmation sounds for operations. Preview confirmation tones without changing measurement. Display updates are silent. Measurement includes computer sleep and ignores civil-clock changes. After restarting NVDA, the stopwatch is restored paused at its last saved value without guessing time while NVDA was absent. An unexpected crash may lose time since the last save.
-
-### World clock
-
-Choose Add city, search in Arabic or English, and add a city to your list. Use arrows to move between cities and the available commands to sort, reorder or delete with confirmation. List order determines the first three cities queried by the shortcut; queries do not change selection. Times are calculated from UTC using each city's time zone and daylight-saving rules, independently of the prayer location.
-
-To customize a city or country name, press the Applications key or Shift+F10 and choose Edit name. Save or cancel changes, or restore original names and save. Arabic and English names are saved independently without changing time zones or calculations.
-
-Update data checks the official signed channel manually in the background. Update data automatically is enabled by default and checks weekly, waiting at least one minute after startup before connecting. Disable it to keep manual checks only. Automatic checks stay silent when there is no update or a failure; an actual update is announced after important Awqati alerts finish. Cities, ordering, names and offline operation are preserved if an update fails. Updates activate without restarting NVDA. This channel is separate from the general add-on data-update button.
-
-## Calendar
-
-This section contains settings for calendars, date-display formats, and daily information.
-
-### Date converter
-
-In Awqati settings, choose Calendar, Tab to “Open date converter” or “Advanced conversion...”, and press Enter.
-
-In the basic converter, select the direction, day, month and year, then Convert. Hijri conversion uses the bundled Umm al-Qura table and reports dates outside its supported range. Today fills the current date for the saved location; Advanced... opens the expanded options.
-
-The advanced converter offers Hijri, Gregorian and Julian source and target calendars, Umm al-Qura and historical arithmetic IIc in the dialog. The internal engine implements eight arithmetic variants for verification; the dialog exposes these two reference choices. Select the method and enter the day, month and year. The reference depends on the method; historical arithmetic does not establish religious moon sightings. The method selector is disabled when neither calendar is Hijri.
-
-The shared result window contains the original date, converted date and reference. Copy result copies the target date; Reverse conversion swaps the two dates and updates the converter fields when the result closes. Use Tab and Shift+Tab to navigate, Enter to convert and Escape to close. The converter does not apply your personal Hijri correction or change saved settings.
-
-“Open date converter” in the Awqati Input Gestures category has no default shortcut. Open the NVDA menu, Preferences, Input Gestures, select the command and add an unused shortcut. Once assigned, one press opens the basic converter; two quick presses open the advanced converter after NVDA’s configured multi-press timeout. Change or remove the shortcut in the same dialog.
-
-### Primary calendar
-
-This setting chooses the calendar that the add-on uses as the primary date when presenting date information. The choices are the Lunar Hijri calendar and the Gregorian calendar.
-
-The Lunar Hijri calendar is the default primary calendar.
-
-### Include Arabian-calendar information in daily information
-
-This option adds traditional Arabian-calendar information to the astronomical daily information when enabled.
-
-### Opening the Daily information window
-
-This button opens a window that presents daily information in a form that can be read, reviewed, and copied.
-
-### Astronomical synopsis in version 7.1.0
-
-The scientific synopsis presents five connected paragraphs for the assigned location, date and time:
-
-- Day and night length, daylight change since the previous solstice, and the longest day and longest night on their actual respective dates.
-- Solar meridian transit time and altitude at transit, and the current distance between the centres of Earth and the Sun.
-- Lunar phase, illuminated percentage and approximate age, and the current distance between the centres of Earth and the Moon.
-- Moonrise and moonset in chronological order, lunar meridian transit and altitude at transit, followed by the time of the actual maximum altitude; the maximum may occur at a different time from transit.
-- The next new moon, first quarter, full moon and last quarter, in chronological order.
-
-The text states when no rise or set occurs during the day or a value cannot be calculated, rather than assuming an event time. A ΔT time-scale note appears where needed. Event times are calculated within the models' limits and do not establish crescent visibility. Traditional Arabian-calendar information remains a separate optional section; no new detail levels are introduced.
-
-For keyboard access, open Awqati settings with NVDA+Alt+A, choose Calendar, Tab to the button that opens Daily information, and press Enter. Press NVDA+Ctrl+H once to speak astronomical information, twice for Arabian-calendar information, or three times within NVDA's multi-press timeout to open the Daily information window. Three presses of NVDA+F12 also speak Daily information according to the heritage inclusion option. Shortcuts can be reassigned under Awqati in Input Gestures.
-
-The window focuses a read-only text field named after the window. Read with the arrow keys, use Control+Home to reach the start, or Control+A then Control+C to copy all text. Press Escape to close, or Tab to Close and press Enter. Focus returns to the opening control when it remains available.
-
-### Choose the calendar to configure
-
-This setting chooses the calendar whose options you want to customize. Its options appear without affecting the settings of the other calendars.
-
-The add-on includes five calendars:
-
-- Lunar Hijri calendar.
 - Gregorian calendar.
+- Lunar Hijri calendar.
 - Saudi Solar Hijri calendar.
 - Afghan Solar Hijri calendar.
 - Persian Solar Hijri calendar.
 
-Only the Lunar Hijri and Gregorian calendars can be selected as the primary calendar. The three solar calendars remain independent additional calendars.
+Only Gregorian and Lunar Hijri can be selected as the primary calendar. The three solar calendars are available for separate queries.
 
-### Date format
+## Querying the date
 
-This setting chooses how the selected calendar's date is displayed and announced. Available formats include Double, Full, Moderate, and Short.
+Press NVDA+F12 twice to query the date in the selected primary calendar.
 
-### Lunar Hijri date correction
+Separate shortcuts are available for the other calendars:
 
-This option moves the Lunar Hijri date forward or backward by a number of days when needed to match the locally adopted date.
+- NVDA+H: Once for the Lunar Hijri date, twice for the Saudi Solar Hijri date, and three times for the traditional Arabian calendar summary.
+- NVDA+Shift+H: Once for the Afghan Solar Hijri date and twice for the Persian Solar Hijri date.
 
-The default is zero, meaning that no correction is applied.
+## Choosing the primary calendar
 
-### Preview announcement
+The "Primary calendar" option determines the calendar used for general date queries. You can choose Lunar Hijri or Gregorian.
 
-This button lets the user hear a sample date according to the current calendar and settings before saving changes.
+Lunar Hijri is the default. Changing the primary calendar does not affect your ability to use the other calendars.
 
-The add-on also provides Daily information, which brings together the day's astronomical information and can include traditional Arabian-calendar information when its option is enabled.
+## Customizing date formats
 
-## Weather
+On the Calendar page, choose the calendar to configure, then select a date display and speech format from the available options, including dual, full, medium, and short formats.
 
-### About the service
+Each calendar's settings are saved independently. Changing its format does not affect the other calendars.
 
-Weather provides current conditions and forecasts for today, the upcoming hours and the coming days, using the saved Awqati location and time zone. It is optional, disabled by default and requires an Internet connection to retrieve data. No separate location, account or API key is needed.
+## Adjusting the Lunar Hijri date
 
-### Enabling weather
+This option lets you move the Lunar Hijri date forward or backward by a number of days to match the locally adopted date.
 
-Press NVDA+Alt+W to open Awqati settings with Weather selected, even while the service is disabled. Select “Enable weather service” and save with Apply or OK. Alternatively, press NVDA+Alt+A, which opens general settings at Prayer times, then choose Weather in the section selector.
+The default value is zero, meaning no adjustment. This setting affects only the Lunar Hijri date and does not apply to date converter results.
 
-To disable the service, clear its checkbox and save. Updates stop and in-flight results are ignored; your choices remain saved. Cancelling settings or a customization dialog discards its edits.
+## Previewing date speech
 
-### Requesting weather information
+The "Preview speech" button lets you hear the date in the selected calendar and speech format before saving your changes.
 
-- NVDA+W once: current weather.
-- NVDA+W twice: today's forecast and upcoming hours.
-- NVDA+W three times: coming days forecast.
+## Simple date converter
 
-After the last press, wait for NVDA's multi-press timeout plus 50 milliseconds, with a minimum total of 300 milliseconds. Reports wait until the sequence settles. Additional presses beyond three in the same sequence select coming days. Detail level is set in settings and is independent of press count. Reassign the command in the Awqati category of Input Gestures if needed.
+The simple date converter provides direct conversion between Gregorian and Lunar Hijri dates using the built-in Umm al-Qura table.
 
-The three reports are also available under NVDA menu, Tools, Awqati, Weather, alongside “Open weather information in a text window” and “Refresh now”.
+To open it, go to the Calendar page in Awqati's settings and choose "Open date converter".
 
-### Detail levels
+Select the conversion direction, enter the day, month, and year, and choose Convert. The Today button enters the current date for the selected location, while "Advanced..." opens the advanced converter.
 
-Brief is the default. Current weather includes the city in the report language, conditions, current temperature and today's expected high and low. Detailed adds wind and the available additional information you select. Temperatures are rounded to the nearest integer in Brief and to one decimal place when needed in Detailed, including kelvin. Exact halves round away from zero; the original values remain unchanged.
+## Advanced date converter
 
-Current conditions say sunny only when daytime is confirmed, and clear at night or when daytime information is unavailable; daily descriptions are neutral. Today's and coming days forecasts include conditions, high, low and highest hourly precipitation probability; selected options extend Detailed reports. Unavailable values are omitted and genuine zero values are preserved.
+The advanced converter converts dates between the Lunar Hijri, Gregorian, and Julian calendars, with a choice of conversion method when applicable.
 
-### Customizing weather information
+Open it using the "Advanced conversion..." button on the Calendar page, or access it from the simple converter.
 
-Under Displayed information, open Customize weather information and choose a category. Choices for the three categories are saved independently:
+Select the source and target calendars and the conversion method, then enter the required date. Method selection is disabled when neither side of the conversion is Hijri.
 
-- Current weather: feels-like temperature, humidity, wind gusts, sea-level pressure, visibility, cloud cover, precipitation, UV index and U.S. air quality index.
-- Today's forecast: precipitation amount, maximum wind speed, wind gusts and maximum UV index.
-- Coming days forecast: the same daily options, saved separately.
+## Conversion methods and their limits
 
-These options extend Detailed reports and do not remove fixed core information. Feels-like temperature, humidity and gusts are enabled by default for current weather; precipitation amount and maximum wind are enabled for today and coming days. Other additions, including air quality and UV, are disabled by default.
+The advanced converter provides two Hijri conversion methods:
 
-Precipitation probability is a percentage; amount uses millimetres or inches. Current precipitation states the actual data interval, such as the last 15, 30 or 60 minutes, and is omitted without a known interval. Pressure is corrected to sea level. UV is a unitless index. Wind direction means the direction it comes from and is omitted for calm wind.
+- **Umm al-Qura:** Uses the built-in table within the range of dates it covers.
+- **Historical arithmetic IIc:** Uses historical calendar arithmetic and does not establish crescent visibility.
 
-### Measurement units
+The conversion engine contains additional arithmetic methods internally for testing and comparison, but the interface provides the two methods listed above.
 
-- Metric, the default: Celsius, kilometres per hour, hectopascals, kilometres and millimetres.
-- Imperial: Fahrenheit, miles per hour, inches of mercury, miles and inches.
-- Custom: Customize units lets you choose each unit independently.
+The add-on displays a message if you enter a date outside the supported range. Conversion is not affected by your personal Hijri date adjustment and does not change saved calendar settings.
 
-Available units are Celsius, Fahrenheit or kelvin for temperature; kilometres per hour, metres per second, miles per hour or knots for wind; hectopascals, millibars, millimetres of mercury or inches of mercury for pressure; kilometres or miles for visibility; and millimetres or inches for precipitation. Custom choices are retained when switching systems. Conversion uses original values locally without another connection.
+## Copying and reversing a conversion
 
-### Daily and hourly forecasts
+The conversion result appears in a window containing the original date, the converted date, and the reference used.
 
-Choose two to six future days starting tomorrow; the default is two. Upcoming hours can be 3, 6 or 12; the default is 6. Include hourly periods in detailed report is enabled by default. These details appear in today's forecast, rather than current weather.
+"Copy result" copies the resulting date to the clipboard. "Reverse conversion" swaps the source and target calendars and updates the converter fields when you return to it.
 
-Readings span the full horizon: hourly for 3 hours, every two hours for 6, and every three hours for 12, including the last available sample. They are point-in-time samples rather than whole-period averages. Tomorrow is stated across midnight, other days use local dates, and a UTC offset distinguishes repeated daylight-saving hours. With hourly periods disabled or Brief selected, the report gives the first significant expected change; stability across the full horizon is reported only when all required data are present.
+An Open date converter command is also available under the Awqati category in Input Gestures, without a default shortcut. Once you assign a shortcut, one press opens the simple converter and two consecutive presses open the advanced converter.
 
-If precipitation probability is zero in every available hour, speech uses one statement identifying the available readings' time range and omits repeated zeros from samples. The text keeps individual probabilities. Missing values are never treated as zero, and positive probabilities between displayed samples also prevent this reduction.
+# Astronomical Information
 
-### Open weather information in a text window
+## About the daily astronomical synopsis
 
-Request the desired report with NVDA+W or the menu and wait for success. Then select Open weather information in a text window from the Weather menu. The same name is available in Input Gestures without a default shortcut.
+Awqati provides a daily astronomical synopsis with information about the Sun, Moon, seasons, and lengths of day and night, based on the selected location, date, and time.
 
-The window opens a saved text version of the last successfully requested information, preserving its report type, detail level, units, time and location, with hourly details and attribution. Opening it neither retrieves data nor recalculates the report. A failed request leaves the last successful version intact. With no earlier successful request, a message asks you to request a report first. The version lasts for the NVDA session, including after settings change, and may no longer describe current conditions.
+The information is calculated locally and presented as connected text covering the main astronomical data, without requiring an internet connection.
 
-Use arrows to read, Control+Home for the start, Control+End for the end, Control+A to select all and Control+C to copy selected text. Tab moves from the text to Copy report, Close, and Data source and licence; Shift+Tab reverses this order. Copy report copies the entire text including attribution without a selection. Escape closes the window and restores the opener's focus.
+The traditional Arabian calendar remains a separate section that can be included in day information when its option is enabled.
 
-Open text never updates automatically. Opening the window while it exists focuses its preserved text, even after another report request. Close and reopen it to review the last successful report. Prayer and other information windows remain independent.
+## Accessing astronomical information
 
-### Including weather in daily information
+You can query astronomical information using NVDA+Ctrl+H:
 
-Include weather conditions in daily information is disabled by default and follows the selected detail level and current-weather options. It uses valid cached data after astronomy and Arabian calendar information without appending full hourly or multi-day forecasts. It never delays daily information while waiting for a connection. Without valid cached data, ordinary daily information remains available and a silent retrieval starts for the next reading.
+- One press: Speak astronomical information.
+- Two presses: Speak traditional Arabian calendar information.
+- Three presses: Open the day information window.
 
-### Updating information
+Three presses of NVDA+F12 also provide day information, according to the settings for including traditional calendar information.
 
-Under General settings, choose automatic refresh every 15, 30 or 60 minutes; the default is 30. Automatic updates are silent. Refresh now uses saved settings, so apply edits first. It is also available in the Weather menu. Manual refresh cannot repeat within a minute and respects source limits and Retry-After.
+You can also open the window using "Open daily information window" on the Calendar page. The window lets you read, review, and copy the information.
 
-Please wait is spoken once when retrieval is needed, and never for immediately available valid data. Only the latest request speaks on success. Ordinary reports omit the last update time. Weather cache validity follows the refresh interval; air quality has a separate one-hour cache. After retrieval fails, data less than two hours old may be used if their time coverage remains suitable, with a warning that cached data may be out of date. New queries never read expired data or data for an old location; the saved review text remains as previously requested. A clear message reports failure when no usable data exist. Air-quality failure does not prevent weather reports. Daily statistics that do not match local day boundaries at daylight-saving transitions may be omitted rather than assigned to the wrong period.
+## Astronomical seasons, solstices, and equinoxes
 
-### Sources and privacy
+The synopsis identifies the current astronomical season, the current day's position within it, and the time remaining until it ends, along with the start of the next season.
 
-Weather data are provided by [Open-Meteo](https://open-meteo.com/) under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Air quality uses [CAMS](https://atmosphere.copernicus.eu/) through Open-Meteo; see [air-quality attribution](https://open-meteo.com/en/docs/air-quality-api). Text is translated and summarized and units are converted. Attribution and source and licence links appear in the text report and source button, and are omitted from speech and daily information.
+Seasonal transitions are based on the spring and autumn equinoxes and summer and winter solstices as determined by astronomical calculations, rather than climatic or traditional divisions of the seasons.
 
-Enabling weather sends coordinates and time zone to Open-Meteo over HTTPS; the provider also sees your IP address. Your name and prayer settings are not sent. The provider may log coordinates and IP addresses; its policy describes deletion of service logs after 90 days. Requests are not anonymous. Weather is cached only in memory and is lost when NVDA exits. Enabling U.S. air quality makes a separate request even in Brief. This implementation does not use MET Norway.
+## Sunrise and sunset
 
-Current conditions and forecasts are model estimates, rather than direct local station observations. Air-quality resolution differs from weather resolution; reports are neither medical advice nor official warnings. See [terms and privacy](https://open-meteo.com/en/terms) and [service limits](https://open-meteo.com/en/pricing). The free endpoint is for non-commercial use, has shared limits and no continuity guarantee; distributing an application for free does not automatically qualify it for commercial use of that endpoint.
+The add-on provides sunrise and sunset times in local time for the selected location.
 
-Settings migration and rollback: loading 7.1.0 settings upgrades schema 1 to 2 in memory with weather disabled and existing choices preserved. Before the first save, settings.json.schema1.bak is created beside settings.json, followed by an atomic save. A read, migration, backup or replacement failure does not replace the original file with defaults. Upgrading 8.0.0 settings adds only the enabled feels-like option and does not rewrite the file merely by reading it.
+These times are also used to calculate the lengths of day and night and for some features related to Ghurubi time.
 
-To return to 7.1.0, close NVDA, keep the new settings.json under another name, restore settings.json.schema1.bak as settings.json inside awqati in the NVDA configuration directory, then install 7.1.0. Do not let it read schema 2 directly. If the new settings were never saved, restoration is unnecessary. Do not delete time-tool data.
+## Lengths of day and night and how they change
 
-## Dhikr alerts
+The synopsis describes the lengths of day and night and the change in day length, with information on how the day lengthens or shortens over the annual cycle.
 
-This section controls alerts related to adhkar and the daily Wird, including their times and presentation methods.
+It also includes information about the longest day and longest night and their actual dates for the selected location.
 
-### Enabling dhikr alerts
+## Solar meridian transit and altitude
 
-This is the master switch for dhikr alerts. When it is disabled, every alert in this section stops while its settings are preserved. When it is enabled again, the enabled functions within the section resume working.
+The add-on provides the time when the Sun crosses the local meridian and its altitude above the horizon at transit.
 
-Dhikr alerts contain five independent functions: morning adhkar, evening adhkar, the Friday Hour, the daily Wird, and recurring dhikr reminders.
+Meridian transit is the moment when the Sun reaches the local meridian; it does not necessarily occur at twelve noon in civil time.
 
-All five functions are disabled by default, and each can be enabled independently.
+## Earth–Sun distance
 
-### Morning adhkar
+The synopsis includes the approximate current distance between the centers of the Earth and Sun, which varies over the year as the Earth moves in its orbit.
 
-The morning-adhkar alert can be scheduled after Fajr, before Sunrise, or after Sunrise, with a number of minutes relative to the chosen time.
+## Moon phases, age, and illumination
 
-The default is fifteen minutes before Sunrise.
+The synopsis provides the current lunar phase, the Moon's approximate age, and the illuminated fraction of its disc as seen from Earth.
 
-### Evening adhkar
+This information changes continuously throughout the lunar month and cannot, on its own, establish crescent visibility.
 
-The evening-adhkar alert can be scheduled after Asr, before Maghrib, or after Maghrib, with a number of minutes relative to the chosen time.
+## Moonrise and moonset
 
-The default is fifteen minutes before Maghrib.
+The add-on provides moonrise and moonset times in local time, respecting their actual chronological order.
 
-### Friday Hour
+The Moon may not rise or set during a particular civil day. In that case, the add-on indicates that the event does not occur instead of displaying a default time.
 
-This reminder runs on Friday. It can be scheduled after Asr or before Maghrib, with a number of minutes relative to the chosen time.
+## Lunar meridian transit and maximum altitude
 
-The default is sixty minutes before Maghrib.
+The synopsis provides the time when the Moon crosses the local meridian and its altitude at transit, as well as the time when it reaches its actual maximum altitude above the horizon.
 
-### Daily Wird
+The two events are calculated independently, as the time of maximum altitude may differ from the time of meridian transit.
 
-This option sets a fixed time each day for the Wird reminder. The default is 10:00 PM, and the reminder time and text can be changed.
+## Earth–Moon distance
 
-### Alert action
+The add-on provides the approximate current distance between the centers of the Earth and Moon, which varies throughout the month as the Moon moves in its orbit.
 
-For morning adhkar, evening adhkar, the Friday Hour, and the daily Wird, one of the following actions can be selected:
+## Upcoming lunar phases
+
+The synopsis includes the upcoming times of the main lunar phases, in chronological order:
+
+- New moon.
+- First quarter.
+- Full moon.
+- Last quarter.
+
+Times are displayed in the selected location's time zone.
+
+## Limits and accuracy of astronomical calculations
+
+Astronomical information is based on computational models. The accuracy of some results may be affected by the limitations of those models and the inputs used.
+
+The add-on identifies cases in which a particular item cannot be calculated and displays technical notes when needed, including notes about the astronomical time difference (ΔT).
+
+Lunar phase times and calculated data do not establish a crescent sighting for religious purposes.
+
+# The Traditional Arabian Calendar
+
+## About the traditional Arabian calendar
+
+Awqati provides separate information about the traditional Arabian calendar, including the Suhail year, Talaa periods, and the seasons and seasonal periods known in Arabian heritage.
+
+This information is presented according to the traditional calendar adopted by the add-on, as historical and cultural knowledge distinct from modern astronomical calculations.
+
+## Enabling and disabling traditional calendar information
+
+You can include traditional Arabian calendar information in day information using "Include Arabian calendar information in day information" in the calendar settings.
+
+When this option is disabled, astronomical information remains available without the traditional section. You can also query traditional calendar information separately.
+
+## The Suhail year
+
+The add-on provides the current day of the Suhail year according to the traditional Arabian calendar, allowing you to follow the progress of the year and the position of the current date within it.
+
+This division differs from the start of the Gregorian and Hijri years and is not intended to replace either calendar.
+
+## Talaa periods
+
+The add-on identifies the current Talaa period within the sequence adopted by the Arabian calendar, along with its associated timing and traditional information.
+
+In Arabian tradition, Talaa periods divide the year into intervals associated with seasons and customary changes in nature.
+
+## Traditional seasons and seasonal periods
+
+Traditional calendar information includes the names of the seasons and seasonal periods known in the Arabian calendar and the current day's position within them.
+
+These divisions reflect traditional Arabian experience of the year's seasons and conditions. Their boundaries may differ from the dates of the astronomical seasons.
+
+## Displaying traditional calendar information within day information
+
+When the option to include the Arabian calendar is enabled, the traditional section appears separately within day information, after the astronomical information.
+
+You can query it directly by pressing NVDA+Ctrl+H twice, or press NVDA+H three times for the day's Arabian calendar summary.
+
+## The relationship between the traditional calendar and astronomical information
+
+Awqati brings together modern astronomical information and the traditional Arabian calendar while keeping them clearly distinct.
+
+Astronomical information is based on calculations of the movements of the Earth, Sun, and Moon, while the traditional calendar uses inherited divisions of time and seasons.
+
+The starts of seasons and seasonal periods may therefore differ between the two systems without either being incorrect: each has its own basis and way of dividing the year.
+
+# Weather
+
+## About the weather service
+
+Awqati provides current weather conditions and forecasts for today and the coming days, as well as hourly forecasts. The service uses the location and time zone saved in the add-on, without requiring you to select another location.
+
+The service is optional and disabled by default. It requires an internet connection to retrieve data, but no account or private key.
+
+## Enabling and disabling the service
+
+To open the weather settings directly, press NVDA+Alt+W, select "Enable weather service", and save your changes.
+
+To disable the service, clear the same option. Updates then stop, while your settings are retained for use when you enable it again.
+
+## Current weather conditions
+
+Press NVDA+W once to query the current weather conditions.
+
+The brief report gives the city name, a description of the weather, and the current temperature, along with today's high and low temperatures.
+
+You can obtain additional information, such as feels-like temperature, humidity, wind, and atmospheric pressure, by selecting the detailed report.
+
+## Today's forecast
+
+Press NVDA+W twice in succession for today's forecast.
+
+The report includes the expected weather, high and low temperatures, and the highest precipitation probability during the available hours. Depending on the selected settings, it can also include additional information and hourly periods.
+
+## Forecast for the coming days
+
+Press NVDA+W three times in succession to query the forecast for the coming days.
+
+You can set the forecast duration to between two and six days, starting tomorrow. The default is two days.
+
+The report provides each day's expected weather, high and low temperatures, and precipitation probability, with additional details when the detailed level is selected.
+
+## Hourly forecasts
+
+The add-on can include forecasts for the coming hours in today's detailed report, with a choice of three time horizons:
+
+- Three hours.
+- Six hours, the default.
+- Twelve hours.
+
+Readings are distributed across the selected horizon at appropriate intervals. They are forecasts for specific times, rather than averages for the intervals between them.
+
+You can disable hourly periods in the settings. With the brief report selected, the add-on only mentions significant expected changes instead of listing hourly readings.
+
+## Detail levels
+
+The add-on provides two report levels:
+
+- **Brief:** Presents the essential weather information without additional details.
+- **Detailed:** Includes the additional information you select, such as humidity, wind, precipitation, and hourly data.
+
+Brief is the default. The selected level applies to reports regardless of how many times you press the query shortcut.
+
+## Customizing weather report information
+
+The "Customize weather information" button lets you choose the additional data included in detailed reports, with separate settings for current conditions, today's forecast, and the coming days.
+
+Options for current conditions include feels-like temperature, humidity, wind gusts, atmospheric pressure, visibility, cloud cover, precipitation, UV index, and the US Air Quality Index.
+
+Daily forecast options include precipitation amount, maximum wind speed and gusts, and maximum UV index.
+
+Disabling these items does not remove the report's fixed essential information.
+
+## Units of measurement
+
+Awqati supports three weather unit systems:
+
+- **Metric:** The default, using Celsius, kilometers per hour, hectopascals, kilometers, and millimeters.
+- **Imperial:** Uses Fahrenheit, miles per hour, inches of mercury, miles, and inches.
+- **Custom:** Lets you choose a separate unit for each type of measurement.
+
+Additional available units include kelvin, meters per second, knots, millibars, and millimeters of mercury.
+
+The add-on retains your custom units when you switch systems and converts values locally without requiring a new connection.
+
+## Displaying information in a text window and copying it
+
+After a successful weather query, you can open the last successful report using "Open weather information in a text window".
+
+The window displays the saved report with its type, detail level, units, query time, and data source. You can read and copy the text using standard editing commands or choose "Copy report".
+
+Opening the window does not retrieve new data, and a later failed query does not replace the last successful report. If the window is open when you request a new report, close it and reopen it to display the latest report.
+
+The command for opening the window is available under the Awqati category in Input Gestures, without a default shortcut.
+
+## Including a weather summary in day information
+
+The "Include weather conditions in day information" option adds a summary of current weather conditions to day information after the astronomical and traditional calendar information.
+
+The option is disabled by default. It uses available cached weather data without delaying the reading of day information while waiting for a connection.
+
+If valid data is unavailable, the usual day information is provided and a silent retrieval begins so the result can be used for the next query.
+
+## Updating weather information
+
+You can set automatic updates to every 15, 30, or 60 minutes. The default is 30 minutes. Automatic updates run without a spoken announcement.
+
+To update information manually, use "Update now". This command uses the saved settings, so you should apply any changes before requesting an update.
+
+The add-on uses a cache to reduce repeated connections. If it cannot refresh the data, it may use saved information less than two hours old, with a warning that it may be out of date.
+
+Air quality data has a separate cache lifetime of one hour.
+
+## Data source and privacy
+
+The weather service uses Open-Meteo. When the US Air Quality Index is enabled, air quality data is retrieved from CAMS through the same service.
+
+When you use the service, your location coordinates and time zone are sent to the provider over HTTPS, and your IP address is visible to it. Prayer settings and personal account data are not sent.
+
+Weather information is cached in memory and removed when NVDA exits. Text reports include source and licensing information, which is omitted from spoken reports.
+
+Official data source website: [https://open-meteo.com/](https://open-meteo.com/)
+
+Forecasts are based on weather models and are not a substitute for official warnings from the relevant meteorological authorities.
+
+## When information cannot be retrieved
+
+If weather data cannot be retrieved, the add-on tries to use saved data that is still usable, with a warning when it displays outdated information.
+
+If no suitable data is available, it announces a message explaining that the information could not be retrieved, without displaying default values or data for a previous location.
+
+Failure to retrieve air quality data does not prevent the remaining available weather information from being displayed.
+
+If the problem persists, check your internet connection, the selected location, and whether the weather service is enabled. The failure may be due to a temporary outage at the data provider or the service's usage limits being reached.
+
+# On This Day
+
+## About the service and its information source
+
+On This Day lets you browse historical events, births, deaths, holidays, and observances associated with today's date, using information from Wikipedia.
+
+The service uses NVDA's language, Arabic or English, and presents information in its original language without machine translation. It uses the computer's local date and requires internet access to retrieve information that has not been saved.
+
+## Historical events
+
+This section presents notable events that occurred on this date over the years, giving the year of each event and its description as published on Wikipedia.
+
+## Births
+
+This section presents people born on this date, with their birth year and the available biographical information for each person.
+
+## Deaths
+
+This section presents people who died on this date, with their year of death and the available biographical information about them.
+
+## Holidays and observances
+
+This section includes holidays, observances, and commemorative days associated with the current date.
+
+The add-on retains Wikipedia's original divisions of observances and displays them in groups when available.
+
+## Using the multiple-press shortcut
+
+Use NVDA+Windows+F12 to access the service's sections:
+
+- One press: Historical events.
+- Two presses: Births.
+- Three presses: Deaths.
+- Four presses: Holidays and observances.
+
+Presses must be consecutive and within the timeout specified in NVDA. You can customize the shortcut under the Awqati category in Input Gestures.
+
+## Direct narration
+
+Direct narration is the service's default mode. The add-on reads all items in the requested section without speaking link addresses.
+
+You can stop narration with Control, or pause and resume it with Shift, depending on your NVDA settings and speech synthesizer.
+
+Choosing another section stops the previous narration and moves to the new information.
+
+## Displaying information on a web page
+
+You can replace direct narration with information displayed on a local web page that opens in your default browser.
+
+To enable this mode, open Awqati's settings, select the Calendar page, and enable "Show On This Day information in a web page instead of speaking it".
+
+Your choice is saved in the add-on's settings. To return to direct narration, clear the same option.
+
+The page displays the section title and date, a summary of the number of items, and then the information arranged as separate items.
+
+## Navigating the page and opening Wikipedia links
+
+The service's pages support standard navigation using NVDA's browse mode, including navigation by headings, lists, and links.
+
+Each event or person appears as a separate item, with links that open the related Wikipedia articles directly.
+
+You can select and copy information or print it using standard browser commands.
+
+## Local information storage
+
+The add-on retains the day's information after retrieving it, allowing you to review it offline during the same day.
+
+Display pages are saved in the on_this_day_pages folder within Awqati's data in the NVDA configuration folder.
+
+The saved page is updated when you open it later, and its title shows the information's date. Data from a previous day is not presented as information for the current day.
+
+## Errors and unavailable information
+
+Some Wikipedia sections may be unavailable in the selected language, or retrieval may fail because of the connection or changes to the source page's structure.
+
+When a section is missing, the add-on displays "Information is unavailable in the selected language.", with separate messages for connection and content extraction errors.
+
+The add-on does not replace missing information with content from another language, and it avoids presenting incomplete data or empty pages as complete results.
+
+If information cannot be retrieved, you can try again later or visit Wikipedia directly.
+
+# Alarms
+
+## Opening the alarm manager
+
+Awqati lets you create recurring personal alarms, with a customizable time, active days, sound, and snooze settings for each alarm.
+
+To open the alarm manager, press NVDA+Alt+F8, or go to Time tools on the Clock page in the add-on's settings and choose Alarms.
+
+Changes to alarms are saved immediately, without having to save the clock settings.
+
+## Creating an alarm
+
+Choose to add a new alarm, then enter its name and time and select the repeat days and alert action.
+
+You can create multiple alarms with independent settings. Alarms are saved for use when NVDA runs again.
+
+## Setting the alarm time and repeat days
+
+Alarm times use the 24-hour system, with hours from 0 to 23 and minutes from 0 to 59.
+
+You must select at least one repeat day. You can select particular days of the week or all seven days for a daily alarm.
+
+The add-on does not currently provide one-time alarms; all alarms use weekly recurrence.
+
+## Customizing alarm sounds
+
+You can choose an independent action for each alarm: speech, sound, or both, with the option to use a custom WAV audio file.
+
+The add-on also lets you set the ringing duration, snooze interval, and number of snooze repeats.
+
+You can also specify whether the alarm respects quiet hours. By default, it bypasses them.
+
+## Editing and deleting alarms
+
+You can edit an alarm's time, name, repeat days, sound settings, and snooze settings in the alarm manager.
+
+You can also delete alarms you no longer need. Editing or deleting an alarm cancels any pending snooze for it.
+
+## Enabling and disabling alarms
+
+You can disable an individual alarm without deleting it, retaining all its settings so you can enable it again later.
+
+Alarms are subject to Awqati's master switch for automatic alerts, even when individually enabled.
+
+## When an alarm rings
+
+Alarms use the Windows clock and time zone, rather than the location selected for calculating prayer times.
+
+When several alerts coincide, the add-on manages them according to its priority system. Prayer alerts may interrupt a ringing alarm.
+
+Alarms do not work while NVDA is not running or the computer is turned off. The add-on allows a limited grace period for handling delayed alerts.
+
+## Snoozing and stopping an alarm
+
+You can control the active alarm using these shortcuts:
+
+- NVDA+Shift+F8: Snooze the alarm for the configured snooze duration.
+- NVDA+F8 three times: Stop the currently ringing alarm.
+
+Stopping ends the current ringing cycle without snoozing it. Snoozing causes the alert to sound again after the specified interval.
+
+You can query the next alarm by pressing NVDA+F8 once, or the number of enabled alarms by pressing it twice.
+
+# Timers
+
+## Opening the timer manager
+
+Awqati provides multiple countdown timers that can run independently.
+
+To open the timer manager, press NVDA+Alt+Y, or choose Timers from the Time tools list on the Clock page.
+
+## Creating a timer and setting its duration
+
+Choose to create a new timer, then enter an optional name and set the duration in hours, minutes, and seconds.
+
+The maximum duration is 999 hours, 59 minutes, and 59 seconds. You cannot create a timer with a duration of zero.
+
+You can save timers for later reuse without entering their details again.
+
+## Running multiple timers
+
+You can run several timers at the same time, each counting down independently.
+
+Press NVDA+Y once to query the selected timer and its remaining time, or twice for its state and the number of timers.
+
+To move between timers:
+
+- NVDA+Windows+Y: Next timer.
+- NVDA+Windows+Shift+Y: Previous timer.
+
+Navigation wraps around in the order of the timers in the list and does not affect their operation.
+
+## Pausing and resuming a timer
+
+NVDA+Shift+Y starts, pauses, or resumes the selected timer, depending on its state.
+
+The countdown continues while the computer is asleep and is not affected by changes to the Windows clock during the session.
+
+## Restarting a timer
+
+You can reset a timer to its original duration using NVDA+Ctrl+Shift+Y.
+
+Restarting requires confirmation, with No selected by default to prevent accidental resets.
+
+## Customizing timer sounds
+
+You can set an independent alert action for each timer using speech, sound, or both, with the option to select and preview a custom WAV file.
+
+Options are available to play the alert once or repeat it at a specified interval.
+
+To silence a completed timer, press NVDA+Ctrl+Y. This ends its ringing and repeats without changing the timer's completed state.
+
+## Enabling clock ticking
+
+The "Play clock ticks" option enables a ticking sound while the selected timer is running. It is disabled by default.
+
+Ticking is limited to the selected timer and is muted during higher-priority alerts or sound previews, without affecting other timers.
+
+## Managing and deleting timers
+
+You can edit or delete saved timers or cancel their active cycles. You must cancel a timer's current cycle before editing it.
+
+Deletion requires confirmation, with No selected by default.
+
+The add-on retains saved timers and restores running timers after NVDA restarts, taking elapsed time into account. Disabling automatic alerts does not stop the countdown; it only prevents the completion alert.
+
+# Stopwatch
+
+## Opening the stopwatch
+
+Awqati provides a stopwatch for measuring elapsed time, recording laps, and reviewing their results.
+
+To open its window, press NVDA+Ctrl+J, or choose Stopwatch from the Time tools list on the Clock page.
+
+## Starting and stopping timing
+
+NVDA+J controls timing according to the stopwatch's state.
+
+You can query elapsed time by pressing NVDA+Windows+J once, or the stopwatch's state and number of recorded laps by pressing it twice.
+
+## Pausing and resuming timing
+
+NVDA+J lets you pause timing and then resume it without losing the recorded time.
+
+Timing continues while the computer is asleep and is not affected by changes to the civil clock.
+
+After NVDA restarts, the stopwatch is restored in a paused state at its last saved value.
+
+## Recording laps
+
+You can record consecutive laps while timing using NVDA+Shift+J.
+
+The add-on retains each lap's time and the total elapsed time without stopping timing when a lap is recorded.
+
+## Reviewing laps
+
+The stopwatch window displays a list of recorded laps, including each lap's number, duration, and total time.
+
+Press NVDA+Windows+Shift+J once to query the current lap's duration, or twice for the duration of the last recorded lap.
+
+Query commands do not affect timing or results.
+
+## Copying results
+
+The stopwatch window lets you copy timing results and recorded laps as text to keep them or use them in another application.
+
+## Resetting the stopwatch
+
+To reset the stopwatch to zero, pause timing and press NVDA+Ctrl+Shift+J.
+
+This requires confirmation, with No selected by default. You cannot reset the stopwatch while timing is running.
+
+You can customize action confirmations to use tones, speech, or both, or disable confirmation sounds.
+
+# World Clock
+
+## Opening the world clock
+
+Awqati lets you track the time in multiple cities around the world and keep a personal list of favorite cities.
+
+To access it, open the add-on's settings, go to the Clock page, and choose World clock from the Time tools list.
+
+## Searching for cities
+
+The "Add city" option lets you search for cities in Arabic or English and select the required city from the database.
+
+## Adding cities to favorites
+
+After finding a city, you can add it to your favorite cities list for direct access.
+
+The list and its order are saved independently of the location settings used to calculate prayer times.
+
+## Displaying city times
+
+The world clock displays each city's local time according to its time zone.
+
+NVDA+Ctrl+F12 provides quick access to the first three cities in the list:
+
+- One press: The first city's time.
+- Two presses: The second city's time.
+- Three presses: The third city's time.
+
+The query order follows the order of cities in the list. Querying does not change the selected city.
+
+## Reordering favorite cities
+
+You can reorder favorite cities using the commands available in the world clock interface.
+
+The new order determines which cities are announced using the multiple-press query shortcut.
+
+## Customizing city names
+
+You can customize a city or country name using "Edit name" in the context menu.
+
+Arabic and English names are saved independently, and you can restore the original names when needed.
+
+Changing a name does not affect the city's time zone or how its time is calculated.
+
+## Removing cities from favorites
+
+You can remove any city from the favorites list using the delete command after confirming the operation.
+
+Removing a city does not affect other location data or the location selected for calculating prayer times.
+
+## Time zones and daylight saving time
+
+The world clock calculates city times using Coordinated Universal Time (UTC) and time zone rules, including transitions into and out of daylight saving time.
+
+The world clock uses its own time zone data and provides an option to update it manually or automatically.
+
+Automatic updates are enabled by default, with a weekly check. You can disable them while keeping manual updates available.
+
+Data updates take effect without restarting NVDA, while preserving the city list, its order, and custom names.
+
+# Qibla Direction
+
+## About the Qibla direction service
+
+Awqati provides Qibla direction information based on the location selected in the add-on, without requiring an internet connection.
+
+The information is given in descriptive and numerical form to help you determine the direction toward Makkah.
+
+## Displaying the Qibla direction
+
+You can query the Qibla direction by pressing NVDA+G twice or using "Show Qibla direction" in the add-on's settings.
+
+The result includes the general Qibla direction, the amount of deviation, and the precise angle measured from true north.
+
+## How the Qibla direction depends on the selected location
+
+The Qibla direction is calculated from the coordinates of the location saved in Awqati, and the result changes when you change the location.
+
+The add-on cannot determine the direction the computer or user is facing. To use the result in practice, you therefore need to know the direction of true north at your location.
+
+This service is a guide, rather than a substitute for checking the Qibla direction on site.
+
+# Dhikr and Wird
+
+## Enabling Dhikr alerts
+
+Awqati provides five independent reminder features for Dhikr and Wird: morning Dhikr, evening Dhikr, the Friday hour, daily Wird, and recurring Dhikr.
+
+These features are disabled by default. You can enable each independently on the Dhikr alerts page.
+
+The "Enable Dhikr alerts" option controls all alerts in this section without deleting their settings when disabled.
+
+## Morning Dhikr
+
+You can schedule the morning Dhikr reminder relative to one of these times:
+
+- After Fajr.
+- Before sunrise.
+- After sunrise.
+
+Specify the number of minutes relative to the selected time. The default is an alert fifteen minutes before sunrise.
+
+## Evening Dhikr
+
+You can schedule the evening Dhikr reminder relative to one of these times:
+
+- After Asr.
+- Before Maghrib.
+- After Maghrib.
+
+The default is an alert fifteen minutes before Maghrib. You can change the reference time and interval as needed.
+
+## Friday hour reminder
+
+This reminder operates on Fridays and can be set to a specified number of minutes after Asr or before Maghrib.
+
+The default is an alert sixty minutes before Maghrib.
+
+The reminder time depends on the prayer times calculated for the selected location.
+
+## Daily Wird alert
+
+This option lets you set a fixed daily time for a Wird reminder, with customizable alert text.
+
+The default time is ten in the evening. You can change it in the daily Wird settings.
+
+## Customizing alert actions
+
+You can set an independent action for morning Dhikr, evening Dhikr, the Friday hour, and daily Wird from these options:
 
 - Speech only.
 - Sound file only.
 - Sound file and speech.
 
-When an action that includes a sound file is selected, options to choose, preview, and remove the file appear.
+Each feature's choices are saved independently. Changing one alert's action does not affect the other alerts.
 
-### Enabling recurring adhkar
+## Default and custom sounds
 
-This option starts a recurring reminder that cycles through a number of adhkar. The default interval between reminders is sixty minutes and can be changed according to the user's preference.
+The add-on provides alert sounds, with the option to choose a custom audio file.
 
-Each dhikr within the cycle can be enabled or disabled independently, and each can have its own action.
+When you choose an action that plays an audio file, options appear for selecting, previewing, and removing the file.
 
-Two alert methods are available for recurring reminders:
+## Recurring Dhikr reminders
 
-- Speech only.
-- Sound file only.
+The "Enable recurring Dhikr reminder" option activates successive reminders for a set of Dhikr, at an interval you specify.
 
-The first reminder begins after the configured interval has fully elapsed. The cycle then moves only among enabled adhkar.
+You can enable or disable each Dhikr independently and assign it its own action, either speech or an audio file.
 
-# Data, installation and upgrades
+The first reminder occurs after the specified interval has elapsed, rather than immediately when the feature is enabled.
 
-Time tools save their data in the awqati folder inside the NVDA configuration directory. Upgrading preserves your settings and data. Back up this folder before upgrading.
+You can toggle recurring Dhikr on and off using NVDA+Shift+F11.
 
-To install, open the nvda-addon package, follow NVDA's instructions and restart NVDA. Disable or remove Awqati through the installed add-ons list in NVDA's Add-on Store. Updating the package does not require deleting time tool data.
+## Recurring Dhikr order
 
-# Approved keyboard shortcuts
+The add-on moves through the enabled Dhikr in their cycle order, skipping disabled Dhikr without issuing alerts for them.
 
-NVDA is your screen reader modifier; Windows is the Windows logo key. For double or triple presses, press the key successively while holding the modifiers. You can assign additional commands under Awqati in NVDA’s Input Gestures dialog; your saved bindings are preserved. NVDA+F12 overlaps with a built-in NVDA command; you can reassign it if needed.
+Recurring reminders continue to cycle through the enabled Dhikr while the feature is active and alerts are allowed.
 
-Each shortcut is listed only under its first function; its description includes all multi-press actions.
+## Setting the reminder interval
+
+This setting specifies the interval between recurring reminders.
+
+The default is sixty minutes. You can change it in the recurring Dhikr settings.
+
+The same interval is used between successive reminders. The first cycle starts counting when you enable the feature.
+
+# Alerts and Quiet Hours
+
+## Enabling and disabling automatic alerts
+
+Awqati includes a master switch for automatic alerts, covering prayer time, clock, Dhikr, and time tool alerts.
+
+You can toggle all alerts on and off using NVDA+Ctrl+Shift+F11 or the general settings.
+
+Disabling alerts does not delete their settings. Alerts enabled in their own sections resume when you turn the master switch back on.
+
+You can query the alert status with NVDA+Alt+F12 and repeat the last spoken alert with NVDA+Shift+F12.
+
+## Speech and audio alerts
+
+The add-on supports spoken alerts, audio file playback, or both, depending on the options available for each feature.
+
+You can customize alert actions independently in the different sections. Some alerts offer a Silent option to stop a particular action without disabling the entire feature.
+
+## Default and custom sounds
+
+Awqati includes default sounds for some alerts, with options to use, preview, or remove custom audio files.
+
+Sound options vary by alert type and are configured in the relevant feature's section.
+
+## Enabling quiet hours
+
+Quiet hours stop automatic alerts during a specified period without changing alert settings or permanently disabling them.
+
+You can enable or disable this feature in the general section of Awqati's settings.
+
+## Setting the start and end of quiet hours
+
+You can set the start and end of the quiet period to suit your sleeping or resting times.
+
+The specified period is applied automatically according to local time. Permitted alerts resume when it ends.
+
+## How quiet hours affect alerts
+
+Not all alerts handle quiet hours in the same way. Settings control whether quiet hours apply to prayer time alerts, while alarms and timers have independent options for respecting them.
+
+Alarms and timers bypass quiet hours by default unless their option to respect them is enabled.
+
+The master switch for automatic alerts takes precedence: disabling it stops the alerts it controls even if they are exempt from quiet hours.
+
+## Managing simultaneous alerts
+
+Awqati manages simultaneous alerts using a priority system to avoid overlapping sounds and spoken messages.
+
+Prayer time alerts have a priority that may interrupt ringing alarms, while simultaneous alarms wait their turn in a queue.
+
+Some secondary sounds, such as timer ticking, may be muted during higher-priority alerts without stopping the countdown or affecting the tools' operation.
+
+# Data Storage and Maintenance
+
+## Saving the add-on's settings
+
+Awqati saves its settings and time tool data in the awqati folder inside the NVDA configuration folder.
+
+Saved data includes the location, calendars, alerts, alarms, timers, and world clock, and is restored when the add-on runs again.
+
+Changes to time tools are saved independently of the OK and Apply buttons in the add-on's settings.
+
+## Preserving data when updating
+
+The add-on retains its settings and data when you update to a newer version, without requiring you to configure the options again.
+
+You are advised to back up the awqati folder before major updates and not to delete it when installing a new version.
+
+Some versions may change the settings structure, and the add-on migrates data when needed. Downgrading to an older version is not recommended without consulting that version's instructions.
+
+## Checking for add-on data updates
+
+The "Check for data updates" button in the general settings checks for newer versions of location, time zone, calculation method, and Arabian calendar data.
+
+The check runs when you request it and requires an internet connection.
+
+The world clock has a separate mechanism for updating time zone data, including a weekly automatic check that you can disable, as well as manual updates.
+
+## Copying diagnostic information
+
+The "Copy diagnostic information" button creates a technical report on the add-on's state, environment, and settings and copies it to the clipboard.
+
+This report is used when reporting a problem or requesting help diagnosing it, excluding sensitive information that is not needed for diagnosis.
+
+## Handling connection errors
+
+The add-on's core features work offline, while some services require a connection to external sources.
+
+If a connection fails, the add-on displays an appropriate message for the service without affecting local features.
+
+Some services may use valid saved data, such as weather and daily Wikipedia information, according to each service's storage policy.
+
+If the problem persists, check your internet connection and try again. You can copy diagnostic information if you need to report the error.
+
+## External data sources and privacy
+
+Awqati uses external sources for some optional features, including:
+
+- **Open-Meteo:** For weather information, forecasts, and air quality.
+- **Wikipedia:** For historical events, births, deaths, and observances.
+- **An external prayer time provider:** For optional verification of locally calculated prayer times.
+
+When you use the weather service, your location coordinates and time zone are sent to the provider over HTTPS, and your IP address is visible to it.
+
+Local features do not require location data to be sent to these services.
+
+Additional information about sources and the data used is available in each service's section.
+
+# Keyboard Shortcuts
+
+## Customizing shortcuts in NVDA's Input Gestures dialog
+
+You can review and change Awqati's shortcuts, or assign shortcuts to commands without default keys, under the Awqati category in Input Gestures in NVDA's Preferences menu.
+
+Some shortcuts use multiple presses for different functions. Their functions are listed in press order.
+
+NVDA+F12 may conflict with a built-in NVDA command and can be reassigned if needed.
 
 ## General shortcuts
 
-- NVDA+Alt+a: Open Awqati settings.
+- NVDA+Alt+A: Open Awqati's settings.
 
-## Weather shortcut
+## Prayer time shortcuts
 
-- NVDA+Alt+W: Open Awqati settings with Weather selected, even when the service is disabled.
-
-- NVDA+W: Press once to announce the current weather, twice to announce today's weather forecast, or three times to announce the weather forecast for the coming days.
-
-## Prayer-time shortcuts
-
-- NVDA+f11: Press once to announce current time details, twice to announce the previous time, or three times to announce today's prayer times.
-- NVDA+Shift+p: Verify today's prayer times online.
-- NVDA+Alt+p: Open today's prayer times window.
+- NVDA+F11: Once for details of the current time period, twice for the previous time period, and three times for today's prayer times.
+- NVDA+Shift+P: Verify today's prayer times online.
+- NVDA+Alt+P: Open today's prayer times window.
 
 ## Clock and time shortcuts
 
-- NVDA+f12: Press once to announce the time, twice to announce the primary-calendar date, or three times to announce daily information.
-- NVDA+g: Press once to announce Ghurubi time, twice to announce the Qibla direction, or three times to announce the assigned location.
+- NVDA+F12: Once for the current time, twice for the date in the primary calendar, and three times for day information.
+- NVDA+G: Once for Ghurubi time, twice for the Qibla direction, and three times for the selected location.
 
 ## Calendar and date shortcuts
 
-- NVDA+h: Press once to announce the Lunar Hijri date, twice to announce the Saudi Solar Hijri date, or three times to announce the Arabian calendar summary.
-- NVDA+Shift+h: Press once to announce the Afghan Solar Hijri date or twice to announce the Persian Solar Hijri date.
-- NVDA+Ctrl+h: Press once to announce astronomical daily information, twice to announce Arabian calendar daily information, or three times to open the daily information window.
+- NVDA+H: Once for the Lunar Hijri date, twice for the Saudi Solar Hijri date, and three times for the day's Arabian calendar summary.
+- NVDA+Shift+H: Once for the Afghan Solar Hijri date and twice for the Persian Solar Hijri date.
 
-## Alert and adhkar shortcuts
+## Daily information shortcuts
 
-- NVDA+Ctrl+Shift+f11: Toggle all automatic alerts.
-- NVDA+Shift+f12: Repeat the last spoken alert.
-- NVDA+Alt+f12: Announce alert status.
-- NVDA+Shift+f11: Toggle recurring dhikr.
+- NVDA+Ctrl+H: Once for daily astronomical information, twice for traditional Arabian calendar information, and three times to open the day information window.
+
+## Weather shortcuts
+
+- NVDA+Alt+W: Open Awqati's settings with the Weather page selected.
+- NVDA+W: Once for current weather conditions, twice for today's forecast, and three times for the coming days' forecast.
+
+## On This Day shortcut
+
+- NVDA+Windows+F12: Once for historical events, twice for births, three times for deaths, and four times for holidays and observances.
+
+## Dhikr and alert shortcuts
+
+- NVDA+Ctrl+Shift+F11: Enable or disable all automatic alerts.
+- NVDA+Shift+F12: Repeat the last spoken alert.
+- NVDA+Alt+F12: Announce the alert status.
+- NVDA+Shift+F11: Enable or disable recurring Dhikr.
 
 ## Alarm shortcuts
 
-- NVDA+Alt+f8: Open personal alarms.
-- NVDA+f8: Press once to announce the next personal alarm, twice for the enabled alarm count, or three times to stop the current alarm.
-- NVDA+Shift+f8: Snooze the current personal alarm.
+- NVDA+Alt+F8: Open the personal alarm manager.
+- NVDA+F8: Once to announce the next alarm, twice for the number of enabled alarms, and three times to stop the currently ringing alarm.
+- NVDA+Shift+F8: Snooze the active alarm according to its snooze settings.
 
 ## Timer shortcuts
 
-- NVDA+Alt+y: Open countdown timers.
-- NVDA+y: Press once to announce the selected timer's name and remaining time, twice to announce its state and the number of timers.
-- NVDA+Shift+y: Start, pause or resume selected countdown timer.
-- NVDA+Ctrl+Shift+y: Restart selected countdown timer with confirmation.
-- NVDA+Ctrl+y: Silence one currently ringing countdown timer and announce its name.
-- NVDA+Windows+y: Select the next countdown timer and announce its name and remaining time.
-- NVDA+Windows+Shift+y: Select the previous countdown timer and announce its name and remaining time.
+- NVDA+Alt+Y: Open the countdown timer manager.
+- NVDA+Y: Once for the selected timer's name and remaining time, and twice for its state and the number of timers.
+- NVDA+Shift+Y: Start, pause, or resume the selected timer.
+- NVDA+Ctrl+Shift+Y: Restart the selected timer after confirmation.
+- NVDA+Ctrl+Y: Silence a ringing timer and announce its name.
+- NVDA+Windows+Y: Move to the next timer.
+- NVDA+Windows+Shift+Y: Move to the previous timer.
 
 ## Stopwatch shortcuts
 
-- NVDA+j: Start, pause or resume the stopwatch according to its current state.
-- NVDA+Shift+j: Record a new stopwatch lap.
-- NVDA+Windows+Shift+j: Press once to announce the current lap duration, or twice to announce the last recorded lap.
-- NVDA+Ctrl+j: Open the stopwatch window.
-- NVDA+Ctrl+Shift+j: Reset stopwatch with confirmation.
-- NVDA+Windows+j: Press once to announce stopwatch elapsed time, or twice to announce its status and lap count.
+- NVDA+J: Start, pause, or resume timing.
+- NVDA+Shift+J: Record a new lap.
+- NVDA+Windows+Shift+J: Once for the current lap's duration and twice for the last recorded lap's duration.
+- NVDA+Ctrl+J: Open the stopwatch window.
+- NVDA+Ctrl+Shift+J: Reset the stopwatch to zero after confirmation.
+- NVDA+Windows+J: Once for elapsed time and twice for the stopwatch's state and number of recorded laps.
 
-## World-clock shortcuts
+## World clock shortcuts
 
-- NVDA+Ctrl+f12: Press once to announce the first city's time, twice for the second city's time, and three times for the third city's time.
+- NVDA+Ctrl+F12: Once for the first city's time, twice for the second city's time, and three times for the third city's time in the favorites list.
 
-# Sending feedback
+## Commands without default shortcuts
 
-We welcome your comments and suggestions. If you have any comments or suggestions, please contact us by email:
+Some Awqati commands are available in Input Gestures without default shortcuts. You can assign keys to them as needed.
 
-alialomary@gmail.com
+These include:
 
-# Change log
+- **Open date converter:** Once to open the simple converter and twice to open the advanced converter after a shortcut has been assigned.
+- **Open weather information in a text window:** Display and copy the last successful weather report.
+
+These features remain available through the add-on's interfaces without assigning shortcuts to them.
+
+# Contributing and Contact
+
+## Reporting bugs
+
+If you encounter a problem with Awqati, you can report it through the project's GitHub repository. Describe the steps to reproduce it, the expected result, and the actual result.
+
+It is advisable to include the NVDA and add-on versions and, when needed, attach diagnostic information after reviewing its contents.
+
+## Suggesting improvements
+
+We welcome suggestions for developing the add-on and improving its features and accessibility. You can submit them through the issues and suggestions section of the project repository.
+
+Please explain the need for the proposed feature and how you expect to use it.
+
+## Contributing to development
+
+Awqati is an open-source project. Developers can review its code and contribute bug fixes, feature development, and improvements to tests and documentation, following the procedures in the project repository.
+
+## Helping translate Awqati
+
+The add-on currently supports Arabic and English, and we welcome contributions to add new languages. Our goal is for this add-on to reach every blind person around the world who could benefit from it, in their native language.
+
+Contributions include translating the interfaces, messages, and help guide while maintaining accurate, consistent terminology and ensuring that the text is presented correctly in NVDA.
+
+## Official project links
+
+- **Project repository:** [https://github.com/alialomari-coder/Awqati](https://github.com/alialomari-coder/Awqati)
+- **Releases and downloads:** [https://github.com/alialomari-coder/Awqati/releases](https://github.com/alialomari-coder/Awqati/releases)
+- **Bug reports and suggestions:** [https://github.com/alialomari-coder/Awqati/issues](https://github.com/alialomari-coder/Awqati/issues)
+- **Email:** [alialomary@gmail.com](mailto:alialomary@gmail.com)
+
+# Change Log
+
+## **Version 8.2.2:** Fixes and improvements to the add-on’s performance and the stability of its features.
+
+## Version 8.2.1
+
+- Improved the wording of detailed Arabic weather reports, dividing the information into shorter, clearer sentences.
+- Improved descriptions of periods when no rain is expected, including periods extending into the following day.
+- Clarified the meaning of the highest precipitation probability and improved the announcement of percentages.
 
 ## Version 8.0.2
 
-Updated overview and weather documentation; unified the text-window command and preserved the last successful report without fetching on open. Improved today’s opening and Arabic next-day times, and reduced repeated zero hourly rain probabilities in speech while retaining text details.
-
-## Version 8.0.1
-
-Improves weather reports, localized cities, daily extremes and hourly coverage; adds Copy report and direct weather settings.
-
+- Improved the presentation of weather reports and text windows and the copying of information.
+- Improved the wording of today's forecast and times on the following day.
+- Reduced repeated announcements of zero precipitation probabilities while retaining full details in the text report.
 
 ## Version 8.0.0
 
-Adds optional Open-Meteo weather, current conditions, today and coming days forecasts, hourly periods, custom units, accessible copyable reports and an optional daily synopsis summary. Requires Internet access when enabled; coordinates, time zone and IP address reach the provider. Weather is disabled by default. Migrates settings from 7.1.0 while preserving existing options. The name and internal identifier remain Awqati / awqati.
+- Added the optional weather service, with current conditions and daily and hourly forecasts.
+- Added support for detail levels, customizable information, and units of measurement.
+- Added text reports that can be copied and an optional weather summary within day information.
 
 ## Version 7.1.0
 
-- Integrates the approved five-paragraph daily astronomical synopsis, including solar meridian transit and altitude, seasonal daylight changes, Earth-Sun distance, lunar rise/set and transit, independent maximum altitude, Earth-Moon distance and upcoming principal phases.
-- Preserves the independent traditional Arabian calendar, existing settings, shortcuts and functions, with unchanged defaults.
-- Fixes the report text field's accessible name and restores focus to its opener when closed.
-
+- Expanded the daily astronomical synopsis with more information about the Sun, Moon, and seasons.
+- Added meridian transit, altitude, distance, and lunar phase timing data.
+- Improved the presentation of astronomical information and text windows while keeping the traditional calendar section separate.
 
 ## Version 7.0.0
 
-- Added basic and advanced historical date converters, shared results, copying and reversal.
-- Renamed Date settings to Calendar and added two converter buttons.
-- Added an unassigned command: one press for basic, two for advanced once assigned.
-- Preserved existing settings and shortcuts.
+- Added the simple and advanced date converters.
+- Added support for conversion between Gregorian, Lunar Hijri, and Julian calendars using the available methods.
+- Added a results window for copying the converted date and reversing the conversion.
 
 ## Version 6.0.0
 
-Adds On This Day while retaining every version 5 feature and time management tool.
-
-- Wikipedia events, births, deaths, holidays and observances in Arabic and English.
-- Direct narration and HTML pages accessible with NVDA, with original article links and section counts.
-- Daily caching. Use NVDA+Windows+F12 with one to four presses.
+- Added the Wikipedia-based On This Day service.
+- Added support for historical events, births, deaths, holidays, and observances in Arabic and English.
+- Provided direct narration and browsable web pages, with daily information storage.
 
 ## Version 5.0.0
 
-This version introduces four new time management tools, along with improvements to performance, stability and ease of use.
-
-- **Alarms:** Create multiple personal alarms, choose repeat days and alarm sounds, and snooze or stop ringing.
-- **Timers:** Run multiple countdown timers at the same time, with options to pause, resume and restart them, customize their sounds and enable clock ticking.
-- **Stopwatch:** Measure time, record laps, and review and copy the results.
-- **World clock:** Check the time in cities around the world, add and reorder favorite cities, and customize their names, accounting for time zone differences and daylight saving time.
-- **Keyboard shortcuts:** Add dedicated shortcuts for the new time tools, improve responsiveness and organize commands.
-- **General improvements:** Enhance add-on stability, improve some interfaces, and update the Arabic and English help guides.
+- Added four time management tools: alarms, countdown timers, a stopwatch, and a world clock.
+- Added support for managing multiple alarms and timers, recording laps, and favorite cities.
+- Added keyboard shortcuts for controlling the new tools.
 
 ## Version 4.0.0
 
-This version is a complete rebuild of the add-on formerly known as Prayer Times. Its name has changed to Awqati to reflect its wider range of functions.
+- Rebuilt the add-on and changed its name from Prayer Times to Awqati.
+- Developed the calculation of prayer times and Iqama, and the Zawali and Ghurubi clocks.
+- Added support for five calendars, astronomical information, the traditional Arabian calendar, and Qibla direction.
+- Developed the Dhikr, alert, and quiet hours system.
+- Added a worldwide location database and support for Arabic and English.
 
-- Rebuilt the add-on from scratch with a new architecture.
-- Added a global location database, custom-location support, and automatic location detection.
-- Enhanced the prayer-time engine and added Midnight, the start of the Last Third, and the Iqama system.
-- Enhanced the Zawali and Ghurubi clocks, announcement formats, and related alerts.
-- Added support for five calendars: Gregorian, Lunar Hijri, Saudi Solar Hijri, Afghan Solar Hijri, and Persian Solar Hijri.
-- Added Qibla direction, daily astronomical information, and the traditional Arabian calendar.
-- Rebuilt the alert, adhkar, daily-Wird, and quiet-hours systems.
-- Enhanced sound-file and speech support and management of overlapping alerts.
-- Added optional online verification of today's prayer times, add-on data updates, and diagnostics.
-- Added Arabic and English support.
-- Improved keyboard accessibility and integration with the NVDA screen reader.
-
-## Version 3.2
-
-- Changed automatic dhikr reminders from random selection to an ordered cycle.
-- Added an interval that can be set in minutes.
-- Simplified automatic reminder actions to Speech only or Sound file only.
-- Refined interface terminology and standardized announcement formats and shortcuts.
-
-## Version 3.1
-
-- Added automatic dhikr reminders to the Dhikr alerts page.
-- Added support for default and custom sound files for each dhikr.
-- Improved sound playback and excluded disabled adhkar from reminders.
-
-## Version 3.0
-
-- Added the Dhikr alerts page.
-- Added morning and evening adhkar, the Friday Hour reminder, and the daily Wird alert.
-- Added custom sounds for dhikr alerts.
-
-## Version 2.1
-
-- Added the Clock page.
-- Added Zawali and Ghurubi time.
-- Added automatic clock alerts.
-- Added multi-press shortcuts for time and date.
-- Improved saving of clock and automatic-alert settings.
-
-## Version 1.3
-
-- Improved date formats.
-- Fixed Lunar Hijri date correction.
-- Added the Syriac month to the full Gregorian format.
-
-
-## On This Day
-
-Read historical events, births, deaths, and holidays and observances from Wikipedia in NVDA's language (Arabic or English), for your computer's local date. The first request needs an Internet connection; the saved data can then be reused offline for that day. Wikipedia text is neither translated nor replaced with another language when unavailable.
-
-NVDA+Windows+F12: press once for events, twice for births, three times for deaths, or four times for holidays and observances. Repeat within NVDA's configured multi-press timeout. Later presses in the same sequence repeat observances; a pause beyond the timeout starts again at events. Reassign the command under Awqati in NVDA's Preferences, Input Gestures dialog.
-
-Direct speech is the default. All items in the selected section are spoken without URLs. Control stops reading. Shift pauses/resumes where supported by NVDA and your synthesizer settings. Choosing another section stops the previous reading.
-
-To use a local web page in your default browser, open Awqati settings with NVDA+Alt+A, choose Calendar, and Tab to “Show On This Day information in a web page instead of speaking it”. Toggle with Space and save with OK or Apply. The preference survives an NVDA restart. Clear the checkbox to return to speech. Web mode waits until the multi-press timeout plus a 100 ms margin after the last press, so one rapid sequence opens only the final section.
-
-In NVDA Browse Mode, use H for headings, 1 for the main heading, K for links, L for lists, and I for list items. Add Shift to move backwards. Use arrows or your usual Say All command to read, Enter to follow a Wikipedia link, and Alt+Left to go back. Standard browser commands support selecting (Control+A), copying (Control+C), and printing (Control+P). Quick navigation depends on Browse Mode and your NVDA configuration.
-
-An unavailable section produces “Information is unavailable in the selected language.” Connection and extraction failures have separate messages. No empty page or outdated day is presented as today's information. Local pages live in on_this_day_pages under Awqati's user data in the NVDA configuration directory. Each section's file is replaced when opened again; its date remains explicit in the page title.
-
-
-On This Day pages include a section count. Each historical event or person has a separate item with its year; original observance groups use headings excluded from the count. “Please wait.” is spoken only if results take longer; fast memory and disk retrieval stays silent.
+Details of earlier versions are available in the project's historical change log.

@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 AR_SOURCE = ROOT / "docs" / "دليل_أوقاتي_العربي_المعتمد.md"
 AR_MARKDOWN = ROOT / "addon" / "doc" / "ar" / "readme.md"
 EN_MARKDOWN = ROOT / "addon" / "doc" / "en" / "readme.md"
+EN_SOURCE = ROOT / "docs" / "awqati_user_guide_en.md"
 
 
 AR_HEADINGS = {
@@ -111,7 +112,8 @@ def _inline(text: str) -> str:
 	text = escape(text, quote=False)
 	text = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", text)
 	text = re.sub(r"`([^`]+)`", r"<code>\1</code>", text)
-	text = re.sub(r"\[([^]]+)]\((https?://[^)]+)\)", r'<a href="\2">\1</a>', text)
+	text = re.sub(r"\[([^]]+)]\(((?:https?://|mailto:)[^)]+)\)", r'<a href="\2">\1</a>', text)
+	text = text.replace("&lt;br&gt;", "<br>")
 	if re.fullmatch(r"[^\s@]+@[^\s@]+", text):
 		return f'<a href="mailto:{text}">{text}</a>'
 	return text
@@ -177,17 +179,20 @@ def markdown_to_html(markdown: str, *, lang: str, direction: str, title: str) ->
 
 def main() -> int:
 	arabic_source = AR_SOURCE.read_text(encoding="utf-8-sig")
-	arabic_markdown = build_arabic_markdown(arabic_source)
-	english_markdown = EN_MARKDOWN.read_text(encoding="utf-8")
+	# The approved Word guide has already supplied explicit semantic structure.
+	# Do not apply legacy heading inference or rewrite its text.
+	arabic_markdown = arabic_source
+	english_markdown = EN_SOURCE.read_text(encoding="utf-8")
 	AR_MARKDOWN.parent.mkdir(parents=True, exist_ok=True)
 	AR_MARKDOWN.write_text(arabic_markdown, encoding="utf-8", newline="\n")
 	(AR_MARKDOWN.parent / "readme.html").write_text(
-		markdown_to_html(arabic_markdown, lang="ar", direction="rtl", title="دليل استخدام أوقاتي 8.2.1"),
+		markdown_to_html(arabic_markdown, lang="ar", direction="rtl", title="دليل استخدام أوقاتي 8.2.2"),
 		encoding="utf-8",
 		newline="\n",
 	)
+	EN_MARKDOWN.write_text(english_markdown, encoding="utf-8", newline="\n")
 	(EN_MARKDOWN.parent / "readme.html").write_text(
-		markdown_to_html(english_markdown, lang="en", direction="ltr", title="Awqati 8.2.1 user guide"),
+		markdown_to_html(english_markdown, lang="en", direction="ltr", title="Awqati 8.2.2 user guide"),
 		encoding="utf-8",
 		newline="\n",
 	)

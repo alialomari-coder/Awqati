@@ -20,7 +20,7 @@ LABELS = {"ar": ("أحداث", "مواليد", "وفيات", "أعياد ومن�
 HEADINGS = {f"h{i}" for i in range(1, 7)}
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
 SKIP_CLASSES = {"reference", "mw-editsection", "mw-empty-elt", "noprint", "reflist", "navbox", "hatnote"}
-YEAR = re.compile(r"^(\d{1,4}(?:\s*(?:ق\s*\.\s*م\.?|BCE?\.?))?)(?:\s*[–—−-]\s*|\s*$)", re.I)
+YEAR = re.compile(r"^(\d{1,4}(?:\s*(?:ق\s*\.\s*م\.?|BCE?\.?))?)(?:\s*[–—−ـ-]\s*|\s*$)", re.I)
 
 
 class Node:
