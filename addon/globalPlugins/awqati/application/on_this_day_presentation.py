@@ -83,7 +83,7 @@ class OnThisDayPresentation:
         self.wait_timer = None
         self.wait_identity = None
 
-    def select(self, key):
+    def select(self, key, *, force_web=False):
         self.generation += 1
         generation = self.generation
         if self.closed:
@@ -95,13 +95,13 @@ class OnThisDayPresentation:
         if self.timer:
             self.timer.Stop()
             self.timer = None
-        identity = (self.today(), self.language(), self.web_mode())
+        identity = (self.today(), self.language(), True if force_web else self.web_mode())
         settled = not identity[2]
         result = None
         delivered = False
         def valid():
             return (not self.closed and generation == self.generation
-                    and identity == (self.today(), self.language(), self.web_mode()))
+                    and identity == (self.today(), self.language(), True if force_web else self.web_mode()))
         def deliver():
             nonlocal delivered
             if not valid() or not settled or result is None or delivered:
@@ -140,9 +140,11 @@ class OnThisDayPresentation:
             nonlocal settled
             settled = True
             deliver()
-        if identity[2]:
+        if identity[2] and not force_web:
             # Read NVDA's actual timeout, and wait beyond it after *each* press.
             self.timer = self.schedule(self.settle_ms(), settle)
+        elif force_web:
+            settled = True
         self.wait_timer = self.schedule(800, announce_wait)
         self.service.request(received, section=key)
 

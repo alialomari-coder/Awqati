@@ -19,6 +19,7 @@ addonHandler.initTranslation()
 N_ = lambda text: text
 DAY_ORDER = (6, 0, 1, 2, 3, 4, 5)
 DAY_NAMES = (N_("Sunday"), N_("Monday"), N_("Tuesday"), N_("Wednesday"), N_("Thursday"), N_("Friday"), N_("Saturday"))
+REPEAT_DAY_NAMES_AR = ("أحد", "اثنين", "ثلاثاء", "أربعاء", "خميس", "جمعة", "سبت")
 ACTIONS = (AlertAction.SPEECH, AlertAction.SOUND, AlertAction.SOUND_AND_SPEECH)
 ACTION_NAMES = (N_("Speech only"), N_("Sound file only"), N_("Sound file and speech"))
 DURATION_NAMES = (N_("30 seconds"), N_("One minute"), N_("Two minutes"), N_("Five minutes"))
@@ -35,6 +36,10 @@ OUTCOME_LABELS = {
 
 def set_direction(window):
     window.SetLayoutDirection(wx.Layout_RightToLeft if is_rtl_language(languageHandler.getLanguage()) else wx.Layout_LeftToRight)
+
+
+def repeat_day_names():
+    return REPEAT_DAY_NAMES_AR if languageHandler.getLanguage().startswith("ar") else tuple(_(name) for name in DAY_NAMES)
 
 
 def reschedule_saved_changes(parent, runtime):
@@ -92,12 +97,17 @@ class AlarmEditor(wx.Dialog):
         # Empty new time fields are intentional: midnight is valid but not assumed.
         self.hour = text(_("Hour (0–23)"), str(alarm.hour) if alarm else "")
         self.minute = text(_("Minute (0–59)"), str(alarm.minute) if alarm else "")
-        grid.Add(wx.StaticText(self, label=_("Repeat every")))
+        self.repeat = wx.CheckBox(self, label=_("Repeat alarm"))
+        self.repeat.SetValue(bool(alarm and alarm.weekdays))
+        grid.Add(self.repeat)
+        grid.Add((1, 1))
+        self.days_label = wx.StaticText(self, label=_("Repeat every"))
+        grid.Add(self.days_label)
         # Windows LBS_MULTIPLESEL toggles Space; unmodified arrows move only caret.
-        self.days = wx.ListBox(self, choices=[_(name) for name in DAY_NAMES], style=wx.LB_MULTIPLE, name=_("Repeat every"))
+        self.days = wx.ListBox(self, choices=repeat_day_names(), style=wx.LB_MULTIPLE, name=_("Repeat every"))
         if alarm:
             for i, day in enumerate(DAY_ORDER):
-                if day in alarm.weekdays:
+                if day in (alarm.weekdays or alarm.saved_weekdays):
                     self.days.SetSelection(i)
         grid.Add(self.days, flag=wx.EXPAND)
         self.action = choice(_("Alert method"), [_(label) for label in ACTION_NAMES], ACTIONS.index(alarm.action) if alarm else 2)
@@ -143,6 +153,7 @@ class AlarmEditor(wx.Dialog):
         outer.Add(self.CreateSeparatedButtonSizer(wx.OK | wx.CANCEL), 0, wx.ALL | wx.EXPAND, 12)
         self.SetSizerAndFit(outer)
         self.action.Bind(wx.EVT_CHOICE, self.visibility)
+        self.repeat.Bind(wx.EVT_CHECKBOX, self.visibility)
         self.snooze.Bind(wx.EVT_CHECKBOX, self.visibility)
         self.unlimited.Bind(wx.EVT_CHECKBOX, self.visibility)
         self.Bind(wx.EVT_BUTTON, self.save, id=wx.ID_OK)
@@ -151,6 +162,8 @@ class AlarmEditor(wx.Dialog):
         self.name.SetFocus()
 
     def visibility(self, event=None):
+        self.days.Show(self.repeat.GetValue())
+        self.days_label.Show(self.repeat.GetValue())
         self.sound_panel.Show(ACTIONS[self.action.GetSelection()] is not AlertAction.SPEECH)
         self.snooze_panel.Show(self.snooze.GetValue())
         self.limit.Show(not self.unlimited.GetValue())
@@ -206,7 +219,7 @@ class AlarmEditor(wx.Dialog):
 
     def save(self, event=None):
         days = tuple(DAY_ORDER[index] for index in self.days.GetSelections())
-        error = validate_alarm_fields(self.hour.GetValue(), self.minute.GetValue(), days)
+        error = validate_alarm_fields(self.hour.GetValue(), self.minute.GetValue(), days, self.repeat.GetValue())
         if error:
             messages = {
                 "timeAndDays": _("Specify an alarm time and at least one day of the week."),
@@ -243,7 +256,8 @@ class AlarmEditor(wx.Dialog):
         options = dict(action=ACTIONS[self.action.GetSelection()], sound_ref=self.sound_ref,
             duration=DURATIONS[self.duration.GetSelection()], snooze_enabled=self.snooze.GetValue(),
             snooze_minutes=SNOOZE_MINUTES[self.snooze_minutes.GetSelection()], snooze_limit=limit,
-            obey_quiet_hours=self.quiet.GetValue())
+            obey_quiet_hours=self.quiet.GetValue(), saved_weekdays=days)
+        days = days if self.repeat.GetValue() else ()
         alarm = (replace(self.original, name=name, hour=int(self.hour.GetValue()), minute=int(self.minute.GetValue()), weekdays=days, **options)
             if self.original else PersonalAlarm.create(name, int(self.hour.GetValue()), int(self.minute.GetValue()), days, **options))
         commit = None
@@ -342,7 +356,9 @@ class AlarmManager(wx.Dialog):
         self.rows.sort(key=lambda pair: (pair[0] is None, utc(pair[0]).timestamp() if pair[0] else 0, pair[1].name.casefold(), pair[1].alarm_id))
         labels = []
         for when, alarm in self.rows:
-            days = ", ".join(_(DAY_NAMES[index]) for index, day in enumerate(DAY_ORDER) if day in alarm.weekdays)
+            days = ", ".join(repeat_day_names()[index] for index, day in enumerate(DAY_ORDER) if day in alarm.weekdays)
+            if not alarm.weekdays:
+                days = _("Once")
             labels.append(_("{name}; {hour:02d}:{minute:02d}; {days}; {status}; next: {next}").format(
                 name=alarm.name, hour=alarm.hour, minute=alarm.minute, days=days,
                 status=_("Enabled") if alarm.enabled else _("Disabled"),

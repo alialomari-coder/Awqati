@@ -186,13 +186,13 @@ def main() -> int:
 	AR_MARKDOWN.parent.mkdir(parents=True, exist_ok=True)
 	AR_MARKDOWN.write_text(arabic_markdown, encoding="utf-8", newline="\n")
 	(AR_MARKDOWN.parent / "readme.html").write_text(
-		markdown_to_html(arabic_markdown, lang="ar", direction="rtl", title="دليل استخدام أوقاتي 8.2.2"),
+		markdown_to_html(arabic_markdown, lang="ar", direction="rtl", title="دليل استخدام أوقاتي 8.2.3"),
 		encoding="utf-8",
 		newline="\n",
 	)
 	EN_MARKDOWN.write_text(english_markdown, encoding="utf-8", newline="\n")
 	(EN_MARKDOWN.parent / "readme.html").write_text(
-		markdown_to_html(english_markdown, lang="en", direction="ltr", title="Awqati 8.2.2 user guide"),
+		markdown_to_html(english_markdown, lang="en", direction="ltr", title="Awqati 8.2.3 user guide"),
 		encoding="utf-8",
 		newline="\n",
 	)

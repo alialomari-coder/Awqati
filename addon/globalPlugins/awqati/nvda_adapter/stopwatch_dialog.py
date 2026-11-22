@@ -13,7 +13,7 @@ class StopwatchDialog(wx.Dialog):
         super().__init__(parent, title=_("Stopwatch"))
         self._build_controls(control)
 
-    def _build_controls(self, control, embedded=False):
+    def _build_controls(self, control, embedded=False, preferences=True):
         self.control = control
         self.SetLayoutDirection(wx.Layout_RightToLeft if is_rtl_language(languageHandler.getLanguage()) else wx.Layout_LeftToRight)
         box = wx.BoxSizer(wx.VERTICAL)
@@ -38,21 +38,8 @@ class StopwatchDialog(wx.Dialog):
         copy = wx.Button(self, label=_("Copy results"))
         box.Add(copy, flag=wx.ALL, border=4)
         copy.Bind(wx.EVT_BUTTON, lambda event: control.copy())
-        box.Add(wx.StaticText(self, label=_("Confirmation sounds")), flag=wx.ALL, border=4)
-        self.mode = wx.Choice(self, choices=[_(label) for label in MODE_LABELS], name=_("Confirmation sounds"))
-        self.mode.SetSelection(control.mode)
-        self.mode.Bind(wx.EVT_CHOICE, self.change_mode)
-        box.Add(self.mode, flag=wx.ALL, border=4)
-        box.Add(wx.StaticText(self, label=_("Preview tone")), flag=wx.ALL, border=4)
-        self.preview = wx.Choice(self, choices=[_("Start"), _("Pause"), _("Resume"), _("Record lap"), _("Reset stopwatch")], name=_("Preview tone"))
-        self.preview.SetSelection(0)
-        box.Add(self.preview, flag=wx.ALL, border=4)
-        play = wx.Button(self, label=_("Play preview"))
-        box.Add(play, flag=wx.ALL, border=4)
-        play.Bind(wx.EVT_BUTTON, lambda event: control.preview(("start", "pause", "resume", "lap", "reset")[self.preview.GetSelection()]))
-        stop = wx.Button(self, label=_("Stop preview"))
-        box.Add(stop, flag=wx.ALL, border=4)
-        stop.Bind(wx.EVT_BUTTON, lambda event: control.cancel_feedback())
+        if preferences:
+            self._build_preferences(control, box)
         if not embedded:
             close = wx.Button(self, wx.ID_CANCEL, label=_("Close"))
             box.Add(close, flag=wx.ALL, border=8)
@@ -68,6 +55,23 @@ class StopwatchDialog(wx.Dialog):
         self.refresh()
         if not embedded:
             self.toggle.SetFocus()
+
+    def _build_preferences(self, control, box):
+        box.Add(wx.StaticText(self, label=_("Confirmation sounds")), flag=wx.ALL, border=4)
+        self.mode = wx.Choice(self, choices=[_(label) for label in MODE_LABELS], name=_("Confirmation sounds"))
+        self.mode.SetSelection(control.mode)
+        self.mode.Bind(wx.EVT_CHOICE, self.change_mode)
+        box.Add(self.mode, flag=wx.ALL, border=4)
+        box.Add(wx.StaticText(self, label=_("Preview tone")), flag=wx.ALL, border=4)
+        self.preview = wx.Choice(self, choices=[_("Start"), _("Pause"), _("Resume"), _("Record lap"), _("Reset stopwatch")], name=_("Preview tone"))
+        self.preview.SetSelection(0)
+        box.Add(self.preview, flag=wx.ALL, border=4)
+        play = wx.Button(self, label=_("Play preview"))
+        box.Add(play, flag=wx.ALL, border=4)
+        play.Bind(wx.EVT_BUTTON, lambda event: control.preview(("start", "pause", "resume", "lap", "reset")[self.preview.GetSelection()]))
+        stop = wx.Button(self, label=_("Stop preview"))
+        box.Add(stop, flag=wx.ALL, border=4)
+        stop.Bind(wx.EVT_BUTTON, lambda event: control.cancel_feedback())
 
     def change_mode(self, event):
         if not self.control.set_mode(self.mode.GetSelection()):

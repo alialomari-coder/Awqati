@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Awqati 8.2.2 user guide</title>
+<title>Awqati 8.2.3 user guide</title>
 </head>
 <body>
 <h1>Overview</h1>
@@ -53,6 +53,9 @@
 <p>Awqati provides shortcuts for querying information and opening and controlling its tools without having to open the settings each time. You can review and customize these shortcuts in NVDA's Input Gestures dialog, under the Awqati category. The assigned shortcuts and their functions are listed in the Keyboard Shortcuts section of this guide.</p>
 <h2>Commands with multiple presses</h2>
 <p>Some Awqati shortcuts use consecutive presses for different functions, within the timeout specified in NVDA. The function of each press is listed in the Keyboard Shortcuts section.</p>
+<h3>Accessing Awqati services from the menu</h3>
+<p>The Awqati menu is available under the Tools menu in the NVDA screen reader. It provides direct access to several add-on services without having to open the settings or use keyboard shortcuts. These services include today's prayer times, Clock Tools, the date converter, daily information, On This Day, and weather reports.</p>
+<p>To access these services, open the NVDA menu by pressing NVDA+N, choose Tools, and then Awqati. Use the arrow keys to navigate the menu items and press Enter to launch the service you want.</p>
 <h2>Saving settings and applying changes</h2>
 <p>OK saves your changes and closes the settings, while Apply saves them without closing the dialog. Cancel discards unsaved changes. Changes to the time tools are saved immediately and independently.</p>
 <h1>Location Settings</h1>
@@ -759,6 +762,7 @@
 <h2>World clock shortcuts</h2>
 <ul>
 <li>NVDA+Ctrl+F12: Once for the first city's time, twice for the second city's time, and three times for the third city's time in the favorites list.</li>
+<li>NVDA+Alt+O: Open the independent world clock window.</li>
 </ul>
 <h2>Commands without default shortcuts</h2>
 <p>Some Awqati commands are available in Input Gestures without default shortcuts. You can assign keys to them as needed.</p>
@@ -840,5 +844,19 @@
 <li>Added a worldwide location database and support for Arabic and English.</li>
 </ul>
 <p>Details of earlier versions are available in the project's historical change log.</p>
+<h1>Awqati menu in NVDA Tools</h1>
+<p>Open the NVDA menu with NVDA+N, choose Tools, then Awqati. Use Up and Down Arrow to select an item, Right Arrow to enter a submenu, Enter to open it, and Escape to return. The menu contains these six entries in order:</p>
+<ul>
+<li>Today's prayer times: opens the existing prayer times window.</li>
+<li>Clock Tools: Alarms, Timers, Stopwatch, and World clock, each in its independent window with its existing preferences.</li>
+<li>Date converter: opens the basic converter; advanced conversion remains available from it.</li>
+<li>Daily information: opens the unified report, respecting the selected astronomy and traditional calendar inclusion options.</li>
+<li>On This Day: Events, Births, Deaths, and Holidays and observances. Each menu command opens its existing HTML page directly. The date settings display option affects the existing shortcut only.</li>
+<li>Weather: Current weather, Today's forecast, and Coming days forecast. Each opens a text report with information on separate lines that can be selected and copied. Refresh remains in Weather settings and as a command that can receive a custom gesture.</li>
+</ul>
+<p>Qibla direction remains available with two presses of NVDA+G and the "Show Qibla direction" button in settings.</p>
+<p>Use Tab and Shift+Tab to move through window controls. Escape or Close closes a report or clock window. Use Alt+Left Arrow to return from a web page, or Ctrl+W to close its browser tab. Existing shortcuts and multiple-press behavior are unchanged. The date converter, weather refresh and diagnostic/maintenance commands remain available through settings or Input Gestures as documented above.</p>
+<h2>Version 8.2.3</h2>
+<p>Completes the six-entry Tools menu; keeps the four independent clock windows and their preferences; retains improved one-time alarms, saved repeat days and restart behavior; and provides the three line-oriented weather reports. Settings, stored data, calculations and default shortcuts are preserved. This package is a review candidate pending the owner's practical acceptance.</p>
 </body>
 </html>

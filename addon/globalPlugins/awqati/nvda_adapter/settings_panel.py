@@ -5,7 +5,6 @@ from __future__ import annotations
 from copy import deepcopy
 from pathlib import Path
 import threading
-import weakref
 from typing import Callable, Sequence
 
 import addonHandler
@@ -372,27 +371,12 @@ class AwqatiSettingsPanel(SettingsPanel):
 		self._section = SECTION_ORDER[0]
 		self.section_choice.Bind(wx.EVT_CHOICE, self._on_section)
 		self._render_section()
-		if context.time_tools is not None:
-			context.time_tools.panel = weakref.ref(self)
-			self._time_tools_state = context.time_tools
-			self.Bind(wx.EVT_WINDOW_DESTROY, self._on_destroy)
-
-	def _on_destroy(self, event):
-		if event.GetEventObject() is self:
-			state = self._time_tools_state
-			if state is not None and state.panel is not None and state.panel() is self:
-				state.panel = None
-		event.Skip()
 
 	def _register(self, key: str, control: wx.Window) -> None:
 		self._controls[key] = control
 
 	def postInit(self) -> None:
-		state = _context_or_raise().time_tools
-		if state is not None and state.requested is not None:
-			state.request(state.requested)
-		else:
-			self.location_controls.country.SetFocus()
+		self.location_controls.country.SetFocus()
 
 	def _layout(self) -> None:
 		self.Layout()
@@ -427,12 +411,6 @@ class AwqatiSettingsPanel(SettingsPanel):
 		self._section_panel.Show()
 		self._section_panel.MoveAfterInTabOrder(self.section_choice)
 		self._layout()
-
-	def show_time_tool(self, identity):
-		self._section = SettingsSection.CLOCK
-		self.section_choice.SetSelection(SECTION_ORDER.index(self._section))
-		self._render_section()
-		self._time_tools.select(identity)
 
 	def _build_weather(self) -> wx.Panel:
 		from .weather_settings import WeatherSettingsPanel
@@ -553,8 +531,6 @@ class AwqatiSettingsPanel(SettingsPanel):
 		alert_panel, grid = _panel(panel); outer.Add(alert_panel, flag=wx.TOP | wx.EXPAND, border=8)
 		AlertOutputEditor(alert_panel, grid, N_("Clock alert action:"), settings.alert, STANDARD_ALERT_ACTIONS,
 			"clock", self._layout, self._sound_staging, self._audio, AlertEventType.CLOCK, self._register, "clock.alert")
-		from .time_tools import TimeToolsHost
-		self._time_tools = TimeToolsHost(panel, outer, _context_or_raise().time_tools, self._layout)
 		return panel
 
 	def _on_clock_type(self, event: wx.CommandEvent) -> None:

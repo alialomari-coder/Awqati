@@ -112,12 +112,10 @@ class WorldClockPanel(wx.Panel):
         add=wx.Button(self,label=_('Add city'));update=wx.Button(self,label=_('Update data'))
         add.Bind(wx.EVT_BUTTON,self.add);update.Bind(wx.EVT_BUTTON,lambda e:control.update())
         box.Add(add,flag=wx.ALL,border=5);box.Add(update,flag=wx.ALL,border=5)
-        self.automatic=wx.CheckBox(self,label=_('Update data automatically'),name=_('Update data automatically'))
+        self.automatic = wx.CheckBox(self, label=_("Update data automatically"), name=_("Update data automatically"))
         self.automatic.SetValue(control.policy.enabled)
-        def automatic_changed(event):
-            if not control.set_automatic(self.automatic.GetValue()):self.automatic.SetValue(control.policy.enabled)
-        self.automatic.Bind(wx.EVT_CHECKBOX,automatic_changed)
-        box.Add(self.automatic,flag=wx.ALL,border=5)
+        self.automatic.Bind(wx.EVT_CHECKBOX, self.change_automatic)
+        box.Add(self.automatic, flag=wx.ALL, border=5)
         self.SetSizer(box)
         self.list.Bind(wx.EVT_LIST_ITEM_SELECTED,self.selected)
         self.list.Bind(wx.EVT_CHAR_HOOK,self.key)
@@ -125,6 +123,10 @@ class WorldClockPanel(wx.Panel):
         self.Bind(wx.EVT_WINDOW_DESTROY,self.destroyed)
         self.timer=wx.Timer(self);self.Bind(wx.EVT_TIMER,lambda e:self.list.update_texts(),self.timer);self.timer.Start(1000)
         self.refresh()
+
+    def change_automatic(self, event):
+        if not self.control.set_automatic(self.automatic.GetValue()):
+            self.automatic.SetValue(self.control.policy.enabled)
 
     def refresh(self):
         rows=self.control.service.rows

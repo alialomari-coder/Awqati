@@ -12,9 +12,8 @@ from .text_dialog import SelectableTextDialog
 from .location_labels import city_name
 
 
-# Temporary 8.2.2 decision: menu execution interrupts speech, while gestures work.
-# Set to True in a later release to restore both retained Tools submenus.
-TOOLS_MENU_ENABLED = False
+# Owner-authorized experimental menu; native speech acceptance remains a trial.
+TOOLS_MENU_ENABLED = True
 
 
 class WeatherTextDialog(SelectableTextDialog):
@@ -65,24 +64,39 @@ class WeatherControl:
         self.unsubscribe = settings.events.subscribe(SettingsApplied, self._applied)
         self._applied()
         self.menu_item = None
-        if TOOLS_MENU_ENABLED:
-            self._install_menu()
+        self.menu_pending = None
+        self.menu_parent = None
 
     def tr(self, ar, en): return ar if self.language().startswith("ar") else en
 
-    def _install_menu(self):
-        self.menu = wx.Menu()
+    def _install_menu(self, parent=None):
+        if self.closed or self.menu_item is not None:
+            return
+        self.menu = parent if parent is not None else wx.Menu()
         self.weather_menu = wx.Menu()
-        actions = (("الحالة الحالية", "Current weather", lambda: self.select("current")),
-                   ("توقعات اليوم", "Today's forecast", lambda: self.select("today")),
-                   ("توقعات الأيام القادمة", "Coming days forecast", lambda: self.select("future")),
-                   ("فتح معلومات الطقس في نافذة نصية", "Open weather information in a text window", self.show),
-                   ("تحديث الآن", "Refresh now", self.refresh_now))
+        actions = (("الحالة الجوية الحالية", "Current weather", lambda: self.select("current", text=True, menu=True)),
+                   ("توقعات اليوم", "Today's forecast", lambda: self.select("today", text=True, menu=True)),
+                   ("توقعات الأيام القادمة", "Coming days forecast", lambda: self.select("future", text=True, menu=True)))
         for ar, en, action in actions:
             item = self.weather_menu.Append(wx.ID_ANY, self.tr(ar, en))
-            self.menu.Bind(wx.EVT_MENU, lambda event, action=action: action(), item)
-        self.menu.AppendSubMenu(self.weather_menu, self.tr("الطقس", "Weather"))
-        self.menu_item = gui.mainFrame.sysTrayIcon.toolsMenu.AppendSubMenu(self.menu, self.tr("أوقاتي", "Awqati"))
+            self.weather_menu.Bind(wx.EVT_MENU, lambda event, action=action: self._queue_menu(action), item)
+        weather_item = self.menu.AppendSubMenu(self.weather_menu, self.tr("الطقس", "Weather"))
+        self.menu_parent = parent if parent is not None else gui.mainFrame.sysTrayIcon.toolsMenu
+        self.menu_item = weather_item if parent is not None else self.menu_parent.AppendSubMenu(self.menu, self.tr("أوقاتي", "Awqati"))
+
+    def _queue_menu(self, action):
+        if self.closed:
+            return
+        if self.menu_pending:
+            self.menu_pending.Stop()
+        # Match the accepted clock menu delay: leave EVT_MENU before any output,
+        # including synchronous cached responses and immediate errors.
+        self.menu_pending = wx.CallLater(150, self._dispatch_menu, action)
+
+    def _dispatch_menu(self, action):
+        self.menu_pending = None
+        if not self.closed:
+            action()
 
     def cancel(self):
         self.serial += 1
@@ -117,8 +131,9 @@ class WeatherControl:
                 return city_name(match, language or self.language())
         return self.service.location.name
 
-    def select(self, report=None, text=False, force=False):
+    def select(self, report=None, text=False, force=False, menu=False):
         if self.closed: return
+        if force: self.speak(self.tr("يُرجى الانتظار", "Please wait"))
         self.presses.close()
         self.cancel()
         token = self.serial
@@ -143,11 +158,16 @@ class WeatherControl:
                 self.last_success_text = formatter.format(data, selected, name, air, copyable=True, stale=stale)
             if text:
                 message = formatter.format(data, selected, name, air, copyable=True, stale=stale)
-            if text: self._show(message)
+            if text and menu:
+                message = formatter.menu_text(data, selected, name, air, stale=stale)
+            if text: self._show(message, replace=menu)
             else: self.speak(message)
-        self.service.request(selected, ready, lambda: self.speak(self.tr("يُرجى الانتظار", "Please wait")), force)
+        self.service.request(selected, ready, (lambda: None) if force else lambda: self.speak(self.tr("يُرجى الانتظار", "Please wait")), force)
 
-    def _show(self, message):
+    def _show(self, message, replace=False):
+        if replace and WeatherTextDialog._instance is not None:
+            WeatherTextDialog._instance.text.ChangeValue(message)
+            WeatherTextDialog._instance.text.SetInsertionPoint(0)
         WeatherTextDialog.show(gui.mainFrame, self.tr("معلومات الطقس", "Weather information"), message)
         dialog = WeatherTextDialog._instance
         if not hasattr(dialog, "weather_source_button"):
@@ -164,7 +184,8 @@ class WeatherControl:
             self._show(self.last_success_text)
         else:
             self.speak(self.tr("لا توجد معلومات طقس سابقة؛ اطلب تقريرًا أولًا", "No previous weather information; request a report first"))
-    def refresh_now(self): self.select(force=True)
+    def refresh_now(self):
+        self.select("current", force=True)
 
     def summary(self, language):
         if not self.service.enabled or not self.service.settings.include_in_daily_info: return ""
@@ -179,6 +200,9 @@ class WeatherControl:
     def close(self):
         if self.closed: return
         self.closed = True
+        if self.menu_pending:
+            self.menu_pending.Stop()
+            self.menu_pending = None
         self.cancel()
         self.presses.close()
         if self.timer: self.timer.Stop()
@@ -186,5 +210,5 @@ class WeatherControl:
         self.service.close()
         if WeatherTextDialog._instance: WeatherTextDialog._instance.Close()
         if self.menu_item is not None:
-            gui.mainFrame.sysTrayIcon.toolsMenu.DestroyItem(self.menu_item)
+            self.menu_parent.DestroyItem(self.menu_item)
             self.menu_item = None

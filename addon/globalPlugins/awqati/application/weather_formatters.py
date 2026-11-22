@@ -122,7 +122,7 @@ class WeatherFormatter:
         separator = ". " if self.ar and self.detailed else self.tr("، و", ", ")
         return separator.join(self.current_parts(period, air=air))
 
-    def daily(self, period, options):
+    def daily(self, period, options, linewise=False):
         v, parts = period.values, []
         if "weather_code" in v: parts.append(description(v["weather_code"], self.ar))
         for key, ar, en in (("temperature_2m_max", "العظمى ", "high "), ("temperature_2m_min", "الصغرى ", "low ")):
@@ -139,7 +139,7 @@ class WeatherFormatter:
                 parts.append(self.tr("هبات الرياح ", "wind gusts ") + self.quantity(v["wind_gusts_10m_max"], "wind"))
             if options["uv_index_max"] and "uv_index_max" in v:
                 parts.append(self.tr("أقصى مؤشر للأشعة فوق البنفسجية ", "maximum UV index ") + number(v["uv_index_max"], 1))
-        return ". ".join(parts)
+        return ("\n" if linewise else ". ").join(parts)
 
     def time_label(self, stamp, at_hour=False):
         stamp = stamp.astimezone(self.zone)
@@ -182,7 +182,7 @@ class WeatherFormatter:
             clock += " بتاريخ " + stamp.date().isoformat()
         return clock
 
-    def hourly(self, snapshot, copyable=False):
+    def hourly(self, snapshot, copyable=False, linewise=False):
         horizon = self.now.timestamp() + self.settings.upcoming_hours * 3600
         hours = [p for p in snapshot.hourly if self.now.timestamp() < p.time.timestamp() <= horizon and p.values]
         baseline = dict(hours[0].values) if hours else {}
@@ -208,7 +208,7 @@ class WeatherFormatter:
             if "temperature_2m" in v: bits.append(self.quantity(v["temperature_2m"], "temperature"))
             if "precipitation_probability" in v and not omit_zero: bits.append(self.tr("احتمال هطول ", "precipitation probability ") + self.percent(v["precipitation_probability"]))
             if "wind_speed_10m" in v: bits.append(self.wind(v))
-            return self.tr("", "At ") + self.time_label(p.time, at_hour=self.ar) + ": " + self.tr("، ", ", ").join(bits)
+            return self.tr("", "At ") + self.time_label(p.time, at_hour=self.ar) + (":\n" if linewise else ": ") + ("\n" if linewise else self.tr("، ", ", ")).join(bits)
         if self.detailed and self.settings.hourly_periods:
             # Actual point-in-time samples, distributed across the full horizon.
             step = {3: 1, 6: 2, 12: 3}[self.settings.upcoming_hours] * 3600
@@ -268,3 +268,44 @@ class WeatherFormatter:
             text += "\n\n" + self.attribution(used_air) + "\nCC BY 4.0\n" + self.tr("تقديرات نموذجية وليست قياسات محطة محلية. النص مترجم وملخص والوحدات محولة.", "Model estimates, not local station observations. Text translated and summarized; units converted.") + "\n" + SOURCE_LINKS
             if used_air: text += "\n" + AIR_LINK
         return text
+
+    def menu_text(self, snapshot, report, location_name, air=None, stale=False):
+        """Line-oriented menu view; spoken and last-report formats stay intact."""
+        title = {"current": self.tr("الحالة الجوية الحالية", "Current weather"),
+                 "today": self.tr("توقعات اليوم", "Today's forecast"),
+                 "future": self.tr("توقعات الأيام القادمة", "Coming days forecast")}[report]
+        lines = [title, location_name, ""]
+        if stale:
+            lines.append(self.tr("تعذر الاتصال؛ هذه بيانات محفوظة وقد تكون غير محدثة", "Connection failed; these cached data may be out of date"))
+        found = False
+        if report == "current":
+            today = next((p for p in snapshot.daily if p.time.date() == self.now.date()), None)
+            parts = self.current_parts(snapshot.current, today, air, copyable=True)
+            found = bool(parts)
+            lines.extend(parts)
+        elif report == "today":
+            period = next((p for p in snapshot.daily if p.time.date() == self.now.date()), None)
+            if period and period.values:
+                found = True
+                lines.extend([self.now.date().isoformat(), self.daily(period, self.settings.today, linewise=True)])
+            hourly = self.hourly(snapshot, copyable=True, linewise=True)
+            if hourly:
+                found = True
+                lines.extend(["", self.tr("الساعات القادمة", "Coming hours"), hourly])
+        else:
+            for offset in range(1, self.settings.future_days + 1):
+                day = self.now.date() + timedelta(days=offset)
+                period = next((p for p in snapshot.daily if p.time.date() == day), None)
+                if period and period.values:
+                    found = True
+                    lines.extend(["", day.isoformat(), self.daily(period, self.settings.future, linewise=True)])
+        if not found:
+            lines.append(self.tr("بيانات التقرير المطلوب غير متاحة", "The requested report data are unavailable"))
+        used_air = report == "current" and self.detailed and self.settings.current["us_aqi"] and air is not None and "us_aqi" in air.values
+        lines.extend(["", self.attribution(used_air), "CC BY 4.0",
+            self.tr("تقديرات نموذجية وليست قياسات محطة محلية. النص مترجم وملخص والوحدات محولة.", "Model estimates, not local station observations. Text translated and summarized; units converted."), SOURCE_LINKS])
+        if used_air:
+            lines.append(AIR_LINK)
+        # Split independent descriptive values without splitting decimal points,
+        # timestamps or source URLs.
+        return "\n".join(lines).replace("، قادمة من جهة ", "\nاتجاه الرياح: ").replace(", from ", "\nWind direction: ").replace("، ", "\n").replace(", ", "\n")

@@ -109,7 +109,8 @@ class WeatherService:
             callback(ready.data, None, False)
             self.refresh()
             return
-        self.pending = (report, callback)
+        # Forced requests must observe a new successful fetch, even inside TTL.
+        self.pending = (report, callback, force, self.cache)
         will_fetch = self.busy["weather"] or self._can_start("weather", force)
         if not self.busy["weather"]: self.wait_announced = False
         if will_fetch and not self.wait_announced:
@@ -173,9 +174,16 @@ class WeatherService:
 
     def _deliver(self, error=None):
         if self.pending is None: return
-        report, callback = self.pending
+        report, callback, force, previous_cache = self.pending
         self.pending = None
         entry = self.usable(report)
+        if force:
+            failure = error or self.errors["weather"]
+            if failure or entry is None or self.cache is previous_cache:
+                callback(None, failure or "unavailable", False)
+            else:
+                callback(entry.data, None, False)
+            return
         stale = bool(entry is not None and self.errors["weather"])
         if entry is None and self.errors["weather"]:
             entry = self.usable(report, stale=True)

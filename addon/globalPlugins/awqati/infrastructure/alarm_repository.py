@@ -31,6 +31,7 @@ class AlarmRepository:
                 values = dict(item)
                 values["action"] = AlertAction(values["action"])
                 values["weekdays"] = tuple(values["weekdays"])
+                values["saved_weekdays"] = tuple(values.get("saved_weekdays", values["weekdays"]))
                 alarm = PersonalAlarm(**values)
                 if alarm.alarm_id in alarms:
                     raise ValueError("duplicate alarm identity")

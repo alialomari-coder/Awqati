@@ -50,6 +50,7 @@ from .commands import CommandContent
 from .runtime import AwqatiRuntime
 from .alarm_dialogs import AlarmManager, next_alarm_text
 from .time_tools import TimeToolsState
+from .clock_tools_menu import ClockToolsMenu
 from .stopwatch_control import StopwatchControl
 from .countdown_control import CountdownControl
 from .duration_formatter import format_minutes
@@ -92,6 +93,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		self._on_this_day = None
 		self._converter = None
 		self._weather = None
+		self._clock_tools_menu = None
 		try:
 			self._compose()
 		except (SettingsRepositoryError, SettingsValidationError) as error:
@@ -184,17 +186,20 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			show_countdowns=self._showCountdowns,
 			show_converter=self._converter.show,
 		)
-		day_service = OnThisDayService(WikipediaDayProvider(), DayCache(root / "on_this_day.json"),
-			language=self._language, dispatch=wx.CallAfter)
-		day_speech = DaySpeech()
-		day_pages = LocalDayPages(root / "on_this_day_pages")
-		self._on_this_day = OnThisDayPresentation(day_service,
-			language=self._language, today=date.today,
-			web_mode=lambda: settings.runtime_settings.calendar.on_this_day_web_page,
-			translate=_, schedule=wx.CallLater,
-			settle_ms=lambda: int(config.conf["keyboard"]["multiPressTimeout"]) + 100,
-			speak=day_speech.speak, stop_speech=day_speech.stop,
-			message=ui.message, open_page=day_pages.open)
+		try:
+			day_service = OnThisDayService(WikipediaDayProvider(), DayCache(root / "on_this_day.json"),
+				language=self._language, dispatch=wx.CallAfter)
+			day_speech = DaySpeech()
+			day_pages = LocalDayPages(root / "on_this_day_pages")
+			self._on_this_day = OnThisDayPresentation(day_service,
+				language=self._language, today=date.today,
+				web_mode=lambda: settings.runtime_settings.calendar.on_this_day_web_page,
+				translate=_, schedule=wx.CallLater,
+				settle_ms=lambda: int(config.conf["keyboard"]["multiPressTimeout"]) + 100,
+				speak=day_speech.speak, stop_speech=day_speech.stop,
+				message=ui.message, open_page=day_pages.open)
+		except Exception:
+			logHandler.log.exception("Awqati On This Day could not start; other functions remain available.")
 		self._stopwatch = StopwatchControl(root, self._runtime, addon_root)
 		self._countdowns = CountdownControl(root, self._runtime)
 		self._world_clock = WorldClockControl(root, self._runtime, addon_root)
@@ -208,6 +213,16 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			self._content.weather_summary = self._weather.summary
 		except Exception:
 			logHandler.log.exception("Awqati weather could not start; other functions remain available.")
+		self._clock_tools_menu = ClockToolsMenu(self._openTimeTool, {
+			"prayers": self._showPrayerTimes,
+			"converter": lambda: self._converter.show(),
+			"daily": self._showDailyInfo,
+			"qibla": self._announce_qibla,
+			**{key: lambda key=key: self._on_this_day.select(key, force_web=True)
+				for key in ("events", "births", "deaths", "observances")},
+			**{key: lambda key=key: self._weather.select(key, text=True, menu=True)
+				for key in ("current", "today", "future")},
+		})
 		configure(self._context)
 		if AwqatiSettingsPanel not in NVDASettingsDialog.categoryClasses:
 			NVDASettingsDialog.categoryClasses.append(AwqatiSettingsPanel)
@@ -342,6 +357,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		if self._weather and not self._terminated:
 			self._weather.show()
 
+	@scriptHandler.script(description=_("Refresh weather information now"), category=CATEGORY)
+	def script_weatherRefresh(self, gesture):
+		if self._weather and not self._terminated:
+			self._weather.refresh_now()
+
 	@scriptHandler.script(description=_("Repeat the last spoken alert."), category=CATEGORY, gesture="kb:NVDA+shift+f12")
 	def script_repeatLastAlert(self, gesture):
 		self._actions.invalidate_feedback()
@@ -423,8 +443,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		if self._terminated:
 			return
 		self._actions.invalidate_feedback()
-		self._context.time_tools.requested = identity
-		compat.open_awqati_settings(AwqatiSettingsPanel)
 		self._context.time_tools.request(identity)
 
 	def _showCountdowns(self):
@@ -572,12 +590,19 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			count = scriptHandler.getLastScriptRepeatCount()
 			self._world_clock.announce(min(max(0, count), 2))
 
+	@scriptHandler.script(description=_("Open world clock."), category=CATEGORY, gesture="kb:NVDA+alt+o")
+	def script_openWorldClock(self, gesture):
+		self._openTimeTool("world_clock")
+
 	def terminate(self) -> None:
 		if self._terminated:
 			return
 		self._terminated = True
-		if self._converter: self._converter.close()
 		if self._weather: self._weather.close()
+		if self._clock_tools_menu: self._clock_tools_menu.close()
+		if self._context and self._context.time_tools:
+			self._context.time_tools.close()
+		if self._converter: self._converter.close()
 		if self._on_this_day: self._on_this_day.close()
 		if self._world_clock: self._world_clock.close()
 		if self._countdowns: self._countdowns.close()

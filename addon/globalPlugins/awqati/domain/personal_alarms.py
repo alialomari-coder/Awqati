@@ -22,6 +22,7 @@ class PersonalAlarm:
     snooze_minutes: int = 5
     snooze_limit: int | None = 3
     obey_quiet_hours: bool = False
+    saved_weekdays: tuple[int, ...] = ()  # Inactive choices; never used by the scheduler.
 
     @classmethod
     def create(cls, name, hour, minute, weekdays, **options):
@@ -35,8 +36,10 @@ class PersonalAlarm:
         for value, maximum in ((self.hour, 23), (self.minute, 59)):
             if type(value) is not int or not 0 <= value <= maximum:
                 raise ValueError("invalid alarm time")
-        if not isinstance(self.weekdays, tuple) or not self.weekdays or any(type(d) is not int or d not in range(7) for d in self.weekdays) or len(set(self.weekdays)) != len(self.weekdays):
-            raise ValueError("at least one distinct weekday is required")
+        if not isinstance(self.weekdays, tuple) or any(type(d) is not int or d not in range(7) for d in self.weekdays) or len(set(self.weekdays)) != len(self.weekdays):
+            raise ValueError("invalid distinct weekdays")
+        if not isinstance(self.saved_weekdays, tuple) or any(type(d) is not int or d not in range(7) for d in self.saved_weekdays) or len(set(self.saved_weekdays)) != len(self.saved_weekdays):
+            raise ValueError("invalid saved weekdays")
         if self.action not in (AlertAction.SPEECH, AlertAction.SOUND, AlertAction.SOUND_AND_SPEECH):
             raise ValueError("invalid alarm action")
         if type(self.duration) is not int or self.duration not in DURATIONS or type(self.snooze_minutes) is not int or self.snooze_minutes not in SNOOZE_MINUTES:
@@ -49,16 +52,14 @@ class PersonalAlarm:
             raise ValueError("invalid alarm sound reference")
 
 
-def validate_alarm_fields(hour, minute, weekdays):
+def validate_alarm_fields(hour, minute, weekdays, repeat_enabled=False):
     """Return one validation result; the adapter translates and focuses it."""
     try:
         valid = str(hour).strip() != "" and str(minute).strip() != "" and 0 <= int(hour) <= 23 and 0 <= int(minute) <= 59
     except (TypeError, ValueError):
         valid = False
-    if not valid and not weekdays:
-        return "timeAndDays"
     if not valid:
         return "time"
-    if not weekdays:
+    if repeat_enabled and not weekdays:
         return "days"
     return None

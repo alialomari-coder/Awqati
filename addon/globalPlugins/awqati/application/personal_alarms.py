@@ -33,16 +33,28 @@ class PersonalAlarmService:
                     parsed = datetime.fromisoformat(pending)
                     if parsed.tzinfo is None:
                         raise ValueError("naive snooze")
+                once = row.get("once")
+                if once is not None and datetime.fromisoformat(once).tzinfo is None:
+                    raise ValueError("naive one-time alarm")
                 count = row.get("count", 0)
                 if type(count) is not int or count < 0:
                     raise ValueError("invalid snooze count")
                 self.state[identity] = {"handled": stamp, "snooze": pending, "count": count,
-                    "outcome": str(row.get("outcome", "restored"))}
+                    "outcome": str(row.get("outcome", "restored")), "once": once}
             except (ValueError, TypeError) as error:
                 self.diagnostic(error)
                 # Fail closed for a corrupt cycle, while preserving the definition.
                 self.state[identity] = {"handled": "9999-12-31T23:59", "outcome": "invalidState"}
         self.active = None
+
+    def _new_once(self, alarm):
+        now = utc(self.now_provider.now() if hasattr(self.now_provider, "now") else self.now_provider())
+        zone = self.zone_provider()
+        day = now.astimezone(zone).date()
+        candidate = resolve_civil_time(datetime.combine(day, time(alarm.hour, alarm.minute)), zone)
+        if utc(Instant(candidate)) <= now:
+            candidate = resolve_civil_time(datetime.combine(day + timedelta(days=1), time(alarm.hour, alarm.minute)), zone)
+        return candidate.isoformat()
 
     def _commit(self, alarms, state):
         try:
@@ -60,6 +72,11 @@ class PersonalAlarmService:
         if previous != alarm:
             row = state.setdefault(alarm.alarm_id, {})
             row.update(snooze=None, count=0, outcome="edited")
+            if not alarm.weekdays and alarm.enabled and (previous is None or not previous.enabled
+                    or (previous.hour, previous.minute, previous.weekdays) != (alarm.hour, alarm.minute, alarm.weekdays)):
+                row.update(once=self._new_once(alarm), handled="")
+            elif alarm.weekdays:
+                row.pop("once", None)
         self._commit(alarms, state)
 
     def delete(self, identity):
@@ -74,6 +91,10 @@ class PersonalAlarmService:
         if not enabled:
             for row in state.values():
                 row.update(snooze=None, outcome="disabled")
+        else:
+            for key, alarm in alarms.items():
+                if not alarm.weekdays and not self.alarms[key].enabled:
+                    state.setdefault(key, {}).update(once=self._new_once(alarm), handled="", snooze=None, count=0)
         self._commit(alarms, state)
 
     def next_occurrence(self, alarm, now, *, include_recent=False):
@@ -82,6 +103,12 @@ class PersonalAlarmService:
         zone = self.zone_provider()
         local = utc(now).astimezone(zone)
         handled = self.state.get(alarm.alarm_id, {}).get("handled", "")
+        if not alarm.weekdays:
+            due = self.state.get(alarm.alarm_id, {}).get("once")
+            if not due or handled:
+                return None
+            candidate = Instant(datetime.fromisoformat(due))
+            return candidate if include_recent or utc(candidate) >= utc(now) else None
         start = -1 if include_recent else 0
         for offset in range(start, 9):
             day = local.date() + timedelta(days=offset)
@@ -101,7 +128,7 @@ class PersonalAlarmService:
             return ()
         result = []
         for alarm in self.alarms.values():
-            if not alarm.enabled:
+            if not alarm.enabled and not (not alarm.weekdays and self.state.get(alarm.alarm_id, {}).get("snooze")):
                 continue
             row = self.state.get(alarm.alarm_id, {})
             pending = row.get("snooze")
@@ -125,7 +152,7 @@ class PersonalAlarmService:
     def next_run(self, alarm, now):
         regular = self.next_occurrence(alarm, now)
         pending = self.state.get(alarm.alarm_id, {}).get("snooze")
-        if pending and alarm.enabled:
+        if pending and (alarm.enabled or not alarm.weekdays):
             when = Instant(datetime.fromisoformat(pending))
             if utc(when) >= utc(now):
                 return min((value for value in (regular, when) if value), key=utc)
@@ -153,7 +180,10 @@ class PersonalAlarmService:
             row["count"] = 0
         row.update(snooze=None, outcome="presenting")
         # Reserve before any output: restart never repeats a partly presented cycle.
-        self._commit(dict(self.alarms), state)
+        alarms = dict(self.alarms)
+        if identity in alarms and not alarms[identity].weekdays:
+            alarms[identity] = replace(alarms[identity], enabled=False)
+        self._commit(alarms, state)
         self.active = event
 
     def finish(self, event, outcome):
@@ -183,7 +213,10 @@ class PersonalAlarmService:
             row["handled"] = max(row.get("handled", ""), event.metadata["civil"])
         row.update(snooze=None, outcome=outcome)
         try:
-            self._commit(dict(self.alarms), state)
+            alarms = dict(self.alarms)
+            if not alarms[identity].weekdays:
+                alarms[identity] = replace(alarms[identity], enabled=False)
+            self._commit(alarms, state)
         except OSError as error:
             self.diagnostic(error)
 
